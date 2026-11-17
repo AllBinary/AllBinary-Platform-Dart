@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>OtherGraphicsMediaLibraryPDart</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>OtherGraphicsMediaLibraryPDart</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+        -->
+        <module>../../graphics/animation/vector/VectorAnimationBaseJavaLibraryDartM</module>
+
+        <module>../../graphics/animation/vector/VectorAnimationJ2MEJavaLibraryDartM</module>
+        <module>../../graphics/animation/vector/VectorAnimationJavaLibraryDartM</module>
+
+        <module>../../graphics/VectorJavaLibraryDartM</module>
+
+        <module>../../graphics/BoundsJavaLibraryDartM</module>
+
+        <module>../../../../graphics/opengl/OpenGLESNullImageJavaLibraryDartM</module>
+        <module>../../../../graphics/opengl/OpenGLESNullImageJ2MEJavaLibraryDartM</module>
+
+        <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryDartM</module>
+        <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryDartM</module>
+
+        <!--
+        ../../
+        <module>../../../../../workdart/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryDartM</module>
+        -->
+        <!--
+        ../../
+        <module>../../../../../workdart/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryDartM</module>
+        -->
+
+        <module>../../graphics/animation/image/ImageJ2MEJavaLibraryDartM</module>
+        <!--
+        <module>../../graphics/animation/image/ImageHTMLJavaLibraryDartM</module>
+        -->
+        <!--<module>../../graphics/animation/image/ImageJ2SEJavaLibraryDartM</module>-->
+        <!--
+        <module>../../graphics/animation/image/ImageAndroidJavaLibraryDartM</module>
+        -->
+        <!--
+        <module>../../graphics/animation/image/ImageSwtJ2SEJavaLibraryDartM</module>
+        -->
+        
+        <!--
+        ../../
+        <module>../../../../../workdart/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryDartM</module>
+        <module>../../graphics/layer/AllBinaryTiledLayerJavaLibraryDartM</module>
+        -->
+
+        <!-- Not used in Platform Libraries -->
+        <module>../../graphics/GraphicsBasicImageJavaLibraryDartM</module>
+        <!--
+        -->
+        <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryDartM</module>
+
+    </modules>
+
+</project>
+

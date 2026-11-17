@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>GameJ2MEOptionalLibraryPOMDart</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>GameJ2MEOptionalLibraryPOMDart</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+        
+        <!--<module>../../ProgressLazyJ2MEJavaLibraryDartM</module>-->
+        <!--
+                <module>../../games/GameScoresBaseHTMLLibraryDartM</module>
+                <module>../../games/GameScoresJ2MEJavaLibraryDartM</module>
+                <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryDartM</module>
+                <module>../../games/GameScoresLocalLibraryDartM</module>
+                <module>../../games/GameScoresRemoteAndLocalLibraryDartM</module>
+        -->
+<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryDartM</module>-->
+        <!--<module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryDartM</module>-->
+        <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryDartM</module>-->
+        <module>../../media/graphics/LazyGameResourceNoneJavaLibraryDartM</module>
+
+<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryDartM</module>-->
+
+        <!--
+                <module>../../../graphics/opengl/OpenGLESJavaLibraryDartM</module>
+        -->
+
+<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryDartM</module>-->
+        <!--        
+                <module>../../ProgressJ2MEJavaLibraryDartM</module>
+        -->
+        <!--        
+                //At some point the GameInput libraries were here
+        -->
+        
+        <!--
+        ../../
+        <module>../../../../workdart/j2me/media/graphics/FormJMEJavaLibraryDartM</module>
+        -->
+        <!--
+        ../../
+        <module>../../../../workdart/j2me/media/graphics/FormJSEJavaLibraryDartM</module>
+        -->
+
+        <!--<module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryDartM</module>-->
+<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryDartM</module>-->
+        <!--<module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryDartM</module>-->
+
+        <!--
+                <module>../../../../workdart/j2me/ScreenCaptureAndroidJavaLibraryDartM</module>
+        -->
+    </modules>
+
+</project>
+

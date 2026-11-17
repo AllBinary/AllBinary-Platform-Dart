@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>GameJ2MELibraryPOMDart</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>GameJ2MELibraryPOMDart</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+
+        <!--
+        NoGyroSensorLibrary
+
+        -->
+        <!--<module>../../android/AndroidUtilJavaLibraryDartM</module>-->
+
+        <module>../../../allbinary_src/security/SimpleCryptLibraryDartM</module>
+        <!--
+        <module>../../../../working_thirdpartydart/security/BouncyCastleDESJavaLibraryDartM</module>
+        <module>../../../../working_thirdpartydart/communication/XmlRpc/XmlRpcJavaLibraryDartM</module>
+        -->
+        <module>../../../allbinary_src/TokenizerJavaLibraryDartM</module>
+        <module>../../../allbinary_src/security/BasicSecurityJavaLibraryDartM</module>
+        <!--<module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryDartM</module>-->
+        <module>../../../replace_these_stub_projects/security/YourSecurityJavaLibraryDartM</module>
+        <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryDartM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryDartM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MECompatibilityJavaLibraryDartM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MEJsInteropCompatibilityJavaLibraryDartM</module>
+
+        <module>../../DebugJavaLibraryDartM</module>             
+        <module>../../ResourceLibraryDartM</module>
+        <module>../../ResourceJ2MEJavaLibraryDartM</module>
+        <!--<module>../../AndroidResourceLibraryDartM</module>-->
+        <!--<module>../../../allbinary_src/hardware/AndroidSystemJavaLibraryDartM</module>-->
+
+        <module>../../../game/behavior/ArtificialIntelligenceLibraryDartM</module>
+
+        <module>../../media/graphics/PlatformNullImageJavaLibraryDartM</module>
+        <module>../../media/graphics/ImageCacheBaseJ2MEJavaLibraryDartM</module>
+        <module>../../media/graphics/ImageCacheJ2MEJavaLibraryDartM</module>
+        <module>../../../graphics/opengl/OpenGLJ2MENoneJavaLibraryDartM</module>
+        <module>../../../graphics/opengl/OpenGLNoneJavaLibraryDartM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOtherJavaLibraryDartM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOther2JavaLibraryDartM</module>
+        <module>../../../graphics/opengl/OpenGLESBaseJ2MEJavaLibraryDartM</module>
+
+        <module>../../media/graphics/animation/AnimationLibraryDartM</module>
+        <module>../../media/graphics/animation/RotationAnimationJavaLibraryDartM</module>
+
+        <module>../../games/GameInputLibraryDartM</module>
+
+        <module>../../games/GameScoresBaseJavaLibraryDartM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryDartM</module>
+
+        <module>../../statistics/ApplicationStatisticsHTMLLibraryDartM</module>
+        <!--
+        <module>../../games/GameConfigurationHTMLJavaLibraryDartM</module>
+        -->
+        <module>../../games/GameConfigurationJ2MEJavaLibraryDartM</module>   
+        <module>../../games/GameConfigurationJavaLibraryDartM</module>
+
+        <module>../../games/GameIntermissionLibraryDartM</module>
+
+        <module>../../GroupLibraryDartM</module>
+
+        <module>../../input/NoSensorJavaLibraryDartM</module>
+
+        <module>../../input/AllBinarySensorJavaLibraryDartM</module>
+
+        <module>../../input/platform/me/GameInputMEJavaLibraryDartM</module>
+        <module>../../input/platform/me/GameInputMEKeyOnlyJavaLibraryDartM</module>
+        <module>../../input/platform/me/GameInputMEMotionJavaLibraryDartM</module>
+        <module>../../input/platform/pc/GameInputPCBaseJavaLibraryDartM</module>
+        <module>../../input/platform/pc/GameInputPCJavaLibraryDartM</module>
+        <module>../../input/platform/pc/GameInputPCKeyOnlyJavaLibraryDartM</module>
+        <module>../../input/platform/pc/GameInputPCMotionJavaLibraryDartM</module>
+        <module>../../input/platform/pc/GameInputSwtJavaLibraryDartM</module>
+
+        <module>../../input/AllBinaryGyroSensorJavaLibraryDartM</module>
+        <module>../../input/MotionGestureJavaLibraryDartM</module>
+        
+        <module>../../input/MotionGestureBaseJavaLibraryDartM</module>
+
+        <module>../../games/GameInputPersistanceLibraryDartM</module>
+        <module>../../games/GameInputNoPersistanceLibraryDartM</module>
+        
+        <module>../../lib/VectorThreeDimensionalLibraryDartM</module>
+        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryDartM</module>
+        <module>../../input/NoGyroSensorJavaLibraryDartM</module>
+        <module>../../input/JSEGyroSensorJavaLibraryDartM</module>
+        <!--
+        <module>../../input/android/</module>
+        <module>../../input/platform/android/GameInputAndroidBaseJavaLibraryDartM</module>
+        -->
+
+        <module>../../media/sound/BasicPlayerJavaLibraryDartM</module>
+        <module>../../media/sound/BasicPlayerMIDP2JavaLibraryDartM</module>
+        <module>../../media/sound/NoPlayerJavaLibraryDartM</module>
+        <module>../../media/sound/SoundJ2MELibraryDartM</module>
+
+        <module>../../media/motion/AllBinaryVibrationJavaLibraryDartM</module>
+        <module>../../media/motion/NoVibrateJavaLibraryDartM</module>
+        <!--<module>../../media/motion/VibrateAndroidJavaLibraryDartM</module>-->
+
+        <module>../../media/graphics/NullCustomUIJavaLibraryDartM</module>
+        <module>../../media/graphics/NullCustomUIBaseJavaLibraryDartM</module>
+
+        <module>../../media/graphics/FormValidationJavaLibraryDartM</module>
+        
+        <module>../../media/graphics/FormJavaLibraryDartM</module>
+        <module>../../media/graphics/FormBaseJavaLibraryDartM</module>
+        <!--
+        <module>../../media/graphics/FormJMEJavaLibraryDartM</module>
+        -->
+        <module>../../../j2me/media/graphics/FormJMEJavaLibraryDartM</module>
+
+        <module>../../media/graphics/animation/AnimationResourceJavaLibraryDartM</module>
+        <module>../../media/graphics/animation/TransitionAnimationJavaLibraryDartM</module>
+        <module>../../media/graphics/animation/NoTransitionAnimationJavaLibraryDartM</module>
+        <!--
+        AndroidTransitionAnimationJavaLibraryM
+        -->
+        <module>../../media/graphics/animation/GameAnimationJavaLibraryDartM</module>
+        <module>../../games/GameResourceJavaLibraryDartM</module>
+        <module>../../games/GameSoundsJavaLibraryDartM</module>
+
+        <module>../../input/TouchInputLibraryDartP</module>
+
+        <module>../../media/MediaDataDartM</module>
+        <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryDartM</module>
+
+        <module>../../../allbinary_src/content/ContentNoneJavaLibraryDartM</module>
+        <!--<module>../../../allbinary_src/content/ContentAndroidJavaLibraryDartM</module>-->
+
+        <module>../../games/GameConfigurationFormJavaLibraryDartM</module>
+
+        <module>../../FullScreenNoneJavaLibraryDartM</module>
+        <!--
+        <module>../../FullScreenJavaLibraryDartM</module>
+        -->
+
+        <module>../../../physics/VelocityLibraryDartM</module>
+
+        <module>../../games/weapon/SoundsBasicWeaponsJavaLibraryDartM</module>
+
+        <module>../../lib/TrigJ2MELibraryDartM</module>
+
+        <module>../../media/graphics/geography/map/LayerPlacementLibraryDartM</module>
+        <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryDartM</module>
+
+        <module>../../ScreenCaptureNoneJavaLibraryDartM</module>
+        
+        <module>../licensing/GameLicensingNullJavaLibraryDartM</module>
+        
+        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryDartM</module>
+        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryDartM</module>
+
+        <module>../GameNotificationJavaLibraryDartM</module>
+
+        <module>../../../graphics/opengl/NoSWTJavaLibraryDartM</module>
+        <module>../../../graphics/opengl/SWTWithoutJOGLJavaLibraryDartM</module>
+        <module>../SWTJavaLibraryDartM</module>
+        <module>../GameJ2MELibraryDartM</module>
+        
+        <!--
+        <module>../GameJ2MEOptionalLibraryPODartM</module>
+        -->
+    
+    </modules>
+
+</project>
+

@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.business</groupId>
+    <artifactId>BlisketJavaLibraryPDart</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>BlisketJavaLibraryPDart</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <modules>
+
+        <!--
+        <module>../../j2me/AllBinaryJ2MELibraryDartP</module>
+        -->
+        <!--
+        <module>../data/DataJavaLibraryDartM</module>
+        -->
+
+        <module>../licensing/TestServiceClientInfoJavaLibraryDartM</module>        
+
+        <module>../data/DataTableInterfacesDartM</module>
+        
+        <module>../QueueJavaLibraryDartM</module>
+        
+        <!--
+        <module>../TokenizerJavaLibraryDartM</module>
+        -->
+
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryDartM</module>
+
+        <module>../JavaUtilLibraryDartM</module>
+        <module>../NullInitInfoJavaLibraryDartM</module>        
+        <module>../InitInfoJavaLibraryDartM</module>
+        <module>../PreLoaderHttpJavaLibraryDartM</module>
+        
+        <module>../TagsBaseJavaLibraryDartM</module>
+        <module>../CustomLoaderJavaLibraryDartM</module>
+        
+        <!--
+        <module>../logic/data/file/FileJ2SEJavaLibraryDartM</module>
+        <module>../logic/data/file/FileJavaLibraryDartM</module>
+        -->
+
+        <module>../data/SQLAllBinaryJavaLibraryDartM</module>
+
+        <!--
+        <module>../licensing/FileLicenseInitInfoJavaLibraryDartM</module>
+        -->
+
+        <module>../DocumentObjectModelJavaLibraryDartM</module>
+
+        <module>../VisualStyleJavaLibraryDartM</module>
+
+        <module>../ConfigurationJavaLibraryDartM</module>
+
+        <module>../VisualTransformBaseJavaLibraryDartM</module>
+
+        <module>../CategoryBaseJavaLibraryDartM</module>
+        <module>../CategoryJavaLibraryDartM</module>
+
+        <module>../UserJavaLibraryDartM</module>
+
+        <module>../PaymentGatewayBaseJavaLibraryDartM</module>
+
+        <module>../data/vo/EntitiesBlisketVOJavaLibraryDartM</module>
+        <module>../PaymentGatewayJavaLibraryDartM</module>
+        <module>../data/vo/EntitiesOrderHistoryVOJavaLibraryDartM</module>
+        <module>../data/vo/EntityPaymentGatewayVOJavaLibraryDartM</module>
+        <module>../data/vo/EntityStoreFrontVOJavaLibraryDartM</module>
+
+        <module>../data/EntitiesBlisketBaseInterfacesJavaLibraryDartM</module>
+        <module>../data/EntitiesBlisketBaseJavaLibraryDartM</module>
+        
+        <module>../data/EntitiesAdvertisementBaseJavaLibraryDartM</module>
+        <module>../data/EntityOrderHistoryJavaLibraryDartM</module>
+        <module>../data/EntityPaymentGatewayJavaLibraryDartM</module>
+        <module>../data/EntityVisualTransformJavaLibraryDartM</module>
+        <module>../data/EntityUserJavaLibraryDartM</module>
+        <module>../data/EntityWorkflowJavaLibraryDartM</module>
+
+        <module>../SMTPConfigurationJavaLibraryDartM</module>
+        <module>../SMTPBaseJavaLibraryDartM</module>
+
+        <module>../VisualTransformJavaLibraryDartM</module>
+
+        <module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryDartM</module>
+        <module>../GatewayJavaLibraryDartM</module>
+        
+        <module>../WorkflowBaseJavaLibraryDartM</module>
+        <module>../WorkflowJavaLibraryDartM</module>
+
+        <module>../IdGeneratorUsingFilesJavaLibraryDartM</module>
+        <module>../BlisketPreVOJavaLibraryDartM</module>
+
+        <!-- 
+        EntitiesOrderHistoryVOJavaLibrary
+        UserJavaLibrary
+        -->
+        
+        <module>../BlisketVOJavaLibraryDartM</module>
+
+        <module>../UserCommerceJavaLibraryDartM</module>
+
+        <module>../CustomizerValidatorsJavaLibraryDartM</module>
+
+        <!-- 
+        AllBinaryCacheForShiftOneJavaLibrary
+        AllBinaryJSECacheJavaLibrary
+        ColorJavaLibrary
+        ImageJavaLibrary
+        -->
+        
+        <module>../logic/data/file/FileMediaJ2SEJavaLibraryDartM</module>
+        <module>../BlisketBaseJavaLibraryDartM</module>
+
+        <module>../logging/LoggingGAEAllDartM</module>
+        <module>../BlisketJavaLibraryDartM</module>
+        
+    </modules>
+
+</project>
+

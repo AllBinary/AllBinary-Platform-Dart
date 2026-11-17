@@ -1,0 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// package org.allbinary.logic.util.event
+
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+
+class AllBinaryEventObject {
+    static final AllBinaryEventObject NULL_EVENT = AllBinaryEventObject(NullUtil.getInstance().NULL_OBJECT);
+    late Object source;
+
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryEventObject() {
+    
+    }
+    
+
+    AllBinaryEventObject(Object anyType) {
+        this.initFieldsAllBinaryEventObject();
+        this.source = anyType;
+    }
+    
+
+    Object getSource() {
+        return this.source;
+    }
+    
+
+    void setSource(Object source) {
+        this.source = source;
+    }
+}
+

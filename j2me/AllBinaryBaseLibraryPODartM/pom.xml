@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryBaseLibraryPOMDart</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryBaseLibraryPOMDart</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        <module>../CommonJavaLibraryDartM</module>
+        <module>../TempBaseJavaLibraryDartM</module>
+        
+        <module>../../allbinary_src/LogDartM</module>
+        <module>../../allbinary_src/allbinary_src_designpatterns_srcDartM</module>
+        <module>../../allbinary_src/data/BaseDataJavaLibraryDartM</module>
+        <module>../../allbinary_src/cache/BaseCacheJavaLibraryDartM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryDartM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryDartM</module>
+
+        <module>../ExceptionHTMLJavaLibraryDartM</module>
+        <module>../J2MEExceptionLibraryDartM</module>
+        <module>../../allbinary_src/J2SEExceptionLibraryDartM</module>
+        <module>../J2MEUtilJavaLibraryDartM</module>
+        <module>../J2MEColorJavaLibraryDartM</module>
+        <module>../EventJ2MELibraryDartM</module>
+
+        <module>../../allbinary_src/LogNoPlatformJavaLibraryDartM</module>
+        <module>../../allbinary_src/LogJ2MEJavaLibraryDartM</module>
+        <module>../../allbinary_src/LogJ2SEJavaLibraryDartM</module>
+        <!--<module>../../allbinary_src/LogAndroidJavaLibraryDartM</module>-->
+        <module>../logging/LoggingNoneDartM</module>
+        <module>../logging/LoggingJ2MEAllDartM</module>
+        <module>../logging/LoggingJ2MEExceptionDartM</module>
+        <!--<module>../logging/LoggingAndroidAllDartM</module>-->
+        <!--
+        //While it is a possible dependency option it really does not fit here
+        //as such it is actually build in the final POM builds instead
+        <module>../logging/LoggingRemoteExceptionDartM</module>  
+        -->
+        
+        <module>../J2MEWindowingJavaLibraryDartM</module>
+        
+        <module>../lib/BaseMathLibraryDartM</module>
+        <module>../lib/BasicMathLibraryDartM</module>
+        
+        <module>../../allbinary_src/ThreadLibraryDartM</module>
+        <!--<module>../../allbinary_src/ThreadHTMLLibraryDartM</module>-->
+        <module>../../replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryDartM</module>
+        <module>../../allbinary_src/ThreadJ2MELibraryDartM</module>
+        <module>../time/TimeJavaLibraryDartM</module>
+
+        <module>../statistics/ApplicationStatisticsJ2SELibraryDartM</module>
+        <module>../statistics/ApplicationStatisticsJ2MELibraryDartM</module>
+        <module>../statistics/ApplicationStatisticsJavaLibraryDartM</module>
+
+        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryDartM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryDartM</module>
+
+        <module>../../allbinary_src/hardware/HardwareLibraryPODartM</module>
+
+        <module>../lib/TrigBaseLibraryDartM</module>
+
+    </modules>
+
+</project>
+

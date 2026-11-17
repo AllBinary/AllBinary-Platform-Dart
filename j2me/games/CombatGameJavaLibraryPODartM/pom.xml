@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>CombatGameJavaLibraryPOMDart</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>CombatGameJavaLibraryPOMDart</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <module>../../games/TickableJavaLibraryDartM</module>
+
+        <module>../../games/CommonHeadsUpDisplayLibraryDartM</module>
+
+        <module>../../../physics/MovementJavaLibraryDartM</module>
+        <!--        -->
+        <module>../../games/PartsJavaLibraryDartM</module>
+        <module>../../games/PickupGameJavaLibraryDartM</module>
+
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryDartM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryDartM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryDartM</module>
+
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryDartM</module>
+        <!--<module>../../games/licensing/PartnerHTMLJavaLibraryDartM</module>-->
+        <!--<module>../../games/licensing/PartnerAndroidJavaLibraryDartM</module>-->
+        <module>../../games/licensing/NoGameLicensingJavaLibraryDartM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryDartM</module>
+        <!--<module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryDartM</module>-->
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryDartM</module>
+
+        <!--
+        <module>../../games/GameScoresBaseLibraryDartM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryDartM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryDartM</module>
+        -->
+        <module>../../games/GameScoresLocalJavaLibraryDartM</module>
+        <!--<module>../../games/GameScoresRemoteAndLocalJavaLibraryDartM</module>-->
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryDartM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryDartM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryDartM</module>
+        <module>../../games/CollisionLibraryDartM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryDartM</module>
+
+        <module>../../games/PickupLayerJavaLibraryDartM</module>
+
+        <module>../../games/DamageGameJavaLibraryDartM</module>
+        <module>../../games/DropJavaLibraryDartM</module>
+        <module>../../games/WeaponLayerJavaLibraryDartM</module>
+
+        <module>../../games/CombatGameJavaLibraryDartM</module>
+        <module>../../games/LifeJavaLibraryDartM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryDartM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryDartM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryDartM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryDartM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryDartM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryDartM</module>
+        -->
+
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryDartM</module>
+
+<!--
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryDartM</module>
+        -->
+
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackDartP</module>
+        -->
+
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
+
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../workdart/j2me/games/strategy/rts/RTSGameJavaLibraryDartP</module>
+        -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryDartP</module>
+
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryDartM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryDartM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryDartM</module>
+
+        <module>../../input/TrackingEventJavaLibraryDartM</module>
+        <module>../../../game/behavior/BehaviorLibraryDartP</module>
+
+        <module>../../media/sound/OtherSoundMediaLibraryDartP</module>
+
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryDartM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryDartM</module>
+        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryDartM</module>
+        <!--<module>../../android/VirtualKeyboardJavaLibraryDartM</module>-->
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+

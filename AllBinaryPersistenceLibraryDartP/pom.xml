@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPersistenceLibraryPDart</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryPersistenceLibraryPDart</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        
+        <!--
+        -->
+        <module>../allbinary_src/cache/AllBinaryCacheLibraryDartM</module>
+        <module>../allbinary_src/PermutationsJavaLibraryDartM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryDartM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryDartM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryDartM</module>
+        <!--<module>../allbinary_src/data/DataJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/PreLoaderJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/FileInitInfoJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/PreLoaderFileJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/PreLoaderLicenseJavaLibraryDartM</module>-->
+        <module>../j2me/PCResourceLibraryDartM</module>
+        <module>../j2me/ProgressJ2MEJavaLibraryDartM</module>
+        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryDartM</module>
+        <!--<module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryDartM</module>-->
+        <!--<module>../allbinary_src/licensing/LicenseClientJavaLibraryDartM</module>-->
+
+        <!--
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryDartM</module>
+        -->
+    </modules>
+
+</project>
+
