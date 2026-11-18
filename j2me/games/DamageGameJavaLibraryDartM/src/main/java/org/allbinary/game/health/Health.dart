@@ -13,30 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthInterface.dart';
+import 'package:allbinary/org/allbinary/game/health/NullHealthListener.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthListenerInterface.dart';
 
-namespace org.allbinary.game.health;
+class Health implements HealthInterface {
+    static final Health NULL_HEALTH = Health(0);
+    static const String NAME = "Health Resource";
+    static const String HEALTH_LABEL = "Health: ";
+    static const String MAX_HEALTH_LABEL = " Max: ";
+    int health = 0;
+    int maxHealth = 0;
+    late HealthListenerInterface healthListenerInterface;
 
-public class Health : HealthInterface
-{
-    public static readonly Health NULL_HEALTH = new Health(0);
-    public const string NAME = "Health Resource";
-    private int health = 0;
-    private int maxHealth = 0;
-    private HealthListenerInterface healthListenerInterface = NullHealthListener.NULL_HEALTH_LISTENER;
-    public Health(int maxHealth)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHealth() {
+    this.health = 0;
+    this.maxHealth = 0;
+    this.healthListenerInterface = NullHealthListener.NULL_HEALTH_LISTENER;
+    }
+    
+
+    Health(int maxHealth) {
+        this.initFieldsHealth();
         this.setMaxHealth(maxHealth);
         this.setHealth(maxHealth);
     }
+    
 
-    public virtual void heal(int ahealth)
-    {
+    @override
+    void heal(int ahealth) {
         int newHealth = this.getHealth() + ahealth;
         if (newHealth > this.getMaxHealth()) {
             this.setHealth(this.getMaxHealth());
@@ -44,57 +57,62 @@ public class Health : HealthInterface
             this.setHealth(newHealth);
         }
     }
+    
 
-    public virtual void healMax()
-    {
+    @override
+    void healMax() {
         this.setHealth(this.getMaxHealth());
     }
+    
 
-    public virtual bool isDamaged()
-    {
+    bool isDamaged() {
         if (this.getHealth() != this.getMaxHealth()) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual void damage(int ahealth)
-    {
+    @override
+    void damage(int ahealth) {
         if (ahealth < 0) {
-            StringMaker stringBuffer = new StringMaker();
+            StringMaker stringBuffer = StringMaker();
             stringBuffer.append("******* Trying to heal when damaging. Damage: ");
             stringBuffer.appendint(ahealth);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
-            stringBuffer.append(this.ToString());
-            ForcedLogUtil.log(stringBuffer.ToString(), this);
+            stringBuffer.append(this.toString());
+            ForcedLogUtil.log(stringBuffer.toString(), this);
             return;
         }
         int health = this.getHealth() - ahealth;
         this.setHealth(health);
     }
+    
 
-    public virtual bool isAlive()
-    {
+    @override
+    bool isAlive() {
         if (this.getHealth() <= 0) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public virtual int getMaxHealth()
-    {
+    @override
+    int getMaxHealth() {
         return this.maxHealth;
     }
+    
 
-    public virtual void setMaxHealth(int maxHealth)
-    {
+    @override
+    void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }
+    
 
-    public virtual void setHealth(int health)
-    {
+    void setHealth(int health) {
         if (health > this.getMaxHealth()) {
             this.health = this.getMaxHealth();
         } else if (health < 0) {
@@ -106,28 +124,28 @@ public class Health : HealthInterface
             this.healthListenerInterface.onHealthChange();
         }
     }
+    
 
-    public virtual int getHealth()
-    {
+    @override
+    int getHealth() {
         return this.health;
     }
+    
 
-    public virtual void addListener(HealthListenerInterface healthGraphic)
-    {
+    @override
+    void addListener(HealthListenerInterface healthGraphic) {
         this.healthListenerInterface = healthGraphic;
     }
+    
 
-    private const string HEALTH_LABEL = "Health: ";
-    private const string MAX_HEALTH_LABEL = " Max: ";
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append(Health.HEALTH_LABEL);
         stringBuffer.appendint(this.health);
         stringBuffer.append(Health.MAX_HEALTH_LABEL);
         stringBuffer.appendint(this.maxHealth);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

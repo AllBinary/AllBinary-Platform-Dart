@@ -13,80 +13,91 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using AxisMathVectorUtil = org.allbinary.logic.math.vector.AxisMathVectorUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/logic/math/vector/AxisMathVectorUtil.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/physics/movement/Movement.dart';
 
-namespace org.allbinary.physics.movement;
+class NoZBasicConstantVelocityMovement extends Movement implements VelocityInterfaceCompositeInterface {
+    late BasicVelocityProperties velocityProperties;
+    late BasicDecimal speedBasicDecimal;
+    late AxisMathVectorUtil axisMathVectorUtil;
 
-public class NoZBasicConstantVelocityMovement : Movement, VelocityInterfaceCompositeInterface
-{
-    private BasicVelocityProperties velocityProperties;
-    private BasicDecimal speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
-    private readonly AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-    public NoZBasicConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNoZBasicConstantVelocityMovement() {
+    
+    this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+    }
+    
+
+    NoZBasicConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) {
+        this.initFieldsNoZBasicConstantVelocityMovement();
         this.setSpeedBasicDecimal(basicDecimal);
         this.velocityProperties = velocityProperties;
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    @override
+    void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle) {
         this.speedBasicDecimal = speedBasicDecimal;
         AngleFactory angleFactory = AngleFactory.getInstance();
         this.velocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
     }
+    
 
-    public virtual void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
-    {
+    void moveOutsideRadius(AllBinaryLayer layer, int radius, int angle, int otherAngle) {
         int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
-        int xVector = ((int) (this.axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue));
-        int yVector = ((int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue));
+        int xVector = ((this.axisMathVectorUtil.calculateX(radius, angle) ~/ scaleFactorValue)).toSigned(32);
+        int yVector = ((this.axisMathVectorUtil.calculateY(radius, angle) ~/ scaleFactorValue)).toSigned(32);
         layer.moveDXYZ(xVector, yVector, 0);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    @override
+    void process(AllBinaryGameLayer layer) {
         layer.moveDXYZ(this.velocityProperties.getVelocityXBasicDecimalP().getScaled(), this.velocityProperties.getVelocityYBasicDecimalP().getScaled(), 0);
     }
+    
 
-    public override string ToString()
-    {
-        return this.velocityProperties.ToString();
+    @override
+    String toString() {
+        return this.velocityProperties.toString();
     }
+    
 
-    public override void stop()
-    {
+    @override
+    void stop() {
         this.velocityProperties.zero();
     }
+    
 
-    public virtual BasicVelocityProperties getVelocityProperties()
-    {
+    @override
+    BasicVelocityProperties getVelocityProperties() {
         return this.velocityProperties;
     }
+    
 
-    public virtual void setVelocityProperties(BasicVelocityProperties velocityProperties)
-    {
+    void setVelocityProperties(BasicVelocityProperties velocityProperties) {
         this.velocityProperties = velocityProperties;
     }
+    
 
-    public virtual void setSpeedBasicDecimal(BasicDecimal speedBasicDecimal)
-    {
+    void setSpeedBasicDecimal(BasicDecimal speedBasicDecimal) {
         this.speedBasicDecimal = speedBasicDecimal;
     }
+    
 
-    public virtual BasicDecimal getSpeedBasicDecimal()
-    {
+    BasicDecimal getSpeedBasicDecimal() {
         return this.speedBasicDecimal;
     }
-
 }
 

@@ -13,37 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.motion.action
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using CompleteMotionGestureInputEventListener = org.allbinary.game.input.CompleteMotionGestureInputEventListener;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventListener.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
 
-namespace org.allbinary.game.input.motion.action;
+class GameKeyFromMotionGestureEventListener extends CompleteMotionGestureInputEventListener {
+    late LogUtil logUtil;
+    late GameKeyEvent previousGameKeyEvent;
 
-public class GameKeyFromMotionGestureEventListener : CompleteMotionGestureInputEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private GameKeyEvent previousGameKeyEvent = GameKeyEvent.NONE;
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
-        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyFromMotionGestureEventListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.previousGameKeyEvent = GameKeyEvent.NONE;
     }
 
-    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
-    {
+    GameKeyFromMotionGestureEventListener() {
+        this.initFieldsGameKeyFromMotionGestureEventListener();
+    }
+    
+
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
+
+    @override
+    void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent) {
         try {
-            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent);
+            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (completeMotionGestureInputEvent as GameKeyCompleteMotionGestureInputEvent);
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
-            if (gameKeyEvent != this.previousGameKeyEvent) {
+            if (!identical(gameKeyEvent, this.previousGameKeyEvent)) {
                 if (this.previousGameKeyEvent != GameKeyEvent.NONE) {
                     UpGameKeyEventHandler.getInstance().fireEvent(this.previousGameKeyEvent);
                 }
@@ -52,11 +64,13 @@ public class GameKeyFromMotionGestureEventListener : CompleteMotionGestureInputE
                     DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
                 }
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
+            }
         }
     }
-
 }
 

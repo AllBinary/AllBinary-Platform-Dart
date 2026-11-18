@@ -13,37 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using ByteArrayOutputStream = java.io.ByteArrayOutputStream;
-using Closeable = java.io.Closeable;
-using InputStream = java.io.InputStream;
-using OutputStream = java.io.OutputStream;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayOutputStream.dart';
+import 'package:allbinary/java/io/Closeable.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/java/io/OutputStream.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.logic.io;
+class StreamUtil {
+    static final StreamUtil instance = StreamUtil();
+    late LogUtil logUtil;
 
-public class StreamUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly StreamUtil instance = new StreamUtil();
-    public static StreamUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsStreamUtil() {
+    this.logUtil = LogUtil.getInstance();
+    }
+    
+
+    static StreamUtil getInstance() {
         return StreamUtil.instance;
     }
+    
 
-    private StreamUtil()
-    {
+    StreamUtil() {
+        this.initFieldsStreamUtil();
     }
+    
 
-    // throws Exception
-    public virtual OutputStream get(InputStream inputStream, OutputStream outputStream, sbyte[] buffer)
-    {
+    OutputStream get(InputStream inputStream, OutputStream outputStream, List<int> buffer) {
         int len = 0;
         while (true) {
-            len = inputStream.read(buffer, 0, buffer.Length);
+            len = inputStream.read(buffer, 0, buffer.length);
             if (len != -1) {
             } else {
                 break;
@@ -52,34 +56,38 @@ public class StreamUtil
         }
         return outputStream;
     }
+    
 
-    // throws Exception
-    public virtual sbyte[] getByteArray(InputStream inputStream, ByteArrayOutputStream outputStream2, sbyte[] byteArray)
-    {
-        ByteArrayOutputStream outputStream = outputStream2;
+    List<int> getByteArray(InputStream inputStream, ByteArrayOutputStream outputStream2, List<int> byteArray) {
+        final ByteArrayOutputStream outputStream = outputStream2;
         try {
             this.get(inputStream, outputStream, byteArray);
             return outputStream.toByteArray();
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             throw e;
+            }
         } finally {
             this.close(outputStream);
         }
     }
+    
 
-    public virtual bool close(Closeable closeable)
-    {
+    bool close(Closeable closeable) {
         try {
             if (closeable != null) {
                 closeable.close();
             }
             return true;
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
             return false;
+            }
         }
     }
-
 }
 

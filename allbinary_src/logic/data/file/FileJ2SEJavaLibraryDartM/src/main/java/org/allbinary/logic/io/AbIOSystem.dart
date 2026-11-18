@@ -13,34 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.io;
+class AbIOSystem {
+    static final AbIOSystem instance = AbIOSystem();
+    late String type;
 
-public class AbIOSystem
-{
-    private static readonly AbIOSystem instance = new AbIOSystem();
-    public static AbIOSystem getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAbIOSystem() {
+    this.type = "java.io";
+    }
+
+    AbIOSystem() {
+        this.initFieldsAbIOSystem();
+    }
+    
+
+    static AbIOSystem getInstance() {
         return AbIOSystem.instance;
     }
+    
 
-    private readonly string type = "java.io";
-    public virtual string getType()
-    {
+    String getType() {
         return this.type;
     }
+    
 
-    public virtual bool isType(string type)
-    {
-        if (string.CompareOrdinal(this.type, type) == 0) {
+    bool isType(String type) {
+        if (this.type.compareTo(type) == 0) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

@@ -13,28 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionHelper.dart';
 
-namespace org.allbinary.game.collision;
+class SourceCollisionHelper extends CollisionHelper {
+    
 
-public class SourceCollisionHelper : CollisionHelper
-{
-    public SourceCollisionHelper(AllBinaryLayer layerInterface) : base(layerInterface)
-    {
-        // base(layerInterface) is called from the constructor declaration
+    SourceCollisionHelper(AllBinaryLayer layerInterface) : super(layerInterface) {
+        
     }
+    
 
-    public override bool isCollidable(CollidableCompositeLayer layerInterface)
-    {
+    @override
+    bool isCollidable(CollidableCompositeLayer layerInterface) {
         if (this.sourceLayerInterface != layerInterface) {
             return true;
         }
         return false;
     }
-
 }
 

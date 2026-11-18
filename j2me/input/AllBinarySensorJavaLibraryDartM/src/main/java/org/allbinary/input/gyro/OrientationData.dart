@@ -13,25 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.input.gyro;
+class OrientationData {
+    static final OrientationData SINGLETON = OrientationData();
+    late String ORIENTATION_SENSOR_INPUT;
+    late String ORIENTATION_TYPE;
 
-public class OrientationData
-{
-    private static readonly OrientationData SINGLETON = new OrientationData();
-    private OrientationData()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOrientationData() {
+    this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    this.ORIENTATION_TYPE = "Orientation Type";
     }
+    
 
-    public static OrientationData getInstance()
-    {
+    OrientationData() {
+        this.initFieldsOrientationData();
+    }
+    
+
+    static OrientationData getInstance() {
         return OrientationData.SINGLETON;
     }
-
-    public readonly string ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
-    public readonly string ORIENTATION_TYPE = "Orientation Type";
 }
 

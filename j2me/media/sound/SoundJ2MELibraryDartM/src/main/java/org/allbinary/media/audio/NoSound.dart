@@ -13,26 +13,26 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
+import 'package:allbinary/org/allbinary/media/audio/NoPlayer.dart';
 
-namespace org.allbinary.media.audio;
+class NoSound extends Sound {
+    static final NoSound instance = NoSound();
+    
 
-public class NoSound : Sound
-{
-    public static NoSound getInstance()
-    {
+    static NoSound getInstance() {
         return NoSound.instance;
     }
+    
 
-    private static readonly NoSound instance = new NoSound();
-    private NoSound() : base(StringUtil.getInstance().EMPTY_STRING)
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING) is called from the constructor declaration
+    NoSound() : super(StringUtil.getInstance().EMPTY_STRING) {
+        
         this.setPlayerP(NoPlayer.NO_PLAYER);
     }
-
 }
 

@@ -13,84 +13,103 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using BufferedWriter = java.io.BufferedWriter;
-using FileWriter = java.io.FileWriter;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
-using AbPathData = org.allbinary.logic.io.path.AbPathData;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/BufferedWriter.dart';
+import 'package:allbinary/java/io/FileWriter.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFileNativeUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPathData.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.logic.io;
+class BufferedWriterUtil {
+    static final BufferedWriterUtil instance = BufferedWriterUtil();
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late CommonLabels commonLabels;
+    late String REMOVING_OLD;
 
-public class BufferedWriterUtil
-{
-    private static readonly BufferedWriterUtil instance = new BufferedWriterUtil();
-    public static BufferedWriterUtil getInstance()
-    {
-        return BufferedWriterUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsBufferedWriterUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.commonLabels = CommonLabels.getInstance();
+    this.REMOVING_OLD = "Remove old for overwriting: ";
     }
 
-    private readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly CommonLabels commonLabels = CommonLabels.getInstance();
-    private readonly string REMOVING_OLD = "Remove old for overwriting: ";
-    // throws Exception
-    public virtual void overwrite(string path, string data)
-    {
-        AbFile abFile = AbFile.createAbFile(path);
+    BufferedWriterUtil() {
+        this.initFieldsBufferedWriterUtil();
+    }
+    
+
+    static BufferedWriterUtil getInstance() {
+        return BufferedWriterUtil.instance;
+    }
+    
+
+    void overwrite([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p1, jnone) && p0 is String && p1 is String) {
+            this.overwrite$2$S_S(p0, p1);
+            return;
+        }
+        if (!identical(p1, jnone) && p0 is AbFile && p1 is String) {
+            this.overwrite$2$AbFile_S(p0, p1);
+            return;
+        }
+        throw JException('NoSuchMethodError', 'overwrite');
+    }
+
+    void overwrite$2$S_S(String path, String data) {
+        final AbFile abFile = AbFile.createAbFile(path);
         if (abFile.exists()) {
             this.logUtil.putF(this.REMOVING_OLD + path, this, this.commonStrings.CREATE);
             abFile.delete();
         } else {
-            string name = AbPathData.getInstance().removeNameFromPath(path);
-            AbFile abFileDirectory = AbFile.createAbFile(name);
+            final String name = AbPathData.getInstance().removeNameFromPath(path);
+            final AbFile abFileDirectory = AbFile.createAbFile(name);
             if (abFileDirectory.exists()) {
             } else {
-                StringMaker stringBuilder = new StringMaker();
-                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).ToString(), this, this.commonStrings.CREATE);
+                final StringMaker stringBuilder = StringMaker();
+                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).toString(), this, this.commonStrings.CREATE);
                 bool result = abFileDirectory.mkdirs();
                 stringBuilder.delete(0, stringBuilder.length());
-                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).ToString(), this, this.commonStrings.CREATE);
+                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).toString(), this, this.commonStrings.CREATE);
             }
         }
         this.write(abFile, data);
     }
+    
 
-    // throws Exception
-    public virtual void overwrite(AbFile abFile, string data)
-    {
+    void overwrite$2$AbFile_S(AbFile abFile, String data) {
         if (abFile.exists()) {
             this.logUtil.putF(this.REMOVING_OLD + abFile.getPath(), this, this.commonStrings.CREATE);
             abFile.delete();
         } else {
-            string name = AbPathData.getInstance().removeNameFromPath(abFile.getAbsolutePath());
-            AbFile abFileDirectory = AbFile.createAbFile(name);
+            final String name = AbPathData.getInstance().removeNameFromPath(abFile.getAbsolutePath());
+            final AbFile abFileDirectory = AbFile.createAbFile(name);
             if (abFileDirectory.exists()) {
             } else {
-                StringMaker stringBuilder = new StringMaker();
-                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).ToString(), this, this.commonStrings.CREATE);
+                final StringMaker stringBuilder = StringMaker();
+                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).toString(), this, this.commonStrings.CREATE);
                 bool result = abFileDirectory.mkdirs();
                 stringBuilder.delete(0, stringBuilder.length());
-                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).ToString(), this, this.commonStrings.CREATE);
+                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).toString(), this, this.commonStrings.CREATE);
             }
         }
         this.write(abFile, data);
     }
+    
 
-    // throws Exception
-    public virtual void write(AbFile abFile, string data)
-    {
-        BufferedWriter fileOut = new BufferedWriter(new FileWriter(AbFileNativeUtil.get(abFile)));
-        fileOut.write(data, 0, data.Length);
+    void write(AbFile abFile, String data) {
+        final BufferedWriter fileOut = BufferedWriter(FileWriter(AbFileNativeUtil.get(abFile)));
+        fileOut.write(data, 0, data.length);
         fileOut.newLine();
         fileOut.flush();
     }
-
 }
 

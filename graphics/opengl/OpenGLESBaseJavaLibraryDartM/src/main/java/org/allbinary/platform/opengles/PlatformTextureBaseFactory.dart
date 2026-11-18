@@ -13,22 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.platform.opengles
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using Image = javax.microedition.lcdui.Image;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.platform.opengles;
+class PlatformTextureBaseFactory {
+    static final PlatformTextureBaseFactory NULL_PLATFORM_TEXTURE_BASE_FACTORY = PlatformTextureBaseFactory();
+    late CommonStrings commonStrings;
 
-public class PlatformTextureBaseFactory
-{
-    public static readonly PlatformTextureBaseFactory NULL_PLATFORM_TEXTURE_BASE_FACTORY = new PlatformTextureBaseFactory();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual void load(GL10 gl, int target, int level, Image image, int border, bool flip)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPlatformTextureBaseFactory() {
+    this.commonStrings = CommonStrings.getInstance();
     }
 
+    PlatformTextureBaseFactory() {
+        this.initFieldsPlatformTextureBaseFactory();
+    }
+    
+
+    void load(GL10 gl, int target, int level, Image image, int border, bool flip) {
+    }
 }
 

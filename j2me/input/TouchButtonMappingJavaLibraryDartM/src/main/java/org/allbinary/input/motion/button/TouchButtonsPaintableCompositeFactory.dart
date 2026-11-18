@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using InputMappingInterface = org.allbinary.game.input.mapping.InputMappingInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ProcessPaintable = org.allbinary.graphics.paint.ProcessPaintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputMappingInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/ProcessPaintable.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonsPaintableComposite.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonsPaintableCompositeFactory {
+    
 
-public class TouchButtonsPaintableCompositeFactory
-{
-    public static ProcessPaintable getInstance(InputMappingInterface inputMappingInterface, BasicColor basicColor)
-    {
-        return new TouchButtonsPaintableComposite(inputMappingInterface, basicColor);
+    static ProcessPaintable getInstance2(InputMappingInterface inputMappingInterface, BasicColor basicColor) {
+        return TouchButtonsPaintableComposite(inputMappingInterface, basicColor);
     }
-
 }
 

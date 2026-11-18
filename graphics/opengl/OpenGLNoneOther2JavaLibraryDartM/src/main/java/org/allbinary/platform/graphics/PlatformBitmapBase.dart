@@ -13,35 +13,43 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.platform.graphics
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullImage.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
 
-namespace org.allbinary.platform.graphics;
+class PlatformBitmapBase {
+    static final PlatformBitmapBase NULL_PLATFORM_BITMAP_BASE = PlatformBitmapBase();
+    int alpha = 0;
+    late BasicColor basicColor;
 
-public class PlatformBitmapBase
-{
-    public static readonly PlatformBitmapBase NULL_PLATFORM_BITMAP_BASE = new PlatformBitmapBase();
-    public int alpha = 255;
-    public BasicColor basicColor = BasicColorFactory.getInstance().NULL_COLOR;
-    public virtual int getWidth()
-    {
-        return 0;
+    // Java field initializers run after the base constructor
+    void initFieldsPlatformBitmapBase() {
+    this.alpha = 255;
+    this.basicColor = BasicColorFactory.getInstance().NULL_COLOR;
     }
 
-    public virtual int getHeight()
-    {
+    PlatformBitmapBase() {
+        this.initFieldsPlatformBitmapBase();
+    }
+    
+
+    int getWidth() {
         return 0;
     }
+    
 
-    public virtual Image getImage()
-    {
+    int getHeight() {
+        return 0;
+    }
+    
+
+    Image getImage() {
         return NullImage.NULL_IMAGE;
     }
-
 }
 

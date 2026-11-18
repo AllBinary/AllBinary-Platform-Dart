@@ -1,11 +1,10 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package javax.microedition.khronos.opengles
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
 
-namespace javax.microedition.khronos.opengles;
-
-public interface GL11 : GL10
-{
+abstract interface class GL11 implements GL10 {
 }
 

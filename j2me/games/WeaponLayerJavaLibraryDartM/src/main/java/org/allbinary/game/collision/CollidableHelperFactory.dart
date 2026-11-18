@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFactory = org.allbinary.game.configuration.feature.GameFeatureFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/collision/SourceCollisionHelper.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionHelper.dart';
 
-namespace org.allbinary.game.collision;
+class CollidableHelperFactory {
+    
 
-public class CollidableHelperFactory
-{
-    public static CollisionHelper getInstance()
-    {
+    static CollisionHelper getInstance() {
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().COLLISIONS_WITH_SOURCE)) {
-            return new CollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
+            return CollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
         } else {
-            return new SourceCollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
+            return SourceCollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
         }
     }
-
 }
 

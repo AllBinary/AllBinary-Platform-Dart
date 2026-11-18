@@ -13,44 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.graphics.hud
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
 
-namespace org.allbinary.game.graphics.hud;
+class HudGraphicsPosition {
+    static final HudGraphicsPosition NULL_HUD_GRAPHICS_POSITION = HudGraphicsPosition(PointFactory.getInstance().ZERO_ZERO, 9);
+    int anchor = 0;
+    late GPoint point;
 
-public class HudGraphicsPosition
-{
-    public static readonly HudGraphicsPosition NULL_HUD_GRAPHICS_POSITION = new HudGraphicsPosition(PointFactory.getInstance().ZERO_ZERO, 9);
-    private int anchor = 0;
-    private GPoint point = PointFactory.getInstance().ZERO_ZERO;
-    public HudGraphicsPosition(GPoint point, int anchor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHudGraphicsPosition() {
+    this.anchor = 0;
+    this.point = PointFactory.getInstance().ZERO_ZERO;
+    }
+    
+
+    HudGraphicsPosition(GPoint point, int anchor) {
+        this.initFieldsHudGraphicsPosition();
         this.setAnchor(anchor);
         this.setPoint(point);
     }
+    
 
-    public virtual int getAnchor()
-    {
+    int getAnchor() {
         return this.anchor;
     }
+    
 
-    private void setAnchor(int anchor)
-    {
+    void setAnchor(int anchor) {
         this.anchor = anchor;
     }
+    
 
-    public virtual GPoint getPoint()
-    {
+    GPoint getPoint() {
         return this.point;
     }
+    
 
-    public virtual void setPoint(GPoint point)
-    {
+    void setPoint(GPoint point) {
         this.point = point;
     }
-
 }
 

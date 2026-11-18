@@ -13,40 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class BaseAnimationInterfaceFactoryInterfaceComposite implements AnimationInterfaceFactoryInterface {
+    late List<BasicAnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArray;
 
-public class BaseAnimationInterfaceFactoryInterfaceComposite : AnimationInterfaceFactoryInterface
-{
-    private BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
-    public BaseAnimationInterfaceFactoryInterfaceComposite(BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBaseAnimationInterfaceFactoryInterfaceComposite() {
+    
+    }
+    
+
+    BaseAnimationInterfaceFactoryInterfaceComposite(List<BasicAnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArray) {
+        this.initFieldsBaseAnimationInterfaceFactoryInterfaceComposite();
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        return NullAnimationFactory.getFactoryInstance().getInstance(0);
+    @override
+    Animation getInstance1(int instanceId) {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(0);
     }
+    
 
-    public virtual BasicAnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray()
-    {
+    List<BasicAnimationInterfaceFactoryInterface?> getBasicAnimationInterfaceFactoryInterfaceArray() {
         return this.basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    public virtual void setBasicAnimationInterfaceFactoryInterfaceArray(BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+    void setBasicAnimationInterfaceFactoryInterfaceArray(List<BasicAnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArray) {
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

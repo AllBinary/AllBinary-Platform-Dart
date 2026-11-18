@@ -13,46 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayBaseRotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationInfo.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArrayRotationAnimation extends ImageArrayBaseRotationAnimation {
+    int expectedTotalFrames = 0;
 
-public class ImageArrayRotationAnimation : ImageArrayBaseRotationAnimation
-{
-    // throws Exception
-    public static ImageArrayRotationAnimation createAnimation(object anyType, AnimationBehavior animationBehavior)
-    {
-        ImageArrayRotationAnimationInfo imageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo) anyType);
-        return new ImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), animationBehavior);
+    // Java field initializers run after the base constructor
+    void initFieldsImageArrayRotationAnimation() {
+    this.expectedTotalFrames = 0;
     }
+    
 
-    private int expectedTotalFrames = 0;
-    public ImageArrayRotationAnimation(Image[] imageArray, AngleInfo angleInfo, int totalAngle, AnimationBehavior animationBehavior) : base(imageArray, angleInfo, animationBehavior)
-    {
-        // base(imageArray, angleInfo, animationBehavior) is called from the constructor declaration
+    static ImageArrayRotationAnimation createAnimation(Object anyType, AnimationBehavior animationBehavior) {
+        final ImageArrayRotationAnimationInfo imageRotationAnimationInfo = (anyType as ImageArrayRotationAnimationInfo);
+        return ImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), animationBehavior);
+    }
+    
+
+    ImageArrayRotationAnimation(List<Image?> imageArray, AngleInfo angleInfo, int totalAngle, AnimationBehavior animationBehavior) : super(imageArray, angleInfo, animationBehavior) {
+        this.initFieldsImageArrayRotationAnimation();
+        
         this.initImageArray(imageArray, angleInfo, totalAngle);
     }
+    
 
-    // throws Exception
-    private void initImageArray(Image[] imageArray, AngleInfo angleInfo, int totalAngle)
-    {
-        this.expectedTotalFrames = totalAngle / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
+    void initImageArray(List<Image?> imageArray, AngleInfo angleInfo, int totalAngle) {
+        this.expectedTotalFrames = totalAngle ~/ this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
         this.angleInfo.adjustAngle(0);
         if (this.expectedTotalFrames != this.getSize()) {
-            throw new Exception("Wrong Number of Frames");
+            throw JException('Exception', "Wrong Number of Frames");
         }
     }
+    
 
-    public override void setImageArray(Image[] imageArray)
-    {
-        base.setImageArray(imageArray);
+    @override
+    void setImageArray(List<Image?> imageArray) {
+        super.setImageArray(imageArray);
         this.angleInfo.adjustAngle(0);
     }
-
 }
 

@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tracking
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEvent.dart';
 
-namespace org.allbinary.game.tracking;
+class TrackingEventHandler extends BasicEventHandler {
+    static final TrackingEventHandler instance = TrackingEventHandler();
+    
 
-public class TrackingEventHandler : BasicEventHandler
-{
-    private static readonly TrackingEventHandler instance = new TrackingEventHandler();
-    public static TrackingEventHandler getInstance()
-    {
+    static TrackingEventHandler getInstance() {
         return TrackingEventHandler.instance;
     }
+    
 
-    private TrackingEventHandler()
-    {
+    TrackingEventHandler() {
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        TrackingEventListenerInterface trackingEventListenerInterface = ((TrackingEventListenerInterface) eventListenerInterface);
-        trackingEventListenerInterface.onMovement(((TrackingEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final TrackingEventListenerInterface trackingEventListenerInterface = (eventListenerInterface as TrackingEventListenerInterface);
+        trackingEventListenerInterface.onMovement((eventObject as TrackingEvent));
     }
-
 }
 

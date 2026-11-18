@@ -13,35 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.screen
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Displayable.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/ScreenRepaintProcessor.dart';
 
-namespace org.allbinary.graphics.displayable.screen;
+class ScreenRepaintProcessorFactory {
+    static final ScreenRepaintProcessorFactory instance = ScreenRepaintProcessorFactory();
+    
 
-public class ScreenRepaintProcessorFactory
-{
-    private static readonly ScreenRepaintProcessorFactory instance = new ScreenRepaintProcessorFactory();
-    public static ScreenRepaintProcessorFactory getInstance()
-    {
+    static ScreenRepaintProcessorFactory getInstance() {
         return ScreenRepaintProcessorFactory.instance;
     }
+    
 
-    private ScreenRepaintProcessorFactory()
-    {
+    ScreenRepaintProcessorFactory() {
     }
+    
 
-    public virtual Processor create(Displayable displayable)
-    {
+    Processor create(Displayable displayable) {
         if (!J2MEUtil.isJ2ME()) {
-            return new ScreenRepaintProcessor(displayable);
+            return ScreenRepaintProcessor(displayable);
         } else {
             return Processor.getInstance();
         }
     }
-
 }
 

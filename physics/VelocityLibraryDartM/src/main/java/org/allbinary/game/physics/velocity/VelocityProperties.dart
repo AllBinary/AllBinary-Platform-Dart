@@ -13,117 +13,133 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterface.dart';
 
-namespace org.allbinary.game.physics.velocity;
+class VelocityProperties extends BasicVelocityProperties implements VelocityInterface {
+    static final VelocityProperties NULL_VELOCITY_PROPERTIES = VelocityProperties(0, 0);
+    int maxForwardVelocity = 0;
+    int maxReverseVelocity = 0;
 
-public class VelocityProperties : BasicVelocityProperties, VelocityInterface
-{
-    public static readonly VelocityProperties NULL_VELOCITY_PROPERTIES = new VelocityProperties(0, 0);
-    private int maxForwardVelocity = 0;
-    private int maxReverseVelocity = 0;
-    public VelocityProperties(int maxForwardVelocity, int maxReverseVelocity)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsVelocityProperties() {
+    this.maxForwardVelocity = 0;
+    this.maxReverseVelocity = 0;
+    }
+    
+
+    VelocityProperties(int maxForwardVelocity, int maxReverseVelocity) {
+        this.initFieldsVelocityProperties();
         this.setMaxForwardVelocity(maxForwardVelocity);
         this.setMaxReverseVelocity(maxReverseVelocity);
     }
+    
 
-    public virtual int getMaxForwardVelocity()
-    {
+    @override
+    int getMaxForwardVelocity() {
         return this.maxForwardVelocity;
     }
+    
 
-    public virtual void setMaxForwardVelocity(int maxForwardVelocity)
-    {
+    @override
+    void setMaxForwardVelocity(int maxForwardVelocity) {
         this.maxForwardVelocity = maxForwardVelocity;
     }
+    
 
-    public virtual int getMaxReverseVelocity()
-    {
+    @override
+    int getMaxReverseVelocity() {
         return this.maxReverseVelocity;
     }
+    
 
-    public virtual void setMaxReverseVelocity(int maxReverseVelocity)
-    {
+    @override
+    void setMaxReverseVelocity(int maxReverseVelocity) {
         this.maxReverseVelocity = maxReverseVelocity;
     }
+    
 
-    public virtual void limitMaxXYForwardVelocity()
-    {
+    @override
+    void limitMaxXYForwardVelocity() {
         this.limitMaxXYVelocity(this.getMaxForwardVelocity());
     }
+    
 
-    public virtual void limitMaxXYReverseVelocity()
-    {
+    @override
+    void limitMaxXYReverseVelocity() {
         this.limitMaxXYVelocity(this.getMaxReverseVelocity());
     }
+    
 
-    public virtual void limitMaxYForwardVelocity()
-    {
+    void limitMaxYForwardVelocity() {
         this.limitMaxYVelocity(this.getMaxForwardVelocity());
     }
+    
 
-    public virtual void limitMaxYReverseVelocity()
-    {
+    void limitMaxYReverseVelocity() {
         this.limitMaxYVelocity(this.getMaxReverseVelocity());
     }
+    
 
-    public virtual void limitMaxXForwardVelocity()
-    {
+    void limitMaxXForwardVelocity() {
         this.limitMaxXVelocity(this.getMaxForwardVelocity());
     }
+    
 
-    public virtual void limitMaxXReverseVelocity()
-    {
+    void limitMaxXReverseVelocity() {
         this.limitMaxXVelocity(this.getMaxReverseVelocity());
     }
+    
 
-    public virtual bool isOverXYMaxForwardVelocity()
-    {
+    bool isOverXYMaxForwardVelocity() {
         return this.isOverXYMaxVelocity(this.getMaxForwardVelocity());
     }
+    
 
-    public virtual bool isOverXYMaxReverseVelocity()
-    {
+    bool isOverXYMaxReverseVelocity() {
         return this.isOverXYMaxVelocity(this.getMaxReverseVelocity());
     }
+    
 
-    public virtual void limitXYToForwardAndReverseMaxVelocity()
-    {
+    @override
+    void limitXYToForwardAndReverseMaxVelocity() {
         this.limitMaxXYForwardVelocity();
         this.limitMaxXYReverseVelocity();
     }
+    
 
-    public virtual void limitMaxXYVelocity(int maxVelocity)
-    {
+    @override
+    void limitMaxXYVelocity(int maxVelocity) {
         this.limitMaxXVelocity(maxVelocity);
         this.limitMaxYVelocity(maxVelocity);
     }
+    
 
-    public virtual void limitMaxPositiveYVelocity(int maxVelocity)
-    {
+    void limitMaxPositiveYVelocity(int maxVelocity) {
         if (this.velocityYBasicDecimal.getUnscaled() > maxVelocity) {
             this.velocityYBasicDecimal.setint(maxVelocity);
         }
     }
+    
 
-    public virtual void limitMaxNegativeYVelocity(int maxVelocity)
-    {
+    void limitMaxNegativeYVelocity(int maxVelocity) {
         if (this.velocityYBasicDecimal.getUnscaled() < -maxVelocity) {
             this.velocityYBasicDecimal.setint(-maxVelocity);
         }
     }
+    
 
-    public virtual void limitMaxYVelocity(int maxVelocity)
-    {
+    void limitMaxYVelocity(int maxVelocity) {
         this.limitMaxPositiveYVelocity(maxVelocity);
         this.limitMaxNegativeYVelocity(maxVelocity);
     }
+    
 
-    public virtual void limitMaxXVelocity(int maxVelocity)
-    {
+    void limitMaxXVelocity(int maxVelocity) {
         if (this.velocityXBasicDecimal.getUnscaled() > maxVelocity) {
             this.velocityXBasicDecimal.setint(maxVelocity);
         }
@@ -131,9 +147,9 @@ public class VelocityProperties : BasicVelocityProperties, VelocityInterface
             this.velocityXBasicDecimal.setint(-maxVelocity);
         }
     }
+    
 
-    public virtual bool isOverXYMaxVelocity(int maxVelocity)
-    {
+    bool isOverXYMaxVelocity(int maxVelocity) {
         if (this.velocityXBasicDecimal.getUnscaled() > maxVelocity) {
             return true;
         }
@@ -148,18 +164,19 @@ public class VelocityProperties : BasicVelocityProperties, VelocityInterface
         }
         return false;
     }
+    
 
-    public override void setVelocityi(long magnitude, int angle, int otherAngle)
-    {
-        base.setVelocityi(magnitude, angle, otherAngle);
+    @override
+    void setVelocityi(int magnitude, int angle, int otherAngle) {
+        super.setVelocityi(magnitude, angle, otherAngle);
         this.limitXYToForwardAndReverseMaxVelocity();
     }
+    
 
-    public override void addVelocityi(long magnitude, int angle, int otherAngle)
-    {
-        base.addVelocityi(magnitude, angle, otherAngle);
+    @override
+    void addVelocityi(int magnitude, int angle, int otherAngle) {
+        super.addVelocityi(magnitude, angle, otherAngle);
         this.limitXYToForwardAndReverseMaxVelocity();
     }
-
 }
 

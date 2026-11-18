@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.math
 
 import 'package:allbinary/allbinary_java.dart';
@@ -25,7 +25,7 @@ import 'package:allbinary/org/allbinary/math/AngleIncrementInfoFactory.dart';
 import 'package:allbinary/org/allbinary/math/FrameUtil.dart';
 
 class AngleInfo {
-    static final String ANGLE = "Angle: ";
+    static const String ANGLE = "Angle: ";
     late AngleIncrementInfo angleIncrementInfo;
     int angle = 0;
     late FrameUtil frameUtil;

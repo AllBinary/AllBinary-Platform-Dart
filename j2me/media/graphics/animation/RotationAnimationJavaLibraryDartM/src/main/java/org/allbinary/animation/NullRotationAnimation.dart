@@ -1,35 +1,35 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class NullRotationAnimation extends RotationAnimation {
+    
 
-public class NullRotationAnimation : RotationAnimation
-{
-    public static NullRotationAnimation createTotalAngle(AngleInfo angleInfo, short totalAngle, AnimationBehavior animationBehavior)
-    {
-        return new NullRotationAnimation(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+    static NullRotationAnimation createTotalAngle(AngleInfo angleInfo, int totalAngle, AnimationBehavior animationBehavior) {
+        return NullRotationAnimation(angleInfo, CircularIndexUtil.createInstance(totalAngle ~/ angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
     }
+    
 
-    public static NullRotationAnimation createQuarter(AnimationBehavior animationBehavior)
-    {
-        return new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
+    static NullRotationAnimation createQuarter(AnimationBehavior animationBehavior) {
+        return NullRotationAnimation(AngleInfo.getInstance1(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
     }
+    
 
-    public NullRotationAnimation(AngleInfo angleInfo, CircularIndexUtil circularIndexUtil, AnimationBehavior animationBehavior) : base(angleInfo, circularIndexUtil, animationBehavior)
-    {
-        // base(angleInfo, circularIndexUtil, animationBehavior) is called from the constructor declaration
+    NullRotationAnimation(AngleInfo angleInfo, CircularIndexUtil circularIndexUtil, AnimationBehavior animationBehavior) : super(angleInfo, circularIndexUtil, animationBehavior) {
+        
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return 0;
     }
-
 }
 

@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
 
-namespace org.allbinary.game.resource;
+abstract interface class RectangleResourceFactoryInterface {
+    
 
-public interface RectangleResourceFactoryInterface
-{
-    // throws Exception
-    Rectangle getRectangle(string resource);
+    Rectangle getRectangle(String resource);
+    
 
-    // throws Exception
-    Rectangle[][] getRectangleArrayOfArrays(string resource);
-
+    List<List<Rectangle?>?> getRectangleArrayOfArrays(String resource);
 }
 

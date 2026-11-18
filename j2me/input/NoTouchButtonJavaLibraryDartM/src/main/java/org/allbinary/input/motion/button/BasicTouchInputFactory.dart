@@ -13,83 +13,102 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonInput.dart';
 
-namespace org.allbinary.input.motion.button;
+class BasicTouchInputFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late TouchButtonInput SPECIAL_BUTTON_SIX;
+    late TouchButtonInput SPECIAL_BUTTON_FIVE;
+    late TouchButtonInput SPECIAL_BUTTON_FOUR;
+    late TouchButtonInput SPECIAL_BUTTON_THREE;
+    late TouchButtonInput SPECIAL_BUTTON_TWO;
+    late TouchButtonInput SPECIAL_BUTTON_ONE;
+    late TouchButtonInput UP;
+    late TouchButtonInput LEFT;
+    late TouchButtonInput RIGHT;
+    late TouchButtonInput DOWN;
+    late TouchButtonInput NONE;
+    bool initialized = false;
+    late BasicArrayList list;
 
-public class BasicTouchInputFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static BasicTouchInputFactory getInstance()
-    {
-        if (BasicTouchInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            BasicTouchInputFactory.instance = new BasicTouchInputFactory();
-        }
-        return ((BasicTouchInputFactory) BasicTouchInputFactory.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsBasicTouchInputFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.SPECIAL_BUTTON_SIX = TouchButtonInput(InputFactory.getInstance().MAX - 30, "Button 6");
+    this.SPECIAL_BUTTON_FIVE = TouchButtonInput(InputFactory.getInstance().MAX - 31, "Button 5");
+    this.SPECIAL_BUTTON_FOUR = TouchButtonInput(InputFactory.getInstance().MAX - 32, "Button 4");
+    this.SPECIAL_BUTTON_THREE = TouchButtonInput(InputFactory.getInstance().MAX - 33, "Button 3");
+    this.SPECIAL_BUTTON_TWO = TouchButtonInput(InputFactory.getInstance().MAX - 34, "Button 2");
+    this.SPECIAL_BUTTON_ONE = TouchButtonInput(InputFactory.getInstance().MAX - 35, "Button 1");
+    this.UP = TouchButtonInput(InputFactory.getInstance().MAX - 36, "Up Button");
+    this.LEFT = TouchButtonInput(InputFactory.getInstance().MAX - 37, "Left Button");
+    this.RIGHT = TouchButtonInput(InputFactory.getInstance().MAX - 38, "Right Button");
+    this.DOWN = TouchButtonInput(InputFactory.getInstance().MAX - 39, "Down Button");
+    this.NONE = TouchButtonInput(InputFactory.getInstance().MAX - 40, "No Button");
+    this.initialized = false;
+    this.list = BasicArrayListD();
     }
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly TouchButtonInput SPECIAL_BUTTON_SIX = new TouchButtonInput(InputFactory.getInstance().MAX - 30, "Button 6");
-    public readonly TouchButtonInput SPECIAL_BUTTON_FIVE = new TouchButtonInput(InputFactory.getInstance().MAX - 31, "Button 5");
-    public readonly TouchButtonInput SPECIAL_BUTTON_FOUR = new TouchButtonInput(InputFactory.getInstance().MAX - 32, "Button 4");
-    public readonly TouchButtonInput SPECIAL_BUTTON_THREE = new TouchButtonInput(InputFactory.getInstance().MAX - 33, "Button 3");
-    public readonly TouchButtonInput SPECIAL_BUTTON_TWO = new TouchButtonInput(InputFactory.getInstance().MAX - 34, "Button 2");
-    public readonly TouchButtonInput SPECIAL_BUTTON_ONE = new TouchButtonInput(InputFactory.getInstance().MAX - 35, "Button 1");
-    public readonly TouchButtonInput UP = new TouchButtonInput(InputFactory.getInstance().MAX - 36, "Up Button");
-    public readonly TouchButtonInput LEFT = new TouchButtonInput(InputFactory.getInstance().MAX - 37, "Left Button");
-    public readonly TouchButtonInput RIGHT = new TouchButtonInput(InputFactory.getInstance().MAX - 38, "Right Button");
-    public readonly TouchButtonInput DOWN = new TouchButtonInput(InputFactory.getInstance().MAX - 39, "Down Button");
-    public readonly TouchButtonInput NONE = new TouchButtonInput(InputFactory.getInstance().MAX - 40, "No Button");
-    private bool initialized = false;
-    private readonly BasicArrayList list = new BasicArrayListD();
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void init(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    BasicTouchInputFactory() {
+        this.initFieldsBasicTouchInputFactory();
+    }
+    
+
+    static BasicTouchInputFactory getInstance() {
+        if (BasicTouchInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            BasicTouchInputFactory.instance = BasicTouchInputFactory();
+        }
+        return (BasicTouchInputFactory.instance as BasicTouchInputFactory);
+    }
+    
+
+    void init(InputToGameKeyMapping inputToGameKeyMapping) {
         if (!this.initialized) {
             this.initialized = true;
             this.list.add(this.UP);
             this.list.add(this.LEFT);
             this.list.add(this.RIGHT);
             this.list.add(this.DOWN);
-            this.list.add(SPECIAL_BUTTON_TWO);
-            this.list.add(SPECIAL_BUTTON_FOUR);
-            this.list.add(SPECIAL_BUTTON_THREE);
-            this.list.add(SPECIAL_BUTTON_ONE);
-            this.list.add(SPECIAL_BUTTON_FIVE);
-            this.list.add(SPECIAL_BUTTON_SIX);
+            this.list.add(this.SPECIAL_BUTTON_TWO);
+            this.list.add(this.SPECIAL_BUTTON_FOUR);
+            this.list.add(this.SPECIAL_BUTTON_THREE);
+            this.list.add(this.SPECIAL_BUTTON_ONE);
+            this.list.add(this.SPECIAL_BUTTON_FIVE);
+            this.list.add(this.SPECIAL_BUTTON_SIX);
             this.updateAllList(this.list, inputToGameKeyMapping);
         }
     }
+    
 
-    public virtual void updateAll(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    void updateAll(InputToGameKeyMapping inputToGameKeyMapping) {
         this.updateAllList(this.getList(), inputToGameKeyMapping);
     }
+    
 
-    public virtual void updateAllList(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START).appendint(list.size()).ToString(), this, "updateAll");
+    void updateAllList(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping) {
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START).appendint(list.size()).toString(), this, "updateAll");
         for (int index = list.size() - 1; index >= 0; index--) {
-            TouchButtonInput touchButtonInput = ((TouchButtonInput) list.get(index));
+            TouchButtonInput touchButtonInput = (list.get(index) as TouchButtonInput);
             touchButtonInput.update(inputToGameKeyMapping);
         }
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

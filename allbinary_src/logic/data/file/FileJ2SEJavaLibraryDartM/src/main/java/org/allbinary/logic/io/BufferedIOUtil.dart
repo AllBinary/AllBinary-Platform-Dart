@@ -13,34 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using BufferedReader = java.io.BufferedReader;
-using BufferedWriter = java.io.BufferedWriter;
-using FileReader = java.io.FileReader;
-using FileWriter = java.io.FileWriter;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/BufferedReader.dart';
+import 'package:allbinary/java/io/BufferedWriter.dart';
+import 'package:allbinary/java/io/FileReader.dart';
+import 'package:allbinary/java/io/FileWriter.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFileNativeUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.logic.io;
+class BufferedIOUtil {
+    
 
-public class BufferedIOUtil
-{
-    // throws Exception
-    public static void copy(AbFile backupFile, AbFile backupFileBak)
-    {
-        string line = StringUtil.getInstance().EMPTY_STRING;
-        BufferedWriter tmpOut = new BufferedWriter(new FileWriter(AbFileNativeUtil.get(backupFileBak)));
-        BufferedReader tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil.get(backupFile)));
+    static void copy(AbFile backupFile, AbFile backupFileBak) {
+        String line = StringUtil.getInstance().EMPTY_STRING;
+        final BufferedWriter tmpOut = BufferedWriter(FileWriter(AbFileNativeUtil.get(backupFileBak)));
+        final BufferedReader tmpIn = BufferedReader(FileReader(AbFileNativeUtil.get(backupFile)));
         while (tmpIn.ready()) {
             line = tmpIn.readLine();
-            tmpOut.write(line, 0, line.Length);
+            tmpOut.write(line, 0, line.length);
             tmpOut.newLine();
         }
         tmpOut.flush();
     }
-
 }
 

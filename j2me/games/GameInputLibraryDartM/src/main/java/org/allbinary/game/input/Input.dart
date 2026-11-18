@@ -13,53 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game.input;
+class Input {
+    int id = 0;
+    late String name;
 
-public class Input
-{
-    private int id = 0;
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public Input(int id, string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInput() {
+    this.id = 0;
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    Input(int id, String name) {
+        this.initFieldsInput();
         this.setId(id);
         this.setName(name);
     }
+    
 
-    public virtual int getId()
-    {
+    int getId() {
         return this.id;
     }
+    
 
-    private void setId(int key)
-    {
+    void setId(int key) {
         this.id = key;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    private void setName(string keyName)
-    {
+    void setName(String keyName) {
         this.name = keyName;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append("Name: ");
         stringBuffer.append(this.getName());
         stringBuffer.append(" Id: ");
         stringBuffer.appendint(this.getId());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

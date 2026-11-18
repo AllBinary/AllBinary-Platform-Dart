@@ -13,82 +13,99 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.health
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicHud = org.allbinary.game.graphics.hud.BasicHud;
-using Health = org.allbinary.game.health.Health;
-using HealthListenerInterface = org.allbinary.game.health.HealthListenerInterface;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using NoTimeDelayHelper = org.allbinary.time.NoTimeDelayHelper;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHud.dart';
+import 'package:allbinary/org/allbinary/game/health/Health.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthListenerInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/NoTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.health;
+class HealthHudWidget extends BasicHud implements PaintableInterface, HealthListenerInterface {
+    int healthScale = 0;
+    late Animation animationInterface;
+    late Health healthInterface;
+    int max = 0;
+    late List<int> xArray;
+    late GameTickTimeDelayHelper gameTickTimeDelayHelper;
+    late TimeDelayHelper timeDelayHelper;
+    late TimeDelayHelper slowBeatTimeDelayHelper;
+    late TimeDelayHelper mediumBeatTimeDelayHelper;
+    late TimeDelayHelper fastBeatTimeDelayHelper;
 
-public class HealthHudWidget : BasicHud, PaintableInterface, HealthListenerInterface
-{
-    private int healthScale;
-    public Animation animationInterface;
-    public Health healthInterface;
-    public int max = 0;
-    private int[] xArray;
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public HealthHudWidget(Animation animationInterface, Health healthInterface, int location, int direction) : base(location, direction, 2, BasicColorFactory.getInstance().WHITE)
-    {
-        // base(location, direction, 2, BasicColorFactory.getInstance().WHITE) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsHealthHudWidget() {
+    
+    
+    
+    this.max = 0;
+    
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    this.timeDelayHelper = NoTimeDelayHelper.SINGLETON;
+    this.slowBeatTimeDelayHelper = TimeDelayHelper(1280);
+    this.mediumBeatTimeDelayHelper = TimeDelayHelper(640);
+    this.fastBeatTimeDelayHelper = TimeDelayHelper(320);
+    }
+    
+
+    HealthHudWidget(Animation animationInterface, Health healthInterface, int location, int direction) : super(location, direction, 2, BasicColorFactory.getInstance().WHITE) {
+        this.initFieldsHealthHudWidget();
+        
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
         this.healthInterface.addListener(this);
-        this.healthScale = (this.healthInterface.getMaxHealth() / 6) + 1;
+        this.healthScale = (this.healthInterface.getMaxHealth() ~/ 6) + 1;
         this.onHealthChange();
         this.updateMaxWidth = healthInterface.getMaxHealth() * 16;
         this.updateMaxHeight = 16;
-        this.xArray = new int[30];
+        this.xArray = List<int>.filled(30, 0);
         this.update();
     }
+    
 
-    private void update()
-    {
+    void update() {
         if (this.xArray != null) {
-            for (int index = 0; index < this.xArray.Length; index++) {
+            for (int index = 0; index < this.xArray.length; index++) {
                 this.xArray[index] = this.getX() + (index * 16);
             }
         }
     }
+    
 
-    public override void setX(int x)
-    {
-        base.setX(x);
+    @override
+    void setX(int x) {
+        super.setX(x);
         this.update();
     }
+    
 
-    private TimeDelayHelper timeDelayHelper = NoTimeDelayHelper.SINGLETON;
-    private readonly TimeDelayHelper slowBeatTimeDelayHelper = new TimeDelayHelper(1280);
-    private readonly TimeDelayHelper mediumBeatTimeDelayHelper = new TimeDelayHelper(640);
-    private readonly TimeDelayHelper fastBeatTimeDelayHelper = new TimeDelayHelper(320);
-    public virtual void onHealthChange()
-    {
-        this.max = (this.healthInterface.getHealth() / this.healthScale);
+    @override
+    void onHealthChange() {
+        this.max = (this.healthInterface.getHealth() ~/ this.healthScale);
         this.timeDelayHelper = NoTimeDelayHelper.SINGLETON;
         if (this.max <= 1 && this.healthInterface.isAlive()) {
             this.max = 1;
-            if (this.healthScale - this.healthInterface.getHealth() > (this.healthScale * 2) / 3) {
+            if (this.healthScale - this.healthInterface.getHealth() > (this.healthScale * 2) ~/ 3) {
                 this.timeDelayHelper = this.slowBeatTimeDelayHelper;
-            } else if (this.healthScale - this.healthInterface.getHealth() > this.healthScale / 3) {
+            } else if (this.healthScale - this.healthInterface.getHealth() > this.healthScale ~/ 3) {
                 this.timeDelayHelper = this.mediumBeatTimeDelayHelper;
             } else {
                 this.timeDelayHelper = this.fastBeatTimeDelayHelper;
             }
         }
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
         for (int index = 0; index < this.max; index++) {
             if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
@@ -96,10 +113,10 @@ public class HealthHudWidget : BasicHud, PaintableInterface, HealthListenerInter
             }
         }
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
-
 }
 

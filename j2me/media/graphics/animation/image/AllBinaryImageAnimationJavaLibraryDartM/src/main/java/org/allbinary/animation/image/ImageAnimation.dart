@@ -13,87 +13,98 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using DisposalUtil = org.allbinary.DisposalUtil;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using Anchor = org.allbinary.graphics.Anchor;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/DisposalUtil.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
 
-namespace org.allbinary.animation.image;
+class ImageAnimation extends IndexedAnimation {
+    late Image image;
+    int anchor = 0;
 
-public class ImageAnimation : IndexedAnimation
-{
-    private readonly Image image;
-    public ImageAnimation(Image image, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImageAnimation() {
+    
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    ImageAnimation(Image image, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsImageAnimation();
+        
         this.image = image;
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return 0;
     }
+    
 
-    public override int getSize()
-    {
+    @override
+    int getSize() {
         return 1;
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         graphics.drawImage(this.image, x, y, this.anchor);
     }
+    
 
-    public virtual Image getImage()
-    {
+    Image getImage() {
         return this.image;
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    void close() {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
+    
 
-    // throws Throwable
-    public virtual void finalize()
-    {
+    void finalize() {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
-
 }
 

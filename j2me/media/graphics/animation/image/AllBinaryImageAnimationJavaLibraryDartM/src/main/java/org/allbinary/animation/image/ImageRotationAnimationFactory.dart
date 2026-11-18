@@ -13,45 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/animation/image/BaseImageAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageBaseRotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/image/AdjustedImageBaseRotationAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class ImageRotationAnimationFactory extends BaseImageAnimationFactory {
+    int angleIncrement = 0;
 
-public class ImageRotationAnimationFactory : BaseImageAnimationFactory
-{
-    public readonly short angleIncrement;
-    public ImageRotationAnimationFactory(Image image, int width, int height, int dx, int dy, short angleIncrement, AnimationBehaviorFactory animationBehaviorFactory) : base(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory)
-    {
-        // base(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImageRotationAnimationFactory() {
+    
+    }
+    
+
+    ImageRotationAnimationFactory(Image image, int width, int height, int dx, int dy, int angleIncrement, AnimationBehaviorFactory animationBehaviorFactory) : super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory) {
+        this.initFieldsImageRotationAnimationFactory();
+        
         this.angleIncrement = angleIncrement;
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             this.animationFactoryImageScaleUtil.processAdjust(this);
-            return new AdjustedImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return AdjustedImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance1(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new ImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+            return ImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance1(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
+    
 
-    public virtual short getAngleIncrementP()
-    {
+    int getAngleIncrementP() {
         return this.angleIncrement;
     }
-
 }
 

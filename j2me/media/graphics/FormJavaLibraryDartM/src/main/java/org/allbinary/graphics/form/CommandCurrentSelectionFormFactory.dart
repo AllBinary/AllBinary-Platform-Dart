@@ -13,30 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using TouchFeatureFactory = org.allbinary.game.configuration.feature.TouchFeatureFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/TouchFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionFormNoneFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/form/CommandCurrentSelectionForm.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormType.dart';
 
-namespace org.allbinary.graphics.form;
+class CommandCurrentSelectionFormFactory {
+    
 
-public class CommandCurrentSelectionFormFactory
-{
-    // throws Exception
-    public static ScrollSelectionForm getInstance(string title, ABCustomItem[] items, Rectangle rectangle, FormType formType, int border, bool moveForSmallScreen, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
+    static ScrollSelectionForm getInstance8(String title, List<ABCustomItem?> items, Rectangle rectangle, FormType formType, int border, bool moveForSmallScreen, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
         if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED)) {
-            ScrollSelectionForm scrollSelectionForm = new CommandCurrentSelectionForm(title, items, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
+            final ScrollSelectionForm scrollSelectionForm = CommandCurrentSelectionForm(title, items, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
             scrollSelectionForm.init(rectangle, formType);
             return scrollSelectionForm;
         } else {
             return ScrollSelectionFormNoneFactory.getInstance();
         }
     }
-
 }
 

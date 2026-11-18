@@ -13,39 +13,39 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary
 
-using System;
-using System.Linq;
-using java.util;
-
-namespace org.allbinary;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/util/HashMap.dart';
+import 'package:allbinary/java/util/Map.dart';
+import 'package:allbinary/java/util/Set.dart';
 
 //J2SEForJ2ME
-public class J2SEUtil
-{
-    private static readonly J2SEUtil instance = new J2SEUtil();
-    public static J2SEUtil getInstance()
-    {
+class J2SEUtil {
+    static final J2SEUtil instance = J2SEUtil();
+    
+
+    static J2SEUtil getInstance() {
         return J2SEUtil.instance;
     }
+    
 
-    public virtual object[] getHashMapAsArray(HashMap<object, object> hashMap)
-    {
-        object[] objectArray = hashMap.keySet().toArray();
+    List<Object?> getHashMapAsArray(HashMap hashMap) {
+        final List<Object?> objectArray = hashMap.keySet().toArray();
         return objectArray;
     }
+    
 
-    public virtual object[] getMapAsArray(Map<object, object> map)
-    {
-        object[] objectArray = map.keySet().toArray();
+    List<Object?> getMapAsArray(Map map) {
+        final List<Object?> objectArray = map.keySet().toArray();
         return objectArray;
     }
+    
 
-    public virtual object[] getSetAsArray(Set<string> set)
-    {
-        object[] objectArray = set.toArray();
+    List<Object?> getSetAsArray(Set set) {
+        final List<Object?> objectArray = set.toArray();
         return objectArray;
     }
-
 }
 

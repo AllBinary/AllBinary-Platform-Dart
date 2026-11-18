@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using PlatformBitmapBaseFactory = org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
-using PlatformTextureBaseFactory = org.allbinary.platform.opengles.PlatformTextureBaseFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/platform/graphics/PlatformBitmapBaseFactory.dart';
+import 'package:allbinary/org/allbinary/platform/opengles/PlatformTextureBaseFactory.dart';
 
-namespace org.allbinary.image.opengles;
+class OpenGLImageFactory {
+    static final OpenGLImageFactory NULL_OPENGL_IMAGE_FACTORY = OpenGLImageFactory();
+    
 
-public class OpenGLImageFactory
-{
-    public static readonly OpenGLImageFactory NULL_OPENGL_IMAGE_FACTORY = new OpenGLImageFactory();
-    public virtual Image getInstance(Image image, PlatformBitmapBaseFactory bitmapFactory, PlatformTextureBaseFactory textureFactory)
-    {
-        throw new SystemException();
+    Image getInstance3(Image image, PlatformBitmapBaseFactory bitmapFactory, PlatformTextureBaseFactory textureFactory) {
+        throw JException('RuntimeException', '');
     }
-
 }
 

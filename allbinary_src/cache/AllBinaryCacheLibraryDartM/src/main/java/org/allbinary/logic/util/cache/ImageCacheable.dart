@@ -13,29 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.logic.util.cache;
+class ImageCacheable {
+    late String name;
 
-public class ImageCacheable
-{
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public ImageCacheable(string name, object anyType)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsImageCacheable() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual object getKey()
-    {
+    ImageCacheable(String name, Object anyType) {
+        this.initFieldsImageCacheable();
+    }
+    
+
+    Object getKey() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return this.name;
     }
-
 }
 

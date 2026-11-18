@@ -13,43 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using GameTickDisplayInfoSingleton = org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/GameTickDisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameRunnable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class GameFrameRunnable extends GameRunnable {
+    late LogUtil logUtil;
+    late GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton;
+    late AllBinaryGameCanvas allBinaryGameCanvas;
+    late GameTickTimeDelayHelper gameTickTimeDelayHelper;
 
-public class GameFrameRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
-    private readonly AllBinaryGameCanvas allBinaryGameCanvas;
-    public GameFrameRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameFrameRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
+    
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
+
+    GameFrameRunnable(AllBinaryGameCanvas allBinaryGameCanvas) {
+        this.initFieldsGameFrameRunnable();
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
+    
 
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public override void run()
-    {
+    @override
+    void run() {
         try {
-            AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
+            final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             allBinaryGameCanvas.getLoopTimeHelperP().setStartTime(this.gameTickTimeDelayHelper.setStartTime());
             this.gameTickDisplayInfoSingleton.update();
             allBinaryGameCanvas.processGame();
             if (!allBinaryGameCanvas.isRunning() || allBinaryGameCanvas.isPaused()) {
                 allBinaryGameCanvas.notifyDonePainting();
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
         }
     }
-
 }
 

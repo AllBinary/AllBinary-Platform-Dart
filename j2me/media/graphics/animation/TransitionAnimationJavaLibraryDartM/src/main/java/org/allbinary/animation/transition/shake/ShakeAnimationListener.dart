@@ -13,34 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/transition/shake/ShakeEvent.dart';
 
-namespace org.allbinary.animation.transition.shake;
+class ShakeAnimationListener {
+    
 
-public class ShakeAnimationListener
-{
-    public virtual void onSmallShakeEvent()
-    {
+    void onSmallShakeEvent() {
     }
+    
 
-    public virtual void onMediumShakeEvent()
-    {
+    void onMediumShakeEvent() {
     }
+    
 
-    public virtual void onLargeShakeEvent()
-    {
+    void onLargeShakeEvent() {
     }
+    
 
-    public virtual void onShakeEvent(ShakeEvent shakeEvent)
-    {
+    void onShakeEvent(ShakeEvent shakeEvent) {
     }
+    
 
-    public virtual int getType()
-    {
+    int getType() {
         return 0;
     }
-
 }
 

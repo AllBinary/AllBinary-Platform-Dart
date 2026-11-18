@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
-using RecordFilter = javax.microedition.rms.RecordFilter;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/rms/RecordFilter.dart';
 
-namespace org.allbinary.game.configuration.persistance;
+class NullRecordFilter implements RecordFilter {
+    static NullRecordFilter NULL_RECORD_FILTER = NullRecordFilter();
+    
 
-public class NullRecordFilter : RecordFilter
-{
-    public static NullRecordFilter NULL_RECORD_FILTER = new NullRecordFilter();
-    public virtual bool matches(sbyte[] candidate)
-    {
+    @override
+    bool matches(List<int> candidate) {
         return true;
     }
-
 }
 

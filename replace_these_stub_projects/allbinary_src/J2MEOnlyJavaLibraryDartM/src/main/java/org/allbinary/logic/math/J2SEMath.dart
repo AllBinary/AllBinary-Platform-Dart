@@ -13,34 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.math
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.math;
+class J2SEMath {
+    static final J2SEMath instance = J2SEMath();
+    
 
-public class J2SEMath
-{
-    private static readonly J2SEMath instance = new J2SEMath();
-    public static J2SEMath getInstance()
-    {
+    static J2SEMath getInstance() {
         return J2SEMath.instance;
     }
+    
 
-    public virtual int round(float value)
-    {
-        return ((int) value);
+    int round(double value) {
+        return JMath.toInt32(value);
     }
+    
 
-    public virtual float abs(float value)
-    {
-        return ((value < 0f) ? -value : value);
-    }
-
-    public virtual double absdouble(double value)
-    {
+    double abs(double value) {
         return ((value < 0.0) ? -value : value);
     }
+    
 
+    double absdouble(double value) {
+        return ((value < 0.0) ? -value : value);
+    }
 }
 

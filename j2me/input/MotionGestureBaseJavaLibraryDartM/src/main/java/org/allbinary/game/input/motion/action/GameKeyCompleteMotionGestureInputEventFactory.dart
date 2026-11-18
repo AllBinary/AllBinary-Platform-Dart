@@ -13,40 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.motion.action
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
 
-namespace org.allbinary.game.input.motion.action;
+class GameKeyCompleteMotionGestureInputEventFactory {
+    static final GameKeyCompleteMotionGestureInputEventFactory SINGLETON = GameKeyCompleteMotionGestureInputEventFactory();
+    late LogUtil logUtil;
+    late BasicArrayList eventList;
 
-public class GameKeyCompleteMotionGestureInputEventFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly GameKeyCompleteMotionGestureInputEventFactory SINGLETON = new GameKeyCompleteMotionGestureInputEventFactory();
-    private readonly BasicArrayList eventList = new BasicArrayListD();
-    public static GameKeyCompleteMotionGestureInputEventFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyCompleteMotionGestureInputEventFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.eventList = BasicArrayListD();
+    }
+
+    GameKeyCompleteMotionGestureInputEventFactory() {
+        this.initFieldsGameKeyCompleteMotionGestureInputEventFactory();
+    }
+    
+
+    static GameKeyCompleteMotionGestureInputEventFactory getInstance() {
         return GameKeyCompleteMotionGestureInputEventFactory.SINGLETON;
     }
+    
 
-    public virtual void add(GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent)
-    {
+    void add(GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent) {
         this.eventList.add(gameKeyCompleteMotionGestureInputEvent);
     }
+    
 
-    public virtual void updateAll()
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(this.eventList.size()).ToString(), this, "updateAll");
+    void updateAll() {
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(this.eventList.size()).toString(), this, "updateAll");
         for (int index = this.eventList.size() - 1; index >= 0; index--) {
-            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = ((GameKeyCompleteMotionGestureInputEvent) this.eventList.objectArray[index]);
+            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (this.eventList.objectArray[index]! as GameKeyCompleteMotionGestureInputEvent);
             gameKeyCompleteMotionGestureInputEvent.update();
         }
     }
-
 }
 

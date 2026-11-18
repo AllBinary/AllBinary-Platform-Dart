@@ -13,56 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Command = javax.microedition.lcdui.Command;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using Features = org.allbinary.game.configuration.feature.Features;
-using InputFeatureFactory = org.allbinary.game.configuration.feature.InputFeatureFactory;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using SWTUtil = org.allbinary.game.layer.SWTUtil;
-using GPoint = org.allbinary.graphics.GPoint;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using CommandCurrentSelectionForm = org.allbinary.graphics.form.CommandCurrentSelectionForm;
-using ScrollSelectionForm = org.allbinary.graphics.form.ScrollSelectionForm;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using PrimaryPlayerQueueFactory = org.allbinary.media.audio.PrimaryPlayerQueueFactory;
-using SelectSound = org.allbinary.media.audio.SelectSound;
-using PrimaryThreadPool = org.allbinary.thread.PrimaryThreadPool;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.game.displayable.canvas;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/InputFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/SWTUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/MyCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/form/CommandCurrentSelectionForm.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/media/audio/PrimaryPlayerQueueFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/SelectSound.dart';
+import 'package:allbinary/org/allbinary/thread/PrimaryThreadPool.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/CommandRunnable.dart';
 
 //In general allow scrolling of the menu and selection the center item
-public class CommandFormInputProcessor : BasicMenuInputProcessor
-{
-    private readonly int MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
-    private readonly int CLICK_DELAY = 150;
-    private readonly TimeDelayHelper clickTimeHelper;
-    private readonly int DOUBLE_CLICK_DELAY = 1200;
-    private readonly TimeDelayHelper doubleClickTimeHelper;
-    public readonly bool isSingleKeyProcessing = InputFeatureFactory.getInstance().isSingleKeyProcessing();
-    private ScrollSelectionForm form;
-    private bool hasPressed = false;
-    public CommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas, ScrollSelectionForm form) : base(gameKeyEventList, playerInputId, gameCanvas)
-    {
-        this.clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
-        this.doubleClickTimeHelper = new TimeDelayHelper(this.DOUBLE_CLICK_DELAY);
-        // base(gameKeyEventList, playerInputId, gameCanvas) is called from the constructor declaration
+class CommandFormInputProcessor extends BasicMenuInputProcessor {
+    int MOTION_GESTURE_SOURCE_ID = 0;
+    int CLICK_DELAY = 0;
+    late TimeDelayHelper clickTimeHelper;
+    int DOUBLE_CLICK_DELAY = 0;
+    late TimeDelayHelper doubleClickTimeHelper;
+    bool isSingleKeyProcessing = false;
+    late ScrollSelectionForm form;
+    bool hasPressed = false;
+    late String PROCESS_COMMAND;
+    late String NAME_LABEL;
+
+    // Java field initializers run after the base constructor
+    void initFieldsCommandFormInputProcessor() {
+    this.MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
+    this.CLICK_DELAY = 150;
+    this.clickTimeHelper = TimeDelayHelper(this.CLICK_DELAY);
+    this.DOUBLE_CLICK_DELAY = 1200;
+    this.doubleClickTimeHelper = TimeDelayHelper(this.DOUBLE_CLICK_DELAY);
+    this.isSingleKeyProcessing = InputFeatureFactory.getInstance().isSingleKeyProcessing();
+    
+    this.hasPressed = false;
+    this.PROCESS_COMMAND = "processCommand";
+    this.NAME_LABEL = " ScrollSelectionForm: ";
+    }
+    
+
+    CommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas, ScrollSelectionForm form) : super(gameKeyEventList, playerInputId, gameCanvas) {
+        this.initFieldsCommandFormInputProcessor();
+        
         this.form = form;
     }
+    
 
-    // throws Exception
-    public virtual int processInput(int key)
-    {
+    int processInput(int key) {
         if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN) {
             PrimaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
             this.form.processInputKey(key);
@@ -73,19 +88,18 @@ public class CommandFormInputProcessor : BasicMenuInputProcessor
         }
         return 0;
     }
+    
 
-    private readonly string PROCESS_COMMAND = "processCommand";
-    private int processCommand()
-    {
-        CommandCurrentSelectionForm commandCurrentSelectionForm = ((CommandCurrentSelectionForm) this.form);
-        Command command = commandCurrentSelectionForm.getSelectedCommand();
-        this.logUtil.putF(command.ToString(), this, this.PROCESS_COMMAND);
-        Features features = Features.getInstance();
-        OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+    int processCommand() {
+        final CommandCurrentSelectionForm commandCurrentSelectionForm = (this.form as CommandCurrentSelectionForm);
+        final Command command = commandCurrentSelectionForm.getSelectedCommand();
+        this.logUtil.putF(command.toString(), this, this.PROCESS_COMMAND);
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         if (SWTUtil.isSWT && features.isFeature(openGLFeatureFactory.OPENGL) && command != GameCommandsFactory.getInstance().EXIT_COMMAND) {
-            new CommandRunnable(this, command).run();
+            CommandRunnable(this, command).run();
         } else {
-            PrimaryThreadPool.getInstance().runTask(new CommandRunnable(this, command));
+            PrimaryThreadPool.getInstance().runTask(CommandRunnable(this, command));
         }
         if (command == GameCommandsFactory.getInstance().QUIT_COMMAND) {
             return -1;
@@ -93,18 +107,18 @@ public class CommandFormInputProcessor : BasicMenuInputProcessor
             return 1;
         }
     }
+    
 
-    // throws Exception
-    public override int processInputList()
-    {
+    @override
+    int processInputList() {
         try {
-            int motionInputsIndex = this.processMotionInputs();
-            BasicArrayList list = this.getGameKeyEventList();
-            int size = list.size();
+            final int motionInputsIndex = this.processMotionInputs();
+            final BasicArrayList list = this.getGameKeyEventList();
+            final int size = list.size();
             int key = 0;
-            GameKeyEvent gameKeyEvent = null;
+            late GameKeyEvent gameKeyEvent;
             for (int index = 0; index < size; index++) {
-                gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
+                gameKeyEvent = (list.objectArray[index]! as GameKeyEvent);
                 key = gameKeyEvent.getKey();
                 if (gameKeyEvent.getSourceId() != this.MOTION_GESTURE_SOURCE_ID) {
                     if (this.processInput(key) == 1) {
@@ -118,33 +132,34 @@ public class CommandFormInputProcessor : BasicMenuInputProcessor
             } else {
                 return -1;
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.PROCESS_INPUT, e);
             return -1;
+            }
         }
     }
+    
 
-    // throws Exception
-    public virtual int processMotionInputs()
-    {
-        int lastIndex = this.motionGestureEventList.size() - 1;
+    int processMotionInputs() {
+        final int lastIndex = this.motionGestureEventList.size() - 1;
         if (lastIndex >= 0) {
-            MotionGestureEvent motionGestureEvent = ((MotionGestureEvent) this.motionGestureEventList.objectArray[lastIndex]);
+            final MotionGestureEvent motionGestureEvent = (this.motionGestureEventList.objectArray[lastIndex]! as MotionGestureEvent);
             this.processMotionInput(motionGestureEvent);
         }
         this.motionGestureEventList.clear();
         return lastIndex;
     }
+    
 
-    // throws Exception
-    public virtual void processMotionInput(MotionGestureEvent motionGestureEvent)
-    {
-        TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
-        MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
+    void processMotionInput(MotionGestureEvent motionGestureEvent) {
+        final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
         if (motionGestureInput == touchMotionGestureFactory.RELEASED) {
-            GPoint point = motionGestureEvent.getCurrentPoint();
+            final GPoint point = motionGestureEvent.getCurrentPoint();
             if (this.form.isInForm(point)) {
-                int index = this.form.getSelectedIndexForPoint(point);
+                final int index = this.form.getSelectedIndexForPoint(point);
                 if (index != -1) {
                     PrimaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
                     if (index == this.form.getSelectedIndex()) {
@@ -171,12 +186,11 @@ public class CommandFormInputProcessor : BasicMenuInputProcessor
             this.hasPressed = true;
         }
     }
+    
 
-    private readonly string NAME_LABEL = " ScrollSelectionForm: ";
-    public override string ToString()
-    {
-        return new StringMaker().append(base.ToString()).append(this.NAME_LABEL).append(this.form.ToString()).ToString();
+    @override
+    String toString() {
+        return StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.form.toString()).toString();
     }
-
 }
 

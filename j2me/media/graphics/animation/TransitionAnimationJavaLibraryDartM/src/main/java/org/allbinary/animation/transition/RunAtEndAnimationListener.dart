@@ -13,31 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.transition
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/transition/AnimationListenerInterface.dart';
 
-namespace org.allbinary.animation.transition;
+class RunAtEndAnimationListener implements AnimationListenerInterface {
+    late Runnable runnable;
 
-public class RunAtEndAnimationListener : AnimationListenerInterface
-{
-    public global::java.lang.Runnable runnable;
-    public RunAtEndAnimationListener(global::java.lang.Runnable runnable)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRunAtEndAnimationListener() {
+    
+    }
+    
+
+    RunAtEndAnimationListener(Runnable runnable) {
+        this.initFieldsRunAtEndAnimationListener();
         this.runnable = runnable;
     }
+    
 
-    public virtual void onPlatformAnimationStart()
-    {
+    @override
+    void onPlatformAnimationStart() {
     }
+    
 
-    public virtual void onPlatformAnimationEnd()
-    {
+    @override
+    void onPlatformAnimationEnd() {
     }
+    
 
-    public virtual void onPlatformAnimationRepeat()
-    {
+    @override
+    void onPlatformAnimationRepeat() {
     }
-
 }
 

@@ -13,52 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint.help
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using Input = org.allbinary.game.input.Input;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameInputMapping = org.allbinary.game.input.mapping.GameInputMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BasicColorUtil = org.allbinary.graphics.color.BasicColorUtil;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformInputMappingFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/GameInputMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/PersistentInputMapping.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/paint/help/HelpPaintable.dart';
+import 'package:allbinary/org/allbinary/game/paint/help/UpdateMyFontProperties.dart';
 
-namespace org.allbinary.game.paint.help;
+class InputMappingHelpPaintable extends HelpPaintable {
+    static const String AND = " and ";
+    static const String SEP = ", ";
+    static const String MORE_THAN_TWO_IN_LIST_AND = ", and ";
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late CommonSeps commonSeps;
+    late StringUtil stringUtil;
+    late BasicColorFactory basicColorFactory;
+    late GameKey NONE;
+    late String EMPTY_STRING;
+    late List<GameInputMapping?> gameInputMappingArray;
+    late List<BasicArrayList?> keyMappingArray;
+    late List<BasicColor?> actionBasicColor;
+    late List<List<BasicColor?>?> inputBasicColorArray;
+    late BasicColor selectedBasicColor;
+    late UpdateMyFontProperties updateMyFontProperties;
 
-public class InputMappingHelpPaintable : HelpPaintable
-{
-    private const string AND = " and ";
-    private const string SEP = ", ";
-    private const string MORE_THAN_TWO_IN_LIST_AND = ", and ";
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly CommonSeps commonSeps = CommonSeps.getInstance();
-    public readonly StringUtil stringUtil = StringUtil.getInstance();
-    private readonly BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    private readonly string EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-    private GameInputMapping[] gameInputMappingArray;
-    private BasicArrayList[] keyMappingArray = new BasicArrayList[0];
-    private BasicColor[] actionBasicColor = BasicColorUtil.getInstance().ZERO_ARRAY;
-    private BasicColor[][] inputBasicColorArray = System.Linq.Enumerable.Range(0, 0).Select(_ => new BasicColor[0]).ToArray();
-    private BasicColor selectedBasicColor = null;
-    private UpdateMyFontProperties updateMyFontProperties = new UpdateMyFontProperties();
-    public InputMappingHelpPaintable(GameInputMapping[] gameInputMappingArray, BasicColor backgroundBasicColor, BasicColor basicColor) : base("Input Mapping", backgroundBasicColor, basicColor)
-    {
-        // base("Input Mapping", backgroundBasicColor, basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsInputMappingHelpPaintable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.commonSeps = CommonSeps.getInstance();
+    this.stringUtil = StringUtil.getInstance();
+    this.basicColorFactory = BasicColorFactory.getInstance();
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    this.EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    
+    this.keyMappingArray = List<BasicArrayList?>.filled(0, null);
+    this.actionBasicColor = BasicColorUtil.getInstance().ZERO_ARRAY;
+    this.inputBasicColorArray = List<List<BasicColor?>>.generate(0, (_) => List<BasicColor?>.filled(0, null));
+    
+    this.updateMyFontProperties = UpdateMyFontProperties();
+    }
+    
+
+    InputMappingHelpPaintable(List<GameInputMapping?> gameInputMappingArray, BasicColor backgroundBasicColor, BasicColor basicColor) : super("Input Mapping", backgroundBasicColor, basicColor) {
+        this.initFieldsInputMappingHelpPaintable();
+        
         this.gameInputMappingArray = gameInputMappingArray;
         this.update(this.NONE, this.NONE);
         if (backgroundBasicColor == this.basicColorFactory.WHITE || basicColor == this.basicColorFactory.WHITE) {
@@ -67,94 +85,95 @@ public class InputMappingHelpPaintable : HelpPaintable
             this.selectedBasicColor = this.basicColorFactory.WHITE;
         }
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
-        UpdateMyFontProperties updateMyFontProperties = new UpdateMyFontProperties();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
+        final UpdateMyFontProperties updateMyFontProperties = UpdateMyFontProperties();
         updateMyFontProperties.charHeight = font.getHeight();
-        StringMaker stringMaker = new StringMaker();
-        string[] inputInfo = this.inputInfo;
-        int size = inputInfo.Length;
-        updateMyFontProperties.actionStringArray = new string[size];
-        updateMyFontProperties.keymappingBeginWidthArray = new int[size];
-        updateMyFontProperties.actionStringDeltaXArray = new int[size];
-        updateMyFontProperties.inputDeltaXArray = System.Linq.Enumerable.Range(0, size).Select(_ => new int[0]).ToArray();
-        updateMyFontProperties.sepArray = System.Linq.Enumerable.Range(0, size).Select(_ => new string[0]).ToArray();
-        updateMyFontProperties.sepWidthArray = System.Linq.Enumerable.Range(0, size).Select(_ => new int[0]).ToArray();
-        BasicArrayList list = null;
-        string keyMappings = null;
-        string actionString = null;
-        Input input = null;
+        final StringMaker stringMaker = StringMaker();
+        final List<String?> inputInfo = this.inputInfo;
+        final int size = inputInfo.length;
+        updateMyFontProperties.actionStringArray = List<String?>.filled(size, null);
+        updateMyFontProperties.keymappingBeginWidthArray = List<int>.filled(size, 0);
+        updateMyFontProperties.actionStringDeltaXArray = List<int>.filled(size, 0);
+        updateMyFontProperties.inputDeltaXArray = List<List<int>>.generate(size, (_) => List<int>.filled(0, 0));
+        updateMyFontProperties.sepArray = List<List<String?>>.generate(size, (_) => List<String?>.filled(0, null));
+        updateMyFontProperties.sepWidthArray = List<List<int>>.generate(size, (_) => List<int>.filled(0, 0));
+        late BasicArrayList list;
+        late String keyMappings;
+        late String actionString;
+        late Input input;
         int size2 = 0;
         for (int index = 0; index < size; index++) {
-            list = this.keyMappingArray[index];
+            list = this.keyMappingArray[index]!;
             keyMappings = this.get(list);
             stringMaker.delete(0, stringMaker.length());
-            actionString = stringMaker.append(inputInfo[index]).append(commonSeps.COLON).append(commonSeps.SPACE).append(commonSeps.SPACE).ToString();
+            actionString = stringMaker.append(inputInfo[index]!).append(this.commonSeps.COLON).append(this.commonSeps.SPACE).append(this.commonSeps.SPACE).toString();
             updateMyFontProperties.actionStringArray[index] = actionString;
             stringMaker.delete(0, stringMaker.length());
-            updateMyFontProperties.keymappingBeginWidthArray[index] = (font.stringWidth(stringMaker.append(updateMyFontProperties.actionStringArray[index]).append(keyMappings).ToString()) >> 1);
+            updateMyFontProperties.keymappingBeginWidthArray[index] = (font.stringWidth(stringMaker.append(updateMyFontProperties.actionStringArray[index]!).append(keyMappings).toString()) >> 1);
             updateMyFontProperties.actionStringDeltaXArray[index] = font.stringWidth(actionString);
             size2 = list.size();
-            updateMyFontProperties.inputDeltaXArray[index] = new int[size2];
-            updateMyFontProperties.sepArray[index] = new string[size2];
-            updateMyFontProperties.sepWidthArray[index] = new int[size2];
+            updateMyFontProperties.inputDeltaXArray[index] = List<int>.filled(size2, 0);
+            updateMyFontProperties.sepArray[index] = List<String?>.filled(size2, null);
+            updateMyFontProperties.sepWidthArray[index] = List<int>.filled(size2, 0);
             for (int index2 = 0; index2 < size2; index2++) {
-                input = ((Input) list.objectArray[index2]);
-                updateMyFontProperties.inputDeltaXArray[index][index2] = font.stringWidth(input.getName());
-                updateMyFontProperties.sepArray[index][index2] = EMPTY_STRING;
+                input = (list.objectArray[index2]! as Input);
+                updateMyFontProperties.inputDeltaXArray[index]![index2] = font.stringWidth(input.getName());
+                updateMyFontProperties.sepArray[index]![index2] = this.EMPTY_STRING;
                 if (index2 + 1 < list.size()) {
                     if (list.size() == 2) {
-                        updateMyFontProperties.sepArray[index][index2] = InputMappingHelpPaintable.AND;
+                        updateMyFontProperties.sepArray[index]![index2] = InputMappingHelpPaintable.AND;
                     } else {
                         if (index2 + 2 == list.size()) {
-                            updateMyFontProperties.sepArray[index][index2] = InputMappingHelpPaintable.MORE_THAN_TWO_IN_LIST_AND;
+                            updateMyFontProperties.sepArray[index]![index2] = InputMappingHelpPaintable.MORE_THAN_TWO_IN_LIST_AND;
                         } else {
-                            updateMyFontProperties.sepArray[index][index2] = InputMappingHelpPaintable.SEP;
+                            updateMyFontProperties.sepArray[index]![index2] = InputMappingHelpPaintable.SEP;
                         }
                     }
                 }
-                if (updateMyFontProperties.sepArray[index][index2] != EMPTY_STRING) {
-                    updateMyFontProperties.sepWidthArray[index][index2] = font.stringWidth(updateMyFontProperties.sepArray[index][index2]);
+                if (updateMyFontProperties.sepArray[index]![index2]! != this.EMPTY_STRING) {
+                    updateMyFontProperties.sepWidthArray[index]![index2] = font.stringWidth(updateMyFontProperties.sepArray[index]![index2]!);
                 }
             }
         }
         this.updateMyFontProperties = updateMyFontProperties;
-        base.updateMeasurement(graphics);
+        super.updateMeasurement(graphics);
     }
+    
 
-    public virtual void update(GameKey selectedGameKey, Input selectedInput)
-    {
-        StringMaker stringMaker = new StringMaker();
-        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString(selectedInput)).ToString(), this, this.commonStrings.UPDATE);
-        PersistentInputMapping gameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
-        int size = this.gameInputMappingArray.Length;
-        string[] keyInfo = new string[size];
-        BasicArrayList[] keyMappingArray = new BasicArrayList[size];
-        BasicColor[] actionBasicColor = new BasicColor[size];
-        BasicColor[][] inputBasicColorArray = new BasicColor[size][];
-        GameInputMapping gameInputMapping = null;
-        GameKey gameKey = null;
-        BasicArrayList list = null;
+    void update(GameKey selectedGameKey, Input selectedInput) {
+        final StringMaker stringMaker = StringMaker();
+        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString1(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString1(selectedInput)).toString(), this, this.commonStrings.UPDATE);
+        final PersistentInputMapping gameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
+        final int size = this.gameInputMappingArray.length;
+        final List<String?> keyInfo = List<String?>.filled(size, null);
+        final List<BasicArrayList?> keyMappingArray = List<BasicArrayList?>.filled(size, null);
+        final List<BasicColor?> actionBasicColor = List<BasicColor?>.filled(size, null);
+        final List<List<BasicColor?>?> inputBasicColorArray = List<List<BasicColor?>?>.filled(size, null);
+        late GameInputMapping gameInputMapping;
+        late GameKey gameKey;
+        late BasicArrayList list;
         for (int index = 0; index < size; index++) {
-            gameInputMapping = this.gameInputMappingArray[index];
+            gameInputMapping = this.gameInputMappingArray[index]!;
             gameKey = gameInputMapping.getGameKey();
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             int size2 = list.size();
-            inputBasicColorArray[index] = new BasicColor[size2];
+            inputBasicColorArray[index] = List<BasicColor?>.filled(size2, null);
             for (int index2 = 0; index2 < size2; index2++) {
-                inputBasicColorArray[index][index2] = this.basicColor;
+                inputBasicColorArray[index]![index2] = this.basicColor;
             }
-            if (gameKey == selectedGameKey) {
+            if (identical(gameKey, selectedGameKey)) {
                 stringMaker.delete(0, stringMaker.length());
-                this.logUtil.putF(stringMaker.append("Found: selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).ToString(), this, this.commonStrings.UPDATE);
+                this.logUtil.putF(stringMaker.append("Found: selected GameKey: ").append(this.stringUtil.toString1(selectedGameKey)).toString(), this, this.commonStrings.UPDATE);
                 actionBasicColor[index] = this.selectedBasicColor;
                 int indexOfSelectedInput = list.indexOf(selectedInput);
                 if (indexOfSelectedInput >= 0) {
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput)).ToString(), this, this.commonStrings.UPDATE);
-                    inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor;
+                    this.logUtil.putF(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString1(selectedInput)).toString(), this, this.commonStrings.UPDATE);
+                    inputBasicColorArray[index]![indexOfSelectedInput] = this.selectedBasicColor;
                 }
             } else {
                 actionBasicColor[index] = this.basicColor;
@@ -165,17 +184,17 @@ public class InputMappingHelpPaintable : HelpPaintable
         this.keyMappingArray = keyMappingArray;
         this.actionBasicColor = actionBasicColor;
         this.inputBasicColorArray = inputBasicColorArray;
-        base.setInputInfoP(keyInfo);
+        super.setInputInfoP(keyInfo);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    private string get(BasicArrayList keyList)
-    {
-        StringMaker stringBuffer = new StringMaker();
-        Input key = null;
-        int size = keyList.size();
+    String get(BasicArrayList keyList) {
+        final StringMaker stringBuffer = StringMaker();
+        late Input key;
+        final int size = keyList.size();
         for (int index = 0; index < size; index++) {
-            key = ((Input) keyList.objectArray[index]);
+            key = (keyList.objectArray[index]! as Input);
             stringBuffer.append(key.getName());
             if (index + 1 < keyList.size()) {
                 if (keyList.size() == 2) {
@@ -189,47 +208,47 @@ public class InputMappingHelpPaintable : HelpPaintable
                 }
             }
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int halfWidth = this.displayInfo.getLastHalfWidth();
+        final int halfWidth = this.displayInfo.getLastHalfWidth();
         graphics.setColor(this.basicColor.intValue());
         graphics.drawString(this.title, halfWidth - this.titleBeginWidth, this.updateMyFontProperties.charHeight, this.anchor);
-        string[] inputInfo = this.inputInfo;
-        int size = inputInfo.Length;
+        final List<String?> inputInfo = this.inputInfo;
+        final int size = inputInfo.length;
         int y = 0;
         int deltaX = 0;
         int size2 = 0;
-        string actionString = null;
-        Input input = null;
-        BasicArrayList list = null;
-        string sep = null;
+        late String actionString;
+        late Input input;
+        late BasicArrayList list;
+        late String sep;
         int beginWidth = 0;
         for (int index = 0; index < size; index++) {
             y = (index + 3) * this.updateMyFontProperties.charHeight;
             deltaX = 0;
-            list = this.keyMappingArray[index];
+            list = this.keyMappingArray[index]!;
             size2 = list.size();
             beginWidth = this.updateMyFontProperties.keymappingBeginWidthArray[index];
-            graphics.setColor(global::java.lang.JavaNumber.intValue(this.actionBasicColor[index]));
-            actionString = this.updateMyFontProperties.actionStringArray[index];
+            graphics.setColor(this.actionBasicColor[index]!.intValue());
+            actionString = this.updateMyFontProperties.actionStringArray[index]!;
             graphics.drawString(actionString, halfWidth - beginWidth + deltaX, y, this.anchor);
             deltaX += this.updateMyFontProperties.actionStringDeltaXArray[index];
             for (int index2 = 0; index2 < size2; index2++) {
-                input = ((Input) list.objectArray[index2]);
-                graphics.setColor(global::java.lang.JavaNumber.intValue(this.inputBasicColorArray[index][index2]));
+                input = (list.objectArray[index2]! as Input);
+                graphics.setColor(this.inputBasicColorArray[index]![index2]!.intValue());
                 graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, this.anchor);
-                deltaX += this.updateMyFontProperties.inputDeltaXArray[index][index2];
-                sep = this.updateMyFontProperties.sepArray[index][index2];
+                deltaX += this.updateMyFontProperties.inputDeltaXArray[index]![index2];
+                sep = this.updateMyFontProperties.sepArray[index]![index2]!;
                 graphics.setColor(this.basicColor.intValue());
                 graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, this.anchor);
-                deltaX += this.updateMyFontProperties.sepWidthArray[index][index2];
+                deltaX += this.updateMyFontProperties.sepWidthArray[index]![index2];
             }
         }
     }
-
 }
 

@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+abstract interface class MenuListener implements GameKeyEventSourceInterface {
+    
 
-public interface MenuListener : GameKeyEventSourceInterface
-{
     void open();
+    
 
-    // throws Exception
     void close();
-
 }
 

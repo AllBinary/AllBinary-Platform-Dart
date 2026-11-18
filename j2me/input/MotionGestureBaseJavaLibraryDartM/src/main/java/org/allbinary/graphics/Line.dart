@@ -13,68 +13,77 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
 
-namespace org.allbinary.graphics;
+class Line {
+    late GPoint p1;
+    late GPoint p2;
+    double deltaX = 0.0;
+    double deltaY = 0.0;
 
-public class Line
-{
-    private GPoint p1;
-    private GPoint p2;
-    private double deltaX = 0.0;
-    private double deltaY = 0.0;
-    public Line(GPoint p1, GPoint p2)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLine() {
+    
+    
+    this.deltaX = 0.0;
+    this.deltaY = 0.0;
+    }
+    
+
+    Line(GPoint p1, GPoint p2) {
+        this.initFieldsLine();
         this.p1 = PointFactory.getInstance().ZERO_ZERO;
         this.p2 = this.p1;
         this.setP1(p1);
         this.setP2(p2);
     }
+    
 
-    public virtual double getGradient()
-    {
+    double getGradient() {
         return this.getDeltaY() / this.getDeltaX();
     }
+    
 
-    private void update()
-    {
-        this.deltaX = ((double) this.getP1().getX()) - this.getP2().getX();
-        this.deltaY = ((double) this.getP1().getY()) - this.getP2().getY();
+    void update() {
+        this.deltaX = (this.getP1().getX()).toDouble() - (this.getP2().getX()).toDouble();
+        this.deltaY = (this.getP1().getY()).toDouble() - (this.getP2().getY()).toDouble();
     }
+    
 
-    public virtual double getDeltaX()
-    {
+    double getDeltaX() {
         return this.deltaX;
     }
+    
 
-    public virtual double getDeltaY()
-    {
+    double getDeltaY() {
         return this.deltaY;
     }
+    
 
-    public virtual GPoint getP1()
-    {
+    GPoint getP1() {
         return this.p1;
     }
+    
 
-    public virtual GPoint getP2()
-    {
+    GPoint getP2() {
         return this.p2;
     }
+    
 
-    public virtual void setP1(GPoint p1)
-    {
+    void setP1(GPoint p1) {
         this.p1 = p1;
         this.update();
     }
+    
 
-    public virtual void setP2(GPoint p2)
-    {
+    void setP2(GPoint p2) {
         this.p2 = p2;
         this.update();
     }
-
 }
 

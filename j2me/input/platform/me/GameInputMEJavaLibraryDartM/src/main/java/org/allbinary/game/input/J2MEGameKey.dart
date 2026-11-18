@@ -13,33 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
 
-namespace org.allbinary.game.input;
+class J2MEGameKey extends Input {
+    
 
-public class J2MEGameKey : Input
-{
-    public J2MEGameKey(int key, string keyName) : base(key, keyName)
-    {
-        // base(key, keyName) is called from the constructor declaration
+    J2MEGameKey(int key, String keyName) : super(key, keyName) {
+        
         int id = this.getId();
         if (id >= 0) {
-            InputFactory inputFactory = InputFactory.getInstance();
+            final InputFactory inputFactory = InputFactory.getInstance();
             inputFactory.add(id, this);
         }
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append("J2MEGameKey: ").append(base.ToString()).ToString();
+    @override
+    String toString() {
+        return StringMaker().append("J2MEGameKey: ").append(super.toString()).toString();
     }
+    
 
-    public static string getString(int keyCode)
-    {
+    static String getString(int keyCode) {
         Input input = InputFactory.getInstance().getInstanceById(keyCode);
         if (input != null) {
             return input.getName();
@@ -47,6 +49,5 @@ public class J2MEGameKey : Input
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
-
 }
 

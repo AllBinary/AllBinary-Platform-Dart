@@ -13,155 +13,166 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.resource
 
-using System;
-using System.Linq;
-using BasicAnimationInterfaceFactoryInterface = org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevelFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/RectangleFactory.dart';
+import 'package:allbinary/org/allbinary/image/ImageCache.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/animation/resource/FeatureResourceAnimationInterfaceFactoryInterface.dart';
 
-namespace org.allbinary.animation.resource;
+class BaseResourceAnimationInterfaceFactoryInterfaceFactory implements FeatureResourceAnimationInterfaceFactoryInterface {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late ABHashtable hashtable;
+    late ABHashtable rectangleHashtable;
+    late ABHashtable rectangleArrayOfArraysHashtable;
+    late String name;
+    bool initialized = false;
 
-public class BaseResourceAnimationInterfaceFactoryInterfaceFactory : FeatureResourceAnimationInterfaceFactoryInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly ABHashtable<object, object> hashtable;
-    private readonly ABHashtable<object, object> rectangleHashtable;
-    private readonly ABHashtable<object, object> rectangleArrayOfArraysHashtable;
-    private readonly string name;
-    private bool initialized = false;
-    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(string name, ABHashtable<object, object> hashtable, ABHashtable<object, object> rectangleHashtable, ABHashtable<object, object> rectangleArrayHashtable)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBaseResourceAnimationInterfaceFactoryInterfaceFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    
+    this.initialized = false;
+    }
+    
+
+    BaseResourceAnimationInterfaceFactoryInterfaceFactory(String name, ABHashtable hashtable, ABHashtable rectangleHashtable, ABHashtable rectangleArrayHashtable) {
+        this.initFieldsBaseResourceAnimationInterfaceFactoryInterfaceFactory();
         this.hashtable = hashtable;
         this.rectangleHashtable = rectangleHashtable;
         this.rectangleArrayOfArraysHashtable = rectangleArrayHashtable;
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    // throws Exception
-    public virtual void init(int level)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(new StringMaker().append("Available List of Animations: ").append(this.hashtable.ToString()).ToString(), this, commonStrings.INIT);
+    @override
+    void init(int level) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(StringMaker().append("Available List of Animations: ").append(this.hashtable.toString()).toString(), this, commonStrings.INIT);
         this.setInitialized(true);
     }
+    
 
-    // throws Exception
-    public virtual void initImageCache(ImageCache imageCache, int level)
-    {
+    void initImageCache(ImageCache imageCache, int level) {
     }
+    
 
-    // throws Exception
-    public virtual void add(string resource, BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
-    {
-        if (this.hashtable.containsKey(((object) resource))) {
-            throw new Exception(new StringMaker().append("Resource Already Created: ").append(resource).ToString());
+    void add(String resource, BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface) {
+        if (this.hashtable.containsKey((resource as Object))) {
+            throw JException('Exception', StringMaker().append("Resource Already Created: ").append(resource).toString());
         }
         this.hashtable.put(resource, animationInterfaceFactoryInterface);
     }
+    
 
-    // throws Exception
-    public virtual BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(string resource)
-    {
-        object basicAnimationInterfaceFactoryInterfaceCanBeNull = this.hashtable.get(resource);
+    @override
+    BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(String resource) {
+        final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = this.hashtable.get(resource);
         if (basicAnimationInterfaceFactoryInterfaceCanBeNull == null) {
             return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
         }
-        return ((BasicAnimationInterfaceFactoryInterface) basicAnimationInterfaceFactoryInterfaceCanBeNull);
+        return (basicAnimationInterfaceFactoryInterfaceCanBeNull as BasicAnimationInterfaceFactoryInterface);
     }
+    
 
-    // throws Exception
-    public virtual Rectangle getRectangle(string resource)
-    {
-        object rectangleCanBeNull = this.rectangleHashtable.get(resource);
+    @override
+    Rectangle getRectangle(String resource) {
+        final Object rectangleCanBeNull = this.rectangleHashtable.get(resource);
         if (rectangleCanBeNull == null) {
             return RectangleFactory.SINGLETON;
         }
-        return ((Rectangle) rectangleCanBeNull);
+        return (rectangleCanBeNull as Rectangle);
     }
+    
 
-    // throws Exception
-    public virtual void addRectangle(string resource, Rectangle rectangle)
-    {
+    void addRectangle(String resource, Rectangle rectangle) {
         this.rectangleHashtable.put(resource, rectangle);
     }
+    
 
-    // throws Exception
-    public virtual Rectangle[][] getRectangleArrayOfArrays(string resource)
-    {
-        object valueCanBeNull = this.rectangleArrayOfArraysHashtable.get(resource);
+    @override
+    List<List<Rectangle?>?> getRectangleArrayOfArrays(String resource) {
+        Object valueCanBeNull = this.rectangleArrayOfArraysHashtable.get(resource);
         if (valueCanBeNull != null) {
-            Rectangle[][] rectangleArrayOfArrays = ((Rectangle[][]) valueCanBeNull);
+            final List<List<Rectangle?>?> rectangleArrayOfArrays = (valueCanBeNull as List<List<Rectangle?>?>);
             return rectangleArrayOfArrays;
         } else {
             return RectangleFactory.ARRAY_OF_ARRAYS;
         }
     }
+    
 
-    // throws Exception
-    public virtual void addRectangleArrayOfArrays(string resource, Rectangle[][] rectangleArrayOfArrays)
-    {
+    void addRectangleArrayOfArrays(String resource, List<List<Rectangle?>?> rectangleArrayOfArrays) {
         this.rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
     }
+    
 
-    public virtual bool isFeature()
-    {
+    @override
+    bool isFeature() {
         return false;
     }
+    
 
-    public virtual bool isLoadingLevel(int level)
-    {
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
+    @override
+    bool isLoadingLevel(int level) {
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (level == resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append(this.GetType().FullName).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name).ToString();
+    @override
+    String toString() {
+        return StringMaker().append(jClassName(this)).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name).toString();
     }
+    
 
-    public virtual ABHashtable<object, object> getHashtable()
-    {
+    @override
+    ABHashtable getHashtable() {
         return this.hashtable;
     }
+    
 
-    public virtual ABHashtable<object, object> getRectangleHashtable()
-    {
+    ABHashtable getRectangleHashtable() {
         return this.rectangleHashtable;
     }
+    
 
-    public virtual ABHashtable<object, object> getRectangleArrayOfArraysHashtable()
-    {
+    ABHashtable getRectangleArrayOfArraysHashtable() {
         return this.rectangleArrayOfArraysHashtable;
     }
+    
 
-    public virtual void setInitialized(bool initialized)
-    {
+    void setInitialized(bool initialized) {
         this.initialized = initialized;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    bool isInitialized() {
         return this.initialized;
     }
-
 }
 

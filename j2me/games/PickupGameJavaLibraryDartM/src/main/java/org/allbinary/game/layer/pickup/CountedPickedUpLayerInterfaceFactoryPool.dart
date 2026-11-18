@@ -13,37 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class CountedPickedUpLayerInterfaceFactoryPool {
+    static CountedPickedUpLayerInterfaceFactoryPool SINGLETON = CountedPickedUpLayerInterfaceFactoryPool();
+    late BasicArrayList list;
 
-public class CountedPickedUpLayerInterfaceFactoryPool
-{
-    private static CountedPickedUpLayerInterfaceFactoryPool SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
-    private BasicArrayList list;
-    private CountedPickedUpLayerInterfaceFactoryPool()
-    {
-        this.list = new BasicArrayListD();
+    // Java field initializers run after the base constructor
+    void initFieldsCountedPickedUpLayerInterfaceFactoryPool() {
+    
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    CountedPickedUpLayerInterfaceFactoryPool() {
+        this.initFieldsCountedPickedUpLayerInterfaceFactoryPool();
+        this.list = BasicArrayListD();
+    }
+    
+
+    BasicArrayList getList() {
         return this.list;
     }
+    
 
-    public static CountedPickedUpLayerInterfaceFactoryPool getInstance()
-    {
+    static CountedPickedUpLayerInterfaceFactoryPool getInstance() {
         return CountedPickedUpLayerInterfaceFactoryPool.SINGLETON;
     }
+    
 
-    public static void init()
-    {
-        CountedPickedUpLayerInterfaceFactoryPool.SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
+    static void init() {
+        CountedPickedUpLayerInterfaceFactoryPool.SINGLETON = CountedPickedUpLayerInterfaceFactoryPool();
     }
-
 }
 

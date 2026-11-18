@@ -13,49 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.draw
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.graphics.draw;
+class KeyValueDrawString implements UpdateMyFontInterface {
+    late MyFontProcessor myFontProcessor;
+    late String LABEL;
+    int labelX = 0;
+    int valueX = 0;
+    late String value;
 
-public class KeyValueDrawString : UpdateMyFontInterface
-{
-    private MyFontProcessor myFontProcessor;
-    private readonly string LABEL;
-    private readonly int labelX;
-    private int valueX = 0;
-    private string value = StringUtil.getInstance().EMPTY_STRING;
-    public KeyValueDrawString(string label, int x)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    // Java field initializers run after the base constructor
+    void initFieldsKeyValueDrawString() {
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    
+    
+    this.valueX = 0;
+    this.value = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    KeyValueDrawString(String label, int x) {
+        this.initFieldsKeyValueDrawString();
         this.LABEL = label;
         this.labelX = x;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        int labelWidth = graphics.getFont().stringWidth(this.LABEL) - this.LABEL.Length;
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final int labelWidth = graphics.getFont().stringWidth(this.LABEL) - this.LABEL.length;
         this.valueX = labelWidth + this.labelX;
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public virtual void paint(Graphics graphics, int y)
-    {
+    void paint(Graphics graphics, int y) {
         this.myFontProcessor.process(graphics);
         graphics.drawString(this.LABEL, this.labelX, y, 0);
         graphics.drawString(this.value, this.valueX, y, 0);
     }
+    
 
-    public virtual void update(string value)
-    {
+    void update(String value) {
         this.value = value;
     }
-
 }
 

@@ -13,46 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.notification
 
-using System;
-using System.Linq;
-using GameNotificationEvent = org.allbinary.game.layer.hud.@event.GameNotificationEvent;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.notification;
+class GameNotification {
+    static final GameNotificationEvent NULL_GAME_NOTIFICATION_EVENT = GameNotificationEvent(NullUtil.getInstance().NULL_OBJECT, StringUtil.getInstance().EMPTY_STRING, 0, BasicColorFactory.getInstance().RED, BooleanFactory.getInstance().FALSE);
+    late BasicArrayList stringList;
+    late BasicArrayList timeList;
+    late BasicArrayList colorList;
 
-public class GameNotification
-{
-    public static readonly GameNotificationEvent NULL_GAME_NOTIFICATION_EVENT = new GameNotificationEvent(NullUtil.getInstance().NULL_OBJECT, StringUtil.getInstance().EMPTY_STRING, 0, BasicColorFactory.getInstance().RED, BooleanFactory.getInstance().FALSE);
-    public readonly BasicArrayList stringList = new BasicArrayListD();
-    public readonly BasicArrayList timeList = new BasicArrayListD();
-    public readonly BasicArrayList colorList = new BasicArrayListD();
-    public virtual void add(string @string, int? seconds, BasicColor basicColor)
-    {
-        if (!this.stringList.contains(@string)) {
-            this.stringList.add(@string);
+    // Java field initializers run after the base constructor
+    void initFieldsGameNotification() {
+    this.stringList = BasicArrayListD();
+    this.timeList = BasicArrayListD();
+    this.colorList = BasicArrayListD();
+    }
+
+    GameNotification() {
+        this.initFieldsGameNotification();
+    }
+    
+
+    void add(String string, int seconds, BasicColor basicColor) {
+        if (!this.stringList.contains(string)) {
+            this.stringList.add(string);
             this.timeList.add(seconds);
             this.colorList.add(basicColor);
         }
     }
+    
 
-    public virtual void clear()
-    {
+    void clear() {
         this.stringList.clear();
         this.timeList.clear();
         this.colorList.clear();
     }
+    
 
-    public virtual int getSize()
-    {
+    int getSize() {
         return this.stringList.size();
     }
-
 }
 

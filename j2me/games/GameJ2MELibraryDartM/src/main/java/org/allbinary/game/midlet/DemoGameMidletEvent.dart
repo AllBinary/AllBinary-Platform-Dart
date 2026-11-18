@@ -13,36 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletState.dart';
 
-namespace org.allbinary.game.midlet;
+class DemoGameMidletEvent extends AllBinaryEventObject {
+    late DemoGameMidletState demoGameMidletState;
 
-public class DemoGameMidletEvent : AllBinaryEventObject
-{
-    private DemoGameMidletState demoGameMidletState;
-    public DemoGameMidletEvent(object anyType, DemoGameMidletState demoGameMidletState) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsDemoGameMidletEvent() {
+    
+    }
+    
+
+    DemoGameMidletEvent(Object anyType, DemoGameMidletState demoGameMidletState) : super(anyType) {
+        this.initFieldsDemoGameMidletEvent();
+        
         this.demoGameMidletState = demoGameMidletState;
     }
+    
 
-    public virtual void init(object anyType)
-    {
+    void init(Object anyType) {
         this.setSource(anyType);
     }
+    
 
-    public virtual void setDemoGameMidletState(DemoGameMidletState demoGameMidletState)
-    {
+    void setDemoGameMidletState(DemoGameMidletState demoGameMidletState) {
         this.demoGameMidletState = demoGameMidletState;
     }
+    
 
-    public virtual DemoGameMidletState getDemoGameMidletState()
-    {
+    DemoGameMidletState getDemoGameMidletState() {
         return this.demoGameMidletState;
     }
-
 }
 

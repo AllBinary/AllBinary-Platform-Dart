@@ -13,58 +13,74 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBaseInterface.dart';
+import 'package:allbinary/org/allbinary/game/score/LastFetchHighScoresFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
+import 'package:allbinary/org/allbinary/game/score/NullHighScoresSingletonFactory.dart';
 
-namespace org.allbinary.game.score;
+class HighScoresHelperBase implements HighScoresHelperBaseInterface {
+    late LogUtil logUtil;
+    late List<HighScores?> highScoresArrayP;
 
-public class HighScoresHelperBase : HighScoresHelperBaseInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public HighScores[] highScoresArrayP = LastFetchHighScoresFactory.getInstance().highScoresArray;
-    public virtual void setHighScoresArray(HighScores[] highScoresArrayP)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresHelperBase() {
+    this.logUtil = LogUtil.getInstance();
+    this.highScoresArrayP = LastFetchHighScoresFactory.getInstance().highScoresArray;
+    }
+
+    HighScoresHelperBase() {
+        this.initFieldsHighScoresHelperBase();
+    }
+    
+
+    @override
+    void setHighScoresArray(List<HighScores?> highScoresArrayP) {
         if (highScoresArrayP != null) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(highScoresArrayP.Length).ToString(), this, "setHighScoresArray");
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.putF(StringMaker().append(commonStrings.START).appendint(highScoresArrayP.length).toString(), this, "setHighScoresArray");
         } else {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.putF(commonStrings.START, this, "setHighScoresArray");
         }
         this.highScoresArrayP = highScoresArrayP;
     }
+    
 
-    public virtual HighScores getNextHighScores()
-    {
+    HighScores getNextHighScores() {
         return NullHighScoresSingletonFactory.getInstance();
     }
+    
 
-    public virtual bool isAnyHighScores()
-    {
-        throw new SystemException();
+    bool isAnyHighScores() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void setSelectedHighScores(HighScores selectedHighScores)
-    {
+    @override
+    void setSelectedHighScores(HighScores selectedHighScores) {
     }
+    
 
-    public virtual HighScores getSelectedHighScores()
-    {
+    @override
+    HighScores getSelectedHighScores() {
         return NullHighScoresSingletonFactory.getInstance();
     }
+    
 
-    public virtual HighScores[] getHighScoresArray()
-    {
+    @override
+    List<HighScores?> getHighScoresArray() {
         return this.highScoresArrayP;
     }
+    
 
-    public virtual void selectHighScores()
-    {
+    void selectHighScores() {
     }
-
 }
 

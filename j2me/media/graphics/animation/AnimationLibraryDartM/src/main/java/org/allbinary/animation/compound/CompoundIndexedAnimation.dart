@@ -13,122 +13,140 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/animation/compound/CompoundAnimationInterface.dart';
 
-namespace org.allbinary.animation.compound;
+class CompoundIndexedAnimation extends IndexedAnimation implements CompoundAnimationInterface {
+    late CircularIndexUtil circularIndexUtil;
+    late List<Animation?> animationInterfaceArray;
 
-public class CompoundIndexedAnimation : IndexedAnimation, CompoundAnimationInterface
-{
-    private CircularIndexUtil circularIndexUtil;
-    private Animation[] animationInterfaceArray;
-    public CompoundIndexedAnimation(Animation[] animationInterfaceArray, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
-        this.animationInterfaceArray = animationInterfaceArray;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.Length);
+    // Java field initializers run after the base constructor
+    void initFieldsCompoundIndexedAnimation() {
+    
+    
     }
+    
 
-    public override void setFrame(int index)
-    {
-        IndexedAnimation indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()]);
+    CompoundIndexedAnimation(List<Animation?> animationInterfaceArray, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsCompoundIndexedAnimation();
+        
+        this.animationInterfaceArray = animationInterfaceArray;
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
+    }
+    
+
+    @override
+    void setFrame(int index) {
+        final IndexedAnimation indexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()]! as IndexedAnimation);
         indexedAnimation.setFrame(index);
     }
+    
 
-    public override int getFrame()
-    {
-        IndexedAnimation indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()]);
+    @override
+    int getFrame() {
+        final IndexedAnimation indexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()]! as IndexedAnimation);
         return indexedAnimation.getFrame();
     }
+    
 
-    public override int getSize()
-    {
-        IndexedAnimation indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()]);
+    @override
+    int getSize() {
+        final IndexedAnimation indexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()]! as IndexedAnimation);
         return indexedAnimation.getSize();
     }
+    
 
-    public override void previousFrame()
-    {
-        IndexedAnimation indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()]);
+    @override
+    void previousFrame() {
+        final IndexedAnimation indexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()]! as IndexedAnimation);
         indexedAnimation.previousFrame();
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextFrame();
+    @override
+    void nextFrame() {
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()]!.nextFrame();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintXY(graphics, x, y);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()]!.paintXY(graphics, x, y);
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreedXYZ(graphics, x, y, z);
+    @override
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z) {
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()]!.paintThreedXYZ(graphics, x, y, z);
     }
+    
 
-    public virtual IndexedAnimation getCurrentAnimation()
-    {
-        return ((IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()]);
+    @override
+    IndexedAnimation getCurrentAnimation() {
+        return (this.animationInterfaceArray[this.circularIndexUtil.getIndex()]! as IndexedAnimation);
     }
+    
 
-    public virtual void nextAnimation()
-    {
+    @override
+    void nextAnimation() {
         int frame = this.getFrame();
         this.circularIndexUtil.next();
         this.setFrame(frame);
     }
+    
 
-    public virtual void previousAnimation()
-    {
+    @override
+    void previousAnimation() {
         int frame = this.getFrame();
         this.circularIndexUtil.previous();
         this.setFrame(frame);
     }
+    
 
-    public virtual void setAnimation(int index)
-    {
+    @override
+    void setAnimation(int index) {
         int frame = this.getFrame();
         this.circularIndexUtil.setIndex(index);
         this.setFrame(frame);
     }
+    
 
-    public virtual Animation[] getAnimationInterfaceArray()
-    {
+    List<Animation?> getAnimationInterfaceArray() {
         return this.animationInterfaceArray;
     }
+    
 
-    public virtual void setAnimationInterfaceArray(Animation[] animationInterfaceArray)
-    {
+    void setAnimationInterfaceArray(List<Animation?> animationInterfaceArray) {
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
 
-    // throws Exception
-    public override void set(GL gl)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].set(gl);
+    @override
+    void set(GL gl) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.set(gl);
         }
     }
-
 }
 

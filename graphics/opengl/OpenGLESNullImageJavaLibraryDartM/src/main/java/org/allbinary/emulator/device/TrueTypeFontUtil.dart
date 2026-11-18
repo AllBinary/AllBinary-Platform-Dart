@@ -13,58 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.emulator.device
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using Image = javax.microedition.lcdui.Image;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using OpenGLESImage = org.allbinary.image.opengles.OpenGLESImage;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImage.dart';
+import 'package:allbinary/org/allbinary/emulator/device/TrueTypeFontUtilBase.dart';
 
-namespace org.allbinary.emulator.device;
+class TrueTypeFontUtil extends TrueTypeFontUtilBase {
+    static final TrueTypeFontUtil instance = TrueTypeFontUtil();
+    late OpenGLESImage fontImage;
 
-public class TrueTypeFontUtil : TrueTypeFontUtilBase
-{
-    private static readonly TrueTypeFontUtil instance = new TrueTypeFontUtil();
-    public static TrueTypeFontUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTrueTypeFontUtil() {
+    this.fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
+    }
+    
+
+    static TrueTypeFontUtil getInstance() {
         return TrueTypeFontUtil.instance;
     }
+    
 
-    public OpenGLESImage fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
-    private TrueTypeFontUtil() : base(1)
-    {
-        // base(1) is called from the constructor declaration
+    TrueTypeFontUtil() : super(1) {
+        this.initFieldsTrueTypeFontUtil();
+        
     }
+    
 
-    public override int getAsTextureSize(int textureSize)
-    {
-        throw new SystemException();
+    @override
+    int getAsTextureSize(int textureSize) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public override int getCellSize(int cellSize)
-    {
-        throw new SystemException();
+    @override
+    int getCellSize(int cellSize) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual Image getFontBitmap(string filename, int fontSize, int cellSize, BasicColor basicColor)
-    {
-        throw new SystemException();
+    Image getFontBitmap(String filename, int fontSize, int cellSize, BasicColor basicColor) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void saveFontAtlasAsFile()
-    {
+    void saveFontAtlasAsFile() {
     }
+    
 
-    public virtual Image getFontBitmapGL(GL10 gl, string filename, int cellSize, BasicColor basicColor)
-    {
-        throw new SystemException();
+    Image getFontBitmapGL(GL10 gl, String filename, int cellSize, BasicColor basicColor) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual int[] getFontWidths(string filename, int fontSize)
-    {
-        throw new SystemException();
+    List<int> getFontWidths(String filename, int fontSize) {
+        throw JException('RuntimeException', '');
     }
-
 }
 

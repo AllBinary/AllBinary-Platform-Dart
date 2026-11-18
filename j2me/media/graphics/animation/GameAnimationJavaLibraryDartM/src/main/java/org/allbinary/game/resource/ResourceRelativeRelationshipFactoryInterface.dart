@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
-using GameFeatureControlledInterface = org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureControlledInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/RelativeRelationship.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.game.resource;
+abstract interface class ResourceRelativeRelationshipFactoryInterface implements GameFeatureControlledInterface {
+    
 
-public interface ResourceRelativeRelationshipFactoryInterface : GameFeatureControlledInterface
-{
-    // throws Exception
-    BasicArrayList getResourceRelativeRelationshipList(string resource);
+    BasicArrayList getResourceRelativeRelationshipList(String resource);
+    
 
-    // throws Exception
-    void addResourceRelativeRelationship(string resource, RelativeRelationship relativeRelationship);
-
+    void addResourceRelativeRelationship(String resource, RelativeRelationship relativeRelationship);
 }
 

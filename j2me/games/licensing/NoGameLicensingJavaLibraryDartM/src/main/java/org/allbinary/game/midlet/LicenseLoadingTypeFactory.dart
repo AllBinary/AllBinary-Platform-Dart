@@ -13,23 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/midlet/LicenseLoadingType.dart';
 
-namespace org.allbinary.game.midlet;
+class LicenseLoadingTypeFactory {
+    static final LicenseLoadingTypeFactory instance = LicenseLoadingTypeFactory();
+    late LicenseLoadingType INITIAL_LOADING;
+    late LicenseLoadingType GAME_START;
+    late LicenseLoadingType LOGIN;
+    late LicenseLoadingType OTHER;
 
-public class LicenseLoadingTypeFactory
-{
-    private static readonly LicenseLoadingTypeFactory instance = new LicenseLoadingTypeFactory();
-    public static LicenseLoadingTypeFactory getIntance()
-    {
-        return LicenseLoadingTypeFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsLicenseLoadingTypeFactory() {
+    this.INITIAL_LOADING = LicenseLoadingType("Initial Loading");
+    this.GAME_START = LicenseLoadingType("Game Start");
+    this.LOGIN = LicenseLoadingType("Login");
+    this.OTHER = LicenseLoadingType("Other/Usually The First Non Demo Level");
     }
 
-    public readonly LicenseLoadingType INITIAL_LOADING = new LicenseLoadingType("Initial Loading");
-    public readonly LicenseLoadingType GAME_START = new LicenseLoadingType("Game Start");
-    public readonly LicenseLoadingType LOGIN = new LicenseLoadingType("Login");
-    public readonly LicenseLoadingType OTHER = new LicenseLoadingType("Other/Usually The First Non Demo Level");
+    LicenseLoadingTypeFactory() {
+        this.initFieldsLicenseLoadingTypeFactory();
+    }
+    
+
+    static LicenseLoadingTypeFactory getIntance() {
+        return LicenseLoadingTypeFactory.instance;
+    }
 }
 

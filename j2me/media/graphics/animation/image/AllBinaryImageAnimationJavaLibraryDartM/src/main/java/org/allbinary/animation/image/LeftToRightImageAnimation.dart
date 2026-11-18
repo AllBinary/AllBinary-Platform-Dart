@@ -13,65 +13,75 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using Anchor = org.allbinary.graphics.Anchor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageSegmentAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class LeftToRightImageAnimation extends ImageSegmentAnimation {
+    int currentWidth = 0;
+    int anchor = 0;
 
-public class LeftToRightImageAnimation : ImageSegmentAnimation
-{
-    private int currentWidth;
-    public LeftToRightImageAnimation(Image image, int[] sequenceArray, AnimationBehavior animationBehavior) : base(image, sequenceArray, animationBehavior)
-    {
-        // base(image, sequenceArray, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsLeftToRightImageAnimation() {
+    
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    LeftToRightImageAnimation(Image image, List<int> sequenceArray, AnimationBehavior animationBehavior) : super(image, sequenceArray, animationBehavior) {
+        this.initFieldsLeftToRightImageAnimation();
+        
         this.currentWidth = 0;
         if (this.getSequence()[0] == -1) {
             this.setFrame(this.getSize() - 1);
         }
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         if (this.getSequence()[0] == -1) {
-            base.previousFrame();
+            super.previousFrame();
         } else {
-            base.nextFrame();
+            super.nextFrame();
         }
         this.update();
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         if (this.getSequence()[0] == -1) {
-            base.nextFrame();
+            super.nextFrame();
         } else {
-            base.previousFrame();
+            super.previousFrame();
         }
         this.update();
     }
+    
 
-    public override void setFrame(int index)
-    {
-        base.setFrame(index);
+    @override
+    void setFrame(int index) {
+        super.setFrame(index);
         this.update();
     }
+    
 
-    private void update()
-    {
-        this.currentWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
+    void update() {
+        this.currentWidth = this.getDrawWidth() * this.getFrame() ~/ this.getSize();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x, y, this.anchor);
     }
-
 }
 

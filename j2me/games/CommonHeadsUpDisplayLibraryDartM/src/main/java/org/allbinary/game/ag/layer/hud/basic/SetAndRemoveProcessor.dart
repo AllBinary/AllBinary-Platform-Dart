@@ -13,26 +13,31 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/PlayerGameNotificationHud.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic;
+class SetAndRemoveProcessor extends Processor {
+    late PlayerGameNotificationHud updateMeasurementProcessor;
 
-public class SetAndRemoveProcessor : Processor
-{
-    private readonly PlayerGameNotificationHud updateMeasurementProcessor;
-    public SetAndRemoveProcessor(PlayerGameNotificationHud updateMeasurementProcessor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSetAndRemoveProcessor() {
+    
+    }
+    
+
+    SetAndRemoveProcessor(PlayerGameNotificationHud updateMeasurementProcessor) {
+        this.initFieldsSetAndRemoveProcessor();
         this.updateMeasurementProcessor = updateMeasurementProcessor;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         this.updateMeasurementProcessor.setAndRemoveProcess();
     }
-
 }
 

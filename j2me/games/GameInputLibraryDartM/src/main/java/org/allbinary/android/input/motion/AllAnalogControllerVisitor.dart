@@ -13,27 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.android.input.motion
 
-using System;
-using System.Linq;
-using AnalogLocationInput = org.allbinary.game.input.analog.AnalogLocationInput;
-using AnalogLocationInputFactory = org.allbinary.game.input.analog.AnalogLocationInputFactory;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/analog/AnalogLocationInput.dart';
+import 'package:allbinary/org/allbinary/game/input/analog/AnalogLocationInputFactory.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogControllerVisitor.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogLocationInputProcessor.dart';
 
-namespace org.allbinary.android.input.motion;
+class AllAnalogControllerVisitor extends AnalogControllerVisitor {
+    
 
-public class AllAnalogControllerVisitor : AnalogControllerVisitor
-{
-    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
-        BasicArrayList analogLocationInputList = AnalogLocationInputFactory.getInstance().getList();
-        AnalogLocationInput analogLocationInput = null;
+    @override
+    void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor) {
+        final BasicArrayList analogLocationInputList = AnalogLocationInputFactory.getInstance().getList();
+        late AnalogLocationInput analogLocationInput;
         for (int index = analogLocationInputList.size() - 1; index >= 0; index--) {
-            analogLocationInput = ((AnalogLocationInput) analogLocationInputList.get(index));
+            analogLocationInput = (analogLocationInputList.get(index) as AnalogLocationInput);
             analogLocationInputProcessor.process(allbinaryLayerManager, analogLocationInput);
         }
     }
-
 }
 

@@ -13,30 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using InputFeatureFactory = org.allbinary.game.configuration.feature.InputFeatureFactory;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/InputFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/MultiKeyPressesAI.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/KeyPressesAI.dart';
 
-namespace org.allbinary.game.ag.ai;
+class KeyPressesAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    
 
-public class KeyPressesAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        bool isSingleKeyProcessing = InputFeatureFactory.getInstance().isSingleKeyProcessing();
+    @override
+    ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        final bool isSingleKeyProcessing = InputFeatureFactory.getInstance().isSingleKeyProcessing();
         if (isSingleKeyProcessing) {
-            return new KeyPressesAI(hashtable, ownerLayerInterface, gameInput);
+            return KeyPressesAI(hashtable, ownerLayerInterface, gameInput);
         } else {
-            return new MultiKeyPressesAI(hashtable, ownerLayerInterface, gameInput);
+            return MultiKeyPressesAI(hashtable, ownerLayerInterface, gameInput);
         }
     }
-
 }
 

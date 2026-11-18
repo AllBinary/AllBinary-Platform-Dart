@@ -13,27 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/image/GameFeatureImageCacheFactory.dart';
 
-namespace org.allbinary.image;
+class AnimationFrameToImageUtil {
+    static final AnimationFrameToImageUtil instance = AnimationFrameToImageUtil();
+    
 
-public class AnimationFrameToImageUtil
-{
-    private static readonly AnimationFrameToImageUtil instance = new AnimationFrameToImageUtil();
-    public static AnimationFrameToImageUtil getInstance()
-    {
+    static AnimationFrameToImageUtil getInstance() {
         return AnimationFrameToImageUtil.instance;
     }
+    
 
-    // throws Exception
-    public virtual Image getInstanceTranslate(int width, int height, Animation animationInterface)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(AnimationFrameToImageUtil.instance.GetType().FullName, ((width * 3) >> 1), ((height * 3) >> 1));
+    Image getInstanceTranslate(int width, int height, Animation animationInterface) {
+        Image image = GameFeatureImageCacheFactory.getInstance().get(jClassName(AnimationFrameToImageUtil.instance), ((width * 3) >> 1), ((height * 3) >> 1));
         Graphics graphics = image.getGraphics();
         int tranlateX = (width >> 2);
         int tranlateY = (height >> 2);
@@ -42,15 +41,13 @@ public class AnimationFrameToImageUtil
         graphics.translate(-tranlateX, -tranlateY);
         return image;
     }
+    
 
-    // throws Exception
-    public virtual Image getInstanceWH(int width, int height, Animation animationInterface)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(AnimationFrameToImageUtil.instance.GetType().FullName, width, height);
+    Image getInstanceWH(int width, int height, Animation animationInterface) {
+        Image image = GameFeatureImageCacheFactory.getInstance().get(jClassName(AnimationFrameToImageUtil.instance), width, height);
         Graphics graphics = image.getGraphics();
         animationInterface.paintXY(graphics, 0, 0);
         return image;
     }
-
 }
 

@@ -13,60 +13,67 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.hud.event
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.game.layer.hud.@event;
+class GameNotificationEvent extends AllBinaryEventObject {
+    late String string;
+    late int seconds;
+    late BasicColor basicColor;
+    late bool removeable;
 
-public class GameNotificationEvent : AllBinaryEventObject
-{
-    private string @string = StringUtil.getInstance().EMPTY_STRING;
-    private readonly int? seconds;
-    private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
-    private readonly bool? removeable;
-    public GameNotificationEvent(object anyType, string @string, int? seconds, BasicColor basicColor, bool? permanent) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
-        this.setString(@string);
+    // Java field initializers run after the base constructor
+    void initFieldsGameNotificationEvent() {
+    this.string = StringUtil.getInstance().EMPTY_STRING;
+    
+    this.basicColor = BasicColorFactory.getInstance().BLACK;
+    
+    }
+    
+
+    GameNotificationEvent(Object anyType, String string, int seconds, BasicColor basicColor, bool permanent) : super(anyType) {
+        this.initFieldsGameNotificationEvent();
+        
+        this.setString(string);
         this.seconds = seconds;
         this.setBasicColorP(basicColor);
         this.removeable = permanent;
     }
+    
 
-    public virtual string getString()
-    {
-        return this.@string;
+    String getString() {
+        return this.string;
     }
+    
 
-    public virtual int? getSeconds()
-    {
+    int getSeconds() {
         return this.seconds;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual bool? getPermanent()
-    {
+    bool getPermanent() {
         return this.removeable;
     }
+    
 
-    public virtual void setString(string @string)
-    {
-        this.@string = @string;
+    void setString(String string) {
+        this.string = string;
     }
+    
 
-    public virtual void setBasicColorP(BasicColor basicColor)
-    {
+    void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
-
 }
 

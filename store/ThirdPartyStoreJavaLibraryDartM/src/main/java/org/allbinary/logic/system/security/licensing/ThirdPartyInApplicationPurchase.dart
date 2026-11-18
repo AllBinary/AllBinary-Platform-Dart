@@ -13,69 +13,81 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/ThirdPartyInApplicationPurchaseInterface.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LockableFeature.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class ThirdPartyInApplicationPurchase implements ThirdPartyInApplicationPurchaseInterface {
+    
 
-public class ThirdPartyInApplicationPurchase : ThirdPartyInApplicationPurchaseInterface
-{
-    public virtual bool isPurchased(LockableFeature lockableFeature)
-    {
+    @override
+    bool isPurchased(LockableFeature lockableFeature) {
         return false;
     }
+    
 
-    public virtual void onCreate(object anyType, object stateObject)
-    {
+    @override
+    void onCreate(Object anyType, Object stateObject) {
     }
+    
 
-    public virtual void onDestroy()
-    {
+    @override
+    void onDestroy() {
     }
+    
 
-    public virtual void onStart()
-    {
+    @override
+    void onStart() {
     }
+    
 
-    public virtual void onActivityResult(int requestCode, int resultCode, object dataObject)
-    {
+    @override
+    void onActivityResult(int requestCode, int resultCode, Object dataObject) {
     }
+    
 
-    public virtual void onSaveInstanceState(object anyType)
-    {
+    @override
+    void onSaveInstanceState(Object anyType) {
     }
+    
 
-    public virtual void onStop()
-    {
+    @override
+    void onStop() {
     }
+    
 
-    public virtual void requestPurchase(LockableFeature lockableFeature)
-    {
+    @override
+    void requestPurchase(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual void requestReceipts()
-    {
+    @override
+    void requestReceipts() {
     }
+    
 
-    public virtual void add(LockableFeature lockableFeature)
-    {
+    @override
+    void add(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual string getUserName()
-    {
+    @override
+    String getUserName() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    @override
+    bool isEnabled() {
         return false;
     }
+    
 
-    public virtual void requestProducts()
-    {
+    void requestProducts() {
     }
-
 }
 

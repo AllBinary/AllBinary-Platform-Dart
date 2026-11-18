@@ -13,15 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-using InitInterface = org.allbinary.init.InitInterface;
-using UpdateInterface = org.allbinary.init.UpdateInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/init/InitInterface.dart';
+import 'package:allbinary/org/allbinary/init/UpdateInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
 
-namespace org.allbinary.graphics.paint;
-
-public interface InitUpdatePaintableInterface : InitInterface, UpdateInterface, PaintableInterface
-{
+abstract interface class InitUpdatePaintableInterface implements InitInterface, UpdateInterface, PaintableInterface {
 }
 

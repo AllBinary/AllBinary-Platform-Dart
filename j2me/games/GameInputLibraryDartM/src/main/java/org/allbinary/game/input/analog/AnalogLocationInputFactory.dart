@@ -1,46 +1,51 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.analog
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/analog/AnalogLocationInput.dart';
 
-namespace org.allbinary.game.input.analog;
+class AnalogLocationInputFactory {
+    static final AnalogLocationInputFactory instance = AnalogLocationInputFactory();
+    late BasicArrayList list;
 
-public class AnalogLocationInputFactory
-{
-    private static readonly AnalogLocationInputFactory instance = new AnalogLocationInputFactory();
-    public static AnalogLocationInputFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAnalogLocationInputFactory() {
+    this.list = BasicArrayListD();
+    }
+    
+
+    static AnalogLocationInputFactory getInstance() {
         return AnalogLocationInputFactory.instance;
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private AnalogLocationInputFactory()
-    {
+    AnalogLocationInputFactory() {
+        this.initFieldsAnalogLocationInputFactory();
     }
+    
 
-    public virtual void addPlayer(int playerInputId)
-    {
+    void addPlayer(int playerInputId) {
         AnalogLocationInput analogLocationInput = AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT;
         if (playerInputId < this.list.size()) {
-            analogLocationInput = ((AnalogLocationInput) this.list.get(playerInputId));
+            analogLocationInput = (this.list.get(playerInputId) as AnalogLocationInput);
         }
         if (analogLocationInput == AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT) {
-            analogLocationInput = new AnalogLocationInput(playerInputId);
+            analogLocationInput = AnalogLocationInput(playerInputId);
             this.list.add(analogLocationInput);
         }
     }
+    
 
-    public virtual AnalogLocationInput getInstanceForPlayer(int playerInputId)
-    {
-        return ((AnalogLocationInput) this.list.get(playerInputId));
+    AnalogLocationInput getInstanceForPlayer(int playerInputId) {
+        return (this.list.get(playerInputId) as AnalogLocationInput);
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

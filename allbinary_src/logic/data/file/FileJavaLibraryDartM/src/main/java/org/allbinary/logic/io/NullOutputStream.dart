@@ -13,30 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using OutputStream = java.io.OutputStream;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/OutputStream.dart';
 
-namespace org.allbinary.logic.io;
+class NullOutputStream extends OutputStream {
+    static final NullOutputStream NULL_OUTPUT_STREAM = NullOutputStream();
+    
 
-public class NullOutputStream : OutputStream
-{
-    public static readonly NullOutputStream NULL_OUTPUT_STREAM = new NullOutputStream();
-    // throws IOException
-    public override void write(int b)
-    {
+    void write([dynamic p0 = jnone, dynamic p1 = jnone, dynamic p2 = jnone]) {
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is int) {
+            this.write$1(p0);
+            return;
+        }
+        if (!identical(p2, jnone) && jIsList(p0) && p1 is int && p2 is int) {
+            this.write$3(p0, p1, p2);
+            return;
+        }
+        throw JException('NoSuchMethodError', 'write');
     }
 
-    // throws IOException
-    public override void write(sbyte[] b, int off, int len)
-    {
+    void write$1(int b) {
     }
+    
 
-    public override void close()
-    {
+    void write$3(List<int> b, int off, int len) {
     }
+    
 
+    @override
+    void close() {
+    }
 }
 

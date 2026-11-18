@@ -13,46 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.bounds
 
-using System;
-using System.Linq;
-using BoundsChangeEvent = org.allbinary.bounds.@event.BoundsChangeEvent;
-using BoundsChangeEventListener = org.allbinary.bounds.@event.BoundsChangeEventListener;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/bounds/event/BoundsChangeEvent.dart';
+import 'package:allbinary/org/allbinary/bounds/event/BoundsChangeEventListener.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/bounds/BoundsVisitorInterface.dart';
 
-namespace org.allbinary.bounds;
+class LayerBounds implements BoundsChangeEventListener {
+    late LogUtil logUtil;
+    late Rectangle rectangle;
 
-public class LayerBounds : BoundsChangeEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public Rectangle rectangle;
-    public LayerBounds(Rectangle rectangle)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerBounds() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    LayerBounds(Rectangle rectangle) {
+        this.initFieldsLayerBounds();
         this.rectangle = rectangle;
     }
+    
 
-    public virtual Rectangle getRectangleP()
-    {
+    Rectangle getRectangleP() {
         return this.rectangle;
     }
+    
 
-    public virtual void visit(BoundsVisitorInterface boundsVisitorInterface)
-    {
+    void visit(BoundsVisitorInterface boundsVisitorInterface) {
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent)
-    {
+    @override
+    void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent) {
         this.rectangle = boundsChangeEvent.getRectangle();
     }
-
 }
 

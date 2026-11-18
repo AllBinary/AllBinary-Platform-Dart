@@ -13,26 +13,38 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
 
-namespace org.allbinary.media;
+class ScaleProperties {
+    static final ScaleProperties instance = ScaleProperties();
+    double scaleX = 0.0;
+    double scaleY = 0.0;
+    int scaleWidth = 0;
+    int scaleHeight = 0;
+    bool shouldScale = false;
 
-public class ScaleProperties
-{
-    public static readonly ScaleProperties instance = new ScaleProperties();
-    public float scaleX = 1.0f;
-    public float scaleY = 1.0f;
-    public int scaleWidth = 0;
-    public int scaleHeight = 0;
-    public bool shouldScale = false;
-    public override string ToString()
-    {
-        return new StringMaker().append(CommonLabels.getInstance().COLON_SEP).appendboolean(this.shouldScale).append("scaleX: ").appendfloat(this.scaleX).append("scaleY: ").appendfloat(this.scaleY).append("scaleWidth: ").appendint(this.scaleWidth).append("scaleHeight: ").appendint(this.scaleHeight).ToString();
+    // Java field initializers run after the base constructor
+    void initFieldsScaleProperties() {
+    this.scaleX = 1.0;
+    this.scaleY = 1.0;
+    this.scaleWidth = 0;
+    this.scaleHeight = 0;
+    this.shouldScale = false;
     }
 
+    ScaleProperties() {
+        this.initFieldsScaleProperties();
+    }
+    
+
+    @override
+    String toString() {
+        return StringMaker().append(CommonLabels.getInstance().COLON_SEP).appendboolean(this.shouldScale).append("scaleX: ").appendfloat(this.scaleX).append("scaleY: ").appendfloat(this.scaleY).append("scaleWidth: ").appendint(this.scaleWidth).append("scaleHeight: ").appendint(this.scaleHeight).toString();
+    }
 }
 

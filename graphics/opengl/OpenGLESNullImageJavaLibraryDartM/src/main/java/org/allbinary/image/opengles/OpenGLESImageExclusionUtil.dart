@@ -13,28 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.image.opengles;
+class OpenGLESImageExclusionUtil {
+    static final OpenGLESImageExclusionUtil instance = OpenGLESImageExclusionUtil();
+    late BasicArrayList list;
 
-public class OpenGLESImageExclusionUtil
-{
-    private static readonly OpenGLESImageExclusionUtil instance = new OpenGLESImageExclusionUtil();
-    public static OpenGLESImageExclusionUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOpenGLESImageExclusionUtil() {
+    this.list = BasicArrayListD();
+    }
+
+    OpenGLESImageExclusionUtil() {
+        this.initFieldsOpenGLESImageExclusionUtil();
+    }
+    
+
+    static OpenGLESImageExclusionUtil getInstance() {
         return OpenGLESImageExclusionUtil.instance;
     }
+    
 
-    public readonly BasicArrayList list = new BasicArrayListD();
-    public virtual bool isCustomScaling(Image image)
-    {
+    bool isCustomScaling(Image image) {
         return false;
     }
-
 }
 

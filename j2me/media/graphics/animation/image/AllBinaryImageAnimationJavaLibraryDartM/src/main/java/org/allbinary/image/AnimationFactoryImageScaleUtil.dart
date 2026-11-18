@@ -13,42 +13,45 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using AnimationFactoryInitializationVisitor = org.allbinary.animation.image.AnimationFactoryInitializationVisitor;
-using BaseImageAnimationFactory = org.allbinary.animation.image.BaseImageAnimationFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-using ImageJ2MEScaleUtil = org.allbinary.media.image.ImageJ2MEScaleUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/image/AnimationFactoryInitializationVisitor.dart';
+import 'package:allbinary/org/allbinary/animation/image/BaseImageAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/media/image/ImageJ2MEScaleUtil.dart';
 
-namespace org.allbinary.image;
+class AnimationFactoryImageScaleUtil {
+    static final AnimationFactoryImageScaleUtil instance = AnimationFactoryImageScaleUtil();
+    late ImageJ2MEScaleUtil imageScaleUtil;
 
-public class AnimationFactoryImageScaleUtil
-{
-    private static readonly AnimationFactoryImageScaleUtil instance = new AnimationFactoryImageScaleUtil();
-    public static AnimationFactoryImageScaleUtil getInstance()
-    {
-        return AnimationFactoryImageScaleUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsAnimationFactoryImageScaleUtil() {
+    this.imageScaleUtil = ImageJ2MEScaleUtil.getInstance();
     }
 
-    private readonly ImageJ2MEScaleUtil imageScaleUtil = ImageJ2MEScaleUtil.getInstance();
-    // throws Exception
-    public virtual Image createImage(Image image, int width, int height, int scaleWidth, int scaleHeight)
-    {
-        Image scaledImage = null;
+    AnimationFactoryImageScaleUtil() {
+        this.initFieldsAnimationFactoryImageScaleUtil();
+    }
+    
+
+    static AnimationFactoryImageScaleUtil getInstance() {
+        return AnimationFactoryImageScaleUtil.instance;
+    }
+    
+
+    Image createImage(Image image, int width, int height, int scaleWidth, int scaleHeight) {
+        late Image scaledImage;
         if (scaleWidth != 0 && scaleHeight != 0) {
-            float scaleX = (((float) scaleWidth)) / (((float) width));
-            float scaleY = (((float) scaleHeight)) / (((float) height));
-            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
+            final double scaleX = ((scaleWidth).toDouble()) / ((width).toDouble());
+            final double scaleY = ((scaleHeight).toDouble()) / ((height).toDouble());
+            if ((scaleX == 1.0 && scaleY == 1.0) || (scaleX == 0.0 || scaleY == 0.0)) {
                 scaledImage = image;
             } else {
-                int scaledWidth = ((int) (scaleX * ((float) width)));
-                int scaledHeight = ((int) (scaleY * ((float) height)));
+                final int scaledWidth = JMath.toInt32((scaleX * (width).toDouble()));
+                final int scaledHeight = JMath.toInt32((scaleY * (height).toDouble()));
                 scaledImage = this.imageScaleUtil.scale(image, scaledWidth, scaledHeight);
             }
         } else {
@@ -56,23 +59,21 @@ public class AnimationFactoryImageScaleUtil
         }
         return scaledImage;
     }
+    
 
-    // throws Exception
-    public virtual void processAdjust(BaseImageAnimationFactory baseImageAnimationFactory)
-    {
-        ScaleProperties scaleProperties = baseImageAnimationFactory.getScalePropertiesP();
+    void processAdjust(BaseImageAnimationFactory baseImageAnimationFactory) {
+        final ScaleProperties scaleProperties = baseImageAnimationFactory.getScalePropertiesP();
         if (scaleProperties.scaleWidth != 0 && scaleProperties.scaleHeight != 0) {
-            AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor = baseImageAnimationFactory.getAnimationFactoryInitializationVisitorP();
-            float scaleX = (((float) scaleProperties.scaleWidth)) / (((float) animationFactoryInitializationVisitor.width));
-            float scaleY = (((float) scaleProperties.scaleHeight)) / (((float) animationFactoryInitializationVisitor.height));
-            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
+            final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor = baseImageAnimationFactory.getAnimationFactoryInitializationVisitorP();
+            final double scaleX = ((scaleProperties.scaleWidth).toDouble()) / ((animationFactoryInitializationVisitor.width).toDouble());
+            final double scaleY = ((scaleProperties.scaleHeight).toDouble()) / ((animationFactoryInitializationVisitor.height).toDouble());
+            if ((scaleX == 1.0 && scaleY == 1.0) || (scaleX == 0.0 || scaleY == 0.0)) {
             } else {
-                animationFactoryInitializationVisitor.dx = ((int) (animationFactoryInitializationVisitor.originalDx * scaleX));
-                animationFactoryInitializationVisitor.dy = ((int) (animationFactoryInitializationVisitor.originalDy * scaleY));
+                animationFactoryInitializationVisitor.dx = JMath.toInt32(((animationFactoryInitializationVisitor.originalDx).toDouble() * scaleX));
+                animationFactoryInitializationVisitor.dy = JMath.toInt32(((animationFactoryInitializationVisitor.originalDy).toDouble() * scaleY));
             }
         } else {
         }
     }
-
 }
 

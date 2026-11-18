@@ -13,30 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ProcessPaintable = org.allbinary.graphics.paint.ProcessPaintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/ProcessPaintable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class GameCanvasPaintHelper extends ProcessPaintable {
+    late AllBinaryGameCanvas gameCanvas;
 
-public class GameCanvasPaintHelper : ProcessPaintable
-{
-    private AllBinaryGameCanvas gameCanvas;
-    public GameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameCanvasPaintHelper() {
+    
+    }
+    
+
+    GameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas) {
+        this.initFieldsGameCanvasPaintHelper();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    public override void process()
-    {
+    @override
+    void process() {
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.gameCanvas.draw(graphics);
     }
-
 }
 

@@ -13,26 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemIndexDx.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
 
-namespace org.allbinary.graphics.form;
+class ScrollSelectionFormHorizontalDx extends ItemIndexDx {
+    late ScrollSelectionForm scrollSelectionForm;
 
-public class ScrollSelectionFormHorizontalDx : ItemIndexDx
-{
-    private readonly ScrollSelectionForm scrollSelectionForm;
-    public ScrollSelectionFormHorizontalDx(ScrollSelectionForm scrollSelectionForm)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsScrollSelectionFormHorizontalDx() {
+    
+    }
+    
+
+    ScrollSelectionFormHorizontalDx(ScrollSelectionForm scrollSelectionForm) {
+        this.initFieldsScrollSelectionFormHorizontalDx();
         this.scrollSelectionForm = scrollSelectionForm;
     }
+    
 
-    // throws Exception
-    public override int getDx(int index, ABCustomItem item, int dx, int dy)
-    {
+    @override
+    int getDx(int index, ABCustomItem item, int dx, int dy) {
         return this.scrollSelectionForm.getSelectedIndexForPointHorizontalDx(index, item, dx, dy);
     }
-
 }
 

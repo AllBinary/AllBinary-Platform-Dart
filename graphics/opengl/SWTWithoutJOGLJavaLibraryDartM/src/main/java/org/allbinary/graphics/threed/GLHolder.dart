@@ -13,30 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.threed
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics.threed;
+class GLHolder {
+    bool isCreated = false;
 
-public class GLHolder
-{
-    public bool isCreated = true;
-    public GLHolder()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGLHolder() {
+    this.isCreated = true;
     }
+    
 
-    public virtual void runOnSurfaceCreated(object renderer)
-    {
+    GLHolder() {
+        this.initFieldsGLHolder();
     }
+    
 
-    public virtual void runOnSurfaceChanged(object renderer, int width, int height)
-    {
+    void runOnSurfaceCreated(Object renderer) {
     }
+    
 
-    public virtual void run(object renderer)
-    {
+    void runOnSurfaceChanged(Object renderer, int width, int height) {
     }
+    
 
+    void run(Object renderer) {
+    }
 }
 

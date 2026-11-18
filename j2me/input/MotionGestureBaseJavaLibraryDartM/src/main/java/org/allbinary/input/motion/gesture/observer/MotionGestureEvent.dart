@@ -13,85 +13,94 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using TsUtil = org.allbinary.TsUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using CommonLabels = org.allbinary.@string.CommonLabels;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+class MotionGestureEvent extends AllBinaryEventObject {
+    static const String PREVIOUS = " Previous: ";
+    static const String HASHCODE = " hashcode: ";
+    late MotionGestureInput motionGesture;
+    int id = 0;
+    late GPoint previousPoint;
+    late GPoint currentPoint;
+    late CommonLabels commonLabels;
 
-public class MotionGestureEvent : AllBinaryEventObject
-{
-    private MotionGestureInput motionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
-    private readonly int id;
-    private GPoint previousPoint = PointFactory.getInstance().ZERO_ZERO;
-    private GPoint currentPoint = PointFactory.getInstance().ZERO_ZERO;
-    public MotionGestureEvent(object source, int id, MotionGestureInput motionGesture) : base(source)
-    {
-        // base(source) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsMotionGestureEvent() {
+    this.motionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
+    
+    this.previousPoint = PointFactory.getInstance().ZERO_ZERO;
+    this.currentPoint = PointFactory.getInstance().ZERO_ZERO;
+    this.commonLabels = CommonLabels.getInstance();
+    }
+    
+
+    MotionGestureEvent(Object source, int id, MotionGestureInput motionGesture) : super(source) {
+        this.initFieldsMotionGestureEvent();
+        
         this.id = id;
         this.setMotionGesture(motionGesture);
     }
+    
 
-    public virtual MotionGestureInput getMotionGesture()
-    {
+    MotionGestureInput getMotionGesture() {
         return this.motionGesture;
     }
+    
 
-    public virtual void setMotionGesture(MotionGestureInput motionGesture)
-    {
+    void setMotionGesture(MotionGestureInput motionGesture) {
         this.motionGesture = motionGesture;
     }
+    
 
-    public virtual GPoint getPreviousPoint()
-    {
+    GPoint getPreviousPoint() {
         return this.previousPoint;
     }
+    
 
-    public virtual void setPreviousPoint(GPoint previousPoint)
-    {
+    void setPreviousPoint(GPoint previousPoint) {
         this.previousPoint = previousPoint;
     }
+    
 
-    public virtual GPoint getCurrentPoint()
-    {
+    GPoint getCurrentPoint() {
         return this.currentPoint;
     }
+    
 
-    public virtual void setCurrentPoint(GPoint currentPoint)
-    {
+    void setCurrentPoint(GPoint currentPoint) {
         this.currentPoint = currentPoint;
     }
+    
 
-    private const string PREVIOUS = " Previous: ";
-    private const string HASHCODE = " hashcode: ";
-    private readonly CommonLabels commonLabels = CommonLabels.getInstance();
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        StringUtil stringUtil = StringUtil.getInstance();
-        stringBuffer.append(stringUtil.toString(this.motionGesture));
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
+        stringBuffer.append(stringUtil.toString1(this.motionGesture));
         stringBuffer.append(this.commonLabels.CURRENT);
-        stringBuffer.append(stringUtil.toString(this.currentPoint));
+        stringBuffer.append(stringUtil.toString1(this.currentPoint));
         stringBuffer.append(MotionGestureEvent.PREVIOUS);
-        stringBuffer.append(stringUtil.toString(this.previousPoint));
+        stringBuffer.append(stringUtil.toString1(this.previousPoint));
         stringBuffer.append(MotionGestureEvent.HASHCODE);
-        stringBuffer.appendint(((int) TsUtil.getInstance().hashCode(this)));
-        return stringBuffer.ToString();
+        stringBuffer.appendint(TsUtil.getInstance().hashCode1(this));
+        return stringBuffer.toString();
     }
+    
 
-    public virtual int getId()
-    {
+    int getId() {
         return this.id;
     }
-
 }
 

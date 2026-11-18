@@ -13,23 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/PoolInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/PoolType.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CachePolicy.dart';
 
-namespace org.allbinary.logic.util.cache;
+class PoolInterfaceFactory {
+    
 
-public class PoolInterfaceFactory
-{
-    private PoolInterfaceFactory()
-    {
+    PoolInterfaceFactory() {
     }
+    
 
-    // throws Exception
-    public static PoolInterface getInstance(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface, PoolType poolType, CachePolicy cachePolicy)
-    {
-        throw new Exception("No Such PoolType: " + poolType.ToString());
+    static PoolInterface getInstance3(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface, PoolType poolType, CachePolicy cachePolicy) {
+        throw JException('Exception', "No Such PoolType: " + poolType.toString());
     }
-
 }
 

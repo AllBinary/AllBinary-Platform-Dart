@@ -13,37 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tracking
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryEventCircularPool = org.allbinary.logic.util.@event.AllBinaryEventCircularPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventCircularPool.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEvent.dart';
 
-namespace org.allbinary.game.tracking;
+class TrackingEventCircularStaticPool {
+    static TrackingEventCircularStaticPool instance = TrackingEventCircularStaticPool();
+    late AllBinaryEventCircularPool EVENT_POOL;
 
-public class TrackingEventCircularStaticPool
-{
-    private static TrackingEventCircularStaticPool instance = new TrackingEventCircularStaticPool();
-    public static TrackingEventCircularStaticPool getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTrackingEventCircularStaticPool() {
+    this.EVENT_POOL = AllBinaryEventCircularPool(20);
+    }
+
+    TrackingEventCircularStaticPool() {
+        this.initFieldsTrackingEventCircularStaticPool();
+    }
+    
+
+    static TrackingEventCircularStaticPool getInstance() {
         return TrackingEventCircularStaticPool.instance;
     }
+    
 
-    private AllBinaryEventCircularPool EVENT_POOL = new AllBinaryEventCircularPool(20);
-    public virtual void init()
-    {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(new TrackingEventFactory());
+    void init() {
+        this.EVENT_POOL.initAllBinaryEventCircularPool(TrackingEventFactory());
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual TrackingEvent getNextInstance(AllBinaryLayer layerInterface)
-    {
-        TrackingEvent trackingEvent = ((TrackingEvent) this.EVENT_POOL.getNextInstance());
+    TrackingEvent getNextInstance(AllBinaryLayer layerInterface) {
+        TrackingEvent trackingEvent = (this.EVENT_POOL.getNextInstance() as TrackingEvent);
         trackingEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
         return trackingEvent;
     }
-
 }
 

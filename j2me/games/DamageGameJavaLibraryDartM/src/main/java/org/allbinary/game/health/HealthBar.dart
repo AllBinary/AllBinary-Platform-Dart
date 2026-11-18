@@ -13,43 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthBarAnimation.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthInterface.dart';
+import 'package:allbinary/org/allbinary/game/health/Health.dart';
 
-namespace org.allbinary.game.health;
+class HealthBar extends Paintable implements HealthListenerInterface {
+    late HealthBarAnimation animationInterface;
+    late HealthInterface healthInterface;
+    late AllBinaryLayer allbinaryLayer;
 
-public class HealthBar : Paintable, HealthListenerInterface
-{
-    private readonly HealthBarAnimation animationInterface;
-    private readonly HealthInterface healthInterface;
-    public readonly AllBinaryLayer allbinaryLayer;
-    public HealthBar(AllBinaryLayer layerInterface, Health healthInterface, HealthBarAnimation animationInterface, int direction)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHealthBar() {
+    
+    
+    
+    }
+    
+
+    HealthBar(AllBinaryLayer layerInterface, Health healthInterface, HealthBarAnimation animationInterface, int direction) {
+        this.initFieldsHealthBar();
         this.allbinaryLayer = layerInterface;
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
         this.healthInterface.addListener(this);
         this.onHealthChange();
     }
+    
 
-    public virtual void onHealthChange()
-    {
-        this.animationInterface.onHealthChange(this.healthInterface.getHealth() * this.allbinaryLayer.getWidth() / this.healthInterface.getMaxHealth());
+    @override
+    void onHealthChange() {
+        this.animationInterface.onHealthChange(this.healthInterface.getHealth() * this.allbinaryLayer.getWidth() ~/ this.healthInterface.getMaxHealth());
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
         this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
-
 }
 

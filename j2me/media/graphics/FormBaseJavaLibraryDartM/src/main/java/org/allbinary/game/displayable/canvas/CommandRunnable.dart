@@ -13,41 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/MyCanvas.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/CommandFormInputProcessor.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class CommandRunnable implements Runnable {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late CommandFormInputProcessor commandFormInputProcessor;
+    late Command command;
 
-public class CommandRunnable : global::java.lang.Runnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly CommandFormInputProcessor commandFormInputProcessor;
-    private readonly Command command;
-    public CommandRunnable(CommandFormInputProcessor commandFormInputProcessor, Command command)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCommandRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    }
+    
+
+    CommandRunnable(CommandFormInputProcessor commandFormInputProcessor, Command command) {
+        this.initFieldsCommandRunnable();
         this.commandFormInputProcessor = commandFormInputProcessor;
         this.command = command;
     }
+    
 
-    public virtual void run()
-    {
+    @override
+    void run() {
         try {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
-            MyCanvas canvas = this.commandFormInputProcessor.getCanvas();
-            CommandListener commandListener = canvas.getCustomCommandListener();
+            final MyCanvas canvas = this.commandFormInputProcessor.getCanvas();
+            final CommandListener commandListener = canvas.getCustomCommandListener();
             commandListener.commandAction(this.command, canvas);
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+            }
         }
     }
-
 }
 

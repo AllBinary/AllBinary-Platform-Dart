@@ -13,53 +13,61 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.crypt.jcehelper
 
-using System;
-using System.Linq;
-using Cipher = javax.crypto.Cipher;
-using SecretKey = javax.crypto.SecretKey;
-using ByteUtil = org.allbinary.logic.java.byteutil.ByteUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/crypto/Cipher.dart';
+import 'package:allbinary/javax/crypto/SecretKey.dart';
+import 'package:allbinary/org/allbinary/logic/java/byteutil/ByteUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/crypt/jcehelper/BaseSecretComposite.dart';
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+class SecretComposite extends BaseSecretComposite {
+    late ByteUtil byteUtil;
+    late Cipher cipher;
+    late SecretKey secretKey;
+    late List<int> key;
 
-public class SecretComposite : BaseSecretComposite
-{
-    private readonly ByteUtil byteUtil = ByteUtil.getInstance();
-    private readonly Cipher cipher;
-    private readonly SecretKey secretKey;
-    private sbyte[] key;
-    public SecretComposite(SecretKey secretKey, Cipher cipher, sbyte[] key)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSecretComposite() {
+    this.byteUtil = ByteUtil.getInstance();
+    
+    
+    
+    }
+    
+
+    SecretComposite(SecretKey secretKey, Cipher cipher, List<int> key) {
+        this.initFieldsSecretComposite();
         this.secretKey = secretKey;
         this.cipher = cipher;
         this.key = key;
     }
+    
 
-    // throws Exception
-    public override sbyte[] encrypt(sbyte[] array)
-    {
+    @override
+    List<int> encrypt(List<int> array) {
         array = this.mutilate(array);
         this.cipher.init(Cipher.ENCRYPT_MODE, this.secretKey);
         return this.cipher.doFinal(array);
     }
+    
 
-    // throws Exception
-    public override sbyte[] decrypt(sbyte[] array)
-    {
+    @override
+    List<int> decrypt(List<int> array) {
         this.cipher.init(Cipher.DECRYPT_MODE, this.secretKey);
         return this.mutilate(this.cipher.doFinal(array));
     }
+    
 
-    private sbyte[] mutilate(sbyte[] array)
-    {
-        for (int index = 0; index < this.key.Length; index++) {
-            sbyte value = this.key[index];
-            if (((int) value) < 8 && ((int) value) > 0) {
-                array = this.byteUtil.xorByte(array, ((int) value));
+    List<int> mutilate(List<int> array) {
+        for (int index = 0; index < this.key.length; index++) {
+            int value = this.key[index];
+            if (value < 8 && value > 0) {
+                array = this.byteUtil.xorByte(array, value);
             }
         }
         return array;
     }
-
 }
 

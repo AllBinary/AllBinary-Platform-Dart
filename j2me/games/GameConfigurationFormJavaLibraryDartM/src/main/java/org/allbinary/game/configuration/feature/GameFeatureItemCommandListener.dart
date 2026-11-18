@@ -13,45 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using Item = javax.microedition.lcdui.Item;
-using ItemCommandListener = javax.microedition.lcdui.ItemCommandListener;
-using GameConfigurationGauge = org.allbinary.game.configuration.GameConfigurationGauge;
-using GameConfigurationUtil = org.allbinary.game.configuration.GameConfigurationUtil;
-using GameOptionsForm = org.allbinary.game.configuration.GameOptionsForm;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using MidletStrings = org.allbinary.midlet.MidletStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/Item.dart';
+import 'package:allbinary/javax/microedition/lcdui/ItemCommandListener.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationGauge.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationUtil.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameOptionsForm.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/midlet/MidletStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class GameFeatureItemCommandListener implements ItemCommandListener {
+    late LogUtil logUtil;
+    late GameOptionsForm gameOptionsForm;
 
-public class GameFeatureItemCommandListener : ItemCommandListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private GameOptionsForm gameOptionsForm;
-    public GameFeatureItemCommandListener(GameOptionsForm gameOptionsForm)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameFeatureItemCommandListener() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    GameFeatureItemCommandListener(GameOptionsForm gameOptionsForm) {
+        this.initFieldsGameFeatureItemCommandListener();
         this.gameOptionsForm = gameOptionsForm;
     }
+    
 
-    public virtual void commandAction(Command command, Item item)
-    {
+    @override
+    void commandAction(Command command, Item item) {
         try {
-            string itemLabel = item.getLabel();
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).ToString(), this, MidletStrings.getInstance().COMMAND_ACTION);
-            if (item is GameConfigurationGauge) {
-                GameConfigurationUtil.getInstance().change(this.gameOptionsForm, ((GameConfigurationGauge) item));
+            String itemLabel = item.getLabel();
+            this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
+            if ((item is GameConfigurationGauge)) {
+                GameConfigurationUtil.getInstance().change(this.gameOptionsForm, item);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
+            }
         }
     }
-
 }
 

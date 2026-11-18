@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
 
-namespace org.allbinary.graphics.form;
+class ItemPaintable {
+    
 
-public class ItemPaintable
-{
-    public virtual void paint(Graphics graphics, int currentIndex, int x, int y)
-    {
+    void paint(Graphics graphics, int currentIndex, int x, int y) {
     }
-
 }
 

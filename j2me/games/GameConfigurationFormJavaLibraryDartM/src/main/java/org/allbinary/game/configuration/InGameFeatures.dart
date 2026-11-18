@@ -13,73 +13,72 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureChoiceGroups = org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
-using InGameFeatureChoiceGroups = org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
-using SensorFeatureFactory = org.allbinary.game.configuration.feature.SensorFeatureFactory;
-using TouchFeatureFactory = org.allbinary.game.configuration.feature.TouchFeatureFactory;
-using Init = org.allbinary.init.Init;
-using OrientationData = org.allbinary.input.gyro.OrientationData;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/SensorFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/TouchFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/init/Init.dart';
+import 'package:allbinary/org/allbinary/input/gyro/OrientationData.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.configuration;
+class InGameFeatures extends Init {
+    
 
-public class InGameFeatures : Init
-{
-    public override void init()
-    {
-        string LABEL = "Screen Buttons";
-        OrientationData orientationData = OrientationData.getInstance();
-        BasicArrayList exclusiveOrientationSensorVector = ((BasicArrayList) GameFeatureChoiceGroups.getExclusiveInstance().get().get(((object) orientationData.ORIENTATION_SENSOR_INPUT)));
-        InGameFeatureChoiceGroups inGameFeatureChoiceGroups = InGameFeatureChoiceGroups.getExclusiveInstance();
+    @override
+    void init() {
+        final String LABEL = "Screen Buttons";
+        final OrientationData orientationData = OrientationData.getInstance();
+        final BasicArrayList exclusiveOrientationSensorVector = (GameFeatureChoiceGroups.getExclusiveInstance().get().get((orientationData.ORIENTATION_SENSOR_INPUT as Object)) as BasicArrayList);
+        final InGameFeatureChoiceGroups inGameFeatureChoiceGroups = InGameFeatureChoiceGroups.getExclusiveInstance();
         if (exclusiveOrientationSensorVector != null) {
-            object inGameExclusiveOrientationSensorVectorCanBeNull = inGameFeatureChoiceGroups.get().get(((object) orientationData.ORIENTATION_SENSOR_INPUT));
+            final Object inGameExclusiveOrientationSensorVectorCanBeNull = inGameFeatureChoiceGroups.get().get((orientationData.ORIENTATION_SENSOR_INPUT as Object));
             if (inGameExclusiveOrientationSensorVectorCanBeNull == null) {
                 this.addToInGameMenu();
             } else {
-                BasicArrayList inGameExclusiveOrientationSensorVector = ((BasicArrayList) inGameExclusiveOrientationSensorVectorCanBeNull);
+                final BasicArrayList inGameExclusiveOrientationSensorVector = (inGameExclusiveOrientationSensorVectorCanBeNull as BasicArrayList);
                 if (inGameExclusiveOrientationSensorVector.size() == 0) {
                     this.addToInGameMenu();
                 }
             }
         }
-        Features features = Features.getInstance();
+        final Features features = Features.getInstance();
         if (features.isFeature(TouchFeatureFactory.getInstance().SHOW_SCREEN_BUTTONS) || features.isFeature(TouchFeatureFactory.getInstance().AUTO_HIDE_SHOW_SCREEN_BUTTONS) || features.isFeature(TouchFeatureFactory.getInstance().HIDE_SCREEN_BUTTONS)) {
-            BasicArrayList exclusiveScreenButtonsVector = new BasicArrayListD();
-            TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
+            final BasicArrayList exclusiveScreenButtonsVector = BasicArrayListD();
+            final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
             exclusiveScreenButtonsVector.add(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS);
             exclusiveScreenButtonsVector.add(touchFeatureFactory.SHOW_SCREEN_BUTTONS);
             exclusiveScreenButtonsVector.add(touchFeatureFactory.HIDE_SCREEN_BUTTONS);
             inGameFeatureChoiceGroups.add(LABEL, exclusiveScreenButtonsVector);
         }
     }
+    
 
-    private void addToInGameMenu()
-    {
-        OrientationData orientationData = OrientationData.getInstance();
-        BasicArrayList inGameExclusiveOrientationSensorVector = new BasicArrayListD();
+    void addToInGameMenu() {
+        final OrientationData orientationData = OrientationData.getInstance();
+        final BasicArrayList inGameExclusiveOrientationSensorVector = BasicArrayListD();
         inGameExclusiveOrientationSensorVector.add(SensorFeatureFactory.getInstance().ORIENTATION_SENSORS);
         inGameExclusiveOrientationSensorVector.add(SensorFeatureFactory.getInstance().NO_ORIENTATION);
         InGameFeatureChoiceGroups.getExclusiveInstance().add(orientationData.ORIENTATION_SENSOR_INPUT, inGameExclusiveOrientationSensorVector);
     }
+    
 
-    public virtual bool isAny()
-    {
-        Features features = Features.getInstance();
-        TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
+    bool isAny() {
+        final Features features = Features.getInstance();
+        final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
         if (features.isFeature(touchFeatureFactory.SHOW_SCREEN_BUTTONS) || features.isFeature(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS) || features.isFeature(touchFeatureFactory.HIDE_SCREEN_BUTTONS)) {
             return true;
         }
-        BasicArrayList exclusiveOrientationSensorVector = ((BasicArrayList) GameFeatureChoiceGroups.getExclusiveInstance().get().get(((object) OrientationData.getInstance().ORIENTATION_SENSOR_INPUT)));
+        final BasicArrayList exclusiveOrientationSensorVector = (GameFeatureChoiceGroups.getExclusiveInstance().get().get((OrientationData.getInstance().ORIENTATION_SENSOR_INPUT as Object)) as BasicArrayList);
         if (exclusiveOrientationSensorVector != null) {
             return true;
         }
         return false;
     }
-
 }
 

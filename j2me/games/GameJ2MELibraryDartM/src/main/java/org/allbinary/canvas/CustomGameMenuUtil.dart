@@ -13,27 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.canvas
 
-using System;
-using System.Linq;
-using AppletUtil = org.allbinary.AppletUtil;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/AppletUtil.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/MyCanvas.dart';
 
-namespace org.allbinary.canvas;
+class CustomGameMenuUtil {
+    
 
-public class CustomGameMenuUtil
-{
-    public static void add(MyCanvas canvas)
-    {
-        GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+    static void add(MyCanvas canvas) {
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         if (AppletUtil.isAppletLoader(canvas)) {
         } else if (J2MEUtil.isHTML()) {
         } else {
             canvas.addCommand(gameCommandsFactory.EXIT_COMMAND);
         }
     }
-
 }
 

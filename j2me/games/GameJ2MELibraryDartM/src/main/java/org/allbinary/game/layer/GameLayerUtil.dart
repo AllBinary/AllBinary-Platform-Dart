@@ -13,36 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
 
-namespace org.allbinary.game.layer;
+class GameLayerUtil {
+    
 
-public class GameLayerUtil
-{
-    private GameLayerUtil()
-    {
+    GameLayerUtil() {
     }
+    
 
-    public static bool isOnScreen(AllBinaryLayer layer)
-    {
+    static bool isOnScreen(AllBinaryLayer layer) {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         ViewPositionBase viewPosition = layer.getViewPosition();
         return GameLayerUtil.isInside(viewPosition.getX(), viewPosition.getY(), viewPosition.getX2(), viewPosition.getY2(), 0, 0, displayInfo.getLastWidth(), displayInfo.getLastHeight());
     }
+    
 
-    public static bool isInside(int rectX1, int rectY1, int rectX2, int rectY2, int rect2X1, int rect2Y1, int rect2X2, int rect2Y2)
-    {
+    static bool isInside(int rectX1, int rectY1, int rectX2, int rectY2, int rect2X1, int rect2Y1, int rect2X2, int rect2Y2) {
         if (rectX1 > rect2X1 && rectX2 < rect2X2 && rectY1 > rect2Y1 && rectY2 < rect2Y2) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

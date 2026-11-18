@@ -13,27 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/input/gyro/SensorGameUpdateProcessor.dart';
+import 'package:allbinary/org/allbinary/input/gyro/AccelerometerSensorUpdateProcessor.dart';
+import 'package:allbinary/org/allbinary/input/gyro/GyroSensorUpdateProcessor.dart';
 
-namespace org.allbinary.input.gyro;
+class SingleSensorGameUpdateProcessor extends SensorGameUpdateProcessor {
+    late Processor accelerometerSensorUpdateProcessor;
+    late Processor gyroSensorUpdateProcessor;
 
-public class SingleSensorGameUpdateProcessor : SensorGameUpdateProcessor
-{
-    private readonly Processor accelerometerSensorUpdateProcessor = new AccelerometerSensorUpdateProcessor();
-    private readonly Processor gyroSensorUpdateProcessor = new GyroSensorUpdateProcessor();
-    // throws Exception
-    public override void process(object anyType)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSingleSensorGameUpdateProcessor() {
+    this.accelerometerSensorUpdateProcessor = AccelerometerSensorUpdateProcessor();
+    this.gyroSensorUpdateProcessor = GyroSensorUpdateProcessor();
+    }
+
+    SingleSensorGameUpdateProcessor() {
+        this.initFieldsSingleSensorGameUpdateProcessor();
+    }
+    
+
+    void process(Object anyType) {
         this.setNoSensors();
     }
+    
 
-    // throws Exception
-    public override void sendNotifications(object anyType)
-    {
+    void sendNotifications(Object anyType) {
     }
-
 }
 

@@ -13,34 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/animation/image/BaseImageAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/animation/image/RightToLeftImageAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/image/AdjustedRightToLeftImageAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class RightToLeftImageAnimationFactory extends BaseImageAnimationFactory {
+    
 
-public class RightToLeftImageAnimationFactory : BaseImageAnimationFactory
-{
-    public RightToLeftImageAnimationFactory(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) : base(image, PrimitiveIntUtil.getArrayInstance(), image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory)
-    {
-        // base(image, PrimitiveIntUtil.getArrayInstance(), image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory) is called from the constructor declaration
+    RightToLeftImageAnimationFactory(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) : super(image, PrimitiveIntUtil.getArrayInstance(), image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory) {
+        
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
-        Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+    @override
+    Animation getInstance1(int instanceId) {
+        final Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             this.animationFactoryImageScaleUtil.processAdjust(this);
-            return new AdjustedRightToLeftImageAnimation(scaledImage, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return AdjustedRightToLeftImageAnimation(scaledImage, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new RightToLeftImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
+            return RightToLeftImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
-
 }
 

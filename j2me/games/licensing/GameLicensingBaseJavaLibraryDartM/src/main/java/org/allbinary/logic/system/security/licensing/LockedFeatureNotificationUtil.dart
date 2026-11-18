@@ -13,48 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using GameNotificationEvent = org.allbinary.game.layer.hud.@event.GameNotificationEvent;
-using GameNotificationEventHandler = org.allbinary.game.layer.hud.@event.GameNotificationEventHandler;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using ErrorSound = org.allbinary.media.audio.ErrorSound;
-using PrimaryPlayerQueueFactory = org.allbinary.media.audio.PrimaryPlayerQueueFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEvent.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/ErrorSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/PrimaryPlayerQueueFactory.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LicenseStrings.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LockedFeatureNotificationUtil {
+    static final LockedFeatureNotificationUtil instance = LockedFeatureNotificationUtil();
+    late GameNotificationEvent gameNotificationEvent;
 
-public class LockedFeatureNotificationUtil
-{
-    private static readonly LockedFeatureNotificationUtil instance = new LockedFeatureNotificationUtil();
-    public static LockedFeatureNotificationUtil getInstance()
-    {
-        return LockedFeatureNotificationUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsLockedFeatureNotificationUtil() {
+    this.gameNotificationEvent = GameNotificationEvent(this, LicenseStrings.getInstance().LOCKED, SmallIntegerSingletonFactory.getInstance().getAt(3), BasicColorFactory.getInstance().RED, BooleanFactory.getInstance().FALSE);
     }
 
-    private readonly GameNotificationEvent gameNotificationEvent;
-    // throws Exception
-    public virtual void fire()
-    {
+    LockedFeatureNotificationUtil() {
+        this.initFieldsLockedFeatureNotificationUtil();
+    }
+    
+
+    static LockedFeatureNotificationUtil getInstance() {
+        return LockedFeatureNotificationUtil.instance;
+    }
+    
+
+    void fire() {
         PrimaryPlayerQueueFactory.getInstance().add(ErrorSound.getInstance());
         GameNotificationEventHandler.getInstance().fireEvent(this.gameNotificationEvent);
     }
+    
 
-    // throws Exception
-    public virtual void fireWithColor(BasicColor basicColor)
-    {
+    void fireWithColor(BasicColor basicColor) {
         PrimaryPlayerQueueFactory.getInstance().add(ErrorSound.getInstance());
         this.gameNotificationEvent.setBasicColorP(basicColor);
         GameNotificationEventHandler.getInstance().fireEvent(this.gameNotificationEvent);
     }
-
-    public LockedFeatureNotificationUtil()
-    {
-        this.gameNotificationEvent = new GameNotificationEvent(this, LicenseStrings.getInstance().LOCKED, SmallIntegerSingletonFactory.getInstance().getAt(3), BasicColorFactory.getInstance().RED, BooleanFactory.getInstance().FALSE);
-    }
-
 }
 

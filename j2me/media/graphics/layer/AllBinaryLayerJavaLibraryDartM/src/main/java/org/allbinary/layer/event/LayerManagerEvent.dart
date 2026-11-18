@@ -13,46 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer.event
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LayerManager = org.allbinary.layer.LayerManager;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.layer.@event;
+class LayerManagerEvent extends AllBinaryEventObject {
+    late AllBinaryLayer layerInterface;
+    late String crud;
 
-public class LayerManagerEvent : AllBinaryEventObject
-{
-    private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    private readonly string crud;
-    public LayerManagerEvent(LayerManager layerManager, string crud) : base(layerManager)
-    {
-        // base(layerManager) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsLayerManagerEvent() {
+    this.layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    
+    }
+    
+
+    LayerManagerEvent(LayerManager layerManager, String crud) : super(layerManager) {
+        this.initFieldsLayerManagerEvent();
+        
         this.crud = crud;
     }
+    
 
-    public virtual AllBinaryLayer getLayerInterface()
-    {
+    AllBinaryLayer getLayerInterface() {
         return this.layerInterface;
     }
+    
 
-    public virtual void setLayerInterface(AllBinaryLayer layerInterface)
-    {
+    void setLayerInterface(AllBinaryLayer layerInterface) {
         this.layerInterface = layerInterface;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append("LayerManagerEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.getLayerInterface().ToString());
+        stringBuffer.append(this.getLayerInterface().toString());
         stringBuffer.append("\nCRUD: ");
         stringBuffer.append(this.crud);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

@@ -1,64 +1,72 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.analog
 
-using System;
-using System.Linq;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/CustomGPoint.dart';
 
-namespace org.allbinary.game.input.analog;
+class AnalogLocationInput {
+    static final AnalogLocationInput NULL_ANALOG_LOCATION_INPUT = AnalogLocationInput(-1);
+    int playerId = 0;
+    late CustomGPoint customGPoint;
+    int rz = 0;
+    int rightTrigger = 0;
+    int leftTrigger = 0;
 
-public class AnalogLocationInput
-{
-    public static readonly AnalogLocationInput NULL_ANALOG_LOCATION_INPUT = new AnalogLocationInput(-1);
-    private readonly int playerId;
-    private readonly CustomGPoint customGPoint;
-    private int rz = 0;
-    private int rightTrigger = 0;
-    private int leftTrigger = 0;
-    public AnalogLocationInput(int playerId)
-    {
-        this.playerId = playerId;
-        this.customGPoint = new CustomGPoint(0, 0, 0);
+    // Java field initializers run after the base constructor
+    void initFieldsAnalogLocationInput() {
+    
+    
+    this.rz = 0;
+    this.rightTrigger = 0;
+    this.leftTrigger = 0;
     }
+    
 
-    public virtual int getPlayerId()
-    {
+    AnalogLocationInput(int playerId) {
+        this.initFieldsAnalogLocationInput();
+        this.playerId = playerId;
+        this.customGPoint = CustomGPoint(0, 0, 0);
+    }
+    
+
+    int getPlayerId() {
         return this.playerId;
     }
+    
 
-    public virtual CustomGPoint getCustomGPoint()
-    {
+    CustomGPoint getCustomGPoint() {
         return this.customGPoint;
     }
+    
 
-    public virtual int getRz()
-    {
+    int getRz() {
         return this.rz;
     }
+    
 
-    public virtual void setRz(int rz)
-    {
+    void setRz(int rz) {
         this.rz = rz;
     }
+    
 
-    public virtual int getRightTrigger()
-    {
+    int getRightTrigger() {
         return this.rightTrigger;
     }
+    
 
-    public virtual void setRightTrigger(int rightTrigger)
-    {
+    void setRightTrigger(int rightTrigger) {
         this.rightTrigger = rightTrigger;
     }
+    
 
-    public virtual int getLeftTrigger()
-    {
+    int getLeftTrigger() {
         return this.leftTrigger;
     }
+    
 
-    public virtual void setLeftTrigger(int leftTrigger)
-    {
+    void setLeftTrigger(int leftTrigger) {
         this.leftTrigger = leftTrigger;
     }
-
 }
 

@@ -13,38 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tick
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/tick/OptimizedTickableLayerManager.dart';
 
-namespace org.allbinary.game.tick;
+class OptimizedTickableLayerProcessor extends LayerProcessor {
+    
 
-public class OptimizedTickableLayerProcessor : LayerProcessor
-{
-    public OptimizedTickableLayerProcessor() : base(new OptimizedTickableLayerManager())
-    {
-        // base(new OptimizedTickableLayerManager()) is called from the constructor declaration
+    OptimizedTickableLayerProcessor() : super(OptimizedTickableLayerManager()) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        AllBinaryGameLayer tickableInterface = ((AllBinaryGameLayer) layerInterface);
+    @override
+    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index) {
+        AllBinaryGameLayer tickableInterface = (layerInterface as AllBinaryGameLayer);
         tickableInterface.processTick(allBinaryLayerManager);
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    @override
+    bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsTickableInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

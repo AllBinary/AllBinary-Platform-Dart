@@ -13,24 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.canvas
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
 
-namespace org.allbinary.canvas;
+class GameGlobalsFactory {
+    static final GameGlobalsFactory instance = GameGlobalsFactory();
+    bool newCanvas = false;
+    int newDisplaybleTime = 0;
+    late GPoint point;
 
-public class GameGlobalsFactory
-{
-    private static readonly GameGlobalsFactory instance = new GameGlobalsFactory();
-    public static GameGlobalsFactory getInstance()
-    {
-        return GameGlobalsFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGameGlobalsFactory() {
+    this.newCanvas = true;
+    this.newDisplaybleTime = Integer.MIN_VALUE;
+    this.point = PointFactory.getInstance().ZERO_ZERO;
     }
 
-    public bool newCanvas = true;
-    public long newDisplaybleTime = ((long) int.MinValue);
-    public GPoint point = PointFactory.getInstance().ZERO_ZERO;
+    GameGlobalsFactory() {
+        this.initFieldsGameGlobalsFactory();
+    }
+    
+
+    static GameGlobalsFactory getInstance() {
+        return GameGlobalsFactory.instance;
+    }
 }
 

@@ -13,57 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.input.motion.gesture;
+class MotionGestureToMotionGestureActionAssociation {
+    late BasicArrayList list;
+    late CompleteMotionGestureInputEvent motionGestureAction;
 
-public class MotionGestureToMotionGestureActionAssociation
-{
-    private BasicArrayList list;
-    private CompleteMotionGestureInputEvent motionGestureAction;
-    public MotionGestureToMotionGestureActionAssociation(BasicArrayList list, CompleteMotionGestureInputEvent commandAction)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMotionGestureToMotionGestureActionAssociation() {
+    
+    
+    }
+    
+
+    MotionGestureToMotionGestureActionAssociation(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {
+        this.initFieldsMotionGestureToMotionGestureActionAssociation();
         this.list = list;
         this.motionGestureAction = commandAction;
     }
+    
 
-    public virtual BasicArrayList getMotionGesture()
-    {
+    BasicArrayList getMotionGesture() {
         return this.list;
     }
+    
 
-    public virtual void setMotionGestures(BasicArrayList list)
-    {
+    void setMotionGestures(BasicArrayList list) {
         this.list = list;
     }
+    
 
-    public virtual CompleteMotionGestureInputEvent getCommandAction()
-    {
+    CompleteMotionGestureInputEvent getCommandAction() {
         return this.motionGestureAction;
     }
+    
 
-    public virtual void setMotionGestureAction(CompleteMotionGestureInputEvent commandAction)
-    {
+    void setMotionGestureAction(CompleteMotionGestureInputEvent commandAction) {
         this.motionGestureAction = commandAction;
     }
+    
 
-    public virtual bool isMotionGestureArrayEquals(BasicArrayList aList)
-    {
+    bool isMotionGestureArrayEquals(BasicArrayList aList) {
         int size = aList.size();
         if (this.list.size() != size) {
             return false;
         }
         for (int i = size - 1; i >= 0; i--) {
-            if (aList.objectArray[i] != this.list.objectArray[i]) {
+            if (aList.objectArray[i]! != this.list.objectArray[i]!) {
                 return false;
             }
         }
         return true;
     }
-
 }
 

@@ -13,40 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using SequenceAI = org.allbinary.game.ag.ai.sequence.SequenceAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using GroupLayerManagerListener = org.allbinary.game.layer.identification.GroupLayerManagerListener;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/sequence/SequenceAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/layer/identification/GroupLayerManagerListener.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.ag.ai;
+class NumberOnOwnGroupSequenceAI extends SequenceAI {
+    late List<int?> numberOnSameTeam;
 
-public class NumberOnOwnGroupSequenceAI : SequenceAI
-{
-    private int?[] numberOnSameTeam;
-    public NumberOnOwnGroupSequenceAI(int?[] numberOnSameTeam, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterface, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterface, ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsNumberOnOwnGroupSequenceAI() {
+    
+    }
+    
+
+    NumberOnOwnGroupSequenceAI(List<int?> numberOnSameTeam, List<ArtificialIntelligenceInterface?> artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(artificialIntelligenceInterface, ownerLayerInterface, gameInput) {
+        this.initFieldsNumberOnOwnGroupSequenceAI();
+        
         this.numberOnSameTeam = numberOnSameTeam;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        final AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
         int index = this.getIndex();
-        if (this.numberOnSameTeam.Length > index) {
-            int size = GroupLayerManagerListener.getInstance().getGroupSizeFromInterface(layerInterface);
-            if (global::java.lang.JavaNumber.intValue(this.numberOnSameTeam[index]) > size) {
+        if (this.numberOnSameTeam.length > index) {
+            final int size = GroupLayerManagerListener.getInstance().getGroupSizeFromInterface(layerInterface);
+            if ((this.numberOnSameTeam[index]!).toInt() > size) {
                 this.next();
             }
         }
-        base.processAI(allBinaryLayerManager);
+        super.processAI(allBinaryLayerManager);
     }
-
 }
 

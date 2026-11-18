@@ -13,19 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.init
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/init/GameInitializationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/init/BaseGameInitialization.dart';
+import 'package:allbinary/org/allbinary/game/init/GameInitializationInterface.dart';
 
-namespace org.allbinary.game.init;
+class BasicBuildGameInitializerFactory implements GameInitializationInterfaceFactoryInterface {
+    static BasicBuildGameInitializerFactory NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = BasicBuildGameInitializerFactory();
+    
 
-public class BasicBuildGameInitializerFactory : GameInitializationInterfaceFactoryInterface
-{
-    public static BasicBuildGameInitializerFactory NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = new BasicBuildGameInitializerFactory();
-    public virtual GameInitializationInterface getInstance()
-    {
+    @override
+    GameInitializationInterface getInstance() {
         return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;
     }
-
 }
 

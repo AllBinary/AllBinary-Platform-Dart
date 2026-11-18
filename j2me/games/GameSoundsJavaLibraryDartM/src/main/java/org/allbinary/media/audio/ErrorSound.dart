@@ -13,24 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/CompositeSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
 
-namespace org.allbinary.media.audio;
+class ErrorSound extends CompositeSound {
+    static Sound soundInterface = ErrorSound();
+    
 
-public class ErrorSound : CompositeSound
-{
-    private static Sound soundInterface = new ErrorSound();
-    private ErrorSound() : base("resource:/wav/error.wav")
-    {
-        // base("resource:/wav/error.wav") is called from the constructor declaration
+    ErrorSound() : super("resource:/wav/error.wav") {
+        
     }
+    
 
-    public static Sound getInstance()
-    {
+    static Sound getInstance() {
         return ErrorSound.soundInterface;
     }
-
 }
 

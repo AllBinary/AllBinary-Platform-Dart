@@ -1,31 +1,29 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
 
-namespace org.allbinary.graphics.opengles;
+class OpenGLUtil {
+    static final OpenGLUtil instance = OpenGLUtil();
+    
 
-public class OpenGLUtil
-{
-    private static readonly OpenGLUtil instance = new OpenGLUtil();
-    public static OpenGLUtil getInstance()
-    {
+    static OpenGLUtil getInstance() {
         return OpenGLUtil.instance;
     }
+    
 
-    public virtual Image addImage(Image image)
-    {
+    Image addImage(Image image) {
         return image;
     }
+    
 
-    public virtual void clear()
-    {
+    void clear() {
     }
+    
 
-    public virtual void addRunnable(global::java.lang.Runnable runnable)
-    {
+    void addRunnable(Runnable runnable) {
     }
-
 }
 

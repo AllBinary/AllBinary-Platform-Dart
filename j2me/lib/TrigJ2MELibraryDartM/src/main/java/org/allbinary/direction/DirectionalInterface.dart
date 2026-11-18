@@ -13,22 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.direction
 
-using System;
-using System.Linq;
-using Angle = org.allbinary.math.Angle;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
 
-namespace org.allbinary.direction;
+abstract interface class DirectionalInterface {
+    
 
-public interface DirectionalInterface
-{
     void setFrameByDirection(Direction direction);
+    
 
     void setFrameToAngle(Angle angle);
+    
 
     void adjustFrameToAngle(Angle newAngle);
+    
 
-    void adjustFrame(short angle);
-
+    void adjustFrame(int angle);
 }
 

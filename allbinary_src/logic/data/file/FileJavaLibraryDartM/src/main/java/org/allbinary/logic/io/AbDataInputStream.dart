@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using DataInputStream = java.io.DataInputStream;
-using InputStream = java.io.InputStream;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/DataInputStream.dart';
+import 'package:allbinary/java/io/InputStream.dart';
 
-namespace org.allbinary.logic.io;
+class AbDataInputStream extends DataInputStream {
+    
 
-public class AbDataInputStream : DataInputStream
-{
-    public AbDataInputStream(InputStream @out) : base(@out)
-    {
-        // base(@out) is called from the constructor declaration
+    AbDataInputStream(InputStream out) : super(out) {
+        
     }
-
 }
 

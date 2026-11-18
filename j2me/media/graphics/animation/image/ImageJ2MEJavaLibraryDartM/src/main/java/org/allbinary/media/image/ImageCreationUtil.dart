@@ -13,39 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using GameFeatureImageCacheFactory = org.allbinary.image.GameFeatureImageCacheFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/image/GameFeatureImageCacheFactory.dart';
 
-namespace org.allbinary.media.image;
+class ImageCreationUtil {
+    static final ImageCreationUtil instance = ImageCreationUtil();
+    
 
-public class ImageCreationUtil
-{
-    private static readonly ImageCreationUtil instance = new ImageCreationUtil();
-    public static ImageCreationUtil getInstance()
-    {
+    static ImageCreationUtil getInstance() {
         return ImageCreationUtil.instance;
     }
+    
 
-    private ImageCreationUtil()
-    {
+    ImageCreationUtil() {
     }
+    
 
-    // throws Exception
-    public virtual Image createImageWH(int width, int height)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(this.GetType().FullName, width, height);
+    Image createImageWH(int width, int height) {
+        final Image image = GameFeatureImageCacheFactory.getInstance().get(jClassName(this), width, height);
         return image;
     }
+    
 
-    // throws Exception
-    public virtual Image createImage(int width, int height, float maxScaleX, float maxScaleY)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(this.GetType().FullName, ((int) (((float) width) * maxScaleX)) + 1, ((int) (((float) height) * maxScaleY)) + 1);
+    Image createImage(int width, int height, double maxScaleX, double maxScaleY) {
+        final Image image = GameFeatureImageCacheFactory.getInstance().get(jClassName(this), JMath.toInt32(((width).toDouble() * maxScaleX)) + 1, JMath.toInt32(((height).toDouble() * maxScaleY)) + 1);
         return image;
     }
-
 }
 

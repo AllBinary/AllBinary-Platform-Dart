@@ -13,75 +13,90 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/text/CustomTextAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/text/AdjustCustomTextAnimation.dart';
 
-namespace org.allbinary.animation.text;
+class CustomTextAnimationFactory implements AnimationInterfaceFactoryInterface {
+    late LogUtil logUtil;
+    late AnimationBehaviorFactory animationBehaviorFactory;
+    late BasicColor basicColor;
+    late String text;
+    int initScaleHeight = 0;
+    int dx = 0;
+    int dy = 0;
+    late Font font;
+    late ScaleProperties scaleProperties;
 
-public class CustomTextAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    public static CustomTextAnimationFactory createDXY(string text, int fontSize, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        CustomTextAnimationFactory customTextAnimationFactory = new CustomTextAnimationFactory(text, fontSize, animationBehaviorFactory);
+    // Java field initializers run after the base constructor
+    void initFieldsCustomTextAnimationFactory() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.basicColor = BasicColorFactory.getInstance().BLACK;
+    
+    
+    this.dx = 0;
+    this.dy = 0;
+    
+    
+    }
+    
+
+    static CustomTextAnimationFactory createDXY(String text, int fontSize, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        final CustomTextAnimationFactory customTextAnimationFactory = CustomTextAnimationFactory(text, fontSize, animationBehaviorFactory);
         customTextAnimationFactory.dx = dx;
         customTextAnimationFactory.dy = dy;
         return customTextAnimationFactory;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
-    private string text;
-    private int initScaleHeight;
-    public int dx = 0;
-    public int dy = 0;
-    public Font font;
-    public ScaleProperties scaleProperties;
-    public CustomTextAnimationFactory(string text, int fontSize, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        this.scaleProperties = new ScaleProperties();
+    CustomTextAnimationFactory(String text, int fontSize, AnimationBehaviorFactory animationBehaviorFactory) {
+        this.initFieldsCustomTextAnimationFactory();
+        this.scaleProperties = ScaleProperties();
         this.text = text;
-        this.scaleProperties.scaleHeight = fontSize - (fontSize / 4);
+        this.scaleProperties.scaleHeight = fontSize - (fontSize ~/ 4);
         this.initScaleHeight = this.scaleProperties.scaleHeight;
         this.animationBehaviorFactory = animationBehaviorFactory;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        CustomTextAnimation customTextAnimation = null;
+    @override
+    Animation getInstance1(int instanceId) {
+        late CustomTextAnimation customTextAnimation;
         if (this.dx != 0 || this.dy != 0) {
-            customTextAnimation = new AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            customTextAnimation = AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            customTextAnimation = new CustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+            customTextAnimation = CustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
         }
         customTextAnimation.setBasicColorP(this.basicColor);
         return customTextAnimation;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
+    
 
-    public virtual int getWidth()
-    {
+    int getWidth() {
         return this.font.stringWidth(this.text);
     }
+    
 
-    public virtual int getHeight()
-    {
+    int getHeight() {
         return this.font.getHeight();
     }
-
 }
 

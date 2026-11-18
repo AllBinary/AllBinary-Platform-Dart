@@ -13,18 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class SimpleCompositeShaderUpdater extends CompositeShaderUpdater {
+    
 
-public class SimpleCompositeShaderUpdater : CompositeShaderUpdater
-{
-    public SimpleCompositeShaderUpdater(string[] uniformBlockArray, string[] uniformArray, string[] attributeArray, int[] attributeHandleArray) : base(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray)
-    {
-        // base(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray) is called from the constructor declaration
+    SimpleCompositeShaderUpdater(List<String?> uniformBlockArray, List<String?> uniformArray, List<String?> attributeArray, List<int> attributeHandleArray) : super(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray) {
+        
     }
-
 }
 

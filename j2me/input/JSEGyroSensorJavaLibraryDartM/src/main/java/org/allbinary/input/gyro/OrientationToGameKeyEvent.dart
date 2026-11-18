@@ -13,47 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using SensorFeatureFactory = org.allbinary.game.configuration.feature.SensorFeatureFactory;
-using Orientation = org.allbinary.logic.math.Orientation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/SensorFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/Orientation.dart';
+import 'package:allbinary/org/allbinary/input/gyro/AllBinaryOrientationSensor.dart';
+import 'package:allbinary/org/allbinary/input/gyro/NoGyroSensor.dart';
 
-namespace org.allbinary.input.gyro;
+class OrientationToGameKeyEvent {
+    late AllBinaryOrientationSensor allBinaryGyroSensor;
+    int MIN = 0;
 
-public class OrientationToGameKeyEvent
-{
-    private AllBinaryOrientationSensor allBinaryGyroSensor = null;
-    private readonly int MIN = 15;
-    public OrientationToGameKeyEvent()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOrientationToGameKeyEvent() {
+    
+    this.MIN = 15;
+    }
+    
+
+    OrientationToGameKeyEvent() {
+        this.initFieldsOrientationToGameKeyEvent();
         if (Features.getInstance().isFeature(SensorFeatureFactory.getInstance().NO_ORIENTATION)) {
-            this.allBinaryGyroSensor = new NoGyroSensor();
+            this.allBinaryGyroSensor = NoGyroSensor();
         } else {
-            throw new Exception("Not Such Feature");
+            throw JException('Exception', "Not Such Feature");
         }
     }
+    
 
-    public virtual void setAllBinaryGyroSensor(AllBinaryOrientationSensor allBinaryGyroSensor)
-    {
+    void setAllBinaryGyroSensor(AllBinaryOrientationSensor allBinaryGyroSensor) {
         this.allBinaryGyroSensor = allBinaryGyroSensor;
     }
+    
 
-    public virtual AllBinaryOrientationSensor getAllBinaryGyroSensor()
-    {
+    AllBinaryOrientationSensor getAllBinaryGyroSensor() {
         return this.allBinaryGyroSensor;
     }
+    
 
-    // throws Exception
-    public virtual void process()
-    {
+    void process() {
     }
+    
 
-    // throws Exception
-    private void updateGameKeyEvents(Orientation orientation, int yaw, int pitch, int roll)
-    {
+    void updateGameKeyEvents(Orientation orientation, int yaw, int pitch, int roll) {
     }
-
 }
 

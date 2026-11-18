@@ -13,16 +13,15 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.font
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
 
-namespace org.allbinary.graphics.font;
+abstract interface class UpdateMyFontInterface {
+    
 
-public interface UpdateMyFontInterface
-{
     void updateMeasurement(Graphics graphics);
-
 }
 

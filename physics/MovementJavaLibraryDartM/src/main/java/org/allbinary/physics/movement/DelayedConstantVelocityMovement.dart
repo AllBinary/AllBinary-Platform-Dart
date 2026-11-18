@@ -13,36 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/physics/movement/BasicConstantVelocityMovement.dart';
 
-namespace org.allbinary.physics.movement;
+class DelayedConstantVelocityMovement extends BasicConstantVelocityMovement {
+    late TimeDelayHelper timeDelayHelper;
 
-public class DelayedConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(60);
-    public DelayedConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) : base(basicDecimal, velocityProperties)
-    {
-        // base(basicDecimal, velocityProperties) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsDelayedConstantVelocityMovement() {
+    this.timeDelayHelper = TimeDelayHelper(60);
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    DelayedConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) : super(basicDecimal, velocityProperties) {
+        this.initFieldsDelayedConstantVelocityMovement();
+        
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    @override
+    void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle) {
+    }
+    
+
+    @override
+    void process(AllBinaryGameLayer layer) {
         if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
-            base.process(layer);
+            super.process(layer);
         }
     }
-
 }
 

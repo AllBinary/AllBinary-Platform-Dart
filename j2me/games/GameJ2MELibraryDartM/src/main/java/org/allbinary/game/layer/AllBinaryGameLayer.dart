@@ -13,125 +13,134 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BasicColorSetUtil = org.allbinary.graphics.color.BasicColorSetUtil;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using OpenGLSurfaceChangedInterface = org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
-using ViewPositionEvent = org.allbinary.view.@event.ViewPositionEvent;
-using ViewPositionEventListenerInterface = org.allbinary.view.@event.ViewPositionEventListenerInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorSetUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/view/event/ViewPositionEvent.dart';
+import 'package:allbinary/org/allbinary/view/event/ViewPositionEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/SWTUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/SWTBlackPaintable.dart';
+import 'package:allbinary/org/allbinary/game/layer/GameLayerUtil.dart';
 
-namespace org.allbinary.game.layer;
+class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventListenerInterface, OpenGLSurfaceChangedInterface {
+    late CommonStrings commonStrings;
+    late BasicColorSetUtil basicSetColorUtil;
+    late BasicColor RED;
+    late Paintable paintable;
+    late BasicArrayList gameKeyEventList;
 
-public class AllBinaryGameLayer : AllBinaryLayer, ViewPositionEventListenerInterface, OpenGLSurfaceChangedInterface
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-    public readonly BasicColor RED = BasicColorFactory.getInstance().RED;
-    private static Paintable createPaintable()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryGameLayer() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.RED = BasicColorFactory.getInstance().RED;
+    this.paintable = AllBinaryGameLayer.createPaintable();
+    this.gameKeyEventList = BasicArrayListD();
+    }
+    
+
+    static Paintable createPaintable() {
         if (SWTUtil.isSWT) {
-            return new SWTBlackPaintable();
+            return SWTBlackPaintable();
         }
         return NullPaintable.getInstance();
     }
+    
 
-    private readonly Paintable paintable = createPaintable();
-    private readonly BasicArrayList gameKeyEventList = new BasicArrayListD();
-    public AllBinaryGameLayer(string name, Rectangle layerInfo, ViewPositionBase viewPosition) : base(name, layerInfo, viewPosition)
-    {
-        // base(name, layerInfo, viewPosition) is called from the constructor declaration
+    AllBinaryGameLayer(String name, Rectangle layerInfo, ViewPositionBase viewPosition) : super(name, layerInfo, viewPosition) {
+        this.initFieldsAllBinaryGameLayer();
+        
     }
+    
 
-    // throws Exception
-    public virtual void set(GL gl)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    @override
+    void set(GL gl) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    public virtual void move()
-    {
+    void move() {
     }
+    
 
-    public virtual BasicArrayList getGameKeyEventList()
-    {
+    BasicArrayList getGameKeyEventList() {
         return this.gameKeyEventList;
     }
+    
 
-    // throws Exception
-    public virtual void processInput(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    void processInput(AllBinaryLayerManager allBinaryLayerManager) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    // throws Exception
-    public virtual void processTick(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    void processTick(AllBinaryLayerManager allBinaryLayerManager) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    // throws Exception
-    public virtual void onViewPositionChangeEvent()
-    {
+    void onViewPositionChangeEvent() {
         this.onChangeEvent(this.viewPositionEvent);
     }
+    
 
-    // throws Exception
-    public override void onChangeEvent(ViewPositionEvent layerManagerEvent)
-    {
+    @override
+    void onChangeEvent(ViewPositionEvent layerManagerEvent) {
         if (GameLayerUtil.isOnScreen(this)) {
             this.setVisible(true);
         } else {
             this.setVisible(false);
         }
     }
+    
 
-    public virtual void paintFirst(Graphics graphics)
-    {
+    void paintFirst(Graphics graphics) {
         this.paintable.paint(graphics);
     }
+    
 
-    public virtual void paintDebug(Graphics graphics)
-    {
-        ViewPositionBase viewPosition = this.getViewPosition();
-        int viewX = viewPosition.getX();
-        int viewY = viewPosition.getY();
+    void paintDebug(Graphics graphics) {
+        final ViewPositionBase viewPosition = this.getViewPosition();
+        final int viewX = viewPosition.getX();
+        final int viewY = viewPosition.getY();
         this.basicSetColorUtil.setBasicColorP(graphics, this.RED);
         graphics.drawRect(viewX, viewY, this.getWidth(), this.getHeight());
     }
+    
 
-    public virtual void setWidth(int width)
-    {
-        base.setLayerWidth(width);
+    void setWidth(int width) {
+        super.setLayerWidth(width);
         this.setHalfWidth(width >> 1);
     }
+    
 
-    public virtual void setHeight(int height)
-    {
-        base.setLayerHeight(height);
+    void setHeight(int height) {
+        super.setLayerHeight(height);
         this.setHalfHeight(height >> 1);
     }
-
 }
 

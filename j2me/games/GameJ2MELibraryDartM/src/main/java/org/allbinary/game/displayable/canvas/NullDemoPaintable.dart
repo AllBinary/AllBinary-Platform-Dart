@@ -13,18 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoPaintableInterface.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class NullDemoPaintable implements DemoPaintableInterface {
+    static final NullDemoPaintable NULL_DEMO_PAINTABLE = NullDemoPaintable();
+    
 
-public class NullDemoPaintable : DemoPaintableInterface
-{
-    public static readonly NullDemoPaintable NULL_DEMO_PAINTABLE = new NullDemoPaintable();
-    public virtual void showGamePaintable()
-    {
+    @override
+    void showGamePaintable() {
     }
-
 }
 

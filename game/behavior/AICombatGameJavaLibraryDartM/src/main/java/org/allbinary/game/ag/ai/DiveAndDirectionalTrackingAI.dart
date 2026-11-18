@@ -13,77 +13,97 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using Direction = org.allbinary.direction.Direction;
-using DirectionFactory = org.allbinary.direction.DirectionFactory;
-using DirectionalCompositeInterface = org.allbinary.direction.DirectionalCompositeInterface;
-using DirectionalInterface = org.allbinary.direction.DirectionalInterface;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using DestroyedEvent = org.allbinary.game.combat.destroy.@event.DestroyedEvent;
-using DestroyedEventHandler = org.allbinary.game.combat.destroy.@event.DestroyedEventHandler;
-using DestroyedEventListenerInterface = org.allbinary.game.combat.destroy.@event.DestroyedEventListenerInterface;
-using Group = org.allbinary.game.identification.Group;
-using GameInput = org.allbinary.game.input.GameInput;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using TrackingEvent = org.allbinary.game.tracking.TrackingEvent;
-using TrackingEventHandler = org.allbinary.game.tracking.TrackingEventHandler;
-using TrackingEventListenerInterface = org.allbinary.game.tracking.TrackingEventListenerInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using MathUtil = org.allbinary.logic.math.MathUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionFactory.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionalCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionalInterface.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEvent.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEvent.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/MathUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.ag.ai;
+class DiveAndDirectionalTrackingAI extends BasicAI implements TrackingEventListenerInterface, DestroyedEventListenerInterface {
+    late MathUtil mathUtil;
+    late DirectionFactory directionFactory;
+    late GameTickTimeDelayHelper gameTickTimeDelayHelper;
+    late TimeDelayHelper timeDelayHelper;
+    late BasicArrayList list;
+    late DirectionalInterface directionalInterface;
+    late BasicVelocityProperties velocityInterface;
+    late List<int> directionToKeyMap;
+    bool initialDropped = false;
+    bool diveP = false;
+    late Direction directionOfTarget;
+    int MIN_DISTANCE = 0;
+    late AllBinaryLayer lastTrackingLayerInterface;
+    late ArtificialIntelligenceInterface artificialIntelligenceInterface;
+    late Visitor aiVistor;
+    late Direction lastDirection;
 
-public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterface, DestroyedEventListenerInterface
-{
-    private readonly MathUtil mathUtil = MathUtil.getInstance();
-    private readonly DirectionFactory directionFactory = DirectionFactory.getInstance();
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(500);
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private readonly DirectionalInterface directionalInterface;
-    private readonly BasicVelocityProperties velocityInterface;
-    private readonly int[] directionToKeyMap = new int[] { Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT };
-    private bool initialDropped = false;
-    private bool diveP = false;
-    private Direction directionOfTarget = Direction.getInstance(0);
-    private readonly int MIN_DISTANCE = 40;
-    private AllBinaryLayer lastTrackingLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    private readonly ArtificialIntelligenceInterface artificialIntelligenceInterface;
-    private readonly Visitor aiVistor;
-    private Direction lastDirection = DirectionFactory.getInstance().NO_DIRECTION;
-    public DiveAndDirectionalTrackingAI(AllBinaryLayer ownerLayerInterface, ArtificialIntelligenceInterface artificialIntelligenceInterface, GameInput gameInput, Visitor visitor) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsDiveAndDirectionalTrackingAI() {
+    this.mathUtil = MathUtil.getInstance();
+    this.directionFactory = DirectionFactory.getInstance();
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    this.timeDelayHelper = TimeDelayHelper(500);
+    this.list = BasicArrayListD();
+    
+    
+    this.directionToKeyMap = <int>[Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT];
+    this.initialDropped = false;
+    this.diveP = false;
+    this.directionOfTarget = Direction.getInstance1(0);
+    this.MIN_DISTANCE = 40;
+    this.lastTrackingLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    
+    
+    this.lastDirection = DirectionFactory.getInstance().NO_DIRECTION;
+    }
+    
+
+    DiveAndDirectionalTrackingAI(AllBinaryLayer ownerLayerInterface, ArtificialIntelligenceInterface artificialIntelligenceInterface, GameInput gameInput, Visitor visitor) : super(ownerLayerInterface, gameInput) {
+        this.initFieldsDiveAndDirectionalTrackingAI();
+        
         this.aiVistor = visitor;
         this.artificialIntelligenceInterface = artificialIntelligenceInterface;
-        DirectionalCompositeInterface directionalCompositeInterface = ((DirectionalCompositeInterface) this.getOwnerLayerInterface());
+        DirectionalCompositeInterface directionalCompositeInterface = (this.getOwnerLayerInterface() as DirectionalCompositeInterface);
         this.directionalInterface = directionalCompositeInterface.getDirectionalInterface();
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface) this.getOwnerLayerInterface());
+        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (this.getOwnerLayerInterface() as VelocityInterfaceCompositeInterface);
         this.velocityInterface = velocityInterfaceCompositeInterface.getVelocityProperties();
         DestroyedEventHandler.getInstance().addListenerInterface(this);
         this.init();
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.isBeyondTarget()) {
             this.init();
             this.velocityInterface.zero();
@@ -96,34 +116,33 @@ public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterf
         }
         this.list.clear();
     }
+    
 
-    private void init()
-    {
+    void init() {
         this.diveP = false;
         this.directionOfTarget = DirectionFactory.getInstance().NOT_BORDERED_WITH;
         TrackingEventHandler.getInstance().addListenerInterface(this);
     }
+    
 
-    // throws Exception
-    private void target(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    void target(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.list.size() == 0) {
             return;
         }
-        TrackingEvent lastTrackingEvent = ((TrackingEvent) this.list.removeAt(0));
+        TrackingEvent lastTrackingEvent = (this.list.removeAt(0) as TrackingEvent);
         this.lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
         AllBinaryLayer layerInterface = this.lastTrackingLayerInterface;
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        Group[] groupArray = layerInterface.getGroupInterface();
-        Group[] ownerGroupArray = ownerLayerInterface.getGroupInterface();
-        if (groupArray == ownerGroupArray) {
+        final List<Group?> groupArray = layerInterface.getGroupInterface();
+        final List<Group?> ownerGroupArray = ownerLayerInterface.getGroupInterface();
+        if (identical(groupArray, ownerGroupArray)) {
             return;
         }
         int x = this.lastTrackingLayerInterface.getXP();
         int y = this.lastTrackingLayerInterface.getYP();
         int yDistance = ownerLayerInterface.getYP() - y - ownerLayerInterface.getHeight();
         int xDistance = ownerLayerInterface.getXP() - x - ownerLayerInterface.getWidth();
-        DirectionFactory directionFactory = DirectionFactory.getInstance();
+        final DirectionFactory directionFactory = DirectionFactory.getInstance();
         if (this.mathUtil.abs(yDistance) > this.mathUtil.abs(xDistance)) {
             if (yDistance > this.MIN_DISTANCE) {
                 this.directionOfTarget = directionFactory.UP;
@@ -150,10 +169,9 @@ public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterf
             }
         }
     }
+    
 
-    // throws Exception
-    private void verticalTargeting(int x)
-    {
+    void verticalTargeting(int x) {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         if (ownerLayerInterface.getXP() < x) {
             this.moveRight();
@@ -165,10 +183,9 @@ public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterf
             this.setDive();
         }
     }
+    
 
-    // throws Exception
-    private void horizontalTargeting(int y)
-    {
+    void horizontalTargeting(int y) {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         if (ownerLayerInterface.getYP() < y) {
             this.moveDown();
@@ -180,70 +197,63 @@ public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterf
             this.setDive();
         }
     }
+    
 
-    private void setDive()
-    {
+    void setDive() {
         this.diveP = true;
         this.velocityInterface.zero();
         TrackingEventHandler.getInstance().removeListener(this);
     }
+    
 
-    // throws Exception
-    private void moveRight()
-    {
+    void moveRight() {
         this.setLastDirection(this.directionFactory.RIGHT);
         this.directionalInterface.setFrameByDirection(this.lastDirection);
         this.aiVistor.visit(this);
     }
+    
 
-    // throws Exception
-    private void moveLeft()
-    {
+    void moveLeft() {
         this.setLastDirection(this.directionFactory.LEFT);
         this.directionalInterface.setFrameByDirection(this.lastDirection);
         this.aiVistor.visit(this);
     }
+    
 
-    // throws Exception
-    private void moveDown()
-    {
+    void moveDown() {
         this.setLastDirection(this.directionFactory.DOWN);
         this.directionalInterface.setFrameByDirection(this.lastDirection);
         this.aiVistor.visit(this);
     }
+    
 
-    // throws Exception
-    private void moveUp()
-    {
+    void moveUp() {
         this.setLastDirection(this.directionFactory.UP);
         this.directionalInterface.setFrameByDirection(this.lastDirection);
         this.aiVistor.visit(this);
     }
+    
 
-    // throws Exception
-    private void dive()
-    {
+    void dive() {
         this.directionalInterface.setFrameByDirection(this.directionOfTarget);
         this.aiVistor.visit(this);
     }
+    
 
-    // throws Exception
-    private void attack()
-    {
-        base.processKeyAI(Canvas.KEY_NUM1);
+    void attack() {
+        super.processKeyAI(Canvas.KEY_NUM1);
     }
+    
 
-    // throws Exception
-    private void drop()
-    {
+    void drop() {
         if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
             this.initialDropped = true;
             this.aiVistor.visit(this);
         }
     }
+    
 
-    private bool isBeyondTarget()
-    {
+    bool isBeyondTarget() {
         if (this.directionOfTarget == this.directionFactory.DOWN) {
             if (this.getOwnerLayerInterface().getYP() > this.lastTrackingLayerInterface.getYP() + this.MIN_DISTANCE) {
                 return true;
@@ -272,37 +282,41 @@ public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterf
             return false;
         }
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual void onMovement(TrackingEvent trackingEvent)
-    {
+    @override
+    void onMovement(TrackingEvent trackingEvent) {
         this.list.add(trackingEvent);
     }
+    
 
-    public virtual void onDestroyed(DestroyedEvent destroyedEvent)
-    {
+    @override
+    void onDestroyed(DestroyedEvent destroyedEvent) {
         if (this.getOwnerLayerInterface() == destroyedEvent.getLayerInterface()) {
             TrackingEventHandler.getInstance().removeListener(this);
             DestroyedEventHandler.getInstance().removeListener(this);
         }
     }
+    
 
-    public virtual void setLastDirection(Direction lastDirection)
-    {
+    void setLastDirection(Direction lastDirection) {
         this.lastDirection = lastDirection;
         int value = this.getLastDirection().getValue();
         if (value < 4) {
-            base.setLastKey(this.directionToKeyMap[value]);
+            super.setLastKey(this.directionToKeyMap[value]);
         }
     }
+    
 
-    public override void setLastKey(int lastKey)
-    {
-        base.setLastKey(lastKey);
+    @override
+    void setLastKey(int lastKey) {
+        super.setLastKey(lastKey);
         if (this.getLastKey() == Canvas.LEFT) {
             this.lastDirection = DirectionFactory.getInstance().LEFT;
         } else if (this.getLastKey() == Canvas.DOWN) {
@@ -313,20 +327,20 @@ public class DiveAndDirectionalTrackingAI : BasicAI, TrackingEventListenerInterf
             this.lastDirection = DirectionFactory.getInstance().RIGHT;
         }
     }
+    
 
-    public virtual Direction getLastDirection()
-    {
+    Direction getLastDirection() {
         return this.lastDirection;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(base.ToString());
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
+        stringBuffer.append(super.toString());
         stringBuffer.append(" LastDirection: ");
-        stringBuffer.append(StringUtil.getInstance().toString(this.getLastDirection()));
-        return stringBuffer.ToString();
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getLastDirection()));
+        return stringBuffer.toString();
     }
-
 }
 

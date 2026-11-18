@@ -13,30 +13,47 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.configuration.persistance;
+class PersistanceStrings {
+    static final PersistanceStrings instance = PersistanceStrings();
+    late String SAVING;
+    late String NUMBER_OF_RECORDS;
+    late String LOADING_ID;
+    late String LOAD_ALL;
+    late String DELETING_WITH_ID;
+    late String CLOSING_RECORDSTORE;
+    late String NOT_SAVING;
+    late String ERROR_LOADING;
+    late String ERROR_LOADING_ID;
+    late String ID;
+    late String GAME_ACTION_INPUT;
 
-public class PersistanceStrings
-{
-    private static readonly PersistanceStrings instance = new PersistanceStrings();
-    public static PersistanceStrings getInstance()
-    {
-        return PersistanceStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsPersistanceStrings() {
+    this.SAVING = "Saving: ";
+    this.NUMBER_OF_RECORDS = "Number of records: ";
+    this.LOADING_ID = "Loading data with id: ";
+    this.LOAD_ALL = "loadAll";
+    this.DELETING_WITH_ID = "Deleting data with id: ";
+    this.CLOSING_RECORDSTORE = "Closing RecordStore";
+    this.NOT_SAVING = "Not Saving: ";
+    this.ERROR_LOADING = "Error Loading gameActionInput: ";
+    this.ERROR_LOADING_ID = "Error Loading id: ";
+    this.ID = " id: ";
+    this.GAME_ACTION_INPUT = " GameActionInput: ";
     }
 
-    public readonly string SAVING = "Saving: ";
-    public readonly string NUMBER_OF_RECORDS = "Number of records: ";
-    public readonly string LOADING_ID = "Loading data with id: ";
-    public readonly string LOAD_ALL = "loadAll";
-    public readonly string DELETING_WITH_ID = "Deleting data with id: ";
-    public readonly string CLOSING_RECORDSTORE = "Closing RecordStore";
-    public readonly string NOT_SAVING = "Not Saving: ";
-    public readonly string ERROR_LOADING = "Error Loading gameActionInput: ";
-    public readonly string ERROR_LOADING_ID = "Error Loading id: ";
-    public readonly string ID = " id: ";
-    public readonly string GAME_ACTION_INPUT = " GameActionInput: ";
+    PersistanceStrings() {
+        this.initFieldsPersistanceStrings();
+    }
+    
+
+    static PersistanceStrings getInstance() {
+        return PersistanceStrings.instance;
+    }
 }
 

@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.resources
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/resources/OnDemandResources.dart';
 
-namespace org.allbinary.game.layer.resources;
+class OnDemandResourcesFactory {
+    
 
-public class OnDemandResourcesFactory
-{
-    public virtual int size()
-    {
+    int size() {
         return 0;
     }
+    
 
-    public virtual OnDemandResources remove(int layerId)
-    {
+    OnDemandResources remove(int layerId) {
         return OnDemandResources.NULL_ON_DEMAND_RESOURCES;
     }
-
 }
 

@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
-using IdentifierInterface = org.allbinary.graphics.IdentifierInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/IdentifierInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.ai;
+abstract interface class ArtificialIntelligenceInterface implements IdentifierInterface {
+    
 
-public interface ArtificialIntelligenceInterface : IdentifierInterface
-{
-    // throws Exception
     void processAI(AllBinaryLayerManager layerManager);
-
 }
 

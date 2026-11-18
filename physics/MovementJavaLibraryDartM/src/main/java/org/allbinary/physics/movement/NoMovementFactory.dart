@@ -13,25 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/physics/movement/Movement.dart';
 
-namespace org.allbinary.physics.movement;
+class NoMovementFactory {
+    static final NoMovementFactory instance = NoMovementFactory();
+    late Movement movement;
 
-public class NoMovementFactory
-{
-    private static readonly NoMovementFactory instance = new NoMovementFactory();
-    public static NoMovementFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNoMovementFactory() {
+    this.movement = Movement();
+    }
+
+    NoMovementFactory() {
+        this.initFieldsNoMovementFactory();
+    }
+    
+
+    static NoMovementFactory getInstance() {
         return NoMovementFactory.instance;
     }
+    
 
-    private readonly Movement movement = new Movement();
-    public Movement getMovmentInstance()
-    {
+    Movement getMovmentInstance() {
         return this.movement;
     }
-
 }
 

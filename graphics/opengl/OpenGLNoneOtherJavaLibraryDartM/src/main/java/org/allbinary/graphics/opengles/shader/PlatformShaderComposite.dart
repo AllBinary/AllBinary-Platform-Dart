@@ -13,20 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using NullOpenGLProcessorFactory = org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
-using OpenGLProcessor = org.allbinary.graphics.opengles.OpenGLProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/NullOpenGLProcessorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/ShaderComposite.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/Shader.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/ShaderInitializer.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/ModelViewProjection.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class PlatformShaderComposite extends ShaderComposite {
+    
 
-public class PlatformShaderComposite : ShaderComposite
-{
-    public PlatformShaderComposite(string requiresOpenGLVersion, Shader[] shaderArray, CompositeShaderUpdater compositeShaderUpdater, ShaderInitializer shaderInitializer, ModelViewProjection modelViewProjection, OpenGLProcessor colorOpenGLProcessor, OpenGLProcessor vertexOpenGLProcessor) : base(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, NullOpenGLProcessorFactory.getInstance())
-    {
-        // base(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, NullOpenGLProcessorFactory.getInstance()) is called from the constructor declaration
+    PlatformShaderComposite(String requiresOpenGLVersion, List<Shader?> shaderArray, CompositeShaderUpdater compositeShaderUpdater, ShaderInitializer shaderInitializer, ModelViewProjection modelViewProjection, OpenGLProcessor colorOpenGLProcessor, OpenGLProcessor vertexOpenGLProcessor) : super(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, NullOpenGLProcessorFactory.getInstance()) {
+        
     }
-
 }
 

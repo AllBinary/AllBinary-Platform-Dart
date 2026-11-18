@@ -13,50 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class NullAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+    static NullAnimationFactory NULL_NOT_FOR_USE_ANIMATION_FACTORY = NullAnimationFactory();
+    static NullAnimationFactory NULL_ANIMATION_FACTORY = NullAnimationFactory();
+    late Animation NULL_ANIMATION;
+    late List<Animation?> EMPTY_ARRAY;
 
-public class NullAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    public static NullAnimationFactory NULL_NOT_FOR_USE_ANIMATION_FACTORY = new NullAnimationFactory();
-    private static NullAnimationFactory NULL_ANIMATION_FACTORY = new NullAnimationFactory();
-    private readonly Animation NULL_ANIMATION = new Animation()
-#if JAVA_ANONYMOUS_CLASS_BODY
-        public virtual void paintXY(Graphics graphics, int x, int y)
-        {
-        }
+    // Java field initializers run after the base constructor
+    void initFieldsNullAnimationFactory() {
+    this.NULL_ANIMATION = Animation() /* Java anonymous class body: implement it as a named subclass
+        
 
-#endif
-;
-    public readonly Animation[] EMPTY_ARRAY = new Animation[0];
-    private NullAnimationFactory()
-    {
+        void paintXY(Graphics graphics, int x, int y) {
+        } */;
+    this.EMPTY_ARRAY = List<Animation?>.filled(0, null);
     }
+    
 
-    public static NullAnimationFactory getFactoryInstance()
-    {
+    NullAnimationFactory() {
+        this.initFieldsNullAnimationFactory();
+    }
+    
+
+    static NullAnimationFactory getFactoryInstance() {
         return NullAnimationFactory.NULL_ANIMATION_FACTORY;
     }
+    
 
-    public virtual Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         return this.NULL_ANIMATION;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
         return this.NULL_ANIMATION;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

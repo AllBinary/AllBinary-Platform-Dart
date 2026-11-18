@@ -1,46 +1,64 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.math.permutations
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
 
-namespace org.allbinary.logic.math.permutations;
+class IntPermutationVisitor extends Visitor {
+    late List<int> data;
+    late StringMaker stringBuilder;
 
-public class IntPermutationVisitor : Visitor
-{
-    public readonly int[] data;
-    public IntPermutationVisitor(int[] data)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsIntPermutationVisitor() {
+    
+    this.stringBuilder = StringMaker();
+    }
+    
+
+    IntPermutationVisitor(List<int> data) {
+        this.initFieldsIntPermutationVisitor();
         this.data = data;
     }
+    
 
-    private StringMaker stringBuilder = new StringMaker();
-    public override object visit(object anyType)
-    {
-        this.stringBuilder.delete(0, stringBuilder.length());
-        this.print(this.data, stringBuilder);
+    @override
+    Object visit(Object anyType) {
+        this.stringBuilder.delete(0, this.stringBuilder.length());
+        this.print(this.data, this.stringBuilder);
         return NullUtil.getInstance().NULL_OBJECT;
     }
+    
 
-    public virtual void print(int[] data)
-    {
-        StringMaker stringBuilder = new StringMaker();
-        this.print(data, stringBuilder);
+    void print([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p0, jnone) && identical(p1, jnone) && jIsList(p0)) {
+            this.print$1(p0);
+            return;
+        }
+        if (!identical(p1, jnone) && jIsList(p0) && p1 is StringMaker) {
+            this.print$2(p0, p1);
+            return;
+        }
+        throw JException('NoSuchMethodError', 'print');
     }
 
-    public virtual void print(int[] data, StringMaker stringBuilder)
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        int size = data.Length;
+    void print$1(List<int> data) {
+        final StringMaker stringBuilder = StringMaker();
+        this.print(data, stringBuilder);
+    }
+    
+
+    void print$2(List<int> data, StringMaker stringBuilder) {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final int size = data.length;
         for (int i = 0; i < size; i++) {
             stringBuilder.appendint(data[i]);
             stringBuilder.append(commonSeps.SPACE);
         }
-        Console.WriteLine(stringBuilder.ToString());
+        JSystem.println(jstr(stringBuilder.toString()));
     }
-
 }
 

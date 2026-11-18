@@ -13,62 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.android.input.motion
 
-using System;
-using System.Linq;
-using CollidableDestroyableDamageableLayer = org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogControllerConfigurationFactory.dart';
 
-namespace org.allbinary.android.input.motion;
+class AnalogControllerHelper {
+    int reduceTimeFactor = 0;
+    int SCALE_VALUE = 0;
+    late TimeDelayHelper rightTimeElapsedHelper;
+    late TimeDelayHelper leftTimeElapsedHelper;
+    late TimeDelayHelper downTimeElapsedHelper;
+    late TimeDelayHelper upTimeElapsedHelper;
 
-public class AnalogControllerHelper
-{
-    private readonly int reduceTimeFactor;
-    public AnalogControllerHelper(int reduceTimeFactor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAnalogControllerHelper() {
+    
+    this.SCALE_VALUE = AnalogControllerConfigurationFactory.getInstance().SCALE_VALUE;
+    this.rightTimeElapsedHelper = TimeDelayHelper(0);
+    this.leftTimeElapsedHelper = TimeDelayHelper(0);
+    this.downTimeElapsedHelper = TimeDelayHelper(0);
+    this.upTimeElapsedHelper = TimeDelayHelper(0);
+    }
+    
+
+    AnalogControllerHelper(int reduceTimeFactor) {
+        this.initFieldsAnalogControllerHelper();
         this.reduceTimeFactor = reduceTimeFactor;
     }
+    
 
-    private readonly int SCALE_VALUE = AnalogControllerConfigurationFactory.getInstance().SCALE_VALUE;
-    private readonly TimeDelayHelper rightTimeElapsedHelper = new TimeDelayHelper(0);
-    private readonly TimeDelayHelper leftTimeElapsedHelper = new TimeDelayHelper(0);
-    private readonly TimeDelayHelper downTimeElapsedHelper = new TimeDelayHelper(0);
-    private readonly TimeDelayHelper upTimeElapsedHelper = new TimeDelayHelper(0);
-    // throws Exception
-    public virtual void right(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
-    {
+    void right(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue) {
         this.rightTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);
         if (this.rightTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.right();
         }
     }
+    
 
-    // throws Exception
-    public virtual void left(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
-    {
+    void left(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue) {
         this.leftTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
         if (this.leftTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.left();
         }
     }
+    
 
-    // throws Exception
-    public virtual void up(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
-    {
+    void up(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue) {
         this.upTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);
         if (this.upTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.up();
         }
     }
+    
 
-    // throws Exception
-    public virtual void down(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
-    {
+    void down(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue) {
         this.downTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
         if (this.downTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.down();
         }
     }
-
 }
 

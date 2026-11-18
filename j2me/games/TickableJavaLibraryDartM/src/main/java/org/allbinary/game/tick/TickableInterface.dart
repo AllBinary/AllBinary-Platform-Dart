@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tick
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/NamedInterface.dart';
 
-namespace org.allbinary.game.tick;
+abstract interface class TickableInterface implements NamedInterface {
+    
 
-public interface TickableInterface : NamedInterface
-{
-    // throws Exception
     void processTick(AllBinaryLayerManager allBinaryLayerManager);
-
 }
 

@@ -13,45 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.math
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using MathUtil = org.allbinary.logic.math.MathUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/math/MathUtil.dart';
 
-namespace org.allbinary.math;
+class LayerDistanceUtil {
+    static final LayerDistanceUtil instance = LayerDistanceUtil();
+    late MathUtil mathUtil;
 
-public class LayerDistanceUtil
-{
-    private static readonly LayerDistanceUtil instance = new LayerDistanceUtil();
-    public static LayerDistanceUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerDistanceUtil() {
+    this.mathUtil = MathUtil.getInstance();
+    }
+
+    LayerDistanceUtil() {
+        this.initFieldsLayerDistanceUtil();
+    }
+    
+
+    static LayerDistanceUtil getInstance() {
         return LayerDistanceUtil.instance;
     }
+    
 
-    private readonly MathUtil mathUtil = MathUtil.getInstance();
-    public virtual int getDistance(AllBinaryLayer layerInterface, AllBinaryLayer layerInterface2)
-    {
-        int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) - (layerInterface2.getXP() + layerInterface2.getHalfWidth());
-        int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) - (layerInterface2.getYP() + layerInterface2.getHalfHeight());
-        return ((int) this.mathUtil.sqrt((dx * dx) + (dy * dy)));
+    int getDistance(AllBinaryLayer layerInterface, AllBinaryLayer layerInterface2) {
+        final int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) - (layerInterface2.getXP() + layerInterface2.getHalfWidth());
+        final int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) - (layerInterface2.getYP() + layerInterface2.getHalfHeight());
+        return this.mathUtil.sqrt((dx * dx) + (dy * dy));
     }
+    
 
-    public virtual int getDistance3D(AllBinaryLayer layerInterface, AllBinaryLayer layerInterface2)
-    {
-        int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) - (layerInterface2.getXP() + layerInterface2.getHalfWidth());
-        int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) - (layerInterface2.getYP() + layerInterface2.getHalfHeight());
-        int dz = (layerInterface.getZP() + layerInterface.getHalfDepth()) - (layerInterface2.getZP() + layerInterface2.getHalfDepth());
-        return ((int) this.mathUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz)));
+    int getDistance3D(AllBinaryLayer layerInterface, AllBinaryLayer layerInterface2) {
+        final int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) - (layerInterface2.getXP() + layerInterface2.getHalfWidth());
+        final int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) - (layerInterface2.getYP() + layerInterface2.getHalfHeight());
+        final int dz = (layerInterface.getZP() + layerInterface.getHalfDepth()) - (layerInterface2.getZP() + layerInterface2.getHalfDepth());
+        return this.mathUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz));
     }
+    
 
-    public virtual int getDistanceAt(AllBinaryLayer layerInterface, GPoint point)
-    {
-        int dx = layerInterface.getXP() - point.getX();
-        int dy = layerInterface.getYP() - point.getY();
-        return ((int) this.mathUtil.sqrt((dx * dx) + (dy * dy)));
+    int getDistanceAt(AllBinaryLayer layerInterface, GPoint point) {
+        final int dx = layerInterface.getXP() - point.getX();
+        final int dy = layerInterface.getYP() - point.getY();
+        return this.mathUtil.sqrt((dx * dx) + (dy * dy));
     }
-
 }
 

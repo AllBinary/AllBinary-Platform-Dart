@@ -13,7 +13,7 @@
  *   
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.thread
 
 import 'package:allbinary/allbinary_java.dart';
@@ -58,10 +58,15 @@ class PooledThread extends Thread {
                 task2 = this.threadPool.getTask();
                 this.threadPool.runningTask = true;
                 this.threadPool.startTask(task2);
-            } catch (ex) {
+            } catch (jcaught) {
+                if (jIsException(jcaught, 'InterruptedException')) {
+                    final dynamic ex = jcaught;
                 final LogUtil logUtil = LogUtil.getInstance();
                 logUtil.putF(this.INTERRUPT_EXCEPTION, this, this.commonStrings.RUN);
                 break;
+                } else {
+                    rethrow;
+                }
             }
             if (task2 == this.threadObjectUtil.NULL_PRIORITY_RUNNABLE) {
                 break;
@@ -70,9 +75,12 @@ class PooledThread extends Thread {
                 task2.run();
                 this.threadPool.completedTask(task2);
                 this.threadPool.runningTask = false;
-            } catch (e) {
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 final LogUtil logUtil = LogUtil.getInstance();
                 logUtil.put(StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString1(task2)).toString(), this, this.commonStrings.RUN, e);
+                }
             }
         }
         this.threadPool.threadStopped();

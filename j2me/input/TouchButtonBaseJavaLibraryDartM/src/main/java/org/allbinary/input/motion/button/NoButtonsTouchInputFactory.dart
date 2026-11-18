@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BaseTouchInput.dart';
 
-namespace org.allbinary.input.motion.button;
+class NoButtonsTouchInputFactory {
+    static final BaseTouchInput instance = BaseTouchInput();
+    
 
-public class NoButtonsTouchInputFactory
-{
-    private static readonly BaseTouchInput instance = new BaseTouchInput();
-    public static BaseTouchInput getInstance()
-    {
+    static BaseTouchInput getInstance() {
         return NoButtonsTouchInputFactory.instance;
     }
-
 }
 

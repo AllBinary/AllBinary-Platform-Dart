@@ -13,49 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.control.validate
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/logic/control/validate/ValidatorBaseInterface.dart';
 
-namespace org.allbinary.logic.control.validate;
+class ValidatorBase implements ValidatorBaseInterface {
+    static final ValidatorBase instance = ValidatorBase();
+    
 
-public class ValidatorBase : ValidatorBaseInterface
-{
-    private static readonly ValidatorBase instance = new ValidatorBase();
-    public static ValidatorBase getInstance()
-    {
+    static ValidatorBase getInstance() {
         return ValidatorBase.instance;
     }
+    
 
-    public ValidatorBase()
-    {
+    ValidatorBase() {
     }
+    
 
-    public virtual bool? isValid()
-    {
+    @override
+    bool isValid() {
         return BooleanFactory.getInstance().TRUE;
     }
+    
 
-    public virtual string validationInfo()
-    {
+    @override
+    String validationInfo() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual ABHashtable<object, object> toHashtable()
-    {
+    @override
+    ABHashtable toHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    public virtual BasicArrayList toList()
-    {
+    @override
+    BasicArrayList toList() {
         return BasicArrayListUtil.getInstance().getImmutableInstance();
     }
-
 }
 

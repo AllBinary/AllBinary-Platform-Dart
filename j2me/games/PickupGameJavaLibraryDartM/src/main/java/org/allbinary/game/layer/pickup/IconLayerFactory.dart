@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/IconLayer.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class IconLayerFactory {
+    
 
-public class IconLayerFactory
-{
-    // throws Exception
-    public static IconLayer getInstance(Animation animationInterface, int width, int height)
-    {
-        return new IconLayer(animationInterface, width, height);
+    static IconLayer getInstance3(Animation animationInterface, int width, int height) {
+        return IconLayer(animationInterface, width, height);
     }
-
 }
 

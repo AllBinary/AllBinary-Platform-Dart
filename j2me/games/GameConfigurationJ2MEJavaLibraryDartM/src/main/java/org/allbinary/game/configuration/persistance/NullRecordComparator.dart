@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
-using RecordComparator = javax.microedition.rms.RecordComparator;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/rms/RecordComparator.dart';
 
-namespace org.allbinary.game.configuration.persistance;
+class NullRecordComparator implements RecordComparator {
+    static final NullRecordComparator NULL_RECORD_COMPARATOR = NullRecordComparator();
+    
 
-public class NullRecordComparator : RecordComparator
-{
-    public static readonly NullRecordComparator NULL_RECORD_COMPARATOR = new NullRecordComparator();
-    public virtual int compare(sbyte[] rec1, sbyte[] rec2)
-    {
+    @override
+    int compare(List<int> rec1, List<int> rec2) {
         return 0;
     }
-
 }
 

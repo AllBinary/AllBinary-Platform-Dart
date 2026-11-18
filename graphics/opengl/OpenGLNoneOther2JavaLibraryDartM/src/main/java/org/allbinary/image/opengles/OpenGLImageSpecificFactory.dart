@@ -13,23 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.image.opengles;
+class OpenGLImageSpecificFactory {
+    static final OpenGLImageSpecificFactory instance = OpenGLImageSpecificFactory();
+    bool updating = false;
 
-public class OpenGLImageSpecificFactory
-{
-    private static readonly OpenGLImageSpecificFactory instance = new OpenGLImageSpecificFactory();
-    public bool updating = false;
-    public static OpenGLImageSpecificFactory getInstance()
-    {
-        return OpenGLImageSpecificFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsOpenGLImageSpecificFactory() {
+    this.updating = false;
     }
 
+    OpenGLImageSpecificFactory() {
+        this.initFieldsOpenGLImageSpecificFactory();
+    }
+    
+
+    static OpenGLImageSpecificFactory getInstance() {
+        return OpenGLImageSpecificFactory.instance;
+    }
 }
 

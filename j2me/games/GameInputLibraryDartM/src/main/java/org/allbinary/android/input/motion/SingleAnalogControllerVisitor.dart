@@ -13,28 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.android.input.motion
 
-using System;
-using System.Linq;
-using AnalogLocationInput = org.allbinary.game.input.analog.AnalogLocationInput;
-using AnalogLocationInputFactory = org.allbinary.game.input.analog.AnalogLocationInputFactory;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/analog/AnalogLocationInput.dart';
+import 'package:allbinary/org/allbinary/game/input/analog/AnalogLocationInputFactory.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogControllerVisitor.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogLocationInputProcessor.dart';
 
-namespace org.allbinary.android.input.motion;
+class SingleAnalogControllerVisitor extends AnalogControllerVisitor {
+    int playerInputId = 0;
 
-public class SingleAnalogControllerVisitor : AnalogControllerVisitor
-{
-    private readonly int playerInputId;
-    public SingleAnalogControllerVisitor(int playerInputId)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSingleAnalogControllerVisitor() {
+    
+    }
+    
+
+    SingleAnalogControllerVisitor(int playerInputId) {
+        this.initFieldsSingleAnalogControllerVisitor();
         this.playerInputId = playerInputId;
     }
+    
 
-    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
-        AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstanceForPlayer(this.playerInputId);
+    @override
+    void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor) {
+        final AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstanceForPlayer(this.playerInputId);
         analogLocationInputProcessor.process(allbinaryLayerManager, analogLocationInput);
     }
-
 }
 

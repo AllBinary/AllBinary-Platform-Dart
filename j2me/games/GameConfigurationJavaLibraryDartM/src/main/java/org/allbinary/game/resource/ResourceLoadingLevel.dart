@@ -13,31 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.resource;
+class ResourceLoadingLevel {
+    late String name;
+    int level = 0;
 
-public class ResourceLoadingLevel
-{
-    private readonly string name;
-    private readonly int level;
-    public ResourceLoadingLevel(string name, int level)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsResourceLoadingLevel() {
+    
+    
+    }
+    
+
+    ResourceLoadingLevel(String name, int level) {
+        this.initFieldsResourceLoadingLevel();
         this.name = name;
         this.level = level;
     }
+    
 
-    public virtual int getLevel()
-    {
+    int getLevel() {
         return this.level;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

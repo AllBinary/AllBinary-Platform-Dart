@@ -13,32 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using Processor = org.allbinary.canvas.Processor;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullCanvas.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/midlet/AllBinaryMidlet.dart';
 
-namespace org.allbinary.midlet;
+class ExitRunnable implements Runnable {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late AllBinaryMidlet midlet;
+    late Processor processor;
+    bool isProgress = false;
 
-public class ExitRunnable : global::java.lang.Runnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly AllBinaryMidlet midlet;
-    private readonly Processor processor;
-    private readonly bool isProgress;
-    public ExitRunnable(AllBinaryMidlet midlet, Processor processor, bool isProgress)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsExitRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    }
+    
+
+    ExitRunnable(AllBinaryMidlet midlet, Processor processor, bool isProgress) {
+        this.initFieldsExitRunnable();
         this.midlet = midlet;
         this.isProgress = isProgress;
         this.processor = processor;
     }
+    
 
-    public virtual void run()
-    {
+    @override
+    void run() {
         try {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
             this.midlet.destroyAppInRunnable(false, this.isProgress);
@@ -46,15 +57,20 @@ public class ExitRunnable : global::java.lang.Runnable
             this.midlet.notifyDestroyed();
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
             this.processor.process();
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
             try {
                 this.processor.process();
-            } catch (Exception e2) {
+            } catch (jcaught) {
+                {
+                    final dynamic e2 = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                }
+            }
             }
         }
     }
-
 }
 

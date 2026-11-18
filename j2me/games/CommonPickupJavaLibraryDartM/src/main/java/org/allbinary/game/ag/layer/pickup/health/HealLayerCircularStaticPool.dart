@@ -13,32 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.health
 
-using System;
-using System.Linq;
-using HealthInterface = org.allbinary.game.health.HealthInterface;
-using HealthInterfaceCompositeInterface = org.allbinary.game.health.HealthInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthInterface.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/health/HealLayer.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.health;
+class HealLayerCircularStaticPool extends AllBinaryLayerCircularPool {
+    
 
-public class HealLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    public HealLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
-        base.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
+    HealLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total) {
+        super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
+    
 
-    // throws Exception
-    public virtual void visit(AllBinaryLayer sourceLayerInterface)
-    {
-        HealLayer healLayer = ((HealLayer) this.getNextInstance());
-        HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = ((HealthInterfaceCompositeInterface) sourceLayerInterface);
-        HealthInterface healthInterface = healthInterfaceCompositeInterface.getHealthInterface();
+    void visit(AllBinaryLayer sourceLayerInterface) {
+        final HealLayer healLayer = (this.getNextInstance() as HealLayer);
+        final HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = (sourceLayerInterface as HealthInterfaceCompositeInterface);
+        final HealthInterface healthInterface = healthInterfaceCompositeInterface.getHealthInterface();
         healLayer.visit(healthInterface);
     }
-
 }
 

@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
 
-namespace org.allbinary.game;
+class GameInfoCopyFactory {
+    
 
-public class GameInfoCopyFactory
-{
-    public static GameInfo getInstanceMaxLevel(GameInfo gameInfo, int maxLevel)
-    {
-        return new GameInfo(gameInfo.getGameType(), gameInfo.getGameMode(), gameInfo.getPlayerType(), maxLevel, gameInfo.getCurrentLevel());
+    static GameInfo getInstanceMaxLevel(GameInfo gameInfo, int maxLevel) {
+        return GameInfo(gameInfo.getGameType(), gameInfo.getGameMode(), gameInfo.getPlayerType(), maxLevel, gameInfo.getCurrentLevel());
     }
+    
 
-    public static GameInfo getInstance(GameInfo gameInfo)
-    {
-        return new GameInfo(gameInfo.getGameType(), gameInfo.getGameMode(), gameInfo.getPlayerType(), gameInfo.getHighestLevel(), gameInfo.getCurrentLevel());
+    static GameInfo getInstance1(GameInfo gameInfo) {
+        return GameInfo(gameInfo.getGameType(), gameInfo.getGameMode(), gameInfo.getPlayerType(), gameInfo.getHighestLevel(), gameInfo.getCurrentLevel());
     }
-
 }
 

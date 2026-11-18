@@ -13,22 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/game/IntermissionEnableListenerInterface.dart';
 
-namespace org.allbinary.game;
+abstract interface class IntermissionInterface {
+    
 
-public interface IntermissionInterface
-{
     TimeDelayHelper getTimeDelayHelper();
+    
 
     bool isEnabled();
+    
 
     void setEnabled(bool value);
+    
 
     void setListener(IntermissionEnableListenerInterface enableListener);
-
 }
 

@@ -13,102 +13,125 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using HealthInterfaceCompositeInterface = org.allbinary.game.health.HealthInterfaceCompositeInterface;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using CollidableDestroyableDamageableLayer = org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-using CountedLayerInterfaceFactoryPart = org.allbinary.game.part.CountedLayerInterfaceFactoryPart;
-using PartInterface = org.allbinary.game.part.PartInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
+import 'package:allbinary/org/allbinary/game/part/CountedLayerInterfaceFactoryPart.dart';
+import 'package:allbinary/org/allbinary/game/part/PartInterface.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupBehaviorInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupProcessorInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerType.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class PickupBehavior implements PickupBehaviorInterface {
+    static Object NULL_PICKUP_BEHAVIOR = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    int countedIndex = 0;
+    late CollidableCompositeLayer ownerLayerInterface;
 
-public class PickupBehavior : PickupBehaviorInterface
-{
-    public static object NULL_PICKUP_BEHAVIOR = NullUtil.getInstance().NULL_OBJECT;
-    public static PickupBehavior getNullInstance()
-    {
-        if (PickupBehavior.NULL_PICKUP_BEHAVIOR == NullUtil.getInstance().NULL_OBJECT) {
-            PickupBehavior.NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableCompositeLayer.getNullInstance(), 0);
-        }
-        return ((PickupBehavior) PickupBehavior.NULL_PICKUP_BEHAVIOR);
+    // Java field initializers run after the base constructor
+    void initFieldsPickupBehavior() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly int countedIndex;
-    private readonly CollidableCompositeLayer ownerLayerInterface;
-    public PickupBehavior(CollidableCompositeLayer ownerLayerInterface, int countedIndex)
-    {
+    static PickupBehavior getNullInstance() {
+        if (PickupBehavior.NULL_PICKUP_BEHAVIOR == NullUtil.getInstance().NULL_OBJECT) {
+            PickupBehavior.NULL_PICKUP_BEHAVIOR = PickupBehavior(CollidableCompositeLayer.getNullInstance(), 0);
+        }
+        return (PickupBehavior.NULL_PICKUP_BEHAVIOR as PickupBehavior);
+    }
+    
+
+    PickupBehavior(CollidableCompositeLayer ownerLayerInterface, int countedIndex) {
+        this.initFieldsPickupBehavior();
         this.ownerLayerInterface = ownerLayerInterface;
         this.countedIndex = countedIndex;
     }
+    
 
-    public virtual void doPickup(PickupProcessorInterface pickupProcessorInterface)
-    {
+    @override
+    void doPickup(PickupProcessorInterface pickupProcessorInterface) {
         try {
-            HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = ((HealthInterfaceCompositeInterface) this.ownerLayerInterface);
+            final HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = (this.ownerLayerInterface as HealthInterfaceCompositeInterface);
             if (healthInterfaceCompositeInterface.getHealthInterface().isAlive()) {
                 pickupProcessorInterface.process(this.ownerLayerInterface);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "doPickup", e);
+            }
         }
     }
+    
 
-    public virtual void doPickupLayer(PickedUpLayerInterface pickupLayerInterface)
-    {
+    @override
+    void doPickupLayer(PickedUpLayerInterface pickupLayerInterface) {
         try {
-            PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = pickupLayerInterface.getPickedUpLayerInterfaceFactoryInterface();
-            PickedUpLayerType pickedUpLayerType = pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType();
-            PickedUpLayerTypeFactory pickedUpLayerTypeFactory = PickedUpLayerTypeFactory.getInstance();
+            final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = pickupLayerInterface.getPickedUpLayerInterfaceFactoryInterface();
+            final PickedUpLayerType pickedUpLayerType = pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType();
+            final PickedUpLayerTypeFactory pickedUpLayerTypeFactory = PickedUpLayerTypeFactory.getInstance();
             if (pickedUpLayerType == pickedUpLayerTypeFactory.BEAM || pickedUpLayerType == pickedUpLayerTypeFactory.MINE || pickedUpLayerType == pickedUpLayerTypeFactory.PROJECTILE || pickedUpLayerType == pickedUpLayerTypeFactory.ENHANCEMENT) {
-                this.add(((CountedPickedUpLayerInterfaceFactoryInterface) pickedUpLayerInterfaceFactoryInterface));
+                this.add((pickedUpLayerInterfaceFactoryInterface as CountedPickedUpLayerInterfaceFactoryInterface));
             } else if (pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType() == pickedUpLayerTypeFactory.PART) {
-                CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayerInterface);
+                final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (this.ownerLayerInterface as CollidableDestroyableDamageableLayer);
                 collidableDestroyableDamageableLayer.addPart(pickedUpLayerInterfaceFactoryInterface);
             } else if (pickedUpLayerType == pickedUpLayerTypeFactory.NONE) {
             } else {
-                PickupProcessorInterface pickupProcessorInterface = ((PickupProcessorInterface) pickedUpLayerInterfaceFactoryInterface);
+                final PickupProcessorInterface pickupProcessorInterface = (pickedUpLayerInterfaceFactoryInterface as PickupProcessorInterface);
                 this.doPickup(pickupProcessorInterface);
             }
             pickupLayerInterface.setPickedUp();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.putOE(commonStrings.EXCEPTION, this, "doPickup", e);
+            }
         }
     }
+    
 
-    public virtual void add(CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface)
-    {
-        int partIndex = countedPickedUpLayerInterfaceFactoryInterface.getId() + this.countedIndex;
+    void add(CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface) {
+        final int partIndex = countedPickedUpLayerInterfaceFactoryInterface.getId() + this.countedIndex;
         this.addAt(countedPickedUpLayerInterfaceFactoryInterface, partIndex);
     }
+    
 
-    public virtual void addAt(CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface, int partIndex)
-    {
-        CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayerInterface);
-        CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart) collidableDestroyableDamageableLayer.getPartInterfaceArray()[partIndex]);
+    void addAt(CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface, int partIndex) {
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (this.ownerLayerInterface as CollidableDestroyableDamageableLayer);
+        final CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory = (collidableDestroyableDamageableLayer.getPartInterfaceArray()[partIndex]! as CountedLayerInterfaceFactoryPart);
         countedLayerInterfaceFactory.setTotal(countedLayerInterfaceFactory.getTotal() + countedPickedUpLayerInterfaceFactoryInterface.getTotal());
     }
+    
 
-    public virtual CountedLayerInterfaceFactoryPart getFirstAvailableCountedLayerInterfaceFactory(PickedUpLayerType[] pickedUpLayerTypeArray)
-    {
-        CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayerInterface);
-        PartInterface[] partInterfaceArray = collidableDestroyableDamageableLayer.getPartInterfaceArray();
-        int size = partInterfaceArray.Length;
-        CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory = null;
-        CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory = null;
+    CountedLayerInterfaceFactoryPart getFirstAvailableCountedLayerInterfaceFactory(List<PickedUpLayerType?> pickedUpLayerTypeArray) {
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (this.ownerLayerInterface as CollidableDestroyableDamageableLayer);
+        final List<PartInterface?> partInterfaceArray = collidableDestroyableDamageableLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
+        late CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
+        late CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory;
         for (int index = this.countedIndex; index < size; index++) {
-            nextCountedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart) collidableDestroyableDamageableLayer.getPartInterfaceArray()[index]);
+            nextCountedLayerInterfaceFactory = (collidableDestroyableDamageableLayer.getPartInterfaceArray()[index]! as CountedLayerInterfaceFactoryPart);
             countedPickedUpLayerInterfaceFactory = nextCountedLayerInterfaceFactory.getCountedPickedUpLayerInterfaceFactory();
-            for (int index2 = pickedUpLayerTypeArray.Length; --index2 >= 0; ) {
-                if (countedPickedUpLayerInterfaceFactory.getPickedUpLayerType() == pickedUpLayerTypeArray[index2]) {
+            for (int index2 = pickedUpLayerTypeArray.length; --index2 >= 0; ) {
+                if (countedPickedUpLayerInterfaceFactory.getPickedUpLayerType() == pickedUpLayerTypeArray[index2]!) {
                     if (nextCountedLayerInterfaceFactory.getTotal() > 0) {
                         return nextCountedLayerInterfaceFactory;
                     }
@@ -117,17 +140,16 @@ public class PickupBehavior : PickupBehaviorInterface
         }
         return CountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY;
     }
+    
 
-    // throws Exception
-    public virtual CountedLayerInterfaceFactoryPart getCountedLayerInterfaceFactoryForSlot(int slotIndex)
-    {
+    CountedLayerInterfaceFactoryPart getCountedLayerInterfaceFactoryForSlot(int slotIndex) {
         int currentSlot = 0;
-        CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayerInterface);
-        PartInterface[] partInterfaceArray = collidableDestroyableDamageableLayer.getPartInterfaceArray();
-        int size = partInterfaceArray.Length;
-        CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory = null;
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (this.ownerLayerInterface as CollidableDestroyableDamageableLayer);
+        final List<PartInterface?> partInterfaceArray = collidableDestroyableDamageableLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
+        late CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
         for (int index = this.countedIndex; index < size; index++) {
-            nextCountedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart) collidableDestroyableDamageableLayer.getPartInterfaceArray()[index]);
+            nextCountedLayerInterfaceFactory = (collidableDestroyableDamageableLayer.getPartInterfaceArray()[index]! as CountedLayerInterfaceFactoryPart);
             if (nextCountedLayerInterfaceFactory.getTotal() > 0) {
                 if (currentSlot == slotIndex) {
                     return nextCountedLayerInterfaceFactory;
@@ -138,11 +160,10 @@ public class PickupBehavior : PickupBehaviorInterface
         }
         return CountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY;
     }
+    
 
-    public virtual int getCountedIndex()
-    {
+    int getCountedIndex() {
         return this.countedIndex;
     }
-
 }
 

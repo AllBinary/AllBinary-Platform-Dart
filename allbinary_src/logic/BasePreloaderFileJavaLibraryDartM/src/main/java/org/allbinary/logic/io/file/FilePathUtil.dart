@@ -13,32 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-using AbPathData = org.allbinary.logic.io.path.AbPathData;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-
-namespace org.allbinary.logic.io.file;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPathData.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringValidationUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/FilePathData.dart';
 
 //Used to correct user input for paths
-public class FilePathUtil
-{
-    private FilePathUtil()
-    {
-    }
+class FilePathUtil {
+    
 
-    public static string adjust(string path)
-    {
-        AbPathData abPathData = AbPathData.getInstance();
-        StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
-        FilePathData filePathData = FilePathData.getInstance();
+    FilePathUtil() {
+    }
+    
+
+    static String adjust(String path) {
+        final AbPathData abPathData = AbPathData.getInstance();
+        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+        final FilePathData filePathData = FilePathData.getInstance();
         if (stringValidationUtil.isEmpty(path)) {
             return filePathData.PATH_START;
         }
-        path = path.Replace(abPathData.SEPARATORCHAR, filePathData.SEPARATORCHAR);
+        path = JString.replace(path, abPathData.SEPARATORCHAR, filePathData.SEPARATORCHAR);
         return path;
     }
-
 }
 

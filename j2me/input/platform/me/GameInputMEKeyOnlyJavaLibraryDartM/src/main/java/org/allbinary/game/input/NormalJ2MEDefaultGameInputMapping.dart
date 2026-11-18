@@ -13,22 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GamePersistanceStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/PersistentInputMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
 
-namespace org.allbinary.game.input;
+class NormalJ2MEDefaultGameInputMapping extends PersistentInputMapping {
+    
 
-public class NormalJ2MEDefaultGameInputMapping : PersistentInputMapping
-{
-    public NormalJ2MEDefaultGameInputMapping() : base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) is called from the constructor declaration
+    NormalJ2MEDefaultGameInputMapping() : super(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) {
+        
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
-        GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+        final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
         inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
         inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.KEY_NUM4);
         inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.KEY_NUM6);
@@ -53,6 +53,5 @@ public class NormalJ2MEDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, gameKeyFactory.KEY_NUM0);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.FIRE);
     }
-
 }
 

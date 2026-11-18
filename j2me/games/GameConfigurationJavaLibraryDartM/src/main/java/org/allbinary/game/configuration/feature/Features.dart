@@ -13,90 +13,100 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-using GameFeatureEvent = org.allbinary.game.configuration.@event.GameFeatureEvent;
-using GameFeatureEventHandler = org.allbinary.game.configuration.@event.GameFeatureEventHandler;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameFeatureEvent.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameFeatureEventHandler.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/system/os/GenericOperatingSystem.dart';
+import 'package:allbinary/org/allbinary/logic/system/os/OperatingSystemFactory.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Feature.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/InputFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/SensorFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/TouchFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/MainFeatureFactory.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class Features {
+    static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late BasicArrayList list;
+    late BasicArrayList defaultList;
 
-public class Features
-{
-    private static object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
-    public static Features getInstance()
-    {
-        if (Features.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
-            Features.SINGLETON = new Features();
-        }
-        return ((Features) Features.SINGLETON);
+    // Java field initializers run after the base constructor
+    void initFieldsFeatures() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly BasicArrayList list;
-    private readonly BasicArrayList defaultList;
-    private Features()
-    {
-        this.list = new BasicArrayListD();
-        this.defaultList = new BasicArrayListD();
+    static Features getInstance() {
+        if (Features.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+            Features.SINGLETON = Features();
+        }
+        return (Features.SINGLETON as Features);
+    }
+    
+
+    Features() {
+        this.initFieldsFeatures();
+        this.list = BasicArrayListD();
+        this.defaultList = BasicArrayListD();
         this.init();
     }
+    
 
-    // throws Exception
-    public virtual void addDefault(Feature gameFeature)
-    {
+    void addDefault(Feature gameFeature) {
         this.add(gameFeature);
         if (!this.defaultList.contains(gameFeature)) {
             this.defaultList.add(gameFeature);
         }
     }
+    
 
-    // throws Exception
-    public virtual void add(Feature gameFeature)
-    {
+    void add(Feature gameFeature) {
         if (!this.list.contains(gameFeature)) {
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.ToString()).ToString(), this, this.commonStrings.ADD);
+            this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, this.commonStrings.ADD);
             this.list.add(gameFeature);
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.ToString()));
+            GameFeatureEventHandler.getInstance().fireEvent(GameFeatureEvent(gameFeature, gameFeature.toString()));
         }
     }
+    
 
-    // throws Exception
-    public virtual void removeDefault(Feature gameFeature)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.ToString()).ToString(), this, "removeDefault");
+    void removeDefault(Feature gameFeature) {
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
         this.remove(gameFeature);
         this.defaultList.remove(gameFeature);
     }
+    
 
-    // throws Exception
-    public virtual void remove(Feature gameFeature)
-    {
+    void remove(Feature gameFeature) {
         if (this.list.contains(gameFeature)) {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.REMOVE);
             this.list.remove(gameFeature);
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.ToString()));
+            GameFeatureEventHandler.getInstance().fireEvent(GameFeatureEvent(gameFeature, gameFeature.toString()));
         }
     }
+    
 
-    private void init()
-    {
+    void init() {
         try {
-            GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
-            InputFeatureFactory inputFeatureFactory = InputFeatureFactory.getInstance();
-            SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
-            TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
+            final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+            final InputFeatureFactory inputFeatureFactory = InputFeatureFactory.getInstance();
+            final SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
+            final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
             this.addDefault(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
             this.addDefault(gameFeatureFactory.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
             this.addDefault(gameFeatureFactory.GAME_INPUT_LAYER_PROCESSOR);
@@ -105,7 +115,7 @@ public class Features
             this.addDefault(inputFeatureFactory.REMOVE_DUPLICATE_KEY_PRESSES);
             this.addDefault(gameFeatureFactory.SCREEN_SHAKE);
             this.addDefault(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION);
-            GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+            final GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
             if (operatingSystemInterface.isOverScan()) {
                 this.addDefault(sensorFeatureFactory.NO_ORIENTATION);
                 this.addDefault(touchFeatureFactory.HIDE_SCREEN_BUTTONS);
@@ -116,30 +126,31 @@ public class Features
             this.addDefault(touchFeatureFactory.TOUCH_ENABLED);
             this.addDefault(MainFeatureFactory.getInstance().FULL_SCREEN);
             this.addDefault(MainFeatureFactory.getInstance().LOAD_ONDEMAND);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            }
         }
     }
+    
 
-    public virtual bool isDefault(Feature gameFeature)
-    {
+    bool isDefault(Feature gameFeature) {
         return this.defaultList.contains(gameFeature);
     }
+    
 
-    public virtual bool isFeature(Feature gameFeature)
-    {
+    bool isFeature(Feature gameFeature) {
         return this.list.contains(gameFeature);
     }
+    
 
-    // throws Exception
-    public virtual void toggle(Feature gameFeature)
-    {
+    void toggle(Feature gameFeature) {
         if (this.isFeature(gameFeature)) {
             this.remove(gameFeature);
         } else {
             this.add(gameFeature);
         }
     }
-
 }
 

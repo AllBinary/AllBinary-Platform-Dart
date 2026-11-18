@@ -13,40 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.multiplayer.layer
 
-using System;
-using System.Linq;
-using Group = org.allbinary.game.identification.Group;
-using CollidableDestroyableDamageableLayer = org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/MultiPlayerGameLayerInterface.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/MultiplayerBehavior.dart';
 
-namespace org.allbinary.game.multiplayer.layer;
+class MultiPlayerGameLayer extends CollidableDestroyableDamageableLayer implements MultiPlayerGameLayerInterface {
+    
 
-public class MultiPlayerGameLayer : CollidableDestroyableDamageableLayer, MultiPlayerGameLayerInterface
-{
-    public MultiPlayerGameLayer(RemoteInfo remoteInfo, Group[] groupInterface, string name, Rectangle layerInfo, ViewPositionBase viewPosition) : base(groupInterface, name, layerInfo, viewPosition)
-    {
-        // base(groupInterface, name, layerInfo, viewPosition) is called from the constructor declaration
+    MultiPlayerGameLayer(RemoteInfo remoteInfo, List<Group?> groupInterface, String name, Rectangle layerInfo, ViewPositionBase viewPosition) : super(groupInterface, name, layerInfo, viewPosition) {
+        
     }
+    
 
-    public virtual MultiplayerBehavior getMultiplayerBehavior()
-    {
+    @override
+    MultiplayerBehavior getMultiplayerBehavior() {
         return MultiplayerBehavior.NULL_MULTIPLAYER_BEHAVIOR;
     }
+    
 
-    public virtual void setPingInfo(bool show)
-    {
+    void setPingInfo(bool show) {
     }
+    
 
-    public virtual void setFiring(short firing)
-    {
+    void setFiring(int firing) {
     }
+    
 
-    public virtual short getFiring()
-    {
+    int getFiring() {
         return 0;
     }
-
 }
 

@@ -13,52 +13,58 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.string.tokens
 
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
-using StdUtil = org.allbinary.logic.StdUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.logic.@string.tokens;
+class Tokenizer {
+    late String sep;
+    late String endSep;
 
-public class Tokenizer
-{
-    private string sep;
-    private string endSep = StringUtil.getInstance().EMPTY_STRING;
-    public Tokenizer(string sep)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTokenizer() {
+    
+    this.endSep = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    Tokenizer(String sep) {
+        this.initFieldsTokenizer();
         if (TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
-            throw new Exception("Sep provided is not valid");
+            throw JException('Exception', "Sep provided is not valid");
         }
         this.sep = sep;
     }
+    
 
-    public virtual void setSep(string sep)
-    {
+    void setSep(String sep) {
         this.sep = sep;
     }
+    
 
-    public virtual void setEndSep(string endSep)
-    {
+    void setEndSep(String endSep) {
         this.endSep = endSep;
     }
+    
 
-    public virtual BasicArrayList getInsideSep(string @string)
-    {
-        BasicArrayList tokenList = new BasicArrayListD();
+    BasicArrayList getInsideSep(String string) {
+        final BasicArrayList tokenList = BasicArrayListD();
         int index = 0;
-        int size = @string.Length;
+        int size = string.length;
         while (index < size) {
-            index = @string.IndexOf(this.sep, index);
+            index = JString.indexOf(string, this.sep, index);
             if (index != -1) {
-                int end = @string.IndexOf(this.endSep, index + this.sep.Length);
+                int end = JString.indexOf(string, this.endSep, index + this.sep.length);
                 if (end != -1) {
-                    tokenList.add(@string.Substring(index + this.sep.Length, (end - (this.endSep.Length - 1)) - (index + this.sep.Length)));
-                    index = end + this.endSep.Length;
+                    tokenList.add(string.substring(index + this.sep.length, end - (this.endSep.length - 1)));
+                    index = end + this.endSep.length;
                 } else {
                 }
             } else {
@@ -67,39 +73,38 @@ public class Tokenizer
         }
         return tokenList;
     }
+    
 
-    public virtual BasicArrayList getTokensFromString(string @string, BasicArrayList tokenVector)
-    {
+    BasicArrayList getTokensFromString(String string, BasicArrayList tokenVector) {
         int index = 0;
         int end = 0;
-        while (index < @string.Length) {
-            end = @string.IndexOf(this.sep, index);
+        while (index < string.length) {
+            end = JString.indexOf(string, this.sep, index);
             if (end != -1) {
-                tokenVector.add(@string.Substring(index, (end) - (index)));
-                index = end + this.sep.Length;
+                tokenVector.add(string.substring(index, end));
+                index = end + this.sep.length;
             } else {
-                tokenVector.add(@string.Substring(index, (@string.Length) - (index)));
+                tokenVector.add(string.substring(index, string.length));
                 break;
             }
         }
         return tokenVector;
     }
+    
 
-    public virtual ABHashtable<object, object> getTokens(BasicArrayList stringVector)
-    {
-        ABHashtable<object, object> tokenHashtable = StdUtil.getInstance().createHashtable();
-        string @string = StringUtil.getInstance().EMPTY_STRING;
+    ABHashtable getTokens(BasicArrayList stringVector) {
+        ABHashtable tokenHashtable = StdUtil.getInstance().createHashtable();
+        String string = StringUtil.getInstance().EMPTY_STRING;
         int end = 0;
         int size = stringVector.size();
         for (int index = 0; index < size; index++) {
-            @string = ((string) stringVector.objectArray[index]);
-            end = @string.IndexOf(this.sep);
+            string = (stringVector.objectArray[index]! as String);
+            end = JString.indexOf(string, this.sep);
             if (end >= 0) {
-                tokenHashtable.put(@string.Substring(0, (end) - (0)), @string.Substring(end + 1, (@string.Length) - (end + 1)));
+                tokenHashtable.put(string.substring(0, end), string.substring(end + 1, string.length));
             }
         }
         return tokenHashtable;
     }
-
 }
 

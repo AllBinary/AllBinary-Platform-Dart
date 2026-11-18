@@ -1,16 +1,14 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.apache.xmlrpc
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.apache.xmlrpc;
+class XmlRpcException extends JException {
+    
 
-public class XmlRpcException : Exception
-{
-    public XmlRpcException(int code, string message) : base(message)
-    {
-        // base(message) is called from the constructor declaration
+    XmlRpcException(int code, String message) : super('XmlRpcException', message) {
+        
     }
-
 }
 

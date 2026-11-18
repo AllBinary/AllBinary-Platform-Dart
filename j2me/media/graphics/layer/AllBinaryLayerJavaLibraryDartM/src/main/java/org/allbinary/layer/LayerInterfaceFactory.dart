@@ -13,50 +13,61 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/layer/Layer.dart';
+import 'package:allbinary/org/allbinary/layer/LayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.layer;
+class LayerInterfaceFactory {
+    static final LayerInterfaceFactory SINGLETON = LayerInterfaceFactory();
+    late LogUtil logUtil;
+    late BasicArrayList list;
+    late String HASHTABLE_LABEL;
 
-public class LayerInterfaceFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly LayerInterfaceFactory SINGLETON = new LayerInterfaceFactory();
-    private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
-    public static LayerInterfaceFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerInterfaceFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.list = BasicArrayListUtil.getInstance().getImmutableInstance();
+    this.HASHTABLE_LABEL = "Hashtable: ";
+    }
+
+    LayerInterfaceFactory() {
+        this.initFieldsLayerInterfaceFactory();
+    }
+    
+
+    static LayerInterfaceFactory getInstance() {
         return LayerInterfaceFactory.SINGLETON;
     }
+    
 
-    public virtual void init()
-    {
-        this.list = new BasicArrayListD();
+    void init() {
+        this.list = BasicArrayListD();
     }
+    
 
-    private readonly string HASHTABLE_LABEL = "Hashtable: ";
-    // throws Exception
-    public virtual AllBinaryLayer getNexInstance(ABHashtable<object, object> hashtable, int x, int y, int z)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(new StringMaker().append(this.HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).ToString(), this, commonStrings.GET_INSTANCE);
-        int? typeInteger = ((int?) hashtable.get(((object) Layer.ID)));
-        LayerInterfaceFactoryInterface layerInterfaceFactoryInterface = ((LayerInterfaceFactoryInterface) this.list.objectArray[((int) typeInteger) - 1]);
+    AllBinaryLayer getNexInstance(ABHashtable hashtable, int x, int y, int z) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(StringMaker().append(this.HASHTABLE_LABEL).append(StringUtil.getInstance().toString1(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
+        final int typeInteger = (hashtable.get((Layer.ID as Object)) as int);
+        final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface = (this.list.objectArray[(typeInteger).toInt() - 1]! as LayerInterfaceFactoryInterface);
         return layerInterfaceFactoryInterface.getNextInstance(hashtable, x, y, z);
     }
+    
 
-    public virtual void add(LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
-    {
+    void add(LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) {
         this.list.add(layerInterfaceFactoryInterface);
     }
-
 }
 

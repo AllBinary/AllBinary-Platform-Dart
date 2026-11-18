@@ -13,27 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.input.motion;
+class CompleteMotionGestureInputToGameMotionGestureInput {
+    static final CompleteMotionGestureInputToGameMotionGestureInput instance = CompleteMotionGestureInputToGameMotionGestureInput();
+    late CommonStrings commonStrings;
 
-public class CompleteMotionGestureInputToGameMotionGestureInput
-{
-    private static readonly CompleteMotionGestureInputToGameMotionGestureInput instance = new CompleteMotionGestureInputToGameMotionGestureInput();
-    public static CompleteMotionGestureInputToGameMotionGestureInput getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCompleteMotionGestureInputToGameMotionGestureInput() {
+    this.commonStrings = CommonStrings.getInstance();
+    }
+
+    CompleteMotionGestureInputToGameMotionGestureInput() {
+        this.initFieldsCompleteMotionGestureInputToGameMotionGestureInput();
+    }
+    
+
+    static CompleteMotionGestureInputToGameMotionGestureInput getInstance() {
         return CompleteMotionGestureInputToGameMotionGestureInput.instance;
     }
+    
 
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual void init()
-    {
+    void init() {
         PreLogUtil.put("No Touch Button = No Compound Motion Gestures", this, this.commonStrings.INIT);
     }
-
 }
 

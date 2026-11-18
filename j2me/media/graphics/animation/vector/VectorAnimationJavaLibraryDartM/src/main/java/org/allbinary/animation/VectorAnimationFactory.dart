@@ -13,19 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimationFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class VectorAnimationFactory implements VectorAnimationFactoryInterface {
+    
 
-public class VectorAnimationFactory : VectorAnimationFactoryInterface
-{
-    public virtual VectorAnimation getInstance(int[][][] points, BasicColor basicColor)
-    {
-        return new VectorAnimation(points, basicColor, AnimationBehavior.getInstance());
+    @override
+    VectorAnimation getInstance2(List<List<List<int>?>?> points, BasicColor basicColor) {
+        return VectorAnimation(points, basicColor, AnimationBehavior.getInstance());
     }
-
 }
 

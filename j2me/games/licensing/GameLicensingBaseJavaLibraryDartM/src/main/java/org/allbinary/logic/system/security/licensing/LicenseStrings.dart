@@ -13,20 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LicenseStrings {
+    static final LicenseStrings instance = LicenseStrings();
+    late String LOCKED;
 
-public class LicenseStrings
-{
-    private static readonly LicenseStrings instance = new LicenseStrings();
-    public readonly string LOCKED = "Demo Locked Feature";
-    public static LicenseStrings getInstance()
-    {
-        return LicenseStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsLicenseStrings() {
+    this.LOCKED = "Demo Locked Feature";
     }
 
+    LicenseStrings() {
+        this.initFieldsLicenseStrings();
+    }
+    
+
+    static LicenseStrings getInstance() {
+        return LicenseStrings.instance;
+    }
 }
 

@@ -13,28 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.weapon.mine
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
-using ViewPositionFactoryInterface = org.allbinary.view.ViewPositionFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/weapon/mine/MineLayer.dart';
 
-namespace org.allbinary.game.ag.layer.weapon.mine;
+class MineLayerFactory implements AllBinaryLayerFactoryInterface {
+    late ViewPositionFactoryInterface viewPositionFactoryInterface;
 
-public class MineLayerFactory : AllBinaryLayerFactoryInterface
-{
-    private ViewPositionFactoryInterface viewPositionFactoryInterface;
-    public MineLayerFactory(ViewPositionFactoryInterface viewPositionFactoryInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMineLayerFactory() {
+    
+    }
+    
+
+    MineLayerFactory(ViewPositionFactoryInterface viewPositionFactoryInterface) {
+        this.initFieldsMineLayerFactory();
         this.viewPositionFactoryInterface = viewPositionFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
-        return new MineLayer(this.viewPositionFactoryInterface.getInstance());
+    @override
+    AllBinaryLayer getInstance() {
+        return MineLayer(this.viewPositionFactoryInterface.getInstance());
     }
-
 }
 

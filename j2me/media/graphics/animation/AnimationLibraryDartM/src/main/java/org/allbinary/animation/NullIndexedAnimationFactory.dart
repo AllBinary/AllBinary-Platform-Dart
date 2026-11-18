@@ -13,42 +13,52 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/NullIndexedAnimationInner.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class NullIndexedAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+    static final List<IndexedAnimation?> NULL_INDEXED_ANIMATION_ARRAY = List<IndexedAnimation?>.filled(0, null);
+    static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = NullIndexedAnimationFactory();
+    late Animation NULL_ANIMATION;
 
-public class NullIndexedAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    public static readonly IndexedAnimation[] NULL_INDEXED_ANIMATION_ARRAY = new IndexedAnimation[0];
-    private static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
-    private readonly Animation NULL_ANIMATION = new NullIndexedAnimationInner();
-    private NullIndexedAnimationFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNullIndexedAnimationFactory() {
+    this.NULL_ANIMATION = NullIndexedAnimationInner();
     }
+    
 
-    public static NullIndexedAnimationFactory getFactoryInstance()
-    {
+    NullIndexedAnimationFactory() {
+        this.initFieldsNullIndexedAnimationFactory();
+    }
+    
+
+    static NullIndexedAnimationFactory getFactoryInstance() {
         return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         return this.NULL_ANIMATION;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
         return this.NULL_ANIMATION;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

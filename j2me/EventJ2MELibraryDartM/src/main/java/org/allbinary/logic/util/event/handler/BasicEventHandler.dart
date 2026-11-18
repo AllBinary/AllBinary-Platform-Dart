@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.util.event.handler
 
 import 'package:allbinary/allbinary_java.dart';
@@ -109,8 +109,11 @@ class BasicEventHandler implements BasicEventHandlerInterface {
             try {
                 eventListenerInterface = (this.eventListenerInterfaceList.get(index) as EventListenerInterface);
                 this.process(eventObject, eventListenerInterface);
-            } catch (e) {
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.eventStrings.FIRE_EVENT, e);
+                }
             }
             index++;
         }
@@ -139,8 +142,11 @@ class BasicEventHandler implements BasicEventHandlerInterface {
                 eventListenerInterface = (this.eventListenerInterfaceList.get(index) as EventListenerInterface);
                 stringBuffer.append(this.eventStrings.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
-            } catch (e) {
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
+                }
             }
             index++;
         }

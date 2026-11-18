@@ -13,93 +13,108 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using Anchor = org.allbinary.graphics.Anchor;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullImage.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArrayAnimation extends IndexedAnimation {
+    late List<Image?> imageArray;
+    int totalFrames = 0;
+    late CircularIndexUtil circularIndexUtil;
+    int anchor = 0;
 
-public class ImageArrayAnimation : IndexedAnimation
-{
-    private Image[] imageArray = NullImage.NULL_IMAGE_ARRAY;
-    private int totalFrames = 0;
-    public CircularIndexUtil circularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
-    public ImageArrayAnimation(Image[] imageArray, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImageArrayAnimation() {
+    this.imageArray = NullImage.NULL_IMAGE_ARRAY;
+    this.totalFrames = 0;
+    this.circularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    ImageArrayAnimation(List<Image?> imageArray, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsImageArrayAnimation();
+        
         this.setImageArray(imageArray);
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         this.circularIndexUtil.next();
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         this.circularIndexUtil.previous();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.circularIndexUtil.setIndex(index);
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.circularIndexUtil.getIndex();
     }
+    
 
-    public override int getSize()
-    {
+    @override
+    int getSize() {
         return this.totalFrames;
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public virtual Image getImage(int index)
-    {
-        return this.imageArray[index];
+    Image getImage(int index) {
+        return this.imageArray[index]!;
     }
+    
 
-    public virtual Image[] getImageArray()
-    {
+    List<Image?> getImageArray() {
         return this.imageArray;
     }
+    
 
-    public virtual void setImageArray(Image[] imageArray)
-    {
+    void setImageArray(List<Image?> imageArray) {
         this.imageArray = imageArray;
-        this.totalFrames = imageArray.Length;
+        this.totalFrames = imageArray.length;
         this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, this.anchor);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()]!, x, y, this.anchor);
     }
-
 }
 

@@ -13,38 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup
 
-using System;
-using System.Linq;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using PickupLayer = org.allbinary.game.layer.pickup.PickupLayer;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using TickableInterface = org.allbinary.game.tick.TickableInterface;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using ViewPosition = org.allbinary.view.ViewPosition;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupLayer.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/game/tick/TickableInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/view/ViewPosition.dart';
 
-namespace org.allbinary.game.ag.layer.pickup;
+class FallingPickupLayer extends PickupLayer implements TickableInterface {
+    static const String NAME = "FallingPickupLayer";
+    
 
-public class FallingPickupLayer : PickupLayer, TickableInterface
-{
-    private const string NAME = "FallingPickupLayer";
-    public FallingPickupLayer(RemoteInfo remoteInfo) : base(FallingPickupLayer.NAME, remoteInfo, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance().getInstance(0), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD())
-    {
-        // base(FallingPickupLayer.NAME, remoteInfo, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance().getInstance(0), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) is called from the constructor declaration
+    FallingPickupLayer(RemoteInfo remoteInfo) : super(FallingPickupLayer.NAME, remoteInfo, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance().getInstance1(0), Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) {
+        
     }
+    
 
-    public override void processTick(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processTick(AllBinaryLayerManager allBinaryLayerManager) {
         this.setPosition(this.x, this.y + 1, this.z);
     }
+    
 
-    public override bool implmentsTickableInterface()
-    {
+    @override
+    bool implmentsTickableInterface() {
         return true;
     }
-
 }
 

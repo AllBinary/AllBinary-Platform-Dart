@@ -13,29 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class TimedVectorAnimation extends VectorAnimation {
+    late TimeDelayHelper timeElapsedHelper;
 
-public class TimedVectorAnimation : VectorAnimation
-{
-    private TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(200);
-    public TimedVectorAnimation(int[][][] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : base(currentPoints, basicColor, animationBehavior)
-    {
-        // base(currentPoints, basicColor, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsTimedVectorAnimation() {
+    this.timeElapsedHelper = TimeDelayHelper(200);
     }
+    
 
-    public override void nextFrame()
-    {
+    TimedVectorAnimation(List<List<List<int>?>?> currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : super(currentPoints, basicColor, animationBehavior) {
+        this.initFieldsTimedVectorAnimation();
+        
+    }
+    
+
+    @override
+    void nextFrame() {
         if (this.timeElapsedHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
-            base.nextFrame();
+            super.nextFrame();
         }
     }
-
 }
 

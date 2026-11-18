@@ -13,69 +13,78 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFactory = org.allbinary.game.configuration.feature.GameFeatureFactory;
-using Anchor = org.allbinary.graphics.Anchor;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/media/image/ImageCreationUtil.dart';
 
-namespace org.allbinary.media.image;
+class ImageCopyUtil {
+    static final ImageCopyUtil instance = ImageCopyUtil();
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late ImageCreationUtil imageCreationUtil;
+    int anchor = 0;
+    late GameFeatureFactory gameFeatureFactory;
+    late Features features;
+    late String NO_COPY;
 
-public class ImageCopyUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly ImageCopyUtil instance = new ImageCopyUtil();
-    public static ImageCopyUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsImageCopyUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.imageCreationUtil = ImageCreationUtil.getInstance();
+    this.anchor = Anchor.TOP_LEFT;
+    this.gameFeatureFactory = GameFeatureFactory.getInstance();
+    this.features = Features.getInstance();
+    this.NO_COPY = "J2ME does not need to copy images after initial loading";
+    }
+    
+
+    static ImageCopyUtil getInstance() {
         return ImageCopyUtil.instance;
     }
+    
 
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
-    private ImageCopyUtil()
-    {
+    ImageCopyUtil() {
+        this.initFieldsImageCopyUtil();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    private readonly GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
-    private readonly Features features = Features.getInstance();
-    private readonly string NO_COPY = "J2ME does not need to copy images after initial loading";
-    // throws Exception
-    public virtual Image createImageForRotation(Image originalImage)
-    {
+    Image createImageForRotation(Image originalImage) {
         return this.createImage(originalImage);
     }
+    
 
-    // throws Exception
-    public virtual Image createImage(Image originalImage)
-    {
+    Image createImage(Image originalImage) {
         if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new Exception());
+            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, JException('Exception', ''));
             return originalImage;
         }
-        Image image = this.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
+        final Image image = this.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
         if (image.isMutable()) {
             image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
             return image;
         } else {
-            throw new Exception("Not Mutable");
+            throw JException('Exception', "Not Mutable");
         }
     }
+    
 
-    // throws Exception
-    public virtual Image createImageScale(Image originalImage, float canvasScale, bool resize)
-    {
+    Image createImageScale(Image originalImage, double canvasScale, bool resize) {
         if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new Exception());
+            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, JException('Exception', ''));
             return originalImage;
         }
-        int newWidth = ((int) (originalImage.getWidth() * canvasScale));
-        int newHeight = ((int) (originalImage.getHeight() * canvasScale));
+        int newWidth = JMath.toInt32(((originalImage.getWidth()).toDouble() * canvasScale));
+        int newHeight = JMath.toInt32(((originalImage.getHeight()).toDouble() * canvasScale));
         if (resize) {
             if (newWidth < newHeight) {
                 newWidth = newHeight;
@@ -84,17 +93,16 @@ public class ImageCopyUtil
                 newHeight = newWidth;
             }
         }
-        Image image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
+        final Image image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
         if (image.isMutable()) {
-            int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
-            int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
-            Graphics graphics = image.getGraphics();
+            final int halfWidthDelta = (newWidth - originalImage.getWidth()) ~/ 2;
+            final int halfHeightDelta = (newHeight - originalImage.getHeight()) ~/ 2;
+            final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
             return image;
         } else {
-            throw new Exception("Not Mutable");
+            throw JException('Exception', "Not Mutable");
         }
     }
-
 }
 

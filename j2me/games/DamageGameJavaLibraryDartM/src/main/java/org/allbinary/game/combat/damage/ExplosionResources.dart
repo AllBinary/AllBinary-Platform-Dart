@@ -13,27 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.damage
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.combat.damage;
+class ExplosionResources {
+    static final ExplosionResources instance = ExplosionResources();
+    late String EXPLOSION_90_RESOURCE;
+    late String EXPLOSION_60_RESOURCE;
+    late String HALF_EXPLOSION_RESOURCE;
+    late String THIRD_EXPLOSION_RESOURCE;
 
-public class ExplosionResources
-{
-    private static readonly ExplosionResources instance = new ExplosionResources();
-    public static ExplosionResources getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsExplosionResources() {
+    this.EXPLOSION_90_RESOURCE = "/explosion_sprite_90_by_90.png";
+    this.EXPLOSION_60_RESOURCE = "/explosion_sprite_60_by_60.png";
+    this.HALF_EXPLOSION_RESOURCE = "/explosion_sprite_30_by_30.png";
+    this.THIRD_EXPLOSION_RESOURCE = "/explosion_sprite_15_by_15.png";
+    }
+    
+
+    static ExplosionResources getInstance() {
         return ExplosionResources.instance;
     }
+    
 
-    private ExplosionResources()
-    {
+    ExplosionResources() {
+        this.initFieldsExplosionResources();
     }
-
-    public readonly string EXPLOSION_90_RESOURCE = "/explosion_sprite_90_by_90.png";
-    public readonly string EXPLOSION_60_RESOURCE = "/explosion_sprite_60_by_60.png";
-    public readonly string HALF_EXPLOSION_RESOURCE = "/explosion_sprite_30_by_30.png";
-    public readonly string THIRD_EXPLOSION_RESOURCE = "/explosion_sprite_15_by_15.png";
 }
 

@@ -13,16 +13,25 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.graphics.geography.pathfinding
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.media.graphics.geography.pathfinding;
+class MultipassState {
+    int step = 0;
+    int iteration = 0;
+    int iteration2 = 0;
 
-public class MultipassState
-{
-    public int step = 0;
-    public int iteration = 0;
-    public int iteration2 = 0;
+    // Java field initializers run after the base constructor
+    void initFieldsMultipassState() {
+    this.step = 0;
+    this.iteration = 0;
+    this.iteration2 = 0;
+    }
+
+    MultipassState() {
+        this.initFieldsMultipassState();
+    }
 }
 

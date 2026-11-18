@@ -13,32 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.life
 
-using System;
-using System.Linq;
-using Life = org.allbinary.game.ag.life.Life;
-using LifeInterfaceCompositeInterface = org.allbinary.game.ag.life.LifeInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/ag/life/Life.dart';
+import 'package:allbinary/org/allbinary/game/ag/life/LifeInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/life/LifeLayer.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.life;
+class LifeLayerCircularStaticPool extends AllBinaryLayerCircularPool {
+    
 
-public class LifeLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    public LifeLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
-        base.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
+    LifeLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total) {
+        super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
+    
 
-    // throws Exception
-    public virtual void visit(AllBinaryLayer sourceLayerInterface)
-    {
-        LifeLayer lifeLayer = ((LifeLayer) this.getNextInstance());
-        LifeInterfaceCompositeInterface lifeInterfaceCompositeInterface = ((LifeInterfaceCompositeInterface) sourceLayerInterface);
-        Life lifeInterface = lifeInterfaceCompositeInterface.getLifeInterface();
+    void visit(AllBinaryLayer sourceLayerInterface) {
+        final LifeLayer lifeLayer = (this.getNextInstance() as LifeLayer);
+        final LifeInterfaceCompositeInterface lifeInterfaceCompositeInterface = (sourceLayerInterface as LifeInterfaceCompositeInterface);
+        final Life lifeInterface = lifeInterfaceCompositeInterface.getLifeInterface();
         lifeLayer.visit(lifeInterface);
     }
-
 }
 

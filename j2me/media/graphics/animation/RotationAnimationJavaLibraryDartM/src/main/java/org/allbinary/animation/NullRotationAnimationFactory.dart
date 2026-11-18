@@ -13,41 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/NullRotationAnimation2.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class NullRotationAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+    static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = NullRotationAnimationFactory();
+    late List<RotationAnimation?> NULL_ROTATION_ANIMATION_ARRAY;
+    late Animation NULL_ANIMATION;
 
-public class NullRotationAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    private static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = new NullRotationAnimationFactory();
-    public readonly RotationAnimation[] NULL_ROTATION_ANIMATION_ARRAY = new RotationAnimation[0];
-    private readonly Animation NULL_ANIMATION = new NullRotationAnimation2();
-    private NullRotationAnimationFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNullRotationAnimationFactory() {
+    this.NULL_ROTATION_ANIMATION_ARRAY = List<RotationAnimation?>.filled(0, null);
+    this.NULL_ANIMATION = NullRotationAnimation2();
     }
+    
 
-    public static NullRotationAnimationFactory getFactoryInstance()
-    {
+    NullRotationAnimationFactory() {
+        this.initFieldsNullRotationAnimationFactory();
+    }
+    
+
+    static NullRotationAnimationFactory getFactoryInstance() {
         return NullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY;
     }
+    
 
-    public virtual Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         return this.NULL_ANIMATION;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
         return this.NULL_ANIMATION;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

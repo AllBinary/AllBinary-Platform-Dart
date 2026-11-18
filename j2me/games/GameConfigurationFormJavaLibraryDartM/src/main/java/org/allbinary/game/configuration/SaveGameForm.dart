@@ -13,52 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using TextField = javax.microedition.lcdui.TextField;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using ABSystemWrapper = org.allbinary.logic.ABSystemWrapper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/TextField.dart';
+import 'package:allbinary/org/allbinary/MIDPUtil.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/CommandForm.dart';
+import 'package:allbinary/org/allbinary/logic/ABSystemWrapper.dart';
 
-namespace org.allbinary.game.configuration;
+class SaveGameForm extends CommandForm {
+    static CommandForm FORM = CommandForm.getNullCommandForm();
+    late MIDPUtil meUtil;
 
-public class SaveGameForm : CommandForm
-{
-    private static CommandForm FORM = CommandForm.getNullCommandForm();
-    // throws Exception
-    public static CommandForm createForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
-    {
-        SaveGameForm.FORM = new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+    // Java field initializers run after the base constructor
+    void initFieldsSaveGameForm() {
+    this.meUtil = MIDPUtil.getInstance();
+    }
+    
+
+    static CommandForm createForm(CommandListener commandListener, String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        SaveGameForm.FORM = SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
         return SaveGameForm.FORM;
     }
+    
 
-    public static CommandForm getInstance()
-    {
+    static CommandForm getInstance() {
         return SaveGameForm.FORM;
     }
+    
 
-    private readonly MIDPUtil meUtil = MIDPUtil.getInstance();
-    private SaveGameForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(commandListener, title, backgrounBasicColor, foregroundBasicColor)
-    {
-        // base(commandListener, title, backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    SaveGameForm(CommandListener commandListener, String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : super(commandListener, title, backgrounBasicColor, foregroundBasicColor) {
+        this.initFieldsSaveGameForm();
+        
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
-        string timeString = (ABSystemWrapper.getInstance().currentTimeMillis()).ToString();
-        this.meUtil.appendItem(this, new TextField("Name: ", timeString, 30, TextField.ANY));
+        String timeString = jstr(ABSystemWrapper.getInstance().currentTimeMillis());
+        this.meUtil.appendItem(this, TextField("Name: ", timeString, 30, TextField.ANY));
         this.initCommands(commandListener);
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
-        GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+    @override
+    void initCommands(CommandListener cmdListener) {
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         this.removeAllCommands();
         this.addCommand(gameCommandsFactory.SAVE);
         this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
         this.setCommandListener(cmdListener);
     }
-
 }
 

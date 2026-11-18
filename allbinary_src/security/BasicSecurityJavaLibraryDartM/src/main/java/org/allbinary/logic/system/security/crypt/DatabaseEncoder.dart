@@ -13,65 +13,69 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.crypt
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Tokenizer = org.allbinary.logic.@string.tokens.Tokenizer;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/tokens/Tokenizer.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.logic.system.security.crypt;
+class DatabaseEncoder {
+    
 
-public class DatabaseEncoder
-{
-    private DatabaseEncoder()
-    {
+    DatabaseEncoder() {
     }
+    
 
-    public static string encode(sbyte[] value)
-    {
+    static String encode(List<int> value) {
         try {
-            sbyte[] array = value;
-            StringMaker stringBuffer = new StringMaker();
-            for (int index = 0; index < array.Length; index++) {
-                stringBuffer.append(array[index].ToString());
-                if (index < array.Length - 1) {
+            List<int> array = value;
+            final StringMaker stringBuffer = StringMaker();
+            for (int index = 0; index < array.length; index++) {
+                stringBuffer.append(array[index].toString());
+                if (index < array.length - 1) {
                     stringBuffer.append(CommonSeps.getInstance().SPACE);
                 }
             }
-            return stringBuffer.ToString();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            return stringBuffer.toString();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.putOE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
             return StringUtil.getInstance().EMPTY_STRING;
+            }
         }
     }
+    
 
-    public static sbyte[] decode(string value)
-    {
+    static List<int> decode(String value) {
         try {
-            Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
-            BasicArrayList vector = tokenizer.getTokensFromString(value, new BasicArrayListD());
-            int size = vector.size();
-            sbyte[] decode = new sbyte[size];
-            string byteOfData = null;
+            final Tokenizer tokenizer = Tokenizer(CommonSeps.getInstance().SPACE);
+            final BasicArrayList vector = tokenizer.getTokensFromString(value, BasicArrayListD());
+            final int size = vector.size();
+            final List<int> decode = List<int>.filled(size, 0);
+            late String byteOfData;
             for (int index = 0; index < size; index++) {
-                byteOfData = ((string) vector.objectArray[index]);
-                decode[index] = sbyte.Parse(byteOfData);
+                byteOfData = (vector.objectArray[index]! as String);
+                decode[index] = Byte.parseByte(byteOfData);
             }
             return decode;
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.putSE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
             return NullUtil.getInstance().NULL_BYTE_ARRAY;
+            }
         }
     }
-
 }
 

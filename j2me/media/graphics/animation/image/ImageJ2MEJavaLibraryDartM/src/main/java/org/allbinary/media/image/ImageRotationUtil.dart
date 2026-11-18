@@ -13,32 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Anchor = org.allbinary.graphics.Anchor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
 
-namespace org.allbinary.media.image;
+class ImageRotationUtil {
+    static final ImageRotationUtil instance = ImageRotationUtil();
+    int anchor = 0;
 
-public class ImageRotationUtil
-{
-    private static readonly ImageRotationUtil instance = new ImageRotationUtil();
-    public static ImageRotationUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsImageRotationUtil() {
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    static ImageRotationUtil getInstance() {
         return ImageRotationUtil.instance;
     }
+    
 
-    private ImageRotationUtil()
-    {
+    ImageRotationUtil() {
+        this.initFieldsImageRotationUtil();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    // throws Exception
-    public virtual Image createRotatedImage(Image originalImage, int rotationInDegrees)
-    {
+    Image createRotatedImage(Image originalImage, int rotationInDegrees) {
         return originalImage;
     }
-
 }
 

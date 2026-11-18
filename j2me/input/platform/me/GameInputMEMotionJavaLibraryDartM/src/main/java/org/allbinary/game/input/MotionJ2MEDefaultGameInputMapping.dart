@@ -13,24 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GamePersistanceStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/PersistentInputMapping.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
 
-namespace org.allbinary.game.input;
+class MotionJ2MEDefaultGameInputMapping extends PersistentInputMapping {
+    
 
-public class MotionJ2MEDefaultGameInputMapping : PersistentInputMapping
-{
-    public MotionJ2MEDefaultGameInputMapping() : base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) is called from the constructor declaration
-        InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
-        GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+    MotionJ2MEDefaultGameInputMapping() : super(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) {
+        
+        final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
+        final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
         inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
         inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.KEY_NUM4);
         inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.KEY_NUM6);
@@ -58,7 +58,7 @@ public class MotionJ2MEDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.DOWN, TouchMotionGestureFactory.getInstance().DOWN);
         inputToGameKeyMapping.add(gameKeyFactory.LEFT, TouchMotionGestureFactory.getInstance().LEFT);
         inputToGameKeyMapping.add(gameKeyFactory.RIGHT, TouchMotionGestureFactory.getInstance().RIGHT);
-        BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
+        final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
         inputToGameKeyMapping.add(gameKeyFactory.UP, basicTouchInputFactory.UP);
         inputToGameKeyMapping.add(gameKeyFactory.LEFT, basicTouchInputFactory.LEFT);
         inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
@@ -70,6 +70,5 @@ public class MotionJ2MEDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, basicTouchInputFactory.SPECIAL_BUTTON_ONE);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, basicTouchInputFactory.SPECIAL_BUTTON_SIX);
     }
-
 }
 

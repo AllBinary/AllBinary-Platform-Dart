@@ -13,16 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
 
-namespace org.allbinary.logic.util.cache;
+abstract interface class PoolInterface implements CacheInterface {
+    
 
-public interface PoolInterface : CacheInterface
-{
-    // throws Exception
-    CacheableInterface remove(object key);
-
+    CacheableInterface remove(Object key);
 }
 

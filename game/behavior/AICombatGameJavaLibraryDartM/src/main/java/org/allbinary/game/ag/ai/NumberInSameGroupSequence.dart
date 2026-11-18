@@ -13,34 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
 
-namespace org.allbinary.game.ag.ai;
+class NumberInSameGroupSequence {
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_ONE;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_TWO;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_THREE;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_SIX;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT;
+    late int NUMBER_ON_SAME_TEAM_SEQUENCE_NINE;
+    late List<int?> NUMBER_ON_SAME_TEAM_SEQUENCE;
 
-public class NumberInSameGroupSequence
-{
-    public static NumberInSameGroupSequence getInstance()
-    {
-        return new NumberInSameGroupSequence();
+    // Java field initializers run after the base constructor
+    void initFieldsNumberInSameGroupSequence() {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
+    
 
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_ONE;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_TWO;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_THREE;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_SIX;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT;
-    public int? NUMBER_ON_SAME_TEAM_SEQUENCE_NINE;
-    public int?[] NUMBER_ON_SAME_TEAM_SEQUENCE;
-    private NumberInSameGroupSequence()
-    {
-        SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+    static NumberInSameGroupSequence getInstance() {
+        return NumberInSameGroupSequence();
+    }
+    
+
+    NumberInSameGroupSequence() {
+        this.initFieldsNumberInSameGroupSequence();
+        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO = smallIntegerSingletonFactory.getAt(100);
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_ONE = smallIntegerSingletonFactory.getAt(101);
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_TWO = smallIntegerSingletonFactory.getAt(102);
@@ -51,8 +66,7 @@ public class NumberInSameGroupSequence
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN = smallIntegerSingletonFactory.getAt(107);
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT = smallIntegerSingletonFactory.getAt(108);
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_NINE = smallIntegerSingletonFactory.getAt(109);
-        this.NUMBER_ON_SAME_TEAM_SEQUENCE = new int?[] { this.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO, this.NUMBER_ON_SAME_TEAM_SEQUENCE_ONE, this.NUMBER_ON_SAME_TEAM_SEQUENCE_THREE, this.NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR, this.NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE, this.NUMBER_ON_SAME_TEAM_SEQUENCE_SIX, this.NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN, this.NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT, this.NUMBER_ON_SAME_TEAM_SEQUENCE_NINE };
+        this.NUMBER_ON_SAME_TEAM_SEQUENCE = <int?>[this.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO, this.NUMBER_ON_SAME_TEAM_SEQUENCE_ONE, this.NUMBER_ON_SAME_TEAM_SEQUENCE_THREE, this.NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR, this.NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE, this.NUMBER_ON_SAME_TEAM_SEQUENCE_SIX, this.NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN, this.NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT, this.NUMBER_ON_SAME_TEAM_SEQUENCE_NINE];
     }
-
 }
 

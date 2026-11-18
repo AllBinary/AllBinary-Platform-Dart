@@ -13,24 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.math.permutations
 
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
 
-namespace org.allbinary.logic.math.permutations;
+class ComparableObject implements Comparable {
+    
 
-public class ComparableObject : global::java.lang.Comparable<object>
-{
-    public virtual int compareTo(object anyType)
-    {
-        if (TsUtil.getInstance().hashCode(this) < TsUtil.getInstance().hashCode(anyType)) {
+    @override
+    int compareTo(dynamic anyType) {
+        if (TsUtil.getInstance().hashCode1(this) < TsUtil.getInstance().hashCode1(anyType)) {
             return -1;
-        } else if (TsUtil.getInstance().hashCode(this) > TsUtil.getInstance().hashCode(anyType)) {
+        } else if (TsUtil.getInstance().hashCode1(this) > TsUtil.getInstance().hashCode1(anyType)) {
             return 1;
         }
         return 0;
     }
-
 }
 

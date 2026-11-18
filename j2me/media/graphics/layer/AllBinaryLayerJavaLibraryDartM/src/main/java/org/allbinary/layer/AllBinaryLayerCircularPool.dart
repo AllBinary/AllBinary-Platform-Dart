@@ -13,29 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using BaseCircularPool = org.allbinary.logic.util.cache.BaseCircularPool;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/BaseCircularPool.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
 
-namespace org.allbinary.layer;
+class AllBinaryLayerCircularPool extends BaseCircularPool {
+    
 
-public class AllBinaryLayerCircularPool : BaseCircularPool
-{
-    public AllBinaryLayerCircularPool()
-    {
+    AllBinaryLayerCircularPool() {
     }
+    
 
-    // throws Exception
-    public virtual void initAllBinaryLayerCircularPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
+    void initAllBinaryLayerCircularPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total) {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);
-        this.OBJECT_ARRAY = new object[total];
+        this.OBJECT_ARRAY = List<Object?>.filled(total, null);
         for (int localIndex = 0; localIndex < total; localIndex++) {
             this.OBJECT_ARRAY[localIndex] = allbinaryLayerFactoryInterface.getInstance();
         }
     }
-
 }
 

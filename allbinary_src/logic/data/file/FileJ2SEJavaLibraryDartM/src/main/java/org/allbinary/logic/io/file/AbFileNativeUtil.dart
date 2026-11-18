@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-using File = java.io.File;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/File.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
 
-namespace org.allbinary.logic.io.file;
+class AbFileNativeUtil {
+    
 
-public class AbFileNativeUtil
-{
-    public static File get(AbFile file)
-    {
+    static File get(AbFile file) {
         return file.getFile();
     }
-
 }
 

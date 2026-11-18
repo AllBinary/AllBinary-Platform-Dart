@@ -13,25 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
-using MotionGestureConfiguration = org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
-using MotionGestureConfigurationFactory = org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/configuration/MotionGestureConfigurationFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/ResolveCompleteMotionGestureListener.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/NullCompleteMotionGestureReceiver.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/CompleteMotionGestureListenerInterface.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+class MotionGestureReceiveInterfaceFactory {
+    
 
-public class MotionGestureReceiveInterfaceFactory
-{
-    public static CompleteMotionGestureListenerInterface getInstance()
-    {
+    static CompleteMotionGestureListenerInterface getInstance() {
         MotionGestureConfiguration configuration = MotionGestureConfigurationFactory.getInstance();
         if (!configuration.isExecutingActionsAllowed()) {
-            return new NullCompleteMotionGestureReceiver();
+            return NullCompleteMotionGestureReceiver();
         } else {
-            return new ResolveCompleteMotionGestureListener();
+            return ResolveCompleteMotionGestureListener();
         }
     }
-
 }
 

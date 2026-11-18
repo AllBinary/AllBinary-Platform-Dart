@@ -13,44 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using Reader = java.io.Reader;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/Reader.dart';
 
-namespace org.allbinary.logic.io;
+class NullReader extends Reader {
+    static final NullReader NULL_READER = NullReader();
+    
 
-public class NullReader : Reader
-{
-    public static readonly NullReader NULL_READER = new NullReader();
-    // throws IOException
-    public override int read()
-    {
-        return -1;
+    int read([dynamic p0 = jnone, dynamic p1 = jnone, dynamic p2 = jnone]) {
+        if (identical(p0, jnone)) {
+            return this.read$0();
+        }
+        if (!identical(p2, jnone) && jIsList(p0) && p1 is int && p2 is int) {
+            return this.read$3(p0, p1, p2);
+        }
+        throw JException('NoSuchMethodError', 'read');
     }
 
-    // throws IOException
-    public override int read(char[] cbuf, int off, int len)
-    {
+    int read$0() {
         return -1;
     }
+    
 
-    // throws IOException
-    public override bool ready()
-    {
+    int read$3(List<int> cbuf, int off, int len) {
+        return -1;
+    }
+    
+
+    @override
+    bool ready() {
         return false;
     }
+    
 
-    // throws IOException
-    public override long skip(long n)
-    {
-        return 0L;
+    @override
+    int skip(int n) {
+        return 0;
     }
+    
 
-    public override void close()
-    {
+    @override
+    void close() {
     }
-
 }
 

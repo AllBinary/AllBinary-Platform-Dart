@@ -13,7 +13,7 @@
  *   
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.system.hardware
 
 import 'package:allbinary/allbinary_java.dart';
@@ -45,8 +45,11 @@ class HardwareFactory {
                 return (WindowsHardware() as HardwareInterface);
             }
             throw JException('Exception', "No Hardware Imp for: " + os.getName());
-        } catch (e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             throw e;
+            }
         }
     }
 }

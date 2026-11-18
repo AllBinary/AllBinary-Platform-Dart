@@ -13,40 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using RelativeLayerRelationship = org.allbinary.layer.relationship.RelativeLayerRelationship;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/RelativeRelationship.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/relationship/RelativeLayerRelationship.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/game/resource/FeaturedResourceFactory.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.dart';
 
-namespace org.allbinary.game.resource;
+class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory {
+    static FeaturedResourceRelativeRelationshipFactory INSTANCE = FeaturedResourceRelativeRelationshipFactory();
+    late BasicArrayListUtil basicArrayListUtil;
 
-public class FeaturedResourceRelativeRelationshipFactory : FeaturedResourceFactory
-{
-    private static FeaturedResourceRelativeRelationshipFactory INSTANCE = new FeaturedResourceRelativeRelationshipFactory();
-    private FeaturedResourceRelativeRelationshipFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsFeaturedResourceRelativeRelationshipFactory() {
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
     }
+    
 
-    public static FeaturedResourceRelativeRelationshipFactory getInstance()
-    {
+    FeaturedResourceRelativeRelationshipFactory() {
+        this.initFieldsFeaturedResourceRelativeRelationshipFactory();
+    }
+    
+
+    static FeaturedResourceRelativeRelationshipFactory getInstance() {
         return FeaturedResourceRelativeRelationshipFactory.INSTANCE;
     }
+    
 
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    // throws Exception
-    public virtual BasicArrayList getRelativeRelationshipList(string resource, AllBinaryLayer layer)
-    {
-        BasicArrayList featureReleaseList = this.getList();
+    BasicArrayList getRelativeRelationshipList(String resource, AllBinaryLayer layer) {
+        final BasicArrayList featureReleaseList = this.getList();
         int size = this.getList().size();
         for (int index = 0; index < size; index++) {
-            ResourceRelativeRelationshipFactoryInterface featureInterface = ((ResourceRelativeRelationshipFactoryInterface) featureReleaseList.objectArray[index]);
+            ResourceRelativeRelationshipFactoryInterface featureInterface = (featureReleaseList.objectArray[index]! as ResourceRelativeRelationshipFactoryInterface);
             if (featureInterface.isFeature()) {
                 BasicArrayList list = featureInterface.getResourceRelativeRelationshipList(resource);
                 if (list != this.basicArrayListUtil.getImmutableInstance()) {
@@ -54,21 +60,19 @@ public class FeaturedResourceRelativeRelationshipFactory : FeaturedResourceFacto
                 }
             }
         }
-        throw new Exception(new StringMaker().append("Not available for current feature selection or Resource: ").append(resource).ToString());
+        throw JException('Exception', StringMaker().append("Not available for current feature selection or Resource: ").append(resource).toString());
     }
+    
 
-    // throws Exception
-    private BasicArrayList duplicate(BasicArrayList list, AllBinaryLayer layer)
-    {
-        PointFactory pointFactory = PointFactory.getInstance();
-        BasicArrayList newList = new BasicArrayListD();
-        int size = list.size();
+    BasicArrayList duplicate(BasicArrayList list, AllBinaryLayer layer) {
+        final PointFactory pointFactory = PointFactory.getInstance();
+        final BasicArrayList newList = BasicArrayListD();
+        final int size = list.size();
         for (int index = 0; index < size; index++) {
-            RelativeRelationship relativeRelationship = ((RelativeRelationship) list.objectArray[index]);
-            newList.add(new RelativeLayerRelationship(layer, pointFactory.createXY(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
+            RelativeRelationship relativeRelationship = (list.objectArray[index]! as RelativeRelationship);
+            newList.add(RelativeLayerRelationship(layer, pointFactory.createXY(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
         }
         return newList;
     }
-
 }
 

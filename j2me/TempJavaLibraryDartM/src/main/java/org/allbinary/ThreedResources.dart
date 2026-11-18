@@ -13,23 +13,21 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary;
+class ThreedResources {
+    static final ThreedResources threedResources = ThreedResources();
+    
 
-public class ThreedResources
-{
-    private static readonly ThreedResources threedResources = new ThreedResources();
-    public static ThreedResources getThreedResources()
-    {
+    static ThreedResources getThreedResources() {
         return ThreedResources.threedResources;
     }
+    
 
-    public virtual void add()
-    {
+    void add() {
     }
-
 }
 

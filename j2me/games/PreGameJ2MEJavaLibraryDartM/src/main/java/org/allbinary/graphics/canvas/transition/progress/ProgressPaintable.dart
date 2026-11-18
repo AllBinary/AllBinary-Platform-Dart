@@ -13,26 +13,32 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.canvas.transition.progress
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
 
-namespace org.allbinary.graphics.canvas.transition.progress;
+class ProgressPaintable extends Paintable {
+    late ProgressCanvas progressCanvas;
 
-public class ProgressPaintable : Paintable
-{
-    private readonly ProgressCanvas progressCanvas;
-    public ProgressPaintable(ProgressCanvas progressCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsProgressPaintable() {
+    
+    }
+    
+
+    ProgressPaintable(ProgressCanvas progressCanvas) {
+        this.initFieldsProgressPaintable();
         this.progressCanvas = progressCanvas;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.progressCanvas.paint2(graphics);
     }
-
 }
 

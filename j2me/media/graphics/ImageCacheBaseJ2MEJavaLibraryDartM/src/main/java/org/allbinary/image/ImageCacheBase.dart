@@ -13,71 +13,82 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using StdUtil = org.allbinary.logic.StdUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullImage.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/image/ImageFactory.dart';
 
-namespace org.allbinary.image;
+class ImageCacheBase {
+    late LogUtil logUtil;
+    late ImageFactory imageFactory;
+    late ABHashtable hashtable;
+    int SIZE = 0;
+    late List<int> widths;
+    late List<int> heights;
+    late List<BasicArrayList?> listOfList;
+    late List<BasicArrayList?> availableListOfList;
+    int volume = 0;
+    int nextIndex = 0;
 
-public class ImageCacheBase
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly ImageFactory imageFactory = ImageFactory.getInstance();
-    public readonly ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    public readonly int SIZE = 128;
-    public readonly int[] widths;
-    public readonly int[] heights;
-    public readonly BasicArrayList[] listOfList;
-    public readonly BasicArrayList[] availableListOfList;
-    public int volume = 0;
-    public int nextIndex = 0;
-    public ImageCacheBase()
-    {
-        this.widths = new int[this.SIZE];
-        this.heights = new int[this.SIZE];
-        this.listOfList = new BasicArrayList[this.SIZE];
-        this.availableListOfList = new BasicArrayList[this.SIZE];
-        for (int index_0 = this.listOfList.Length - 1; index_0 >= 0; index_0--) {
-            this.listOfList[index_0] = new BasicArrayListD();
+    // Java field initializers run after the base constructor
+    void initFieldsImageCacheBase() {
+    this.logUtil = LogUtil.getInstance();
+    this.imageFactory = ImageFactory.getInstance();
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    this.SIZE = 128;
+    this.widths = List<int>.filled(this.SIZE, 0);
+    this.heights = List<int>.filled(this.SIZE, 0);
+    this.listOfList = List<BasicArrayList?>.filled(this.SIZE, null);
+    this.availableListOfList = List<BasicArrayList?>.filled(this.SIZE, null);
+    this.volume = 0;
+    this.nextIndex = 0;
+    }
+    
+
+    ImageCacheBase() {
+        this.initFieldsImageCacheBase();
+        for (int index = this.listOfList.length - 1; index >= 0; index--) {
+            this.listOfList[index] = BasicArrayListD();
         }
-        for (int index_1 = this.availableListOfList.Length - 1; index_1 >= 0; index_1--) {
-            this.availableListOfList[index_1] = new BasicArrayListD();
+        for (int index = this.availableListOfList.length - 1; index >= 0; index--) {
+            this.availableListOfList[index] = BasicArrayListD();
         }
     }
+    
 
-    public virtual Image getImage(object resourceId)
-    {
-        object imageCanBeNull = this.hashtable.get(resourceId);
+    Image getImage(Object resourceId) {
+        final Object imageCanBeNull = this.hashtable.get(resourceId);
         if (imageCanBeNull == null) {
             return NullImage.NULL_IMAGE;
         }
-        return ((Image) imageCanBeNull);
+        return (imageCanBeNull as Image);
     }
+    
 
-    public virtual void releaseAll()
-    {
-        for (int index = this.listOfList.Length - 1; index >= 0; index--) {
-            this.availableListOfList[index].clear();
-            this.availableListOfList[index].addAllList(this.listOfList[index]);
+    void releaseAll() {
+        for (int index = this.listOfList.length - 1; index >= 0; index--) {
+            this.availableListOfList[index]!.clear();
+            this.availableListOfList[index]!.addAllList(this.listOfList[index]!);
         }
-        this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.ToString()).ToString(), this, "releaseAll");
+        this.logUtil.putF(StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
+    
 
-    public virtual int getIndexWH(int width, int height)
-    {
+    int getIndexWH(int width, int height) {
         int foundIndex = -1;
-        int size = this.widths.Length;
+        int size = this.widths.length;
         for (int index = 0; index < size; index++) {
             if (this.widths[index] == width && this.heights[index] == height) {
                 foundIndex = index;
@@ -86,50 +97,47 @@ public class ImageCacheBase
         }
         return foundIndex;
     }
+    
 
-    public virtual Image getFromAvailable(int foundIndex, int width, int height)
-    {
+    Image getFromAvailable(int foundIndex, int width, int height) {
         if (foundIndex != -1) {
-            if (this.availableListOfList[foundIndex].size() > 0) {
-                BasicArrayList list = this.availableListOfList[foundIndex];
-                return ((Image) list.removeAt(list.size() - 1));
+            if (this.availableListOfList[foundIndex]!.size() > 0) {
+                BasicArrayList list = this.availableListOfList[foundIndex]!;
+                return (list.removeAt(list.size() - 1) as Image);
             }
         }
         return NullImage.NULL_IMAGE;
     }
+    
 
-    // throws Exception
-    public virtual Image get(string caller, int width, int height)
-    {
-        throw new SystemException();
+    Image get(String caller, int width, int height) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    // throws Exception
-    public virtual Image getWithKey(object key)
-    {
-        throw new SystemException();
+    Image getWithKey(Object key) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    // throws Exception
-    public virtual Image createImage(string caller, int width, int height)
-    {
+    Image createImage(String caller, int width, int height) {
         return this.imageFactory.createImage(caller, width, height);
     }
+    
 
-    // throws Exception
-    public virtual Image createImageFromInputStream(object key, InputStream inputStream)
-    {
+    Image createImageFromInputStream(Object key, InputStream inputStream) {
         return this.imageFactory.createImageFromInputStream(key, inputStream);
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         for (int index = this.nextIndex - 1; index >= 0; index--) {
-            int width = this.widths[index];
-            int height = this.heights[index];
-            int total = this.listOfList[index].size();
-            int totalAvailable = this.availableListOfList[index].size();
+            final int width = this.widths[index];
+            final int height = this.heights[index];
+            final int total = this.listOfList[index]!.size();
+            final int totalAvailable = this.availableListOfList[index]!.size();
             stringBuffer.append(" w: ");
             stringBuffer.appendint(width);
             stringBuffer.append(" h: ");
@@ -140,21 +148,20 @@ public class ImageCacheBase
             stringBuffer.append(" available: ");
             stringBuffer.appendint(totalAvailable);
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public virtual ABHashtable<object, object> getHashtableP()
-    {
+    ABHashtable getHashtableP() {
         return this.hashtable;
     }
+    
 
-    public virtual void init(Image image)
-    {
+    void init(Image image) {
     }
+    
 
-    public virtual void initProgress()
-    {
+    void initProgress() {
     }
-
 }
 

@@ -13,23 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenType.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchScreenTypesFactory {
+    static final TouchScreenTypesFactory instance = TouchScreenTypesFactory();
+    late TouchScreenType FINGER;
+    late TouchScreenType NOTOUCH;
+    late TouchScreenType STYLUS;
+    late TouchScreenType UNDEFINED;
 
-public class TouchScreenTypesFactory
-{
-    private static readonly TouchScreenTypesFactory instance = new TouchScreenTypesFactory();
-    public static TouchScreenTypesFactory getInstance()
-    {
-        return TouchScreenTypesFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsTouchScreenTypesFactory() {
+    this.FINGER = TouchScreenType("Finger");
+    this.NOTOUCH = TouchScreenType("No Touch");
+    this.STYLUS = TouchScreenType("Stylus");
+    this.UNDEFINED = TouchScreenType("Undefined");
     }
 
-    public readonly TouchScreenType FINGER = new TouchScreenType("Finger");
-    public readonly TouchScreenType NOTOUCH = new TouchScreenType("No Touch");
-    public readonly TouchScreenType STYLUS = new TouchScreenType("Stylus");
-    public readonly TouchScreenType UNDEFINED = new TouchScreenType("Undefined");
+    TouchScreenTypesFactory() {
+        this.initFieldsTouchScreenTypesFactory();
+    }
+    
+
+    static TouchScreenTypesFactory getInstance() {
+        return TouchScreenTypesFactory.instance;
+    }
 }
 

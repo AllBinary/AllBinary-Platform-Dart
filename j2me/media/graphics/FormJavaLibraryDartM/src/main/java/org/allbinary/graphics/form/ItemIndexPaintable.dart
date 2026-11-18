@@ -13,27 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
 
-namespace org.allbinary.graphics.form;
+class ItemIndexPaintable {
+    static final ItemIndexPaintable instance = ItemIndexPaintable();
+    
 
-public class ItemIndexPaintable
-{
-    private static readonly ItemIndexPaintable instance = new ItemIndexPaintable();
-    public static ItemIndexPaintable getInstance()
-    {
+    static ItemIndexPaintable getInstance() {
         return ItemIndexPaintable.instance;
     }
+    
 
-    // throws Exception
-    public virtual int paint(Graphics graphics, int index, ABCustomItem item, int dx, int dy)
-    {
+    int paint(Graphics graphics, int index, ABCustomItem item, int dx, int dy) {
         return 0;
     }
-
 }
 

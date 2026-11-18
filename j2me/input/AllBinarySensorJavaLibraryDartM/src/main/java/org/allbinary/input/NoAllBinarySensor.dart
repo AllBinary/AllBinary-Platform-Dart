@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/AllBinarySensor.dart';
 
-namespace org.allbinary.input;
+class NoAllBinarySensor extends AllBinarySensor {
+    static final NoAllBinarySensor instance = NoAllBinarySensor();
+    
 
-public class NoAllBinarySensor : AllBinarySensor
-{
-    private static readonly NoAllBinarySensor instance = new NoAllBinarySensor();
-    public static NoAllBinarySensor getInstance()
-    {
+    static NoAllBinarySensor getInstance() {
         return NoAllBinarySensor.instance;
     }
+    
 
-    private NoAllBinarySensor()
-    {
+    NoAllBinarySensor() {
     }
-
 }
 

@@ -13,44 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.image;
+class ImageTypeUtil {
+    static ImageTypeUtil SINGLETON = ImageTypeUtil();
+    late String PNG;
+    late String JPG;
+    late String GIF;
+    late BasicArrayList list;
 
-public class ImageTypeUtil
-{
-    private static ImageTypeUtil SINGLETON = new ImageTypeUtil();
-    public readonly string PNG = "png";
-    public readonly string JPG = "jpg";
-    public readonly string GIF = "gif";
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private ImageTypeUtil()
-    {
-        this.list.add(JPG);
-        this.list.add(GIF);
-        this.list.add(PNG);
+    // Java field initializers run after the base constructor
+    void initFieldsImageTypeUtil() {
+    this.PNG = "png";
+    this.JPG = "jpg";
+    this.GIF = "gif";
+    this.list = BasicArrayListD();
     }
+    
 
-    public virtual bool isSupported(string mediaFileType)
-    {
-        mediaFileType = mediaFileType.ToLower();
+    ImageTypeUtil() {
+        this.initFieldsImageTypeUtil();
+        this.list.add(this.JPG);
+        this.list.add(this.GIF);
+        this.list.add(this.PNG);
+    }
+    
+
+    bool isSupported(String mediaFileType) {
+        mediaFileType = mediaFileType.toLowerCase();
         for (int index = this.list.size() - 1; index >= 0; index--) {
-            string name = ((string) this.list.get(index));
-            if (string.CompareOrdinal(mediaFileType, name) == 0) {
+            String name = (this.list.get(index) as String);
+            if (mediaFileType.compareTo(name) == 0) {
                 return true;
             }
         }
         return false;
     }
+    
 
-    public static ImageTypeUtil getInstance()
-    {
+    static ImageTypeUtil getInstance() {
         return ImageTypeUtil.SINGLETON;
     }
-
 }
 

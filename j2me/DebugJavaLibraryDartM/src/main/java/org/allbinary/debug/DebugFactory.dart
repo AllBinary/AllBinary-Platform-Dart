@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.debug
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/debug/NoDebug.dart';
+import 'package:allbinary/org/allbinary/debug/DebugInterface.dart';
 
-namespace org.allbinary.debug;
+class DebugFactory {
+    
 
-public class DebugFactory
-{
-    public static DebugInterface getInstance()
-    {
+    static DebugInterface getInstance() {
         return NoDebug.getInstance();
     }
-
 }
 

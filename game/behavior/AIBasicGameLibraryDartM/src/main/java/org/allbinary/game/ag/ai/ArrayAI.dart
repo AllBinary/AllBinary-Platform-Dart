@@ -13,39 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicAI = org.allbinary.game.ai.BasicAI;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
 
-namespace org.allbinary.game.ag.ai;
+class ArrayAI extends BasicAI {
+    late List<ArtificialIntelligenceInterface?> artificialIntelligenceInterfaceArray;
 
-public class ArrayAI : BasicAI
-{
-    private readonly ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray;
-    public ArrayAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsArrayAI() {
+    
+    }
+    
+
+    ArrayAI(List<ArtificialIntelligenceInterface?> artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(ownerLayerInterface, gameInput) {
+        this.initFieldsArrayAI();
+        
         this.artificialIntelligenceInterfaceArray = artificialIntelligenceInterface;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        int size = this.artificialIntelligenceInterfaceArray.Length;
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        int size = this.artificialIntelligenceInterfaceArray.length;
         for (int index = 0; index < size; index++) {
-            this.artificialIntelligenceInterfaceArray[index].processAI(allBinaryLayerManager);
+            this.artificialIntelligenceInterfaceArray[index]!.processAI(allBinaryLayerManager);
         }
     }
+    
 
-    public virtual ArtificialIntelligenceInterface[] getArtificialIntelligenceInterface()
-    {
+    List<ArtificialIntelligenceInterface?> getArtificialIntelligenceInterface() {
         return this.artificialIntelligenceInterfaceArray;
     }
-
 }
 

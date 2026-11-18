@@ -13,44 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using Features = org.allbinary.game.configuration.feature.Features;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameRunnable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class GameCanvasPauseRunnable extends GameRunnable {
+    late LogUtil logUtil;
+    late AllBinaryGameCanvas allBinaryGameCanvas;
 
-public class GameCanvasPauseRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly AllBinaryGameCanvas allBinaryGameCanvas;
-    public GameCanvasPauseRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameCanvasPauseRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    GameCanvasPauseRunnable(AllBinaryGameCanvas allBinaryGameCanvas) {
+        this.initFieldsGameCanvasPauseRunnable();
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
+    
 
-    public override void run()
-    {
+    @override
+    void run() {
     }
+    
 
-    // throws Exception
-    public override void processLoopSleep()
-    {
+    @override
+    void processLoopSleep() {
         try {
-            Features features = Features.getInstance();
-            bool isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+            final Features features = Features.getInstance();
+            final bool isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
             if (isOpenGL) {
                 this.allBinaryGameCanvas.processSleep();
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
         }
     }
-
 }
 

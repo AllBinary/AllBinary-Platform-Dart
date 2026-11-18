@@ -13,32 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/logic/system/os/GenericOperatingSystem.dart';
+import 'package:allbinary/org/allbinary/logic/system/os/OperatingSystemFactory.dart';
+import 'package:allbinary/org/allbinary/game/paint/ColorFillPaintable.dart';
+import 'package:allbinary/org/allbinary/game/paint/OverScanColorFillPaintable.dart';
+import 'package:allbinary/org/allbinary/game/paint/ColorFillBasePaintable.dart';
 
-namespace org.allbinary.game.paint;
+class ColorFillPaintableFactory {
+    static final ColorFillPaintableFactory instance = ColorFillPaintableFactory();
+    
 
-public class ColorFillPaintableFactory
-{
-    private static readonly ColorFillPaintableFactory instance = new ColorFillPaintableFactory();
-    public static ColorFillPaintableFactory getInstance()
-    {
+    static ColorFillPaintableFactory getInstance() {
         return ColorFillPaintableFactory.instance;
     }
+    
 
-    public virtual ColorFillBasePaintable getInstance(BasicColor basicColor, bool forThreedCanvas)
-    {
-        GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+    ColorFillBasePaintable getInstance2(BasicColor basicColor, bool forThreedCanvas) {
+        final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if (operatingSystem.isOverScan()) {
-            return new OverScanColorFillPaintable(basicColor);
+            return OverScanColorFillPaintable(basicColor);
         } else {
-            return new ColorFillPaintable(basicColor);
+            return ColorFillPaintable(basicColor);
         }
     }
-
 }
 

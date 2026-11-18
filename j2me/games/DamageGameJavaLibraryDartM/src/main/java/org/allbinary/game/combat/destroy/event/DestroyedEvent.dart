@@ -13,58 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.destroy.event
 
-using System;
-using System.Linq;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using NullGameCanvas = org.allbinary.game.displayable.canvas.NullGameCanvas;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/NullGameCanvas.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEventHandler.dart';
 
-namespace org.allbinary.game.combat.destroy.@event;
+class DestroyedEvent extends AllBinaryEventObject {
+    late AllBinaryGameCanvas allBinaryGameCanvas;
+    late AllBinaryLayer allBinaryLayerInterface;
 
-public class DestroyedEvent : AllBinaryEventObject
-{
-    private AllBinaryGameCanvas allBinaryGameCanvas = NullGameCanvas.getInstance();
-    private AllBinaryLayer allBinaryLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public DestroyedEvent(AllBinaryGameCanvas combatGameCanvas) : base(DestroyedEventHandler.getInstance())
-    {
-        // base(DestroyedEventHandler.getInstance()) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsDestroyedEvent() {
+    this.allBinaryGameCanvas = NullGameCanvas.getInstance();
+    this.allBinaryLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    }
+    
+
+    DestroyedEvent(AllBinaryGameCanvas combatGameCanvas) : super(DestroyedEventHandler.getInstance()) {
+        this.initFieldsDestroyedEvent();
+        
         this.setAllBinaryGameCanvas(combatGameCanvas);
     }
+    
 
-    public virtual AllBinaryGameCanvas getAllBinaryGameCanvas()
-    {
+    AllBinaryGameCanvas getAllBinaryGameCanvas() {
         return this.allBinaryGameCanvas;
     }
+    
 
-    public virtual AllBinaryLayer getLayerInterface()
-    {
+    AllBinaryLayer getLayerInterface() {
         return this.allBinaryLayerInterface;
     }
+    
 
-    private void setAllBinaryGameCanvas(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void setAllBinaryGameCanvas(AllBinaryGameCanvas allBinaryGameCanvas) {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
+    
 
-    public virtual void setLayerInterfaceForCircularStaticPool(AllBinaryLayer allBinaryLayerInterface)
-    {
+    void setLayerInterfaceForCircularStaticPool(AllBinaryLayer allBinaryLayerInterface) {
         this.allBinaryLayerInterface = allBinaryLayerInterface;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("DestroyedEvent: \n");
         stringBuffer.append("AllBinaryLayerInterface: ");
-        stringBuffer.append(this.allBinaryLayerInterface.ToString());
+        stringBuffer.append(this.allBinaryLayerInterface.toString());
         stringBuffer.append("\nAllBinaryGameCanvas: ");
-        stringBuffer.append(StringUtil.getInstance().toString(this.getAllBinaryGameCanvas()));
-        return stringBuffer.ToString();
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getAllBinaryGameCanvas()));
+        return stringBuffer.toString();
     }
-
 }
 

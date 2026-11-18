@@ -13,25 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic;
+class HudResources {
+    static final HudResources instance = HudResources();
+    late String RESOURCE_LIFE;
+    late String RESOURCE_HEALTH;
 
-public class HudResources
-{
-    private static readonly HudResources instance = new HudResources();
-    public static HudResources getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHudResources() {
+    this.RESOURCE_LIFE = "/hud_life_10_by_10.png";
+    this.RESOURCE_HEALTH = "/hud_health_10_by_10.png";
+    }
+    
+
+    static HudResources getInstance() {
         return HudResources.instance;
     }
+    
 
-    private HudResources()
-    {
+    HudResources() {
+        this.initFieldsHudResources();
     }
-
-    public readonly string RESOURCE_LIFE = "/hud_life_10_by_10.png";
-    public readonly string RESOURCE_HEALTH = "/hud_health_10_by_10.png";
 }
 

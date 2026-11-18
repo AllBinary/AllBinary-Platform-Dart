@@ -13,35 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureChoiceGroups = org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
 
-namespace org.allbinary.graphics.opengles;
+class OpenGLOptions {
+    
 
-public class OpenGLOptions
-{
-    public virtual void init()
-    {
+    void init() {
         OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         if (Features.getInstance().isFeature(openGLFeatureFactory.OPENGL_OPTIONS)) {
-            BasicArrayList openGLMultipleList = new BasicArrayListD();
+            BasicArrayList openGLMultipleList = BasicArrayListD();
             openGLMultipleList.add(openGLFeatureFactory.OPENGL);
             GameFeatureChoiceGroups.getMultipleInstance().add("OpenGL (Complete Restart)", openGLMultipleList);
-            BasicArrayList openGLVersionSelectorMultipleList = new BasicArrayListD();
+            BasicArrayList openGLVersionSelectorMultipleList = BasicArrayListD();
             openGLVersionSelectorMultipleList.add(openGLFeatureFactory.OPENGL_AUTO_SELECT);
             openGLVersionSelectorMultipleList.add(openGLFeatureFactory.OPENGL_MINIMUM);
             GameFeatureChoiceGroups.getExclusiveInstance().add("OpenGL Version Selector", openGLVersionSelectorMultipleList);
-            BasicArrayList openGLImageColorMultipleList = new BasicArrayListD();
+            BasicArrayList openGLImageColorMultipleList = BasicArrayListD();
             openGLImageColorMultipleList.add(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
             openGLImageColorMultipleList.add(openGLFeatureFactory.IMAGE_COLOR_DEPTH_8888);
             GameFeatureChoiceGroups.getExclusiveInstance().add("OpenGL Image Color RGBA", openGLImageColorMultipleList);
         }
     }
-
 }
 

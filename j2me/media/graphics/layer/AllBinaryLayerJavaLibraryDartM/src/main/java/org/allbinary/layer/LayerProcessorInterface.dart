@@ -13,21 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/BasicLayerProcessorInterface.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.layer;
+abstract interface class LayerProcessorInterface implements BasicLayerProcessorInterface {
+    
 
-public interface LayerProcessorInterface : BasicLayerProcessorInterface
-{
     LayerManager getLayerManager();
+    
 
-    // throws Exception
     void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index);
+    
 
-    // throws Exception
     bool isProcessorLayer(AllBinaryLayer layerInterface);
-
 }
 

@@ -13,29 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityInterface.dart';
 
-namespace org.allbinary.game.physics.velocity;
+abstract interface class VelocityInterface implements BasicVelocityInterface {
+    
 
-public interface VelocityInterface : BasicVelocityInterface
-{
     int getMaxForwardVelocity();
+    
 
     int getMaxReverseVelocity();
+    
 
     void limitMaxXYForwardVelocity();
+    
 
     void limitMaxXYReverseVelocity();
+    
 
     void limitXYToForwardAndReverseMaxVelocity();
+    
 
     void limitMaxXYVelocity(int maxVelocity);
+    
 
     void setMaxForwardVelocity(int maxForwardVelocity);
+    
 
     void setMaxReverseVelocity(int maxReverseVelocity);
-
 }
 

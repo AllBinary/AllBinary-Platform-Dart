@@ -13,28 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.weapon.mine
 
-using System;
-using System.Linq;
-using WeaponLayerCircularPool = org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
-using ViewPositionFactoryInterface = org.allbinary.view.ViewPositionFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/WeaponLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/weapon/mine/MineCountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/weapon/mine/MineLayerFactory.dart';
 
-namespace org.allbinary.game.ag.layer.weapon.mine;
+class MineLayerCircularStaticPool {
+    static WeaponLayerCircularPool WEAPON_LAYER_CIRCULAR_STATIC_POOL = WeaponLayerCircularPool();
+    
 
-public class MineLayerCircularStaticPool
-{
-    private static WeaponLayerCircularPool WEAPON_LAYER_CIRCULAR_STATIC_POOL = new WeaponLayerCircularPool();
-    // throws Exception
-    public static void init(ViewPositionFactoryInterface viewPositionFactoryInterface)
-    {
+    static void init(ViewPositionFactoryInterface viewPositionFactoryInterface) {
         MineCountedPickedUpLayerInterfaceFactory.init();
-        MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL.initAllBinaryLayerCircularPool(new MineLayerFactory(viewPositionFactoryInterface), 20);
+        MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL.initAllBinaryLayerCircularPool(MineLayerFactory(viewPositionFactoryInterface), 20);
     }
+    
 
-    public static WeaponLayerCircularPool getInstance()
-    {
+    static WeaponLayerCircularPool getInstance() {
         return MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL;
     }
-
 }
 

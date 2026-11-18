@@ -13,24 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.health
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.health;
+class HealthResources {
+    static final HealthResources SINGLETON = HealthResources();
+    late String RESOURCE;
 
-public class HealthResources
-{
-    private static readonly HealthResources SINGLETON = new HealthResources();
-    public string RESOURCE = "health_drop_20_by_20.png";
-    private HealthResources()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHealthResources() {
+    this.RESOURCE = "health_drop_20_by_20.png";
     }
+    
 
-    public static HealthResources getInstance()
-    {
+    HealthResources() {
+        this.initFieldsHealthResources();
+    }
+    
+
+    static HealthResources getInstance() {
         return HealthResources.SINGLETON;
     }
-
 }
 

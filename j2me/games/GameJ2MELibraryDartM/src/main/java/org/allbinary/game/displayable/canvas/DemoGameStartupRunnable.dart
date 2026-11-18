@@ -13,44 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using ABRunnable = org.allbinary.thread.ABRunnable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/thread/ABRunnable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class DemoGameStartupRunnable extends ABRunnable {
+    static const int TYPE = 4;
+    late LogUtil logUtil;
+    late DemoCanvas demoCanvas;
 
-public class DemoGameStartupRunnable : ABRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly DemoCanvas demoCanvas;
-    public DemoGameStartupRunnable(DemoCanvas demoCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDemoGameStartupRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    DemoGameStartupRunnable(DemoCanvas demoCanvas) {
+        this.initFieldsDemoGameStartupRunnable();
         this.demoCanvas = demoCanvas;
     }
+    
 
-    public override void run()
-    {
+    @override
+    void run() {
         try {
             this.setRunning(true);
             this.demoCanvas.stopGameDemo();
             this.demoCanvas.create();
             this.demoCanvas.start();
             this.setRunning(false);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.setRunning(false);
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
         }
     }
+    
 
-    public const int TYPE = 4;
-    public override int getType()
-    {
+    @override
+    int getType() {
         return DemoGameStartupRunnable.TYPE;
     }
-
 }
 

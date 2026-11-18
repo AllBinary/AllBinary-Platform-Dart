@@ -13,120 +13,130 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.layer;
+class Layer {
+    static final int ID = SmallIntegerSingletonFactory.getInstance().getAt(0);
+    late LogUtil logUtil;
+    int x = 0;
+    int y = 0;
+    int z = 0;
+    int width = 0;
+    int height = 0;
+    bool visible = false;
 
-public class Layer
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public static readonly int? ID = SmallIntegerSingletonFactory.getInstance().getAt(0);
-    public int x = 0;
-    public int y = 0;
-    public int z = 3;
-    private int width = 0;
-    private int height = 0;
-    private bool visible = true;
-    public Layer(int width, int height)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayer() {
+    this.logUtil = LogUtil.getInstance();
+    this.x = 0;
+    this.y = 0;
+    this.z = 3;
+    this.width = 0;
+    this.height = 0;
+    this.visible = true;
+    }
+    
+
+    Layer(int width, int height) {
+        this.initFieldsLayer();
         this.setLayerWidth(width);
         this.setLayerHeight(height);
     }
+    
 
-    public virtual void setPosition(int x, int y, int z)
-    {
+    void setPosition(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
+    
 
-    public virtual void moveDXY(int dx, int dy)
-    {
+    void moveDXY(int dx, int dy) {
         this.x += dx;
         this.y += dy;
     }
+    
 
-    public virtual void moveDXYZ(int dx, int dy, int dz)
-    {
+    void moveDXYZ(int dx, int dy, int dz) {
         this.x += dx;
         this.y += dy;
         this.z += dz;
     }
+    
 
-    public virtual int getXP()
-    {
+    int getXP() {
         return this.x;
     }
+    
 
-    public virtual int getYP()
-    {
+    int getYP() {
         return this.y;
     }
+    
 
-    public virtual int getZP()
-    {
+    int getZP() {
         return this.z;
     }
+    
 
-    public virtual int getWidth()
-    {
+    int getWidth() {
         return this.width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    int getHeight() {
         return this.height;
     }
+    
 
-    public virtual long getDepth()
-    {
-        return 0L;
+    int getDepth() {
+        return 0;
     }
+    
 
-    public virtual void setVisible(bool visible)
-    {
+    void setVisible(bool visible) {
         this.visible = visible;
     }
+    
 
-    public virtual bool isVisible()
-    {
+    bool isVisible() {
         return this.visible;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    void paint(Graphics graphics) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final CanvasStrings canvasStrings = CanvasStrings.getInstance();
         this.logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
     }
+    
 
-    public virtual void setLayerWidth(int width)
-    {
+    void setLayerWidth(int width) {
         if (width < 0) {
-            throw new ArgumentException();
+            throw JException('IllegalArgumentException', '');
         }
         this.width = width;
     }
+    
 
-    public virtual void setLayerHeight(int height)
-    {
+    void setLayerHeight(int height) {
         if (height < 0) {
-            throw new ArgumentException();
+            throw JException('IllegalArgumentException', '');
         }
         this.height = height;
     }
+    
 
-    public virtual void toStringAppend(StringMaker stringBuffer)
-    {
+    void toStringAppend(StringMaker stringBuffer) {
     }
-
 }
 

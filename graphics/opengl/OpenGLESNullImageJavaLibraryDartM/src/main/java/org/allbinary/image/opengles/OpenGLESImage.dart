@@ -13,63 +13,76 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using PlatformBitmapBase = org.allbinary.platform.graphics.PlatformBitmapBase;
-using PlatformBitmapBaseFactory = org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
-using PlatformTextureBaseFactory = org.allbinary.platform.opengles.PlatformTextureBaseFactory;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.image.opengles;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullImage.dart';
+import 'package:allbinary/org/allbinary/platform/graphics/PlatformBitmapBase.dart';
+import 'package:allbinary/org/allbinary/platform/graphics/PlatformBitmapBaseFactory.dart';
+import 'package:allbinary/org/allbinary/platform/opengles/PlatformTextureBaseFactory.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImageProperties.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImageProcessor.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImageTranslate.dart';
 
 //OpenGLESNullImageJavaLibrary
-public class OpenGLESImage : Image, OpenGLSurfaceChangedInterface
-{
-    public static readonly OpenGLESImage NULL_OPENGL_IMAGE = new OpenGLESImage(NullImage.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
-    public static readonly BasicArrayList texture2dList = new BasicArrayListD();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly PlatformTextureBaseFactory textureFactory;
-    public readonly PlatformBitmapBase openGLBitmap;
-    public readonly OpenGLESImageProperties openGLESImageProperties = new OpenGLESImageProperties();
-    public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
-    public OpenGLESImageTranslate openGLESImageTranslate = OpenGLESImageTranslate.getInstance();
-    public OpenGLESImage(Image image, PlatformBitmapBaseFactory bitmapFactory, PlatformTextureBaseFactory textureFactory)
-    {
+class OpenGLESImage extends Image implements OpenGLSurfaceChangedInterface {
+    static final OpenGLESImage NULL_OPENGL_IMAGE = OpenGLESImage(NullImage.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
+    static final BasicArrayList texture2dList = BasicArrayListD();
+    static const int TYPE = 4;
+    late CommonStrings commonStrings;
+    late PlatformTextureBaseFactory textureFactory;
+    late PlatformBitmapBase openGLBitmap;
+    late OpenGLESImageProperties openGLESImageProperties;
+    late OpenGLESImageProcessor imageProcessor;
+    late OpenGLESImageTranslate openGLESImageTranslate;
+
+    // Java field initializers run after the base constructor
+    void initFieldsOpenGLESImage() {
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    this.openGLESImageProperties = OpenGLESImageProperties();
+    this.imageProcessor = OpenGLESImageProcessor.getInstance();
+    this.openGLESImageTranslate = OpenGLESImageTranslate.getInstance();
+    }
+    
+
+    OpenGLESImage(Image image, PlatformBitmapBaseFactory bitmapFactory, PlatformTextureBaseFactory textureFactory) {
+        this.initFieldsOpenGLESImage();
         this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
     }
+    
 
-    // throws Exception
-    public virtual void set(GL gl)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    @override
+    void set(GL gl) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    public virtual bool initTexture(GL10 gl)
-    {
+    bool initTexture(GL10 gl) {
         return false;
     }
+    
 
-    public virtual void drawRegion(GL10 gl, int viewHeight, float x_src, float y_src, float width, float height, int x, int y, int z)
-    {
+    void drawRegion(GL10 gl, int viewHeight, double x_src, double y_src, double width, double height, int x, int y, int z) {
     }
+    
 
-    public virtual void draw(GL10 gl, int x, int y, int z)
-    {
+    void draw(GL10 gl, int x, int y, int z) {
     }
+    
 
-    public const int TYPE = 4;
-    public override int getType()
-    {
+    int getType() {
         return OpenGLESImage.TYPE;
     }
-
 }
 

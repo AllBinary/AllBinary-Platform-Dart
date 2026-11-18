@@ -13,27 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletState.dart';
 
-namespace org.allbinary.game.midlet;
+class DemoGameMidletStateFactory {
+    static DemoGameMidletStateFactory STATE = DemoGameMidletStateFactory();
+    late DemoGameMidletState NONE;
+    late DemoGameMidletState START_DEMO;
+    late DemoGameMidletState START_GAME;
+    late DemoGameMidletState START_INPUT_MAPPING;
 
-public class DemoGameMidletStateFactory
-{
-    private static DemoGameMidletStateFactory STATE = new DemoGameMidletStateFactory();
-    public readonly DemoGameMidletState NONE = new DemoGameMidletState();
-    public readonly DemoGameMidletState START_DEMO = new DemoGameMidletState();
-    public readonly DemoGameMidletState START_GAME = new DemoGameMidletState();
-    public readonly DemoGameMidletState START_INPUT_MAPPING = new DemoGameMidletState();
-    private DemoGameMidletStateFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDemoGameMidletStateFactory() {
+    this.NONE = DemoGameMidletState();
+    this.START_DEMO = DemoGameMidletState();
+    this.START_GAME = DemoGameMidletState();
+    this.START_INPUT_MAPPING = DemoGameMidletState();
     }
+    
 
-    public static DemoGameMidletStateFactory getInstance()
-    {
+    DemoGameMidletStateFactory() {
+        this.initFieldsDemoGameMidletStateFactory();
+    }
+    
+
+    static DemoGameMidletStateFactory getInstance() {
         return DemoGameMidletStateFactory.STATE;
     }
-
 }
 

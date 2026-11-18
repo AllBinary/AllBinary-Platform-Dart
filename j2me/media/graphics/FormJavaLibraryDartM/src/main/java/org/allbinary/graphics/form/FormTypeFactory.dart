@@ -13,31 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormType.dart';
 
-namespace org.allbinary.graphics.form;
+class FormTypeFactory {
+    static final FormTypeFactory instance = FormTypeFactory();
+    late String UNK;
+    late FormType NULL_FORM_TYPE;
+    late FormType TEMP_HORIZONTAL_FORM;
+    late FormType HORIZONTAL_FORM;
+    late FormType VERTICAL_CENTER_FORM;
 
-public class FormTypeFactory
-{
-    private static readonly FormTypeFactory instance = new FormTypeFactory();
-    public static FormTypeFactory getInstance()
-    {
-        return FormTypeFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsFormTypeFactory() {
+    this.UNK = "Unknown FormType";
+    this.NULL_FORM_TYPE = FormType(StringUtil.getInstance().NULL_STRING);
+    this.TEMP_HORIZONTAL_FORM = FormType("TempHorizontal");
+    this.HORIZONTAL_FORM = FormType("Horizontal");
+    this.VERTICAL_CENTER_FORM = FormType("Vertical");
     }
 
-    public readonly string UNK = "Unknown FormType";
-    public readonly FormType NULL_FORM_TYPE = new FormType(StringUtil.getInstance().NULL_STRING);
-    public readonly FormType TEMP_HORIZONTAL_FORM = new FormType("TempHorizontal");
-    public readonly FormType HORIZONTAL_FORM = new FormType("Horizontal");
-    public readonly FormType VERTICAL_CENTER_FORM = new FormType("Vertical");
-    public virtual FormType getFormType()
-    {
+    FormTypeFactory() {
+        this.initFieldsFormTypeFactory();
+    }
+    
+
+    static FormTypeFactory getInstance() {
+        return FormTypeFactory.instance;
+    }
+    
+
+    FormType getFormType() {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        FormType formType = null;
+        late FormType formType;
         if (displayInfo.isPortrait()) {
             formType = this.VERTICAL_CENTER_FORM;
         } else {
@@ -45,6 +58,5 @@ public class FormTypeFactory
         }
         return formType;
     }
-
 }
 

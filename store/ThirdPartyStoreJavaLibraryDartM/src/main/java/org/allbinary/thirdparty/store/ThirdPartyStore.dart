@@ -13,40 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.thirdparty.store
 
-using System;
-using System.Linq;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
 
-namespace org.allbinary.thirdparty.store;
+class ThirdPartyStore {
+    bool authorized = false;
+    late String name;
 
-public class ThirdPartyStore
-{
-    private bool authorized = false;
-    private readonly string name;
-    public ThirdPartyStore(string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsThirdPartyStore() {
+    this.authorized = false;
+    
+    }
+    
+
+    ThirdPartyStore(String name) {
+        this.initFieldsThirdPartyStore();
         this.name = name;
     }
+    
 
-    public virtual void authorize(AbeClientInformationInterface clientInformationInterface)
-    {
+    void authorize(AbeClientInformationInterface clientInformationInterface) {
     }
+    
 
-    public virtual bool isAuthorized()
-    {
+    bool isAuthorized() {
         return this.authorized;
     }
+    
 
-    public virtual void setAuthorized(bool authorized)
-    {
+    void setAuthorized(bool authorized) {
         this.authorized = authorized;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

@@ -13,43 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BoundsVisitorInterface = org.allbinary.bounds.BoundsVisitorInterface;
-using LayerBounds = org.allbinary.bounds.LayerBounds;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/bounds/BoundsVisitorInterface.dart';
+import 'package:allbinary/org/allbinary/bounds/LayerBounds.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.ag.ai;
+class BoundBounceAI extends BasicAI {
+    int currentRelativeAngle = 0;
+    late LayerBounds layerBounds;
+    late BoundsVisitorInterface boundsVisitorInterface;
 
-public class BoundBounceAI : BasicAI
-{
-    public int currentRelativeAngle = 0;
-    private LayerBounds layerBounds;
-    private BoundsVisitorInterface boundsVisitorInterface;
-    public BoundBounceAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput, LayerBounds layerBounds, BoundsVisitorInterface boundsVisitorInterface) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsBoundBounceAI() {
+    this.currentRelativeAngle = 0;
+    
+    
+    }
+    
+
+    BoundBounceAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput, LayerBounds layerBounds, BoundsVisitorInterface boundsVisitorInterface) : super(ownerLayerInterface, gameInput) {
+        this.initFieldsBoundBounceAI();
+        
         this.layerBounds = layerBounds;
         this.boundsVisitorInterface = boundsVisitorInterface;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
-        Rectangle rectange = this.layerBounds.getRectangleP();
+    void paint(Graphics graphics) {
+        final Rectangle rectange = this.layerBounds.getRectangleP();
         graphics.drawRect(rectange.getPoint().getX(), rectange.getPoint().getY(), rectange.getWidth(), rectange.getHeight());
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         this.layerBounds.visit(this.boundsVisitorInterface);
     }
-
 }
 

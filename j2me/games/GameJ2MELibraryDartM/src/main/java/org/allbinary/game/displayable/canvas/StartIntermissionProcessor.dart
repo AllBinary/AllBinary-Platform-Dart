@@ -13,34 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class StartIntermissionProcessor extends Processor {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late AllBinaryGameCanvas gameCanvas;
+    int WAIT = 0;
 
-public class StartIntermissionProcessor : Processor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private AllBinaryGameCanvas gameCanvas;
-    private readonly long WAIT = 5000L;
-    public StartIntermissionProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsStartIntermissionProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    this.WAIT = 5000;
+    }
+    
+
+    StartIntermissionProcessor(AllBinaryGameCanvas gameCanvas) {
+        this.initFieldsStartIntermissionProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsedTNT(this.WAIT)) {
             this.logUtil.putF("Intermission End", this, this.commonStrings.PROCESS);
             this.gameCanvas.getStartIntermissionInterface().setEnabled(false);
         }
     }
-
 }
 

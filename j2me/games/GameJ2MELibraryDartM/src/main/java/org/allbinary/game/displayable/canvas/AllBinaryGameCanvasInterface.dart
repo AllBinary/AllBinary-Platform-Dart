@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using DisplayableInterface = org.allbinary.graphics.displayable.DisplayableInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayableInterface.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+abstract interface class AllBinaryGameCanvasInterface implements DisplayableInterface {
+    
 
-public interface AllBinaryGameCanvasInterface : DisplayableInterface
-{
     AllBinaryGameLayerManager getLayerManager();
-
 }
 

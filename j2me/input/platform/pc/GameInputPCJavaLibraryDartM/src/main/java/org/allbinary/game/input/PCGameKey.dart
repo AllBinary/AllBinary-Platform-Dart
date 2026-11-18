@@ -13,31 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
 
-namespace org.allbinary.game.input;
+class PCGameKey extends Input {
+    
 
-public class PCGameKey : Input
-{
-    public PCGameKey(int keyCode, string name) : base(keyCode, name)
-    {
-        // base(keyCode, name) is called from the constructor declaration
+    PCGameKey(int keyCode, String name) : super(keyCode, name) {
+        
         int id = this.getId();
         if (id >= 0) {
             InputFactory.getInstance().add(id, this);
         }
     }
+    
 
-    public override string ToString()
-    {
-        return "PCGameKey: " + base.ToString();
+    @override
+    String toString() {
+        return "PCGameKey: " + super.toString();
     }
+    
 
-    public static string getString(int keyCode)
-    {
+    static String getString(int keyCode) {
         Input input = InputFactory.getInstance().getInstanceById(keyCode);
         if (input != null) {
             return input.getName();
@@ -45,6 +47,5 @@ public class PCGameKey : Input
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
-
 }
 

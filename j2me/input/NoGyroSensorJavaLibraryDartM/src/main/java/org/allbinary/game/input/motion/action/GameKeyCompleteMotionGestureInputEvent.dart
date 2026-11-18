@@ -13,55 +13,61 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.motion.action
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
 
-namespace org.allbinary.game.input.motion.action;
+class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface {
+    late GameKey gameKey;
+    late GameKeyEvent gameKeyEvent;
 
-public class GameKeyCompleteMotionGestureInputEvent : CompleteMotionGestureInputEvent, GameKeyEventSourceInterface
-{
-    private GameKey gameKey = GameKey.NULL_GAME_KEY;
-    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
-    public GameKeyCompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) : base(name, motionGestureInput)
-    {
-        // base(name, motionGestureInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyCompleteMotionGestureInputEvent() {
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    this.gameKeyEvent = GameKeyEvent.NONE;
     }
+    
 
-    public virtual int getSourceId()
-    {
+    GameKeyCompleteMotionGestureInputEvent(String name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) : super(name, motionGestureInput) {
+        this.initFieldsGameKeyCompleteMotionGestureInputEvent();
+        
+    }
+    
+
+    @override
+    int getSourceId() {
         return 0;
     }
+    
 
-    public virtual void update()
-    {
+    void update() {
     }
+    
 
-    public virtual void setGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    void setGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.gameKeyEvent = gameKeyEvent;
     }
+    
 
-    public virtual GameKeyEvent getGameKeyEvent()
-    {
+    GameKeyEvent getGameKeyEvent() {
         return this.gameKeyEvent;
     }
+    
 
-    public virtual void setGameKey(GameKey gameKey)
-    {
+    void setGameKey(GameKey gameKey) {
         this.gameKey = gameKey;
     }
+    
 
-    public virtual GameKey getGameKey()
-    {
+    GameKey getGameKey() {
         return this.gameKey;
     }
-
 }
 

@@ -13,105 +13,133 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEventListener.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/CompleteMotionGestureListenerInterface.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+class GameMotionGestureListener implements MotionGestureEventListener {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late BasicArrayList motionGestureCollection;
+    late BasicArrayList touchGestureCollection;
+    late CompleteMotionGestureListenerInterface signed;
 
-public class GameMotionGestureListener : MotionGestureEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private BasicArrayList motionGestureCollection = new BasicArrayListD();
-    private BasicArrayList touchGestureCollection = new BasicArrayListD();
-    private CompleteMotionGestureListenerInterface signed;
-    public GameMotionGestureListener(CompleteMotionGestureListenerInterface signed)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameMotionGestureListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.motionGestureCollection = BasicArrayListD();
+    this.touchGestureCollection = BasicArrayListD();
+    
+    }
+    
+
+    GameMotionGestureListener(CompleteMotionGestureListenerInterface signed) {
+        this.initFieldsGameMotionGestureListener();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
+    
 
-    public virtual void onUpMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onUpMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDownMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onDownMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onLeftMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onLeftMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onRightMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onRightMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onPressedMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onPressedMotionGestureEvent(MotionGestureEvent ev) {
         this.touchGestureCollection.add(ev.getMotionGesture());
     }
+    
 
-    public virtual void released(MotionGestureEvent ev)
-    {
+    @override
+    void released(MotionGestureEvent ev) {
         try {
             this.touchGestureCollection.add(ev.getMotionGesture());
             this.signed.onMotionGestureCompleted(this.touchGestureCollection);
             this.touchGestureCollection.clear();
-        } catch (Exception e) {
-            StringMaker stringBuffer = new StringMaker();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final StringMaker stringBuffer = StringMaker();
             stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
-            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
-            this.logUtil.put(stringBuffer.ToString(), this, "release", e);
+            stringBuffer.append(StringUtil.getInstance().toString1(ev.getMotionGesture()));
+            this.logUtil.put(stringBuffer.toString(), this, "release", e);
+            }
         }
     }
+    
 
-    public virtual void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    @override
+    void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
     }
+    
 
-    public virtual void onMotionGestureEvent(MotionGestureEvent ev)
-    {
+    @override
+    void onMotionGestureEvent(MotionGestureEvent ev) {
         try {
             MotionGestureInput motionGestureInput = ev.getMotionGesture();
             if (motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED) {
@@ -124,13 +152,15 @@ public class GameMotionGestureListener : MotionGestureEventListener
                 this.motionGestureCollection.clear();
                 this.touchGestureCollection.clear();
             }
-        } catch (Exception e) {
-            StringMaker stringBuffer = new StringMaker();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            StringMaker stringBuffer = StringMaker();
             stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
-            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
-            this.logUtil.put(stringBuffer.ToString(), this, "onMotionGestureEvent", e);
+            stringBuffer.append(StringUtil.getInstance().toString1(ev.getMotionGesture()));
+            this.logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
+            }
         }
     }
-
 }
 

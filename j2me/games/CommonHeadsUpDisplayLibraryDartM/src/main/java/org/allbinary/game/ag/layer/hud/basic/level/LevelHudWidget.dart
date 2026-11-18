@@ -13,98 +13,110 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.level
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicHud = org.allbinary.game.graphics.hud.BasicHud;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PrimitiveLongUtil = org.allbinary.logic.math.PrimitiveLongUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHud.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveLongUtil.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.level;
+class LevelHudWidget extends BasicHud implements PaintableInterface {
+    int level = 0;
+    int maxlevel = 0;
+    late List<int> levelString;
+    late List<int> levelNumberCharArray;
+    int levelNumberTotalDigits = 0;
+    int offset = 0;
+    late PrimitiveLongUtil primitiveLongUtil;
 
-public class LevelHudWidget : BasicHud, PaintableInterface
-{
-    // throws Exception
-    public static LevelHudWidget createHud(int maxlevel, int location, int direction)
-    {
-        return new LevelHudWidget(maxlevel, location, direction);
+    // Java field initializers run after the base constructor
+    void initFieldsLevelHudWidget() {
+    
+    
+    
+    this.levelNumberCharArray = NullUtil.getInstance().NULL_CHAR_ARRAY;
+    this.levelNumberTotalDigits = 0;
+    this.offset = 0;
+    
     }
+    
 
-    private int level;
-    private int maxlevel;
-    private readonly char[] levelString;
-    private char[] levelNumberCharArray = NullUtil.getInstance().NULL_CHAR_ARRAY;
-    private int levelNumberTotalDigits = 0;
-    private int offset = 0;
-    private readonly PrimitiveLongUtil primitiveLongUtil;
-    public LevelHudWidget(int maxlevel, int location, int direction) : base(location, direction, 2, BasicColorFactory.getInstance().GREY)
-    {
-        // base(location, direction, 2, BasicColorFactory.getInstance().GREY) is called from the constructor declaration
+    static LevelHudWidget createHud(int maxlevel, int location, int direction) {
+        return LevelHudWidget(maxlevel, location, direction);
+    }
+    
+
+    LevelHudWidget(int maxlevel, int location, int direction) : super(location, direction, 2, BasicColorFactory.getInstance().GREY) {
+        this.initFieldsLevelHudWidget();
+        
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(1000);
-        string LEVEL = "Lv ";
-        this.levelString = LEVEL.ToCharArray();
+        final String LEVEL = "Lv ";
+        this.levelString = JString.toCharArray(LEVEL);
         this.maxlevel = maxlevel;
         this.level = maxlevel;
         this.update();
         this.updateMaxHeight = 14;
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.updateMaxWidth = font.getSize() * 4;
-        this.offset = font.charsWidth(this.levelString, 0, this.levelString.Length) + font.getSize();
-        base.updateMeasurement(graphics);
+        this.offset = font.charsWidth(this.levelString, 0, this.levelString.length) + font.getSize();
+        super.updateMeasurement(graphics);
     }
+    
 
-    private void update()
-    {
+    void update() {
         this.levelNumberCharArray = this.primitiveLongUtil.getCharArray(this.level);
         this.levelNumberTotalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
     }
+    
 
-    public virtual void setLevel(int level)
-    {
+    void setLevel(int level) {
         this.level = level;
         this.update();
     }
+    
 
-    public virtual void nextLevel()
-    {
+    void nextLevel() {
         this.level++;
         this.update();
     }
+    
 
-    public virtual void previousLevel()
-    {
+    void previousLevel() {
         this.level--;
         if (this.level < 0) {
             this.level = 0;
         }
         this.update();
     }
+    
 
-    public virtual bool isComplete()
-    {
+    bool isComplete() {
         if (this.level <= this.maxlevel) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
-        base.paintDX(graphics, this.levelString, 0, this.levelString.Length, this.levelNumberCharArray, 0, this.levelNumberTotalDigits, this.offset);
+    @override
+    void paint(Graphics graphics) {
+        super.paintDX(graphics, this.levelString, 0, this.levelString.length, this.levelNumberCharArray, 0, this.levelNumberTotalDigits, this.offset);
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
-
 }
 

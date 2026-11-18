@@ -13,51 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.business.advertisement
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using GameState = org.allbinary.game.state.GameState;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/game/state/GameState.dart';
 
-namespace org.allbinary.business.advertisement;
+class AdConfiguration {
+    late String INNERACTIVE;
+    late String LEADBOLT;
+    late String ADMOB;
 
-public class AdConfiguration
-{
-    public readonly string INNERACTIVE;
-    public readonly string LEADBOLT;
-    public readonly string ADMOB;
-    public AdConfiguration(object[] advertIdArray)
-    {
-        this.INNERACTIVE = ((string) advertIdArray[0]);
-        this.ADMOB = ((string) advertIdArray[1]);
-        this.LEADBOLT = ((string) advertIdArray[2]);
+    // Java field initializers run after the base constructor
+    void initFieldsAdConfiguration() {
+    
+    
+    
     }
+    
 
-    public virtual Direction[] getValidAdSpots()
-    {
-        return new Direction[0];
+    AdConfiguration(List<Object?> advertIdArray) {
+        this.initFieldsAdConfiguration();
+        this.INNERACTIVE = (advertIdArray[0]! as String);
+        this.ADMOB = (advertIdArray[1]! as String);
+        this.LEADBOLT = (advertIdArray[2]! as String);
     }
+    
 
-    public virtual void process(GameState gameState)
-    {
+    List<Direction?> getValidAdSpots() {
+        return List<Direction?>.filled(0, null);
     }
+    
 
-    public virtual void processDemo(int state)
-    {
+    void process(GameState gameState) {
     }
+    
 
-    public virtual void setShowAds()
-    {
+    void processDemo(int state) {
     }
+    
 
-    public virtual void setToggleAds(bool showAds)
-    {
+    void setShowAds() {
     }
+    
 
-    public virtual bool isShowAds()
-    {
+    void setToggleAds(bool showAds) {
+    }
+    
+
+    bool isShowAds() {
         return true;
     }
-
 }
 

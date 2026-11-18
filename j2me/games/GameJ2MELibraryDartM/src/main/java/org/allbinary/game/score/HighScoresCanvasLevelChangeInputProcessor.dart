@@ -13,63 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameKeyEventHandler = org.allbinary.game.input.@event.GameKeyEventHandler;
-using GameKeyEventUtil = org.allbinary.game.input.@event.GameKeyEventUtil;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
-using Anchor = org.allbinary.graphics.Anchor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventUtil.dart';
+import 'package:allbinary/org/allbinary/game/score/displayable/HighScoresCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresCanvasInputProcessor.dart';
 
-namespace org.allbinary.game.score;
+class HighScoresCanvasLevelChangeInputProcessor extends HighScoresCanvasInputProcessor implements UpdateMyFontInterface {
+    late DisplayInfoSingleton displayInfoSingleton;
+    late String INSTRUCTIONS;
+    late MyFontProcessor myFontProcessor;
+    int anchor = 0;
+    int fontHeight = 0;
 
-public class HighScoresCanvasLevelChangeInputProcessor : HighScoresCanvasInputProcessor, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly string INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
-    private MyFontProcessor myFontProcessor;
-    private int anchor = Anchor.TOP_LEFT;
-    private int fontHeight = 0;
-    public HighScoresCanvasLevelChangeInputProcessor(HighScoresCanvas highScoresCanvas) : base(highScoresCanvas)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
-        // base(highScoresCanvas) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresCanvasLevelChangeInputProcessor() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    this.anchor = Anchor.TOP_LEFT;
+    this.fontHeight = 0;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    HighScoresCanvasLevelChangeInputProcessor(HighScoresCanvas highScoresCanvas) : super(highScoresCanvas) {
+        this.initFieldsHighScoresCanvasLevelChangeInputProcessor();
+        
+    }
+    
+
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void open()
-    {
+    @override
+    void open() {
         GameKeyEventHandler.getInstance().addListener(this);
     }
+    
 
-    public override void close()
-    {
+    @override
+    void close() {
         GameKeyEventHandler.getInstance().removeListener(this);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void update()
-    {
-        BasicArrayList list = this.getGameKeyEventList();
-        int size = list.size();
+    @override
+    void update() {
+        final BasicArrayList list = this.getGameKeyEventList();
+        final int size = list.size();
         for (int index = 0; index < size; index++) {
-            object anyType = list.objectArray[index];
-            int key = GameKeyEventUtil.getKey(anyType);
+            final Object anyType = list.objectArray[index]!;
+            final int key = GameKeyEventUtil.getKey(anyType);
             if (key == Canvas.RIGHT) {
                 this.getHighScoresCanvas().getGameInfo().nextGameLevel();
             } else if (key == Canvas.LEFT) {
@@ -79,14 +90,14 @@ public class HighScoresCanvasLevelChangeInputProcessor : HighScoresCanvasInputPr
         }
         list.clear();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int width = this.displayInfoSingleton.getLastWidth();
-        int topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
+        final int width = this.displayInfoSingleton.getLastWidth();
+        final int topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
         graphics.drawString(this.INSTRUCTIONS, (width >> 1) - topScoresWidth, this.fontHeight * 2, this.anchor);
     }
-
 }
 

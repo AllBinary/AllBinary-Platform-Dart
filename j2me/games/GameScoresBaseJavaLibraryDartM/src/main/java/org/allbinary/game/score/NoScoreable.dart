@@ -13,32 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/score/Scoreable.dart';
 
-namespace org.allbinary.game.score;
+class NoScoreable extends Scoreable {
+    static final NoScoreable SINGLETON = NoScoreable();
+    
 
-public class NoScoreable : Scoreable
-{
-    private static readonly NoScoreable SINGLETON = new NoScoreable();
-    public static NoScoreable getInstance()
-    {
+    static NoScoreable getInstance() {
         return NoScoreable.SINGLETON;
     }
+    
 
-    private NoScoreable() : base(0)
-    {
-        // base(0) is called from the constructor declaration
+    NoScoreable() : super(0) {
+        
     }
+    
 
-    public override void addPoints(int points)
-    {
+    @override
+    void addPoints(int points) {
     }
+    
 
-    public override void removePoints(int points)
-    {
+    @override
+    void removePoints(int points) {
     }
-
 }
 

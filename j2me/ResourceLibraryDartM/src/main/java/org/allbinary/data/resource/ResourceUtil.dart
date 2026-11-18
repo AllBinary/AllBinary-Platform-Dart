@@ -13,82 +13,84 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.data.resource
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.data.resource;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
 //J2SE - J2ME
-public class ResourceUtil
-{
-    private static object classLoader = NullUtil.getInstance().NULL_OBJECT;
-    private static readonly ResourceUtil instance = new ResourceUtil();
-    public static ResourceUtil getInstance()
-    {
+class ResourceUtil {
+    static Object classLoader = NullUtil.getInstance().NULL_OBJECT;
+    static final ResourceUtil instance = ResourceUtil();
+    late LogUtil logUtil;
+
+    // Java field initializers run after the base constructor
+    void initFieldsResourceUtil() {
+    this.logUtil = LogUtil.getInstance();
+    }
+    
+
+    static ResourceUtil getInstance() {
         return ResourceUtil.instance;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private ResourceUtil()
-    {
+    ResourceUtil() {
+        this.initFieldsResourceUtil();
     }
+    
 
-    public virtual void setLoadingPaths(string path, string ext)
-    {
+    void setLoadingPaths(String path, String ext) {
         this.logUtil.putF(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "setLoadingPaths");
     }
+    
 
-    public virtual void setClassLoader(global::java.lang.ClassLoader classLoader)
-    {
-        this.logUtil.putF(new StringMaker().append("Resource Loader: ").append(classLoader.GetType().FullName).ToString(), this, "setClassLoader");
+    void setClassLoader(ClassLoader classLoader) {
+        this.logUtil.putF(StringMaker().append("Resource Loader: ").append(jClassName(classLoader)).toString(), this, "setClassLoader");
         ResourceUtil.classLoader = classLoader;
     }
+    
 
-    // throws Exception
-    public virtual InputStream getResourceAsStream(string resource)
-    {
+    InputStream getResourceAsStream(String resource) {
         InputStream inputStream = this.getResourceAsStreamAtStart(resource, 2);
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
-                throw new Exception(new StringMaker().append("Unable to obtain: ").append(resource).ToString());
+                throw JException('Exception', StringMaker().append("Unable to obtain: ").append(resource).toString());
             }
         }
         return inputStream;
     }
+    
 
-    // throws Exception
-    private InputStream getResourceAsStreamAtStart(string resource, int startIndex)
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        int index = resource.IndexOf(commonSeps.COLON);
-        string resourcePath = resource.Substring(index + startIndex);
-        InputStream inputStream = global::java.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
+    InputStream getResourceAsStreamAtStart(String resource, int startIndex) {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final int index = JString.indexOf(resource, commonSeps.COLON);
+        final String resourcePath = resource.substring(index + startIndex);
+        InputStream inputStream = jClassName(resource).getResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }
-        global::java.lang.ClassLoader classLoader = ((global::java.lang.ClassLoader) ResourceUtil.classLoader);
+        final ClassLoader classLoader = (ResourceUtil.classLoader as ClassLoader);
         inputStream = classLoader.getResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }
-        inputStream = global::java.lang.ClassLoader.getSystemClassLoader().getResourceAsStream(resourcePath);
+        inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }
         return inputStream;
     }
+    
 
-    public virtual void addResource(string resource, int? value)
-    {
+    void addResource(String resource, int value) {
     }
-
 }
 

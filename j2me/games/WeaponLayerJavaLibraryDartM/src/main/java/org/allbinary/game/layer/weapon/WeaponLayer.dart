@@ -13,74 +13,89 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.weapon
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using CollidableBaseBehavior = org.allbinary.game.collision.CollidableBaseBehavior;
-using DestroyedLayerProcessor = org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using GameConfigurationUtil = org.allbinary.game.configuration.GameConfigurationUtil;
-using BasicGroupFactory = org.allbinary.game.identification.BasicGroupFactory;
-using MultiPlayerGameLayer = org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using NoScoreable = org.allbinary.game.score.NoScoreable;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using TickableInterface = org.allbinary.game.tick.TickableInterface;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using Movement = org.allbinary.physics.movement.Movement;
-using ViewPosition = org.allbinary.view.ViewPosition;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehavior.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyedLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/combat/weapon/WeaponProperties.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationUtil.dart';
+import 'package:allbinary/org/allbinary/game/identification/BasicGroupFactory.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/MultiPlayerGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/game/score/NoScoreable.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/game/tick/TickableInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/physics/movement/Movement.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/CollidableWeaponBehavior.dart';
 
-namespace org.allbinary.game.layer.weapon;
+class WeaponLayer extends MultiPlayerGameLayer implements TickableInterface {
+    late Animation animationInterface;
+    late Animation initAnimationInterface;
+    late Animation destroyedAnimationInterface;
+    late AllBinaryLayer sourceLayerInterface;
+    int totalDamage = 0;
+    int initDamage = 0;
+    bool destroyed = false;
+    late ScoreableInterface scoreableInterface;
+    late Movement movement;
+    late WeaponProperties weaponProperties;
+    int multiPlayerType = 0;
+    late CollidableWeaponBehavior collidableWeaponBehavior;
 
-public class WeaponLayer : MultiPlayerGameLayer, TickableInterface
-{
-    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
-    public Animation initAnimationInterface;
-    private Animation destroyedAnimationInterface;
-    private AllBinaryLayer sourceLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public int totalDamage = 0;
-    private int initDamage = 0;
-    private bool destroyed = true;
-    public ScoreableInterface scoreableInterface = NoScoreable.getInstance();
-    private Movement movement;
-    private WeaponProperties weaponProperties = WeaponProperties.NULL_WEAPON_PROPERTIES;
-    private readonly int multiPlayerType;
-    public WeaponLayer(string name, RemoteInfo remoteInfo, int multiPlayerType, Movement movement, Animation animationInterface, Animation destroyedAnimationInterface, Rectangle rectangle, ViewPositionBase viewPosition) : base(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition)
-    {
-        // base(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsWeaponLayer() {
+    this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+    
+    
+    this.sourceLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    this.totalDamage = 0;
+    this.initDamage = 0;
+    this.destroyed = true;
+    this.scoreableInterface = NoScoreable.getInstance();
+    
+    this.weaponProperties = WeaponProperties.NULL_WEAPON_PROPERTIES;
+    
+    this.collidableWeaponBehavior = CollidableWeaponBehavior.getNullInstance();
+    }
+    
+
+    WeaponLayer(String name, RemoteInfo remoteInfo, int multiPlayerType, Movement movement, Animation animationInterface, Animation destroyedAnimationInterface, Rectangle rectangle, ViewPositionBase viewPosition) : super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition) {
+        this.initFieldsWeaponLayer();
+        
         this.initAnimationInterface = animationInterface;
         this.setAnimationInterface(animationInterface);
         this.destroyedAnimationInterface = destroyedAnimationInterface;
         this.movement = movement;
         this.multiPlayerType = multiPlayerType;
     }
+    
 
-    private CollidableWeaponBehavior collidableWeaponBehavior = CollidableWeaponBehavior.getNullInstance();
-    public override void setCollidableInferface(CollidableBaseBehavior collidableInferface)
-    {
-        base.setCollidableInferface(collidableInferface);
-        this.collidableWeaponBehavior = ((CollidableWeaponBehavior) this.getCollidableInferface());
+    @override
+    void setCollidableInferface(CollidableBaseBehavior collidableInferface) {
+        super.setCollidableInferface(collidableInferface);
+        this.collidableWeaponBehavior = (this.getCollidableInferface() as CollidableWeaponBehavior);
     }
+    
 
-    // throws Exception
-    public virtual void initXYZ(int x, int y, int z)
-    {
+    void initXYZ(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
+    
 
-    // throws Exception
-    public virtual void init(AllBinaryLayer sourceLayerInterface, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreable)
-    {
+    void init(AllBinaryLayer sourceLayerInterface, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreable) {
         this.setWeaponPropertiesP(weaponProperties);
         this.setReadyForExplosion(false);
         this.setAnimationInterface(this.getInitAnimationInterfaceP());
@@ -95,23 +110,23 @@ public class WeaponLayer : MultiPlayerGameLayer, TickableInterface
         this.setDestroyed(false);
         this.movement.init(weaponProperties.getSpeed(), angle, otherAngle);
     }
+    
 
-    public virtual void setGroupInterfaces()
-    {
-        BasicGroupFactory basicGroupFactory = BasicGroupFactory.getInstance();
-        if (this.sourceLayerInterface.getGroupInterface()[0] == basicGroupFactory.ENEMY) {
+    void setGroupInterfaces() {
+        final BasicGroupFactory basicGroupFactory = BasicGroupFactory.getInstance();
+        if (this.sourceLayerInterface.getGroupInterface()[0]! == basicGroupFactory.ENEMY) {
             this.setGroupInterface(basicGroupFactory.ENEMY_ARRAY);
         } else {
             this.setGroupInterface(this.sourceLayerInterface.getGroupInterface());
         }
     }
+    
 
-    // throws Exception
-    public override void processTick(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processTick(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.isExhausted() && !this.isDestroyed()) {
             if (this.isReadyForExplosion()) {
-                IndexedAnimation indexedAnimationInterface = ((IndexedAnimation) this.getAnimationInterface());
+                IndexedAnimation indexedAnimationInterface = (this.getAnimationInterface() as IndexedAnimation);
                 int currentFrame = indexedAnimationInterface.getFrame();
                 if (currentFrame < indexedAnimationInterface.getAnimationSize() - 1) {
                     indexedAnimationInterface.nextFrame();
@@ -119,7 +134,7 @@ public class WeaponLayer : MultiPlayerGameLayer, TickableInterface
                     this.setDestroyed(true);
                 }
             } else {
-                CollidableWeaponBehavior collidableWeaponBehavior = ((CollidableWeaponBehavior) this.getCollidableInferface());
+                final CollidableWeaponBehavior collidableWeaponBehavior = (this.getCollidableInferface() as CollidableWeaponBehavior);
                 if (collidableWeaponBehavior.isCollided()) {
                     this.setAnimationInterface(this.destroyedAnimationInterface);
                     this.getMovement().stop();
@@ -132,33 +147,36 @@ public class WeaponLayer : MultiPlayerGameLayer, TickableInterface
         this.movement.process(this);
         this.totalDamage += this.weaponProperties.getDissipation();
     }
+    
 
-    public override bool isDestroyed()
-    {
+    @override
+    bool isDestroyed() {
         return this.destroyed;
     }
+    
 
-    public override void damage(int damage, int damageType)
-    {
+    @override
+    void damage(int damage, int damageType) {
         this.totalDamage += damage * damage;
     }
+    
 
-    public virtual void givePoints(int total)
-    {
+    void givePoints(int total) {
         this.scoreableInterface.addPoints(GameConfigurationUtil.getInstance().getCompetitionValue() * total);
     }
+    
 
-    public virtual bool isExhausted()
-    {
+    bool isExhausted() {
         if (this.totalDamage > this.getInitDamage() || this.totalDamage < 0) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public override int getDamage(int damageType)
-    {
+    @override
+    int getDamage(int damageType) {
         if (!this.isExhausted()) {
             int total = this.getInitDamage() - this.totalDamage;
             this.givePoints(total);
@@ -166,113 +184,117 @@ public class WeaponLayer : MultiPlayerGameLayer, TickableInterface
         }
         return 0;
     }
+    
 
-    public virtual void setDestroyed(bool destroyed)
-    {
+    void setDestroyed(bool destroyed) {
         this.destroyed = destroyed;
         if (this.isDestroyed()) {
             this.scoreableInterface = NoScoreable.getInstance();
             DestroyedLayerProcessor.getInstance().add(this);
         }
     }
+    
 
-    public virtual int getInitDamage()
-    {
+    int getInitDamage() {
         return this.initDamage;
     }
+    
 
-    public virtual void setAnimationInterface(Animation animationInterface)
-    {
+    void setAnimationInterface(Animation animationInterface) {
         this.animationInterface = animationInterface;
     }
+    
 
-    public virtual Animation getAnimationInterface()
-    {
+    Animation getAnimationInterface() {
         return this.animationInterface;
     }
+    
 
-    public virtual Animation getInitAnimationInterfaceP()
-    {
+    Animation getInitAnimationInterfaceP() {
         return this.initAnimationInterface;
     }
+    
 
-    public virtual void setInitAnimationInterfaceP(Animation initAnimationInterface)
-    {
+    void setInitAnimationInterfaceP(Animation initAnimationInterface) {
         this.initAnimationInterface = initAnimationInterface;
     }
+    
 
-    public virtual Animation getDestroyedAnimationInterface()
-    {
+    Animation getDestroyedAnimationInterface() {
         return this.destroyedAnimationInterface;
     }
+    
 
-    public virtual AllBinaryLayer getOwnerLayerInterface()
-    {
+    AllBinaryLayer getOwnerLayerInterface() {
         return this.sourceLayerInterface;
     }
+    
 
-    public virtual void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface)
-    {
+    void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface) {
         this.sourceLayerInterface = sourceLayerInterface;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        ViewPositionBase viewPosition = this.getViewPosition();
+    @override
+    void paint(Graphics graphics) {
+        final ViewPositionBase viewPosition = this.getViewPosition();
         this.animationInterface.paintXY(graphics, viewPosition.getX() - this.getHalfWidth(), viewPosition.getY() - this.getHalfHeight());
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
-        ViewPositionBase viewPosition = this.getViewPosition();
+    @override
+    void paintThreed(Graphics graphics) {
+        final ViewPositionBase viewPosition = this.getViewPosition();
         this.animationInterface.paintThreedXYZ(graphics, viewPosition.getX() - this.getHalfWidth(), viewPosition.getY() - this.getHalfHeight(), viewPosition.getZ() - this.getHalfDepth());
     }
+    
 
-    public virtual Movement getMovement()
-    {
+    Movement getMovement() {
         return this.movement;
     }
+    
 
-    public virtual void setMovement(Movement movement)
-    {
+    void setMovement(Movement movement) {
         this.movement = movement;
     }
+    
 
-    public override int getType()
-    {
+    @override
+    int getType() {
         return WeaponLayer.getStaticType();
     }
+    
 
-    public static int getStaticType()
-    {
+    static int getStaticType() {
         return 0;
     }
+    
 
-    public override int getMultiPlayerType()
-    {
+    @override
+    int getMultiPlayerType() {
         return this.multiPlayerType;
     }
+    
 
-    public virtual void setWeaponPropertiesP(WeaponProperties weaponProperties)
-    {
+    void setWeaponPropertiesP(WeaponProperties weaponProperties) {
         this.weaponProperties = weaponProperties;
     }
+    
 
-    public virtual WeaponProperties getWeaponPropertiesP()
-    {
+    WeaponProperties getWeaponPropertiesP() {
         return this.weaponProperties;
     }
+    
 
-    public override bool implmentsTickableInterface()
-    {
+    @override
+    bool implmentsTickableInterface() {
         return true;
     }
+    
 
-    // throws Exception
-    public override void set(GL gl)
-    {
+    @override
+    void set(GL gl) {
         this.initAnimationInterface.set(gl);
     }
-
 }
 

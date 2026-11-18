@@ -13,15 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.life
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/ag/life/Life.dart';
 
-namespace org.allbinary.game.ag.life;
+abstract interface class LifeInterfaceCompositeInterface {
+    
 
-public interface LifeInterfaceCompositeInterface
-{
     Life getLifeInterface();
-
 }
 

@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.mapping.event
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/event/InputMappingEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/event/InputMappingEvent.dart';
 
-namespace org.allbinary.game.input.mapping.@event;
+class InputMappingEventHandler extends BasicEventHandler {
+    static final InputMappingEventHandler gameKeyEventHandler = InputMappingEventHandler();
+    
 
-public class InputMappingEventHandler : BasicEventHandler
-{
-    private static readonly InputMappingEventHandler gameKeyEventHandler = new InputMappingEventHandler();
-    private InputMappingEventHandler()
-    {
+    InputMappingEventHandler() {
     }
+    
 
-    public static InputMappingEventHandler getInstance()
-    {
+    static InputMappingEventHandler getInstance() {
         return InputMappingEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        InputMappingEventListenerInterface inputMappingEventListenerInterface = ((InputMappingEventListenerInterface) eventListenerInterface);
-        inputMappingEventListenerInterface.onInputMappingEvent(((InputMappingEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final InputMappingEventListenerInterface inputMappingEventListenerInterface = (eventListenerInterface as InputMappingEventListenerInterface);
+        inputMappingEventListenerInterface.onInputMappingEvent((eventObject as InputMappingEvent));
     }
-
 }
 

@@ -13,74 +13,87 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Anchor = org.allbinary.graphics.Anchor;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
 
-namespace org.allbinary.graphics.paint;
+class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
+    late DisplayInfoSingleton displayInfoSingleton;
+    late MyFontProcessor updateMyFontProcessor;
+    late MyFontProcessor myFontProcessor;
+    late String text;
+    late BasicColor basicColor;
+    int topScoresWidth = 0;
+    int fontHeight = 0;
+    int anchor = 0;
 
-public class SimpleTextPaintable : Paintable, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly MyFontProcessor updateMyFontProcessor;
-    private MyFontProcessor myFontProcessor;
-    private string text;
-    private BasicColor basicColor;
-    private int topScoresWidth = 0;
-    private int fontHeight = 0;
-    private int anchor = Anchor.TOP_LEFT;
-    public SimpleTextPaintable(string text, BasicColor basicColor)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
+    // Java field initializers run after the base constructor
+    void initFieldsSimpleTextPaintable() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.updateMyFontProcessor = UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    
+    
+    this.topScoresWidth = 0;
+    this.fontHeight = 0;
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    SimpleTextPaintable(String text, BasicColor basicColor) {
+        this.initFieldsSimpleTextPaintable();
         this.text = text;
         this.basicColor = basicColor;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.topScoresWidth = (font.stringWidth(this.text) >> 1);
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
+        final int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
         graphics.setColor(this.getBasicColorP().intValue());
         graphics.drawString(this.text, (width >> 1) - this.topScoresWidth, this.fontHeight, this.anchor);
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
+    
 
-    private BasicColor getBasicColorP()
-    {
+    BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual void setText(string text)
-    {
+    void setText(String text) {
         this.text = text;
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public virtual string getText()
-    {
+    String getText() {
         return this.text;
     }
-
 }
 

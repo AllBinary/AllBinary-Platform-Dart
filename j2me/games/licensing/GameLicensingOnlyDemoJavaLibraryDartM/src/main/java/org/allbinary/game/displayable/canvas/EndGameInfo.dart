@@ -13,24 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/MyCanvas.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class EndGameInfo {
+    late String NORMAL_GAME_OVER_WIN;
+    late String TEASER_DEMO_GAME_END_LAST_LEVEL;
+    late String TEASER_DEMO_GAME_END;
+    late String gameOverStr;
+    late String winStr;
 
-public class EndGameInfo
-{
-    public readonly string NORMAL_GAME_OVER_WIN = "You Won";
-    private readonly string TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
-    private readonly string TEASER_DEMO_GAME_END = "Demo Game Over.";
-    private string gameOverStr = StringUtil.getInstance().EMPTY_STRING;
-    private string winStr;
-    public void update(GameInfo gameInfo, MyCanvas myCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsEndGameInfo() {
+    this.NORMAL_GAME_OVER_WIN = "You Won";
+    this.TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
+    this.TEASER_DEMO_GAME_END = "Demo Game Over.";
+    this.gameOverStr = StringUtil.getInstance().EMPTY_STRING;
+    this.winStr = this.gameOverStr;
+    }
+
+    EndGameInfo() {
+        this.initFieldsEndGameInfo();
+    }
+    
+
+    void update(GameInfo gameInfo, MyCanvas myCanvas) {
         if (gameInfo.isLastLevel()) {
             this.setWinStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
             this.setGameOverStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
@@ -39,31 +51,25 @@ public class EndGameInfo
             this.setGameOverStr(this.TEASER_DEMO_GAME_END);
         }
     }
+    
 
-    public virtual string getGameOverStr()
-    {
+    String getGameOverStr() {
         return this.gameOverStr;
     }
+    
 
-    public virtual void setGameOverStr(string gameOverStr)
-    {
+    void setGameOverStr(String gameOverStr) {
         this.gameOverStr = gameOverStr;
     }
+    
 
-    public virtual string getWinStr()
-    {
+    String getWinStr() {
         return this.winStr;
     }
+    
 
-    public virtual void setWinStr(string winStr)
-    {
+    void setWinStr(String winStr) {
         this.winStr = winStr;
     }
-
-    public EndGameInfo()
-    {
-        this.winStr = this.gameOverStr;
-    }
-
 }
 

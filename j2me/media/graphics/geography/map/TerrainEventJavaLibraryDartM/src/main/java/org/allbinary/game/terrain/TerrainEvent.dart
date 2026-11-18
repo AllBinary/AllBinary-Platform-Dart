@@ -13,47 +13,52 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.terrain
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/game/terrain/BasicTerrainInfo.dart';
 
-namespace org.allbinary.game.terrain;
+class TerrainEvent extends AllBinaryEventObject {
+    late BasicTerrainInfo basicTerrainInfo;
 
-public class TerrainEvent : AllBinaryEventObject
-{
-    private BasicTerrainInfo basicTerrainInfo = BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO;
-    public TerrainEvent(object basicTerrainInfo) : base(basicTerrainInfo)
-    {
-        // base(basicTerrainInfo) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsTerrainEvent() {
+    this.basicTerrainInfo = BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO;
+    }
+    
+
+    TerrainEvent(Object basicTerrainInfo) : super(basicTerrainInfo) {
+        this.initFieldsTerrainEvent();
+        
         this.setBasicTerrainInfo(this.basicTerrainInfo);
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("TerrainEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.basicTerrainInfo.ToString());
-        return stringBuffer.ToString();
+        stringBuffer.append(this.basicTerrainInfo.toString());
+        return stringBuffer.toString();
     }
+    
 
-    public virtual BasicTerrainInfo getBasicTerrainInfo()
-    {
+    BasicTerrainInfo getBasicTerrainInfo() {
         return this.basicTerrainInfo;
     }
+    
 
-    public virtual void setBasicTerrainInfo(BasicTerrainInfo basicTerrainInfo)
-    {
+    void setBasicTerrainInfo(BasicTerrainInfo basicTerrainInfo) {
         this.basicTerrainInfo = basicTerrainInfo;
     }
+    
 
-    public virtual void setBasicTerrainInfoForCircularStaticPool(BasicTerrainInfo basicTerrainInfo)
-    {
+    void setBasicTerrainInfoForCircularStaticPool(BasicTerrainInfo basicTerrainInfo) {
         this.basicTerrainInfo = basicTerrainInfo;
     }
-
 }
 

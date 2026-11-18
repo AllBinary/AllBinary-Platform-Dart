@@ -13,25 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.bounds.event
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.bounds.@event;
+class BoundsChangeEvent extends AllBinaryEventObject {
+    
 
-public class BoundsChangeEvent : AllBinaryEventObject
-{
-    public BoundsChangeEvent(Rectangle rectangle) : base(rectangle)
-    {
-        // base(rectangle) is called from the constructor declaration
+    BoundsChangeEvent(Rectangle rectangle) : super(rectangle) {
+        
     }
+    
 
-    public virtual Rectangle getRectangle()
-    {
-        return ((Rectangle) this.getSource());
+    Rectangle getRectangle() {
+        return (this.getSource() as Rectangle);
     }
-
 }
 

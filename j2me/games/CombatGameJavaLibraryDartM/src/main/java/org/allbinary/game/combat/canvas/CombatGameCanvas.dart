@@ -13,91 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.canvas
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using DestroyedLayerProcessor = org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
-using DestroyEventCircularStaticPool = org.allbinary.game.combat.destroy.@event.DestroyEventCircularStaticPool;
-using DestroyedEventHandler = org.allbinary.game.combat.destroy.@event.DestroyedEventHandler;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFactory = org.allbinary.game.configuration.feature.GameFeatureFactory;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using BasicBuildGameInitializerFactory = org.allbinary.game.init.BasicBuildGameInitializerFactory;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using DropLayerProcessor = org.allbinary.game.layer.drop.DropLayerProcessor;
-using GroupLayerManagerListener = org.allbinary.game.layer.identification.GroupLayerManagerListener;
-using HighScoresFactoryInterface = org.allbinary.game.score.HighScoresFactoryInterface;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using BasicLayerProcessor = org.allbinary.layer.BasicLayerProcessor;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyedLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/game/init/BasicBuildGameInitializerFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/layer/drop/DropLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/identification/GroupLayerManagerListener.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/layer/BasicLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
 
-namespace org.allbinary.game.combat.canvas;
+class CombatGameCanvas extends AllBinaryGameCanvas {
+    static List<BasicLayerProcessor?> basicLayerProcessor = List<BasicLayerProcessor?>.filled(0, null);
+    
 
-public class CombatGameCanvas : AllBinaryGameCanvas
-{
-    public static BasicLayerProcessor[] basicLayerProcessor = new BasicLayerProcessor[0];
-    public CombatGameCanvas(CommandListener cmdListener, AllBinaryGameLayerManager gameLayerManager, HighScoresFactoryInterface highScoresFactoryInterface, BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface, bool buffered) : base(cmdListener, gameLayerManager, highScoresFactoryInterface, gameInitializationInterfaceFactoryInterface, buffered)
-    {
-        // base(cmdListener, gameLayerManager, highScoresFactoryInterface, gameInitializationInterfaceFactoryInterface, buffered) is called from the constructor declaration
+    CombatGameCanvas(CommandListener cmdListener, AllBinaryGameLayerManager gameLayerManager, HighScoresFactoryInterface highScoresFactoryInterface, BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface, bool buffered) : super(cmdListener, gameLayerManager, highScoresFactoryInterface, gameInitializationInterfaceFactoryInterface, buffered) {
+        
     }
+    
 
-    private void CombatGameCanvas_init()
-    {
+    void CombatGameCanvas_init() {
         DestroyEventCircularStaticPool.getInstance().init(this);
         ProgressCanvasFactory.getInstance().addNormalPortion(50, "Destroy Events");
     }
+    
 
-    // throws Exception
-    public override void initApp(AbeClientInformationInterface abeClientInformation)
-    {
+    @override
+    void initApp(AbeClientInformationInterface abeClientInformation) {
         this.CombatGameCanvas_init();
-        base.initApp(abeClientInformation);
+        super.initApp(abeClientInformation);
     }
+    
 
-    public virtual void initConfigurablePortion(int portion)
-    {
+    void initConfigurablePortion(int portion) {
         DestroyedLayerProcessor.init();
         ProgressCanvasFactory.getInstance().addNormalPortion(portion, "Basic Processors");
-        Features features = Features.getInstance();
-        GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+        final Features features = Features.getInstance();
+        final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
         if (features.isFeature(gameFeatureFactory.DROPPED_ITEMS) && features.isFeature(gameFeatureFactory.DROPPED_ITEMS_FROM_DEATH)) {
-            CombatGameCanvas.basicLayerProcessor = new BasicLayerProcessor[2];
+            CombatGameCanvas.basicLayerProcessor = List<BasicLayerProcessor?>.filled(2, null);
             CombatGameCanvas.basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
             CombatGameCanvas.basicLayerProcessor[1] = DropLayerProcessor.getInstance();
         } else {
-            CombatGameCanvas.basicLayerProcessor = new BasicLayerProcessor[1];
+            CombatGameCanvas.basicLayerProcessor = List<BasicLayerProcessor?>.filled(1, null);
             CombatGameCanvas.basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
         }
     }
+    
 
-    // throws Exception
-    public override void processPlayingGame()
-    {
-        base.processPlayingGame();
-        for (int index = CombatGameCanvas.basicLayerProcessor.Length; --index >= 0; ) {
-            CombatGameCanvas.basicLayerProcessor[index].process(this.gameLayerManager);
+    @override
+    void processPlayingGame() {
+        super.processPlayingGame();
+        for (int index = CombatGameCanvas.basicLayerProcessor.length; --index >= 0; ) {
+            CombatGameCanvas.basicLayerProcessor[index]!.process(this.gameLayerManager);
         }
     }
+    
 
-    // throws Exception
-    public override void cleanupGame()
-    {
-        base.cleanupGame();
-        for (int index = CombatGameCanvas.basicLayerProcessor.Length; --index >= 0; ) {
-            CombatGameCanvas.basicLayerProcessor[index].getList().clear();
+    @override
+    void cleanupGame() {
+        super.cleanupGame();
+        for (int index = CombatGameCanvas.basicLayerProcessor.length; --index >= 0; ) {
+            CombatGameCanvas.basicLayerProcessor[index]!.getList().clear();
         }
         GroupLayerManagerListener.getInstance().clear();
         GroupLayerManagerListener.getInstance().log();
         DestroyedEventHandler.getInstance().removeAllListeners();
         this.cleanupManager();
     }
+    
 
-    // throws Exception
-    public virtual void cleanupManager()
-    {
+    void cleanupManager() {
         this.gameLayerManager.cleanup();
     }
-
 }
 

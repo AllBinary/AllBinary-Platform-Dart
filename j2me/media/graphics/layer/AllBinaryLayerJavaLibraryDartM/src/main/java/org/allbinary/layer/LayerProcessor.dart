@@ -13,48 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessorInterface.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.layer;
+class LayerProcessor implements LayerProcessorInterface {
+    late CommonStrings commonStrings;
+    late LayerManager layerManager;
 
-public class LayerProcessor : LayerProcessorInterface
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly LayerManager layerManager;
-    public LayerProcessor(LayerManager layerManager)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerProcessor() {
+    this.commonStrings = CommonStrings.getInstance();
+    
+    }
+    
+
+    LayerProcessor(LayerManager layerManager) {
+        this.initFieldsLayerProcessor();
         this.layerManager = layerManager;
     }
+    
 
-    // throws Exception
-    public virtual void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    @override
+    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    // throws Exception
-    public virtual bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    @override
+    bool isProcessorLayer(AllBinaryLayer layerInterface) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    public virtual LayerManager getLayerManager()
-    {
+    @override
+    LayerManager getLayerManager() {
         return this.layerManager;
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void process(AllBinaryLayerManager allBinaryLayerManager) {
         LayerManager layerManager = this.getLayerManager();
         int size = layerManager.getSize();
         for (int index = 0; index < size; index++) {
-            this.processAt(allBinaryLayerManager, ((AllBinaryLayer) layerManager.getLayerAt(index)), index);
+            this.processAt(allBinaryLayerManager, (layerManager.getLayerAt(index) as AllBinaryLayer), index);
         }
     }
-
 }
 

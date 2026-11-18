@@ -13,47 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.touch.action
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformInputMappingFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.input.motion.touch.action;
+class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late GameKey NONE;
 
-public class ReleaseTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyCompleteMotionGestureInputEvent getInstance()
-    {
-        if (ReleaseTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
-            ReleaseTouchInputToGameKeyEventAction.instance = new ReleaseTouchInputToGameKeyEventAction();
-        }
-        return ((GameKeyCompleteMotionGestureInputEvent) ReleaseTouchInputToGameKeyEventAction.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsReleaseTouchInputToGameKeyEventAction() {
+    this.NONE = GameKeyFactory.getInstance().NONE;
     }
+    
 
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    private ReleaseTouchInputToGameKeyEventAction() : base("Release Action", TouchMotionGestureFactory.getInstance().RELEASED, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping())
-    {
-        // base("Release Action", TouchMotionGestureFactory.getInstance().RELEASED, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) is called from the constructor declaration
+    static GameKeyCompleteMotionGestureInputEvent getInstance() {
+        if (ReleaseTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            ReleaseTouchInputToGameKeyEventAction.instance = ReleaseTouchInputToGameKeyEventAction();
+        }
+        return (ReleaseTouchInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent);
+    }
+    
+
+    ReleaseTouchInputToGameKeyEventAction() : super("Release Action", TouchMotionGestureFactory.getInstance().RELEASED, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) {
+        this.initFieldsReleaseTouchInputToGameKeyEventAction();
+        
         try {
             this.setGameKey(this.NONE);
             this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstanceForInput(this, this.NONE));
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            }
         }
     }
+    
 
-    public override void update()
-    {
+    @override
+    void update() {
     }
-
 }
 

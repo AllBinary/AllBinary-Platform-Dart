@@ -13,154 +13,173 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using RotationAnimation = org.allbinary.animation.RotationAnimation;
-using Direction = org.allbinary.direction.Direction;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimation.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
 
-namespace org.allbinary.animation.compound;
+class SimultaneousCompoundRotationAnimation extends RotationAnimation {
+    late List<RotationAnimation?> animationInterfaceArray;
 
-public class SimultaneousCompoundRotationAnimation : RotationAnimation
-{
-    private RotationAnimation[] animationInterfaceArray;
-    public SimultaneousCompoundRotationAnimation(RotationAnimation[] animationInterfaceArray, AnimationBehavior animationBehavior) : base(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior)
-    {
-        // base(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsSimultaneousCompoundRotationAnimation() {
+    
+    }
+    
+
+    SimultaneousCompoundRotationAnimation(List<RotationAnimation?> animationInterfaceArray, AnimationBehavior animationBehavior) : super(AngleInfo.getInstance1(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior) {
+        this.initFieldsSimultaneousCompoundRotationAnimation();
+        
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
 
-    public override void setFrame(int frameIndex)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].setFrame(frameIndex);
+    @override
+    void setFrame(int frameIndex) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.setFrame(frameIndex);
         }
     }
+    
 
-    public override int getFrame()
-    {
-        return this.animationInterfaceArray[0].getFrame();
+    @override
+    int getFrame() {
+        return this.animationInterfaceArray[0]!.getFrame();
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
-        return this.animationInterfaceArray[0].getAnimationSize();
+    @override
+    int getAnimationSize() {
+        return this.animationInterfaceArray[0]!.getAnimationSize();
     }
+    
 
-    public override int getSize()
-    {
-        return this.animationInterfaceArray[0].getSize();
+    @override
+    int getSize() {
+        return this.animationInterfaceArray[0]!.getSize();
     }
+    
 
-    public override void previousFrame()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].previousFrame();
+    @override
+    void previousFrame() {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.previousFrame();
         }
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].nextFrame();
+    @override
+    void nextFrame() {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.nextFrame();
         }
     }
+    
 
-    public override void previousRotation()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].previousRotation();
+    @override
+    void previousRotation() {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.previousRotation();
         }
     }
+    
 
-    public override void nextRotation()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].nextRotation();
+    @override
+    void nextRotation() {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.nextRotation();
         }
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].paintXY(graphics, x, y);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.paintXY(graphics, x, y);
         }
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
+    @override
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.paintThreedXYZ(graphics, x, y, z);
         }
     }
+    
 
-    public override void setFrameByDirection(Direction direction)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].setFrameByDirection(direction);
+    @override
+    void setFrameByDirection(Direction direction) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.setFrameByDirection(direction);
         }
     }
+    
 
-    public override void setFrameToAngle(Angle angle)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].setFrameToAngle(angle);
+    @override
+    void setFrameToAngle(Angle angle) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.setFrameToAngle(angle);
         }
     }
+    
 
-    public override void adjustFrameToAngle(Angle newAngle)
-    {
+    @override
+    void adjustFrameToAngle(Angle newAngle) {
         this.adjustFrame(newAngle.getValue());
     }
+    
 
-    public override void adjustFrame(short angle)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].adjustFrame(angle);
+    @override
+    void adjustFrame(int angle) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.adjustFrame(angle);
         }
     }
+    
 
-    public override AngleInfo getAngleInfoP()
-    {
-        return this.animationInterfaceArray[0].getAngleInfoP();
+    @override
+    AngleInfo getAngleInfoP() {
+        return this.animationInterfaceArray[0]!.getAngleInfoP();
     }
+    
 
-    public virtual RotationAnimation[] getAnimationInterfaceArray()
-    {
+    List<RotationAnimation?> getAnimationInterfaceArray() {
         return this.animationInterfaceArray;
     }
+    
 
-    public virtual void setAnimationInterfaceArray(RotationAnimation[] animationInterfaceArray)
-    {
+    void setAnimationInterfaceArray(List<RotationAnimation?> animationInterfaceArray) {
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
 
-    // throws Exception
-    public override void set(GL gl)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].set(gl);
+    @override
+    void set(GL gl) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.set(gl);
         }
     }
-
 }
 

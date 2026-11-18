@@ -13,39 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.ag.ai;
+class StopAtEdgeAI extends BasicAI {
+    
 
-public class StopAtEdgeAI : BasicAI
-{
-    public StopAtEdgeAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    StopAtEdgeAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(ownerLayerInterface, gameInput) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (((VelocityInterfaceCompositeInterface) ownerLayerInterface));
-        BasicVelocityProperties velocityProperties = velocityInterfaceCompositeInterface.getVelocityProperties();
-        int x = ownerLayerInterface.getXP();
-        int y = ownerLayerInterface.getYP();
-        int x2 = ownerLayerInterface.getX2();
-        int y2 = ownerLayerInterface.getY2();
-        int width = ownerLayerInterface.getWidth();
-        int height = ownerLayerInterface.getHeight();
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = ((ownerLayerInterface as VelocityInterfaceCompositeInterface));
+        final BasicVelocityProperties velocityProperties = velocityInterfaceCompositeInterface.getVelocityProperties();
+        final int x = ownerLayerInterface.getXP();
+        final int y = ownerLayerInterface.getYP();
+        final int x2 = ownerLayerInterface.getX2();
+        final int y2 = ownerLayerInterface.getY2();
+        final int width = ownerLayerInterface.getWidth();
+        final int height = ownerLayerInterface.getHeight();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         if (x2 + velocityProperties.getVelocityXBasicDecimalP().getScaled() > displayInfo.getLastWidth()) {
             ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZP());
             velocityProperties.getVelocityYBasicDecimalP().setint(0);
@@ -63,6 +62,5 @@ public class StopAtEdgeAI : BasicAI
             velocityProperties.getVelocityXBasicDecimalP().setint(0);
         }
     }
-
 }
 

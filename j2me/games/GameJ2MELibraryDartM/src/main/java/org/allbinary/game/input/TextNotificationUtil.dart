@@ -13,58 +13,63 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using GameNotificationEvent = org.allbinary.game.layer.hud.@event.GameNotificationEvent;
-using GameNotificationEventHandler = org.allbinary.game.layer.hud.@event.GameNotificationEventHandler;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using ErrorSound = org.allbinary.media.audio.ErrorSound;
-using PrimaryPlayerQueueFactory = org.allbinary.media.audio.PrimaryPlayerQueueFactory;
-using SelectSound = org.allbinary.media.audio.SelectSound;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEvent.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/ErrorSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/PrimaryPlayerQueueFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/SelectSound.dart';
 
-namespace org.allbinary.game.input;
+class TextNotificationUtil {
+    static final TextNotificationUtil instance = TextNotificationUtil();
+    late int TWO;
+    late bool FALSE;
+    late GameNotificationEventHandler gameNotificationEventHandler;
 
-public class TextNotificationUtil
-{
-    private static readonly TextNotificationUtil instance = new TextNotificationUtil();
-    public static TextNotificationUtil getInstance()
-    {
-        return TextNotificationUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsTextNotificationUtil() {
+    this.TWO = SmallIntegerSingletonFactory.getInstance().getAt(2);
+    this.FALSE = BooleanFactory.getInstance().FALSE;
+    this.gameNotificationEventHandler = GameNotificationEventHandler.getInstance();
     }
 
-    // throws Exception
-    public virtual void fireError(string message)
-    {
+    TextNotificationUtil() {
+        this.initFieldsTextNotificationUtil();
+    }
+    
+
+    static TextNotificationUtil getInstance() {
+        return TextNotificationUtil.instance;
+    }
+    
+
+    void fireError(String message) {
         PrimaryPlayerQueueFactory.getInstance().add(ErrorSound.getInstance());
         this.fire(message);
     }
+    
 
-    // throws Exception
-    public virtual void fireNew(string message)
-    {
+    void fireNew(String message) {
         PrimaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
         this.fire(message);
     }
+    
 
-    // throws Exception
-    public virtual void fireSuccess(string message)
-    {
+    void fireSuccess(String message) {
         PrimaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
         this.fire(message);
     }
+    
 
-    private readonly int? TWO = SmallIntegerSingletonFactory.getInstance().getAt(2);
-    private readonly bool? FALSE = BooleanFactory.getInstance().FALSE;
-    private readonly GameNotificationEventHandler gameNotificationEventHandler = GameNotificationEventHandler.getInstance();
-    // throws Exception
-    public virtual void fire(string message)
-    {
-        GameNotificationEvent gameNotificationEvent = new GameNotificationEvent(this, message, this.TWO, BasicColorFactory.getInstance().RED, this.FALSE);
+    void fire(String message) {
+        GameNotificationEvent gameNotificationEvent = GameNotificationEvent(this, message, this.TWO, BasicColorFactory.getInstance().RED, this.FALSE);
         this.gameNotificationEventHandler.fireEvent(gameNotificationEvent);
     }
-
 }
 

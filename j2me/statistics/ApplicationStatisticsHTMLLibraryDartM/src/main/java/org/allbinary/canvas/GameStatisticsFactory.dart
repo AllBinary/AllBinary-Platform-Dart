@@ -13,36 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.canvas
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-
-namespace org.allbinary.canvas;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/canvas/BaseGameStatistics.dart';
 
 //ActualPlatform
-public class GameStatisticsFactory : BaseGameStatistics
-{
-    private static readonly GameStatisticsFactory instance = new GameStatisticsFactory();
-    public static GameStatisticsFactory getInstance()
-    {
-        return GameStatisticsFactory.instance;
+class GameStatisticsFactory extends BaseGameStatistics {
+    static final GameStatisticsFactory instance = GameStatisticsFactory();
+    late StringMaker stringBuffer;
+
+    // Java field initializers run after the base constructor
+    void initFieldsGameStatisticsFactory() {
+    this.stringBuffer = StringMaker();
     }
 
-    private StringMaker stringBuffer = new StringMaker();
-    public override void add(string @string)
-    {
+    GameStatisticsFactory() {
+        this.initFieldsGameStatisticsFactory();
+    }
+    
+
+    static GameStatisticsFactory getInstance() {
+        return GameStatisticsFactory.instance;
+    }
+    
+
+    @override
+    void add(String string) {
         if (this.stringBuffer.length() > 12000) {
             this.stringBuffer.delete(0, this.stringBuffer.length());
             this.stringBuffer.append("Old Stats Cleared");
         }
-        this.stringBuffer.append(@string);
+        this.stringBuffer.append(string);
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append(base.ToString()).append(this.stringBuffer.ToString()).ToString();
+    @override
+    String toString() {
+        return StringMaker().append(super.toString()).append(this.stringBuffer.toString()).toString();
     }
-
 }
 

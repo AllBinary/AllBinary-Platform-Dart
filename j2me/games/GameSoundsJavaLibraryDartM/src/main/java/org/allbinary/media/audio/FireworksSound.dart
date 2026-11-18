@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/CompositeSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
 
 //Use 8hz16bitmono for most J2ME
-public class FireworksSound : CompositeSound
-{
-    private static Sound soundInterface = new FireworksSound();
-    private FireworksSound() : base("resource:/wav/fireworks.wav")
-    {
-        // base("resource:/wav/fireworks.wav") is called from the constructor declaration
-    }
+class FireworksSound extends CompositeSound {
+    static Sound soundInterface = FireworksSound();
+    
 
-    public static Sound getInstance()
-    {
+    FireworksSound() : super("resource:/wav/fireworks.wav") {
+        
+    }
+    
+
+    static Sound getInstance() {
         return FireworksSound.soundInterface;
     }
-
 }
 

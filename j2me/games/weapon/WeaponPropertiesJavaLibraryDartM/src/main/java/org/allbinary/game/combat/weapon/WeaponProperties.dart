@@ -13,108 +13,118 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.weapon
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/combat/weapon/SimpleWeaponProperties.dart';
 
-namespace org.allbinary.game.combat.weapon;
+class WeaponProperties extends SimpleWeaponProperties {
+    static final WeaponProperties NULL_WEAPON_PROPERTIES = WeaponProperties(0, 0, 0, 0, (0).toSigned(16));
+    static bool messageSent = false;
+    static const String DAMAGE = "Damage: ";
+    static const String RANGE = "Range: ";
+    static const String RELOAD = "Reload: ";
+    int reloadTime = 0;
+    int targetingTime = 0;
+    late BasicDecimal speed;
+    int MAX = 0;
+    int ZERO = 0;
 
-public class WeaponProperties : SimpleWeaponProperties
-{
-    public static readonly WeaponProperties NULL_WEAPON_PROPERTIES = new WeaponProperties(0L, 0L, 0L, 0, ((short) 0));
-    private long reloadTime = 0L;
-    private long targetingTime = 0L;
-    private BasicDecimal speed = BasicDecimal.ZERO_BIGDECIMAL;
-    private static bool messageSent = false;
-    private readonly long MAX = 10240L;
-    private readonly short ZERO = 0;
-    public WeaponProperties(long reloadTime, long targetingTime, long speed, int damage, short dissipation)
-    {
-        if (speed < this.MAX && speed != 0L && !WeaponProperties.messageSent) {
-            string MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(new StringMaker().append(MESSAGE).appendlong(speed).ToString(), this, commonStrings.CONSTRUCTOR);
+    // Java field initializers run after the base constructor
+    void initFieldsWeaponProperties() {
+    this.reloadTime = 0;
+    this.targetingTime = 0;
+    this.speed = BasicDecimal.ZERO_BIGDECIMAL;
+    this.MAX = 10240;
+    this.ZERO = 0;
+    }
+    
+
+    WeaponProperties(int reloadTime, int targetingTime, int speed, int damage, int dissipation) {
+        this.initFieldsWeaponProperties();
+        if (speed < this.MAX && speed != 0 && !WeaponProperties.messageSent) {
+            final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(StringMaker().append(MESSAGE).appendlong(speed).toString(), this, commonStrings.CONSTRUCTOR);
             WeaponProperties.messageSent = true;
         }
         this.setReloadTime(reloadTime);
         this.setTargetingTime(targetingTime);
         this.setDamage(damage);
         this.setDissipation(dissipation);
-        this.setSpeed(new BasicDecimal(speed));
+        this.setSpeed(BasicDecimal(speed));
         if (dissipation != this.ZERO) {
-            long unscaledDamage = this.speed.getUnscaled() * damage;
-            int scaledDissipation = dissipation * this.speed.getScaledFactorValue();
-            long value = (unscaledDamage / ((long) scaledDissipation));
-            this.setRange(((int) (value * 9L)) / 10);
+            final int unscaledDamage = this.speed.getUnscaled() * damage;
+            final int scaledDissipation = dissipation * this.speed.getScaledFactorValue();
+            final int value = (unscaledDamage ~/ scaledDissipation);
+            this.setRange(((value * 9)).toSigned(32) ~/ 10);
         }
     }
+    
 
-    private void setReloadTime(long reloadTime)
-    {
+    void setReloadTime(int reloadTime) {
         this.reloadTime = reloadTime;
     }
+    
 
-    public virtual long getReloadTime()
-    {
+    int getReloadTime() {
         return this.reloadTime;
     }
+    
 
-    private void setTargetingTime(long targetingTime)
-    {
+    void setTargetingTime(int targetingTime) {
         this.targetingTime = targetingTime;
     }
+    
 
-    public virtual long getTargetingTime()
-    {
+    int getTargetingTime() {
         return this.targetingTime;
     }
+    
 
-    public virtual BasicDecimal getSpeed()
-    {
+    BasicDecimal getSpeed() {
         return this.speed;
     }
+    
 
-    public virtual void setSpeed(BasicDecimal speed)
-    {
+    void setSpeed(BasicDecimal speed) {
         this.speed = speed;
     }
+    
 
-    public virtual int getDamageI(int range)
-    {
-        return this.getDamage() - ((this.getDissipation() * range) / this.speed.getScaled());
+    int getDamageI(int range) {
+        return this.getDamage() - ((this.getDissipation() * range) ~/ this.speed.getScaled());
     }
+    
 
-    private const string DAMAGE = "Damage: ";
-    private const string RANGE = "Range: ";
-    private const string RELOAD = "Reload: ";
-    public virtual string[] toStringArray()
-    {
+    List<String?> toStringArray() {
         int index = 0;
-        string[] stringArray = new string[3];
-        StringMaker stringBuffer = new StringMaker();
-        stringArray[index++] = stringBuffer.append(WeaponProperties.DAMAGE).appendint(((int) this.getDamage())).ToString();
+        final List<String?> stringArray = List<String?>.filled(3, null);
+        final StringMaker stringBuffer = StringMaker();
+        stringArray[index++] = stringBuffer.append(WeaponProperties.DAMAGE).appendint(this.getDamage()).toString();
         stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = stringBuffer.append(WeaponProperties.RANGE).appendint(((int) this.getRange())).ToString();
+        stringArray[index++] = stringBuffer.append(WeaponProperties.RANGE).appendint(this.getRange()).toString();
         stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()).ToString();
+        stringArray[index++] = stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()).toString();
         return stringArray;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(WeaponProperties.DAMAGE).appendint(((int) this.getDamage()));
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        stringBuffer.append(WeaponProperties.DAMAGE).appendint(this.getDamage());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(WeaponProperties.RANGE).appendint(((int) this.getRange()));
+        stringBuffer.append(WeaponProperties.RANGE).appendint(this.getRange());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

@@ -13,25 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics;
+class ScreenCapture {
+    
 
-public class ScreenCapture
-{
-    public virtual void saveFrame()
-    {
+    void saveFrame() {
     }
+    
 
-    public virtual void startRecording()
-    {
+    void startRecording() {
     }
+    
 
-    public virtual void endRecording()
-    {
+    void endRecording() {
     }
-
 }
 

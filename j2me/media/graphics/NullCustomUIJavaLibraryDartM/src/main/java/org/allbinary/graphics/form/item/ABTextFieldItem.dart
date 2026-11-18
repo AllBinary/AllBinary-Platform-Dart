@@ -1,58 +1,65 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Font = javax.microedition.lcdui.Font;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextItem.dart';
 
-namespace org.allbinary.graphics.form.item;
+class ABTextFieldItem extends ABTextItem {
+    late Font font;
 
-public class ABTextFieldItem : ABTextItem
-{
-    private Font font;
-    public ABTextFieldItem(Canvas canvas, Visitor visitor, string label, string value, int maxSize, int layout, string altText, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, layout, altText, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(label, layout, altText, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsABTextFieldItem() {
+    
+    }
+    
+
+    ABTextFieldItem(Canvas canvas, Visitor visitor, String label, String value, int maxSize, int layout, String altText, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(label, layout, altText, backgroundBasicColor, foregroundBasicColor) {
+        this.initFieldsABTextFieldItem();
+        
         this.font = font;
     }
+    
 
-    public override string getLabel()
-    {
+    @override
+    String getLabel() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public override void setLabel(string label)
-    {
+    @override
+    void setLabel(String label) {
     }
+    
 
-    public virtual string getString()
-    {
+    String getString() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual void setString(string @string)
-    {
+    void setString(String string) {
     }
+    
 
-    public virtual void setFocus(bool state)
-    {
+    void setFocus(bool state) {
     }
+    
 
-    public virtual int getFontHeight()
-    {
+    int getFontHeight() {
         return this.font.getHeight();
     }
+    
 
-    public virtual void setBackgroundBasicColorP(BasicColor basicColor)
-    {
+    void setBackgroundBasicColorP(BasicColor basicColor) {
     }
+    
 
-    public virtual void setForegroundBasicColorP(BasicColor basicColor)
-    {
+    void setForegroundBasicColorP(BasicColor basicColor) {
     }
-
 }
 

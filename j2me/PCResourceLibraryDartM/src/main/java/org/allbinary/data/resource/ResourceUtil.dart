@@ -13,74 +13,78 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.data.resource
 
-using System;
-using System.Linq;
-using ByteArrayInputStream = java.io.ByteArrayInputStream;
-using ByteArrayOutputStream = java.io.ByteArrayOutputStream;
-using FileInputStream = java.io.FileInputStream;
-using InputStream = java.io.InputStream;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StreamUtil = org.allbinary.logic.io.StreamUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.data.resource;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayInputStream.dart';
+import 'package:allbinary/java/io/ByteArrayOutputStream.dart';
+import 'package:allbinary/java/io/FileInputStream.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/StreamUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
 //J2SE - PC
-public class ResourceUtil
-{
-    private static readonly ResourceUtil instance = new ResourceUtil();
-    public static ResourceUtil getInstance()
-    {
+class ResourceUtil {
+    static final ResourceUtil instance = ResourceUtil();
+    late LogUtil logUtil;
+    late String path;
+    late String ext;
+
+    // Java field initializers run after the base constructor
+    void initFieldsResourceUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.path = StringUtil.getInstance().EMPTY_STRING;
+    this.ext = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    static ResourceUtil getInstance() {
         return ResourceUtil.instance;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private string path = StringUtil.getInstance().EMPTY_STRING;
-    private string ext = StringUtil.getInstance().EMPTY_STRING;
-    private ResourceUtil()
-    {
+    ResourceUtil() {
+        this.initFieldsResourceUtil();
     }
+    
 
-    public virtual void setLoadingPaths(string path, string ext)
-    {
+    void setLoadingPaths(String path, String ext) {
         this.path = path;
         this.ext = ext;
     }
+    
 
-    public virtual void setClassLoader(global::java.lang.ClassLoader classLoader)
-    {
+    void setClassLoader(ClassLoader classLoader) {
     }
+    
 
-    // throws Exception
-    public virtual InputStream getResourceAsStream(string resource)
-    {
+    InputStream getResourceAsStream(String resource) {
         InputStream inputStream = this.getResourceAsStreamAtStart(resource, 2);
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
-                throw new Exception(new StringMaker().append("Unable to obtain: ").append(resource).ToString());
+                throw JException('Exception', StringMaker().append("Unable to obtain: ").append(resource).toString());
             }
         }
         return inputStream;
     }
+    
 
-    // throws Exception
-    private InputStream getResourceAsStreamAtStart(string resource, int startIndex)
-    {
-        InputStream inputStream = new FileInputStream(new StringMaker().append(this.path).append(resource).append(this.ext).ToString());
+    InputStream getResourceAsStreamAtStart(String resource, int startIndex) {
+        InputStream inputStream = FileInputStream(StringMaker().append(this.path).append(resource).append(this.ext).toString());
         if (inputStream != null) {
-            sbyte[] byteArray = new sbyte[inputStream.available()];
-            StreamUtil.getInstance().getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);
-            return new ByteArrayInputStream(byteArray);
+            final List<int> byteArray = List<int>.filled(inputStream.available(), 0);
+            StreamUtil.getInstance().getByteArray(inputStream, ByteArrayOutputStream(), byteArray);
+            return ByteArrayInputStream(byteArray);
         }
         return inputStream;
     }
+    
 
-    public virtual void addResource(string resource, int? value)
-    {
+    void addResource(String resource, int value) {
     }
-
 }
 

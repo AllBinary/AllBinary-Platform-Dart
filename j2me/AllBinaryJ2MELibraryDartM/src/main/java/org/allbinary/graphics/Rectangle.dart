@@ -13,71 +13,80 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
 
-namespace org.allbinary.graphics;
+class Rectangle {
+    late GPoint point;
+    int width = 0;
+    int height = 0;
 
-public class Rectangle
-{
-    private GPoint point;
-    private int width;
-    private int height;
-    public Rectangle(GPoint point, int width, int height)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRectangle() {
+    
+    
+    
+    }
+    
+
+    Rectangle(GPoint point, int width, int height) {
+        this.initFieldsRectangle();
         this.point = point;
         this.width = width;
         this.height = height;
     }
+    
 
-    public virtual GPoint getPoint()
-    {
+    GPoint getPoint() {
         return this.point;
     }
+    
 
-    public virtual void setPoint(GPoint point)
-    {
+    void setPoint(GPoint point) {
         this.point = point;
     }
+    
 
-    public virtual int getMaxX()
-    {
+    int getMaxX() {
         return this.point.getX() + this.width;
     }
+    
 
-    public virtual int getMaxY()
-    {
+    int getMaxY() {
         return this.point.getY() + this.height;
     }
+    
 
-    public virtual int getWidth()
-    {
+    int getWidth() {
         return this.width;
     }
+    
 
-    public virtual void setWidth(int width)
-    {
+    void setWidth(int width) {
         this.width = width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    int getHeight() {
         return this.height;
     }
+    
 
-    public virtual void setHeight(int height)
-    {
+    void setHeight(int height) {
         this.height = height;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(this.getPoint().ToString());
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        stringBuffer.append(this.getPoint().toString());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(CommonLabels.getInstance().WIDTH_LABEL);
         stringBuffer.appendint(this.getWidth());
@@ -88,8 +97,7 @@ public class Rectangle
         stringBuffer.appendint(this.getMaxX());
         stringBuffer.append(" MaxY: ");
         stringBuffer.appendint(this.getMaxY());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

@@ -13,51 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.points
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using GameConfigurationUtil = org.allbinary.game.configuration.GameConfigurationUtil;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using IconLayerFactory = org.allbinary.game.layer.pickup.IconLayerFactory;
-using PickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using PickedUpLayerTypeFactory = org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-using PickupProcessorInterface = org.allbinary.game.layer.pickup.PickupProcessorInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/IconLayerFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupProcessorInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/points/PointsLayerCircularStaticPool.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/points/PointsLayerFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/points/PointsResources.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory implements PickupProcessorInterface {
+    static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    late PointsLayerCircularStaticPool pool;
 
-public class Points20kPickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, PickupProcessorInterface
-{
-    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    // throws Exception
-    public static void init()
-    {
-        Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points20kPickedUpLayerInterfaceFactory();
+    // Java field initializers run after the base constructor
+    void initFieldsPoints20kPickedUpLayerInterfaceFactory() {
+    this.pool = PointsLayerCircularStaticPool(PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 20000), 1);
     }
+    
 
-    private PointsLayerCircularStaticPool pool = new PointsLayerCircularStaticPool(new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 20000), 1);
-    private Points20kPickedUpLayerInterfaceFactory() : base(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0))
-    {
-        // base(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0)) is called from the constructor declaration
+    static void init() {
+        Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = Points20kPickedUpLayerInterfaceFactory();
     }
+    
 
-    public virtual int getTotal()
-    {
+    Points20kPickedUpLayerInterfaceFactory() : super(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance3(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance1(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance1(0)) {
+        this.initFieldsPoints20kPickedUpLayerInterfaceFactory();
+        
+    }
+    
+
+    int getTotal() {
         return 1;
     }
+    
 
-    public static PickedUpLayerInterfaceFactoryInterface getInstance()
-    {
+    static PickedUpLayerInterfaceFactoryInterface getInstance() {
         return Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryLayer sourceLayerInterface)
-    {
+    @override
+    void process(AllBinaryLayer sourceLayerInterface) {
         this.pool.visit(sourceLayerInterface);
     }
-
 }
 

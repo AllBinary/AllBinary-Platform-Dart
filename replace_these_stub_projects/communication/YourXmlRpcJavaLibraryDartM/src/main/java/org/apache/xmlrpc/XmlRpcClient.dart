@@ -1,45 +1,47 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.apache.xmlrpc
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-//using MalformedURLException = java.net.MalformedURLException;
-using URL = java.net.URL;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using CryptInterface = org.allbinary.init.crypt.jcehelper.CryptInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/net/URL.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/init/crypt/jcehelper/CryptInterface.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/apache/xmlrpc/XmlRpcHandler.dart';
+import 'package:allbinary/org/apache/xmlrpc/XmlRpcException.dart';
 
-namespace org.apache.xmlrpc;
+class XmlRpcClient implements XmlRpcHandler {
+    late URL url;
 
-public class XmlRpcClient : XmlRpcHandler
-{
-    private readonly URL url;
-    public XmlRpcClient(string url)
-    {
-        this.url = new URL(url);
+    // Java field initializers run after the base constructor
+    void initFieldsXmlRpcClient() {
+    
     }
+    
 
-    public virtual URL getURL()
-    {
+    XmlRpcClient(String url) {
+        this.initFieldsXmlRpcClient();
+        this.url = URL(url);
+    }
+    
+
+    URL getURL() {
         return this.url;
     }
+    
 
-    public virtual void setBasicAuthentication(string user, string password)
-    {
+    void setBasicAuthentication(String user, String password) {
     }
+    
 
-    // throws XmlRpcException, IOException
-    public virtual object execute(string method, BasicArrayList @params)
-    {
+    @override
+    Object execute(String method, BasicArrayList params) {
         return NullUtil.getInstance().NULL_OBJECT;
     }
+    
 
-    // throws XmlRpcException, IOException
-    public virtual object executeWithCrypt(string method, BasicArrayList @params, CryptInterface cryptInterface)
-    {
+    Object executeWithCrypt(String method, BasicArrayList params, CryptInterface cryptInterface) {
         return NullUtil.getInstance().NULL_OBJECT;
     }
-
 }
 

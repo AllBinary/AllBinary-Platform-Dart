@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using ABRunnable = org.allbinary.thread.ABRunnable;
-using NullABRunnable = org.allbinary.thread.NullABRunnable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/thread/ABRunnable.dart';
+import 'package:allbinary/org/allbinary/thread/NullABRunnable.dart';
+import 'package:allbinary/org/allbinary/game/midlet/SpecialDemoGameMidlet.dart';
 
-namespace org.allbinary.game.midlet;
+class LicenseCheckRunnableFactory {
+    
 
-public class LicenseCheckRunnableFactory
-{
-    public virtual ABRunnable getInstance(SpecialDemoGameMidlet specialDemoGameMidlet)
-    {
+    ABRunnable getInstance1(SpecialDemoGameMidlet specialDemoGameMidlet) {
         return NullABRunnable.getInstance();
     }
-
 }
 

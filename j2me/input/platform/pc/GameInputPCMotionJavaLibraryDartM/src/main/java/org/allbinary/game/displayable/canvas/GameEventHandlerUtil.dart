@@ -13,21 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpGameKeyEventHandler.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class GameEventHandlerUtil {
+    
 
-public class GameEventHandlerUtil
-{
-    public static void removeAllListeners()
-    {
+    static void removeAllListeners() {
         UpGameKeyEventHandler.getInstance().removeAllListeners();
         DownGameKeyEventHandler.getInstance().removeAllListeners();
     }
-
 }
 

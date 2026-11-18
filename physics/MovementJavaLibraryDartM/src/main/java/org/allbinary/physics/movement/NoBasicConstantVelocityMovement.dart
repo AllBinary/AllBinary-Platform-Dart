@@ -13,26 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/physics/movement/BasicConstantVelocityMovement.dart';
 
-namespace org.allbinary.physics.movement;
+class NoBasicConstantVelocityMovement extends BasicConstantVelocityMovement {
+    
 
-public class NoBasicConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    public NoBasicConstantVelocityMovement() : base(BasicDecimal.ZERO_BIGDECIMAL, new BasicVelocityProperties())
-    {
-        // base(BasicDecimal.ZERO_BIGDECIMAL, new BasicVelocityProperties()) is called from the constructor declaration
+    NoBasicConstantVelocityMovement() : super(BasicDecimal.ZERO_BIGDECIMAL, BasicVelocityProperties()) {
+        
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    @override
+    void process(AllBinaryGameLayer layer) {
     }
-
 }
 

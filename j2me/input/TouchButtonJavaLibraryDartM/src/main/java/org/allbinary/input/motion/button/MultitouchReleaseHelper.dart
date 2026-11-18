@@ -13,29 +13,32 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/ReleaseHelper.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonRecognizer.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/CancelTouchButtonInputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonInput.dart';
 
-namespace org.allbinary.input.motion.button;
+class MultitouchReleaseHelper extends ReleaseHelper {
+    
 
-public class MultitouchReleaseHelper : ReleaseHelper
-{
-    public MultitouchReleaseHelper(TouchButtonRecognizer touchButtonRecognizer) : base(touchButtonRecognizer)
-    {
-        // base(touchButtonRecognizer) is called from the constructor declaration
+    MultitouchReleaseHelper(TouchButtonRecognizer touchButtonRecognizer) : super(touchButtonRecognizer) {
+        
     }
+    
 
-    // throws Exception
-    public override void release(TouchButtonInput touchButtonInput, int deviceId)
-    {
-        TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput);
-        TouchButtonInput nextTouchButtonInput = null;
-        GameKeyEvent gameKeyEvent = null;
+    @override
+    void release(TouchButtonInput touchButtonInput, int deviceId) {
+        final TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput);
+        late TouchButtonInput nextTouchButtonInput;
+        late GameKeyEvent gameKeyEvent;
         for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--) {
             nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
-            if (cancelTouchButtonInput == nextTouchButtonInput) {
+            if (identical(cancelTouchButtonInput, nextTouchButtonInput)) {
                 gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                 this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
@@ -43,6 +46,5 @@ public class MultitouchReleaseHelper : ReleaseHelper
             }
         }
     }
-
 }
 

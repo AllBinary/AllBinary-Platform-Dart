@@ -13,79 +13,94 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableInterface.dart';
+import 'package:allbinary/org/allbinary/game/collision/LayerCollisionUtil.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionType.dart';
 
-namespace org.allbinary.game.collision;
+class CollidableBaseBehavior implements CollidableInterface {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late LayerCollisionUtil layerCollisionUtil;
+    bool collidable = false;
 
-public class CollidableBaseBehavior : CollidableInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
-    private bool collidable = true;
-    public CollidableBaseBehavior(bool collidable)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCollidableBaseBehavior() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.layerCollisionUtil = LayerCollisionUtil.getInstance();
+    this.collidable = true;
+    }
+    
+
+    CollidableBaseBehavior(bool collidable) {
+        this.initFieldsCollidableBaseBehavior();
         this.collidable = collidable;
     }
+    
 
-    public virtual void update()
-    {
+    void update() {
     }
+    
 
-    public virtual string getName()
-    {
-        return this.GetType().FullName;
+    @override
+    String getName() {
+        return jClassName(this);
     }
+    
 
-    public virtual void setCollidable(bool collidable)
-    {
+    void setCollidable(bool collidable) {
         this.collidable = collidable;
     }
+    
 
-    public virtual bool isCollidable(CollidableCompositeLayer ownerLayer)
-    {
+    @override
+    bool isCollidable(CollidableCompositeLayer ownerLayer) {
         return this.collidable;
     }
+    
 
-    // throws Exception
-    public virtual void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer)
-    {
-        throw new Exception(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(this.GetType().FullName).ToString());
+    @override
+    void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer) {
+        throw JException('Exception', StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(jClassName(this)).toString());
     }
+    
 
-    public virtual bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
-    {
+    @override
+    bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer) {
         return this.layerCollisionUtil.isCollision(ownerLayer, collisionLayer);
     }
+    
 
-    public virtual bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
-        return this.layerCollisionUtil.isCollision(ownerLayer, ((AllBinaryLayer) collidableInterfaceCompositeInterface));
+    bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
+        return this.layerCollisionUtil.isCollision(ownerLayer, (collidableInterfaceCompositeInterface as AllBinaryLayer));
     }
+    
 
-    // throws Exception
-    public virtual void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    public virtual void paint(CollidableCompositeLayer ownerLayer, Graphics graphics)
-    {
+    void paint(CollidableCompositeLayer ownerLayer, Graphics graphics) {
     }
+    
 
-    public virtual CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
-    {
+    @override
+    CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface) {
         return CollisionTypeFactory.getInstance().NONE;
     }
-
 }
 

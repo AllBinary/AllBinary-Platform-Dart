@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.identification
 
-using System;
-using System.Linq;
-using Group = org.allbinary.game.identification.Group;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
 
-namespace org.allbinary.game.layer.identification;
+abstract interface class GroupItemArrayFactoryInterface {
+    
 
-public interface GroupItemArrayFactoryInterface
-{
-    // throws Exception
-    ABCustomItem[] getInstance(Group groupInterface);
-
+    List<ABCustomItem?> getInstance1(Group groupInterface);
 }
 

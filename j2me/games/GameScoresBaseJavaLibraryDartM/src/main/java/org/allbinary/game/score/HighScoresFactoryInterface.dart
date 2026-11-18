@@ -13,20 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresResultsListener.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBaseInterface.dart';
 
-namespace org.allbinary.game.score;
+abstract interface class HighScoresFactoryInterface {
+    
 
-public interface HighScoresFactoryInterface
-{
     void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener);
+    
 
     void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload);
+    
 
     HighScoresHelperBaseInterface createHighScoresHelper();
-
 }
 

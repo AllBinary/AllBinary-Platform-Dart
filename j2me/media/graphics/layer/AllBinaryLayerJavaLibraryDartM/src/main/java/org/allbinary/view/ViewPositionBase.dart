@@ -13,39 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.view
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
 
-namespace org.allbinary.view;
+class ViewPositionBase extends GPoint {
+    static final ViewPositionBase NULL_VIEW_POSITION = ViewPositionBase(0, 0, 0);
+    
 
-public class ViewPositionBase : GPoint
-{
-    public static readonly ViewPositionBase NULL_VIEW_POSITION = new ViewPositionBase(0, 0, 0);
-    public ViewPositionBase(int x, int y, int z) : base(x, y, z)
-    {
-        // base(x, y, z) is called from the constructor declaration
+    ViewPositionBase(int x, int y, int z) : super(x, y, z) {
+        
     }
+    
 
-    public virtual int getX2()
-    {
+    int getX2() {
         return this.getX();
     }
+    
 
-    public virtual int getY2()
-    {
+    int getY2() {
         return this.getY();
     }
+    
 
-    public virtual int getZ2()
-    {
+    int getZ2() {
         return this.getZ();
     }
+    
 
-    public virtual void setAllbinaryLayer(object allbinaryLayer)
-    {
+    void setAllbinaryLayer(Object allbinaryLayer) {
     }
-
 }
 

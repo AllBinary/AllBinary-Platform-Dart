@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoreCommandsBaseFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoreCommands.dart';
 
-namespace org.allbinary.game.score;
+class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory {
+    static final HighScoreCommandsFactory instance = HighScoreCommandsFactory();
+    
 
-public class HighScoreCommandsFactory : HighScoreCommandsBaseFactory
-{
-    private static readonly HighScoreCommandsFactory instance = new HighScoreCommandsFactory();
-    public static HighScoreCommandsFactory getInstance()
-    {
+    static HighScoreCommandsFactory getInstance() {
         return HighScoreCommandsFactory.instance;
     }
+    
 
-    private HighScoreCommandsFactory() : base(new Command[] { HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD })
-    {
-        // base(new Command[] { HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD }) is called from the constructor declaration
+    HighScoreCommandsFactory() : super(<Command?>[HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD]) {
+        
     }
-
 }
 

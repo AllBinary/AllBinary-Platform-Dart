@@ -13,23 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.configuration.persistance;
+class GamePersistanceStrings {
+    static final GamePersistanceStrings instance = GamePersistanceStrings();
+    late String SAVED_GAME_RECORD_ID;
+    late String SAVED_GAME_CONFIGURATION_RECORD_ID;
+    late String DEFAULT_INPUT_MAPPING_RECORD_ID;
+    late String SAVED_INPUT_CONFIGURATION_RECORD_ID;
 
-public class GamePersistanceStrings
-{
-    private static readonly GamePersistanceStrings instance = new GamePersistanceStrings();
-    public static GamePersistanceStrings getInstance()
-    {
-        return GamePersistanceStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGamePersistanceStrings() {
+    this.SAVED_GAME_RECORD_ID = "_SG";
+    this.SAVED_GAME_CONFIGURATION_RECORD_ID = "_SGC";
+    this.DEFAULT_INPUT_MAPPING_RECORD_ID = "_DIM";
+    this.SAVED_INPUT_CONFIGURATION_RECORD_ID = "_SIC";
     }
 
-    public readonly string SAVED_GAME_RECORD_ID = "_SG";
-    public readonly string SAVED_GAME_CONFIGURATION_RECORD_ID = "_SGC";
-    public readonly string DEFAULT_INPUT_MAPPING_RECORD_ID = "_DIM";
-    public readonly string SAVED_INPUT_CONFIGURATION_RECORD_ID = "_SIC";
+    GamePersistanceStrings() {
+        this.initFieldsGamePersistanceStrings();
+    }
+    
+
+    static GamePersistanceStrings getInstance() {
+        return GamePersistanceStrings.instance;
+    }
 }
 

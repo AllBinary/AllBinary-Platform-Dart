@@ -13,41 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using CommandListener = javax.microedition.lcdui.CommandListener;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LicenseUtil {
+    static final LicenseUtil instance = LicenseUtil();
+    
 
-public class LicenseUtil
-{
-    private static readonly LicenseUtil instance = new LicenseUtil();
-    public static LicenseUtil getInstance()
-    {
+    static LicenseUtil getInstance() {
         return LicenseUtil.instance;
     }
+    
 
-    public virtual void init()
-    {
+    void init() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool isRunning()
-    {
+    bool isRunning() {
         return false;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setRunning(bool running)
-    {
+    void setRunning(bool running) {
     }
+    
 
-    public virtual bool shouldWait(CommandListener commandListener)
-    {
+    bool shouldWait(CommandListener commandListener) {
         return this.isRunning();
     }
-
 }
 

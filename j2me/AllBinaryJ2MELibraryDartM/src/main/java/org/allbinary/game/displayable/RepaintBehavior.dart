@@ -13,44 +13,51 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Features = org.allbinary.game.configuration.feature.Features;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using NullRunnable = org.allbinary.thread.NullRunnable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/game/displayable/RepaintRunnable.dart';
 
-namespace org.allbinary.game.displayable;
+class RepaintBehavior {
+    static final RepaintBehavior instance = RepaintBehavior();
+    late LogUtil logUtil;
+    late String NAME;
 
-public class RepaintBehavior
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly RepaintBehavior instance = new RepaintBehavior();
-    public static RepaintBehavior getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRepaintBehavior() {
+    this.logUtil = LogUtil.getInstance();
+    this.NAME = "RepaintBehavior";
+    }
+
+    RepaintBehavior() {
+        this.initFieldsRepaintBehavior();
+    }
+    
+
+    static RepaintBehavior getInstance() {
         return RepaintBehavior.instance;
     }
+    
 
-    public virtual void repaint(Canvas canvas)
-    {
+    void repaint(Canvas canvas) {
     }
+    
 
-    private readonly string NAME = "RepaintBehavior";
-    public virtual void onChangeRepaint(Canvas canvas)
-    {
-        Features features = Features.getInstance();
-        OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+    void onChangeRepaint(Canvas canvas) {
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         if (features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton.getInstance().process();
         } else {
-            global::org.allbinary.thread.NullThread thread = new global::org.allbinary.thread.NullThread(new RepaintRunnable(canvas), this.NAME);
+            final Thread thread = Thread(RepaintRunnable(canvas), this.NAME);
             thread.start();
         }
     }
-
 }
 

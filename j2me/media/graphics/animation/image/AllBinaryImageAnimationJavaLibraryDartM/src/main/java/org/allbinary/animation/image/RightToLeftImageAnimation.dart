@@ -13,57 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using Anchor = org.allbinary.graphics.Anchor;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageSegmentAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class RightToLeftImageAnimation extends ImageSegmentAnimation {
+    int startWidth = 0;
+    int currentWidth = 0;
+    int anchor = 0;
 
-public class RightToLeftImageAnimation : ImageSegmentAnimation
-{
-    private int startWidth = 0;
-    private int currentWidth = 0;
-    public RightToLeftImageAnimation(Image image, AnimationBehavior animationBehavior) : base(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior)
-    {
-        // base(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsRightToLeftImageAnimation() {
+    this.startWidth = 0;
+    this.currentWidth = 0;
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    RightToLeftImageAnimation(Image image, AnimationBehavior animationBehavior) : super(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior) {
+        this.initFieldsRightToLeftImageAnimation();
+        
         this.setFrame(this.getSize() - 1);
     }
+    
 
-    public override void nextFrame()
-    {
-        base.previousFrame();
+    @override
+    void nextFrame() {
+        super.previousFrame();
         this.update();
     }
+    
 
-    public override void previousFrame()
-    {
-        base.nextFrame();
+    @override
+    void previousFrame() {
+        super.nextFrame();
         this.update();
     }
+    
 
-    public override void setFrame(int index)
-    {
-        base.setFrame(index);
+    @override
+    void setFrame(int index) {
+        super.setFrame(index);
         this.update();
     }
+    
 
-    private void update()
-    {
-        this.startWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
+    void update() {
+        this.startWidth = this.getDrawWidth() * this.getFrame() ~/ this.getSize();
         this.currentWidth = this.getDrawWidth() - this.startWidth;
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         graphics.drawRegion(this.getImage(), this.startWidth, this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x + this.startWidth, y, this.anchor);
     }
-
 }
 

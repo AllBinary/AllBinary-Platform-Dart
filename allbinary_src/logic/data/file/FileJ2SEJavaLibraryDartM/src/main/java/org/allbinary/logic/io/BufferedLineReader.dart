@@ -13,49 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using BufferedReader = java.io.BufferedReader;
-using FileReader = java.io.FileReader;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/BufferedReader.dart';
+import 'package:allbinary/java/io/FileReader.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFileNativeUtil.dart';
 
-namespace org.allbinary.logic.io;
+class BufferedLineReader {
+    late BufferedReader tmpIn;
 
-public class BufferedLineReader
-{
-    private readonly BufferedReader tmpIn;
-    public BufferedLineReader(AbFile file)
-    {
-        this.tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil.get(file)));
+    // Java field initializers run after the base constructor
+    void initFieldsBufferedLineReader() {
+    
     }
+    
 
-    public virtual void readUpToLines(long readAheadIndex)
-    {
+    BufferedLineReader(AbFile file) {
+        this.initFieldsBufferedLineReader();
+        this.tmpIn = BufferedReader(FileReader(AbFileNativeUtil.get(file)));
     }
+    
 
-    // throws Exception
-    public virtual string readLine()
-    {
+    void readUpToLines(int readAheadIndex) {
+    }
+    
+
+    String readLine() {
         return this.tmpIn.readLine();
     }
+    
 
-    // throws Exception
-    public virtual bool ready()
-    {
+    bool ready() {
         return this.tmpIn.ready();
     }
+    
 
-    public virtual long getSize()
-    {
-        return 0L;
-    }
-
-    public virtual int getCurrent()
-    {
+    int getSize() {
         return 0;
     }
+    
 
+    int getCurrent() {
+        return 0;
+    }
 }
 

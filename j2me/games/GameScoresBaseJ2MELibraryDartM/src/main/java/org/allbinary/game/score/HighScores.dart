@@ -13,87 +13,101 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresInterface.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScore.dart';
 
-namespace org.allbinary.game.score;
+class HighScores implements HighScoresInterface {
+    late BasicArrayList orderedHighScoresList;
+    late String name;
+    late String heading;
+    late String columnOneHeading;
+    late String columnTwoHeading;
 
-public class HighScores : HighScoresInterface
-{
-    private BasicArrayList orderedHighScoresList = new BasicArrayListD();
-    private readonly string name;
-    private readonly string heading;
-    private readonly string columnOneHeading = "Name";
-    private readonly string columnTwoHeading;
-    public HighScores(string name, string heading, string columnTwoHeading)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScores() {
+    this.orderedHighScoresList = BasicArrayListD();
+    
+    
+    this.columnOneHeading = "Name";
+    
+    }
+    
+
+    HighScores(String name, String heading, String columnTwoHeading) {
+        this.initFieldsHighScores();
         this.name = name;
         this.heading = heading;
         this.columnTwoHeading = columnTwoHeading;
     }
+    
 
-    public virtual void setList(BasicArrayList orderedHighScoresList)
-    {
+    void setList(BasicArrayList orderedHighScoresList) {
         this.orderedHighScoresList = orderedHighScoresList;
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    @override
+    BasicArrayList getList() {
         return this.orderedHighScoresList;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    public virtual int getTotal()
-    {
+    @override
+    int getTotal() {
         return this.getList().size();
     }
+    
 
-    public virtual void addHighScore(HighScore newHighScore)
-    {
+    @override
+    void addHighScore(HighScore newHighScore) {
         this.orderedHighScoresList.add(newHighScore);
     }
+    
 
-    public virtual string getHeading()
-    {
+    String getHeading() {
         return this.heading;
     }
+    
 
-    public virtual string getColumnOneHeading()
-    {
+    String getColumnOneHeading() {
         return this.columnOneHeading;
     }
+    
 
-    public virtual string getColumnTwoHeading()
-    {
+    String getColumnTwoHeading() {
         return this.columnTwoHeading;
     }
+    
 
-    // throws Exception
-    public virtual bool isBestScore(HighScore newHighScore)
-    {
+    @override
+    bool isBestScore(HighScore newHighScore) {
         return false;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("HighScores: ");
         stringBuffer.append(this.heading);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
         stringBuffer.appendint(this.orderedHighScoresList.size());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

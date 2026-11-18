@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package javax.microedition.lcdui
 
-using System;
-using System.Linq;
-
-namespace javax.microedition.lcdui;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/PlatformImage.dart';
 
 //PlatformNullImageJavaLibrary
-public class PostLoadPlatformImage : PlatformImage
-{
-    private static readonly PostLoadPlatformImage instance = new PostLoadPlatformImage();
-    public static PostLoadPlatformImage getInstance()
-    {
+class PostLoadPlatformImage extends PlatformImage {
+    static final PostLoadPlatformImage instance = PostLoadPlatformImage();
+    
+
+    static PostLoadPlatformImage getInstance() {
         return PostLoadPlatformImage.instance;
     }
-
 }
 

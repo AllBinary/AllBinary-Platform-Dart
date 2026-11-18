@@ -13,25 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.font
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
 
-namespace org.allbinary.graphics.font;
+class UpdateMyFontProcessor extends MyFontProcessor {
+    late UpdateMyFontInterface updateMeasurementProcessor;
 
-public class UpdateMyFontProcessor : MyFontProcessor
-{
-    private readonly UpdateMyFontInterface updateMeasurementProcessor;
-    public UpdateMyFontProcessor(UpdateMyFontInterface keyValueDrawCharArray)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsUpdateMyFontProcessor() {
+    
+    }
+    
+
+    UpdateMyFontProcessor(UpdateMyFontInterface keyValueDrawCharArray) {
+        this.initFieldsUpdateMyFontProcessor();
         this.updateMeasurementProcessor = keyValueDrawCharArray;
     }
+    
 
-    public override void process(Graphics graphics)
-    {
+    @override
+    void process(Graphics graphics) {
         this.updateMeasurementProcessor.updateMeasurement(graphics);
     }
-
 }
 

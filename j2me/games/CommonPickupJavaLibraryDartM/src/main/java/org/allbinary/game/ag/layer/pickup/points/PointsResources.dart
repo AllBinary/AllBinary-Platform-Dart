@@ -13,27 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.points
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+class PointsResources {
+    static final PointsResources SINGLETON = PointsResources();
+    late String RESOURCE;
+    late String RESOURCE_2;
+    late String RESOURCE_3;
+    late String RESOURCE_4;
 
-public class PointsResources
-{
-    private static readonly PointsResources SINGLETON = new PointsResources();
-    public string RESOURCE = "points_drop_20_by_20.png";
-    public string RESOURCE_2 = "points_2_drop_20_by_20.png";
-    public string RESOURCE_3 = "points_3_drop_20_by_20.png";
-    public string RESOURCE_4 = "points_4_drop_20_by_20.png";
-    private PointsResources()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPointsResources() {
+    this.RESOURCE = "points_drop_20_by_20.png";
+    this.RESOURCE_2 = "points_2_drop_20_by_20.png";
+    this.RESOURCE_3 = "points_3_drop_20_by_20.png";
+    this.RESOURCE_4 = "points_4_drop_20_by_20.png";
     }
+    
 
-    public static PointsResources getInstance()
-    {
+    PointsResources() {
+        this.initFieldsPointsResources();
+    }
+    
+
+    static PointsResources getInstance() {
         return PointsResources.SINGLETON;
     }
-
 }
 

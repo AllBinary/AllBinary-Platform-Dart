@@ -13,45 +13,64 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image.sprite
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using Player = javax.microedition.media.Player;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using CaptionIndexedAnimation = org.allbinary.animation.caption.CaptionIndexedAnimation;
-using ImageAnimation = org.allbinary.animation.image.ImageAnimation;
-using BasicColorUtil = org.allbinary.graphics.color.BasicColorUtil;
-using AnimationFactoryImageScaleUtil = org.allbinary.image.AnimationFactoryImageScaleUtil;
-using AnimationFactorySpriteScaleUtil = org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-using Sound = org.allbinary.media.audio.Sound;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/javax/microedition/media/Player.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/caption/CaptionIndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorUtil.dart';
+import 'package:allbinary/org/allbinary/image/AnimationFactoryImageScaleUtil.dart';
+import 'package:allbinary/org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
+import 'package:allbinary/org/allbinary/animation/image/sprite/SpriteIndexedAnimation.dart';
 
-namespace org.allbinary.animation.image.sprite;
+class ImageCaptionIndexedAnimationFactory implements AnimationInterfaceFactoryInterface {
+    late AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil;
+    late AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil;
+    late Image captionImage;
+    late Image spriteMovieImage;
+    int frameWidth = 0;
+    int frameHeight = 0;
+    int captionDx = 0;
+    int captionDy = 0;
+    int dx = 0;
+    int dy = 0;
+    int time = 0;
+    late Sound soundInterface;
+    late ScaleProperties scaleProperties;
+    late AnimationBehaviorFactory animationBehaviorFactory;
 
-public class ImageCaptionIndexedAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    public readonly AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
-    private readonly AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
-    private Image captionImage;
-    private Image spriteMovieImage;
-    private int frameWidth;
-    private int frameHeight;
-    private int captionDx;
-    private int captionDy;
-    private int dx;
-    private int dy;
-    private int time;
-    private Sound soundInterface;
-    public ScaleProperties scaleProperties = ScaleProperties.instance;
-    private readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public ImageCaptionIndexedAnimationFactory(Image captionImage, Image spriteMovieImage, Sound soundInterface, int frameWidth, int frameHeight, int captionDx, int captionDy, int dx, int dy, int time, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsImageCaptionIndexedAnimationFactory() {
+    this.animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
+    this.animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    this.scaleProperties = ScaleProperties.instance;
+    
+    }
+    
+
+    ImageCaptionIndexedAnimationFactory(Image captionImage, Image spriteMovieImage, Sound soundInterface, int frameWidth, int frameHeight, int captionDx, int captionDy, int dx, int dy, int time, AnimationBehaviorFactory animationBehaviorFactory) {
+        this.initFieldsImageCaptionIndexedAnimationFactory();
         if (animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
             ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
         }
@@ -67,25 +86,25 @@ public class ImageCaptionIndexedAnimationFactory : AnimationInterfaceFactoryInte
         this.soundInterface = soundInterface;
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
-        Animation animationInterface = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
-        Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
-        IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
+    @override
+    Animation getInstance1(int instanceId) {
+        final Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Animation animationInterface = ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
+        final Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final IndexedAnimation movieIndexedAnimationInterface = SpriteIndexedAnimation(sprite, this.spriteMovieImage, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
         Player player = this.soundInterface.getPlayerP();
         if (player == null) {
-            throw new Exception("Sound Was not Initialized");
+            throw JException('Exception', "Sound Was not Initialized");
         }
-        return new CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface, player, this.captionDx, this.captionDy, this.dx, this.dy, this.time, this.animationBehaviorFactory.getOrCreateInstance());
+        return CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface, player, this.captionDx, this.captionDy, this.dx, this.dy, this.time, this.animationBehaviorFactory.getOrCreateInstance());
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
         this.scaleProperties = scaleProperties;
     }
-
 }
 

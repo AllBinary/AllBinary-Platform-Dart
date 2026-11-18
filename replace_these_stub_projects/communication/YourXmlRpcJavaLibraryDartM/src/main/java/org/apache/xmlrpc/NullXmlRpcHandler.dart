@@ -13,23 +13,21 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.apache.xmlrpc
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/apache/xmlrpc/XmlRpcHandler.dart';
 
-namespace org.apache.xmlrpc;
+class NullXmlRpcHandler implements XmlRpcHandler {
+    static final NullXmlRpcHandler NULL_XML_RPC_HANDLER = NullXmlRpcHandler();
+    
 
-public class NullXmlRpcHandler : XmlRpcHandler
-{
-    public static readonly NullXmlRpcHandler NULL_XML_RPC_HANDLER = new NullXmlRpcHandler();
-    // throws Exception
-    public virtual object execute(string method, BasicArrayList @params)
-    {
+    @override
+    Object execute(String method, BasicArrayList params) {
         return NullUtil.getInstance().NULL_OBJECT;
     }
-
 }
 

@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.communication.log
 
 import 'package:allbinary/allbinary_java.dart';
@@ -23,7 +23,7 @@ import 'package:allbinary/org/allbinary/logic/communication/log/LogFormatUtil.da
 
 //ActualPlatform
 class PreLogUtil {
-    static final String LOG_SUCCESS = "org.allbinary: ";
+    static const String LOG_SUCCESS = "org.allbinary: ";
     
 
     PreLogUtil() {
@@ -38,7 +38,7 @@ class PreLogUtil {
     static void putOE(String specialMessage, Object anyType, String functionName, Object exception) {
         String className = CommonStrings.getInstance().EMPTY;
         if (jClassName(anyType) != null) {
-            className = jClassName(anyType);
+            className = jNewString(jClassName(anyType));
         }
         final String message = LogFormatUtil.getInstance().get(className, functionName, specialMessage, exception);
         JSystem.println(jstr(PreLogUtil.LOG_SUCCESS));

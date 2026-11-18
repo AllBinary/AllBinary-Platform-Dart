@@ -13,30 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHudFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.game.health;
+class HealthBarAnimation extends Animation {
+    late BasicColorFactory basicColorFactory;
+    int x2 = 0;
+    int thickness = 0;
+    int location = 0;
+    late AllBinaryLayer allbinaryLayer;
 
-public class HealthBarAnimation : Animation
-{
-    private readonly BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
-    public int x2 = 0;
-    public int thickness = 0;
-    private int location;
-    public AllBinaryLayer allbinaryLayer;
-    public HealthBarAnimation(AllBinaryLayer layerInterface, int location)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHealthBarAnimation() {
+    this.basicColorFactory = BasicColorFactory.getInstance();
+    this.x2 = 0;
+    this.thickness = 0;
+    
+    
+    }
+    
+
+    HealthBarAnimation(AllBinaryLayer layerInterface, int location) {
+        this.initFieldsHealthBarAnimation();
         this.allbinaryLayer = layerInterface;
         this.location = location;
-        BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
+        final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
         if (this.location != basicHudFactory.TOPLEFT && this.location != basicHudFactory.BOTTOMLEFT) {
-            throw new Exception("Location Not Valid");
+            throw JException('Exception', "Location Not Valid");
         }
         if (layerInterface.getWidth() > 40) {
             this.thickness = 3;
@@ -46,29 +55,29 @@ public class HealthBarAnimation : Animation
             this.thickness = 1;
         }
     }
+    
 
-    public virtual void onHealthChange(int newX2)
-    {
+    void onHealthChange(int newX2) {
         this.x2 = newX2;
         int quarter = (this.allbinaryLayer.getWidth() >> 2);
         if (this.x2 > quarter * 3) {
             this.basicColor = this.basicColorFactory.GREEN;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         } else if (this.x2 > quarter * 2) {
             this.basicColor = this.basicColorFactory.YELLOW;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         } else if (this.x2 > quarter) {
             this.basicColor = this.basicColorFactory.ORANGE;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         } else {
             this.basicColor = this.basicColorFactory.RED;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         }
     }
+    
 
-    public virtual int getY()
-    {
-        BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
+    int getY() {
+        final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
         if (this.location == basicHudFactory.TOPLEFT) {
             return this.allbinaryLayer.getViewPosition().getY() - 4;
         } else if (this.location == basicHudFactory.BOTTOMLEFT) {
@@ -76,6 +85,5 @@ public class HealthBarAnimation : Animation
         }
         return -1;
     }
-
 }
 

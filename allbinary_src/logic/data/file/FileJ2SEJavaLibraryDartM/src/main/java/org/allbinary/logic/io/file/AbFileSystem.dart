@@ -13,88 +13,112 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-using File = java.io.File;
-using FileInputStream = java.io.FileInputStream;
-using InputStream = java.io.InputStream;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.logic.io.file;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/File.dart';
+import 'package:allbinary/java/io/FileInputStream.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
 //FileJ2SE should be the same as J2SEForJ2ME
-public class AbFileSystem
-{
-    private static readonly AbFileSystem instance = new AbFileSystem();
-    public static AbFileSystem getInstance()
-    {
+class AbFileSystem {
+    static final AbFileSystem instance = AbFileSystem();
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+
+    // Java field initializers run after the base constructor
+    void initFieldsAbFileSystem() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    }
+
+    AbFileSystem() {
+        this.initFieldsAbFileSystem();
+    }
+    
+
+    static AbFileSystem getInstance() {
         return AbFileSystem.instance;
     }
+    
 
-    private readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual bool isDirectoryOrFile(string path)
-    {
-        File file = new File(path);
+    bool isDirectoryOrFile(String path) {
+        final File file = File(path);
         return file.isDirectory() || file.isFile();
     }
+    
 
-    public virtual bool isDirectory(string path)
-    {
-        return new File(path).isDirectory();
+    bool isDirectory(String path) {
+        return File(path).isDirectory();
     }
+    
 
-    public virtual string[] getFilesAsStringArrayForPath(string currentDirPath)
-    {
-        File file = new File(currentDirPath);
+    List<String?> getFilesAsStringArrayForPath(String currentDirPath) {
+        final File file = File(currentDirPath);
         if (file.exists()) {
             return file.list();
         } else {
             return StringUtil.getInstance().getArrayInstance();
         }
     }
+    
 
-    public virtual string readAsString(string fileName)
-    {
-        sbyte[] bytes = new sbyte[1000000];
-        return this.readAsString(fileName, bytes);
+    String readAsString([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is String) {
+            return this.readAsString$1(p0);
+        }
+        if (!identical(p1, jnone) && p0 is String && jIsList(p1)) {
+            return this.readAsString$2(p0, p1);
+        }
+        throw JException('NoSuchMethodError', 'readAsString');
     }
 
-    public virtual string readAsString(string fileName, sbyte[] bytes)
-    {
-        object closeable = NullUtil.getInstance().NULL_OBJECT;
+    String readAsString$1(String fileName) {
+        final List<int> bytes = List<int>.filled(1000000, 0);
+        return this.readAsString(fileName, bytes);
+    }
+    
+
+    String readAsString$2(String fileName, List<int> bytes) {
+        Object closeable = NullUtil.getInstance().NULL_OBJECT;
         try {
-            InputStream idFile = new FileInputStream(fileName);
+            final InputStream idFile = FileInputStream(fileName);
             closeable = idFile;
-            int size = idFile.read(bytes);
+            final int size = idFile.read(bytes);
             if (size > 0) {
-                return System.Text.Encoding.UTF8.GetString((byte[]) (Array) bytes, 0, size);
+                return JString.fromChars(bytes, 0, size);
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "readAsString", e);
+            }
         } finally {
             this.close(closeable);
         }
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool close(object closeable)
-    {
+    bool close(Object closeable) {
         try {
             if (closeable != null) {
-                InputStream inputStream = (((InputStream) closeable));
+                final InputStream inputStream = ((closeable as InputStream));
                 inputStream.close();
             }
             return true;
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
             return false;
+            }
         }
     }
-
 }
 

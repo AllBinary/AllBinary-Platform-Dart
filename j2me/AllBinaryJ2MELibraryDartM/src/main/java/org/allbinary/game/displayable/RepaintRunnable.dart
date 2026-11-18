@@ -13,36 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using ARunnable = org.allbinary.thread.ARunnable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/thread/ARunnable.dart';
 
-namespace org.allbinary.game.displayable;
+class RepaintRunnable extends ARunnable {
+    late Canvas canvas;
 
-public class RepaintRunnable : ARunnable
-{
-    private readonly Canvas canvas;
-    public RepaintRunnable(Canvas canvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRepaintRunnable() {
+    
+    }
+    
+
+    RepaintRunnable(Canvas canvas) {
+        this.initFieldsRepaintRunnable();
         this.canvas = canvas;
     }
+    
 
-    public override void run()
-    {
+    @override
+    void run() {
         try {
             this.canvas.repaint();
             DisplayInfoSingleton.getInstance().process();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil logUtil = LogUtil.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            final LogUtil logUtil = LogUtil.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
         }
     }
-
 }
 

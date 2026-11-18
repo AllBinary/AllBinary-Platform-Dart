@@ -13,28 +13,28 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/image/BaseImageAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/animation/image/TopToBottomImageAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class TopToBottomImageAnimationFactory extends BaseImageAnimationFactory {
+    
 
-public class TopToBottomImageAnimationFactory : BaseImageAnimationFactory
-{
-    public TopToBottomImageAnimationFactory(Image image, int[] sequenceArray, AnimationBehaviorFactory animationBehaviorFactory) : base(image, sequenceArray, image.getWidth(), image.getHeight(), 0, 0, animationBehaviorFactory)
-    {
-        // base(image, sequenceArray, image.getWidth(), image.getHeight(), 0, 0, animationBehaviorFactory) is called from the constructor declaration
+    TopToBottomImageAnimationFactory(Image image, List<int> sequenceArray, AnimationBehaviorFactory animationBehaviorFactory) : super(image, sequenceArray, image.getWidth(), image.getHeight(), 0, 0, animationBehaviorFactory) {
+        
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
-        Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
-        return new TopToBottomImageAnimation(scaledImage, this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
+    @override
+    Animation getInstance1(int instanceId) {
+        final Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        return TopToBottomImageAnimation(scaledImage, this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
     }
-
 }
 

@@ -13,25 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/LocationPaintable.dart';
 
-namespace org.allbinary.graphics.paint;
+class StringLocationPaintable extends LocationPaintable {
+    late String value;
 
-public class StringLocationPaintable : LocationPaintable
-{
-    private readonly string value;
-    public StringLocationPaintable(string value)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsStringLocationPaintable() {
+    
+    }
+    
+
+    StringLocationPaintable(String value) {
+        this.initFieldsStringLocationPaintable();
         this.value = value;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         graphics.drawString(this.value, x, y, 0);
     }
-
 }
 

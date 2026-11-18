@@ -13,58 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.commands
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.commands;
+class GameCommandsFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late Command TOGGLE_FULLSCREEN;
+    late Command TOGGLE_KEYBOARD;
+    late Command SET_MENU_DISPLAYABLE;
+    late Command APPLICATION_UPDATE;
+    late Command DISPLAY_ABOUT;
+    late Command OPEN_WEB_URL;
+    late Command CLOSE_OPTIONS;
+    late Command DISPLAY_OPTIONS;
+    late Command START_TRACE;
+    late Command STOP_TRACE;
+    late Command DEFAULT_OPTIONS;
+    late Command SHOW_GAME_CANVAS;
+    late Command CLOSE_AND_SHOW_GAME_CANVAS;
+    late Command QUIT_COMMAND;
+    late Command RESTART_COMMAND;
+    late Command DISPLAY_SAVE_FORM;
+    late Command SAVE;
+    late Command DISPLAY_LOAD_FORM;
+    late Command LOAD_FILE;
+    late Command DELETE_FILE;
+    late Command EXIT_COMMAND;
+    late Command EXIT_WITHOUT_PROGRESS_COMMAND;
+    late Command START_COMMAND;
+    late Command CONTINUE_COMMAND;
+    late Command SELECT_COMMAND;
+    late Command FEATURE_UPDATE;
+    late Command BUY_COMMAND;
 
-public class GameCommandsFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameCommandsFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameCommandsFactory() {
+    this.TOGGLE_FULLSCREEN = Command.with4("Toggle FullScreen", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.TOGGLE_KEYBOARD = Command.with4("Keyboard", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.SET_MENU_DISPLAYABLE = Command.with4("Set Menu Displayable", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.APPLICATION_UPDATE = Command.with4(CommonStrings.getInstance().UPDATE, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.DISPLAY_ABOUT = Command.with4(CanvasStrings.getInstance().ABOUT, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.OPEN_WEB_URL = Command.with4("Open Web URL", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.CLOSE_OPTIONS = Command.with4("Back", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.DISPLAY_OPTIONS = Command.with4(CanvasStrings.getInstance().OPTIONS, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.START_TRACE = Command.with4("Start Trace", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.STOP_TRACE = Command.with4("Stop Trace", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.DEFAULT_OPTIONS = Command.with4("Default", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.SHOW_GAME_CANVAS = Command.with4("Back to Game", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.CLOSE_AND_SHOW_GAME_CANVAS = Command.with4("Back", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.QUIT_COMMAND = Command.with4("Quit", StringUtil.getInstance().EMPTY_STRING, Command.STOP, 1);
+    this.RESTART_COMMAND = Command.with4("Restart", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
+    this.DISPLAY_SAVE_FORM = Command.with4("Save To", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.SAVE = Command.with4("Save", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.DISPLAY_LOAD_FORM = Command.with4("Load", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.LOAD_FILE = Command.with4("Load File", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.DELETE_FILE = Command.with4("Delete File", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.EXIT_COMMAND = Command.with4("Exit", StringUtil.getInstance().EMPTY_STRING, Command.EXIT, 2);
+    this.EXIT_WITHOUT_PROGRESS_COMMAND = Command.with4("Exit Without Progress", StringUtil.getInstance().EMPTY_STRING, Command.EXIT, 2);
+    this.START_COMMAND = Command.with4(CommonStrings.getInstance().START, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.CONTINUE_COMMAND = Command.with4("Continue", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.SELECT_COMMAND = Command.with4("Select", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.FEATURE_UPDATE = Command.with4("Feature Update", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.BUY_COMMAND = Command.with4("BUY", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    }
+    
+
+    static GameCommandsFactory getInstance() {
         if (GameCommandsFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            GameCommandsFactory.instance = new GameCommandsFactory();
+            GameCommandsFactory.instance = GameCommandsFactory();
         }
-        return ((GameCommandsFactory) GameCommandsFactory.instance);
+        return (GameCommandsFactory.instance as GameCommandsFactory);
     }
+    
 
-    public readonly Command TOGGLE_FULLSCREEN = new Command("Toggle FullScreen", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command TOGGLE_KEYBOARD = new Command("Keyboard", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command SET_MENU_DISPLAYABLE = new Command("Set Menu Displayable", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command APPLICATION_UPDATE = new Command(CommonStrings.getInstance().UPDATE, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command DISPLAY_ABOUT = new Command(CanvasStrings.getInstance().ABOUT, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
-    public readonly Command OPEN_WEB_URL = new Command("Open Web URL", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
-    public readonly Command CLOSE_OPTIONS = new Command("Back", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command DISPLAY_OPTIONS = new Command(CanvasStrings.getInstance().OPTIONS, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
-    public readonly Command START_TRACE = new Command("Start Trace", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command STOP_TRACE = new Command("Stop Trace", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command DEFAULT_OPTIONS = new Command("Default", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command SHOW_GAME_CANVAS = new Command("Back to Game", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command CLOSE_AND_SHOW_GAME_CANVAS = new Command("Back", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command QUIT_COMMAND = new Command("Quit", StringUtil.getInstance().EMPTY_STRING, Command.STOP, 1);
-    public readonly Command RESTART_COMMAND = new Command("Restart", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
-    public readonly Command DISPLAY_SAVE_FORM = new Command("Save To", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
-    public readonly Command SAVE = new Command("Save", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
-    public readonly Command DISPLAY_LOAD_FORM = new Command("Load", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
-    public readonly Command LOAD_FILE = new Command("Load File", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
-    public readonly Command DELETE_FILE = new Command("Delete File", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command EXIT_COMMAND = new Command("Exit", StringUtil.getInstance().EMPTY_STRING, Command.EXIT, 2);
-    public readonly Command EXIT_WITHOUT_PROGRESS_COMMAND = new Command("Exit Without Progress", StringUtil.getInstance().EMPTY_STRING, Command.EXIT, 2);
-    public readonly Command START_COMMAND = new Command(CommonStrings.getInstance().START, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command CONTINUE_COMMAND = new Command("Continue", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command SELECT_COMMAND = new Command("Select", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command FEATURE_UPDATE = new Command("Feature Update", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command BUY_COMMAND = new Command("BUY", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public GameCommandsFactory()
-    {
+    GameCommandsFactory() {
+        this.initFieldsGameCommandsFactory();
     }
-
 }
 

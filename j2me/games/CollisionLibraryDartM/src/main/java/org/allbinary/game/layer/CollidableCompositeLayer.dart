@@ -13,81 +13,90 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using ArtificialIntelligence = org.allbinary.ai.ArtificialIntelligence;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using CollidableBaseBehavior = org.allbinary.game.collision.CollidableBaseBehavior;
-using CollidableBaseBehaviorFactory = org.allbinary.game.collision.CollidableBaseBehaviorFactory;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using CollidableNeverCollideBehaviorFactory = org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligence.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehavior.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableNeverCollideBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/RectangleFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
 
-namespace org.allbinary.game.layer;
+class CollidableCompositeLayer extends AllBinaryGameLayer implements CollidableInterfaceCompositeInterface {
+    static Object NULL_COLLIDABLE_COMPOSITE_LAYER = NullUtil.getInstance().NULL_OBJECT;
+    late CollidableBaseBehavior collidableInferface;
 
-public class CollidableCompositeLayer : AllBinaryGameLayer, CollidableInterfaceCompositeInterface
-{
-    private static object NULL_COLLIDABLE_COMPOSITE_LAYER = NullUtil.getInstance().NULL_OBJECT;
-    public static CollidableCompositeLayer getNullInstance()
-    {
-        if (CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
-            CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
-        }
-        return ((CollidableCompositeLayer) CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER);
+    // Java field initializers run after the base constructor
+    void initFieldsCollidableCompositeLayer() {
+    this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
     }
+    
 
-    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
-    public CollidableCompositeLayer(string name, Rectangle layerInfo, ViewPositionBase viewPosition, CollidableBaseBehaviorFactory collidableBaseBehaviorFactory) : base(name, layerInfo, viewPosition)
-    {
-        // base(name, layerInfo, viewPosition) is called from the constructor declaration
+    static CollidableCompositeLayer getNullInstance() {
+        if (CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
+            CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER = CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
+        }
+        return (CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER as CollidableCompositeLayer);
+    }
+    
+
+    CollidableCompositeLayer(String name, Rectangle layerInfo, ViewPositionBase viewPosition, CollidableBaseBehaviorFactory collidableBaseBehaviorFactory) : super(name, layerInfo, viewPosition) {
+        this.initFieldsCollidableCompositeLayer();
+        
         if (collidableBaseBehaviorFactory != CollidableNeverCollideBehaviorFactory.getInstance()) {
             this.setCollidableInferface(collidableBaseBehaviorFactory.createBehavior());
         }
     }
+    
 
-    public virtual ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
-    {
+    ArtificialIntelligenceInterface getArtificialIntelligenceInterface() {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
         return ArtificialIntelligence.getInstance();
     }
+    
 
-    public virtual CollidableBaseBehavior getCollidableInferface()
-    {
+    @override
+    CollidableBaseBehavior getCollidableInferface() {
         return this.collidableInferface;
     }
+    
 
-    public virtual void setCollidableInferface(CollidableBaseBehavior collidableInferface)
-    {
+    void setCollidableInferface(CollidableBaseBehavior collidableInferface) {
         this.collidableInferface = collidableInferface;
     }
+    
 
-    public override bool implmentsCollidableInterface()
-    {
+    @override
+    bool implmentsCollidableInterface() {
         return true;
     }
+    
 
-    public override void toStringAppend(StringMaker stringBuffer)
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        base.toStringAppend(stringBuffer);
+    @override
+    void toStringAppend(StringMaker stringBuffer) {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        super.toStringAppend(stringBuffer);
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(this.getCollidableInferface().ToString());
+        stringBuffer.append(this.getCollidableInferface().toString());
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         this.toStringAppend(stringBuffer);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

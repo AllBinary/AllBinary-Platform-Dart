@@ -13,53 +13,61 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using TextField = javax.microedition.lcdui.TextField;
-using CustomTextBox = org.allbinary.graphics.form.item.CustomTextBox;
-using Animation = org.allbinary.animation.Animation;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using ABToGBUtil = org.allbinary.game.canvas.ABToGBUtil;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/TextField.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/CustomTextBox.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/canvas/ABToGBUtil.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/text/CustomTextBox2.dart';
+import 'package:allbinary/org/allbinary/animation/text/CustomTextBoxIndexedAnimation.dart';
 
-namespace org.allbinary.animation.text;
+class CustomTextBoxIndexedAnimationFactory implements AnimationInterfaceFactoryInterface {
+    late LogUtil logUtil;
+    late ScaleProperties scaleProperties;
+    int maxLength = 0;
 
-public class CustomTextBoxIndexedAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public ScaleProperties scaleProperties;
-    private readonly int maxLength;
-    public CustomTextBoxIndexedAnimationFactory(int fontSize, int maxLength)
-    {
-        this.scaleProperties = new ScaleProperties();
+    // Java field initializers run after the base constructor
+    void initFieldsCustomTextBoxIndexedAnimationFactory() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    }
+    
+
+    CustomTextBoxIndexedAnimationFactory(int fontSize, int maxLength) {
+        this.initFieldsCustomTextBoxIndexedAnimationFactory();
+        this.scaleProperties = ScaleProperties();
         this.scaleProperties.scaleHeight = fontSize;
         this.maxLength = maxLength;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        ABToGBUtil abToGBUtil = ABToGBUtil.getInstance();
-        AllBinaryGameCanvas abCanvas = ((AllBinaryGameCanvas) abToGBUtil.abCanvas);
-        Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleProperties.scaleHeight);
-        CustomTextBox customTextBox = new CustomTextBox2(abCanvas.getCustomCommandListener(), StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, this.maxLength, TextField.ANY, font, abCanvas.getLayerManager().getBackgroundBasicColor(), abCanvas.getLayerManager().getForegroundBasicColor());
-        return new CustomTextBoxIndexedAnimation(customTextBox);
+    @override
+    Animation getInstance1(int instanceId) {
+        final ABToGBUtil abToGBUtil = ABToGBUtil.getInstance();
+        final AllBinaryGameCanvas abCanvas = (abToGBUtil.abCanvas as AllBinaryGameCanvas);
+        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleProperties.scaleHeight);
+        final CustomTextBox customTextBox = CustomTextBox2(abCanvas.getCustomCommandListener(), StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, this.maxLength, TextField.ANY, font, abCanvas.getLayerManager().getBackgroundBasicColor(), abCanvas.getLayerManager().getForegroundBasicColor());
+        return CustomTextBoxIndexedAnimation(customTextBox);
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
-        int fontSize = this.scaleProperties.scaleHeight;
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
+        final int fontSize = this.scaleProperties.scaleHeight;
         this.scaleProperties = scaleProperties;
         if (this.scaleProperties.scaleHeight < 6) {
             this.scaleProperties.scaleHeight = fontSize;
         }
     }
-
 }
 

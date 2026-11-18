@@ -13,27 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.emulator.swt
 
-using System;
-using System.Linq;
-using Display = org.eclipse.swt.widgets.Display;
-using NullRunnable = org.allbinary.thread.NullRunnable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/eclipse/swt/widgets/Display.dart';
+import 'package:allbinary/org/allbinary/thread/NullRunnable.dart';
 
-namespace org.allbinary.emulator.swt;
+class SWTProcessor {
+    static final SWTProcessor instance = SWTProcessor();
+    late Runnable runnable;
 
-public class SWTProcessor
-{
-    private static readonly SWTProcessor instance = new SWTProcessor();
-    public static SWTProcessor getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSWTProcessor() {
+    this.runnable = NullRunnable.getInstance();
+    }
+
+    SWTProcessor() {
+        this.initFieldsSWTProcessor();
+    }
+    
+
+    static SWTProcessor getInstance() {
         return SWTProcessor.instance;
     }
+    
 
-    public global::java.lang.Runnable runnable = NullRunnable.getInstance();
-    public virtual void process(Display display)
-    {
+    void process(Display display) {
         display.sleep();
     }
-
 }
 

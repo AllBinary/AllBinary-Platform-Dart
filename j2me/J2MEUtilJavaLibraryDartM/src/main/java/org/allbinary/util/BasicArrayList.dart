@@ -1,5 +1,5 @@
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.util
 
 import 'package:allbinary/allbinary_java.dart';
@@ -11,7 +11,7 @@ import 'package:allbinary/org/allbinary/util/BasicArrayListS.dart';
 
 //This is a very fast and simple resizable list.
 class BasicArrayList {
-    static final String SIZE = ", Size: ";
+    static const String SIZE = ", Size: ";
     late ArrayUtil arrayUtil;
     late List<Object?> objectArray;
     int currentIndex = 0;

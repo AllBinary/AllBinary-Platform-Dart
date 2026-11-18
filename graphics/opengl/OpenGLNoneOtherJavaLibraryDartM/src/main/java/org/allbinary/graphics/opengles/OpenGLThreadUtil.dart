@@ -1,29 +1,27 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics.opengles;
+class OpenGLThreadUtil {
+    static final OpenGLThreadUtil instance = OpenGLThreadUtil();
+    
 
-public class OpenGLThreadUtil
-{
-    private static readonly OpenGLThreadUtil instance = new OpenGLThreadUtil();
-    public static OpenGLThreadUtil getInstance()
-    {
+    static OpenGLThreadUtil getInstance() {
         return OpenGLThreadUtil.instance;
     }
+    
 
-    public virtual void set(object glSurfaceView)
-    {
+    void set(Object glSurfaceView) {
     }
+    
 
-    public virtual void onPause()
-    {
+    void onPause() {
     }
+    
 
-    public virtual void onResume()
-    {
+    void onResume() {
     }
-
 }
 

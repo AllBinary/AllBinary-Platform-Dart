@@ -13,41 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using NullPlayerGameInputComposite = org.allbinary.game.input.NullPlayerGameInputComposite;
-using PlayerGameInputCompositeInterface = org.allbinary.game.input.PlayerGameInputCompositeInterface;
-using ItemColorFactory = org.allbinary.graphics.ItemColorFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
-using NullUtil = org.allbinary.logic.NullUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/game/input/NullPlayerGameInputComposite.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInputCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/ItemColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.game.layer;
+class AllBinaryGameLayerManager extends AllBinaryLayerManager {
+    static Object NULL_ALLBINARY_LAYER_MANAGER = NullUtil.getInstance().NULL_OBJECT;
+    static final int ID = SmallIntegerSingletonFactory.getInstance().getAt(22);
+    late BasicColor backgroundBasicColor;
+    late BasicColor foregroundBasicColor;
+    late GameInfo gameInfo;
+    late PlayerGameInputCompositeInterface playerGameInputCompositeInterface;
 
-public class AllBinaryGameLayerManager : AllBinaryLayerManager
-{
-    private static object NULL_ALLBINARY_LAYER_MANAGER = NullUtil.getInstance().NULL_OBJECT;
-    public static AllBinaryGameLayerManager getNullInstance()
-    {
-        if (AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER == NullUtil.getInstance().NULL_OBJECT) {
-            AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER = new AllBinaryGameLayerManager(BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE, GameInfo.NONE);
-        }
-        return ((AllBinaryGameLayerManager) AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER);
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryGameLayerManager() {
+    
+    
+    
+    this.playerGameInputCompositeInterface = NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE;
     }
+    
 
-    public static readonly int? ID = SmallIntegerSingletonFactory.getInstance().getAt(22);
-    private BasicColor backgroundBasicColor;
-    private BasicColor foregroundBasicColor;
-    private GameInfo gameInfo;
-    private PlayerGameInputCompositeInterface playerGameInputCompositeInterface = NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE;
-    public AllBinaryGameLayerManager(BasicColor backgroundBasicColor, BasicColor foregroundBasicColor, GameInfo gameInfo)
-    {
+    static AllBinaryGameLayerManager getNullInstance() {
+        if (AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER == NullUtil.getInstance().NULL_OBJECT) {
+            AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER = AllBinaryGameLayerManager(BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE, GameInfo.NONE);
+        }
+        return (AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER as AllBinaryGameLayerManager);
+    }
+    
+
+    AllBinaryGameLayerManager(BasicColor backgroundBasicColor, BasicColor foregroundBasicColor, GameInfo gameInfo) {
+        this.initFieldsAllBinaryGameLayerManager();
         this.backgroundBasicColor = backgroundBasicColor;
         this.foregroundBasicColor = foregroundBasicColor;
         ItemColorFactory itemColorFactory = ItemColorFactory.getInstance();
@@ -55,67 +63,66 @@ public class AllBinaryGameLayerManager : AllBinaryLayerManager
         itemColorFactory.PAINT = this.foregroundBasicColor.intValue();
         this.gameInfo = gameInfo;
     }
+    
 
-    public virtual AllBinaryLayerManager getLayerManager()
-    {
+    AllBinaryLayerManager getLayerManager() {
         return this;
     }
+    
 
-    public virtual void init()
-    {
+    void init() {
     }
+    
 
-    public virtual BasicColor getBackgroundBasicColor()
-    {
+    BasicColor getBackgroundBasicColor() {
         return this.backgroundBasicColor;
     }
+    
 
-    public virtual void setBackgroundBasicColor(BasicColor backgroundBasicColor)
-    {
+    void setBackgroundBasicColor(BasicColor backgroundBasicColor) {
         this.backgroundBasicColor = backgroundBasicColor;
         ItemColorFactory.getInstance().INVERT_PAINT = this.backgroundBasicColor.intValue();
     }
+    
 
-    public virtual BasicColor getForegroundBasicColor()
-    {
+    BasicColor getForegroundBasicColor() {
         return this.foregroundBasicColor;
     }
+    
 
-    public virtual void setForegroundBasicColor(BasicColor foregroundBasicColor)
-    {
+    void setForegroundBasicColor(BasicColor foregroundBasicColor) {
         this.foregroundBasicColor = foregroundBasicColor;
         ItemColorFactory.getInstance().PAINT = this.foregroundBasicColor.intValue();
     }
+    
 
-    public virtual GameInfo getGameInfo()
-    {
+    GameInfo getGameInfo() {
         return this.gameInfo;
     }
+    
 
-    public virtual void setGameInfo(GameInfo gameInfo)
-    {
+    void setGameInfo(GameInfo gameInfo) {
         this.gameInfo = gameInfo;
     }
+    
 
-    public virtual void setLayerProcessorList(BasicArrayList list)
-    {
-        LayerProcessor[] layerProcessorInterfaceArray = new LayerProcessor[list.size()];
-        int size = layerProcessorInterfaceArray.Length;
+    void setLayerProcessorList(BasicArrayList list) {
+        final List<LayerProcessor?> layerProcessorInterfaceArray = List<LayerProcessor?>.filled(list.size(), null);
+        int size = layerProcessorInterfaceArray.length;
         for (int index = 0; index < size; index++) {
-            layerProcessorInterfaceArray[index] = ((LayerProcessor) list.objectArray[index]);
+            layerProcessorInterfaceArray[index] = (list.objectArray[index]! as LayerProcessor);
         }
         this.setLayerProcessorArray(layerProcessorInterfaceArray);
     }
+    
 
-    public virtual void setPlayerGameInputCompositeInterface(PlayerGameInputCompositeInterface playerGameInputCompositeInterface)
-    {
+    void setPlayerGameInputCompositeInterface(PlayerGameInputCompositeInterface playerGameInputCompositeInterface) {
         this.playerGameInputCompositeInterface = playerGameInputCompositeInterface;
     }
+    
 
-    public virtual PlayerGameInputCompositeInterface getPlayerGameInputCompositeInterface()
-    {
+    PlayerGameInputCompositeInterface getPlayerGameInputCompositeInterface() {
         return this.playerGameInputCompositeInterface;
     }
-
 }
 

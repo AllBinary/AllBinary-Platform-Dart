@@ -1,77 +1,90 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class FillAnimation extends IndexedAnimation {
+    late List<int> pixelBuffer;
+    int width = 0;
+    int height = 0;
 
-public class FillAnimation : IndexedAnimation
-{
-    private readonly int[] pixelBuffer;
-    private readonly int width;
-    private readonly int height;
-    public FillAnimation(int[] pixelBuffer, int width, int height, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsFillAnimation() {
+    
+    
+    
+    }
+    
+
+    FillAnimation(List<int> pixelBuffer, int width, int height, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsFillAnimation();
+        
         this.width = 100;
         this.height = 100;
         this.pixelBuffer = pixelBuffer;
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
         bool changed = false;
-        if (this.getBasicColorP() == null || global::java.lang.JavaNumber.intValue(this.getBasicColorP()) != basicColor.intValue()) {
+        if (this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
             changed = true;
         }
-        base.setBasicColorP(basicColor);
+        super.setBasicColorP(basicColor);
         if (changed) {
             this.updateModifiers();
         }
     }
+    
 
-    public override void changeBasicColor(BasicColor basicColor)
-    {
+    @override
+    void changeBasicColor(BasicColor basicColor) {
         bool changed = false;
-        if (this.getChangeBasicColor() == null || global::java.lang.JavaNumber.intValue(this.getChangeBasicColor()) != basicColor.intValue()) {
+        if (this.getChangeBasicColor() == null || this.getChangeBasicColor().intValue() != basicColor.intValue()) {
             changed = true;
         }
-        base.changeBasicColor(basicColor);
+        super.changeBasicColor(basicColor);
         if (changed) {
             this.updateModifiers();
         }
     }
+    
 
-    public override void setAlpha(int alpha)
-    {
+    @override
+    void setAlpha(int alpha) {
         bool changed = false;
         if (this.alphaP != alpha) {
             changed = true;
         }
-        base.setAlpha(alpha);
+        super.setAlpha(alpha);
         if (changed) {
             this.updateModifiers();
         }
     }
+    
 
-    public override void setScale(float scaleX, float scaleY)
-    {
+    @override
+    void setScale(double scaleX, double scaleY) {
     }
+    
 
-    public override void setMaxScale(float maxScaleX, float maxScaleY)
-    {
+    @override
+    void setMaxScale(double maxScaleX, double maxScaleY) {
     }
+    
 
-    private void updateModifiers()
-    {
+    void updateModifiers() {
     }
+    
 
-    public virtual void paint(Graphics g)
-    {
-        g.drawRGB(pixelBuffer, 0, width, 0, 0, width, height, true);
+    void paint(Graphics g) {
+        g.drawRGB(this.pixelBuffer, 0, this.width, 0, 0, this.width, this.height, true);
     }
-
 }
 

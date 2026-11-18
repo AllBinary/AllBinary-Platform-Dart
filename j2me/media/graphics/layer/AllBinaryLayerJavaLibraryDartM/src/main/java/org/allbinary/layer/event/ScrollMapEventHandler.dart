@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer.event
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/layer/event/ScrollMapEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/layer/event/ScrollMapEvent.dart';
 
-namespace org.allbinary.layer.@event;
+class ScrollMapEventHandler extends BasicEventHandler {
+    static ScrollMapEventHandler SINGLETON = ScrollMapEventHandler();
+    
 
-public class ScrollMapEventHandler : BasicEventHandler
-{
-    private static ScrollMapEventHandler SINGLETON = new ScrollMapEventHandler();
-    private ScrollMapEventHandler()
-    {
+    ScrollMapEventHandler() {
     }
+    
 
-    public static ScrollMapEventHandler getInstance()
-    {
+    static ScrollMapEventHandler getInstance() {
         return ScrollMapEventHandler.SINGLETON;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        ScrollMapEventListenerInterface scrollMapEventListenerInterface = (((ScrollMapEventListenerInterface) eventListenerInterface));
-        scrollMapEventListenerInterface.onMoveEvent(((ScrollMapEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final ScrollMapEventListenerInterface scrollMapEventListenerInterface = ((eventListenerInterface as ScrollMapEventListenerInterface));
+        scrollMapEventListenerInterface.onMoveEvent((eventObject as ScrollMapEvent));
     }
-
 }
 

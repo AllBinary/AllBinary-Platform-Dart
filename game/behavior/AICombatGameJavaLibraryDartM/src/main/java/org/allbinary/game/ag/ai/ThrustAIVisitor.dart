@@ -13,37 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.ag.ai;
+class ThrustAIVisitor extends Visitor {
+    late LogUtil logUtil;
+    late bool TRUE;
 
-public class ThrustAIVisitor : Visitor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly bool? TRUE = BooleanFactory.getInstance().TRUE;
-    public ThrustAIVisitor()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsThrustAIVisitor() {
+    this.logUtil = LogUtil.getInstance();
+    this.TRUE = BooleanFactory.getInstance().TRUE;
     }
+    
 
-    public override object visit(object anyType)
-    {
+    ThrustAIVisitor() {
+        this.initFieldsThrustAIVisitor();
+    }
+    
+
+    @override
+    Object visit(Object anyType) {
         try {
-            BasicAI basicAI = ((BasicAI) anyType);
+            BasicAI basicAI = (anyType as BasicAI);
             basicAI.processKeyAI(Canvas.UP);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
+            }
         }
         return this.TRUE;
     }
-
 }
 

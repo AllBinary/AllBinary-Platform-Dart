@@ -13,87 +13,104 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using GameCommandCanvas = org.allbinary.game.displayable.canvas.GameCommandCanvas;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using PlatformKeyFactory = org.allbinary.game.input.PlatformKeyFactory;
-using RawKeyEventListener = org.allbinary.game.input.@event.RawKeyEventListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using TextItemVisitor = org.allbinary.graphics.form.item.validation.TextItemVisitor;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameCommandCanvas.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/RawKeyEventListener.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/validation/TextItemVisitor.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextFieldItem.dart';
 
-namespace org.allbinary.graphics.form.item;
+class CustomTextBox extends GameCommandCanvas implements RawKeyEventListener {
+    late ABTextFieldItem textFieldItem;
+    late InputFactory inputFactory;
 
-public class CustomTextBox : GameCommandCanvas, RawKeyEventListener
-{
-    private readonly ABTextFieldItem textFieldItem;
-    public CustomTextBox(CommandListener cmdListener, string label, string text, int maxSize, int constraints, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(cmdListener, label, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(cmdListener, label, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
-        StringUtil stringUtil = StringUtil.getInstance();
-        ABTextFieldItem textFieldItem = new ABTextFieldItem(this, new TextItemVisitor(), stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, maxSize, 0, stringUtil.EMPTY_STRING, font, backgroundBasicColor, foregroundBasicColor);
+    // Java field initializers run after the base constructor
+    void initFieldsCustomTextBox() {
+    
+    this.inputFactory = InputFactory.getInstance();
+    }
+    
+
+    CustomTextBox(CommandListener cmdListener, String label, String text, int maxSize, int constraints, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(cmdListener, label, backgroundBasicColor, foregroundBasicColor) {
+        this.initFieldsCustomTextBox();
+        
+        final StringUtil stringUtil = StringUtil.getInstance();
+        final ABTextFieldItem textFieldItem = ABTextFieldItem(this, TextItemVisitor(), stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, maxSize, 0, stringUtil.EMPTY_STRING, font, backgroundBasicColor, foregroundBasicColor);
         textFieldItem.setString(text);
         this.textFieldItem = textFieldItem;
         this.setTitle(label);
     }
+    
 
-    public virtual void submit()
-    {
+    void submit() {
     }
+    
 
-    private readonly InputFactory inputFactory = InputFactory.getInstance();
-    public virtual void onEventRaw(int keyCode, int deviceId, bool repeated)
-    {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(keyCode).ToString(), this, "onEvent");
+    @override
+    void onEventRaw(int keyCode, int deviceId, bool repeated) {
+        this.logUtil.putF(StringMaker().append(this.commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
         this.keyPressedByDevice(keyCode, deviceId);
     }
+    
 
-    public override void keyPressed(int keyCode)
-    {
+    @override
+    void keyPressed(int keyCode) {
         this.keyPressedByDevice(keyCode, 0);
     }
+    
 
-    public override void keyReleased(int keyCode)
-    {
+    @override
+    void keyReleased(int keyCode) {
         this.keyReleasedByDevice(keyCode, 0);
     }
+    
 
-    public override void keyRepeated(int keyCode)
-    {
+    @override
+    void keyRepeated(int keyCode) {
         this.keyRepeatedByDevice(keyCode, 0);
     }
+    
 
-    public override void keyPressedByDevice(int keyCode, int deviceId)
-    {
+    @override
+    void keyPressedByDevice(int keyCode, int deviceId) {
         try {
-            this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).ToString(), this, this.gameInputStrings.KEY_PRESSED);
-            PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
-            Input input = this.inputFactory.getInstanceById(keyCode);
+            this.logUtil.putF(StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, this.gameInputStrings.KEY_PRESSED);
+            final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
+            final Input input = this.inputFactory.getInstanceById(keyCode);
             if (platformKeyFactory.isSubmission(input)) {
                 this.submit();
             } else {
                 this.textFieldItem.keyPressed(keyCode);
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.KEY_PRESSED, e);
+            }
         }
     }
+    
 
-    public override void keyReleasedByDevice(int keyCode, int deviceId)
-    {
+    @override
+    void keyReleasedByDevice(int keyCode, int deviceId) {
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         graphics.setColor(this.backgroundColor);
         graphics.fillRect(0, 0, this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight());
         graphics.setColor(this.foregroundColor);
@@ -101,18 +118,17 @@ public class CustomTextBox : GameCommandCanvas, RawKeyEventListener
             graphics.drawString(this.getTitle(), 8, 1, 0);
         }
         this.paintXY(graphics, 8, graphics.getFont().getHeight() + 2);
-        base.paint(graphics);
+        super.paint(graphics);
     }
+    
 
-    public virtual void paintXY(Graphics graphics, int x, int y)
-    {
+    void paintXY(Graphics graphics, int x, int y) {
         this.textFieldItem.paintXY(graphics, x, y);
     }
+    
 
-    public virtual ABTextFieldItem getTextFieldItem()
-    {
+    ABTextFieldItem getTextFieldItem() {
         return this.textFieldItem;
     }
-
 }
 

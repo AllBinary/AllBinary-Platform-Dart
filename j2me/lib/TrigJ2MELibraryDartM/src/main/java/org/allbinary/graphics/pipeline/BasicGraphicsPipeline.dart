@@ -13,44 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.pipeline
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Angle = org.allbinary.math.Angle;
-using NoDecimalTrigTable = org.allbinary.math.NoDecimalTrigTable;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/NoDecimalTrigTable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.graphics.pipeline;
+class BasicGraphicsPipeline {
+    late BasicArrayList pointBasicArrayList;
+    late NoDecimalTrigTable noDecimalTrigTable;
 
-public class BasicGraphicsPipeline
-{
-    public BasicArrayList pointBasicArrayList;
-    public BasicGraphicsPipeline(BasicArrayList points)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicGraphicsPipeline() {
+    
+    this.noDecimalTrigTable = NoDecimalTrigTable.getInstance();
+    }
+    
+
+    BasicGraphicsPipeline(BasicArrayList points) {
+        this.initFieldsBasicGraphicsPipeline();
         this.pointBasicArrayList = points;
     }
+    
 
-    public virtual void setInitMatrix(BasicArrayList points)
-    {
+    void setInitMatrix(BasicArrayList points) {
         this.pointBasicArrayList = points;
     }
+    
 
-    public virtual void createMatrix()
-    {
+    void createMatrix() {
     }
+    
 
-    // throws Exception
-    public virtual void translate(int x, int y)
-    {
-        BasicArrayList newBasicArrayList = new BasicArrayListD();
+    void translate(int x, int y) {
+        BasicArrayList newBasicArrayList = BasicArrayListD();
         int size = this.pointBasicArrayList.size();
         PointFactory pointFactory = PointFactory.getInstance();
-        GPoint secondPoint = null;
+        late GPoint secondPoint;
         for (int index = 0; index < size; index++) {
-            secondPoint = ((GPoint) this.pointBasicArrayList.objectArray[index]);
+            secondPoint = (this.pointBasicArrayList.objectArray[index]! as GPoint);
             if (secondPoint.getX() != 1000) {
                 newBasicArrayList.add(pointFactory.createXY(secondPoint.getX() + x, secondPoint.getY() + y));
             } else {
@@ -59,36 +65,33 @@ public class BasicGraphicsPipeline
         }
         this.pointBasicArrayList = newBasicArrayList;
     }
+    
 
-    // throws Exception
-    public virtual void rotateToAngle(Angle angle)
-    {
-        this.rotate(((int) angle.getValue()));
+    void rotateToAngle(Angle angle) {
+        this.rotate(angle.getValue());
     }
+    
 
-    private readonly NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
-    // throws Exception
-    private void rotate(int angle)
-    {
-        BasicArrayList newBasicArrayList = new BasicArrayListD();
-        GPoint secondPoint = null;
-        long y = 0L;
-        long secondX = 0L;
-        long secondY = 0L;
-        GPoint point = null;
+    void rotate(int angle) {
+        BasicArrayList newBasicArrayList = BasicArrayListD();
+        late GPoint secondPoint;
+        int y = 0;
+        int secondX = 0;
+        int secondY = 0;
+        late GPoint point;
         PointFactory pointFactory = PointFactory.getInstance();
         int size = this.pointBasicArrayList.size();
-        long sin = 0L;
-        long cos = 0L;
+        int sin = 0;
+        int cos = 0;
         for (int index = 0; index < size; index++) {
-            secondPoint = ((GPoint) this.pointBasicArrayList.objectArray[index]);
+            secondPoint = (this.pointBasicArrayList.objectArray[index]! as GPoint);
             if (secondPoint.getX() != 1000) {
                 sin = this.noDecimalTrigTable.sin(angle);
                 cos = this.noDecimalTrigTable.cos(angle);
                 y = secondPoint.getY() * sin;
                 secondX = (secondPoint.getX() * cos) - y;
                 secondY = (secondPoint.getX() * sin) + (secondPoint.getY() * cos);
-                point = pointFactory.createXY(((int) secondX) / 10000, ((int) secondY) / 10000);
+                point = pointFactory.createXY((secondX).toSigned(32) ~/ 10000, (secondY).toSigned(32) ~/ 10000);
                 newBasicArrayList.add(point);
             } else {
                 newBasicArrayList.add(secondPoint);
@@ -96,19 +99,18 @@ public class BasicGraphicsPipeline
         }
         this.pointBasicArrayList = newBasicArrayList;
     }
+    
 
-    // throws Exception
-    public virtual void mirror(int width)
-    {
-        PointFactory pointFactory = PointFactory.getInstance();
-        int halfWidth = (width >> 1);
-        BasicArrayList newBasicArrayList = new BasicArrayListD();
-        GPoint secondPoint = null;
+    void mirror(int width) {
+        final PointFactory pointFactory = PointFactory.getInstance();
+        final int halfWidth = (width >> 1);
+        final BasicArrayList newBasicArrayList = BasicArrayListD();
+        late GPoint secondPoint;
         int newX = 0;
-        GPoint point = null;
-        int size = this.pointBasicArrayList.size();
+        late GPoint point;
+        final int size = this.pointBasicArrayList.size();
         for (int index = 0; index < size; index++) {
-            secondPoint = ((GPoint) this.pointBasicArrayList.objectArray[index]);
+            secondPoint = (this.pointBasicArrayList.objectArray[index]! as GPoint);
             if (secondPoint.getX() != 1000) {
                 newX = 0;
                 if (secondPoint.getX() > halfWidth) {
@@ -124,11 +126,10 @@ public class BasicGraphicsPipeline
         }
         this.pointBasicArrayList = newBasicArrayList;
     }
+    
 
-    public virtual BasicArrayList getMatrix()
-    {
+    BasicArrayList getMatrix() {
         return this.pointBasicArrayList;
     }
-
 }
 

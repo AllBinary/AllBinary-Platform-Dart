@@ -13,29 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/layer/Layer.dart';
 
-namespace org.allbinary.layer;
+class NullLayer extends Layer {
+    static final NullLayer instance = NullLayer();
+    
 
-public class NullLayer : Layer
-{
-    private static readonly NullLayer instance = new NullLayer();
-    public static NullLayer getInstance()
-    {
+    static NullLayer getInstance() {
         return NullLayer.instance;
     }
+    
 
-    private NullLayer() : base(0, 0)
-    {
-        // base(0, 0) is called from the constructor declaration
+    NullLayer() : super(0, 0) {
+        
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
-
 }
 

@@ -13,27 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/image/AnimationFrameToImageUtil.dart';
 
-namespace org.allbinary.image;
+class IndexedAnimationToImageArrayUtil {
+    
 
-public class IndexedAnimationToImageArrayUtil
-{
-    // throws Exception
-    public static Image[] getInstance(int width, int height, IndexedAnimation sequentialAnimationInterface)
-    {
+    static List<Image?> getInstance3(int width, int height, IndexedAnimation sequentialAnimationInterface) {
         int size = sequentialAnimationInterface.getAnimationSize();
-        Image[] imageArray = new Image[size];
+        List<Image?> imageArray = List<Image?>.filled(size, null);
         for (int index = 0; index < size; index++) {
             sequentialAnimationInterface.setFrame(index);
             imageArray[index] = AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, sequentialAnimationInterface);
         }
         return imageArray;
     }
-
 }
 

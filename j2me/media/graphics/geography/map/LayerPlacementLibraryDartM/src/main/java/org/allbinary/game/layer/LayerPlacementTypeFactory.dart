@@ -13,25 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using DirectionFactory = org.allbinary.direction.DirectionFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/LayerPlacementType.dart';
 
-namespace org.allbinary.game.layer;
+class LayerPlacementTypeFactory {
+    static final LayerPlacementTypeFactory instance = LayerPlacementTypeFactory();
+    late LayerPlacementType MAP;
+    late LayerPlacementType LEFT;
+    late LayerPlacementType DOWN;
+    late LayerPlacementType UP;
+    late LayerPlacementType RIGHT;
 
-public class LayerPlacementTypeFactory
-{
-    private static readonly LayerPlacementTypeFactory instance = new LayerPlacementTypeFactory();
-    public static LayerPlacementTypeFactory getInstance()
-    {
-        return LayerPlacementTypeFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsLayerPlacementTypeFactory() {
+    this.MAP = LayerPlacementType(Integer.MAX_VALUE);
+    this.LEFT = LayerPlacementType(DirectionFactory.getInstance().LEFT.getValue());
+    this.DOWN = LayerPlacementType(DirectionFactory.getInstance().DOWN.getValue());
+    this.UP = LayerPlacementType(DirectionFactory.getInstance().UP.getValue());
+    this.RIGHT = LayerPlacementType(DirectionFactory.getInstance().RIGHT.getValue());
     }
 
-    public readonly LayerPlacementType MAP = new LayerPlacementType(int.MaxValue);
-    public readonly LayerPlacementType LEFT = new LayerPlacementType(DirectionFactory.getInstance().LEFT.getValue());
-    public readonly LayerPlacementType DOWN = new LayerPlacementType(DirectionFactory.getInstance().DOWN.getValue());
-    public readonly LayerPlacementType UP = new LayerPlacementType(DirectionFactory.getInstance().UP.getValue());
-    public readonly LayerPlacementType RIGHT = new LayerPlacementType(DirectionFactory.getInstance().RIGHT.getValue());
+    LayerPlacementTypeFactory() {
+        this.initFieldsLayerPlacementTypeFactory();
+    }
+    
+
+    static LayerPlacementTypeFactory getInstance() {
+        return LayerPlacementTypeFactory.instance;
+    }
 }
 

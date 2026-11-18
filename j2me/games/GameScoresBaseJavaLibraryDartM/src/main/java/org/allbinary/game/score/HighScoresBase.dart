@@ -13,35 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresResultsListener.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBaseInterface.dart';
 
-namespace org.allbinary.game.score;
+class HighScoresBase implements HighScoresFactoryInterface {
+    late CommonStrings commonStrings;
 
-public class HighScoresBase : HighScoresFactoryInterface
-{
-    public CommonStrings commonStrings = CommonStrings.getInstance();
-    public HighScoresBase()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresBase() {
+    this.commonStrings = CommonStrings.getInstance();
     }
+    
 
-    public virtual void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener)
-    {
-        throw new SystemException();
+    HighScoresBase() {
+        this.initFieldsHighScoresBase();
     }
+    
 
-    public virtual void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload)
-    {
-        throw new SystemException();
+    @override
+    void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual HighScoresHelperBaseInterface createHighScoresHelper()
-    {
-        throw new SystemException();
+    @override
+    void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload) {
+        throw JException('RuntimeException', '');
     }
+    
 
+    @override
+    HighScoresHelperBaseInterface createHighScoresHelper() {
+        throw JException('RuntimeException', '');
+    }
 }
 

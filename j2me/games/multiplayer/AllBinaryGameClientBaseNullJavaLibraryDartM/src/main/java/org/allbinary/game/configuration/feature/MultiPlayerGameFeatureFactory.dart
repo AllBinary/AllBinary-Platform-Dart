@@ -1,30 +1,28 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class MultiPlayerGameFeatureFactory {
+    static final MultiPlayerGameFeatureFactory instance = MultiPlayerGameFeatureFactory();
+    
 
-public class MultiPlayerGameFeatureFactory
-{
-    private static readonly MultiPlayerGameFeatureFactory instance = new MultiPlayerGameFeatureFactory();
-    public static MultiPlayerGameFeatureFactory getInstance()
-    {
+    static MultiPlayerGameFeatureFactory getInstance() {
         return MultiPlayerGameFeatureFactory.instance;
     }
+    
 
-    private MultiPlayerGameFeatureFactory()
-    {
+    MultiPlayerGameFeatureFactory() {
     }
+    
 
-    public virtual void addCommands(object anyType)
-    {
-        GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
-        Canvas canvas = ((Canvas) anyType);
+    void addCommands(Object anyType) {
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+        final Canvas canvas = (anyType as Canvas);
         canvas.addCommand(gameCommandsFactory.QUIT_COMMAND);
     }
-
 }
 

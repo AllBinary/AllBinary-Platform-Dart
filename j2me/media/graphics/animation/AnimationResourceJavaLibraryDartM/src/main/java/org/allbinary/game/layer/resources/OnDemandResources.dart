@@ -13,38 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.resources
 
-using System;
-using System.Linq;
-using BaseResourceAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/resource/BaseResourceAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/image/ImageCache.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
 
-namespace org.allbinary.game.layer.resources;
+class OnDemandResources {
+    static final OnDemandResources NULL_ON_DEMAND_RESOURCES = OnDemandResources();
+    late LogUtil logUtil;
 
-public class OnDemandResources
-{
-    public static readonly OnDemandResources NULL_ON_DEMAND_RESOURCES = new OnDemandResources();
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public OnDemandResources()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOnDemandResources() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual void waitFor()
-    {
+    OnDemandResources() {
+        this.initFieldsOnDemandResources();
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    void waitFor() {
     }
+    
 
-    // throws Exception
-    public virtual int initAt(ImageCache imageCache, BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory, int portion, string loadingString, int index)
-    {
+    void init() {
+    }
+    
+
+    int initAt(ImageCache imageCache, BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory, int portion, String loadingString, int index) {
         return 0;
     }
-
 }
 

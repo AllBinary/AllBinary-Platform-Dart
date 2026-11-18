@@ -13,34 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using GravityUtil = org.allbinary.game.physics.acceleration.GravityUtil;
-using VelocityProperties = org.allbinary.game.physics.velocity.VelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/physics/acceleration/GravityUtil.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityProperties.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/physics/movement/BasicConstantVelocityMovement.dart';
 
-namespace org.allbinary.physics.movement;
+class CustomGravityConstantVelocityMovement extends BasicConstantVelocityMovement {
+    int customGravity = 0;
+    late GravityUtil gravityUtil;
 
-public class CustomGravityConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    private int customGravity;
-    public CustomGravityConstantVelocityMovement(BasicDecimal speedBasicDecimal, int customGravity) : base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled())))
-    {
-        // base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled()))) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCustomGravityConstantVelocityMovement() {
+    
+    this.gravityUtil = GravityUtil.getInstance();
+    }
+    
+
+    CustomGravityConstantVelocityMovement(BasicDecimal speedBasicDecimal, int customGravity) : super(speedBasicDecimal, VelocityProperties((speedBasicDecimal.getUnscaled()).toSigned(32), (speedBasicDecimal.getUnscaled()).toSigned(32))) {
+        this.initFieldsCustomGravityConstantVelocityMovement();
+        
         this.customGravity = customGravity;
     }
+    
 
-    private readonly GravityUtil gravityUtil = GravityUtil.getInstance();
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
-        base.process(layer);
+    @override
+    void process(AllBinaryGameLayer layer) {
+        super.process(layer);
         this.gravityUtil.process(this.getVelocityProperties(), this.customGravity);
-        VelocityProperties velocityProperties = ((VelocityProperties) this.getVelocityProperties());
+        final VelocityProperties velocityProperties = (this.getVelocityProperties() as VelocityProperties);
         velocityProperties.limitMaxYForwardVelocity();
     }
-
 }
 

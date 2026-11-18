@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
 
-namespace org.allbinary.game.score;
+class RemoteErrorHighScoresSingletonFactory {
+    static final HighScores SINGLETON = HighScores(CommonStrings.getInstance().LOADING, "Remote High Scores Did Not Load", CommonStrings.getInstance().PERIODS);
+    
 
-public class RemoteErrorHighScoresSingletonFactory
-{
-    private static readonly HighScores SINGLETON = new HighScores(CommonStrings.getInstance().LOADING, "Remote High Scores Did Not Load", CommonStrings.getInstance().PERIODS);
-    public static HighScores getInstance()
-    {
+    static HighScores getInstance() {
         return RemoteErrorHighScoresSingletonFactory.SINGLETON;
     }
-
 }
 

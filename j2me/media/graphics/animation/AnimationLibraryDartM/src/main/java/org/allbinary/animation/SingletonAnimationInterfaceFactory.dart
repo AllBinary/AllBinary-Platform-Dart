@@ -13,36 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class SingletonAnimationInterfaceFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+    late Animation animationInterface;
 
-public class SingletonAnimationInterfaceFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    private readonly Animation animationInterface;
-    public SingletonAnimationInterfaceFactory(Animation animationInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSingletonAnimationInterfaceFactory() {
+    
+    }
+    
+
+    SingletonAnimationInterfaceFactory(Animation animationInterface) {
+        this.initFieldsSingletonAnimationInterfaceFactory();
         this.animationInterface = animationInterface;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         return this.animationInterface;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
         return this.animationInterface;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

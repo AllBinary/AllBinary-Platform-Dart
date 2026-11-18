@@ -13,21 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using Closeable = java.io.Closeable;
-//using IOException = java.io.IOException;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/Closeable.dart';
 
-namespace org.allbinary.logic.io;
+class NullCloseable implements Closeable {
+    static final NullCloseable NULL_CLOSEABLE = NullCloseable();
+    
 
-public class NullCloseable : Closeable
-{
-    public static readonly NullCloseable NULL_CLOSEABLE = new NullCloseable();
-    // throws IOException
-    public virtual void close()
-    {
+    @override
+    void close() {
     }
-
 }
 

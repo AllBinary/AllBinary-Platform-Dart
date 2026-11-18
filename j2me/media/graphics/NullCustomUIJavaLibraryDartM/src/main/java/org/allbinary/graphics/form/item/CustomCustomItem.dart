@@ -1,29 +1,34 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
 
-namespace org.allbinary.graphics.form.item;
+class CustomCustomItem extends ABCustomItem implements UpdateMyFontInterface {
+    late MyFontProcessor updateMyFontProcessor;
+    late MyFontProcessor myFontProcessor;
 
-public class CustomCustomItem : ABCustomItem, UpdateMyFontInterface
-{
-    public readonly MyFontProcessor updateMyFontProcessor;
-    public MyFontProcessor myFontProcessor;
-    public CustomCustomItem(string label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, backgroundBasicColor, foregroundBasicColor)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
-        // base(label, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCustomCustomItem() {
+    this.updateMyFontProcessor = UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    CustomCustomItem(String label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(label, backgroundBasicColor, foregroundBasicColor) {
+        this.initFieldsCustomCustomItem();
+        
     }
+    
 
+    @override
+    void updateMeasurement(Graphics graphics) {
+    }
 }
 

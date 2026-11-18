@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.loader
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
-namespace org.allbinary.logic.system.loader;
+class WebappClassLoaderInfo {
+    static Object classLoader = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class WebappClassLoaderInfo
-{
-    private static object classLoader = NullUtil.getInstance().NULL_OBJECT;
-    private WebappClassLoaderInfo()
-    {
+    WebappClassLoaderInfo() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static void setLoader(global::java.lang.ClassLoader classLoader)
-    {
+    static void setLoader(ClassLoader classLoader) {
         WebappClassLoaderInfo.classLoader = classLoader;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static global::java.lang.ClassLoader getLoader()
-    {
-        return ((global::java.lang.ClassLoader) WebappClassLoaderInfo.classLoader);
+    static ClassLoader getLoader() {
+        return (WebappClassLoaderInfo.classLoader as ClassLoader);
     }
-
 }
 

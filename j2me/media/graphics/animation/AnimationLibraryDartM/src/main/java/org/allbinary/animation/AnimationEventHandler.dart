@@ -13,26 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
 
-namespace org.allbinary.animation;
+class AnimationEventHandler extends BasicEventHandler {
+    static final AnimationEventHandler eventHandler = AnimationEventHandler();
+    
 
-public class AnimationEventHandler : BasicEventHandler
-{
-    private static readonly AnimationEventHandler eventHandler = new AnimationEventHandler();
-    private AnimationEventHandler()
-    {
+    AnimationEventHandler() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static AnimationEventHandler getInstance()
-    {
+    static AnimationEventHandler getInstance() {
         return AnimationEventHandler.eventHandler;
     }
-
 }
 

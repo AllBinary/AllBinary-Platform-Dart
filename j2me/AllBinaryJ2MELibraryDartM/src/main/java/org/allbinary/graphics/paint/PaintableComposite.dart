@@ -13,34 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
 
-namespace org.allbinary.graphics.paint;
+class PaintableComposite extends Paintable {
+    late List<PaintableInterface?> paintableArray;
 
-public class PaintableComposite : Paintable
-{
-    private PaintableInterface[] paintableArray;
-    public PaintableComposite(PaintableInterface[] paintableArray)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPaintableComposite() {
+    
+    }
+    
+
+    PaintableComposite(List<PaintableInterface?> paintableArray) {
+        this.initFieldsPaintableComposite();
         this.paintableArray = paintableArray;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        for (int index = this.paintableArray.Length - 1; index >= 0; index--) {
-            this.paintableArray[index].paint(graphics);
+    @override
+    void paint(Graphics graphics) {
+        for (int index = this.paintableArray.length - 1; index >= 0; index--) {
+            this.paintableArray[index]!.paint(graphics);
         }
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
-        for (int index = this.paintableArray.Length - 1; index >= 0; index--) {
-            this.paintableArray[index].paintThreed(graphics);
+    @override
+    void paintThreed(Graphics graphics) {
+        for (int index = this.paintableArray.length - 1; index >= 0; index--) {
+            this.paintableArray[index]!.paintThreed(graphics);
         }
     }
-
 }
 

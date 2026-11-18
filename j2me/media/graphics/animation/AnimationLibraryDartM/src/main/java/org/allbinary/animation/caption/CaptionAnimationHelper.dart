@@ -13,60 +13,73 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.caption
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using TextAnimation = org.allbinary.animation.text.TextAnimation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/animation/text/TextAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/animation/caption/CaptionAnimationHelperBase.dart';
+import 'package:allbinary/org/allbinary/animation/caption/CaptionAnimation.dart';
 
-namespace org.allbinary.animation.caption;
+class CaptionAnimationHelper extends CaptionAnimationHelperBase {
+    late TimeDelayHelper timeHelper;
+    late TextAnimation textAnimation;
+    late Animation captionAnimation;
+    late Animation animation;
 
-public class CaptionAnimationHelper : CaptionAnimationHelperBase
-{
-    private readonly TimeDelayHelper timeHelper = new TimeDelayHelper(620);
-    private readonly TextAnimation textAnimation = new TextAnimation(StringUtil.getInstance().EMPTY_STRING, AnimationBehavior.getInstance());
-    private readonly Animation captionAnimation;
-    private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
-    public CaptionAnimationHelper(Animation captionAnimation, int captionDx, int captionDy, int dx, int dy)
-    {
-        this.captionAnimation = new CaptionAnimation(captionAnimation, this.textAnimation, captionDx, captionDy, dx, dy);
+    // Java field initializers run after the base constructor
+    void initFieldsCaptionAnimationHelper() {
+    this.timeHelper = TimeDelayHelper(620);
+    this.textAnimation = TextAnimation(StringUtil.getInstance().EMPTY_STRING, AnimationBehavior.getInstance());
+    
+    this.animation = NullAnimationFactory.getFactoryInstance().getInstance1(0);
     }
+    
 
-    public override bool isShowing()
-    {
-        if (this.animation == this.captionAnimation) {
+    CaptionAnimationHelper(Animation captionAnimation, int captionDx, int captionDy, int dx, int dy) {
+        this.initFieldsCaptionAnimationHelper();
+        this.captionAnimation = CaptionAnimation(captionAnimation, this.textAnimation, captionDx, captionDy, dx, dy);
+    }
+    
+
+    @override
+    bool isShowing() {
+        if (identical(this.animation, this.captionAnimation)) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public override void tick()
-    {
+    @override
+    void tick() {
         if (this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
-            this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance1(0);
         }
     }
+    
 
-    public override void update(string message, BasicColor basicColor)
-    {
+    @override
+    void update(String message, BasicColor basicColor) {
         this.textAnimation.setBasicColorP(basicColor);
         this.textAnimation.setText(message);
         this.animation = this.captionAnimation;
         this.timeHelper.setStartTimeTNT();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.animation.paintXY(graphics, x, y);
     }
-
 }
 

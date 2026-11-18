@@ -13,22 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.bounds
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/bounds/LayerBounds.dart';
+import 'package:allbinary/org/allbinary/bounds/BoundsVisitorInterface.dart';
 
-namespace org.allbinary.bounds;
+class RectangleLayerBounds extends LayerBounds {
+    
 
-public class RectangleLayerBounds : LayerBounds
-{
-    public RectangleLayerBounds(Rectangle rectangle) : base(rectangle)
-    {
-        // base(rectangle) is called from the constructor declaration
+    RectangleLayerBounds(Rectangle rectangle) : super(rectangle) {
+        
     }
+    
 
-    public override void visit(BoundsVisitorInterface boundsVisitorInterface)
-    {
+    @override
+    void visit(BoundsVisitorInterface boundsVisitorInterface) {
         if (boundsVisitorInterface.getX() > this.rectangle.getMaxX()) {
             boundsVisitorInterface.maxX();
         }
@@ -42,6 +44,5 @@ public class RectangleLayerBounds : LayerBounds
             boundsVisitorInterface.minY();
         }
     }
-
 }
 

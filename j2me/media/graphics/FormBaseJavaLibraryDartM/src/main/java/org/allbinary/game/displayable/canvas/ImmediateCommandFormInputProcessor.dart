@@ -13,82 +13,101 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using ScrollSelectionForm = org.allbinary.graphics.form.ScrollSelectionForm;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/CommandFormInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameCommandCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class ImmediateCommandFormInputProcessor extends CommandFormInputProcessor {
+    late TimeDelayHelper timeHelper;
+    late GameCommandCanvas gameCommandCanvas;
 
-public class ImmediateCommandFormInputProcessor : CommandFormInputProcessor
-{
-    private readonly TimeDelayHelper timeHelper = new TimeDelayHelper(25);
-    public GameCommandCanvas gameCommandCanvas;
-    public ImmediateCommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, GameCommandCanvas gameCommandCanvas, ScrollSelectionForm form) : base(gameKeyEventList, playerInputId, gameCommandCanvas, form)
-    {
-        // base(gameKeyEventList, playerInputId, gameCommandCanvas, form) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImmediateCommandFormInputProcessor() {
+    this.timeHelper = TimeDelayHelper(25);
+    
+    }
+    
+
+    ImmediateCommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, GameCommandCanvas gameCommandCanvas, ScrollSelectionForm form) : super(gameKeyEventList, playerInputId, gameCommandCanvas, form) {
+        this.initFieldsImmediateCommandFormInputProcessor();
+        
         this.gameCommandCanvas = gameCommandCanvas;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onPressGameKeyEvent(GameKeyEvent gameKeyEvent) {
         try {
-            base.onPressGameKeyEvent(gameKeyEvent);
+            super.onPressGameKeyEvent(gameKeyEvent);
             if (this.timeHelper.isTimeTNT()) {
                 this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ON_PRESS_GAME_KEY, e);
+            }
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
         try {
-            base.onDownGameKeyEvent(gameKeyEvent);
+            super.onDownGameKeyEvent(gameKeyEvent);
             if (this.timeHelper.isTimeTNT()) {
                 this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ON_DOWN_GAME_KEY, e);
+            }
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
         try {
-            base.onUpGameKeyEvent(gameKeyEvent);
+            super.onUpGameKeyEvent(gameKeyEvent);
             if (this.timeHelper.isTimeTNT()) {
                 this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ON_UP_GAME_KEY, e);
+            }
         }
     }
+    
 
-    public override void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    @override
+    void onMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
         try {
-            base.onMotionGestureEvent(motionGestureEvent);
+            super.onMotionGestureEvent(motionGestureEvent);
             if (this.timeHelper.isTimeTNT()) {
                 this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "onMotionGestureEvent", e);
+            }
         }
     }
-
 }
 

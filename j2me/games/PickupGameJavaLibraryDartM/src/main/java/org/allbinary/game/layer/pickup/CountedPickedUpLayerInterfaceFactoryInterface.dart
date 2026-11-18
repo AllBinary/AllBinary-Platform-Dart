@@ -13,18 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using LayerInterfaceFactoryInterface = org.allbinary.layer.LayerInterfaceFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/LayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
 
-namespace org.allbinary.game.layer.pickup;
+abstract interface class CountedPickedUpLayerInterfaceFactoryInterface implements PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface {
+    
 
-public interface CountedPickedUpLayerInterfaceFactoryInterface : PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface
-{
     int getId();
+    
 
     int getTotal();
-
 }
 

@@ -13,44 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/system/os/GenericOperatingSystem.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+abstract interface class AbeClientInformationInterface {
+    
 
-public interface AbeClientInformationInterface
-{
     void init();
+    
 
     GenericOperatingSystem getOperatingSystemInterface();
+    
 
-    string getName();
+    String getName();
+    
 
-    string getSpecialName();
+    String getSpecialName();
+    
 
-    string getVersion();
+    String getVersion();
+    
 
-    string getLicenseId();
+    String getLicenseId();
+    
 
     BasicArrayList getLicenseServers();
+    
 
-    string getLicenseServer(int index);
+    String getLicenseServer(int index);
+    
 
     int getNumberOfLicenseServers();
+    
 
-    ABHashtable<object, object> toHashtable();
+    ABHashtable toHashtable();
+    
 
-    bool isSameId(string alicenseId);
+    bool isSameId(String alicenseId);
+    
 
     bool isLargerOrDifferentServerList(BasicArrayList vector);
+    
 
     bool isHardSale();
+    
 
-    string toShortString();
-
+    String toShortString();
 }
 

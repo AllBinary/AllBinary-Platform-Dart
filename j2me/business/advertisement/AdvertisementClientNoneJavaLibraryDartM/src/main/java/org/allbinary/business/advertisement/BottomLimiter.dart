@@ -13,38 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.business.advertisement
 
-using System;
-using System.Linq;
-using GameAdState = org.allbinary.game.GameAdState;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameAdState.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/GameAdStateFactory.dart';
 
-namespace org.allbinary.business.advertisement;
+class BottomLimiter {
+    static final BottomLimiter instance = BottomLimiter();
+    int bottom = 0;
+    int deltaY = 0;
+    int lower = 0;
+    int higher = 0;
 
-public class BottomLimiter
-{
-    private static readonly BottomLimiter instance = new BottomLimiter();
-    public static BottomLimiter getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBottomLimiter() {
+    this.bottom = 0;
+    this.deltaY = 0;
+    this.lower = 0;
+    this.higher = 0;
+    }
+    
+
+    static BottomLimiter getInstance() {
         return BottomLimiter.instance;
     }
+    
 
-    private int bottom = 0;
-    private int deltaY = 0;
-    private int lower = 0;
-    private int higher = 0;
-    private BottomLimiter()
-    {
+    BottomLimiter() {
+        this.initFieldsBottomLimiter();
     }
+    
 
-    public virtual void init(int lower, int higher)
-    {
+    void init(int lower, int higher) {
         this.lower = lower;
         this.higher = higher;
     }
+    
 
-    public virtual void update()
-    {
+    void update() {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         if (gameAdState.isShowingAt()) {
@@ -54,16 +63,15 @@ public class BottomLimiter
         }
         this.bottom = displayInfo.getLastHeight() - this.deltaY;
     }
+    
 
-    public virtual int getDeltaY()
-    {
+    int getDeltaY() {
         return this.deltaY;
     }
+    
 
-    public virtual int getBottom()
-    {
+    int getBottom() {
         return this.bottom;
     }
-
 }
 

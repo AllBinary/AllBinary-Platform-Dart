@@ -13,28 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.scroller
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArrayAI = org.allbinary.game.ag.ai.ArrayAI;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/ArrayAI.dart';
+import 'package:allbinary/org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/scroller/RandomPatrolAI.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/scroller/TimedFireAI.dart';
 
-namespace org.allbinary.game.ag.ai.scroller;
+class RandomPatrolFlockingFiringAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    
 
-public class RandomPatrolFlockingFiringAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        ArtificialIntelligenceInterface[] artificialIntelligenceInterface = new ArtificialIntelligenceInterface[2];
-        artificialIntelligenceInterface[0] = new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
-        artificialIntelligenceInterface[1] = new TimedFireAI(1800, ownerLayerInterface, gameInput);
-        return new ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+    @override
+    ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        final List<ArtificialIntelligenceInterface?> artificialIntelligenceInterface = List<ArtificialIntelligenceInterface?>.filled(2, null);
+        artificialIntelligenceInterface[0] = RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
+        artificialIntelligenceInterface[1] = TimedFireAI(1800, ownerLayerInterface, gameInput);
+        return ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
-
 }
 

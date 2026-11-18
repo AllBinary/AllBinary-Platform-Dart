@@ -13,30 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.command
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.graphics.displayable.command;
+class MyCommandsFactory {
+    static final MyCommandsFactory instance = MyCommandsFactory();
+    late Command NO_COMMAND;
+    late Command GAUGE_CHANGE;
+    late Command SET_DISPLAYABLE;
+    late Command PAUSE_COMMAND;
+    late Command RESUME_COMMAND;
 
-public class MyCommandsFactory
-{
-    private static readonly MyCommandsFactory instance = new MyCommandsFactory();
-    public static MyCommandsFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMyCommandsFactory() {
+    this.NO_COMMAND = Command.with4(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, -1, -1);
+    this.GAUGE_CHANGE = Command.with4("GAUGE_CHANGE", StringUtil.getInstance().EMPTY_STRING, Command.ITEM, 1);
+    this.SET_DISPLAYABLE = Command.with4("Display", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.PAUSE_COMMAND = Command.with4("Pause", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
+    this.RESUME_COMMAND = Command.with4("Resume", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
+    }
+    
+
+    static MyCommandsFactory getInstance() {
         return MyCommandsFactory.instance;
     }
+    
 
-    public readonly Command NO_COMMAND = new Command(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, -1, -1);
-    public readonly Command GAUGE_CHANGE = new Command("GAUGE_CHANGE", StringUtil.getInstance().EMPTY_STRING, Command.ITEM, 1);
-    public readonly Command SET_DISPLAYABLE = new Command("Display", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
-    public readonly Command PAUSE_COMMAND = new Command("Pause", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
-    public readonly Command RESUME_COMMAND = new Command("Resume", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
-    public MyCommandsFactory()
-    {
+    MyCommandsFactory() {
+        this.initFieldsMyCommandsFactory();
     }
-
 }
 

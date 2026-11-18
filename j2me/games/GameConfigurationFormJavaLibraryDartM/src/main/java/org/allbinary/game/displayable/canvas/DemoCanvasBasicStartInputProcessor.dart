@@ -13,40 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using RunnableCanvas = org.allbinary.canvas.RunnableCanvas;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GameInputStrings = org.allbinary.game.input.GameInputStrings;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullCanvas.dart';
+import 'package:allbinary/org/allbinary/canvas/RunnableCanvas.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class DemoCanvasBasicStartInputProcessor extends BasicMenuInputProcessor {
+    
 
-public class DemoCanvasBasicStartInputProcessor : BasicMenuInputProcessor
-{
-    public DemoCanvasBasicStartInputProcessor(BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas) : base(gameKeyEventList, -1, gameCanvas)
-    {
-        // base(gameKeyEventList, -1, gameCanvas) is called from the constructor declaration
+    DemoCanvasBasicStartInputProcessor(BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas) : super(gameKeyEventList, -1, gameCanvas) {
+        
     }
+    
 
-    // throws Exception
-    public override int processInputList()
-    {
+    @override
+    int processInputList() {
         BasicArrayList list = this.getGameKeyEventList();
         int size = list.size();
-        GameKeyEvent gameKeyEvent = null;
+        late GameKeyEvent gameKeyEvent;
         for (int index = 0; index < size; index++) {
-            gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
-            this.logUtil.putF(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).ToString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+            gameKeyEvent = (list.objectArray[index]! as GameKeyEvent);
+            this.logUtil.putF(StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString1(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
         }
         this.getCanvas().getCustomCommandListener().commandAction(GameCommandsFactory.getInstance().START_COMMAND, NullCanvas.NULL_CANVAS);
         return size;
     }
-
 }
 

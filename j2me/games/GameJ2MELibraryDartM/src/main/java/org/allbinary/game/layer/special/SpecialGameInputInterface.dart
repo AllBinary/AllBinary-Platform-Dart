@@ -13,52 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.layer.special;
+abstract interface class SpecialGameInputInterface implements PaintableInterface {
+    
 
-public interface SpecialGameInputInterface : PaintableInterface
-{
-    // throws Exception
     void up();
+    
 
-    // throws Exception
     void down();
+    
 
-    // throws Exception
     void right();
+    
 
-    // throws Exception
     void left();
+    
 
-    // throws Exception
     void strafeLeft();
+    
 
-    // throws Exception
     void strafeRight();
+    
 
-    // throws Exception
     void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
     void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
     void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
     void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
     void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
     void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
-
 }
 

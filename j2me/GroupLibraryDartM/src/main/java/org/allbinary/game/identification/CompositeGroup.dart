@@ -13,59 +13,67 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
+import 'package:allbinary/org/allbinary/game/identification/GroupCommonFactory.dart';
 
-namespace org.allbinary.game.identification;
+class CompositeGroup {
+    late LogUtil logUtil;
+    late Group groupInterface;
+    late BasicArrayList list;
 
-public class CompositeGroup
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly Group groupInterface;
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public CompositeGroup(Group groupInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCompositeGroup() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.list = BasicArrayListD();
+    }
+    
+
+    CompositeGroup(Group groupInterface) {
+        this.initFieldsCompositeGroup();
         this.groupInterface = groupInterface;
     }
+    
 
-    public virtual void clear()
-    {
+    void clear() {
         this.list.clear();
     }
+    
 
-    public virtual void add(Group groupInterface)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
-        StringMaker stringBuffer = new StringMaker();
+    void add(Group groupInterface) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append(groupCommonFactory.ADDING_LABEL);
-        stringBuffer.append(groupInterface.ToString());
+        stringBuffer.append(groupInterface.toString());
         stringBuffer.append(groupCommonFactory.TO_LABEL);
-        stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
-        this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.ADD);
+        stringBuffer.append(StringUtil.getInstance().toString1(this.groupInterface));
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.ADD);
         this.list.add(groupInterface);
     }
+    
 
-    public virtual bool isInGroup(Group groupInterface)
-    {
+    bool isInGroup(Group groupInterface) {
         if (this.list.contains(groupInterface)) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual Group getGroup()
-    {
+    Group getGroup() {
         return this.groupInterface;
     }
-
 }
 

@@ -13,37 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputInterface.dart';
 
-namespace org.allbinary.game.input;
+class GameInputLayerProcessor extends LayerProcessor {
+    
 
-public class GameInputLayerProcessor : LayerProcessor
-{
-    public GameInputLayerProcessor() : base(new GameInputLayerManager())
-    {
-        // base(new GameInputLayerManager()) is called from the constructor declaration
+    GameInputLayerProcessor() : super(GameInputLayerManager()) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        GameInputInterface gameInputInterface = ((GameInputInterface) layerInterface);
+    @override
+    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index) {
+        final GameInputInterface gameInputInterface = (layerInterface as GameInputInterface);
         gameInputInterface.processInput(allBinaryLayerManager);
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    @override
+    bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsGameInputInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

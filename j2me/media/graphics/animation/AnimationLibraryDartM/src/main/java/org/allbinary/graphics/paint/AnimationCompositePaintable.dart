@@ -13,31 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/InitUpdatePaintable.dart';
 
-namespace org.allbinary.graphics.paint;
+class AnimationCompositePaintable extends InitUpdatePaintable {
+    late Animation animationInterface;
 
-public class AnimationCompositePaintable : InitUpdatePaintable
-{
-    private readonly Animation animationInterface;
-    public AnimationCompositePaintable(Animation animationInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAnimationCompositePaintable() {
+    
+    }
+    
+
+    AnimationCompositePaintable(Animation animationInterface) {
+        this.initFieldsAnimationCompositePaintable();
         this.animationInterface = animationInterface;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
         this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
-
 }
 

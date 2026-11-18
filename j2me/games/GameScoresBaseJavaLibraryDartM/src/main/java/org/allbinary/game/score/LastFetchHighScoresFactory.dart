@@ -13,24 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/game/score/NoHighScoresFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
 
-namespace org.allbinary.game.score;
+class LastFetchHighScoresFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late List<HighScores?> highScoresArray;
 
-public class LastFetchHighScoresFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static LastFetchHighScoresFactory getInstance()
-    {
-        if (LastFetchHighScoresFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            LastFetchHighScoresFactory.instance = new LastFetchHighScoresFactory();
-        }
-        return ((LastFetchHighScoresFactory) LastFetchHighScoresFactory.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsLastFetchHighScoresFactory() {
+    this.highScoresArray = NoHighScoresFactory.getInstance().NO_HIGH_SCORES;
     }
 
-    public HighScores[] highScoresArray = NoHighScoresFactory.getInstance().NO_HIGH_SCORES;
+    LastFetchHighScoresFactory() {
+        this.initFieldsLastFetchHighScoresFactory();
+    }
+    
+
+    static LastFetchHighScoresFactory getInstance() {
+        if (LastFetchHighScoresFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            LastFetchHighScoresFactory.instance = LastFetchHighScoresFactory();
+        }
+        return (LastFetchHighScoresFactory.instance as LastFetchHighScoresFactory);
+    }
 }
 

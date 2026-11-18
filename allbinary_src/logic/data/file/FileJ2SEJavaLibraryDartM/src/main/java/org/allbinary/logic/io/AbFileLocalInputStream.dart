@@ -13,21 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-//using FileNotFoundException = java.io.FileNotFoundException;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFileNativeUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbFileInputStream.dart';
 
-namespace org.allbinary.logic.io;
+class AbFileLocalInputStream extends AbFileInputStream {
+    
 
-public class AbFileLocalInputStream : AbFileInputStream
-{
-    public AbFileLocalInputStream(AbFile file) : base(AbFileNativeUtil.get(file).getPath())
-    {
-        // base(AbFileNativeUtil.get(file).getPath()) is called from the constructor declaration
+    AbFileLocalInputStream(AbFile file) : super(AbFileNativeUtil.get(file).getPath()) {
+        
     }
-
 }
 

@@ -13,29 +13,26 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using ResourceUtil = org.allbinary.data.resource.ResourceUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/org/allbinary/data/resource/ResourceUtil.dart';
 
-namespace org.allbinary.logic.system;
+class PlatformAssetManager {
+    static final PlatformAssetManager instance = PlatformAssetManager();
+    
 
-public class PlatformAssetManager
-{
-    private static readonly PlatformAssetManager instance = new PlatformAssetManager();
-    public static PlatformAssetManager getInstance()
-    {
+    static PlatformAssetManager getInstance() {
         return PlatformAssetManager.instance;
     }
+    
 
-    // throws Exception
-    public virtual InputStream getResourceAsStream(string resource)
-    {
-        ResourceUtil resourceUtil = ResourceUtil.getInstance();
-        InputStream inputStream = resourceUtil.getResourceAsStream(resource);
+    InputStream getResourceAsStream(String resource) {
+        final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+        final InputStream inputStream = resourceUtil.getResourceAsStream(resource);
         return inputStream;
     }
-
 }
 

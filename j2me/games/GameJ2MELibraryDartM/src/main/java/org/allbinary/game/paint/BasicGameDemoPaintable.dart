@@ -13,32 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using StatePaintable = org.allbinary.graphics.paint.StatePaintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/StatePaintable.dart';
 
-namespace org.allbinary.game.paint;
+class BasicGameDemoPaintable extends StatePaintable {
+    late Paintable mainDemoStatePaintable;
+    late Paintable ownershipPaintable;
+    late Paintable helpPaintableInterface;
+    late Paintable currentStatePaintable;
 
-public class BasicGameDemoPaintable : StatePaintable
-{
-    private readonly Paintable mainDemoStatePaintable;
-    private readonly Paintable ownershipPaintable;
-    private readonly Paintable helpPaintableInterface;
-    private Paintable currentStatePaintable = NullPaintable.getInstance();
-    public BasicGameDemoPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicGameDemoPaintable() {
+    
+    
+    
+    this.currentStatePaintable = NullPaintable.getInstance();
+    }
+    
+
+    BasicGameDemoPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface) {
+        this.initFieldsBasicGameDemoPaintable();
         this.mainDemoStatePaintable = mainDemoStatePaintable;
         this.setCurrentStatePaintable(NullPaintable.getInstance());
         this.ownershipPaintable = ownershipPaintable;
         this.helpPaintableInterface = helpPaintableInterface;
     }
+    
 
-    public override void setState(int state)
-    {
+    @override
+    void setState(int state) {
         if (state == 0) {
             this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
         } else if (state == 1) {
@@ -47,31 +56,31 @@ public class BasicGameDemoPaintable : StatePaintable
             this.setCurrentStatePaintable(this.ownershipPaintable);
         }
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.getCurrentStatePaintable().paint(graphics);
     }
+    
 
-    public virtual Paintable getHelpPaintableInterface()
-    {
+    Paintable getHelpPaintableInterface() {
         return this.helpPaintableInterface;
     }
+    
 
-    public virtual void setCurrentStatePaintable(Paintable currentStatePaintable)
-    {
+    void setCurrentStatePaintable(Paintable currentStatePaintable) {
         this.currentStatePaintable = currentStatePaintable;
     }
+    
 
-    public virtual Paintable getCurrentStatePaintable()
-    {
+    Paintable getCurrentStatePaintable() {
         return this.currentStatePaintable;
     }
+    
 
-    public virtual Paintable getMainDemoStatePaintable()
-    {
+    Paintable getMainDemoStatePaintable() {
         return this.mainDemoStatePaintable;
     }
-
 }
 

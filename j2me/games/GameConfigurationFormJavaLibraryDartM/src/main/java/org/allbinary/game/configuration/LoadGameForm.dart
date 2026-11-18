@@ -13,106 +13,112 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using Choice = javax.microedition.lcdui.Choice;
-using ChoiceGroup = javax.microedition.lcdui.ChoiceGroup;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Item = javax.microedition.lcdui.Item;
-using NullImage = javax.microedition.lcdui.NullImage;
-using StringItem = javax.microedition.lcdui.StringItem;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GamePersistanceSingleton = org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Choice.dart';
+import 'package:allbinary/javax/microedition/lcdui/ChoiceGroup.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/Item.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullImage.dart';
+import 'package:allbinary/javax/microedition/lcdui/StringItem.dart';
+import 'package:allbinary/org/allbinary/MIDPUtil.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GamePersistanceSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/CommandForm.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.game.configuration;
+class LoadGameForm extends CommandForm {
+    late MIDPUtil meUtil;
+    bool areChoices = false;
 
-public class LoadGameForm : CommandForm
-{
-    private readonly MIDPUtil meUtil = MIDPUtil.getInstance();
-    private bool areChoices = false;
-    public LoadGameForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(commandListener, title, backgrounBasicColor, foregroundBasicColor)
-    {
-        // base(commandListener, title, backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsLoadGameForm() {
+    this.meUtil = MIDPUtil.getInstance();
+    this.areChoices = false;
+    }
+    
+
+    LoadGameForm(CommandListener commandListener, String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : super(commandListener, title, backgrounBasicColor, foregroundBasicColor) {
+        this.initFieldsLoadGameForm();
+        
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.update();
         this.initCommands(commandListener);
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
-        GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+    @override
+    void initCommands(CommandListener cmdListener) {
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         this.removeAllCommands();
         this.addCommand(gameCommandsFactory.LOAD_FILE);
         this.addCommand(gameCommandsFactory.DELETE_FILE);
         this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
         this.setCommandListener(cmdListener);
     }
+    
 
-    // throws Exception
-    public override void update()
-    {
-        BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
+    @override
+    void update() {
+        final BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
         this.deleteAll();
         if (list.size() > 0) {
             this.add(list, "Select A Saved Game", Choice.EXCLUSIVE);
             this.areChoices = true;
         } else {
-            this.meUtil.appendItem(this, new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
+            this.meUtil.appendItem(this, StringItem.with3("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
             this.areChoices = false;
         }
-        base.update();
+        super.update();
     }
+    
 
-    private void add(BasicArrayList list, string name, int option)
-    {
+    void add(BasicArrayList list, String name, int option) {
         ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
         if (list.size() > 0) {
             choiceGroup.setSelectedIndex(0, true);
         }
         this.meUtil.appendItem(this, choiceGroup);
     }
+    
 
-    private ChoiceGroup getChoiceGroup(BasicArrayList list, string name, int option)
-    {
-        string METHOD_NAME = "getChoiceGroup";
-        string ADDING_CHOICE = "Adding Choice: ";
-        ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
-        int size = list.size();
+    ChoiceGroup getChoiceGroup(BasicArrayList list, String name, int option) {
+        final String METHOD_NAME = "getChoiceGroup";
+        final String ADDING_CHOICE = "Adding Choice: ";
+        final ChoiceGroup choiceGroup = ChoiceGroup.with4(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
+        final int size = list.size();
         for (int index = 0; index < size; index++) {
-            object anyType = list.objectArray[index];
-            this.logUtil.putF(new StringMaker().append(ADDING_CHOICE).append(anyType.ToString()).ToString(), this, METHOD_NAME);
-            choiceGroup.append(anyType.ToString(), NullImage.NULL_IMAGE);
+            Object anyType = list.objectArray[index]!;
+            this.logUtil.putF(StringMaker().append(ADDING_CHOICE).append(anyType.toString()).toString(), this, METHOD_NAME);
+            choiceGroup.append(anyType.toString(), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }
+    
 
-    public virtual int getSelectedId()
-    {
+    int getSelectedId() {
         if (this.areChoices) {
-            ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
+            final ChoiceGroup choiceGroup = (this.get(0) as ChoiceGroup);
             return choiceGroup.getSelectedIndex();
         } else {
             return -1;
         }
     }
+    
 
-    public virtual int getSelectedText()
-    {
+    int getSelectedText() {
         if (this.areChoices) {
-            ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
-            int value = global::java.lang.JavaNumber.intValue(int.Parse((choiceGroup.getString(choiceGroup.getSelectedIndex())).ToString()));
+            final ChoiceGroup choiceGroup = (this.get(0) as ChoiceGroup);
+            final int value = (int.parse(choiceGroup.getString(choiceGroup.getSelectedIndex()))).toInt();
             return value;
         } else {
             return -1;
         }
     }
-
 }
 

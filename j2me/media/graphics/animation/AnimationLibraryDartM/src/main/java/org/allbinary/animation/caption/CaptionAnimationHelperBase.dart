@@ -13,34 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.caption
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
 
-namespace org.allbinary.animation.caption;
+class CaptionAnimationHelperBase extends Animation {
+    static final CaptionAnimationHelperBase INSTANCE = CaptionAnimationHelperBase();
+    
 
-public class CaptionAnimationHelperBase : Animation
-{
-    public static readonly CaptionAnimationHelperBase INSTANCE = new CaptionAnimationHelperBase();
-    public virtual bool isShowing()
-    {
+    bool isShowing() {
         return false;
     }
+    
 
-    public virtual void tick()
-    {
+    void tick() {
     }
+    
 
-    public virtual void update(string message, BasicColor basicColor)
-    {
+    void update(String message, BasicColor basicColor) {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
     }
-
 }
 

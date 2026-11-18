@@ -13,23 +13,22 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using CommonPhoneStrings = org.allbinary.@string.CommonPhoneStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/string/CommonPhoneStrings.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class CanvasUtil {
+    
 
-public class CanvasUtil
-{
-    private CanvasUtil()
-    {
+    CanvasUtil() {
     }
+    
 
-    public static string getKeyName(int key)
-    {
-        CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+    static String getKeyName(int key) {
+        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
         if (key == Canvas.UP) {
             return commonPhoneStrings.UP;
         } else if (key == Canvas.DOWN) {
@@ -43,6 +42,5 @@ public class CanvasUtil
         }
         return "UNKNOWN KEY";
     }
-
 }
 

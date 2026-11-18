@@ -13,78 +13,86 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using ByteArrayOutputStream = java.io.ByteArrayOutputStream;
-using DataOutputStream = java.io.DataOutputStream;
-using GameInfo = org.allbinary.game.GameInfo;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayOutputStream.dart';
+import 'package:allbinary/java/io/DataOutputStream.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
 
-namespace org.allbinary.game.score;
+class HighScore {
+    int id = 0;
+    late String name;
+    late GameInfo gameInfo;
+    int score = 0;
+    late String scoreString;
 
-public class HighScore
-{
-    private readonly int id;
-    private string name;
-    private readonly GameInfo gameInfo;
-    private readonly long score;
-    private readonly string scoreString;
-    public HighScore(int id, string name, GameInfo gameInfo, long score)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScore() {
+    
+    
+    
+    
+    
+    }
+    
+
+    HighScore(int id, String name, GameInfo gameInfo, int score) {
+        this.initFieldsHighScore();
         this.id = id;
         this.name = name;
         this.gameInfo = gameInfo;
         this.score = score;
-        this.scoreString = (this.score).ToString();
+        this.scoreString = jstr(this.score);
     }
+    
 
-    public virtual int getId()
-    {
+    int getId() {
         return this.id;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    public virtual long getScore()
-    {
+    int getScore() {
         return this.score;
     }
+    
 
-    // throws Exception
-    public virtual sbyte[] getAsBytes()
-    {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
+    List<int> getAsBytes() {
+        final ByteArrayOutputStream byteArrayOutputStream = ByteArrayOutputStream();
+        final DataOutputStream outputStream = DataOutputStream(byteArrayOutputStream);
         outputStream.writeUTF(this.getName());
         outputStream.writeLong(this.getScore());
         return byteArrayOutputStream.toByteArray();
     }
+    
 
-    public virtual GameInfo getGameInfo()
-    {
+    GameInfo getGameInfo() {
         return this.gameInfo;
     }
+    
 
-    public virtual string getScoreString()
-    {
+    String getScoreString() {
         return this.scoreString;
     }
+    
 
-    public virtual void setName(string name)
-    {
+    void setName(String name) {
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        return new StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).ToString();
+    @override
+    String toString() {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        return StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();
     }
-
 }
 

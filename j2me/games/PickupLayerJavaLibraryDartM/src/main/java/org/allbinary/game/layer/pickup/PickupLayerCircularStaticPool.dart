@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class PickupLayerCircularStaticPool extends AllBinaryLayerCircularPool {
+    static PickupLayerCircularStaticPool SINGLETON = PickupLayerCircularStaticPool();
+    
 
-public class PickupLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    private static PickupLayerCircularStaticPool SINGLETON = new PickupLayerCircularStaticPool();
-    private PickupLayerCircularStaticPool()
-    {
+    PickupLayerCircularStaticPool() {
     }
+    
 
-    public static PickupLayerCircularStaticPool getInstance()
-    {
+    static PickupLayerCircularStaticPool getInstance() {
         return PickupLayerCircularStaticPool.SINGLETON;
     }
+    
 
-    // throws Exception
-    public virtual PickedUpLayerInterface getInstanceXYZ(PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, int x, int y, int z)
-    {
-        PickupLayer pickupLayer = ((PickupLayer) this.getNextInstance());
+    PickedUpLayerInterface getInstanceXYZ(PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, int x, int y, int z) {
+        final PickupLayer pickupLayer = (this.getNextInstance() as PickupLayer);
         pickupLayer.initXYZ(x, y, z);
         pickupLayer.init(pickedUpLayerInterfaceFactoryInterface, pickedUpLayerInterfaceFactoryInterface.getAnimationInterface());
         return pickupLayer;
     }
-
 }
 

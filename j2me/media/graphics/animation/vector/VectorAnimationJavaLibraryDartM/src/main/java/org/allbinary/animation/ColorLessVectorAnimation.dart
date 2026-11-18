@@ -13,25 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class ColorLessVectorAnimation extends VectorAnimation {
+    
 
-public class ColorLessVectorAnimation : VectorAnimation
-{
-    public ColorLessVectorAnimation(int[][][] currentPoints, AnimationBehavior animationBehavior) : base(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior)
-    {
-        // base(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior) is called from the constructor declaration
+    ColorLessVectorAnimation(List<List<List<int>?>?> currentPoints, AnimationBehavior animationBehavior) : super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior) {
+        
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.paintVectors(graphics, x, y);
     }
-
 }
 

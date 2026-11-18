@@ -13,24 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/KeyValuePersistance.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GamePersistanceStrings.dart';
 
-namespace org.allbinary.game.configuration.persistance;
+class GameConfigurationPersistanceSingleton extends KeyValuePersistance {
+    static GameConfigurationPersistanceSingleton GAME_PERSISTANCE = GameConfigurationPersistanceSingleton();
+    
 
-public class GameConfigurationPersistanceSingleton : KeyValuePersistance
-{
-    private static GameConfigurationPersistanceSingleton GAME_PERSISTANCE = new GameConfigurationPersistanceSingleton();
-    public static GameConfigurationPersistanceSingleton getInstance()
-    {
+    static GameConfigurationPersistanceSingleton getInstance() {
         return GameConfigurationPersistanceSingleton.GAME_PERSISTANCE;
     }
+    
 
-    private GameConfigurationPersistanceSingleton() : base(GamePersistanceStrings.getInstance().SAVED_GAME_CONFIGURATION_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().SAVED_GAME_CONFIGURATION_RECORD_ID) is called from the constructor declaration
+    GameConfigurationPersistanceSingleton() : super(GamePersistanceStrings.getInstance().SAVED_GAME_CONFIGURATION_RECORD_ID) {
+        
     }
-
 }
 

@@ -13,78 +13,82 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventListenerInterface = org.allbinary.game.input.@event.GameKeyEventListenerInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputStrings.dart';
 
-namespace org.allbinary.game.input;
+class PlayerGameInput extends GameInput implements GameKeyEventListenerInterface {
+    late GameInputStrings gameInputStrings;
+    int playerInputId = 0;
 
-public class PlayerGameInput : GameInput, GameKeyEventListenerInterface
-{
-    public readonly GameInputStrings gameInputStrings = GameInputStrings.getInstance();
-    private readonly int playerInputId;
-    public PlayerGameInput(BasicArrayList gameKeyEventList, BasicArrayList removalGameKeyEventList, int playerInputId) : base(gameKeyEventList, removalGameKeyEventList)
-    {
-        // base(gameKeyEventList, removalGameKeyEventList) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsPlayerGameInput() {
+    this.gameInputStrings = GameInputStrings.getInstance();
+    
+    }
+    
+
+    PlayerGameInput(BasicArrayList gameKeyEventList, BasicArrayList removalGameKeyEventList, int playerInputId) : super(gameKeyEventList, removalGameKeyEventList) {
+        this.initFieldsPlayerGameInput();
+        
         this.playerInputId = playerInputId;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onPressGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.add(gameKeyEvent);
         this.addForRemoval(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.add(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onDownKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    void onDownKeyEvent(GameKeyEvent gameKeyEvent) {
         this.add(gameKeyEvent);
         this.addForRemoval(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onDownKey(int? gameKeyEvent)
-    {
-        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.ToString()).ToString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
+    void onDownKey(int gameKeyEvent) {
+        PreLogUtil.put(StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.addForRemoval(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onUpKeyEvent(int? gameKeyEvent)
-    {
+    void onUpKeyEvent(int gameKeyEvent) {
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual int getPlayerInputId()
-    {
+    int getPlayerInputId() {
         return this.playerInputId;
     }
-
 }
 

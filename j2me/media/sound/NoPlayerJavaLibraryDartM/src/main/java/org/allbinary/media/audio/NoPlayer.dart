@@ -13,39 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-using Control = javax.microedition.media.Control;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/media/Control.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/media/audio/BasicPlayer.dart';
+import 'package:allbinary/org/allbinary/media/audio/NullControl.dart';
 
-namespace org.allbinary.media.audio;
+class NoPlayer extends BasicPlayer {
+    static final NoPlayer NO_PLAYER = NoPlayer();
+    
 
-public class NoPlayer : BasicPlayer
-{
-    public static readonly NoPlayer NO_PLAYER = new NoPlayer();
-    public NoPlayer()
-    {
+    NoPlayer() {
     }
+    
 
-    public override void close()
-    {
+    @override
+    void close() {
     }
+    
 
-    public override string getContentType()
-    {
+    @override
+    String getContentType() {
         return StringUtil.getInstance().NULL_STRING;
     }
+    
 
-    public override Control getControl(string controlType)
-    {
-        return new NullControl();
+    @override
+    Control getControl(String controlType) {
+        return NullControl();
     }
+    
 
-    public override Control[] getControls()
-    {
-        return new Control[0];
+    @override
+    List<Control?> getControls() {
+        return List<Control?>.filled(0, null);
     }
-
 }
 

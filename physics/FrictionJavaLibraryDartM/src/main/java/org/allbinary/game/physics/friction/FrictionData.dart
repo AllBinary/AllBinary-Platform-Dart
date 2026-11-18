@@ -13,23 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.friction
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.physics.friction;
+class FrictionData {
+    static const int FRICTION_DENOMINATOR = 100;
+    
 
-public class FrictionData
-{
-    private const int FRICTION_DENOMINATOR = 100;
-    private FrictionData()
-    {
+    FrictionData() {
     }
+    
 
-    public static int getFrictionDenominator()
-    {
+    static int getFrictionDenominator() {
         return FrictionData.FRICTION_DENOMINATOR;
     }
-
 }
 

@@ -13,76 +13,86 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using MotionGestureConfiguration = org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
-using MotionGestureConfigurationFactory = org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
-using DiagonalDownLeftTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.DiagonalDownLeftTouchInputToGameKeyEventAction;
-using DiagonalDownRightTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.DiagonalDownRightTouchInputToGameKeyEventAction;
-using DiagonalUpLeftTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.DiagonalUpLeftTouchInputToGameKeyEventAction;
-using DiagonalUpRightTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.DiagonalUpRightTouchInputToGameKeyEventAction;
-using DownTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.DownTouchInputToGameKeyEventAction;
-using LeftTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.LeftTouchInputToGameKeyEventAction;
-using ReleaseTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.ReleaseTouchInputToGameKeyEventAction;
-using RightTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.RightTouchInputToGameKeyEventAction;
-using UpTouchInputToGameKeyEventAction = org.allbinary.input.motion.touch.action.UpTouchInputToGameKeyEventAction;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/configuration/MotionGestureConfigurationFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/DiagonalDownLeftTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/DiagonalDownRightTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/DiagonalUpLeftTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/DiagonalUpRightTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/DownTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/LeftTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/ReleaseTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/RightTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/input/motion/touch/action/UpTouchInputToGameKeyEventAction.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.input.motion;
+class CompleteMotionGestureInputToGameMotionGestureInput {
+    static final CompleteMotionGestureInputToGameMotionGestureInput instance = CompleteMotionGestureInputToGameMotionGestureInput();
+    late LogUtil logUtil;
 
-public class CompleteMotionGestureInputToGameMotionGestureInput
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly CompleteMotionGestureInputToGameMotionGestureInput instance = new CompleteMotionGestureInputToGameMotionGestureInput();
-    public static CompleteMotionGestureInputToGameMotionGestureInput getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCompleteMotionGestureInputToGameMotionGestureInput() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    CompleteMotionGestureInputToGameMotionGestureInput() {
+        this.initFieldsCompleteMotionGestureInputToGameMotionGestureInput();
+    }
+    
+
+    static CompleteMotionGestureInputToGameMotionGestureInput getInstance() {
         return CompleteMotionGestureInputToGameMotionGestureInput.instance;
     }
+    
 
-    public virtual void init()
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
+    void init() {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try {
             PreLogUtil.put("Compound Motion Gestures", this, commonStrings.INIT);
-            MotionGestureConfiguration motionGestureConfiguration = MotionGestureConfigurationFactory.getInstance();
-            TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
-            BasicArrayList list = new BasicArrayListD();
+            final MotionGestureConfiguration motionGestureConfiguration = MotionGestureConfigurationFactory.getInstance();
+            final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+            BasicArrayList list = BasicArrayListD();
             list.add(touchMotionGestureFactory.DIAGONAL_DOWN_LEFT);
             motionGestureConfiguration.addMotionGestureAction(list, DiagonalDownLeftTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.DIAGONAL_DOWN_RIGHT);
             motionGestureConfiguration.addMotionGestureAction(list, DiagonalDownRightTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.DIAGONAL_UP_LEFT);
             motionGestureConfiguration.addMotionGestureAction(list, DiagonalUpLeftTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.DIAGONAL_UP_RIGHT);
             motionGestureConfiguration.addMotionGestureAction(list, DiagonalUpRightTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.LEFT);
             motionGestureConfiguration.addMotionGestureAction(list, LeftTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.RIGHT);
             motionGestureConfiguration.addMotionGestureAction(list, RightTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.DOWN);
             motionGestureConfiguration.addMotionGestureAction(list, DownTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.UP);
             motionGestureConfiguration.addMotionGestureAction(list, UpTouchInputToGameKeyEventAction.getInstance());
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
             list.add(touchMotionGestureFactory.RELEASED);
             motionGestureConfiguration.addMotionGestureAction(list, ReleaseTouchInputToGameKeyEventAction.getInstance());
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            }
         }
     }
-
 }
 

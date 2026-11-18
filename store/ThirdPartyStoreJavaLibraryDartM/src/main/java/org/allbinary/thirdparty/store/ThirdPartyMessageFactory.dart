@@ -13,22 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.thirdparty.store
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.thirdparty.store;
+class ThirdPartyMessageFactory {
+    static final ThirdPartyMessageFactory instance = ThirdPartyMessageFactory();
+    late String AUTHORIZED;
+    late String NOT_AUTHORIZED;
+    late String LINKAGE_ERROR;
 
-public class ThirdPartyMessageFactory
-{
-    private static readonly ThirdPartyMessageFactory instance = new ThirdPartyMessageFactory();
-    public readonly string AUTHORIZED = "Authorized";
-    public readonly string NOT_AUTHORIZED = "Not Authorized";
-    public readonly string LINKAGE_ERROR = "Linkage Error";
-    public static ThirdPartyMessageFactory getInstance()
-    {
-        return ThirdPartyMessageFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsThirdPartyMessageFactory() {
+    this.AUTHORIZED = "Authorized";
+    this.NOT_AUTHORIZED = "Not Authorized";
+    this.LINKAGE_ERROR = "Linkage Error";
     }
 
+    ThirdPartyMessageFactory() {
+        this.initFieldsThirdPartyMessageFactory();
+    }
+    
+
+    static ThirdPartyMessageFactory getInstance() {
+        return ThirdPartyMessageFactory.instance;
+    }
 }
 

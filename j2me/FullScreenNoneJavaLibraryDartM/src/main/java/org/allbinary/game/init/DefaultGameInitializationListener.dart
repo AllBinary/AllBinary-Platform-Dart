@@ -13,48 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.init
 
-using System;
-using System.Linq;
-using GameInitializedEvent = org.allbinary.game.configuration.@event.GameInitializedEvent;
-using GameInitializedEventHandler = org.allbinary.game.configuration.@event.GameInitializedEventHandler;
-using GameInitializedListenerInterface = org.allbinary.game.configuration.@event.GameInitializedListenerInterface;
-using FeatureResourceInitializationUtil = org.allbinary.game.resource.FeatureResourceInitializationUtil;
-using SWTJOGLProcessor = org.allbinary.graphics.threed.SWTJOGLProcessor;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameInitializedEvent.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameInitializedEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameInitializedListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/resource/FeatureResourceInitializationUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/threed/SWTJOGLProcessor.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.init;
+class DefaultGameInitializationListener implements GameInitializedListenerInterface {
+    late LogUtil logUtil;
+    late SWTJOGLProcessor swtJOGLProcessor;
+    bool firstTime = false;
 
-public class DefaultGameInitializationListener : GameInitializedListenerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
-    public DefaultGameInitializationListener()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDefaultGameInitializationListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.swtJOGLProcessor = SWTJOGLProcessor.getInstance();
+    this.firstTime = true;
+    }
+    
+
+    DefaultGameInitializationListener() {
+        this.initFieldsDefaultGameInitializationListener();
         GameInitializedEventHandler gameInitializedEventHandler = GameInitializedEventHandler.getInstance();
         gameInitializedEventHandler.removeAllListeners();
-        gameInitializedEventHandler.addListenerInterface(((GameInitializedListenerInterface) this));
+        gameInitializedEventHandler.addListenerInterface((this as GameInitializedListenerInterface));
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public bool firstTime = true;
-    public virtual void onGameInitialized(GameInitializedEvent gameInitializedEvent)
-    {
-        string ON_GAME_INITIALIZED = "onGameInitialized";
-        CommonStrings commonStrings = CommonStrings.getInstance();
+    @override
+    void onGameInitialized(GameInitializedEvent gameInitializedEvent) {
+        final String ON_GAME_INITIALIZED = "onGameInitialized";
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try {
             this.logUtil.putF(commonStrings.START, this, ON_GAME_INITIALIZED);
             while (!this.swtJOGLProcessor.isHolderCreated()) {
                 this.logUtil.putF(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
-                System.Threading.Thread.Sleep((int) (20));
+                Thread.sleep(20);
             }
             FeatureResourceInitializationUtil.getInstance().init(gameInitializedEvent.getLevel());
             if (this.firstTime) {
@@ -62,10 +71,12 @@ public class DefaultGameInitializationListener : GameInitializedListenerInterfac
             } else {
                 this.swtJOGLProcessor.onSurfaceChanged();
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e);
+            }
         }
     }
-
 }
 

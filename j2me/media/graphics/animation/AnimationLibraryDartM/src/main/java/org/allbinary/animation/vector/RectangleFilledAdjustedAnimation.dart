@@ -13,56 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.vector
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/animation/vector/RectangleFilledAnimation.dart';
 
-namespace org.allbinary.animation.vector;
+class RectangleFilledAdjustedAnimation extends RectangleFilledAnimation implements ColorCompositeInterface {
+    int offsetX = 0;
+    int offsetY = 0;
 
-public class RectangleFilledAdjustedAnimation : RectangleFilledAnimation, ColorCompositeInterface
-{
-    private int offsetX;
-    private int offsetY;
-    public RectangleFilledAdjustedAnimation(int width, int height, int offsetX, int offsetY, BasicColor basicColor) : base(width, height, basicColor)
-    {
-        // base(width, height, basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsRectangleFilledAdjustedAnimation() {
+    
+    
+    }
+    
+
+    RectangleFilledAdjustedAnimation(int width, int height, int offsetX, int offsetY, BasicColor basicColor) : super(width, height, basicColor) {
+        this.initFieldsRectangleFilledAdjustedAnimation();
+        
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
-        base.paintXY(graphics, x + this.offsetX, y + this.offsetY);
+        super.paintXY(graphics, x + this.offsetX, y + this.offsetY);
     }
+    
 
-    public virtual void setOffsetX(int offsetX)
-    {
+    void setOffsetX(int offsetX) {
         this.offsetX = offsetX;
     }
+    
 
-    public virtual void setOffsetY(int offsetY)
-    {
+    void setOffsetY(int offsetY) {
         this.offsetY = offsetY;
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        return base.getBasicColorP();
+    @override
+    BasicColor getBasicColorP() {
+        return super.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
-        base.setBasicColorP(basicColor);
+    @override
+    void setBasicColorP(BasicColor basicColor) {
+        super.setBasicColorP(basicColor);
     }
-
 }
 

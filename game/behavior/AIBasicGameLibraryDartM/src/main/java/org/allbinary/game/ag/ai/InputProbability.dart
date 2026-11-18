@@ -13,57 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
 
-namespace org.allbinary.game.ag.ai;
+class InputProbability {
+    static int INPUT_PROBABILITY = SmallIntegerSingletonFactory.getInstance().getAt(0);
+    late List<List<int?>?> likelyhoodIntegerArray;
+    late List<int?> repeatLikelyhoodIntegerArray;
+    int max = 0;
+    late TimeDelayHelper timeDelayHelper;
 
-public class InputProbability
-{
-    public static int? INPUT_PROBABILITY = SmallIntegerSingletonFactory.getInstance().getAt(0);
-    private readonly int?[][] likelyhoodIntegerArray;
-    private readonly int?[] repeatLikelyhoodIntegerArray;
-    private readonly int max;
-    private readonly TimeDelayHelper timeDelayHelper;
-    public InputProbability(int?[][] likelyhoodIntegerArray, int?[] repeatLikelyhoodIntegerArray, int max, TimeDelayHelper timeDelayHelper)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInputProbability() {
+    
+    
+    
+    
+    }
+    
+
+    InputProbability(List<List<int?>?> likelyhoodIntegerArray, List<int?> repeatLikelyhoodIntegerArray, int max, TimeDelayHelper timeDelayHelper) {
+        this.initFieldsInputProbability();
         this.likelyhoodIntegerArray = likelyhoodIntegerArray;
         this.repeatLikelyhoodIntegerArray = repeatLikelyhoodIntegerArray;
         this.max = max;
         this.timeDelayHelper = timeDelayHelper;
     }
+    
 
-    public virtual int?[][] getLikelyhoodIntegerArray()
-    {
+    List<List<int?>?> getLikelyhoodIntegerArray() {
         return this.likelyhoodIntegerArray;
     }
+    
 
-    public virtual int?[] getRepeatLikelyhoodIntegerArray()
-    {
+    List<int?> getRepeatLikelyhoodIntegerArray() {
         return this.repeatLikelyhoodIntegerArray;
     }
+    
 
-    public virtual int getMax()
-    {
+    int getMax() {
         return this.max;
     }
+    
 
-    public virtual TimeDelayHelper getTimeDelayHelper()
-    {
+    TimeDelayHelper getTimeDelayHelper() {
         return this.timeDelayHelper;
     }
+    
 
-    public virtual ABHashtable<object, object> toHashtable()
-    {
-        ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
+    ABHashtable toHashtable() {
+        ABHashtable hashtable = StdUtil.getInstance().createHashtable();
         hashtable.put(InputProbability.INPUT_PROBABILITY, this);
         return hashtable;
     }
-
 }
 

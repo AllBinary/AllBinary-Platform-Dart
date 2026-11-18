@@ -13,36 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Features = org.allbinary.game.configuration.feature.Features;
-using InputFeatureFactory = org.allbinary.game.configuration.feature.InputFeatureFactory;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/InputFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.game.input;
+class GameInput {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late BasicArrayList gameKeyEventList;
+    late BasicArrayList removalGameKeyEventList;
+    bool isRemoveDuplicateKeyPresses = false;
 
-public class GameInput
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly BasicArrayList gameKeyEventList;
-    private readonly BasicArrayList removalGameKeyEventList;
-    public readonly bool isRemoveDuplicateKeyPresses;
-    public GameInput(BasicArrayList gameKeyEventList, BasicArrayList removalGameKeyEventList)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameInput() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    }
+    
+
+    GameInput(BasicArrayList gameKeyEventList, BasicArrayList removalGameKeyEventList) {
+        this.initFieldsGameInput();
         this.gameKeyEventList = gameKeyEventList;
         this.removalGameKeyEventList = removalGameKeyEventList;
         this.isRemoveDuplicateKeyPresses = Features.getInstance().isFeature(InputFeatureFactory.getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void add(GameKeyEvent gameKeyEvent)
-    {
+    void add(GameKeyEvent gameKeyEvent) {
         if (this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent)) {
             return;
         }
@@ -52,64 +59,58 @@ public class GameInput
             this.logUtil.putF("Danger Passed Null GameKeyEvent", this, this.commonStrings.ADD);
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void addForRemoval(GameKeyEvent gameKeyEvent)
-    {
+    void addForRemoval(GameKeyEvent gameKeyEvent) {
         this.removalGameKeyEventList.add(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool isForRemoval(GameKeyEvent gameKeyEvent)
-    {
+    bool isForRemoval(GameKeyEvent gameKeyEvent) {
         return this.removalGameKeyEventList.contains(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void clear()
-    {
+    void clear() {
         this.gameKeyEventList.clear();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void removeNonAIInputGameKeyEvents()
-    {
+    void removeNonAIInputGameKeyEvents() {
         BasicArrayList list = this.gameKeyEventList;
-        GameKeyEvent gameKeyEvent = null;
+        late GameKeyEvent gameKeyEvent;
         for (int index = list.size(); --index >= 0; ) {
-            gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
+            gameKeyEvent = (list.objectArray[index]! as GameKeyEvent);
             if (gameKeyEvent.getSourceId() != 1) {
                 list.removeAt(index);
             }
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void update()
-    {
+    void update() {
         BasicArrayList removeList = this.removalGameKeyEventList;
         BasicArrayList list = this.gameKeyEventList;
         int size = removeList.size();
         for (int index = 0; index < size; index++) {
-            object anyType = removeList.objectArray[index];
+            Object anyType = removeList.objectArray[index]!;
             for (int index2 = list.size(); --index2 >= 0; ) {
-                if (list.objectArray[index2] == anyType) {
+                if (list.objectArray[index2]! == anyType) {
                     list.removeAt(index2);
                 }
             }
         }
         removeList.clear();
     }
+    
 
-    public virtual BasicArrayList getRemovalGameKeyEventList()
-    {
+    BasicArrayList getRemovalGameKeyEventList() {
         return this.removalGameKeyEventList;
     }
+    
 
-    public virtual BasicArrayList getGameKeyEventList()
-    {
+    BasicArrayList getGameKeyEventList() {
         return this.gameKeyEventList;
     }
-
 }
 

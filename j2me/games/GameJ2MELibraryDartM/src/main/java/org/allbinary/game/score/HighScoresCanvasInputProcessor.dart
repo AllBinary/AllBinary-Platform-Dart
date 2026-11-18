@@ -13,65 +13,67 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Graphics = javax.microedition.lcdui.Graphics;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/score/displayable/HighScoresCanvas.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.score;
+class HighScoresCanvasInputProcessor extends PlayerGameInput {
+    late HighScoresCanvas highScoresCanvas;
 
-public class HighScoresCanvasInputProcessor : PlayerGameInput
-{
-    private readonly HighScoresCanvas highScoresCanvas;
-    public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas) : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresCanvasInputProcessor() {
+    
+    }
+    
+
+    HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas) : super(BasicArrayListD(), BasicArrayListD(), -1) {
+        this.initFieldsHighScoresCanvasInputProcessor();
+        
         this.highScoresCanvas = highScoresCanvas;
     }
+    
 
-    public virtual void open()
-    {
+    void open() {
     }
+    
 
-    public virtual void close()
-    {
+    void close() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
-        base.onPressGameKeyEvent(gameKeyEvent);
+    @override
+    void onPressGameKeyEvent(GameKeyEvent gameKeyEvent) {
+        super.onPressGameKeyEvent(gameKeyEvent);
         this.update();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
-        base.onDownGameKeyEvent(gameKeyEvent);
+    @override
+    void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
+        super.onDownGameKeyEvent(gameKeyEvent);
         this.update();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
-        base.onUpGameKeyEvent(gameKeyEvent);
+    @override
+    void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
+        super.onUpGameKeyEvent(gameKeyEvent);
         this.update();
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual HighScoresCanvas getHighScoresCanvas()
-    {
+    HighScoresCanvas getHighScoresCanvas() {
         return this.highScoresCanvas;
     }
-
 }
 

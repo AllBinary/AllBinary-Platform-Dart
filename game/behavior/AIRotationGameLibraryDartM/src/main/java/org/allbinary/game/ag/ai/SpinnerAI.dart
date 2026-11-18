@@ -13,38 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.ag.ai;
+class SpinnerAI extends BasicAI {
+    bool isEven = false;
+    late List<int> direction;
 
-public class SpinnerAI : BasicAI
-{
-    private bool isEven = false;
-    private int[] direction;
-    public SpinnerAI(int[] direction, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsSpinnerAI() {
+    this.isEven = false;
+    
+    }
+    
+
+    SpinnerAI(List<int> direction, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(ownerLayerInterface, gameInput) {
+        this.initFieldsSpinnerAI();
+        
         this.direction = direction;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.isEven) {
-            base.processKeyAI(this.direction[0]);
+            super.processKeyAI(this.direction[0]);
             this.isEven = false;
         } else {
-            base.processKeyAI(Canvas.KEY_NUM1);
+            super.processKeyAI(Canvas.KEY_NUM1);
             this.isEven = true;
         }
     }
-
 }
 

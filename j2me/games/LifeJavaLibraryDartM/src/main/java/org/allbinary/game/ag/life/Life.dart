@@ -13,106 +13,123 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.life
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/ag/life/LifeInterface.dart';
 
-namespace org.allbinary.game.ag.life;
+class Life implements LifeInterface {
+    static final Life NO_LIFE = Life.createLife();
+    int lives = 0;
+    int startLives = 0;
+    int maxlives = 0;
 
-public class Life : LifeInterface
-{
-    public static Life createLife()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLife() {
+    
+    
+    
+    }
+    
+
+    static Life createLife() {
         try {
-            return new Life(((short) 0), ((short) 0));
-        } catch (Exception e) {
-            throw new SystemException();
+            return Life((0).toSigned(16), (0).toSigned(16));
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            throw JException('RuntimeException', '');
+            }
         }
     }
+    
 
-    public static readonly Life NO_LIFE = Life.createLife();
-    private short lives;
-    private short startLives;
-    private short maxlives;
-    public Life(short lives, short maxlives)
-    {
+    Life(int lives, int maxlives) {
+        this.initFieldsLife();
         this.maxlives = maxlives;
         if (lives > this.maxlives) {
-            throw new Exception("To Many Lives");
+            throw JException('Exception', "To Many Lives");
         }
         this.lives = lives;
         this.startLives = lives;
     }
+    
 
-    public virtual short get()
-    {
+    @override
+    int get() {
         return this.lives;
     }
+    
 
-    public virtual void set(short lives)
-    {
+    @override
+    void set(int lives) {
         this.lives = lives;
     }
+    
 
-    public virtual void reset()
-    {
+    @override
+    void reset() {
         this.lives = this.startLives;
     }
+    
 
-    public virtual void add(short lives)
-    {
+    @override
+    void add(int lives) {
         if (!this.reachedLimit()) {
-            if (this.lives + lives <= ((int) this.getMaxlives())) {
-                this.lives = ((short) (this.lives + lives));
+            if (this.lives + lives <= this.getMaxlives()) {
+                this.lives = ((this.lives + lives)).toSigned(16);
             } else {
                 this.lives = this.getMaxlives();
             }
         }
     }
+    
 
-    public virtual bool isAlive()
-    {
-        if (((int) this.lives) <= 0) {
+    @override
+    bool isAlive() {
+        if (this.lives <= 0) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public virtual short getMaxlives()
-    {
+    @override
+    int getMaxlives() {
         return this.maxlives;
     }
+    
 
-    private bool reachedLimit()
-    {
-        if (this.lives > this.maxlives || ((int) this.lives) < 0) {
+    bool reachedLimit() {
+        if (this.lives > this.maxlives || this.lives < 0) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual void deaths(short lives)
-    {
+    @override
+    void deaths(int lives) {
         if (!this.reachedLimit()) {
             if (this.lives - lives >= 0) {
-                this.lives = ((short) (this.lives - lives));
+                this.lives = ((this.lives - lives)).toSigned(16);
             } else {
                 this.lives = 0;
             }
         }
     }
+    
 
-    public virtual short getStartLives()
-    {
+    int getStartLives() {
         return this.startLives;
     }
+    
 
-    public virtual void setStartLives(short startLives)
-    {
+    void setStartLives(int startLives) {
         this.startLives = startLives;
     }
-
 }
 

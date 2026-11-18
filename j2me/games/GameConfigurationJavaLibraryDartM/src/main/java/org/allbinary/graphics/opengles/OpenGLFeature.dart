@@ -13,19 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-using Feature = org.allbinary.game.configuration.feature.Feature;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Feature.dart';
 
-namespace org.allbinary.graphics.opengles;
+class OpenGLFeature extends Feature {
+    
 
-public class OpenGLFeature : Feature
-{
-    public OpenGLFeature(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    OpenGLFeature(String name) : super(name) {
+        
     }
-
 }
 

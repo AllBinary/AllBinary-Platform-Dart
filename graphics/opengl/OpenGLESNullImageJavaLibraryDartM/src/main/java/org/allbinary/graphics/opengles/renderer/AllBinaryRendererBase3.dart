@@ -13,35 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.renderer
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using Image = javax.microedition.lcdui.Image;
-using OpenGLESImage = org.allbinary.image.opengles.OpenGLESImage;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImage.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.graphics.opengles.renderer;
+class AllBinaryRendererBase3 {
+    late BasicArrayList list;
 
-public class AllBinaryRendererBase3
-{
-    public readonly BasicArrayList list = new BasicArrayListD();
-    // throws Exception
-    public virtual void update(GL10 gl)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryRendererBase3() {
+    this.list = BasicArrayListD();
+    }
+
+    AllBinaryRendererBase3() {
+        this.initFieldsAllBinaryRendererBase3();
+    }
+    
+
+    void update(GL10 gl) {
         while (this.list.size() > 0) {
-            OpenGLESImage openGLESImage = ((OpenGLESImage) this.list.removeAt(0));
+            final OpenGLESImage openGLESImage = (this.list.removeAt(0) as OpenGLESImage);
             if (openGLESImage != null) {
                 openGLESImage.set(gl);
             }
         }
     }
+    
 
-    public virtual void add(Image image)
-    {
+    void add(Image image) {
         this.list.add(image);
     }
-
 }
 

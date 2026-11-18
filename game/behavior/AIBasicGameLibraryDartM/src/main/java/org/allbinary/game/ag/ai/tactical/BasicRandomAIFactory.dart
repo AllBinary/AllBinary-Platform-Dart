@@ -13,32 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.tactical
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using InputProbability = org.allbinary.game.ag.ai.InputProbability;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/InputProbability.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/tactical/BasicRandomAI.dart';
 
-namespace org.allbinary.game.ag.ai.tactical;
+class BasicRandomAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    
 
-public class BasicRandomAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        Visitor visitor = ((Visitor) hashtable.get(((object) BasicAI.AI_VISITOR)));
+    @override
+    ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        Visitor visitor = (hashtable.get((BasicAI.AI_VISITOR as Object)) as Visitor);
         if (visitor == null) {
-            throw new Exception("No Visitor Provided");
+            throw JException('Exception', "No Visitor Provided");
         }
-        InputProbability inputProbability = ((InputProbability) hashtable.get(((object) InputProbability.INPUT_PROBABILITY)));
-        return new BasicRandomAI(ownerLayerInterface, gameInput, inputProbability, visitor);
+        final InputProbability inputProbability = (hashtable.get((InputProbability.INPUT_PROBABILITY as Object)) as InputProbability);
+        return BasicRandomAI(ownerLayerInterface, gameInput, inputProbability, visitor);
     }
-
 }
 

@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using SingletonAnimationInterfaceFactory = org.allbinary.animation.SingletonAnimationInterfaceFactory;
-using AnimationFrameToImageUtil = org.allbinary.image.AnimationFrameToImageUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/SingletonAnimationInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/image/AnimationFrameToImageUtil.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class ImageAnimationSingletonInterfaceFactory extends SingletonAnimationInterfaceFactory {
+    
 
-public class ImageAnimationSingletonInterfaceFactory : SingletonAnimationInterfaceFactory
-{
-    public ImageAnimationSingletonInterfaceFactory(Animation animationInterface, int width, int height) : base(new ImageAnimation(AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, animationInterface), AnimationBehavior.getInstance()))
-    {
-        // base(new ImageAnimation(AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, animationInterface), AnimationBehavior.getInstance())) is called from the constructor declaration
+    ImageAnimationSingletonInterfaceFactory(Animation animationInterface, int width, int height) : super(ImageAnimation(AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, animationInterface), AnimationBehavior.getInstance())) {
+        
     }
-
 }
 

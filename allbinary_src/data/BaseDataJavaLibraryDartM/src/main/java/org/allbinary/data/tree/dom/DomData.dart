@@ -13,17 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.data.tree.dom
 
 import 'package:allbinary/allbinary_java.dart';
 
 class DomData {
-    static final String ID = "id";
-    static final String CHILD = "child";
-    static final String NAME = "name";
-    static final String VALUE = "value";
-    static final String INDEX = "index";
+    static const String ID = "id";
+    static const String CHILD = "child";
+    static const String NAME = "name";
+    static const String VALUE = "value";
+    static const String INDEX = "index";
     
 
     DomData() {

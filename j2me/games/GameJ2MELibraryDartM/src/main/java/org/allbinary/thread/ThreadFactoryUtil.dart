@@ -13,66 +13,76 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.thread
 
-using System;
-using System.Linq;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using RunnableCanvas = org.allbinary.canvas.RunnableCanvas;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using DemoCanvas = org.allbinary.game.displayable.canvas.DemoCanvas;
-using GameCanvasRunnableInterface = org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
-using RunnableCanvasSingleThreadStartRunnable = org.allbinary.game.displayable.canvas.RunnableCanvasSingleThreadStartRunnable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/canvas/RunnableCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/RunnableCanvasSingleThreadStartRunnable.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/thread/ABRunnable.dart';
+import 'package:allbinary/org/allbinary/thread/PrimaryThreadPool.dart';
+import 'package:allbinary/org/allbinary/thread/ThreadPool.dart';
 
-namespace org.allbinary.thread;
+class ThreadFactoryUtil {
+    static final ThreadFactoryUtil instance = ThreadFactoryUtil();
+    late LogUtil logUtil;
 
-public class ThreadFactoryUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly ThreadFactoryUtil instance = new ThreadFactoryUtil();
-    public static ThreadFactoryUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsThreadFactoryUtil() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    ThreadFactoryUtil() {
+        this.initFieldsThreadFactoryUtil();
+    }
+    
+
+    static ThreadFactoryUtil getInstance() {
         return ThreadFactoryUtil.instance;
     }
+    
 
-    public virtual global::org.allbinary.thread.NullThread getInstanceGameCanvasRunnable(GameCanvasRunnableInterface runnable)
-    {
+    Thread getInstanceGameCanvasRunnable(GameCanvasRunnableInterface runnable) {
         return this.getInstanceType(runnable, runnable.getType());
     }
+    
 
-    public virtual global::org.allbinary.thread.NullThread getInstanceForRunnable(ABRunnable runnable)
-    {
+    Thread getInstanceForRunnable(ABRunnable runnable) {
         return this.getInstanceType(runnable, runnable.getType());
     }
+    
 
-    private global::org.allbinary.thread.NullThread getInstanceType(global::java.lang.Runnable runnable, int type)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
+    Thread getInstanceType(Runnable runnable, int type) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         if (J2MEUtil.isHTML()) {
             if (type == DemoCanvas.TYPE || type == AllBinaryGameCanvas.TYPE) {
-                RunnableCanvasSingleThreadStartRunnable demoGameSingleThreadStartRunnable = new RunnableCanvasSingleThreadStartRunnable(((RunnableCanvas) runnable));
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).ToString(), this, commonStrings.CONSTRUCTOR);
-                ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
+                final RunnableCanvasSingleThreadStartRunnable demoGameSingleThreadStartRunnable = RunnableCanvasSingleThreadStartRunnable((runnable as RunnableCanvas));
+                PreLogUtil.put(StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(StringUtil.getInstance().toString1(runnable)).toString(), this, commonStrings.CONSTRUCTOR);
+                final ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
                 primaryThreadPool.runTask(demoGameSingleThreadStartRunnable);
             } else {
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).ToString(), this, commonStrings.CONSTRUCTOR);
+                PreLogUtil.put(StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(StringUtil.getInstance().toString1(runnable)).toString(), this, commonStrings.CONSTRUCTOR);
                 ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
                 primaryThreadPool.runTask(runnable);
             }
         }
-        global::org.allbinary.thread.NullThread thread = new global::org.allbinary.thread.NullThread(runnable, runnable.ToString());
-        this.logUtil.putF(thread.ToString(), this, commonStrings.CONSTRUCTOR);
+        final Thread thread = Thread(runnable, runnable.toString());
+        this.logUtil.putF(thread.toString(), this, commonStrings.CONSTRUCTOR);
         return thread;
     }
+    
 
-    public virtual void start(global::org.allbinary.thread.NullThread thread)
-    {
+    void start(Thread thread) {
         thread.start();
     }
-
 }
 

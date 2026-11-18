@@ -13,26 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialGameInputInterfaceProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialGameInputInterface.dart';
 
-namespace org.allbinary.game.layer.special;
+class SpecialLeftGameInputInterfaceProcessor extends SpecialGameInputInterfaceProcessor {
+    
 
-public class SpecialLeftGameInputInterfaceProcessor : SpecialGameInputInterfaceProcessor
-{
-    public SpecialLeftGameInputInterfaceProcessor(SpecialGameInputInterface collidableDestroyableDamageableLayer) : base(collidableDestroyableDamageableLayer)
-    {
-        // base(collidableDestroyableDamageableLayer) is called from the constructor declaration
+    SpecialLeftGameInputInterfaceProcessor(SpecialGameInputInterface collidableDestroyableDamageableLayer) : super(collidableDestroyableDamageableLayer) {
+        
     }
+    
 
-    // throws Exception
-    public override void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
         this.specialGameInputInterface.left();
     }
-
 }
 

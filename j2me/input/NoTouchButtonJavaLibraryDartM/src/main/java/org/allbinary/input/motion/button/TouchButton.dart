@@ -13,99 +13,119 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using AnimationInterface = org.allbinary.animation.AnimationInterface;
-using CellPosition = org.allbinary.graphics.CellPosition;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/CellPosition.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/RectangleFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonInput.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButton extends Paintable {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late TouchButtonInput touchButtonInput;
+    late Animation animationInterface;
+    late Rectangle rawRectangle;
+    int xBorder = 0;
+    int yBorder = 0;
+    late Rectangle rectangle;
+    late CellPosition cellPosition;
+    int animationX = 0;
+    int animationY = 0;
 
-public class TouchButton : Paintable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly TouchButtonInput touchButtonInput;
-    private readonly Animation animationInterface;
-    public readonly Rectangle rawRectangle;
-    public readonly int xBorder;
-    public readonly int yBorder;
-    public Rectangle rectangle = RectangleFactory.SINGLETON;
-    public readonly CellPosition cellPosition;
-    public int animationX = 0;
-    public int animationY = 0;
-    public TouchButton(TouchButtonInput touchButtonInput, AnimationInterface animationInterface, Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchButton() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    
+    
+    this.rectangle = RectangleFactory.SINGLETON;
+    
+    this.animationX = 0;
+    this.animationY = 0;
+    }
+    
+
+    TouchButton(TouchButtonInput touchButtonInput, AnimationInterface animationInterface, Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder) {
+        this.initFieldsTouchButton();
         this.touchButtonInput = touchButtonInput;
-        this.animationInterface = ((Animation) animationInterface);
+        this.animationInterface = (animationInterface as Animation);
         this.rawRectangle = rawRectangle;
         this.cellPosition = cellPosition;
         this.xBorder = xBorder;
         this.yBorder = yBorder;
         this.updateRectangle();
-        this.logUtil.putF(new StringMaker().append("Created: ").append(this.ToString()).ToString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        this.animationInterface.paintXY(graphics, animationX, this.animationY);
+    @override
+    void paint(Graphics graphics) {
+        this.animationInterface.paintXY(graphics, this.animationX, this.animationY);
     }
+    
 
-    public virtual void updateRectangle()
-    {
+    void updateRectangle() {
         try {
-            int x = this.rawRectangle.getWidth() * this.cellPosition.getColumn();
-            int y = this.rawRectangle.getHeight() * this.cellPosition.getRow();
-            PointFactory pointFactory = PointFactory.getInstance();
-            this.rectangle = new Rectangle(pointFactory.createXY(x + this.xBorder, y + this.yBorder), this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
-            GPoint point = this.rectangle.getPoint();
+            final int x = this.rawRectangle.getWidth() * this.cellPosition.getColumn();
+            final int y = this.rawRectangle.getHeight() * this.cellPosition.getRow();
+            final PointFactory pointFactory = PointFactory.getInstance();
+            this.rectangle = Rectangle(pointFactory.createXY(x + this.xBorder, y + this.yBorder), this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
+            final GPoint point = this.rectangle.getPoint();
             this.animationX = point.getX();
             this.animationY = point.getY();
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "updateRectangle", e);
+            }
         }
     }
+    
 
-    public virtual CellPosition getCellPositionP()
-    {
+    CellPosition getCellPositionP() {
         return this.cellPosition;
     }
+    
 
-    public virtual Rectangle getRectangleP()
-    {
+    Rectangle getRectangleP() {
         return this.rectangle;
     }
+    
 
-    public virtual TouchButtonInput getTouchButtonInput()
-    {
+    TouchButtonInput getTouchButtonInput() {
         return this.touchButtonInput;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        StringUtil stringUtil = StringUtil.getInstance();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
         stringBuffer.append("TouchButton: ");
-        stringBuffer.append(stringUtil.toString(this.rectangle));
+        stringBuffer.append(stringUtil.toString1(this.rectangle));
         stringBuffer.append(" CellPosition: ");
-        stringBuffer.append(stringUtil.toString(this.cellPosition));
+        stringBuffer.append(stringUtil.toString1(this.cellPosition));
         stringBuffer.append(" xBorder: ");
         stringBuffer.appendint(this.xBorder);
         stringBuffer.append(" yBorder: ");
         stringBuffer.appendint(this.yBorder);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

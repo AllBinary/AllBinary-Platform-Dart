@@ -13,30 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.weapon
 
-using System;
-using System.Linq;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/combat/weapon/WeaponProperties.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/WeaponLayer.dart';
 
-namespace org.allbinary.game.layer.weapon;
+class WeaponLayerCircularPool extends AllBinaryLayerCircularPool {
+    
 
-public class WeaponLayerCircularPool : AllBinaryLayerCircularPool
-{
-    public WeaponLayerCircularPool()
-    {
+    WeaponLayerCircularPool() {
     }
+    
 
-    // throws Exception
-    public virtual WeaponLayer getInstanceWeaponLayer(AllBinaryLayer sourceLayerInterface, int x, int y, int z, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreable)
-    {
-        WeaponLayer weaponLayer = ((WeaponLayer) base.getNextInstance());
+    WeaponLayer getInstanceWeaponLayer(AllBinaryLayer sourceLayerInterface, int x, int y, int z, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreable) {
+        WeaponLayer weaponLayer = (super.getNextInstance() as WeaponLayer);
         weaponLayer.initXYZ(x, y, z);
         weaponLayer.init(sourceLayerInterface, angle, otherAngle, weaponProperties, scoreable);
         return weaponLayer;
     }
-
 }
 

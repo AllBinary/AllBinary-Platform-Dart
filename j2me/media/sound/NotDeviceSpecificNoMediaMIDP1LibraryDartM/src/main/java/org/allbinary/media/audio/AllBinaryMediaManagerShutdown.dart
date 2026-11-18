@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/media/audio/AllBinaryMediaManager.dart';
+import 'package:allbinary/org/allbinary/media/audio/SoundsFactoryInterface.dart';
 
-namespace org.allbinary.media.audio;
+class AllBinaryMediaManagerShutdown {
+    static final AllBinaryMediaManagerShutdown instance = AllBinaryMediaManagerShutdown();
+    
 
-public class AllBinaryMediaManagerShutdown
-{
-    private static readonly AllBinaryMediaManagerShutdown instance = new AllBinaryMediaManagerShutdown();
-    // throws Exception
-    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
-    {
-        LogUtil logUtil = LogUtil.getInstance();
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.putF(commonStrings.START, instance, "shutdown");
+    static void shutdown(SoundsFactoryInterface soundsFactoryInterface) {
+        final LogUtil logUtil = LogUtil.getInstance();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonStrings.START, AllBinaryMediaManagerShutdown.instance, "shutdown");
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
-
 }
 

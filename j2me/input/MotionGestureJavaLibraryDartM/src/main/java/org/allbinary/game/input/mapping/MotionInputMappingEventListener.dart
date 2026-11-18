@@ -13,32 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.mapping
 
-using System;
-using System.Linq;
-using InputMappingEvent = org.allbinary.game.input.mapping.@event.InputMappingEvent;
-using InputMappingEventListenerInterface = org.allbinary.game.input.mapping.@event.InputMappingEventListenerInterface;
-using GameKeyCompleteMotionGestureInputEventFactory = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEventFactory;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/event/InputMappingEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/event/InputMappingEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEventFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
 
-namespace org.allbinary.game.input.mapping;
+class MotionInputMappingEventListener implements InputMappingEventListenerInterface {
+    
 
-public class MotionInputMappingEventListener : InputMappingEventListenerInterface
-{
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    // throws Exception
-    public virtual void onInputMappingEvent(InputMappingEvent inputMappingEvent)
-    {
+    @override
+    void onInputMappingEvent(InputMappingEvent inputMappingEvent) {
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().updateAll();
         BasicTouchInputFactory.getInstance().updateAll(inputMappingEvent.getInputToGameKeyMapping());
     }
-
 }
 

@@ -13,35 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.destroy
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyableInterface.dart';
 
-namespace org.allbinary.game.combat.destroy;
+class DestroyableBaseBehavior implements DestroyableInterface {
+    static final DestroyableBaseBehavior instance = DestroyableBaseBehavior();
+    
 
-public class DestroyableBaseBehavior : DestroyableInterface
-{
-    private static readonly DestroyableBaseBehavior instance = new DestroyableBaseBehavior();
-    public static DestroyableBaseBehavior getInstance()
-    {
+    static DestroyableBaseBehavior getInstance() {
         return DestroyableBaseBehavior.instance;
     }
+    
 
-    public virtual string getName()
-    {
-        return this.GetType().FullName;
+    @override
+    String getName() {
+        return jClassName(this);
     }
+    
 
-    // throws Exception
-    public virtual bool isDestroyed()
-    {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+    @override
+    bool isDestroyed() {
+        throw JException('Exception', CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
+    
 
-    public virtual void setDestroyed(bool destroyed)
-    {
+    void setDestroyed(bool destroyed) {
     }
-
 }
 

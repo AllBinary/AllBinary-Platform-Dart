@@ -13,146 +13,169 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using DirectionUtil = org.allbinary.direction.DirectionUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using AxisMathVectorUtil = org.allbinary.logic.math.vector.AxisMathVectorUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Angle = org.allbinary.math.Angle;
-using PositionStrings = org.allbinary.math.PositionStrings;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/logic/math/vector/AxisMathVectorUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/PositionStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityInterface.dart';
 
-namespace org.allbinary.game.physics.velocity;
+class BasicVelocityProperties implements BasicVelocityInterface {
+    late LogUtil logUtil;
+    late BasicDecimal velocityXBasicDecimal;
+    late BasicDecimal velocityYBasicDecimal;
+    late BasicDecimal velocityZBasicDecimal;
+    late AxisMathVectorUtil axisMathVectorUtil;
+    late DirectionUtil directionUtil;
 
-public class BasicVelocityProperties : BasicVelocityInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly BasicDecimal velocityXBasicDecimal;
-    public readonly BasicDecimal velocityYBasicDecimal;
-    public readonly BasicDecimal velocityZBasicDecimal;
-    private readonly AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-    public BasicVelocityProperties()
-    {
-        this.velocityXBasicDecimal = new BasicDecimal(0);
-        this.velocityYBasicDecimal = new BasicDecimal(0);
-        this.velocityZBasicDecimal = new BasicDecimal(0);
+    // Java field initializers run after the base constructor
+    void initFieldsBasicVelocityProperties() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+    this.directionUtil = DirectionUtil.getInstance();
     }
+    
 
-    public virtual void zero()
-    {
+    BasicVelocityProperties() {
+        this.initFieldsBasicVelocityProperties();
+        this.velocityXBasicDecimal = BasicDecimal(0);
+        this.velocityYBasicDecimal = BasicDecimal(0);
+        this.velocityZBasicDecimal = BasicDecimal(0);
+    }
+    
+
+    @override
+    void zero() {
         this.velocityXBasicDecimal.setint(0);
         this.velocityYBasicDecimal.setint(0);
         this.velocityZBasicDecimal.setint(0);
     }
+    
 
-    public virtual BasicDecimal getVelocityXBasicDecimalP()
-    {
+    @override
+    BasicDecimal getVelocityXBasicDecimalP() {
         return this.velocityXBasicDecimal;
     }
+    
 
-    public virtual BasicDecimal getVelocityYBasicDecimalP()
-    {
+    @override
+    BasicDecimal getVelocityYBasicDecimalP() {
         return this.velocityYBasicDecimal;
     }
+    
 
-    public virtual BasicDecimal getVelocityZBasicDecimalP()
-    {
+    BasicDecimal getVelocityZBasicDecimalP() {
         return this.velocityZBasicDecimal;
     }
+    
 
-    public readonly DirectionUtil directionUtil = DirectionUtil.getInstance();
-    public virtual void setVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection)
-    {
-        Angle angle = this.directionUtil.getAngle(direction);
-        Angle otherAngle = this.directionUtil.getAngle(otherDirection);
+    @override
+    void setVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection) {
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.setVelocityWithBigDecimal(magnitudeBasicDecimal, angle, otherAngle);
     }
+    
 
-    public virtual void setVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection)
-    {
-        Angle angle = this.directionUtil.getAngle(direction);
-        Angle otherAngle = this.directionUtil.getAngle(otherDirection);
+    @override
+    void setVelocityWithDirection(int magnitude, Direction direction, Direction otherDirection) {
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.setVelocity(magnitude, angle, otherAngle);
     }
+    
 
-    public virtual void addVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection)
-    {
-        Angle angle = this.directionUtil.getAngle(direction);
-        Angle otherAngle = this.directionUtil.getAngle(otherDirection);
+    @override
+    void addVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection) {
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.addVelocityWithBigDecimal(magnitudeBasicDecimal, angle, otherAngle);
     }
+    
 
-    public virtual void addVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection)
-    {
-        Angle angle = this.directionUtil.getAngle(direction);
-        Angle otherAngle = this.directionUtil.getAngle(otherDirection);
+    @override
+    void addVelocityWithDirection(int magnitude, Direction direction, Direction otherDirection) {
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.addVelocity(magnitude, angle, otherAngle);
     }
+    
 
-    public virtual void setVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle)
-    {
-        long magnitude = magnitudeBasicDecimal.getUnscaled();
+    @override
+    void setVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle) {
+        final int magnitude = magnitudeBasicDecimal.getUnscaled();
         this.setVelocity(magnitude, angle, otherAngle);
     }
+    
 
-    public virtual void addVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle)
-    {
-        long magnitude = magnitudeBasicDecimal.getUnscaled();
+    @override
+    void addVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle) {
+        final int magnitude = magnitudeBasicDecimal.getUnscaled();
         this.addVelocity(magnitude, angle, otherAngle);
     }
+    
 
-    public virtual void setVelocity(long magnitude, Angle angle, Angle otherAngle)
-    {
-        this.setVelocityi(magnitude, ((int) angle.getValue()), ((int) otherAngle.getValue()));
+    @override
+    void setVelocity(int magnitude, Angle angle, Angle otherAngle) {
+        this.setVelocityi(magnitude, angle.getValue(), otherAngle.getValue());
     }
+    
 
-    public virtual void addVelocity(long magnitude, Angle angle, Angle otherAngle)
-    {
-        this.addVelocityi(magnitude, ((int) angle.getValue()), ((int) otherAngle.getValue()));
+    @override
+    void addVelocity(int magnitude, Angle angle, Angle otherAngle) {
+        this.addVelocityi(magnitude, angle.getValue(), otherAngle.getValue());
     }
+    
 
-    public virtual void setVelocityi(long magnitude, int angle, int otherAngle)
-    {
-        long xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) / this.velocityXBasicDecimal.getScaledFactorValue());
-        long yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) / this.velocityYBasicDecimal.getScaledFactorValue());
-        long zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / this.velocityZBasicDecimal.getScaledFactorValue());
+    void setVelocityi(int magnitude, int angle, int otherAngle) {
+        final int xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) ~/ this.velocityXBasicDecimal.getScaledFactorValue());
+        final int yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) ~/ this.velocityYBasicDecimal.getScaledFactorValue());
+        final int zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) ~/ this.velocityZBasicDecimal.getScaledFactorValue());
         this.velocityXBasicDecimal.setlong(xVector);
         this.velocityYBasicDecimal.setlong(yVector);
         this.velocityZBasicDecimal.setlong(zVector);
     }
+    
 
-    public virtual void addVelocityi(long magnitude, int angle, int otherAngle)
-    {
-        long xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) / this.velocityXBasicDecimal.getScaledFactorValue());
-        long yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) / this.velocityYBasicDecimal.getScaledFactorValue());
-        long zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / this.velocityZBasicDecimal.getScaledFactorValue());
+    @override
+    void addVelocityi(int magnitude, int angle, int otherAngle) {
+        final int xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) ~/ this.velocityXBasicDecimal.getScaledFactorValue());
+        final int yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) ~/ this.velocityYBasicDecimal.getScaledFactorValue());
+        final int zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) ~/ this.velocityZBasicDecimal.getScaledFactorValue());
         this.velocityXBasicDecimal.addlong(xVector);
         this.velocityYBasicDecimal.addlong(yVector);
         this.velocityZBasicDecimal.addlong(zVector);
     }
+    
 
-    public override string ToString()
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        PositionStrings positionStrings = PositionStrings.getInstance();
-        StringMaker stringBuffer = new StringMaker();
-        StringUtil stringUtil = StringUtil.getInstance();
+    @override
+    String toString() {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final PositionStrings positionStrings = PositionStrings.getInstance();
+        final StringMaker stringBuffer = StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
         stringBuffer.append("Velocity ");
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(stringUtil.toString(this.velocityXBasicDecimal));
+        stringBuffer.append(stringUtil.toString1(this.velocityXBasicDecimal));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(stringUtil.toString(this.velocityYBasicDecimal));
+        stringBuffer.append(stringUtil.toString1(this.velocityYBasicDecimal));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(stringUtil.toString(this.velocityZBasicDecimal));
-        return stringBuffer.ToString();
+        stringBuffer.append(stringUtil.toString1(this.velocityZBasicDecimal));
+        return stringBuffer.toString();
     }
-
 }
 

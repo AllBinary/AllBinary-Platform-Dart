@@ -13,39 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using Layer = org.allbinary.layer.Layer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/Layer.dart';
 
-namespace org.allbinary.game.layer;
+class PaintableLayerComposite extends Paintable {
+    late List<Layer?> paintableArray;
 
-public class PaintableLayerComposite : Paintable
-{
-    private readonly Layer[] paintableArray;
-    public PaintableLayerComposite(Layer[] paintableArray)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPaintableLayerComposite() {
+    
+    }
+    
+
+    PaintableLayerComposite(List<Layer?> paintableArray) {
+        this.initFieldsPaintableLayerComposite();
         this.paintableArray = paintableArray;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        for (int index = this.paintableArray.Length; --index >= 0; ) {
-            this.paintableArray[index].paint(graphics);
+    @override
+    void paint(Graphics graphics) {
+        for (int index = this.paintableArray.length; --index >= 0; ) {
+            this.paintableArray[index]!.paint(graphics);
         }
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
-        PaintableInterface paintableInterface = null;
-        for (int index = this.paintableArray.Length; --index >= 0; ) {
-            paintableInterface = ((PaintableInterface) this.paintableArray[index]);
+    @override
+    void paintThreed(Graphics graphics) {
+        late PaintableInterface paintableInterface;
+        for (int index = this.paintableArray.length; --index >= 0; ) {
+            paintableInterface = (this.paintableArray[index]! as PaintableInterface);
             paintableInterface.paintThreed(graphics);
         }
     }
-
 }
 

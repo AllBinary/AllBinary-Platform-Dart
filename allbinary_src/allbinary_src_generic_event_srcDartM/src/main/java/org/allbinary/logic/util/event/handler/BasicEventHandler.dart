@@ -13,114 +13,120 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.event.handler
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandlerInterface.dart';
 
-namespace org.allbinary.logic.util.@event.handler;
+class BasicEventHandler implements BasicEventHandlerInterface {
+    static const String PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
+    late LogUtil logUtil;
+    late BasicArrayList eventListenerInterfaceList;
 
-public class BasicEventHandler : BasicEventHandlerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public const string PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
-    private BasicArrayList eventListenerInterfaceList;
-    public BasicEventHandler()
-    {
-        this.eventListenerInterfaceList = new BasicArrayListD();
+    // Java field initializers run after the base constructor
+    void initFieldsBasicEventHandler() {
+    this.logUtil = LogUtil.getInstance();
+    
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        string LISTENER = " Listener: ";
+    BasicEventHandler() {
+        this.initFieldsBasicEventHandler();
+        this.eventListenerInterfaceList = BasicArrayListD();
+    }
+    
+
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        final String LISTENER = " Listener: ";
         stringBuffer.append("Total Listeners: ");
         stringBuffer.appendint(this.eventListenerInterfaceList.size());
-        EventListenerInterface eventListenerInterface = null;
+        late EventListenerInterface eventListenerInterface;
         int index = 0;
         while (index < this.eventListenerInterfaceList.size()) {
             try {
-                eventListenerInterface = ((EventListenerInterface) this.eventListenerInterfaceList.objectArray[index]);
+                eventListenerInterface = (this.eventListenerInterfaceList.objectArray[index]! as EventListenerInterface);
                 stringBuffer.append(LISTENER);
-                stringBuffer.append(StringUtil.getInstance().toString(eventListenerInterface));
-            } catch (Exception e) {
-                CommonStrings commonStrings = CommonStrings.getInstance();
+                stringBuffer.append(StringUtil.getInstance().toString1(eventListenerInterface));
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
+                final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                }
             }
             index++;
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void removeAllListeners()
-    {
-        this.eventListenerInterfaceList = new BasicArrayListD();
+    void removeAllListeners() {
+        this.eventListenerInterfaceList = BasicArrayListD();
     }
+    
 
-    public virtual void addListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    void addListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void addListenerInterface(EventListenerInterface eventListenerInterface)
-    {
+    void addListenerInterface(EventListenerInterface eventListenerInterface) {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
+    
 
-    public virtual void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    void removeListener(EventListenerInterface eventListenerInterface) {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void fireEvent(AllBinaryEventObject eventObject)
-    {
+    void fireEvent(AllBinaryEventObject eventObject) {
         int index = 0;
-        EventListenerInterface eventListenerInterface = null;
+        late EventListenerInterface eventListenerInterface;
         while (index < this.eventListenerInterfaceList.size()) {
             try {
-                eventListenerInterface = ((EventListenerInterface) this.eventListenerInterfaceList.objectArray[index]);
+                eventListenerInterface = (this.eventListenerInterfaceList.objectArray[index]! as EventListenerInterface);
                 this.process(eventObject, eventListenerInterface);
-            } catch (Exception e) {
-                CommonStrings commonStrings = CommonStrings.getInstance();
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
+                final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                }
             }
             index++;
         }
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         eventListenerInterface.onEvent(eventObject);
     }
+    
 
-    public virtual BasicArrayList getEventListenerInterfaceListP()
-    {
+    BasicArrayList getEventListenerInterfaceListP() {
         return this.eventListenerInterfaceList;
     }
-
 }
 

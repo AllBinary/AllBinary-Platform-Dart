@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using CacheableInterface = org.allbinary.logic.util.cache.CacheableInterface;
-using CacheableInterfaceFactoryInterface = org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationCacheable.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArrayRotationAnimationCacheableInterfaceFactory implements CacheableInterfaceFactoryInterface {
+    
 
-public class ImageArrayRotationAnimationCacheableInterfaceFactory : CacheableInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual CacheableInterface getInstance(object key)
-    {
-        return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
+    @override
+    CacheableInterface getInstance1(Object key) {
+        return ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
     }
-
 }
 

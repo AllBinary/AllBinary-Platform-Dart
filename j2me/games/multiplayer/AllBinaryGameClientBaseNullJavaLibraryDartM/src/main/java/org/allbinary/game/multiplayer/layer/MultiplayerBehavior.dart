@@ -13,32 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.multiplayer.layer
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game.multiplayer.layer;
+class MultiplayerBehavior {
+    static final MultiplayerBehavior NULL_MULTIPLAYER_BEHAVIOR = MultiplayerBehavior(StringUtil.getInstance().EMPTY_STRING);
+    
 
-public class MultiplayerBehavior
-{
-    public static readonly MultiplayerBehavior NULL_MULTIPLAYER_BEHAVIOR = new MultiplayerBehavior(StringUtil.getInstance().EMPTY_STRING);
-    public MultiplayerBehavior(string username)
-    {
+    MultiplayerBehavior(String username) {
     }
+    
 
-    public virtual void startTick()
-    {
+    void startTick() {
     }
+    
 
-    public virtual void endTick()
-    {
+    void endTick() {
     }
+    
 
-    public virtual long getApproximateElapsed()
-    {
-        return 0L;
+    int getApproximateElapsed() {
+        return 0;
     }
-
 }
 

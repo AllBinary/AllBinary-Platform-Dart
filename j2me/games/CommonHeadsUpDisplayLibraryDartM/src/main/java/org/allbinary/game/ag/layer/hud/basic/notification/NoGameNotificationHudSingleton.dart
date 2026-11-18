@@ -13,41 +13,50 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.notification
 
-using System;
-using System.Linq;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHudFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/notification/NoGameGameNotificationHud.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.notification;
+class NoGameNotificationHudSingleton {
+    static final NoGameNotificationHudSingleton instance = NoGameNotificationHudSingleton();
+    late LogUtil logUtil;
+    late GameNotificationHud gameNotificationHud;
 
-public class NoGameNotificationHudSingleton
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly NoGameNotificationHudSingleton instance = new NoGameNotificationHudSingleton();
-    public static NoGameNotificationHudSingleton getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNoGameNotificationHudSingleton() {
+    this.logUtil = LogUtil.getInstance();
+    this.gameNotificationHud = GameNotificationHud.NULL_GAME_NOTIFICATION;
+    }
+    
+
+    static NoGameNotificationHudSingleton getInstance() {
         return NoGameNotificationHudSingleton.instance;
     }
+    
 
-    private GameNotificationHud gameNotificationHud = GameNotificationHud.NULL_GAME_NOTIFICATION;
-    private NoGameNotificationHudSingleton()
-    {
+    NoGameNotificationHudSingleton() {
+        this.initFieldsNoGameNotificationHudSingleton();
         try {
-            BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
-            this.gameNotificationHud = new NoGameGameNotificationHud();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
+            this.gameNotificationHud = NoGameGameNotificationHud();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            }
         }
     }
+    
 
-    public virtual GameNotificationHud getGameNotificationHud()
-    {
+    GameNotificationHud getGameNotificationHud() {
         return this.gameNotificationHud;
     }
-
 }
 

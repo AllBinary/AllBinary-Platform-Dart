@@ -13,29 +13,28 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImage.dart';
 
-namespace org.allbinary.image.opengles;
+class OpenGLESImageTranslate {
+    static final OpenGLESImageTranslate instance = OpenGLESImageTranslate();
+    
 
-public class OpenGLESImageTranslate
-{
-    private static readonly OpenGLESImageTranslate instance = new OpenGLESImageTranslate();
-    public static OpenGLESImageTranslate getInstance()
-    {
+    static OpenGLESImageTranslate getInstance() {
         return OpenGLESImageTranslate.instance;
     }
+    
 
-    public virtual void translate(GL10 gl, OpenGLESImage openGLESImage, float x, float y)
-    {
+    void translate(GL10 gl, OpenGLESImage openGLESImage, double x, double y) {
         openGLESImage.imageProcessor.translate(gl, x, y);
     }
+    
 
-    public virtual void translate2(GL10 gl, OpenGLESImage openGLESImage)
-    {
+    void translate2(GL10 gl, OpenGLESImage openGLESImage) {
     }
-
 }
 

@@ -13,26 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
 
-namespace org.allbinary.game.layer.special;
+class SpecialAnalogRightGameInputProcessor extends SpecialGameInputProcessor {
+    
 
-public class SpecialAnalogRightGameInputProcessor : SpecialGameInputProcessor
-{
-    public SpecialAnalogRightGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) : base(collidableDestroyableDamageableLayer)
-    {
-        // base(collidableDestroyableDamageableLayer) is called from the constructor declaration
+    SpecialAnalogRightGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) : super(collidableDestroyableDamageableLayer) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAnalog(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, int xAnalogValue)
-    {
+    @override
+    void processAnalog(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, int xAnalogValue) {
         this.collidableDestroyableDamageableLayer.rightAnalog(xAnalogValue);
     }
-
 }
 

@@ -13,15 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
 
-namespace org.allbinary.graphics;
-
-public class RectangleFactory
-{
-    public static readonly Rectangle SINGLETON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0);
-    public static readonly Rectangle[][] ARRAY_OF_ARRAYS = System.Linq.Enumerable.Range(0, 0).Select(_ => new Rectangle[0]).ToArray();
+class RectangleFactory {
+    static final Rectangle SINGLETON = Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0);
+    static final List<List<Rectangle?>?> ARRAY_OF_ARRAYS = List<List<Rectangle?>>.generate(0, (_) => List<Rectangle?>.filled(0, null));
 }
 

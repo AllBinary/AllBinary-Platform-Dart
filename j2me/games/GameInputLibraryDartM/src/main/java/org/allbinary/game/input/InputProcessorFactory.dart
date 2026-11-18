@@ -13,25 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/InputProcessor.dart';
 
-namespace org.allbinary.game.input;
+class InputProcessorFactory {
+    static final InputProcessorFactory instance = InputProcessorFactory();
+    late InputProcessor inputProcessor;
 
-public class InputProcessorFactory
-{
-    private static readonly InputProcessorFactory instance = new InputProcessorFactory();
-    public static InputProcessorFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInputProcessorFactory() {
+    this.inputProcessor = InputProcessor();
+    }
+
+    InputProcessorFactory() {
+        this.initFieldsInputProcessorFactory();
+    }
+    
+
+    static InputProcessorFactory getInstance() {
         return InputProcessorFactory.instance;
     }
+    
 
-    private readonly InputProcessor inputProcessor = new InputProcessor();
-    public virtual InputProcessor getInputProcessor()
-    {
+    InputProcessor getInputProcessor() {
         return this.inputProcessor;
     }
-
 }
 

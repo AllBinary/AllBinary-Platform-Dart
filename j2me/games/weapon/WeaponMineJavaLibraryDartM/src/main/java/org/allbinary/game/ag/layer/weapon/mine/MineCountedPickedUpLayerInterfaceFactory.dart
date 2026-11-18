@@ -13,58 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.weapon.mine
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using IconLayerFactory = org.allbinary.game.layer.pickup.IconLayerFactory;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using PickedUpLayerTypeFactory = org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-using WeaponLayerCircularPool = org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/combat/weapon/WeaponProperties.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/IconLayerFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/WeaponLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/weapon/mine/MineLayerCircularStaticPool.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/weapon/mine/MineWeaponResources.dart';
 
-namespace org.allbinary.game.ag.layer.weapon.mine;
+class MineCountedPickedUpLayerInterfaceFactory extends CountedPickedUpLayerInterfaceFactory {
+    static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    late WeaponLayerCircularPool weaponLayerCircularStaticPool;
+    late WeaponProperties weaponProperties;
+    late SmallIntegerSingletonFactory smallIntegerSingletonFactory;
 
-public class MineCountedPickedUpLayerInterfaceFactory : CountedPickedUpLayerInterfaceFactory
-{
-    private readonly WeaponLayerCircularPool weaponLayerCircularStaticPool = MineLayerCircularStaticPool.getInstance();
-    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    // throws Exception
-    public static void init()
-    {
-        MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new MineCountedPickedUpLayerInterfaceFactory();
+    // Java field initializers run after the base constructor
+    void initFieldsMineCountedPickedUpLayerInterfaceFactory() {
+    this.weaponLayerCircularStaticPool = MineLayerCircularStaticPool.getInstance();
+    this.weaponProperties = WeaponProperties(-1, -1, 0, 8000, (10).toSigned(16));
+    this.smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
     }
+    
 
-    private MineCountedPickedUpLayerInterfaceFactory() : base(PickedUpLayerTypeFactory.getInstance().MINE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance(0))
-    {
-        // base(PickedUpLayerTypeFactory.getInstance().MINE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance(0)) is called from the constructor declaration
+    static void init() {
+        MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = MineCountedPickedUpLayerInterfaceFactory();
     }
+    
 
-    public static PickedUpLayerInterfaceFactoryInterface getInstance()
-    {
+    MineCountedPickedUpLayerInterfaceFactory() : super(PickedUpLayerTypeFactory.getInstance().MINE, IconLayerFactory.getInstance3(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance1(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance1(0)) {
+        this.initFieldsMineCountedPickedUpLayerInterfaceFactory();
+        
+    }
+    
+
+    static PickedUpLayerInterfaceFactoryInterface getInstance() {
         return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
     }
+    
 
-    public override int getTotal()
-    {
+    @override
+    int getTotal() {
         return 3;
     }
+    
 
-    private readonly WeaponProperties weaponProperties = new WeaponProperties(-1L, -1L, 0, 8000, ((short) 10));
-    private readonly SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-    // throws Exception
-    public override AllBinaryLayer getNextInstance(ABHashtable<object, object> hashtable, int x, int y, int z)
-    {
-        AllBinaryLayer sourceLayerInterface = ((AllBinaryLayer) hashtable.get(((object) this.smallIntegerSingletonFactory.getAt(0))));
-        int? angle = ((int?) hashtable.get(((object) this.smallIntegerSingletonFactory.getAt(1))));
-        ScoreableInterface scoreableInterface = ((ScoreableInterface) sourceLayerInterface);
-        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, ((int) ((int) angle)), 0, this.weaponProperties, scoreableInterface);
+    @override
+    AllBinaryLayer getNextInstance(ABHashtable hashtable, int x, int y, int z) {
+        final AllBinaryLayer sourceLayerInterface = (hashtable.get((this.smallIntegerSingletonFactory.getAt(0) as Object)) as AllBinaryLayer);
+        final int angle = (hashtable.get((this.smallIntegerSingletonFactory.getAt(1) as Object)) as int);
+        final ScoreableInterface scoreableInterface = (sourceLayerInterface as ScoreableInterface);
+        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, (angle).toInt(), 0, this.weaponProperties, scoreableInterface);
     }
-
 }
 

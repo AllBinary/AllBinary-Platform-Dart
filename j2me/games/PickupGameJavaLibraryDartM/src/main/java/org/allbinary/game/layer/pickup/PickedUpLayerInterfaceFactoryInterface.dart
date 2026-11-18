@@ -13,21 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerType.dart';
 
-namespace org.allbinary.game.layer.pickup;
+abstract interface class PickedUpLayerInterfaceFactoryInterface {
+    
 
-public interface PickedUpLayerInterfaceFactoryInterface
-{
     PickedUpLayerType getPickedUpLayerType();
+    
 
     AllBinaryLayer getIconLayer();
+    
 
     Animation getAnimationInterface();
-
 }
 

@@ -13,13 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.event
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
 
-namespace org.allbinary.logic.util.@event;
-
-public interface BasicEventListenerInterface : EventListenerInterface
-{
+abstract interface class BasicEventListenerInterface implements EventListenerInterface {
 }
 

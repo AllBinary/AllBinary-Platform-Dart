@@ -13,58 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-using Player = javax.microedition.media.Player;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/media/Player.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/media/audio/SoundInterface.dart';
+import 'package:allbinary/org/allbinary/media/audio/NoPlayer.dart';
 
-namespace org.allbinary.media.audio;
+class Sound implements SoundInterface, Runnable {
+    late String resource;
+    late Player player;
 
-public class Sound : SoundInterface, global::java.lang.Runnable
-{
-    private string resource;
-    public Player player = NoPlayer.NO_PLAYER;
-    public Sound(string resource)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSound() {
+    
+    this.player = NoPlayer.NO_PLAYER;
+    }
+    
+
+    Sound(String resource) {
+        this.initFieldsSound();
         this.resource = resource;
     }
+    
 
-    public virtual string getResource()
-    {
+    @override
+    String getResource() {
         return this.resource;
     }
+    
 
-    public virtual Player getPlayerP()
-    {
+    @override
+    Player getPlayerP() {
         return this.player;
     }
+    
 
-    public virtual void setPlayerP(Player player)
-    {
+    void setPlayerP(Player player) {
         this.player = player;
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    @override
+    void init() {
     }
+    
 
-    public virtual int getDuration()
-    {
+    int getDuration() {
         return -1;
     }
+    
 
-    public virtual void run()
-    {
+    @override
+    void run() {
         try {
             this.player.start();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN);
+            }
         }
     }
-
 }
 

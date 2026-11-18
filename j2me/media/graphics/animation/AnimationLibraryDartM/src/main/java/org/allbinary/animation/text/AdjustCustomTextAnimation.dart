@@ -13,49 +13,60 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/text/CustomTextAnimation.dart';
 
-namespace org.allbinary.animation.text;
+class AdjustCustomTextAnimation extends CustomTextAnimation {
+    int dx = 0;
+    int dy = 0;
 
-public class AdjustCustomTextAnimation : CustomTextAnimation
-{
-    private int dx;
-    private int dy;
-    public AdjustCustomTextAnimation(string text, int fontSize, int dx, int dy, AnimationBehavior animationBehavior) : base(text, fontSize, animationBehavior)
-    {
-        // base(text, fontSize, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsAdjustCustomTextAnimation() {
+    
+    
+    }
+    
+
+    AdjustCustomTextAnimation(String text, int fontSize, int dx, int dy, AnimationBehavior animationBehavior) : super(text, fontSize, animationBehavior) {
+        this.initFieldsAdjustCustomTextAnimation();
+        
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override int getDx()
-    {
+    @override
+    int getDx() {
         return this.dx;
     }
+    
 
-    public override void setDx(int dx)
-    {
+    @override
+    void setDx(int dx) {
         this.dx = dx;
     }
+    
 
-    public override int getDy()
-    {
+    @override
+    int getDy() {
         return this.dy;
     }
+    
 
-    public override void setDy(int dy)
-    {
+    @override
+    void setDy(int dy) {
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        base.paintXY(graphics, x + this.dx, y + this.dy);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

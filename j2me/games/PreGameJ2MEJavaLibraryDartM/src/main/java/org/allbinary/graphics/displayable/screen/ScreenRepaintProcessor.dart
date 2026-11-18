@@ -13,27 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.screen
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Displayable.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/ScreenRepaintUtil.dart';
 
-namespace org.allbinary.graphics.displayable.screen;
+class ScreenRepaintProcessor extends Processor {
+    late Displayable displayable;
 
-public class ScreenRepaintProcessor : Processor
-{
-    private readonly Displayable displayable;
-    public ScreenRepaintProcessor(Displayable displayable)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsScreenRepaintProcessor() {
+    
+    }
+    
+
+    ScreenRepaintProcessor(Displayable displayable) {
+        this.initFieldsScreenRepaintProcessor();
         this.displayable = displayable;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         ScreenRepaintUtil.repaint(this.displayable);
     }
-
 }
 

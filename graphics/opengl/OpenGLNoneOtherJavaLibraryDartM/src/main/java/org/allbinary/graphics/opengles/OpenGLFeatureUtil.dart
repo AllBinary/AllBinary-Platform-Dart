@@ -13,28 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics.opengles;
+class OpenGLFeatureUtil {
+    static final OpenGLFeatureUtil instance = OpenGLFeatureUtil();
+    
 
-public class OpenGLFeatureUtil
-{
-    private static readonly OpenGLFeatureUtil instance = new OpenGLFeatureUtil();
-    public static OpenGLFeatureUtil getInstance()
-    {
+    static OpenGLFeatureUtil getInstance() {
         return OpenGLFeatureUtil.instance;
     }
+    
 
-    public OpenGLFeatureUtil()
-    {
+    OpenGLFeatureUtil() {
     }
+    
 
-    public virtual bool isAnyThreed()
-    {
+    bool isAnyThreed() {
         return false;
     }
-
 }
 

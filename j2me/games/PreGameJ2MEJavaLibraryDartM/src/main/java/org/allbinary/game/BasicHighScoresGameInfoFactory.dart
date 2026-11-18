@@ -13,21 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/game/GameTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/GameMode.dart';
+import 'package:allbinary/org/allbinary/game/PlayerTypesFactory.dart';
 
-namespace org.allbinary.game;
+class BasicHighScoresGameInfoFactory {
+    static final BasicHighScoresGameInfoFactory SINGLETON = BasicHighScoresGameInfoFactory();
+    late GameInfo MULTI_PLAYER_SERVER;
+    late GameInfo SINGLE_PLAYER_SERVER;
 
-public class BasicHighScoresGameInfoFactory
-{
-    private static readonly BasicHighScoresGameInfoFactory SINGLETON = new BasicHighScoresGameInfoFactory();
-    public static BasicHighScoresGameInfoFactory getInstance()
-    {
-        return BasicHighScoresGameInfoFactory.SINGLETON;
+    // Java field initializers run after the base constructor
+    void initFieldsBasicHighScoresGameInfoFactory() {
+    this.MULTI_PLAYER_SERVER = GameInfo(GameTypeFactory.getInstance().MULTI_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
+    this.SINGLE_PLAYER_SERVER = GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
     }
 
-    public readonly GameInfo MULTI_PLAYER_SERVER = new GameInfo(GameTypeFactory.getInstance().MULTI_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
-    public readonly GameInfo SINGLE_PLAYER_SERVER = new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
+    BasicHighScoresGameInfoFactory() {
+        this.initFieldsBasicHighScoresGameInfoFactory();
+    }
+    
+
+    static BasicHighScoresGameInfoFactory getInstance() {
+        return BasicHighScoresGameInfoFactory.SINGLETON;
+    }
 }
 

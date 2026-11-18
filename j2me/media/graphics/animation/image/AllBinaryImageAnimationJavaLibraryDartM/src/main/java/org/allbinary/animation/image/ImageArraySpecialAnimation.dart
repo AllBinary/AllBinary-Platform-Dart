@@ -13,47 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using SpecialAnimationInterface = org.allbinary.animation.special.SpecialAnimationInterface;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/special/SpecialAnimationInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArraySpecialAnimation extends ImageArrayAnimation implements SpecialAnimationInterface {
+    late TimeDelayHelper timeDelayHelper;
+    int loopCount = 0;
+    int loopCountTotal = 0;
 
-public class ImageArraySpecialAnimation : ImageArrayAnimation, SpecialAnimationInterface
-{
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(270);
-    public ImageArraySpecialAnimation(Image[] imageArray, AnimationBehavior animationBehavior) : base(imageArray, animationBehavior)
-    {
-        // base(imageArray, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImageArraySpecialAnimation() {
+    this.timeDelayHelper = TimeDelayHelper(270);
+    this.loopCount = 0;
+    this.loopCountTotal = 1;
+    }
+    
+
+    ImageArraySpecialAnimation(List<Image?> imageArray, AnimationBehavior animationBehavior) : super(imageArray, animationBehavior) {
+        this.initFieldsImageArraySpecialAnimation();
+        
         this.reset();
     }
+    
 
-    private int loopCount = 0;
-    public virtual int getLoopCount()
-    {
+    int getLoopCount() {
         return this.loopCount;
     }
+    
 
-    public virtual void setLastFrame()
-    {
+    @override
+    void setLastFrame() {
         this.circularIndexUtil.setIndex(this.circularIndexUtil.getSize() - 1);
     }
+    
 
-    public override void reset()
-    {
+    @override
+    void reset() {
         this.setFrame(this.getSize() - 1);
         this.loopCount = 0;
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         if (this.getFrame() > 0) {
             if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
                 this.previousFrame();
@@ -63,23 +75,23 @@ public class ImageArraySpecialAnimation : ImageArrayAnimation, SpecialAnimationI
             }
         }
     }
+    
 
-    private readonly int loopCountTotal = 1;
-    public virtual bool isComplete()
-    {
+    @override
+    bool isComplete() {
         if (this.loopCount < this.loopCountTotal || this.getFrame() != 0) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         x = DisplayInfoSingleton.getInstance().getLastHalfWidth() - (this.getImage(this.circularIndexUtil.getIndex()).getWidth() >> 1);
         y = 5;
-        base.paintXY(graphics, x, y);
+        super.paintXY(graphics, x, y);
     }
-
 }
 

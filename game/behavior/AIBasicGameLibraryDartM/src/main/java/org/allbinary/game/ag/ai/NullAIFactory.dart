@@ -13,29 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/NullAI.dart';
 
-namespace org.allbinary.game.ag.ai;
+class NullAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    static NullAI NULL_AI = NullAI();
+    
 
-public class NullAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    private static NullAI NULL_AI = new NullAI();
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
+    @override
+    ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
         return NullAIFactory.NULL_AI;
     }
+    
 
-    public static ArtificialIntelligenceInterface getInstance()
-    {
+    static ArtificialIntelligenceInterface getInstance() {
         return NullAIFactory.NULL_AI;
     }
-
 }
 

@@ -13,43 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.drop
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicLayerProcessor = org.allbinary.layer.BasicLayerProcessor;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/BasicLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/layer/drop/DropLayerInterface.dart';
 
-namespace org.allbinary.game.layer.drop;
+class DropLayerProcessor extends BasicLayerProcessor {
+    static final BasicLayerProcessor LAYER_PROCESSOR = DropLayerProcessor();
+    
 
-public class DropLayerProcessor : BasicLayerProcessor
-{
-    private static readonly BasicLayerProcessor LAYER_PROCESSOR = new DropLayerProcessor();
-    private DropLayerProcessor()
-    {
+    DropLayerProcessor() {
     }
+    
 
-    public static BasicLayerProcessor getInstance()
-    {
+    static BasicLayerProcessor getInstance() {
         return DropLayerProcessor.LAYER_PROCESSOR;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        BasicArrayList list = this.getList();
-        int size = list.size();
-        AllBinaryLayer layerInterface = null;
-        DropLayerInterface dropLayerInterface = null;
+    @override
+    void process(AllBinaryLayerManager allBinaryLayerManager) {
+        final BasicArrayList list = this.getList();
+        final int size = list.size();
+        late AllBinaryLayer layerInterface;
+        late DropLayerInterface dropLayerInterface;
         for (int index = 0; index < size; index++) {
-            layerInterface = ((AllBinaryLayer) list.objectArray[index]);
-            dropLayerInterface = ((DropLayerInterface) layerInterface);
-            layerInterface = ((AllBinaryLayer) dropLayerInterface.getDroppedLayer());
+            layerInterface = (list.objectArray[index]! as AllBinaryLayer);
+            dropLayerInterface = (layerInterface as DropLayerInterface);
+            layerInterface = (dropLayerInterface.getDroppedLayer() as AllBinaryLayer);
             allBinaryLayerManager.append(layerInterface);
         }
         list.clear();
     }
-
 }
 

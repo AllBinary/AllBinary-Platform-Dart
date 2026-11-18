@@ -13,48 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using InputStreamReader = java.io.InputStreamReader;
-using ResourceUtil = org.allbinary.data.resource.ResourceUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/java/io/InputStreamReader.dart';
+import 'package:allbinary/org/allbinary/data/resource/ResourceUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class PartnerIdentifierFileUtil {
+    static final PartnerIdentifierFileUtil instance = PartnerIdentifierFileUtil();
+    late LogUtil logUtil;
+    late String FILE_NAME;
 
-public class PartnerIdentifierFileUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly PartnerIdentifierFileUtil instance = new PartnerIdentifierFileUtil();
-    public static PartnerIdentifierFileUtil getInstance()
-    {
-        return PartnerIdentifierFileUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsPartnerIdentifierFileUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.FILE_NAME = "partner.txt";
     }
 
-    public readonly string FILE_NAME = "partner.txt";
-    public virtual string get()
-    {
+    PartnerIdentifierFileUtil() {
+        this.initFieldsPartnerIdentifierFileUtil();
+    }
+    
+
+    static PartnerIdentifierFileUtil getInstance() {
+        return PartnerIdentifierFileUtil.instance;
+    }
+    
+
+    String get() {
         try {
-            ResourceUtil resourceUtil = ResourceUtil.getInstance();
-            InputStream inputStream = resourceUtil.getResourceAsStream(this.FILE_NAME);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            char[] chars = new char[30];
-            int size = inputStreamReader.read(chars);
-            string partnerString = StringUtil.getInstance().EMPTY_STRING;
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            final InputStream inputStream = resourceUtil.getResourceAsStream(this.FILE_NAME);
+            final InputStreamReader inputStreamReader = InputStreamReader(inputStream);
+            final List<int> chars = List<int>.filled(30, 0);
+            final int size = inputStreamReader.read(chars);
+            String partnerString = StringUtil.getInstance().EMPTY_STRING;
             if (size > 0) {
-                partnerString = new string(chars, 0, size);
+                partnerString = JString.fromChars(chars, 0, size);
             }
             inputStreamReader.close();
             return partnerString;
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
             return StringUtil.getInstance().NULL_STRING;
+            }
         }
     }
-
 }
 

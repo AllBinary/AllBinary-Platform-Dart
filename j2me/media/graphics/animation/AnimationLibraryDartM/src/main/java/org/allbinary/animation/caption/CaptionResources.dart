@@ -13,14 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.caption
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.animation.caption;
-
-public class CaptionResources
-{
-    public const string RESOURCE = "/character_message_bubbled_box.png";
+class CaptionResources {
+    static const String RESOURCE = "/character_message_bubbled_box.png";
 }
 

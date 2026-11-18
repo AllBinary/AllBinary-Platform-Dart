@@ -13,38 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item.validation
 
-using System;
-using System.Linq;
-using ABTextFieldItem = org.allbinary.graphics.form.item.ABTextFieldItem;
-using ValidatorBase = org.allbinary.logic.control.validate.ValidatorBase;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextFieldItem.dart';
+import 'package:allbinary/org/allbinary/logic/control/validate/ValidatorBase.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.graphics.form.item.validation;
+class TextFieldItemValidator extends ValidatorBase {
+    late ABTextFieldItem textFieldItem;
+    int min = 0;
+    int max = 0;
+    bool allowOnEmpty = false;
 
-public class TextFieldItemValidator : ValidatorBase
-{
-    private readonly ABTextFieldItem textFieldItem;
-    private int min;
-    private int max;
-    private bool allowOnEmpty;
-    public TextFieldItemValidator(ABTextFieldItem textFieldItem, int min, int max, bool allowOnEmpty)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTextFieldItemValidator() {
+    
+    
+    
+    
+    }
+    
+
+    TextFieldItemValidator(ABTextFieldItem textFieldItem, int min, int max, bool allowOnEmpty) {
+        this.initFieldsTextFieldItemValidator();
         this.textFieldItem = textFieldItem;
         this.min = min;
         this.max = max;
         this.allowOnEmpty = allowOnEmpty;
     }
+    
 
-    public override bool? isValid()
-    {
+    @override
+    bool isValid() {
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
-        bool? result = booleanFactory.TRUE;
-        string @string = this.textFieldItem.getString();
-        int textLength = @string.Length;
+        bool result = booleanFactory.TRUE;
+        final String string = this.textFieldItem.getString();
+        int textLength = string.length;
         if ((textLength == 0 && this.allowOnEmpty) || textLength > this.min && textLength < this.max) {
         } else {
             if (textLength < this.min) {
@@ -55,24 +64,24 @@ public class TextFieldItemValidator : ValidatorBase
         }
         return result;
     }
+    
 
-    public override BasicArrayList toList()
-    {
-        BasicArrayList list = new BasicArrayListD();
-        string @string = this.textFieldItem.getString();
-        int textLength = @string.Length;
+    @override
+    BasicArrayList toList() {
+        final BasicArrayList list = BasicArrayListD();
+        final String string = this.textFieldItem.getString();
+        int textLength = string.length;
         if (textLength > this.min && textLength < this.max) {
         } else {
-            string label = this.textFieldItem.getLabel();
-            string name = label.Substring(0, (label.Length - 2) - (0));
+            final String label = this.textFieldItem.getLabel();
+            final String name = label.substring(0, label.length - 2);
             if (textLength < this.min) {
-                list.add(new StringMaker().append(name).append(" is to short").ToString());
+                list.add(StringMaker().append(name).append(" is to short").toString());
             } else if (textLength > this.max) {
-                list.add(new StringMaker().append(name).append(" is to long").ToString());
+                list.add(StringMaker().append(name).append(" is to long").toString());
             }
         }
         return list;
     }
-
 }
 

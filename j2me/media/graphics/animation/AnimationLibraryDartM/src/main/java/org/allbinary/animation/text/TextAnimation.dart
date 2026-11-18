@@ -13,94 +13,105 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using Anchor = org.allbinary.graphics.Anchor;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using SWTJOGLProcessor = org.allbinary.graphics.threed.SWTJOGLProcessor;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/threed/SWTJOGLProcessor.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/animation/text/TextChangeListener.dart';
 
-namespace org.allbinary.animation.text;
+class TextAnimation extends IndexedAnimation implements UpdateMyFontInterface {
+    late MyFontProcessor updateMyFontProcessor;
+    late MyFontProcessor myFontProcessor;
+    late List<String?> textArrayP;
+    int anchor = 0;
+    int fontHeight = 0;
+    int offsetY = 0;
+    late TextChangeListener textChangeListener;
 
-public class TextAnimation : IndexedAnimation, UpdateMyFontInterface
-{
-    private readonly MyFontProcessor updateMyFontProcessor;
-    public MyFontProcessor myFontProcessor;
-    public string[] textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
-    private int anchor = Anchor.TOP_LEFT;
-    private int fontHeight = 0;
-    private int offsetY = 0;
-    private TextChangeListener textChangeListener = TextChangeListener.getInstance();
-    public TextAnimation(string text, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsTextAnimation() {
+    this.updateMyFontProcessor = UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
+    this.anchor = Anchor.TOP_LEFT;
+    this.fontHeight = 0;
+    this.offsetY = 0;
+    this.textChangeListener = TextChangeListener.getInstance();
+    }
+    
+
+    TextAnimation(String text, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsTextAnimation();
+        
         this.setText(text);
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
-        int adjustedFontHeight = ((int) (-(((double) this.fontHeight) * 2.00)));
+        final int adjustedFontHeight = JMath.toInt32(-((this.fontHeight).toDouble() * 2.00));
         this.offsetY = (SWTJOGLProcessor.getInstance().isJOGL() ? adjustedFontHeight : 0);
         this.textChangeListener.onMeasure();
         this.textChangeListener = TextChangeListener.getInstance();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.myFontProcessor.process(graphics);
         this.paintXYNoUpdate(graphics, x, y);
     }
+    
 
-    public virtual void paintXYNoUpdate(Graphics graphics, int x, int y)
-    {
+    void paintXYNoUpdate(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
-        int size = this.textArrayP.Length;
+        final int size = this.textArrayP.length;
         for (int index = 0; index < size; index++) {
-            graphics.drawString(this.textArrayP[index], x, y + this.offsetY + (index * this.fontHeight), this.anchor);
+            graphics.drawString(this.textArrayP[index]!, x, y + this.offsetY + (index * this.fontHeight), this.anchor);
         }
     }
+    
 
-    public virtual void setTextWithOnMeasure(string text, TextChangeListener textChangeListener)
-    {
+    void setTextWithOnMeasure(String text, TextChangeListener textChangeListener) {
         this.setText(text);
         this.textChangeListener = textChangeListener;
     }
+    
 
-    public virtual void setText(string text)
-    {
-        BasicArrayList list = new BasicArrayListD();
-        if (text.Length > 0) {
+    void setText(String text) {
+        final BasicArrayList list = BasicArrayListD();
+        if (text.length > 0) {
             int index = 0;
             int startIndex = 0;
             int endIndex = 0;
             while (index >= 0) {
                 startIndex = index;
-                index = text.IndexOf('\n', startIndex);
+                index = JString.indexOf(text, "\n".codeUnitAt(0), startIndex);
                 endIndex = index;
                 if (index < 0) {
-                    endIndex = text.Length;
+                    endIndex = text.length;
                 }
-                list.add(text.Substring(startIndex, (endIndex) - (startIndex)));
+                list.add(text.substring(startIndex, endIndex));
                 if (index < 0) {
                     break;
                 }
@@ -108,10 +119,10 @@ public class TextAnimation : IndexedAnimation, UpdateMyFontInterface
             }
         }
         if (list.size() > 0) {
-            string[] textArray = new string[list.size()];
-            int size = list.size();
-            for (int index_1 = 0; index_1 < size; index_1++) {
-                textArray[index_1] = ((string) list.get(index_1));
+            final List<String?> textArray = List<String?>.filled(list.size(), null);
+            final int size = list.size();
+            for (int index = 0; index < size; index++) {
+                textArray[index] = (list.get(index) as String);
             }
             this.textArrayP = textArray;
         } else {
@@ -119,16 +130,15 @@ public class TextAnimation : IndexedAnimation, UpdateMyFontInterface
         }
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public virtual string[] getTextArray()
-    {
+    List<String?> getTextArray() {
         return this.textArrayP;
     }
+    
 
-    public virtual int getFontHeight()
-    {
+    int getFontHeight() {
         return this.fontHeight;
     }
-
 }
 

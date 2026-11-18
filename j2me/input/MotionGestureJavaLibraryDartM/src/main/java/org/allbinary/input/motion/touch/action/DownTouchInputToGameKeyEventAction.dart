@@ -13,31 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.touch.action
 
-using System;
-using System.Linq;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformInputMappingFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
-namespace org.allbinary.input.motion.touch.action;
+class DownTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class DownTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyCompleteMotionGestureInputEvent getInstance()
-    {
+    static GameKeyCompleteMotionGestureInputEvent getInstance() {
         if (DownTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
-            DownTouchInputToGameKeyEventAction.instance = new DownTouchInputToGameKeyEventAction();
+            DownTouchInputToGameKeyEventAction.instance = DownTouchInputToGameKeyEventAction();
         }
-        return ((GameKeyCompleteMotionGestureInputEvent) DownTouchInputToGameKeyEventAction.instance);
+        return (DownTouchInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent);
     }
+    
 
-    private DownTouchInputToGameKeyEventAction() : base("Down Action", TouchMotionGestureFactory.getInstance().DOWN, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping())
-    {
-        // base("Down Action", TouchMotionGestureFactory.getInstance().DOWN, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) is called from the constructor declaration
+    DownTouchInputToGameKeyEventAction() : super("Down Action", TouchMotionGestureFactory.getInstance().DOWN, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) {
+        
     }
-
 }
 

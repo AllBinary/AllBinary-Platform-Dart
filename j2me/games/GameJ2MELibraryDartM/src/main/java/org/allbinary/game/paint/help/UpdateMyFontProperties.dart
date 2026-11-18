@@ -13,22 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint.help
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game.paint.help;
+class UpdateMyFontProperties {
+    late List<String?> actionStringArray;
+    late List<int> keymappingBeginWidthArray;
+    late List<int> actionStringDeltaXArray;
+    late List<List<int>?> inputDeltaXArray;
+    late List<List<String?>?> sepArray;
+    late List<List<int>?> sepWidthArray;
+    int charHeight = 0;
 
-public class UpdateMyFontProperties
-{
-    public string[] actionStringArray = StringUtil.getInstance().getArrayInstance();
-    public int[] keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
-    public int[] actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
-    public int[][] inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-    public string[][] sepArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
-    public int[][] sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-    public int charHeight = 0;
+    // Java field initializers run after the base constructor
+    void initFieldsUpdateMyFontProperties() {
+    this.actionStringArray = StringUtil.getInstance().getArrayInstance();
+    this.keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.sepArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
+    this.sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.charHeight = 0;
+    }
+
+    UpdateMyFontProperties() {
+        this.initFieldsUpdateMyFontProperties();
+    }
 }
 

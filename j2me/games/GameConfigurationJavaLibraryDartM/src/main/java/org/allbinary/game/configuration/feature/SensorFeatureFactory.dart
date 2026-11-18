@@ -13,31 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/SensorFeature.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class SensorFeatureFactory {
+    static final SensorFeatureFactory instance = SensorFeatureFactory();
+    late SensorFeature NO_ORIENTATION;
+    late SensorFeature ORIENTATION_SENSORS;
+    late SensorFeature SIMULATED_ORIENTATION_SENSORS;
+    late SensorFeature YAW;
+    late SensorFeature YAW_MINUS_RIGHT_PLUS_LEFT;
+    late SensorFeature YAW_MINUS_LEFT_PLUS_RIGHT;
+    late SensorFeature PITCH;
+    late SensorFeature ROLL;
 
-public class SensorFeatureFactory
-{
-    private static readonly SensorFeatureFactory instance = new SensorFeatureFactory();
-    public static SensorFeatureFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSensorFeatureFactory() {
+    this.NO_ORIENTATION = SensorFeature("No Orientation");
+    this.ORIENTATION_SENSORS = SensorFeature("Orientation Sensors");
+    this.SIMULATED_ORIENTATION_SENSORS = SensorFeature("Simulated Orientation Sensors");
+    this.YAW = SensorFeature("Yaw");
+    this.YAW_MINUS_RIGHT_PLUS_LEFT = SensorFeature("Yaw -Right +Left");
+    this.YAW_MINUS_LEFT_PLUS_RIGHT = SensorFeature("Yaw -Left +Right ");
+    this.PITCH = SensorFeature("Pitch");
+    this.ROLL = SensorFeature("Roll");
+    }
+    
+
+    static SensorFeatureFactory getInstance() {
         return SensorFeatureFactory.instance;
     }
+    
 
-    private SensorFeatureFactory()
-    {
+    SensorFeatureFactory() {
+        this.initFieldsSensorFeatureFactory();
     }
-
-    public readonly SensorFeature NO_ORIENTATION = new SensorFeature("No Orientation");
-    public readonly SensorFeature ORIENTATION_SENSORS = new SensorFeature("Orientation Sensors");
-    public readonly SensorFeature SIMULATED_ORIENTATION_SENSORS = new SensorFeature("Simulated Orientation Sensors");
-    public readonly SensorFeature YAW = new SensorFeature("Yaw");
-    public readonly SensorFeature YAW_MINUS_RIGHT_PLUS_LEFT = new SensorFeature("Yaw -Right +Left");
-    public readonly SensorFeature YAW_MINUS_LEFT_PLUS_RIGHT = new SensorFeature("Yaw -Left +Right ");
-    public readonly SensorFeature PITCH = new SensorFeature("Pitch");
-    public readonly SensorFeature ROLL = new SensorFeature("Roll");
 }
 

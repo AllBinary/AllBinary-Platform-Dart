@@ -13,24 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.midlet;
+class LicenseLevelUtil {
+    static final LicenseLevelUtil instance = LicenseLevelUtil();
+    
 
-public class LicenseLevelUtil
-{
-    private static readonly LicenseLevelUtil instance = new LicenseLevelUtil();
-    public static LicenseLevelUtil getInstance()
-    {
+    static LicenseLevelUtil getInstance() {
         return LicenseLevelUtil.instance;
     }
+    
 
-    public virtual int getMaxLevel(int maxLevel, int demoLevel)
-    {
+    int getMaxLevel(int maxLevel, int demoLevel) {
         return demoLevel;
     }
-
 }
 

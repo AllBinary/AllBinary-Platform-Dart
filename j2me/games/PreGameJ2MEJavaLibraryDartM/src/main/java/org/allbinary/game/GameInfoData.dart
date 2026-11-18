@@ -13,29 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game;
+class GameInfoData {
+    static final GameInfoData instance = GameInfoData();
+    late String GAME_TYPE;
+    late String GAME_MODE;
+    late String PLAYER_TYPE;
+    late String HIGHEST_LEVEL;
+    late String CURRENT_LEVEL;
+    late String SOFTWARE_INFORMATION;
 
-public class GameInfoData
-{
-    private static readonly GameInfoData instance = new GameInfoData();
-    public static GameInfoData getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameInfoData() {
+    this.GAME_TYPE = "GAME_TYPE";
+    this.GAME_MODE = "GAME_MODE";
+    this.PLAYER_TYPE = "PLAYER_TYPE";
+    this.HIGHEST_LEVEL = "HIGHEST_LEVEL";
+    this.CURRENT_LEVEL = "CURRENT_LEVEL";
+    this.SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
+    }
+    
+
+    static GameInfoData getInstance() {
         return GameInfoData.instance;
     }
+    
 
-    private GameInfoData()
-    {
+    GameInfoData() {
+        this.initFieldsGameInfoData();
     }
-
-    public readonly string GAME_TYPE = "GAME_TYPE";
-    public readonly string GAME_MODE = "GAME_MODE";
-    public readonly string PLAYER_TYPE = "PLAYER_TYPE";
-    public readonly string HIGHEST_LEVEL = "HIGHEST_LEVEL";
-    public readonly string CURRENT_LEVEL = "CURRENT_LEVEL";
-    public readonly string SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
 }
 

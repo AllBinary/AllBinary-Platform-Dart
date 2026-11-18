@@ -13,25 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using GameState = org.allbinary.game.state.GameState;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/state/GameState.dart';
+import 'package:allbinary/org/allbinary/game/state/GameStateFactory.dart';
 
-namespace org.allbinary.game;
+class IntermissionFactory {
+    static final IntermissionFactory instance = IntermissionFactory();
+    late GameState START_LEVEL_INTERMISSION_GAME_STATE;
+    late GameState WAIT_LEVEL_INTERMISSION_GAME_STATE;
+    late GameState SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE;
+    late GameState SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE;
 
-public class IntermissionFactory
-{
-    private static readonly IntermissionFactory instance = new IntermissionFactory();
-    public static IntermissionFactory getInstance()
-    {
-        return IntermissionFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsIntermissionFactory() {
+    this.START_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("START_LEVEL_INTERMISSION_GAME_STATE");
+    this.WAIT_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("WAIT_LEVEL_INTERMISSION_GAME_STATE");
+    this.SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE");
+    this.SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE");
     }
 
-    public readonly GameState START_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("START_LEVEL_INTERMISSION_GAME_STATE");
-    public readonly GameState WAIT_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("WAIT_LEVEL_INTERMISSION_GAME_STATE");
-    public readonly GameState SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE");
-    public readonly GameState SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory.getInstance().createGameState("SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE");
+    IntermissionFactory() {
+        this.initFieldsIntermissionFactory();
+    }
+    
+
+    static IntermissionFactory getInstance() {
+        return IntermissionFactory.instance;
+    }
 }
 

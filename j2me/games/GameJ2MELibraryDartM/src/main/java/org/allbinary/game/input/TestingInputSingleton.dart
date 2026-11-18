@@ -13,142 +13,127 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using ViewPosition = org.allbinary.view.ViewPosition;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/graphics/RectangleFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/view/ViewPosition.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessorUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/TestInputInterface.dart';
 
-namespace org.allbinary.game.input;
+class TestingInputSingleton extends AllBinaryGameLayer implements GameInputInterface {
+    static final TestingInputSingleton instance = TestingInputSingleton();
+    late List<GameInputProcessor?> inputProcessorArray;
+    late PaintableInterface testInputPaintable;
 
-public class TestingInputSingleton : AllBinaryGameLayer, GameInputInterface
-{
-    private static readonly TestingInputSingleton instance = new TestingInputSingleton();
-    public static TestingInputSingleton getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTestingInputSingleton() {
+    this.inputProcessorArray = List<GameInputProcessor?>.filled(InputFactory.getInstance().MAX, null);
+    this.testInputPaintable = NullPaintable.getInstance();
+    }
+    
+
+    static TestingInputSingleton getInstance() {
         return TestingInputSingleton.instance;
     }
+    
 
-    public readonly GameInputProcessor[] inputProcessorArray = new GameInputProcessor[InputFactory.getInstance().MAX];
-    private TestingInputSingleton() : base(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.getInstanceD())
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.getInstanceD()) is called from the constructor declaration
+    TestingInputSingleton() : super(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.getInstanceD()) {
+        this.initFieldsTestingInputSingleton();
+        
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
+    
 
-    private PaintableInterface testInputPaintable = NullPaintable.getInstance();
-    public virtual void initInputProcessors()
-    {
+    @override
+    void initInputProcessors() {
     }
+    
 
-    public virtual void initInputProcessorsForTestInput(TestInputInterface aTestInputInterface)
-    {
-        TestInputInterface testInputInterface = aTestInputInterface;
+    void initInputProcessorsForTestInput(TestInputInterface aTestInputInterface) {
+        final TestInputInterface testInputInterface = aTestInputInterface;
         this.testInputPaintable = testInputInterface;
-        this.inputProcessorArray[Canvas.UP] = new GameInputProcessor()
-#if JAVA_ANONYMOUS_CLASS_BODY
-            // throws Exception
-            public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-            {
+        this.inputProcessorArray[Canvas.UP] = GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
+            
+
+            void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
                 testInputInterface.up();
-            }
+            } */;
+        this.inputProcessorArray[Canvas.DOWN] = GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
+            
 
-#endif
-;
-        this.inputProcessorArray[Canvas.DOWN] = new GameInputProcessor()
-#if JAVA_ANONYMOUS_CLASS_BODY
-            // throws Exception
-            public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-            {
+            void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
                 testInputInterface.down();
-            }
+            } */;
+        this.inputProcessorArray[Canvas.LEFT] = GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
+            
 
-#endif
-;
-        this.inputProcessorArray[Canvas.LEFT] = new GameInputProcessor()
-#if JAVA_ANONYMOUS_CLASS_BODY
-            // throws Exception
-            public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-            {
+            void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
                 testInputInterface.left();
-            }
+            } */;
+        this.inputProcessorArray[Canvas.RIGHT] = GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
+            
 
-#endif
-;
-        this.inputProcessorArray[Canvas.RIGHT] = new GameInputProcessor()
-#if JAVA_ANONYMOUS_CLASS_BODY
-            // throws Exception
-            public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-            {
+            void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
                 testInputInterface.right();
-            }
+            } */;
+        this.inputProcessorArray[Canvas.KEY_NUM7] = GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
+            
 
-#endif
-;
-        this.inputProcessorArray[Canvas.KEY_NUM7] = new GameInputProcessor()
-#if JAVA_ANONYMOUS_CLASS_BODY
-            // throws Exception
-            public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-            {
+            void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
                 testInputInterface.strafeLeft();
-            }
+            } */;
+        this.inputProcessorArray[Canvas.KEY_NUM9] = GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
+            
 
-#endif
-;
-        this.inputProcessorArray[Canvas.KEY_NUM9] = new GameInputProcessor()
-#if JAVA_ANONYMOUS_CLASS_BODY
-            // throws Exception
-            public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-            {
+            void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
                 testInputInterface.strafeRight();
-            }
-
-#endif
-;
+            } */;
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void processInputList(AllBinaryLayerManager allbinaryLayerManager, BasicArrayList list)
-    {
+    void processInputList(AllBinaryLayerManager allbinaryLayerManager, BasicArrayList list) {
         int key = 0;
-        GameKeyEvent gameKeyEvent = null;
-        int size = list.size();
+        late GameKeyEvent gameKeyEvent;
+        final int size = list.size();
         for (int index = 0; index < size; index++) {
-            gameKeyEvent = (((GameKeyEvent) list.objectArray[index]));
+            gameKeyEvent = ((list.objectArray[index]! as GameKeyEvent));
             key = gameKeyEvent.getKey();
-            this.inputProcessorArray[key].processEvent(allbinaryLayerManager, GameKeyEvent.NONE);
+            this.inputProcessorArray[key]!.processEvent(allbinaryLayerManager, GameKeyEvent.NONE);
         }
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void processInput(AllBinaryLayerManager allbinaryLayerManager)
-    {
+    @override
+    void processInput(AllBinaryLayerManager allbinaryLayerManager) {
         this.processInputList(allbinaryLayerManager, this.getGameKeyEventList());
         this.getGameKeyEventList().clear();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.testInputPaintable.paint(graphics);
     }
+    
 
-    public override bool implmentsGameInputInterface()
-    {
+    @override
+    bool implmentsGameInputInterface() {
         return true;
     }
-
 }
 

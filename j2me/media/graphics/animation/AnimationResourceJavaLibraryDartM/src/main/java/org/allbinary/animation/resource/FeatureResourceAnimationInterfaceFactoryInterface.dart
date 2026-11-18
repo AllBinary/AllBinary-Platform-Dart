@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.resource
 
-using System;
-using System.Linq;
-using GameFeatureControlledInterface = org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
-using RectangleResourceFactoryInterface = org.allbinary.game.resource.RectangleResourceFactoryInterface;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureControlledInterface.dart';
+import 'package:allbinary/org/allbinary/game/resource/RectangleResourceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/animation/resource/ResourceAnimationInterfaceFactoryInterface.dart';
 
-namespace org.allbinary.animation.resource;
+abstract interface class FeatureResourceAnimationInterfaceFactoryInterface implements ResourceAnimationInterfaceFactoryInterface, RectangleResourceFactoryInterface, GameFeatureControlledInterface {
+    
 
-public interface FeatureResourceAnimationInterfaceFactoryInterface : ResourceAnimationInterfaceFactoryInterface, RectangleResourceFactoryInterface, GameFeatureControlledInterface
-{
-    ABHashtable<object, object> getHashtable();
-
+    ABHashtable getHashtable();
 }
 

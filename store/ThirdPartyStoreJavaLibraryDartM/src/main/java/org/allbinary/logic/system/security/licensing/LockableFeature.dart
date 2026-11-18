@@ -13,24 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LockableFeature {
+    late String name;
 
-public class LockableFeature
-{
-    private readonly string name;
-    public LockableFeature(string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLockableFeature() {
+    
+    }
+    
+
+    LockableFeature(String name) {
+        this.initFieldsLockableFeature();
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

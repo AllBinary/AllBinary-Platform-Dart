@@ -13,90 +13,99 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.game.input.@event;
+class GameKeyEvent extends AllBinaryEventObject {
+    static final GameKeyEvent NONE = GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
+    int sourceId = 0;
+    bool repeated = false;
+    int key = 0;
+    int gameActionKey = 0;
+    int originalKey = 0;
 
-public class GameKeyEvent : AllBinaryEventObject
-{
-    public static GameKeyEvent createEvent(object anyType, int sourceId, int key)
-    {
-        return new GameKeyEvent(anyType, sourceId, 0, 0, key, false);
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyEvent() {
+    
+    this.repeated = false;
+    
+    this.gameActionKey = 0;
+    this.originalKey = 0;
     }
+    
 
-    public static readonly GameKeyEvent NONE = new GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
-    private readonly int sourceId;
-    private bool repeated = false;
-    private int key;
-    private int gameActionKey = 0;
-    private int originalKey = 0;
-    public GameKeyEvent(object anyType, int sourceId, int originalKey, int gameActionKey, int key, bool repeated) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    static GameKeyEvent createEvent(Object anyType, int sourceId, int key) {
+        return GameKeyEvent(anyType, sourceId, 0, 0, key, false);
+    }
+    
+
+    GameKeyEvent(Object anyType, int sourceId, int originalKey, int gameActionKey, int key, bool repeated) : super(anyType) {
+        this.initFieldsGameKeyEvent();
+        
         this.sourceId = sourceId;
         this.setOriginalKey(originalKey);
         this.key = key;
         this.setGameActionKey(gameActionKey);
         this.setRepeatEvents(repeated);
     }
+    
 
-    public virtual void init(object anyType)
-    {
+    void init(Object anyType) {
         this.setSource(anyType);
     }
+    
 
-    private void setRepeatEvents(bool repeated)
-    {
+    void setRepeatEvents(bool repeated) {
         this.repeated = repeated;
     }
+    
 
-    public virtual bool hasRepeatEvents()
-    {
+    bool hasRepeatEvents() {
         return this.repeated;
     }
+    
 
-    public virtual int getKey()
-    {
+    int getKey() {
         return this.key;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append("\nKey: ");
         stringBuffer.appendint(this.getKey());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public virtual int getOriginalKey()
-    {
+    int getOriginalKey() {
         return this.originalKey;
     }
+    
 
-    public virtual void setOriginalKey(int originalKey)
-    {
+    void setOriginalKey(int originalKey) {
         this.originalKey = originalKey;
     }
+    
 
-    public virtual int getGameActionKey()
-    {
+    int getGameActionKey() {
         return this.gameActionKey;
     }
+    
 
-    public virtual void setGameActionKey(int gameActionKey)
-    {
+    void setGameActionKey(int gameActionKey) {
         this.gameActionKey = gameActionKey;
     }
+    
 
-    public virtual int getSourceId()
-    {
+    int getSourceId() {
         return this.sourceId;
     }
-
 }
 

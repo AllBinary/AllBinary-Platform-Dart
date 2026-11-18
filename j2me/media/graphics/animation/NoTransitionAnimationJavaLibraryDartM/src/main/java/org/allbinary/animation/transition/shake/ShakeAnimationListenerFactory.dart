@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/transition/shake/NoShakeAnimationListener.dart';
+import 'package:allbinary/org/allbinary/animation/transition/shake/ShakeAnimationListener.dart';
 
-namespace org.allbinary.animation.transition.shake;
+class ShakeAnimationListenerFactory {
+    
 
-public class ShakeAnimationListenerFactory
-{
-    public static ShakeAnimationListener getInstance()
-    {
-        return new NoShakeAnimationListener();
+    static ShakeAnimationListener getInstance() {
+        return NoShakeAnimationListener();
     }
-
 }
 

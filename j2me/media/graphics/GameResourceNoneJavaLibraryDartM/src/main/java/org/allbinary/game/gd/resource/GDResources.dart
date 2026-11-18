@@ -13,21 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.gd.resource
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.gd.resource;
+class GDResources {
+    static final GDResources instance = GDResources();
+    late List<String?> resourceStringArray;
+    int currentLayoutRequiredTotal = 0;
 
-public class GDResources
-{
-    private static readonly GDResources instance = new GDResources();
-    public static GDResources getInstance()
-    {
-        return GDResources.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGDResources() {
+    this.resourceStringArray = <String?>[];
+    this.currentLayoutRequiredTotal = 0;
     }
 
-    public readonly string[] resourceStringArray = new string[] {  };
-    public int currentLayoutRequiredTotal = 0;
+    GDResources() {
+        this.initFieldsGDResources();
+    }
+    
+
+    static GDResources getInstance() {
+        return GDResources.instance;
+    }
 }
 

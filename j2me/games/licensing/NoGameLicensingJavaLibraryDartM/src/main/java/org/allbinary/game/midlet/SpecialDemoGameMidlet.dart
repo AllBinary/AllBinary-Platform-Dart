@@ -13,29 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using ClientInformationFactory = org.allbinary.logic.system.security.licensing.ClientInformationFactory;
-using LicenseServerInitFileUtil = org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/ClientInformationFactory.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LicenseServerInitFileUtil.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidlet.dart';
+import 'package:allbinary/org/allbinary/game/midlet/LicenseLoadingType.dart';
+import 'package:allbinary/org/allbinary/game/midlet/LicensedDemoSetupFactory.dart';
+import 'package:allbinary/org/allbinary/game/midlet/LicenseCheckRunnableFactory.dart';
 
-namespace org.allbinary.game.midlet;
+class SpecialDemoGameMidlet extends DemoGameMidlet {
+    
 
-public class SpecialDemoGameMidlet : DemoGameMidlet
-{
-    public SpecialDemoGameMidlet(ClientInformationFactory clientInformationFactory, LicenseLoadingType licenseLoadingType, LicensedDemoSetupFactory demoSetupFactory, LicenseCheckRunnableFactory licenseCheckRunnableFactory) : base(clientInformationFactory)
-    {
-        // base(clientInformationFactory) is called from the constructor declaration
+    SpecialDemoGameMidlet(ClientInformationFactory clientInformationFactory, LicenseLoadingType licenseLoadingType, LicensedDemoSetupFactory demoSetupFactory, LicenseCheckRunnableFactory licenseCheckRunnableFactory) : super(clientInformationFactory) {
+        
     }
+    
 
-    public virtual void initView()
-    {
+    void initView() {
     }
+    
 
-    public override void preInit()
-    {
-        new LicenseServerInitFileUtil().init();
+    @override
+    void preInit() {
+        LicenseServerInitFileUtil().init();
     }
-
 }
 

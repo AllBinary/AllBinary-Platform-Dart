@@ -13,70 +13,81 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.vector
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
-using PositionInterface = org.allbinary.layer.PositionInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/layer/PositionInterface.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
-namespace org.allbinary.animation.vector;
+class LineAnimation extends Animation implements ColorCompositeInterface, PositionInterface {
+    late List<List<int>?> newLine;
+    late List<List<int>?> tempLine;
+    late List<List<int>?> line;
 
-public class LineAnimation : Animation, ColorCompositeInterface, PositionInterface
-{
-    private int[][] newLine = System.Linq.Enumerable.Range(0, 2).Select(_ => new int[2]).ToArray();
-    private int[][] tempLine = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-    private int[][] line = System.Linq.Enumerable.Range(0, 2).Select(_ => new int[2]).ToArray();
-    public LineAnimation(BasicColor basicColor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLineAnimation() {
+    this.newLine = List<List<int>>.generate(2, (_) => List<int>.filled(2, 0));
+    this.tempLine = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.line = List<List<int>>.generate(2, (_) => List<int>.filled(2, 0));
+    }
+    
+
+    LineAnimation(BasicColor basicColor) {
+        this.initFieldsLineAnimation();
         this.setBasicColorP(basicColor);
     }
+    
 
-    public virtual void init(int x, int y)
-    {
-        this.newLine[0][0] = x;
-        this.newLine[0][1] = y;
-        this.newLine[1][0] = x;
-        this.newLine[1][1] = y;
+    void init(int x, int y) {
+        this.newLine[0]![0] = x;
+        this.newLine[0]![1] = y;
+        this.newLine[1]![0] = x;
+        this.newLine[1]![1] = y;
         this.tempLine = this.line;
         this.line = this.newLine;
         this.newLine = this.tempLine;
     }
+    
 
-    public virtual void setPosition(int x, int y, int z)
-    {
-        this.newLine[0][0] = this.line[1][0];
-        this.newLine[0][1] = this.line[1][1];
-        this.newLine[1][0] = x;
-        this.newLine[1][1] = y;
+    @override
+    void setPosition(int x, int y, int z) {
+        this.newLine[0]![0] = this.line[1]![0];
+        this.newLine[0]![1] = this.line[1]![1];
+        this.newLine[1]![0] = x;
+        this.newLine[1]![1] = y;
         this.tempLine = this.line;
         this.line = this.newLine;
         this.newLine = this.tempLine;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        int[][] currentLine = this.line;
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        final List<List<int>?> currentLine = this.line;
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
-        graphics.drawLine(currentLine[0][0], currentLine[0][1], currentLine[1][0], currentLine[1][1]);
+        graphics.drawLine(currentLine[0]![0], currentLine[0]![1], currentLine[1]![0], currentLine[1]![1]);
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        return base.getBasicColorP();
+    @override
+    BasicColor getBasicColorP() {
+        return super.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
-        base.setBasicColorP(basicColor);
+    @override
+    void setBasicColorP(BasicColor basicColor) {
+        super.setBasicColorP(basicColor);
     }
-
 }
 

@@ -13,46 +13,52 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic
 
-using System;
-using System.Linq;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHudFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/NumberStringHud.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic;
+class NumberStringHudFactory {
+    static Object instance = NullUtil.getInstance();
+    late NumberStringHud NULL_NUMBER_STRING_HUD;
 
-public class NumberStringHudFactory
-{
-    private static object instance = NullUtil.getInstance();
-    public static NumberStringHudFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNumberStringHudFactory() {
+    this.NULL_NUMBER_STRING_HUD = this.createHud();
+    }
+
+    NumberStringHudFactory() {
+        this.initFieldsNumberStringHudFactory();
+    }
+    
+
+    static NumberStringHudFactory getInstance() {
         if (NumberStringHudFactory.instance == NullUtil.getInstance()) {
-            NumberStringHudFactory.instance = new NumberStringHudFactory();
+            NumberStringHudFactory.instance = NumberStringHudFactory();
         }
-        return ((NumberStringHudFactory) NumberStringHudFactory.instance);
+        return (NumberStringHudFactory.instance as NumberStringHudFactory);
     }
+    
 
-    public virtual NumberStringHud createHud()
-    {
+    NumberStringHud createHud() {
         try {
-            return new NumberStringHud(StringUtil.getInstance().EMPTY_STRING, 9, BasicHudFactory.getInstance().ABSOLUTE, 1, 0, BasicColorFactory.getInstance().NULL_COLOR);
-        } catch (Exception e) {
-            LogUtil logUtil = LogUtil.getInstance();
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            return NumberStringHud(StringUtil.getInstance().EMPTY_STRING, 9, BasicHudFactory.getInstance().ABSOLUTE, 1, 0, BasicColorFactory.getInstance().NULL_COLOR);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final LogUtil logUtil = LogUtil.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-            throw new SystemException();
+            throw JException('RuntimeException', '');
+            }
         }
     }
-
-    public readonly NumberStringHud NULL_NUMBER_STRING_HUD;
-    public NumberStringHudFactory()
-    {
-        this.NULL_NUMBER_STRING_HUD = this.createHud();
-    }
-
 }
 

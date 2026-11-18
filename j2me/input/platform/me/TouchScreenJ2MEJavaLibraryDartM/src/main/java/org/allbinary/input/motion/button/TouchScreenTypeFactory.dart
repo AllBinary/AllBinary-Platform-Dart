@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenFactory.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchScreenTypeFactory {
+    static final TouchScreenTypeFactory instance = TouchScreenTypeFactory();
+    
 
-public class TouchScreenTypeFactory
-{
-    private static readonly TouchScreenTypeFactory instance = new TouchScreenTypeFactory();
-    public static TouchScreenTypeFactory getInstance()
-    {
+    static TouchScreenTypeFactory getInstance() {
         return TouchScreenTypeFactory.instance;
     }
+    
 
-    public virtual void TouchScreenTypeFactory_Method()
-    {
-        TouchScreenFactory touchScreenFactory = TouchScreenFactory.getInstance();
+    void TouchScreenTypeFactory_Method() {
+        final TouchScreenFactory touchScreenFactory = TouchScreenFactory.getInstance();
         touchScreenFactory.setTouch(true);
     }
-
 }
 

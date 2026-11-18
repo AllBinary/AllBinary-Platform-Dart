@@ -13,49 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/TestInputInterface.dart';
 
-namespace org.allbinary.game.input;
+class TestInputExample implements TestInputInterface {
+    int testValue = 0;
 
-public class TestInputExample : TestInputInterface
-{
-    private int testValue = 0;
-    public virtual void up()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTestInputExample() {
+    this.testValue = 0;
     }
 
-    public virtual void down()
-    {
+    TestInputExample() {
+        this.initFieldsTestInputExample();
     }
+    
 
-    public virtual void left()
-    {
+    @override
+    void up() {
+    }
+    
+
+    @override
+    void down() {
+    }
+    
+
+    @override
+    void left() {
         this.testValue++;
     }
+    
 
-    public virtual void right()
-    {
+    @override
+    void right() {
         this.testValue--;
     }
+    
 
-    public virtual void strafeLeft()
-    {
+    @override
+    void strafeLeft() {
     }
+    
 
-    public virtual void strafeRight()
-    {
+    @override
+    void strafeRight() {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
-
 }
 

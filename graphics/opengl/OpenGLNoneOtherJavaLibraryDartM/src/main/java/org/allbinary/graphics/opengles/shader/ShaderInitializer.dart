@@ -13,27 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/Shader.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class ShaderInitializer {
+    static final ShaderInitializer instance = ShaderInitializer();
+    late CommonStrings commonStrings;
 
-public class ShaderInitializer
-{
-    private static readonly ShaderInitializer instance = new ShaderInitializer();
-    public static ShaderInitializer getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsShaderInitializer() {
+    this.commonStrings = CommonStrings.getInstance();
+    }
+
+    ShaderInitializer() {
+        this.initFieldsShaderInitializer();
+    }
+    
+
+    static ShaderInitializer getInstance() {
         return ShaderInitializer.instance;
     }
+    
 
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual int init(GL10 gl, Shader[] shader, string[] attributeArray)
-    {
+    int init(GL10 gl, List<Shader?> shader, List<String?> attributeArray) {
         return -1;
     }
-
 }
 

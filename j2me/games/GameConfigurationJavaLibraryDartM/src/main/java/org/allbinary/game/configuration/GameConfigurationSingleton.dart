@@ -13,51 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfiguration.dart';
 
-namespace org.allbinary.game.configuration;
+class GameConfigurationSingleton {
+    static GameConfigurationSingleton SINGLETON = GameConfigurationSingleton();
+    late BasicArrayList list;
+    late ABHashtable hashtable;
 
-public class GameConfigurationSingleton
-{
-    private static GameConfigurationSingleton SINGLETON = new GameConfigurationSingleton();
-    private BasicArrayList list;
-    private ABHashtable<object, object> hashtable;
-    public static GameConfigurationSingleton getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameConfigurationSingleton() {
+    
+    
+    }
+    
+
+    static GameConfigurationSingleton getInstance() {
         return GameConfigurationSingleton.SINGLETON;
     }
+    
 
-    private GameConfigurationSingleton()
-    {
-        this.list = new BasicArrayListD();
+    GameConfigurationSingleton() {
+        this.initFieldsGameConfigurationSingleton();
+        this.list = BasicArrayListD();
         this.hashtable = StdUtil.getInstance().createHashtable();
     }
+    
 
-    public virtual GameConfiguration getInstanceByName(string name)
-    {
-        return ((GameConfiguration) this.hashtable.get(name));
+    GameConfiguration getInstanceByName(String name) {
+        return (this.hashtable.get(name) as GameConfiguration);
     }
+    
 
-    public virtual BasicArrayList getOptionsBasicArrayList()
-    {
+    BasicArrayList getOptionsBasicArrayList() {
         return this.list;
     }
+    
 
-    public virtual void add(GameConfiguration gameConfiguration)
-    {
+    void add(GameConfiguration gameConfiguration) {
         this.list.add(gameConfiguration);
     }
+    
 
-    public virtual ABHashtable<object, object> getHashtable()
-    {
+    ABHashtable getHashtable() {
         return this.hashtable;
     }
-
 }
 

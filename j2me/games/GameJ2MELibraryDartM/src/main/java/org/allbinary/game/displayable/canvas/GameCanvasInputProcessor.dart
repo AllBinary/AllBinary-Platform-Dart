@@ -13,84 +13,105 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using InputProcessor = org.allbinary.game.input.InputProcessor;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using DownKeyEventHandler = org.allbinary.game.input.@event.DownKeyEventHandler;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/InputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformInputMappingFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class GameCanvasInputProcessor extends InputProcessor {
+    late LogUtil logUtil;
+    late AllBinaryGameCanvas allBinaryGameCanvas;
+    late DownGameKeyEventHandler downGameKeyEventHandler;
+    late UpGameKeyEventHandler upGameKeyEventHandler;
+    late DownKeyEventHandler downKeyEventHandler;
+    late SmallIntegerSingletonFactory smallIntegerSingletonFactory;
+    late InputToGameKeyMapping inputToGameKeyMapping;
+    late GameKey NONE;
+    late GameKeyEventFactory gameKeyEventFactory;
 
-public class GameCanvasInputProcessor : InputProcessor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly AllBinaryGameCanvas allBinaryGameCanvas;
-    private readonly DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
-    private readonly UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    private readonly DownKeyEventHandler downKeyEventHandler = DownKeyEventHandler.getInstance();
-    private readonly SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-    private readonly InputToGameKeyMapping inputToGameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
-    public GameCanvasInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameCanvasInputProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downKeyEventHandler = DownKeyEventHandler.getInstance();
+    this.smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+    this.inputToGameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    }
+    
+
+    GameCanvasInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas) {
+        this.initFieldsGameCanvasInputProcessor();
         this.allBinaryGameCanvas = allBinaryGameCanvas;
         this.inputToGameKeyMapping.init(this.allBinaryGameCanvas);
     }
+    
 
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    private readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    public override void keyPressedByDevice(int keyCode, int deviceId)
-    {
+    @override
+    void keyPressedByDevice(int keyCode, int deviceId) {
         try {
-            GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this.allBinaryGameCanvas, keyCode);
-            if (gameKey != this.NONE) {
-                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, gameKey);
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this.allBinaryGameCanvas, keyCode);
+            if (!identical(gameKey, this.NONE)) {
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, gameKey);
                 this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).ToString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.putF(StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
-            int? keyCodeAsInteger = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
+            final int keyCodeAsInteger = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
             this.downKeyEventHandler.fireEventI(keyCodeAsInteger);
             this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEventI(keyCodeAsInteger);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            }
         }
     }
+    
 
-    public override void keyReleasedByDevice(Canvas canvas, int keyCode, int deviceId)
-    {
+    @override
+    void keyReleasedByDevice(Canvas canvas, int keyCode, int deviceId) {
         this.removeGameKeyEvent(canvas, keyCode, deviceId, false);
     }
+    
 
-    private void removeGameKeyEvent(Canvas canvas, int keyCode, int deviceId, bool repeated)
-    {
+    void removeGameKeyEvent(Canvas canvas, int keyCode, int deviceId, bool repeated) {
         try {
-            GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(canvas, keyCode);
-            if (gameKey != this.NONE) {
-                GameKeyEventSourceInterface gameKeyEventSourceInterface = ((GameKeyEventSourceInterface) canvas);
-                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface, gameKey);
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(canvas, keyCode);
+            if (!identical(gameKey, this.NONE)) {
+                final GameKeyEventSourceInterface gameKeyEventSourceInterface = (canvas as GameKeyEventSourceInterface);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface, gameKey);
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).ToString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
+            }
         }
     }
-
 }
 

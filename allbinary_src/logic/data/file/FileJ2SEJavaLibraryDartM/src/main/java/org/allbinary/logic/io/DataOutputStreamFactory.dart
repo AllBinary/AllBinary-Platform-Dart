@@ -13,37 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using AbFile = org.allbinary.logic.io.file.AbFile;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbFileOutputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbDataOutputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/FileStreamFactory.dart';
 
-namespace org.allbinary.logic.io;
+class DataOutputStreamFactory {
+    static final DataOutputStreamFactory instance = DataOutputStreamFactory();
+    
 
-public class DataOutputStreamFactory
-{
-    private static readonly DataOutputStreamFactory instance = new DataOutputStreamFactory();
-    public static DataOutputStreamFactory getInstance()
-    {
+    static DataOutputStreamFactory getInstance() {
         return DataOutputStreamFactory.instance;
     }
+    
 
-    // throws Exception
-    public virtual AbDataOutputStream getInstanceForAbFile(AbFile file)
-    {
-        AbFileOutputStream idFileOutputStream = AbFileOutputStream.createFromAbFile(file);
-        AbDataOutputStream idOutData = new AbDataOutputStream(idFileOutputStream);
+    AbDataOutputStream getInstanceForAbFile(AbFile file) {
+        final AbFileOutputStream idFileOutputStream = AbFileOutputStream.createFromAbFile(file);
+        final AbDataOutputStream idOutData = AbDataOutputStream(idFileOutputStream);
         return idOutData;
     }
+    
 
-    // throws Exception
-    public virtual AbDataOutputStream getInstance(string filePath, string fileName)
-    {
-        FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
-        AbFileOutputStream fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(filePath, fileName);
-        AbDataOutputStream idOutData = new AbDataOutputStream(fileOutputStream);
+    AbDataOutputStream getInstance2(String filePath, String fileName) {
+        final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
+        final AbFileOutputStream fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(filePath, fileName);
+        AbDataOutputStream idOutData = AbDataOutputStream(fileOutputStream);
         return idOutData;
     }
-
 }
 

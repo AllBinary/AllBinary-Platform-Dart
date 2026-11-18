@@ -13,39 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.draw
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Anchor = org.allbinary.graphics.Anchor;
-using OpenGLFeatureUtil = org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/AndroidUtil.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureUtil.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.graphics.draw;
+class DrawVerticalStringUtil {
+    static final DrawVerticalStringUtil instance = DrawVerticalStringUtil();
+    late String EMPTY_STRING;
+    int anchor = 0;
+    int charHeight = 0;
+    int offsetY = 0;
+    late List<int> offsetXArray;
 
-public class DrawVerticalStringUtil
-{
-    private static readonly DrawVerticalStringUtil instance = new DrawVerticalStringUtil();
-    public static DrawVerticalStringUtil getInstance()
-    {
-        return DrawVerticalStringUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsDrawVerticalStringUtil() {
+    this.EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    this.anchor = Anchor.TOP_LEFT;
+    this.charHeight = 0;
+    this.offsetY = 0;
+    this.offsetXArray = NullUtil.getInstance().NULL_INT_ARRAY;
     }
 
-    private readonly string EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-    private int anchor = Anchor.TOP_LEFT;
-    private int charHeight = 0;
-    private int offsetY = 0;
-    private int[] offsetXArray = NullUtil.getInstance().NULL_INT_ARRAY;
-    public virtual void updateMeasurement(Graphics graphics, string @string)
-    {
-        OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
-        Font font = graphics.getFont();
+    DrawVerticalStringUtil() {
+        this.initFieldsDrawVerticalStringUtil();
+    }
+    
+
+    static DrawVerticalStringUtil getInstance() {
+        return DrawVerticalStringUtil.instance;
+    }
+    
+
+    void updateMeasurement(Graphics graphics, String string) {
+        final OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
+        final Font font = graphics.getFont();
         this.charHeight = font.getHeight();
         this.offsetY = 0;
         if (J2MEUtil.isHTML()) {
@@ -54,69 +66,72 @@ public class DrawVerticalStringUtil
             this.charHeight += 2;
             if (AndroidUtil.isAndroid()) {
             } else {
-                this.offsetY = 2 + (this.charHeight * 2 / 3);
+                this.offsetY = 2 + (this.charHeight * 2 ~/ 3);
             }
         }
-        int size = @string.Length;
-        char aChar = '\0';
-        int[] offsetXArray = new int[size];
+        final int size = string.length;
+        int aChar = 0;
+        List<int> offsetXArray = List<int>.filled(size, 0);
         for (int index = size - 1; index >= 0; index--) {
-            aChar = @string[index];
+            aChar = string.codeUnitAt(index);
             if (openGLFeatureUtil.isAnyThreed()) {
-                offsetXArray[index] = font.charWidth(aChar) / 2;
+                offsetXArray[index] = font.charWidth(aChar) ~/ 2;
             }
         }
         this.offsetXArray = offsetXArray;
     }
+    
 
-    public virtual void paintVerticle(Graphics graphics, string @string, int x, int y, int anchor)
-    {
-        int size = @string.Length;
-        char aChar = '\0';
+    void paintVerticle(Graphics graphics, String string, int x, int y, int anchor) {
+        final int size = string.length;
+        int aChar = 0;
         for (int index = size - 1; index >= 0; index--) {
-            aChar = @string[index];
+            aChar = string.codeUnitAt(index);
             graphics.drawChar(aChar, x + this.offsetXArray[index], y + (this.charHeight * index) + this.offsetY, anchor);
         }
     }
+    
 
-    public virtual void drawCenterString(Graphics graphics, string @string, int offset, int length, int x, int y)
-    {
-        int width = (graphics.getFont().substringWidth(@string, offset, length) >> 1);
+    void drawCenterString(Graphics graphics, String string, int offset, int length, int x, int y) {
+        final int width = (graphics.getFont().substringWidth(string, offset, length) >> 1);
         try {
-            graphics.drawSubstring(@string, offset, length, x - width, y, this.anchor);
-        } catch (Exception e) {
-            PreLogUtil.put(new StringMaker().append("Exception: stringLength: ").appendint(@string.Length).append(" offset: ").appendint(offset).append(" currentLength: ").appendint(length).ToString(), this, "drawCenterString");
+            graphics.drawSubstring(string, offset, length, x - width, y, this.anchor);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            PreLogUtil.put(StringMaker().append("Exception: stringLength: ").appendint(string.length).append(" offset: ").appendint(offset).append(" currentLength: ").appendint(length).toString(), this, "drawCenterString");
+            }
         }
     }
+    
 
-    public virtual void drawCenterStrings(Graphics graphics, string[] stringArray, int maxWidth, int x, int y)
-    {
+    void drawCenterStrings(Graphics graphics, List<String?> stringArray, int maxWidth, int x, int y) {
         int extraLines = 0;
-        for (int index = 0; index < stringArray.Length; index++) {
-            string @string = stringArray[index];
-            if (@string != this.EMPTY_STRING) {
-                int width = graphics.getFont().stringWidth(@string);
+        for (int index = 0; index < stringArray.length; index++) {
+            String string = stringArray[index]!;
+            if (string != this.EMPTY_STRING) {
+                int width = graphics.getFont().stringWidth(string);
                 int minTotalLines = 1;
                 if (width > maxWidth) {
-                    minTotalLines = (width / maxWidth) + 1;
+                    minTotalLines = (width ~/ maxWidth) + 1;
                 }
-                int linePortion = @string.Length / minTotalLines;
+                int linePortion = string.length ~/ minTotalLines;
                 int offset = 0;
                 int currentLength = linePortion;
-                int size = @string.Length;
+                int size = string.length;
                 while (offset < size) {
                     if (offset + currentLength > size) {
                         currentLength = size - offset;
                     }
                     if (offset + currentLength != size) {
-                        while (currentLength > 0 && stringArray[index].charAt(offset + currentLength) != ' ') {
+                        while (currentLength > 0 && stringArray[index]!.codeUnitAt(offset + currentLength) != " ".codeUnitAt(0)) {
                             currentLength--;
                         }
                         if (currentLength <= 4) {
                             currentLength = linePortion;
                         }
                     }
-                    this.drawCenterString(graphics, @string, offset, currentLength, x, y + ((index + extraLines++) * this.charHeight));
+                    this.drawCenterString(graphics, string, offset, currentLength, x, y + ((index + extraLines++) * this.charHeight));
                     offset = offset + currentLength;
                     currentLength = linePortion;
                 }
@@ -124,6 +139,5 @@ public class DrawVerticalStringUtil
             }
         }
     }
-
 }
 

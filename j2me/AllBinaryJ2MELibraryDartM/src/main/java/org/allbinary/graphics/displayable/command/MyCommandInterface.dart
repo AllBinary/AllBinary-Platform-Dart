@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.command
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
 
-namespace org.allbinary.graphics.displayable.command;
+abstract interface class MyCommandInterface {
+    
 
-public interface MyCommandInterface
-{
     void addCommand(Command command);
+    
 
     void removeAllCommands();
-
 }
 

@@ -13,26 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class GameProcessor extends Processor {
+    late AllBinaryGameCanvas gameCanvas;
 
-public class GameProcessor : Processor
-{
-    private AllBinaryGameCanvas gameCanvas;
-    public GameProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameProcessor() {
+    
+    }
+    
+
+    GameProcessor(AllBinaryGameCanvas gameCanvas) {
+        this.initFieldsGameProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         this.gameCanvas.processPlayingGame();
     }
-
 }
 

@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.damage
 
-using System;
-using System.Linq;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/NamedInterface.dart';
 
-namespace org.allbinary.game.combat.damage;
+abstract interface class DamageableInterface implements NamedInterface {
+    
 
-public interface DamageableInterface : NamedInterface
-{
-    // throws Exception
     void damage(int damage, int damageType);
+    
 
-    // throws Exception
     int getDamage(int damageType);
-
 }
 

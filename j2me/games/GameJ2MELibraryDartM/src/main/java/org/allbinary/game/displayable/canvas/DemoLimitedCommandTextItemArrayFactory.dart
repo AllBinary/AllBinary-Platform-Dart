@@ -13,27 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using CommandTextItemArrayFactory = org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
-using LimitCommandsVisitor = org.allbinary.graphics.form.item.LimitCommandsVisitor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/CommandTextItemArrayFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/LimitCommandsVisitor.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class DemoLimitedCommandTextItemArrayFactory {
+    static final DemoLimitedCommandTextItemArrayFactory instance = DemoLimitedCommandTextItemArrayFactory();
+    late CommandTextItemArrayFactory commandTextItemArrayFactory;
 
-public class DemoLimitedCommandTextItemArrayFactory
-{
-    private static readonly DemoLimitedCommandTextItemArrayFactory instance = new DemoLimitedCommandTextItemArrayFactory();
-    private readonly CommandTextItemArrayFactory commandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
-    public static DemoLimitedCommandTextItemArrayFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDemoLimitedCommandTextItemArrayFactory() {
+    this.commandTextItemArrayFactory = CommandTextItemArrayFactory(LimitCommandsVisitor());
+    }
+
+    DemoLimitedCommandTextItemArrayFactory() {
+        this.initFieldsDemoLimitedCommandTextItemArrayFactory();
+    }
+    
+
+    static DemoLimitedCommandTextItemArrayFactory getInstance() {
         return DemoLimitedCommandTextItemArrayFactory.instance;
     }
+    
 
-    public virtual CommandTextItemArrayFactory getCommandTextItemArrayFactory()
-    {
+    CommandTextItemArrayFactory getCommandTextItemArrayFactory() {
         return this.commandTextItemArrayFactory;
     }
-
 }
 

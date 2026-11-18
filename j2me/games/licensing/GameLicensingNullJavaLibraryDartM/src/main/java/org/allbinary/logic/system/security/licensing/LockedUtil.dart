@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LockedUtilInterface.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LockableFeature.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LockedUtil implements LockedUtilInterface {
+    static final LockedUtil instance = LockedUtil();
+    
 
-public class LockedUtil : LockedUtilInterface
-{
-    private static readonly LockedUtil instance = new LockedUtil();
-    public static LockedUtil getInstance()
-    {
+    static LockedUtil getInstance() {
         return LockedUtil.instance;
     }
+    
 
-    public virtual bool isLocked()
-    {
+    @override
+    bool isLocked() {
         return true;
     }
+    
 
-    public virtual bool isLockedFeature(LockableFeature lockableFeatrue)
-    {
+    @override
+    bool isLockedFeature(LockableFeature lockableFeatrue) {
         return true;
     }
-
 }
 

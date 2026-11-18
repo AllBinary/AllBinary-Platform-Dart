@@ -13,19 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/ScreenCaptureNoneFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/ScreenCapture.dart';
 
-namespace org.allbinary.graphics;
+class ScreenCaptureFactory {
+    static final ScreenCapture instance = ScreenCaptureNoneFactory.getInstance();
+    
 
-public class ScreenCaptureFactory
-{
-    private static readonly ScreenCapture instance = ScreenCaptureNoneFactory.getInstance();
-    public static ScreenCapture getInstance()
-    {
+    static ScreenCapture getInstance() {
         return ScreenCaptureFactory.instance;
     }
-
 }
 

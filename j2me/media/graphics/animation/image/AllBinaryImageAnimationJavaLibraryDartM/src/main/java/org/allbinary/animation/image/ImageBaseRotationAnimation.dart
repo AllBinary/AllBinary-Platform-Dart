@@ -13,77 +13,85 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using DisposalUtil = org.allbinary.DisposalUtil;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using RotationAnimation = org.allbinary.animation.RotationAnimation;
-using Anchor = org.allbinary.graphics.Anchor;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/DisposalUtil.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
 
-namespace org.allbinary.animation.image;
+class ImageBaseRotationAnimation extends RotationAnimation {
+    late Image image;
+    int anchor = 0;
 
-public class ImageBaseRotationAnimation : RotationAnimation
-{
-    private readonly Image image;
-    public ImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle, AnimationBehavior animationBehavior) : base(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior)
-    {
-        // base(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImageBaseRotationAnimation() {
+    
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    ImageBaseRotationAnimation(Image image, AngleInfo angleInfo, int totalAngle, AnimationBehavior animationBehavior) : super(angleInfo, CircularIndexUtil.createInstance(totalAngle ~/ angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) {
+        this.initFieldsImageBaseRotationAnimation();
+        
         this.image = image;
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         graphics.drawImage(this.image, x, y, this.anchor);
     }
+    
 
-    public virtual Image getImage()
-    {
+    Image getImage() {
         return this.image;
     }
+    
 
-    public override int getWidth()
-    {
+    @override
+    int getWidth() {
         return this.image.getWidth();
     }
+    
 
-    public override int getHeight()
-    {
+    @override
+    int getHeight() {
         return this.image.getHeight();
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    void close() {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
+    
 
-    // throws Throwable
-    public virtual void finalize()
-    {
+    void finalize() {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
-
 }
 

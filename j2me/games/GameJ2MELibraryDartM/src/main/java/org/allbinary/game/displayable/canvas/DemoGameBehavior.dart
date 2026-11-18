@@ -13,80 +13,80 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using GameTypeFactory = org.allbinary.game.GameTypeFactory;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameTypeFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class DemoGameBehavior {
+    static final DemoGameBehavior instance = DemoGameBehavior();
+    late LogUtil logUtil;
 
-public class DemoGameBehavior
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly DemoGameBehavior instance = new DemoGameBehavior();
-    public static DemoGameBehavior getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDemoGameBehavior() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    DemoGameBehavior() {
+        this.initFieldsDemoGameBehavior();
+    }
+    
+
+    static DemoGameBehavior getInstance() {
         return DemoGameBehavior.instance;
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    void init() {
     }
+    
 
-    public virtual void pause(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void pause(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    public virtual void unPause(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void unPause(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void updateTouch(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void updateTouch(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void updateScreenButtonPaintable(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void updateScreenButtonPaintable(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.setTouchPaintableP(NullPaintable.getInstance());
     }
+    
 
-    // throws Exception
-    public virtual void setGameState(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void setGameState(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    public virtual void removeAllGameKeyInputListeners(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void removeAllGameKeyInputListeners(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void updateEndGameProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void updateEndGameProcessor(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void buildGame(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void buildGame(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void run(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(GameTypeFactory.getInstance().BOT.ToString(), this, commonStrings.RUN);
+    void run(AllBinaryGameCanvas allBinaryGameCanvas) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN);
     }
+    
 
-    // throws Exception
-    public virtual void setHighScore(AbeClientInformationInterface abeClientInformation, AllBinaryGameCanvas allBinaryGameCanvas, string name, long score, bool autoSubmit, bool isLast)
-    {
+    void setHighScore(AbeClientInformationInterface abeClientInformation, AllBinaryGameCanvas allBinaryGameCanvas, String name, int score, bool autoSubmit, bool isLast) {
     }
-
 }
 

@@ -1,33 +1,44 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.terrain
 
-using System;
-using System.Linq;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEvent.dart';
 
-namespace org.allbinary.game.terrain;
+class TerrainEventListener implements TerrainEventListenerInterface {
+    late BasicArrayList list;
 
-public class TerrainEventListener : TerrainEventListenerInterface
-{
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
-        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    // Java field initializers run after the base constructor
+    void initFieldsTerrainEventListener() {
+    this.list = BasicArrayListD();
     }
 
-    public virtual void onTerrainEvent(TerrainEvent terrainEvent)
-    {
+    TerrainEventListener() {
+        this.initFieldsTerrainEventListener();
+    }
+    
+
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
+
+    @override
+    void onTerrainEvent(TerrainEvent terrainEvent) {
         this.list.clear();
         this.list.add(terrainEvent);
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

@@ -13,15 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.device
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
 
-namespace org.allbinary.device;
-
-public class NullGL10 : GL10
-{
-    public static readonly NullGL10 NULL_GL10 = new NullGL10();
+class NullGL10 implements GL10 {
+    static final NullGL10 NULL_GL10 = NullGL10();
 }
 

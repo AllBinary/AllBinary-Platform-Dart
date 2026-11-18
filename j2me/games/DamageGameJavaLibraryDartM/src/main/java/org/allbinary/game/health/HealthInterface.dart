@@ -13,29 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthListenerInterface.dart';
 
-namespace org.allbinary.game.health;
+abstract interface class HealthInterface {
+    
 
-public interface HealthInterface
-{
     bool isAlive();
+    
 
     void damage(int ahealth);
+    
 
     void heal(int ahealth);
+    
 
     void healMax();
+    
 
     int getMaxHealth();
+    
 
     void setMaxHealth(int maxHealth);
+    
 
     int getHealth();
+    
 
     void addListener(HealthListenerInterface healthListenerInterface);
-
 }
 

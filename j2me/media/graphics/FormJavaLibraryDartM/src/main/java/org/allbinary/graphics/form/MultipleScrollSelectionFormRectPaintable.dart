@@ -13,26 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/MultipleScrollSelectionHorizontalForm.dart';
 
-namespace org.allbinary.graphics.form;
+class MultipleScrollSelectionFormRectPaintable extends Paintable {
+    late MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
 
-public class MultipleScrollSelectionFormRectPaintable : Paintable
-{
-    private readonly MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
-    public MultipleScrollSelectionFormRectPaintable(MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMultipleScrollSelectionFormRectPaintable() {
+    
+    }
+    
+
+    MultipleScrollSelectionFormRectPaintable(MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm) {
+        this.initFieldsMultipleScrollSelectionFormRectPaintable();
         this.multipleScrollSelectionForm = multipleScrollSelectionForm;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.multipleScrollSelectionForm.fillRect(graphics);
     }
-
 }
 

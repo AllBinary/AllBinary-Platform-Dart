@@ -13,69 +13,81 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/RelativeRelationship.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.dart';
 
-namespace org.allbinary.game.resource;
+class ResourceRelativeRelationshipFactory implements ResourceRelativeRelationshipFactoryInterface {
+    late BasicArrayListUtil basicArrayListUtil;
+    late ABHashtable hashtable;
+    bool initialized = false;
 
-public class ResourceRelativeRelationshipFactory : ResourceRelativeRelationshipFactoryInterface
-{
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    private readonly ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private bool initialized = false;
-    // throws Exception
-    public virtual void init(int level)
-    {
-        this.setInitialized(true);
+    // Java field initializers run after the base constructor
+    void initFieldsResourceRelativeRelationshipFactory() {
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    this.initialized = false;
     }
 
-    // throws Exception
-    public virtual BasicArrayList getResourceRelativeRelationshipList(string resource)
-    {
-        object listCanBeNull = this.hashtable.get(resource);
+    ResourceRelativeRelationshipFactory() {
+        this.initFieldsResourceRelativeRelationshipFactory();
+    }
+    
+
+    @override
+    void init(int level) {
+        this.setInitialized(true);
+    }
+    
+
+    @override
+    BasicArrayList getResourceRelativeRelationshipList(String resource) {
+        final Object listCanBeNull = this.hashtable.get(resource);
         if (listCanBeNull == null) {
             return this.basicArrayListUtil.getImmutableInstance();
         }
-        return ((BasicArrayList) listCanBeNull);
+        return (listCanBeNull as BasicArrayList);
     }
+    
 
-    // throws Exception
-    public virtual void addResourceRelativeRelationship(string resource, RelativeRelationship hardPoint)
-    {
+    @override
+    void addResourceRelativeRelationship(String resource, RelativeRelationship hardPoint) {
         BasicArrayList list = this.getResourceRelativeRelationshipList(resource);
         if (list == this.basicArrayListUtil.getImmutableInstance()) {
-            list = new BasicArrayListD();
+            list = BasicArrayListD();
         }
         list.add(hardPoint);
         this.hashtable.put(resource, list);
     }
+    
 
-    public virtual bool isLoadingLevel(int level)
-    {
+    @override
+    bool isLoadingLevel(int level) {
         return false;
     }
+    
 
-    public virtual bool isFeature()
-    {
+    @override
+    bool isFeature() {
         return false;
     }
+    
 
-    public virtual void setInitialized(bool initialized)
-    {
+    void setInitialized(bool initialized) {
         this.initialized = initialized;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    bool isInitialized() {
         return this.initialized;
     }
-
 }
 

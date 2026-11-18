@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup
 
-using System;
-using System.Linq;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/FallingPickupLayer.dart';
 
-namespace org.allbinary.game.ag.layer.pickup;
+class FallingPickupLayerFactory implements AllBinaryLayerFactoryInterface {
+    
 
-public class FallingPickupLayerFactory : AllBinaryLayerFactoryInterface
-{
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
-        return new FallingPickupLayer(RemoteInfo.REMOTE_INFO);
+    @override
+    AllBinaryLayer getInstance() {
+        return FallingPickupLayer(RemoteInfo.REMOTE_INFO);
     }
-
 }
 

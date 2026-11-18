@@ -13,64 +13,75 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
 
-namespace org.allbinary.game.identification;
+class GroupFactory {
+    static final GroupFactory instance = GroupFactory();
+    late LogUtil logUtil;
+    late List<Group?> NULL_GROUP_ARRAY;
+    late BasicArrayList list;
+    int index = 0;
 
-public class GroupFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly GroupFactory instance = new GroupFactory();
-    public static GroupFactory getInstance()
-    {
-        return GroupFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGroupFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.NULL_GROUP_ARRAY = List<Group?>.filled(0, null);
+    this.list = BasicArrayListD();
+    this.index = 0;
     }
 
-    public readonly Group[] NULL_GROUP_ARRAY = new Group[0];
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private int index = 0;
-    public virtual Group getNextGroup()
-    {
-        Group group = ((Group) this.list.objectArray[this.index]);
+    GroupFactory() {
+        this.initFieldsGroupFactory();
+    }
+    
+
+    static GroupFactory getInstance() {
+        return GroupFactory.instance;
+    }
+    
+
+    Group getNextGroup() {
+        final Group group = (this.list.objectArray[this.index]! as Group);
         this.index++;
         return group;
     }
+    
 
-    public virtual Group getNextGroupByName(string name)
-    {
-        Group group = this.getNextGroup();
+    Group getNextGroupByName(String name) {
+        final Group group = this.getNextGroup();
         group.setName(name);
         return group;
     }
+    
 
-    public virtual void init(short groups, string[] nameArray)
-    {
-        StringMaker stringMaker = new StringMaker();
-        StringUtil stringUtil = StringUtil.getInstance();
-        string TEAM = "Team ";
+    void init(int groups, List<String?> nameArray) {
+        final StringMaker stringMaker = StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
+        final String TEAM = "Team ";
         this.list.clear();
         this.index = 0;
         int size = this.list.size();
-        string name = null;
-        while (size < ((int) groups)) {
+        late String name;
+        while (size < groups) {
             name = stringUtil.EMPTY_STRING;
-            if (size < nameArray.Length) {
-                name = nameArray[size];
+            if (size < nameArray.length) {
+                name = nameArray[size]!;
             } else {
                 stringMaker.delete(0, stringMaker.length());
-                name = stringMaker.append(TEAM).appendint(size).ToString();
+                name = stringMaker.append(TEAM).appendint(size).toString();
             }
-            this.list.add(new Group(name, ((short) (size + 3))));
+            this.list.add(Group(name, ((size + 3)).toSigned(16)));
             size++;
         }
     }
-
 }
 

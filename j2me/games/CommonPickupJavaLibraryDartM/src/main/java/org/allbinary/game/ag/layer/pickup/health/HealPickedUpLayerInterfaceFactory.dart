@@ -13,50 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.health
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using IconLayerFactory = org.allbinary.game.layer.pickup.IconLayerFactory;
-using PickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using PickedUpLayerTypeFactory = org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-using PickupProcessorInterface = org.allbinary.game.layer.pickup.PickupProcessorInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/IconLayerFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupProcessorInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/health/HealLayerCircularStaticPool.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/health/HealLayerFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/health/HealthResources.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.health;
+class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory implements PickupProcessorInterface {
+    static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    late HealLayerCircularStaticPool pool;
 
-public class HealPickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, PickupProcessorInterface
-{
-    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    // throws Exception
-    public static void init()
-    {
-        HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new HealPickedUpLayerInterfaceFactory();
+    // Java field initializers run after the base constructor
+    void initFieldsHealPickedUpLayerInterfaceFactory() {
+    this.pool = HealLayerCircularStaticPool(HealLayerFactory(), 1);
     }
+    
 
-    private HealLayerCircularStaticPool pool = new HealLayerCircularStaticPool(new HealLayerFactory(), 1);
-    private HealPickedUpLayerInterfaceFactory() : base(PickedUpLayerTypeFactory.getInstance().HEAL, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0))
-    {
-        // base(PickedUpLayerTypeFactory.getInstance().HEAL, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0)) is called from the constructor declaration
+    static void init() {
+        HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = HealPickedUpLayerInterfaceFactory();
     }
+    
 
-    public virtual int getTotal()
-    {
+    HealPickedUpLayerInterfaceFactory() : super(PickedUpLayerTypeFactory.getInstance().HEAL, IconLayerFactory.getInstance3(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance1(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance1(0)) {
+        this.initFieldsHealPickedUpLayerInterfaceFactory();
+        
+    }
+    
+
+    int getTotal() {
         return 1;
     }
+    
 
-    public static PickedUpLayerInterfaceFactoryInterface getInstance()
-    {
+    static PickedUpLayerInterfaceFactoryInterface getInstance() {
         return HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryLayer sourceLayerInterface)
-    {
+    @override
+    void process(AllBinaryLayer sourceLayerInterface) {
         this.pool.visit(sourceLayerInterface);
     }
-
 }
 

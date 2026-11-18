@@ -13,45 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.input;
+class AllBinarySensorManager {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late String ORIENTATION_SENSOR_INPUT;
+    late String ORIENTATION_TYPE;
+    late BasicArrayList list;
 
-public class AllBinarySensorManager
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static AllBinarySensorManager getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinarySensorManager() {
+    this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    this.ORIENTATION_TYPE = "Orientation Type";
+    this.list = BasicArrayListD();
+    }
+    
+
+    static AllBinarySensorManager getInstance() {
         if (AllBinarySensorManager.instance == NullUtil.getInstance().NULL_OBJECT) {
-            AllBinarySensorManager.instance = new AllBinarySensorManager();
+            AllBinarySensorManager.instance = AllBinarySensorManager();
         }
-        return ((AllBinarySensorManager) AllBinarySensorManager.instance);
+        return (AllBinarySensorManager.instance as AllBinarySensorManager);
     }
+    
 
-    public readonly string ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
-    public readonly string ORIENTATION_TYPE = "Orientation Type";
-    private AllBinarySensorManager()
-    {
+    AllBinarySensorManager() {
+        this.initFieldsAllBinarySensorManager();
     }
+    
 
-    public virtual void init()
-    {
+    void init() {
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual BasicArrayList getSensorNamesList()
-    {
+    BasicArrayList getSensorNamesList() {
         return this.list;
     }
+    
 
-    public virtual void shutdown()
-    {
+    void shutdown() {
     }
-
 }
 

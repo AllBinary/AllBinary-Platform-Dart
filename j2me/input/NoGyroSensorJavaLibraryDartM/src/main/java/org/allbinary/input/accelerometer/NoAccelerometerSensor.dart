@@ -13,29 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.accelerometer
 
-using System;
-using System.Linq;
-using AllBinaryOrientationSensor = org.allbinary.input.gyro.AllBinaryOrientationSensor;
-using Orientation = org.allbinary.logic.math.Orientation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/gyro/AllBinaryOrientationSensor.dart';
+import 'package:allbinary/org/allbinary/logic/math/Orientation.dart';
 
-namespace org.allbinary.input.accelerometer;
+class NoAccelerometerSensor extends AllBinaryOrientationSensor {
+    
 
-public class NoAccelerometerSensor : AllBinaryOrientationSensor
-{
-    public NoAccelerometerSensor()
-    {
+    NoAccelerometerSensor() {
     }
+    
 
-    // throws Exception
-    public override Orientation getOrientation()
-    {
+    @override
+    Orientation getOrientation() {
         return Orientation.NONE;
     }
+    
 
-    public override void onSensorChange()
-    {
+    @override
+    void onSensorChange() {
     }
-
 }
 

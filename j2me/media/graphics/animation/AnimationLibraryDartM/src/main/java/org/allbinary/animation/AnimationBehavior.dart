@@ -13,23 +13,21 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.animation;
+class AnimationBehavior {
+    static final AnimationBehavior instance = AnimationBehavior();
+    
 
-public class AnimationBehavior
-{
-    private static readonly AnimationBehavior instance = new AnimationBehavior();
-    public static AnimationBehavior getInstance()
-    {
+    static AnimationBehavior getInstance() {
         return AnimationBehavior.instance;
     }
+    
 
-    public virtual void reset()
-    {
+    void reset() {
     }
-
 }
 

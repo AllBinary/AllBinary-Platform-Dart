@@ -13,33 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/resource/FeaturedResourceFactory.dart';
+import 'package:allbinary/org/allbinary/game/resource/FeaturedResourceRelativeRelationshipFactory.dart';
 
-namespace org.allbinary.game.resource;
+class FeatureResourceInitializationUtil {
+    static final FeatureResourceInitializationUtil instance = FeatureResourceInitializationUtil();
+    late LogUtil logUtil;
 
-public class FeatureResourceInitializationUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly FeatureResourceInitializationUtil instance = new FeatureResourceInitializationUtil();
-    public static FeatureResourceInitializationUtil getInstance()
-    {
-        return FeatureResourceInitializationUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsFeatureResourceInitializationUtil() {
+    this.logUtil = LogUtil.getInstance();
     }
 
-    // throws Exception
-    public virtual void init(int level)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
+    FeatureResourceInitializationUtil() {
+        this.initFieldsFeatureResourceInitializationUtil();
+    }
+    
+
+    static FeatureResourceInitializationUtil getInstance() {
+        return FeatureResourceInitializationUtil.instance;
+    }
+    
+
+    void init(int level) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         FeaturedResourceFactory featuredResourceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
         featuredResourceFactory.init(level);
         FeaturedResourceRelativeRelationshipFactory.getInstance().init(level);
     }
-
 }
 

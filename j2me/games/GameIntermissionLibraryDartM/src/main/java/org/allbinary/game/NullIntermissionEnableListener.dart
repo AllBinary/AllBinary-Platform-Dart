@@ -13,27 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/IntermissionEnableListenerInterface.dart';
 
-namespace org.allbinary.game;
+class NullIntermissionEnableListener implements IntermissionEnableListenerInterface {
+    static final IntermissionEnableListenerInterface SINGLETON = NullIntermissionEnableListener();
+    
 
-public class NullIntermissionEnableListener : IntermissionEnableListenerInterface
-{
-    private static readonly IntermissionEnableListenerInterface SINGLETON = new NullIntermissionEnableListener();
-    public static IntermissionEnableListenerInterface getInstance()
-    {
+    static IntermissionEnableListenerInterface getInstance() {
         return NullIntermissionEnableListener.SINGLETON;
     }
+    
 
-    private NullIntermissionEnableListener()
-    {
+    NullIntermissionEnableListener() {
     }
+    
 
-    public virtual void notifyIntermission(bool enable)
-    {
+    @override
+    void notifyIntermission(bool enable) {
     }
-
 }
 

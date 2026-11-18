@@ -13,54 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using NoCompleteMotionGestureInputEventListener = org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
-using AllBinarySensor = org.allbinary.input.AllBinarySensor;
-using NoAllBinarySensor = org.allbinary.input.NoAllBinarySensor;
-using AccelerometerSensorFactory = org.allbinary.input.accelerometer.AccelerometerSensorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/NoCompleteMotionGestureInputEventListener.dart';
+import 'package:allbinary/org/allbinary/input/AllBinarySensor.dart';
+import 'package:allbinary/org/allbinary/input/NoAllBinarySensor.dart';
+import 'package:allbinary/org/allbinary/input/accelerometer/AccelerometerSensorFactory.dart';
+import 'package:allbinary/org/allbinary/input/gyro/GyroSensorFactory.dart';
 
-namespace org.allbinary.input.gyro;
+class SensorGameUpdateProcessor {
+    late AllBinarySensor inputSensor;
 
-public class SensorGameUpdateProcessor
-{
-    private AllBinarySensor inputSensor = null;
-    public virtual void setInputSensor(AllBinarySensor inputSensor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSensorGameUpdateProcessor() {
+    
+    }
+
+    SensorGameUpdateProcessor() {
+        this.initFieldsSensorGameUpdateProcessor();
+    }
+    
+
+    void setInputSensor(AllBinarySensor inputSensor) {
         this.inputSensor = inputSensor;
     }
+    
 
-    public virtual AllBinarySensor getInputSensor()
-    {
+    AllBinarySensor getInputSensor() {
         return this.inputSensor;
     }
+    
 
-    // throws Exception
-    public virtual void process(object anyType)
-    {
+    void process(Object anyType) {
     }
+    
 
-    // throws Exception
-    public virtual void sendNotifications(object anyType)
-    {
+    void sendNotifications(Object anyType) {
     }
+    
 
-    public virtual bool isAnySensor()
-    {
+    bool isAnySensor() {
         if (this.inputSensor == NoAllBinarySensor.getInstance()) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public virtual void setNoSensors()
-    {
+    void setNoSensors() {
         GyroSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
         AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
         this.setInputSensor(NoAllBinarySensor.getInstance());
     }
-
 }
 

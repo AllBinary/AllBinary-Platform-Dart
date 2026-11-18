@@ -13,42 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable
 
-using System;
-using System.Linq;
-using DisplayChangeEventHandler = org.allbinary.graphics.displayable.@event.DisplayChangeEventHandler;
-using DisplayChangeEventListener = org.allbinary.graphics.displayable.@event.DisplayChangeEventListener;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/event/DisplayChangeEventListener.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.displayable;
+class GameLevelDisplayChangeEventListenersFactory {
+    static final GameLevelDisplayChangeEventListenersFactory instance = GameLevelDisplayChangeEventListenersFactory();
+    late BasicArrayList list;
 
-public class GameLevelDisplayChangeEventListenersFactory
-{
-    private static readonly GameLevelDisplayChangeEventListenersFactory instance = new GameLevelDisplayChangeEventListenersFactory();
-    public static GameLevelDisplayChangeEventListenersFactory getInstance()
-    {
-        return GameLevelDisplayChangeEventListenersFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGameLevelDisplayChangeEventListenersFactory() {
+    this.list = BasicArrayListD();
     }
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public void add(DisplayChangeEventListener displayChangeEventListener)
-    {
+    GameLevelDisplayChangeEventListenersFactory() {
+        this.initFieldsGameLevelDisplayChangeEventListenersFactory();
+    }
+    
+
+    static GameLevelDisplayChangeEventListenersFactory getInstance() {
+        return GameLevelDisplayChangeEventListenersFactory.instance;
+    }
+    
+
+    void add(DisplayChangeEventListener displayChangeEventListener) {
         this.list.add(displayChangeEventListener);
         DisplayChangeEventHandler.getInstance().addListenerInterface(displayChangeEventListener);
     }
+    
 
-    public void clear()
-    {
+    void clear() {
         BasicEventHandler displayChangeEventHandler = DisplayChangeEventHandler.getInstance();
-        DisplayChangeEventListener displayChangeEventListener = null;
+        late DisplayChangeEventListener displayChangeEventListener;
         for (int index = this.list.size(); --index >= 0; ) {
-            displayChangeEventListener = ((DisplayChangeEventListener) this.list.objectArray[index]);
+            displayChangeEventListener = (this.list.objectArray[index]! as DisplayChangeEventListener);
             displayChangeEventHandler.removeListener(displayChangeEventListener);
         }
         this.list.clear();
     }
-
 }
 

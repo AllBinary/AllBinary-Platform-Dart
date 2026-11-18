@@ -13,24 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Feature.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class MainFeatureFactory {
+    static final MainFeatureFactory instance = MainFeatureFactory();
+    late Feature FULL_SCREEN;
+    late Feature TITLE_BAR;
+    late Feature STATIC;
+    late Feature LOAD_ONDEMAND;
+    late Feature LOAD_ALL;
 
-public class MainFeatureFactory
-{
-    private static readonly MainFeatureFactory instance = new MainFeatureFactory();
-    public static MainFeatureFactory getInstance()
-    {
-        return MainFeatureFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsMainFeatureFactory() {
+    this.FULL_SCREEN = Feature("Full Screen");
+    this.TITLE_BAR = Feature("Title Bar");
+    this.STATIC = Feature("Static Dependent Feature");
+    this.LOAD_ONDEMAND = Feature("Load OnDemand");
+    this.LOAD_ALL = Feature("Load All");
     }
 
-    public readonly Feature FULL_SCREEN = new Feature("Full Screen");
-    public readonly Feature TITLE_BAR = new Feature("Title Bar");
-    public readonly Feature STATIC = new Feature("Static Dependent Feature");
-    public readonly Feature LOAD_ONDEMAND = new Feature("Load OnDemand");
-    public readonly Feature LOAD_ALL = new Feature("Load All");
+    MainFeatureFactory() {
+        this.initFieldsMainFeatureFactory();
+    }
+    
+
+    static MainFeatureFactory getInstance() {
+        return MainFeatureFactory.instance;
+    }
 }
 

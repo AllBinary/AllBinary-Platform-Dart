@@ -13,70 +13,85 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.part
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/part/PartInterface.dart';
+import 'package:allbinary/org/allbinary/game/part/CountedLayerInterfaceFactoryPart.dart';
 
-namespace org.allbinary.game.part;
+class CountedLayersHudPaintable implements PaintableInterface, UpdateMyFontInterface {
+    static int XXStringWidth = 0;
+    late DisplayInfoSingleton displayInfoSingleton;
+    late List<PartInterface?> partInterfaceArray;
+    int countedTotalStringColor = 0;
+    int countedPartsBorder = 0;
+    int startIndex = 0;
+    int dropSize = 0;
+    late MyFontProcessor myFontProcessor;
+    int height = 0;
 
-public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterface
-{
-    private static int XXStringWidth = 0;
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly PartInterface[] partInterfaceArray;
-    private readonly int countedTotalStringColor;
-    private readonly int countedPartsBorder;
-    private readonly int startIndex;
-    private readonly int dropSize;
-    private MyFontProcessor myFontProcessor;
-    private int height = 0;
-    public CountedLayersHudPaintable(PartInterface[] partInterfaceArray, int dropSize, int startIndex, int countedTotalStringColor, int countedPartsBorder)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    // Java field initializers run after the base constructor
+    void initFieldsCountedLayersHudPaintable() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    
+    
+    
+    
+    
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    this.height = 0;
+    }
+    
+
+    CountedLayersHudPaintable(List<PartInterface?> partInterfaceArray, int dropSize, int startIndex, int countedTotalStringColor, int countedPartsBorder) {
+        this.initFieldsCountedLayersHudPaintable();
         this.partInterfaceArray = partInterfaceArray;
         this.startIndex = startIndex;
         this.countedTotalStringColor = countedTotalStringColor;
         this.countedPartsBorder = countedPartsBorder;
         this.dropSize = dropSize;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.height = font.getHeight();
         if (this.dropSize > font.getHeight()) {
             this.height = this.dropSize;
         }
         if (CountedLayersHudPaintable.XXStringWidth == 0) {
-            string XXString = "XX";
+            final String XXString = "XX";
             CountedLayersHudPaintable.XXStringWidth = font.stringWidth(XXString);
         }
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int lastWidth = this.displayInfoSingleton.getLastWidth();
-        int widthEdge = lastWidth - this.dropSize;
-        int size = this.partInterfaceArray.Length;
+        final int lastWidth = this.displayInfoSingleton.getLastWidth();
+        final int widthEdge = lastWidth - this.dropSize;
+        final int size = this.partInterfaceArray.length;
         int count = 0;
         int y = 0;
-        CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory = null;
-        PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = null;
-        AllBinaryLayer layerInterface = null;
-        char[] charArray = null;
+        late CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory;
+        late PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface;
+        late AllBinaryLayer layerInterface;
+        late List<int> charArray;
         for (int index = this.startIndex; index < size; index++) {
-            countedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart) this.partInterfaceArray[index]);
+            countedLayerInterfaceFactory = (this.partInterfaceArray[index]! as CountedLayerInterfaceFactoryPart);
             if (countedLayerInterfaceFactory.getTotal() > 0) {
                 pickedUpLayerInterfaceFactoryInterface = countedLayerInterfaceFactory.getCountedPickedUpLayerInterfaceFactory();
                 layerInterface = pickedUpLayerInterfaceFactoryInterface.getIconLayer();
@@ -86,7 +101,7 @@ public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterfa
                 graphics.setColor(this.countedTotalStringColor);
                 countedLayerInterfaceFactory.paint(graphics);
                 charArray = countedLayerInterfaceFactory.getTotalString();
-                graphics.drawChars(charArray, 0, charArray.Length, widthEdge - countedLayerInterfaceFactory.getXOffset(), y, 0);
+                graphics.drawChars(charArray, 0, charArray.length, widthEdge - countedLayerInterfaceFactory.getXOffset(), y, 0);
                 count++;
             }
         }
@@ -95,10 +110,10 @@ public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterfa
             graphics.drawRect(lastWidth - (CountedLayersHudPaintable.XXStringWidth + this.dropSize), 40, CountedLayersHudPaintable.XXStringWidth + this.dropSize, (count * this.height) + 3);
         }
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
-
 }
 

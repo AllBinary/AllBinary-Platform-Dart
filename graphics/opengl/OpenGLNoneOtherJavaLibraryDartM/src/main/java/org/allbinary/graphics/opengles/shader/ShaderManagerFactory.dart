@@ -13,24 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/ShaderManager.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class ShaderManagerFactory {
+    static final ShaderManagerFactory instance = ShaderManagerFactory();
+    
 
-public class ShaderManagerFactory
-{
-    private static readonly ShaderManagerFactory instance = new ShaderManagerFactory();
-    public static ShaderManagerFactory getInstance()
-    {
+    static ShaderManagerFactory getInstance() {
         return ShaderManagerFactory.instance;
     }
+    
 
-    public virtual ShaderManager create()
-    {
+    ShaderManager create() {
         return ShaderManager.getInstance();
     }
-
 }
 

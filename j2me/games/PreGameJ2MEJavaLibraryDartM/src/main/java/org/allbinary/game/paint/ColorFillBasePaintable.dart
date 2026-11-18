@@ -13,50 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
 
-namespace org.allbinary.game.paint;
+class ColorFillBasePaintable extends Paintable implements ColorCompositeInterface {
+    late BasicColor basicColor;
+    int colorP = 0;
 
-public class ColorFillBasePaintable : Paintable, ColorCompositeInterface
-{
-    public BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    public int colorP = 0;
-    public ColorFillBasePaintable(BasicColor basicColor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsColorFillBasePaintable() {
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.colorP = 0;
+    }
+    
+
+    ColorFillBasePaintable(BasicColor basicColor) {
+        this.initFieldsColorFillBasePaintable();
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
         this.setColor(this.getBasicColorP().intValue());
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    @override
+    BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual int getColor()
-    {
+    int getColor() {
         return this.colorP;
     }
+    
 
-    public virtual void setColor(int color)
-    {
+    void setColor(int color) {
         this.colorP = color;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
-
 }
 

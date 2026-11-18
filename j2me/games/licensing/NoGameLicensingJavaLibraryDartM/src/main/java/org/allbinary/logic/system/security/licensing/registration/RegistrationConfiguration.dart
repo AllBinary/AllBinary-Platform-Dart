@@ -13,51 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing.registration
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
 
-namespace org.allbinary.logic.system.security.licensing.registration;
+class RegistrationConfiguration {
+    static final RegistrationConfiguration SINGLETON = RegistrationConfiguration();
+    late String registrationCode;
+    late String NAME;
 
-public class RegistrationConfiguration
-{
-    private static readonly RegistrationConfiguration SINGLETON = new RegistrationConfiguration();
-    private string registrationCode = "No Registration Code";
-    public readonly string NAME = "registrationid";
-    private RegistrationConfiguration()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRegistrationConfiguration() {
+    this.registrationCode = "No Registration Code";
+    this.NAME = "registrationid";
     }
+    
 
-    public static RegistrationConfiguration getInstance()
-    {
+    RegistrationConfiguration() {
+        this.initFieldsRegistrationConfiguration();
+    }
+    
+
+    static RegistrationConfiguration getInstance() {
         return RegistrationConfiguration.SINGLETON;
     }
+    
 
-    // throws Exception
-    private void read()
-    {
+    void read() {
     }
+    
 
-    // throws Exception
-    public virtual void write()
-    {
+    void write() {
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).ToString();
+    @override
+    String toString() {
+        return StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).toString();
     }
+    
 
-    public virtual void setRegistrationCode(string registrationCode)
-    {
+    void setRegistrationCode(String registrationCode) {
         this.registrationCode = registrationCode;
     }
+    
 
-    public virtual string getRegistrationCode()
-    {
+    String getRegistrationCode() {
         return this.registrationCode;
     }
-
 }
 

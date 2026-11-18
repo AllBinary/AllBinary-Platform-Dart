@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/gyro/SensorGameUpdateProcessor.dart';
 
-namespace org.allbinary.input.gyro;
+class SingleSensorGameUpdateProcessor extends SensorGameUpdateProcessor {
+    
 
-public class SingleSensorGameUpdateProcessor : SensorGameUpdateProcessor
-{
-    // throws Exception
-    public override void process(object anyType)
-    {
+    @override
+    void process(Object anyType) {
     }
+    
 
-    // throws Exception
-    public override void sendNotifications(object anyType)
-    {
+    @override
+    void sendNotifications(Object anyType) {
     }
-
 }
 

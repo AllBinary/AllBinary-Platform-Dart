@@ -13,43 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullCanvas.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class NoMenuInputProcessor extends BasicMenuInputProcessor {
+    static final NoMenuInputProcessor SINGLETON = NoMenuInputProcessor();
+    
 
-public class NoMenuInputProcessor : BasicMenuInputProcessor
-{
-    private static readonly NoMenuInputProcessor SINGLETON = new NoMenuInputProcessor();
-    public static NoMenuInputProcessor getInstance()
-    {
+    static NoMenuInputProcessor getInstance() {
         return NoMenuInputProcessor.SINGLETON;
     }
+    
 
-    private NoMenuInputProcessor() : base(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS)
-    {
-        // base(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS) is called from the constructor declaration
+    NoMenuInputProcessor() : super(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS) {
+        
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
+    
 
-    public override void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    @override
+    void onMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
     }
-
 }
 

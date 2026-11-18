@@ -13,92 +13,102 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.business.advertisement
 
-using System;
-using System.Linq;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using LockedUtil = org.allbinary.logic.system.security.licensing.LockedUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/rand/MyRandomFactory.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LockedUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/AdvertisementProcessorInterface.dart';
 
-namespace org.allbinary.business.advertisement;
+class Advertisements {
+    late BasicArrayList bannerList;
+    late BasicArrayList pageList;
+    late MyRandomFactory myRandomFactory;
 
-public class Advertisements
-{
-    private readonly BasicArrayList bannerList = new BasicArrayListD();
-    private readonly BasicArrayList pageList = new BasicArrayListD();
-    public virtual void addPage(AdvertisementProcessorInterface advertisementProcessorInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAdvertisements() {
+    this.bannerList = BasicArrayListD();
+    this.pageList = BasicArrayListD();
+    this.myRandomFactory = MyRandomFactory.getInstance();
+    }
+
+    Advertisements() {
+        this.initFieldsAdvertisements();
+    }
+    
+
+    void addPage(AdvertisementProcessorInterface advertisementProcessorInterface) {
         if (!this.pageList.contains(advertisementProcessorInterface)) {
             this.pageList.add(advertisementProcessorInterface);
         }
     }
+    
 
-    public virtual void startRandomPage()
-    {
+    void startRandomPage() {
         int size = this.pageList.size();
         if (size > 0) {
             int random = this.myRandomFactory.getAbsoluteNextInt(size);
-            AdvertisementProcessorInterface advertisementProcessorInterface = ((AdvertisementProcessorInterface) this.pageList.objectArray[random]);
+            AdvertisementProcessorInterface advertisementProcessorInterface = (this.pageList.objectArray[random]! as AdvertisementProcessorInterface);
             advertisementProcessorInterface.start();
         }
     }
+    
 
-    private readonly MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
-    public virtual void processRandomPage()
-    {
+    void processRandomPage() {
         if (LockedUtil.getInstance().isLocked()) {
             int size = this.pageList.size();
             if (size > 0) {
                 int random = this.myRandomFactory.getAbsoluteNextInt(size);
-                AdvertisementProcessorInterface advertisementProcessorInterface = ((AdvertisementProcessorInterface) this.pageList.objectArray[random]);
+                AdvertisementProcessorInterface advertisementProcessorInterface = (this.pageList.objectArray[random]! as AdvertisementProcessorInterface);
                 advertisementProcessorInterface.process();
             }
         }
     }
+    
 
-    public virtual void stopAllPage()
-    {
+    void stopAllPage() {
         for (int index = this.pageList.size(); --index >= 0; ) {
-            AdvertisementProcessorInterface advertisementProcessorInterface = ((AdvertisementProcessorInterface) this.pageList.objectArray[index]);
+            AdvertisementProcessorInterface advertisementProcessorInterface = (this.pageList.objectArray[index]! as AdvertisementProcessorInterface);
             advertisementProcessorInterface.stop();
         }
     }
+    
 
-    public virtual void addBanner(AdvertisementProcessorInterface advertisementProcessorInterface)
-    {
+    void addBanner(AdvertisementProcessorInterface advertisementProcessorInterface) {
         if (!this.bannerList.contains(advertisementProcessorInterface)) {
             this.bannerList.add(advertisementProcessorInterface);
         }
     }
+    
 
-    public virtual void startAll()
-    {
+    void startAll() {
         for (int index = this.bannerList.size(); --index >= 0; ) {
-            AdvertisementProcessorInterface advertisementProcessorInterface = ((AdvertisementProcessorInterface) this.bannerList.objectArray[index]);
+            AdvertisementProcessorInterface advertisementProcessorInterface = (this.bannerList.objectArray[index]! as AdvertisementProcessorInterface);
             advertisementProcessorInterface.start();
         }
     }
+    
 
-    public virtual void stopAllBanner()
-    {
+    void stopAllBanner() {
         for (int index = this.bannerList.size(); --index >= 0; ) {
-            AdvertisementProcessorInterface advertisementProcessorInterface = ((AdvertisementProcessorInterface) this.bannerList.objectArray[index]);
+            AdvertisementProcessorInterface advertisementProcessorInterface = (this.bannerList.objectArray[index]! as AdvertisementProcessorInterface);
             advertisementProcessorInterface.stop();
         }
     }
+    
 
-    public virtual AdvertisementProcessorInterface getBanner(int index)
-    {
-        AdvertisementProcessorInterface advertisementProcessorInterface = ((AdvertisementProcessorInterface) this.bannerList.objectArray[index]);
+    AdvertisementProcessorInterface getBanner(int index) {
+        AdvertisementProcessorInterface advertisementProcessorInterface = (this.bannerList.objectArray[index]! as AdvertisementProcessorInterface);
         return advertisementProcessorInterface;
     }
+    
 
-    public virtual void stopAll()
-    {
+    void stopAll() {
         this.stopAllBanner();
         this.stopAllPage();
     }
-
 }
 

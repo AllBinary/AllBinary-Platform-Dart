@@ -13,74 +13,89 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Anchor = org.allbinary.graphics.Anchor;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ColorChangeEvent = org.allbinary.graphics.color.ColorChangeEvent;
-using ColorChangeListener = org.allbinary.graphics.color.ColorChangeListener;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorChangeEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorChangeListener.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/score/NullHighScoresSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScore.dart';
 
-namespace org.allbinary.game.score;
+class HighScoresPaintable extends Paintable implements ColorChangeListener, UpdateMyFontInterface {
+    late DisplayInfoSingleton displayInfoSingleton;
+    late MyFontProcessor myFontProcessor;
+    late BasicColor basicColor;
+    late HighScores highScores;
+    int anchor = 0;
+    int charHeight = 0;
 
-public class HighScoresPaintable : Paintable, ColorChangeListener, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private MyFontProcessor myFontProcessor;
-    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    private HighScores highScores = NullHighScoresSingletonFactory.getInstance();
-    private int anchor = Anchor.TOP_LEFT;
-    private int charHeight = 0;
-    public HighScoresPaintable()
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresPaintable() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.highScores = NullHighScoresSingletonFactory.getInstance();
+    this.anchor = Anchor.TOP_LEFT;
+    this.charHeight = 0;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    HighScoresPaintable() {
+        this.initFieldsHighScoresPaintable();
+    }
+    
+
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.charHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
-        ColorChangeEvent colorChangeEvent = ((ColorChangeEvent) eventObject);
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
+        final ColorChangeEvent colorChangeEvent = (eventObject as ColorChangeEvent);
         this.basicColor = colorChangeEvent.getBasicColorP();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int width = this.displayInfoSingleton.getLastWidth();
-        int height = this.displayInfoSingleton.getLastHeight();
+        final int width = this.displayInfoSingleton.getLastWidth();
+        final int height = this.displayInfoSingleton.getLastHeight();
         graphics.setColor(this.getBasicColorP().intValue());
-        string heading = this.highScores.getHeading();
-        int topScoresWidth = (graphics.getFont().stringWidth(heading) >> 1);
-        int charHeight = this.charHeight;
+        String heading = this.highScores.getHeading();
+        final int topScoresWidth = (graphics.getFont().stringWidth(heading) >> 1);
+        final int charHeight = this.charHeight;
         graphics.drawString(heading, (width >> 1) - topScoresWidth, charHeight, this.anchor);
         graphics.drawString(this.highScores.getColumnOneHeading(), 10, charHeight * 3, this.anchor);
-        string columnTwoHeading = this.highScores.getColumnTwoHeading();
-        int columnTwoHeadingWidth = graphics.getFont().stringWidth(columnTwoHeading);
+        String columnTwoHeading = this.highScores.getColumnTwoHeading();
+        final int columnTwoHeadingWidth = graphics.getFont().stringWidth(columnTwoHeading);
         graphics.drawString(columnTwoHeading, width - 10 - columnTwoHeadingWidth, charHeight * 3, this.anchor);
         int index = 4;
         int largestSecondColumnWidth = columnTwoHeadingWidth;
         BasicArrayList list = this.highScores.getList();
         int size = list.size();
         int vectorIndex = 0;
-        HighScore highScore = null;
+        late HighScore highScore;
         while (vectorIndex < size && charHeight * index < height - (charHeight * 2)) {
-            highScore = ((HighScore) list.objectArray[vectorIndex]);
+            highScore = (list.objectArray[vectorIndex]! as HighScore);
             int nextScoreWidth = graphics.getFont().stringWidth(highScore.getScoreString());
             if (nextScoreWidth > largestSecondColumnWidth) {
                 largestSecondColumnWidth = nextScoreWidth;
@@ -89,28 +104,28 @@ public class HighScoresPaintable : Paintable, ColorChangeListener, UpdateMyFontI
         }
         vectorIndex = 0;
         while (vectorIndex < size && charHeight * index < height - (charHeight * 2)) {
-            highScore = ((HighScore) list.objectArray[vectorIndex]);
+            highScore = (list.objectArray[vectorIndex]! as HighScore);
             graphics.drawString(highScore.getName(), 10, charHeight * index, this.anchor);
             graphics.drawString(highScore.getScoreString(), width - 10 - largestSecondColumnWidth, charHeight * index, this.anchor);
             index++;
             vectorIndex++;
         }
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual void setHighScores(HighScores highScores)
-    {
+    void setHighScores(HighScores highScores) {
         this.highScores = highScores;
     }
-
 }
 

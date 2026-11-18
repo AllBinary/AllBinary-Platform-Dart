@@ -13,42 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/CellPosition.dart';
 
-namespace org.allbinary.graphics;
+class CellPositionFactory {
+    static CellPositionFactory SINGLETON = CellPositionFactory();
+    late LogUtil logUtil;
+    late CellPosition NONE;
+    late List<List<CellPosition?>?> cellPositionArray;
+    int columns = 0;
+    int rows = 0;
 
-public class CellPositionFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static CellPositionFactory SINGLETON = new CellPositionFactory();
-    public readonly CellPosition NONE = new CellPosition(-1, -1, -1, -1);
-    private CellPosition[][] cellPositionArray = System.Linq.Enumerable.Range(0, 0).Select(_ => new CellPosition[0]).ToArray();
-    private int columns = 0;
-    private int rows = 0;
-    public static CellPositionFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCellPositionFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.NONE = CellPosition(-1, -1, -1, -1);
+    this.cellPositionArray = List<List<CellPosition?>>.generate(0, (_) => List<CellPosition?>.filled(0, null));
+    this.columns = 0;
+    this.rows = 0;
+    }
+    
+
+    static CellPositionFactory getInstance() {
         return CellPositionFactory.SINGLETON;
     }
+    
 
-    private CellPositionFactory()
-    {
+    CellPositionFactory() {
+        this.initFieldsCellPositionFactory();
     }
+    
 
-    public virtual void init(int columns, int rows)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        StringMaker stringBuffer = new StringMaker();
+    void init(int columns, int rows) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("Init: columns: ");
         stringBuffer.appendint(columns);
         stringBuffer.append(" rows: ");
         stringBuffer.appendint(rows);
-        this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.INIT);
-        this.cellPositionArray = System.Linq.Enumerable.Range(0, columns).Select(_ => new CellPosition[rows]).ToArray();
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        this.cellPositionArray = List<List<CellPosition?>>.generate(columns, (_) => List<CellPosition?>.filled(rows, null));
         this.columns = columns;
         this.rows = rows;
         for (int column = 0; column < columns; column++) {
@@ -57,37 +67,39 @@ public class CellPositionFactory
             }
         }
     }
+    
 
-    public virtual CellPosition getInstanceColRow(int i_column, int i_row)
-    {
+    CellPosition getInstanceColRow(int i_column, int i_row) {
         try {
-            return this.cellPositionArray[i_column][i_row];
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).ToString(), this, commonStrings.GET_INSTANCE, e);
+            return this.cellPositionArray[i_column]![i_row]!;
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.put(StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
             return this.NONE;
+            }
         }
     }
+    
 
-    public virtual CellPosition createInstance(int i_column, int i_row)
-    {
-        CellPosition cellPositionCanBeNull = this.cellPositionArray[i_column][i_row];
+    CellPosition createInstance(int i_column, int i_row) {
+        CellPosition cellPositionCanBeNull = this.cellPositionArray[i_column]![i_row]!;
         if (cellPositionCanBeNull == null) {
-            cellPositionCanBeNull = new CellPosition(i_column, i_row, this.columns, this.rows);
-            this.cellPositionArray[i_column][i_row] = cellPositionCanBeNull;
+            cellPositionCanBeNull = CellPosition(i_column, i_row, this.columns, this.rows);
+            this.cellPositionArray[i_column]![i_row] = cellPositionCanBeNull;
         }
         return cellPositionCanBeNull;
     }
+    
 
-    public virtual int getColumns()
-    {
+    int getColumns() {
         return this.columns;
     }
+    
 
-    public virtual int getRows()
-    {
+    int getRows() {
         return this.rows;
     }
-
 }
 

@@ -13,34 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using Features = org.allbinary.game.configuration.feature.Features;
-using SensorFeatureFactory = org.allbinary.game.configuration.feature.SensorFeatureFactory;
-using NoCompleteMotionGestureInputEventListener = org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
-using SingleKeyPressGameKeyFromMotionGestureEventListener = org.allbinary.game.input.motion.action.SingleKeyPressGameKeyFromMotionGestureEventListener;
-using AccelerometerSensorFactory = org.allbinary.input.accelerometer.AccelerometerSensorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/SensorFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/NoCompleteMotionGestureInputEventListener.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/SingleKeyPressGameKeyFromMotionGestureEventListener.dart';
+import 'package:allbinary/org/allbinary/input/accelerometer/AccelerometerSensorFactory.dart';
 
-namespace org.allbinary.input.gyro;
+class AccelerometerSensorUpdateProcessor extends Processor {
+    
 
-public class AccelerometerSensorUpdateProcessor : Processor
-{
-    // throws Exception
-    public override void process()
-    {
+    void process() {
         SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
         if (Features.getInstance().isFeature(sensorFeatureFactory.ORIENTATION_SENSORS)) {
-            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(new SingleKeyPressGameKeyFromMotionGestureEventListener());
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(SingleKeyPressGameKeyFromMotionGestureEventListener());
         } else if (Features.getInstance().isFeature(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS)) {
-            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(new SingleKeyPressGameKeyFromMotionGestureEventListener());
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(SingleKeyPressGameKeyFromMotionGestureEventListener());
         } else if (Features.getInstance().isFeature(sensorFeatureFactory.NO_ORIENTATION)) {
             AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
         } else {
-            throw new Exception("Sensor Feature Not Set");
+            throw JException('Exception', "Sensor Feature Not Set");
         }
     }
-
 }
 

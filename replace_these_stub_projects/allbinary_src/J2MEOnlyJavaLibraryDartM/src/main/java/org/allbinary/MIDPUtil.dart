@@ -13,55 +13,50 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using InputStream = java.io.InputStream;
-using Form = javax.microedition.lcdui.Form;
-using Image = javax.microedition.lcdui.Image;
-using Item = javax.microedition.lcdui.Item;
-using Manager = javax.microedition.media.Manager;
-using MediaException = javax.microedition.media.MediaException;
-using Player = javax.microedition.media.Player;
-
-namespace org.allbinary;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/javax/microedition/lcdui/Form.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/Item.dart';
+import 'package:allbinary/javax/microedition/media/Manager.dart';
+import 'package:allbinary/javax/microedition/media/MediaException.dart';
+import 'package:allbinary/javax/microedition/media/Player.dart';
 
 //like microemu-playn, so the languages without overloading can be generated. J2ME uses the MIDP overloads.
-public class MIDPUtil
-{
-    private static readonly MIDPUtil instance = new MIDPUtil();
-    public static MIDPUtil getInstance()
-    {
+class MIDPUtil {
+    static final MIDPUtil instance = MIDPUtil();
+    
+
+    static MIDPUtil getInstance() {
         return MIDPUtil.instance;
     }
+    
 
-    public virtual Image createImageWH(int width, int height)
-    {
-        return Image.createImage(width, height);
+    Image createImageWH(int width, int height) {
+        return Image.createImageWH(width, height);
     }
+    
 
-    public virtual Image createImageFromByteArray(sbyte[] imageData, int imageOffset, int imageLength)
-    {
-        return Image.createImage(imageData, imageOffset, imageLength);
+    Image createImageFromByteArray(List<int> imageData, int imageOffset, int imageLength) {
+        return Image.createImageFromByteArray(imageData, imageOffset, imageLength);
     }
+    
 
-    // throws IOException
-    public virtual Image createImageFromInputStream(InputStream inputStream)
-    {
-        return Image.createImage(inputStream);
+    Image createImageFromInputStream(InputStream inputStream) {
+        return Image.createImageFromInputStream(inputStream);
     }
+    
 
-    // throws IOException, MediaException
-    public virtual Player createPlayerFromInputStream(InputStream inputStream, string type)
-    {
-        return Manager.createPlayer(inputStream, type);
+    Player createPlayerFromInputStream(InputStream inputStream, String type) {
+        return Manager.createPlayerFromInputStream(inputStream, type);
     }
+    
 
-    public virtual int appendItem(Form form, Item item)
-    {
-        return form.append(item);
+    int appendItem(Form form, Item item) {
+        return form.appendItem(item);
     }
-
 }
 

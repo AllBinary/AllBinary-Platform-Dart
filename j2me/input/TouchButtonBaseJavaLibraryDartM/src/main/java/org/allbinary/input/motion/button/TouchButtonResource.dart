@@ -5,21 +5,26 @@
  * and open the template in the editor.  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonResource {
+    late String RESOURCE;
+    late String HINT;
 
-public class TouchButtonResource
-{
-    public readonly string RESOURCE;
-    public readonly string HINT;
-    public TouchButtonResource(string resource, string hint)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchButtonResource() {
+    
+    
+    }
+    
+
+    TouchButtonResource(String resource, String hint) {
+        this.initFieldsTouchButtonResource();
         this.RESOURCE = resource;
         this.HINT = hint;
     }
-
 }
 

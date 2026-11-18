@@ -13,14 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ag.game.vector
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.ag.game.vector;
-
-public class HealthVectorData
-{
-    public static int[][][] points = new int[][][] { new int[][] { new int[] { 2, 1 }, new int[] { 3, 2 }, new int[] { 3, 2 }, new int[] { 4, 1 }, new int[] { 4, 1 }, new int[] { 5, 1 }, new int[] { 5, 1 }, new int[] { 6, 2 }, new int[] { 6, 2 }, new int[] { 6, 3 }, new int[] { 6, 3 }, new int[] { 3, 6 }, new int[] { 3, 6 }, new int[] { 0, 3 }, new int[] { 0, 3 }, new int[] { 0, 2 }, new int[] { 0, 2 }, new int[] { 1, 1 }, new int[] { 1, 1 }, new int[] { 2, 1 }, new int[] { 1000, 1000 } } };
+class HealthVectorData {
+    static List<List<List<int>?>?> points = <List<List<int>>>[<List<int>>[<int>[2, 1], <int>[3, 2], <int>[3, 2], <int>[4, 1], <int>[4, 1], <int>[5, 1], <int>[5, 1], <int>[6, 2], <int>[6, 2], <int>[6, 3], <int>[6, 3], <int>[3, 6], <int>[3, 6], <int>[0, 3], <int>[0, 3], <int>[0, 2], <int>[0, 2], <int>[1, 1], <int>[1, 1], <int>[2, 1], <int>[1000, 1000]]];
 }
 

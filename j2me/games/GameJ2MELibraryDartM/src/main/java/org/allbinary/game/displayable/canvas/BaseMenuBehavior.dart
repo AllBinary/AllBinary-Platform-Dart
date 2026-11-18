@@ -13,50 +13,45 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using DisplayChangeEvent = org.allbinary.graphics.displayable.@event.DisplayChangeEvent;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/event/DisplayChangeEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class BaseMenuBehavior {
+    static final BaseMenuBehavior instance = BaseMenuBehavior();
+    
 
-public class BaseMenuBehavior
-{
-    private static readonly BaseMenuBehavior instance = new BaseMenuBehavior();
-    public static BaseMenuBehavior getInstance()
-    {
+    static BaseMenuBehavior getInstance() {
         return BaseMenuBehavior.instance;
     }
+    
 
-    // throws Exception
-    public virtual void onDisplayChangeEvent(AllBinaryGameCanvas allBinaryGameCanvas, DisplayChangeEvent displayChangeEvent)
-    {
+    void onDisplayChangeEvent(AllBinaryGameCanvas allBinaryGameCanvas, DisplayChangeEvent displayChangeEvent) {
     }
+    
 
-    public virtual void initSpecialPaint(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void initSpecialPaint(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.setNonBotPaintableP(NullPaintable.getInstance());
     }
+    
 
-    // throws Exception
-    public virtual void initMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void initMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void updateMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void updateMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    // throws Exception
-    public virtual void popupMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void popupMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
+    
 
-    public virtual void closeMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    void closeMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
     }
-
 }
 

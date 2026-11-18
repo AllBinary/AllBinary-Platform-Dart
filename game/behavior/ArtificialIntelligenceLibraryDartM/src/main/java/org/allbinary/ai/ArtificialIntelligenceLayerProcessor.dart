@@ -13,38 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceLayerManager.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceCompositeInterface.dart';
 
-namespace org.allbinary.ai;
+class ArtificialIntelligenceLayerProcessor extends LayerProcessor {
+    
 
-public class ArtificialIntelligenceLayerProcessor : LayerProcessor
-{
-    public ArtificialIntelligenceLayerProcessor() : base(new ArtificialIntelligenceLayerManager())
-    {
-        // base(new ArtificialIntelligenceLayerManager()) is called from the constructor declaration
+    ArtificialIntelligenceLayerProcessor() : super(ArtificialIntelligenceLayerManager()) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        ArtificialIntelligenceCompositeInterface artificialIntelligenceCompositeInterface = ((ArtificialIntelligenceCompositeInterface) layerInterface);
+    @override
+    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index) {
+        ArtificialIntelligenceCompositeInterface artificialIntelligenceCompositeInterface = (layerInterface as ArtificialIntelligenceCompositeInterface);
         artificialIntelligenceCompositeInterface.getArtificialIntelligenceInterface().processAI(allBinaryLayerManager);
     }
+    
 
-    // throws Exception
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    @override
+    bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsArtificialIntelligenceCompositeInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

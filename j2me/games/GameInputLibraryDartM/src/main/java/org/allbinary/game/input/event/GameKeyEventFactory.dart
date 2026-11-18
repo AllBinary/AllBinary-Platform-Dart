@@ -13,62 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
 
-namespace org.allbinary.game.input.@event;
+class GameKeyEventFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    int TOUCH_BUTTON_SOURCE_ID = 0;
+    int MOTION_GESTURE_SOURCE_ID = 0;
+    int MAX_SOURCES = 0;
+    late List<List<GameKeyEvent?>?> ARRAY;
 
-public class GameKeyEventFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyEventFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyEventFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.TOUCH_BUTTON_SOURCE_ID = 2;
+    this.MOTION_GESTURE_SOURCE_ID = 3;
+    this.MAX_SOURCES = 4;
+    this.ARRAY = List<List<GameKeyEvent?>>.generate(this.MAX_SOURCES, (_) => List<GameKeyEvent?>.filled(InputFactory.getInstance().MAX, null));
+    }
+    
+
+    static GameKeyEventFactory getInstance() {
         if (GameKeyEventFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            GameKeyEventFactory.instance = new GameKeyEventFactory();
+            GameKeyEventFactory.instance = GameKeyEventFactory();
         }
-        return ((GameKeyEventFactory) GameKeyEventFactory.instance);
+        return (GameKeyEventFactory.instance as GameKeyEventFactory);
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly int TOUCH_BUTTON_SOURCE_ID = 2;
-    public readonly int MOTION_GESTURE_SOURCE_ID = 3;
-    private readonly int MAX_SOURCES = 4;
-    private GameKeyEvent[][] ARRAY;
-    private GameKeyEventFactory()
-    {
-        this.ARRAY = System.Linq.Enumerable.Range(0, this.MAX_SOURCES).Select(_ => new GameKeyEvent[InputFactory.getInstance().MAX]).ToArray();
+    GameKeyEventFactory() {
+        this.initFieldsGameKeyEventFactory();
     }
+    
 
-    public virtual void init()
-    {
-        NullUtil nullUtil = NullUtil.getInstance();
-        int size = InputFactory.getInstance().MAX;
+    void init() {
+        final NullUtil nullUtil = NullUtil.getInstance();
+        final int size = InputFactory.getInstance().MAX;
         for (int index = this.MAX_SOURCES; --index >= 0; ) {
             for (int index2 = size; --index2 >= 0; ) {
-                this.ARRAY[index][index2] = GameKeyEvent.createEvent(nullUtil.NULL_OBJECT, index, index2);
+                this.ARRAY[index]![index2] = GameKeyEvent.createEvent(nullUtil.NULL_OBJECT, index, index2);
             }
         }
     }
+    
 
-    // throws Exception
-    public virtual GameKeyEvent getInstanceForKey(GameKeyEventSourceInterface anyType, int key)
-    {
-        GameKeyEvent gameKeyEvent = this.ARRAY[anyType.getSourceId()][key];
+    GameKeyEvent getInstanceForKey(GameKeyEventSourceInterface anyType, int key) {
+        final GameKeyEvent gameKeyEvent = this.ARRAY[anyType.getSourceId()]![key]!;
         return gameKeyEvent;
     }
+    
 
-    // throws Exception
-    public virtual GameKeyEvent getInstanceForInput(GameKeyEventSourceInterface anyType, Input input)
-    {
-        GameKeyEvent gameKeyEvent = this.ARRAY[anyType.getSourceId()][input.getId()];
+    GameKeyEvent getInstanceForInput(GameKeyEventSourceInterface anyType, Input input) {
+        final GameKeyEvent gameKeyEvent = this.ARRAY[anyType.getSourceId()]![input.getId()]!;
         return gameKeyEvent;
     }
-
 }
 

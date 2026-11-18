@@ -13,177 +13,197 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score.displayable
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameInfo = org.allbinary.game.GameInfo;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GameCommandCanvas = org.allbinary.game.displayable.canvas.GameCommandCanvas;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using ColorFillBasePaintable = org.allbinary.game.paint.ColorFillBasePaintable;
-using ColorFillPaintableFactory = org.allbinary.game.paint.ColorFillPaintableFactory;
-using HighScoreCommandsFactory = org.allbinary.game.score.HighScoreCommandsFactory;
-using HighScores = org.allbinary.game.score.HighScores;
-using HighScoresCanvasInputProcessor = org.allbinary.game.score.HighScoresCanvasInputProcessor;
-using HighScoresCanvasInputProcessorFactoryInterface = org.allbinary.game.score.HighScoresCanvasInputProcessorFactoryInterface;
-using HighScoresFactoryInterface = org.allbinary.game.score.HighScoresFactoryInterface;
-using HighScoresHelperBase = org.allbinary.game.score.HighScoresHelperBase;
-using HighScoresPaintable = org.allbinary.game.score.HighScoresPaintable;
-using HighScoresResultsListener = org.allbinary.game.score.HighScoresResultsListener;
-using NoHighScoresFactory = org.allbinary.game.score.NoHighScoresFactory;
-using NullHighScoresSingletonFactory = org.allbinary.game.score.NullHighScoresSingletonFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using SimpleTextPaintable = org.allbinary.graphics.paint.SimpleTextPaintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using SecondaryThreadPool = org.allbinary.thread.SecondaryThreadPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameCommandCanvas.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/paint/ColorFillBasePaintable.dart';
+import 'package:allbinary/org/allbinary/game/paint/ColorFillPaintableFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoreCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresCanvasInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresCanvasInputProcessorFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBase.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresPaintable.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresResultsListener.dart';
+import 'package:allbinary/org/allbinary/game/score/NoHighScoresFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/NullHighScoresSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/SimpleTextPaintable.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/thread/SecondaryThreadPool.dart';
+import 'package:allbinary/org/allbinary/game/score/displayable/HighScoreRunnable.dart';
 
-namespace org.allbinary.game.score.displayable;
+class HighScoresCanvas extends GameCommandCanvas implements HighScoresResultsListener {
+    static const String NAME = "HighScoresCanvas";
+    late Paintable paintable;
+    late HighScoreCommandsFactory highScoreCommandsFactory;
+    late SimpleTextPaintable waitPaintable;
+    late HighScoresPaintable highScoresPaintable;
+    late HighScoresFactoryInterface highScoresFactoryInterface;
+    late ColorFillBasePaintable colorFillPaintable;
+    late HighScoresHelperBase highScoresHelper;
+    late GameInfo gameInfo;
+    late HighScoresCanvasInputProcessor highScoresCanvasInputProcessor;
+    late Command currentCommand;
+    bool hasPainted = false;
 
-public class HighScoresCanvas : GameCommandCanvas, HighScoresResultsListener
-{
-    public const string NAME = "HighScoresCanvas";
-    private Paintable paintable = NullPaintable.getInstance();
-    private readonly HighScoreCommandsFactory highScoreCommandsFactory = HighScoreCommandsFactory.getInstance();
-    private readonly SimpleTextPaintable waitPaintable;
-    private readonly HighScoresPaintable highScoresPaintable;
-    private readonly HighScoresFactoryInterface highScoresFactoryInterface;
-    public ColorFillBasePaintable colorFillPaintable;
-    private readonly HighScoresHelperBase highScoresHelper = new HighScoresHelperBase();
-    private readonly GameInfo gameInfo;
-    private readonly HighScoresCanvasInputProcessor highScoresCanvasInputProcessor;
-    private Command currentCommand;
-    public bool hasPainted = false;
-    public HighScoresCanvas(CommandListener commandListener, AllBinaryGameLayerManager allBinaryGameLayerManager, GameInfo gameInfo, HighScoresPaintable paintable, HighScoresFactoryInterface highScoresFactoryInterface, HighScoresCanvasInputProcessorFactoryInterface highScoresCanvasInputProcessorFactoryInterface) : base(commandListener, HighScoresCanvas.NAME, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor())
-    {
-        this.waitPaintable = new SimpleTextPaintable(this.commonStrings.PLEASE_WAIT_FOR_SERVER, BasicColorFactory.getInstance().WHITE);
-        this.currentCommand = this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
-        // base(commandListener, HighScoresCanvas.NAME, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor()) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresCanvas() {
+    this.paintable = NullPaintable.getInstance();
+    this.highScoreCommandsFactory = HighScoreCommandsFactory.getInstance();
+    this.waitPaintable = SimpleTextPaintable(this.commonStrings.PLEASE_WAIT_FOR_SERVER, BasicColorFactory.getInstance().WHITE);
+    
+    
+    
+    this.highScoresHelper = HighScoresHelperBase();
+    
+    
+    this.currentCommand = this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0]!;
+    this.hasPainted = false;
+    }
+    
+
+    HighScoresCanvas(CommandListener commandListener, AllBinaryGameLayerManager allBinaryGameLayerManager, GameInfo gameInfo, HighScoresPaintable paintable, HighScoresFactoryInterface highScoresFactoryInterface, HighScoresCanvasInputProcessorFactoryInterface highScoresCanvasInputProcessorFactoryInterface) : super(commandListener, HighScoresCanvas.NAME, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor()) {
+        this.initFieldsHighScoresCanvas();
+        
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.highScoresPaintable = paintable;
         this.highScoresFactoryInterface = highScoresFactoryInterface;
-        this.highScoresCanvasInputProcessor = highScoresCanvasInputProcessorFactoryInterface.getInstance(this);
+        this.highScoresCanvasInputProcessor = highScoresCanvasInputProcessorFactoryInterface.getInstance1(this);
         this.gameInfo = gameInfo;
         this.waitPaintable.setBasicColorP(allBinaryGameLayerManager.getForegroundBasicColor());
         this.getHighScoresPaintable().setBasicColorP(allBinaryGameLayerManager.getForegroundBasicColor());
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
-        if (this.highScoresHelper.getHighScoresArray().Length == NoHighScoresFactory.getInstance().NO_HIGH_SCORES.Length) {
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance2(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+        if (this.highScoresHelper.getHighScoresArray().length == NoHighScoresFactory.getInstance().NO_HIGH_SCORES.length) {
             this.setPaintable(this.waitPaintable);
         } else {
             this.logUtil.putF("Show HighScores that are already loaded", this, this.commonStrings.CONSTRUCTOR);
             this.updateCommand(this.currentCommand);
             this.setPaintable(this.getHighScoresPaintable());
         }
-        SecondaryThreadPool.getInstance().runTask(new HighScoreRunnable(this));
+        SecondaryThreadPool.getInstance().runTask(HighScoreRunnable(this));
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
+    @override
+    void initCommands(CommandListener cmdListener) {
         this.removeAllCommands();
         this.addCommand(GameCommandsFactory.getInstance().CLOSE_AND_SHOW_GAME_CANVAS);
         this.setCommandListener(cmdListener);
     }
+    
 
-    public override void open()
-    {
-        base.open();
+    @override
+    void open() {
+        super.open();
         this.highScoresCanvasInputProcessor.open();
     }
+    
 
-    // throws Exception
-    public override void close()
-    {
-        base.close();
+    @override
+    void close() {
+        super.close();
         this.highScoresCanvasInputProcessor.close();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.colorFillPaintable.paint(graphics);
         this.paintable.paint(graphics);
-        if (this.waitPaintable != this.paintable) {
+        if (!identical(this.waitPaintable, this.paintable)) {
             this.highScoresCanvasInputProcessor.paint(graphics);
         }
-        base.paint(graphics);
+        super.paint(graphics);
         this.hasPainted = true;
     }
+    
 
-    public virtual void executeUpdate()
-    {
+    void executeUpdate() {
         try {
             this.highScoresFactoryInterface.fetchHighScores(this.getGameInfo(), this);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    private HighScoresPaintable getHighScoresPaintable()
-    {
+    HighScoresPaintable getHighScoresPaintable() {
         return this.highScoresPaintable;
     }
+    
 
-    public virtual void setHighScoresArray(HighScores[] highScoresArray)
-    {
+    @override
+    void setHighScoresArray(List<HighScores?> highScoresArray) {
         try {
             if (highScoresArray != null) {
-                this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(highScoresArray.Length).ToString(), this, "setHighScoresArray");
+                this.logUtil.putF(StringMaker().append(this.commonStrings.START).appendint(highScoresArray.length).toString(), this, "setHighScoresArray");
             } else {
                 this.logUtil.putF(this.commonStrings.START, this, "setHighScoresArray");
             }
             this.highScoresHelper.setHighScoresArray(highScoresArray);
             this.updateCommand(this.currentCommand);
             this.setPaintable(this.getHighScoresPaintable());
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    // throws Exception
-    public virtual void updateCommand(Command command)
-    {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.stringUtil.toString(command)).ToString(), this, this.commonStrings.UPDATE);
-        GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+    void updateCommand(Command command) {
+        this.logUtil.putF(StringMaker().append(this.commonStrings.START).append(this.stringUtil.toString1(command)).toString(), this, this.commonStrings.UPDATE);
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         if (this.highScoreCommandsFactory.isHighScoreCommand(command)) {
-            int index = this.highScoreCommandsFactory.getIndex(command);
+            final int index = this.highScoreCommandsFactory.getIndex(command);
             int nextIndex = index + 1;
-            HighScores[] highScoresArray = this.highScoresHelper.getHighScoresArray();
-            if (nextIndex >= highScoresArray.Length) {
+            final List<HighScores?> highScoresArray = this.highScoresHelper.getHighScoresArray();
+            if (nextIndex >= highScoresArray.length) {
                 nextIndex = 0;
             }
-            if (highScoresArray.Length > 0) {
-                this.getHighScoresPaintable().setHighScores(highScoresArray[index]);
+            if (highScoresArray.length > 0) {
+                this.getHighScoresPaintable().setHighScores(highScoresArray[index]!);
             } else {
                 this.getHighScoresPaintable().setHighScores(NullHighScoresSingletonFactory.getInstance());
             }
             if (index != nextIndex) {
                 this.removeAllCommands();
                 this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
-                this.addCommand(this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[nextIndex]);
+                this.addCommand(this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[nextIndex]!);
             }
         }
         this.currentCommand = command;
         this.close();
-        base.initMenu();
+        super.initMenu();
         this.open();
         this.repaintBehavior.onChangeRepaint(this);
     }
+    
 
-    public virtual GameInfo getGameInfo()
-    {
+    GameInfo getGameInfo() {
         return this.gameInfo;
     }
+    
 
-    private void setPaintable(Paintable paintable)
-    {
+    void setPaintable(Paintable paintable) {
         this.paintable = paintable;
         this.repaintBehavior.onChangeRepaint(this);
     }
-
 }
 

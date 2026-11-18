@@ -1,55 +1,66 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/RectangleFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ABCustomForm.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormTypeFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormType.dart';
 
-namespace org.allbinary.graphics.form;
+class PaintableForm extends ABCustomForm {
+    static Object NULL_PAINTABLE_FORM = NullUtil.getInstance().NULL_OBJECT;
+    late CanvasStrings canvasStrings;
+    late Rectangle rectangle;
+    int x = 0;
+    int y = 0;
+    late FormType formType;
 
-public class PaintableForm : ABCustomForm
-{
-    private static object NULL_PAINTABLE_FORM = NullUtil.getInstance().NULL_OBJECT;
-    public static PaintableForm getNullPaintableForm()
-    {
-        if (PaintableForm.NULL_PAINTABLE_FORM == NullUtil.getInstance().NULL_OBJECT) {
-            PaintableForm.NULL_PAINTABLE_FORM = new PaintableForm(StringUtil.getInstance().EMPTY_STRING, new ABCustomItem[0], BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
-        }
-        return ((PaintableForm) PaintableForm.NULL_PAINTABLE_FORM);
+    // Java field initializers run after the base constructor
+    void initFieldsPaintableForm() {
+    this.canvasStrings = CanvasStrings.getInstance();
+    this.rectangle = RectangleFactory.SINGLETON;
+    this.x = 0;
+    this.y = 0;
+    this.formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
     }
+    
 
-    public readonly CanvasStrings canvasStrings = CanvasStrings.getInstance();
-    public Rectangle rectangle = RectangleFactory.SINGLETON;
-    public int x = 0;
-    public int y = 0;
-    public FormType formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
-    public PaintableForm(string title, ABCustomItem[] items, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(title, items, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(title, items, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    static PaintableForm getNullPaintableForm() {
+        if (PaintableForm.NULL_PAINTABLE_FORM == NullUtil.getInstance().NULL_OBJECT) {
+            PaintableForm.NULL_PAINTABLE_FORM = PaintableForm(StringUtil.getInstance().EMPTY_STRING, List<ABCustomItem?>.filled(0, null), BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+        }
+        return (PaintableForm.NULL_PAINTABLE_FORM as PaintableForm);
+    }
+    
+
+    PaintableForm(String title, List<ABCustomItem?> items, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(title, items, backgroundBasicColor, foregroundBasicColor) {
+        this.initFieldsPaintableForm();
+        
         this.setSelectedIndex(0);
     }
+    
 
-    // throws Exception
-    public virtual void init(Rectangle rectangle, FormType formType)
-    {
+    void init(Rectangle rectangle, FormType formType) {
         this.rectangle = rectangle;
-        GPoint point = this.rectangle.getPoint();
+        final GPoint point = this.rectangle.getPoint();
         this.x = point.getX();
         this.y = point.getY();
         this.formType = formType;
     }
+    
 
-    public override int getWidth()
-    {
+    @override
+    int getWidth() {
         return this.rectangle.getWidth();
     }
-
 }
 

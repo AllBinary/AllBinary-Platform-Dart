@@ -13,27 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.pipeline
 
-using System;
-using System.Linq;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/rand/MyRandomFactory.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/graphics/pipeline/BasicGraphicsPipeline.dart';
 
-namespace org.allbinary.graphics.pipeline;
+class RandomTranslation {
+    
 
-public class RandomTranslation
-{
-    // throws Exception
-    public static BasicArrayList getInstance(BasicArrayList vector, int howMuch)
-    {
-        MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
+    static BasicArrayList getInstance2(BasicArrayList vector, int howMuch) {
+        final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
         int x = -myRandomFactory.getNextInt(howMuch);
         int y = myRandomFactory.getNextInt(howMuch);
-        BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(vector);
+        BasicGraphicsPipeline graphicsPipe = BasicGraphicsPipeline(vector);
         graphicsPipe.createMatrix();
         graphicsPipe.translate(x, y);
         return graphicsPipe.getMatrix();
     }
-
 }
 

@@ -13,28 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.input.motion;
+class MotionRecognizer {
+    
 
-public class MotionRecognizer
-{
-    // throws Exception
-    public virtual void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processStartMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processEndMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
-
 }
 

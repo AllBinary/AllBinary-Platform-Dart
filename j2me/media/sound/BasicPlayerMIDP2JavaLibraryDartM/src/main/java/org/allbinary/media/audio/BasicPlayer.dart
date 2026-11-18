@@ -13,148 +13,145 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Control = javax.microedition.media.Control;
-using MediaException = javax.microedition.media.MediaException;
-using Player = javax.microedition.media.Player;
-using PlayerListener = javax.microedition.media.PlayerListener;
-using TimeBase = javax.microedition.media.TimeBase;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.media.audio;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/media/Control.dart';
+import 'package:allbinary/javax/microedition/media/MediaException.dart';
+import 'package:allbinary/javax/microedition/media/Player.dart';
+import 'package:allbinary/javax/microedition/media/PlayerListener.dart';
+import 'package:allbinary/javax/microedition/media/TimeBase.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/media/audio/TimeBaseInterface.dart';
+import 'package:allbinary/org/allbinary/media/audio/Controllable2.dart';
+import 'package:allbinary/org/allbinary/media/audio/NullControl.dart';
 
 //BasicPlayerMIDP2JavaLibrary
-public class BasicPlayer : Player, TimeBaseInterface, Controllable2
-{
-    public static string CONTROL_TYPE = "ToneControl";
-    public readonly BasicArrayList listenersList = new BasicArrayListD();
-    private TimeBase timeBase = null;
-    public int stateP = 0;
-    public int loopCountP = 0;
-    public BasicPlayer()
-    {
+class BasicPlayer implements Player, TimeBaseInterface, Controllable2 {
+    static String CONTROL_TYPE = "ToneControl";
+    late BasicArrayList listenersList;
+    late TimeBase timeBase;
+    int stateP = 0;
+    int loopCountP = 0;
+
+    // Java field initializers run after the base constructor
+    void initFieldsBasicPlayer() {
+    this.listenersList = BasicArrayListD();
+    
+    this.stateP = 0;
+    this.loopCountP = 0;
+    }
+    
+
+    BasicPlayer() {
+        this.initFieldsBasicPlayer();
         this.setLoopCount(0);
         this.setState(Player.UNREALIZED);
     }
+    
 
-    public virtual string getContentType()
-    {
+    String getContentType() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual Control getControl(string controlType)
-    {
-        return new NullControl();
+    Control getControl(String controlType) {
+        return NullControl();
     }
+    
 
-    public virtual Control[] getControls()
-    {
-        return new Control[0];
+    List<Control?> getControls() {
+        return List<Control?>.filled(0, null);
     }
+    
 
-    public virtual void close()
-    {
+    void close() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void addPlayerListener(PlayerListener playerListener)
-    {
+    void addPlayerListener(PlayerListener playerListener) {
         if (!this.listenersList.contains(playerListener)) {
             this.listenersList.add(playerListener);
         }
     }
+    
 
-    public virtual void removePlayerListener(PlayerListener playerListener)
-    {
+    void removePlayerListener(PlayerListener playerListener) {
         this.listenersList.remove(playerListener);
     }
+    
 
-    public virtual int getState()
-    {
+    int getState() {
         return this.stateP;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setState(int state)
-    {
+    void setState(int state) {
         this.stateP = state;
     }
+    
 
-    public virtual long getDuration()
-    {
-        return 0L;
+    int getDuration() {
+        return 0;
     }
+    
 
-    public virtual long getMediaTime()
-    {
-        return 0L;
+    int getMediaTime() {
+        return 0;
     }
+    
 
-    public virtual TimeBase getTimeBase()
-    {
+    TimeBase getTimeBase() {
         return this.timeBase;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setTimeBase(TimeBase timeBase)
-    {
+    void setTimeBase(TimeBase timeBase) {
         this.timeBase = timeBase;
     }
+    
 
-    public virtual void deallocate()
-    {
+    void deallocate() {
     }
+    
 
-    // throws MediaException
-    public virtual void prefetch()
-    {
+    void prefetch() {
     }
+    
 
-    // throws MediaException
-    public virtual void realize()
-    {
+    void realize() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setLoopCount(int count)
-    {
+    void setLoopCount(int count) {
         this.loopCountP = count;
     }
+    
 
-    public virtual int getLoopCount()
-    {
+    int getLoopCount() {
         return this.loopCountP;
     }
+    
 
-    // throws MediaException
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual long setMediaTime(long now)
-    {
-        return 0L;
+    int setMediaTime(int now) {
+        return 0;
     }
+    
 
-    // throws MediaException
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void start()
-    {
+    void start() {
         this.setState(Player.STARTED);
     }
+    
 
-    // throws MediaException
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void stop()
-    {
+    void stop() {
         this.setState(Player.PREFETCHED);
     }
+    
 
-    public virtual void setVolume(int leftVolume, int rightVolume)
-    {
+    void setVolume(int leftVolume, int rightVolume) {
     }
-
 }
 

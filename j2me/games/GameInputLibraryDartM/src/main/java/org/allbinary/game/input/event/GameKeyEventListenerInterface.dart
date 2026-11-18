@@ -13,13 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownGameKeyEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpGameKeyEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/PressGameKeyEventListenerInterface.dart';
 
-namespace org.allbinary.game.input.@event;
-
-public interface GameKeyEventListenerInterface : DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface
-{
+abstract interface class GameKeyEventListenerInterface implements DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface {
 }
 

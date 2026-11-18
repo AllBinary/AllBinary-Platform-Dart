@@ -13,72 +13,81 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-using Player = javax.microedition.media.Player;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/media/Player.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/media/audio/SoundStrings.dart';
+import 'package:allbinary/org/allbinary/media/audio/SoundsFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
 
-namespace org.allbinary.media.audio;
+class Sounds {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late SoundStrings soundStrings;
+    late SoundsFactoryInterface soundsFactoryInterface;
 
-public class Sounds
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly SoundStrings soundStrings = SoundStrings.getInstance();
-    private readonly SoundsFactoryInterface soundsFactoryInterface;
-    public Sounds(SoundsFactoryInterface soundsFactoryInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSounds() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.soundStrings = SoundStrings.getInstance();
+    
+    }
+    
+
+    Sounds(SoundsFactoryInterface soundsFactoryInterface) {
+        this.initFieldsSounds();
         this.soundsFactoryInterface = soundsFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    void init() {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
-        CommonLabels commonLabels = CommonLabels.getInstance();
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         this.soundsFactoryInterface.init();
-        Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
-        SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        int? indexInteger = null;
-        string indexString = null;
-        StringMaker stringBuffer = new StringMaker();
-        for (int i = 0; i < soundInterfaceArray.Length; i++) {
-            Sound soundInterface = soundInterfaceArray[i];
+        final List<Sound?> soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
+        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        late int indexInteger;
+        late String indexString;
+        final StringMaker stringBuffer = StringMaker();
+        for (int i = 0; i < soundInterfaceArray.length; i++) {
+            final Sound soundInterface = soundInterfaceArray[i]!;
             if (soundInterface != null) {
                 indexInteger = smallIntegerSingletonFactory.getAt(i);
-                indexString = indexInteger.ToString();
+                indexString = indexInteger.toString();
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(indexString);
                 stringBuffer.append(this.soundStrings.SOUND);
-                stringBuffer.append(soundInterface.GetType().FullName);
-                this.logUtil.putF(stringBuffer.ToString(), this, this.commonStrings.INIT);
+                stringBuffer.append(jClassName(soundInterface));
+                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
                 soundInterface.init();
-                progressCanvas.addNormalPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).ToString());
+                progressCanvas.addNormalPortion(100, StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
             }
         }
         this.soundsFactoryInterface.setInitialized(true);
         this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.INIT);
     }
+    
 
-    // throws Exception
-    public virtual void stopAll()
-    {
+    void stopAll() {
         this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.STOP_ALL);
-        Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        Player player = null;
-        for (int index = 0; index < soundInterfaceArray.Length; index++) {
+        final List<Sound?> soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        late Player player;
+        for (int index = 0; index < soundInterfaceArray.length; index++) {
             if (soundInterfaceArray[index] != null) {
-                player = soundInterfaceArray[index].getPlayerP();
+                player = soundInterfaceArray[index]!.getPlayerP();
                 if (player != null) {
                     player.stop();
                     progressCanvas.addPortion(100, this.soundStrings.STOPPING_SOUND, index);
@@ -86,17 +95,16 @@ public class Sounds
             }
         }
     }
+    
 
-    // throws Exception
-    public virtual void closeAll()
-    {
+    void closeAll() {
         this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.CLOSE_ALL);
-        Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        Player player = null;
-        for (int index = 0; index < soundInterfaceArray.Length; index++) {
+        final List<Sound?> soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        late Player player;
+        for (int index = 0; index < soundInterfaceArray.length; index++) {
             if (soundInterfaceArray[index] != null) {
-                player = soundInterfaceArray[index].getPlayerP();
+                player = soundInterfaceArray[index]!.getPlayerP();
                 if (player != null) {
                     player.close();
                     progressCanvas.addPortion(100, this.soundStrings.CLOSING_SOUND, index);
@@ -104,6 +112,5 @@ public class Sounds
             }
         }
     }
-
 }
 

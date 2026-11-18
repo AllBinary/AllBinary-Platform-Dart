@@ -13,25 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
 
-namespace org.allbinary.game.physics.velocity;
+class VelocityBehaviorBase {
+    
 
-public class VelocityBehaviorBase
-{
-    public virtual void reduce(BasicVelocityProperties velocityProperties, int nominator, int denominator)
-    {
+    void reduce(BasicVelocityProperties velocityProperties, int nominator, int denominator) {
     }
+    
 
-    public virtual void reduceX(BasicVelocityProperties velocityProperties, int nominator, int denominator)
-    {
+    void reduceX(BasicVelocityProperties velocityProperties, int nominator, int denominator) {
     }
+    
 
-    public virtual void reduceY(BasicVelocityProperties velocityProperties, int nominator, int denominator)
-    {
+    void reduceY(BasicVelocityProperties velocityProperties, int nominator, int denominator) {
     }
-
 }
 

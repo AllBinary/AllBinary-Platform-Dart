@@ -13,35 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using GameAdStateBase = org.allbinary.business.advertisement.GameAdStateBase;
-using AdConfiguration = org.allbinary.business.advertisement.AdConfiguration;
-using VirtualKeyboardEvent = org.allbinary.input.@event.VirtualKeyboardEvent;
-using VirtualKeyboardEventHandler = org.allbinary.input.@event.VirtualKeyboardEventHandler;
-using VirtualKeyboardEventListenerInterface = org.allbinary.input.@event.VirtualKeyboardEventListenerInterface;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/GameAdStateBase.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/AdConfiguration.dart';
+import 'package:allbinary/org/allbinary/input/event/VirtualKeyboardEvent.dart';
+import 'package:allbinary/org/allbinary/input/event/VirtualKeyboardEventHandler.dart';
+import 'package:allbinary/org/allbinary/input/event/VirtualKeyboardEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.game;
+class GameAdState extends GameAdStateBase implements VirtualKeyboardEventListenerInterface {
+    
 
-public class GameAdState : GameAdStateBase, VirtualKeyboardEventListenerInterface
-{
-    public GameAdState(AdConfiguration adConfiguration) : base(adConfiguration)
-    {
-        // base(adConfiguration) is called from the constructor declaration
+    GameAdState(AdConfiguration adConfiguration) : super(adConfiguration) {
+        
         VirtualKeyboardEventHandler.getInstance().addListenerInterface(this);
     }
+    
 
-    // throws Exception
-    public virtual void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent)
-    {
+    @override
+    void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent) {
     }
+    
 
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
-        base.onEvent(eventObject);
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
+        super.onEvent(eventObject);
     }
-
 }
 

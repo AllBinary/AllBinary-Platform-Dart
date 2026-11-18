@@ -13,54 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using TsUtil = org.allbinary.TsUtil;
-using ResourceUtil = org.allbinary.data.resource.ResourceUtil;
-using GDResources = org.allbinary.game.gd.resource.GDResources;
-using ABSystemWrapper = org.allbinary.logic.ABSystemWrapper;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using Memory = org.allbinary.system.Memory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullImage.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/data/resource/ResourceUtil.dart';
+import 'package:allbinary/org/allbinary/game/gd/resource/GDResources.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/system/Memory.dart';
+import 'package:allbinary/org/allbinary/image/ImageCacheBase.dart';
 
-namespace org.allbinary.image;
+class ImageCache extends ImageCacheBase {
+    static final ImageCache NULL_IMAGE_CACHE = ImageCache();
+    late CommonStrings commonStrings;
+    late TsUtil tsUtil;
 
-public class ImageCache : ImageCacheBase
-{
-    public static readonly ImageCache NULL_IMAGE_CACHE = new ImageCache();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly TsUtil tsUtil = TsUtil.getInstance();
-    public ImageCache()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsImageCache() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.tsUtil = TsUtil.getInstance();
     }
+    
 
-    public virtual void addListener(object renderer)
-    {
+    ImageCache() {
+        this.initFieldsImageCache();
     }
+    
 
-    public virtual int getIndex(object key)
-    {
-        GDResources gdResources = GDResources.getInstance();
-        string[] resourceStringArray = gdResources.resourceStringArray;
-        int size = resourceStringArray.Length;
+    void addListener(Object renderer) {
+    }
+    
+
+    int getIndex(Object key) {
+        final GDResources gdResources = GDResources.getInstance();
+        final List<String?> resourceStringArray = gdResources.resourceStringArray;
+        final int size = resourceStringArray.length;
         for (int index = 0; index < size; index++) {
-            if (resourceStringArray[index] == key) {
+            if (identical(resourceStringArray[index]!, key)) {
                 return index;
             }
         }
-        this.logUtil.putF(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).ToString(), this, this.commonStrings.RUN);
-        throw new SystemException();
+        this.logUtil.putF(StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString1(key)).toString(), this, this.commonStrings.RUN);
+        throw JException('RuntimeException', '');
     }
+    
 
-    // throws Exception
-    public override Image get(string caller, int width, int height)
-    {
+    @override
+    Image get(String caller, int width, int height) {
         int foundIndex = this.getIndexWH(width, height);
         Image image = this.getFromAvailable(foundIndex, width, height);
         if (image == NullImage.NULL_IMAGE) {
@@ -70,40 +76,43 @@ public class ImageCache : ImageCacheBase
                 this.volume = 0;
             }
             image = this.createImage(caller, width, height);
-            int[] widths = this.widths;
-            if (this.nextIndex > widths.Length - 1) {
+            final List<int> widths = this.widths;
+            if (this.nextIndex > widths.length - 1) {
                 if (foundIndex == -1) {
                     foundIndex = this.nextIndex;
                     widths[this.nextIndex] = width;
                     this.heights[this.nextIndex] = height;
                     this.nextIndex++;
                 }
-                this.listOfList[foundIndex].add(image);
+                this.listOfList[foundIndex]!.add(image);
             }
         }
         return image;
     }
+    
 
-    // throws Exception
-    public override Image getWithKey(object key)
-    {
+    @override
+    Image getWithKey(Object key) {
         Image image = this.getImage(key);
         if (image == NullImage.NULL_IMAGE) {
-            ResourceUtil resourceUtil = ResourceUtil.getInstance();
-            InputStream resourceInputStream = resourceUtil.getResourceAsStream(((string) key));
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            final InputStream resourceInputStream = resourceUtil.getResourceAsStream((key as String));
             if (resourceInputStream == null) {
-                throw new SystemException(new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString(key)).ToString());
+                throw JException('RuntimeException', StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString1(key)).toString());
             }
             try {
                 image = this.createImageFromInputStream(key, resourceInputStream);
-            } catch (Exception e) {
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
-                this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(resourceInputStream)).ToString(), this, this.commonStrings.GET);
+                this.logUtil.putF(StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString1(resourceInputStream)).toString(), this, this.commonStrings.GET);
                 this.tsUtil.gc();
                 this.tsUtil.gc();
                 this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
-                System.Threading.Thread.Sleep((int) (100));
+                Thread.sleep(100);
                 image = this.createImageFromInputStream(key, resourceInputStream);
+                }
             }
             if (J2MEUtil.isHTML()) {
             } else {
@@ -113,24 +122,22 @@ public class ImageCache : ImageCacheBase
         }
         return image;
     }
+    
 
-    // throws Exception
-    public virtual void loadImageForAnimation()
-    {
+    void loadImageForAnimation() {
     }
+    
 
-    public virtual void progressEnded()
-    {
+    void progressEnded() {
     }
+    
 
-    public virtual void runTask()
-    {
+    void runTask() {
     }
+    
 
-    public virtual bool isLazy()
-    {
+    bool isLazy() {
         return false;
     }
-
 }
 

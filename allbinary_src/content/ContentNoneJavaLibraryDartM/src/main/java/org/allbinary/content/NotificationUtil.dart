@@ -13,24 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.content
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
 
-namespace org.allbinary.content;
+class NotificationUtil {
+    static final NotificationUtil SINGLETON = NotificationUtil();
+    
 
-public class NotificationUtil
-{
-    private static readonly NotificationUtil SINGLETON = new NotificationUtil();
-    public static NotificationUtil getInstance()
-    {
+    static NotificationUtil getInstance() {
         return NotificationUtil.SINGLETON;
     }
+    
 
-    public virtual void notify(Command command, string resource, string message)
-    {
+    void notify(Command command, String resource, String message) {
     }
-
 }
 

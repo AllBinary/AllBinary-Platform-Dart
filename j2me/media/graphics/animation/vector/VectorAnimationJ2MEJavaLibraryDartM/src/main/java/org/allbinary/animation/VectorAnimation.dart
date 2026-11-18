@@ -13,131 +13,149 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using NullImage = javax.microedition.lcdui.NullImage;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimationInterface.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class VectorAnimation extends IndexedAnimation implements VectorAnimationInterface {
+    late List<List<List<int>?>?> currentPoints;
+    late CircularIndexUtil circularIndexUtil;
 
-public class VectorAnimation : IndexedAnimation, VectorAnimationInterface
-{
-    public static VectorAnimation createVectorAnimation(int[][] currentPoints2, BasicColor basicColor, AnimationBehavior animationBehavior)
-    {
-        int[][][] currentPoints = System.Linq.Enumerable.Range(0, 1).Select(_ => System.Linq.Enumerable.Range(0, currentPoints2.Length).Select(_ => new int[2]).ToArray()).ToArray();
-        int size = currentPoints2.Length;
-        for (int index = 0; index < size; index++) {
-            currentPoints[0][index][0] = currentPoints2[index][0];
-            currentPoints[0][index][1] = currentPoints2[index][1];
-        }
-        return new VectorAnimation(currentPoints, basicColor, animationBehavior);
+    // Java field initializers run after the base constructor
+    void initFieldsVectorAnimation() {
+    this.currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    this.circularIndexUtil = CircularIndexUtil.createInstance(0);
     }
+    
 
-    private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstance(0);
-    public VectorAnimation(int[][][] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    static VectorAnimation createVectorAnimation(List<List<int>?> currentPoints2, BasicColor basicColor, AnimationBehavior animationBehavior) {
+        final List<List<List<int>?>?> currentPoints = List<List<List<int>>>.generate(1, (_) => List<List<int>>.generate(currentPoints2.length, (_) => List<int>.filled(2, 0)));
+        int size = currentPoints2.length;
+        for (int index = 0; index < size; index++) {
+            currentPoints[0]![index]![0] = currentPoints2[index]![0];
+            currentPoints[0]![index]![1] = currentPoints2[index]![1];
+        }
+        return VectorAnimation(currentPoints, basicColor, animationBehavior);
+    }
+    
+
+    VectorAnimation(List<List<List<int>?>?> currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsVectorAnimation();
+        
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
         bool changed = false;
         if (this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
             changed = true;
         }
-        base.setBasicColorP(basicColor);
+        super.setBasicColorP(basicColor);
         if (changed) {
             this.updateModifiers();
         }
     }
+    
 
-    public override void changeBasicColor(BasicColor basicColor)
-    {
+    @override
+    void changeBasicColor(BasicColor basicColor) {
         bool changed = false;
-        if (this.getChangeBasicColor() == null || global::java.lang.JavaNumber.intValue(this.getChangeBasicColor()) != basicColor.intValue()) {
+        if (this.getChangeBasicColor() == null || this.getChangeBasicColor().intValue() != basicColor.intValue()) {
             changed = true;
         }
-        base.changeBasicColor(basicColor);
+        super.changeBasicColor(basicColor);
         if (changed) {
             this.updateModifiers();
         }
     }
+    
 
-    public override void setAlpha(int alpha)
-    {
+    @override
+    void setAlpha(int alpha) {
         bool changed = false;
         if (this.alphaP != alpha) {
             changed = true;
         }
-        base.setAlpha(alpha);
+        super.setAlpha(alpha);
         if (changed) {
             this.updateModifiers();
         }
     }
+    
 
-    public override void setScale(float scaleX, float scaleY)
-    {
+    @override
+    void setScale(double scaleX, double scaleY) {
     }
+    
 
-    public override void setMaxScale(float maxScaleX, float maxScaleY)
-    {
+    @override
+    void setMaxScale(double maxScaleX, double maxScaleY) {
     }
+    
 
-    private void updateModifiers()
-    {
+    void updateModifiers() {
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override int getSize()
-    {
-        return this.currentPoints.Length;
+    @override
+    int getSize() {
+        return this.currentPoints.length;
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         this.circularIndexUtil.next();
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         this.circularIndexUtil.previous();
     }
+    
 
-    public virtual void paintVectors(Graphics graphics, int x, int y)
-    {
+    void paintVectors(Graphics graphics, int x, int y) {
         try {
             int nextPointX = 0;
             int nextPointY = 0;
-            int[] nextPoint = null;
-            int[] point = null;
-            int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
-            int size = currentPointsFrame.Length;
+            late List<int> nextPoint;
+            late List<int> point;
+            final List<List<int>?> currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()]!;
+            final int size = currentPointsFrame.length;
             int index = size - 2;
             while (--index >= 0) {
-                nextPoint = currentPointsFrame[index];
-                point = currentPointsFrame[index + 1];
+                nextPoint = currentPointsFrame[index]!;
+                point = currentPointsFrame[index + 1]!;
                 nextPointX = nextPoint[0];
                 nextPointY = nextPoint[1];
                 if (nextPointX != 1000) {
@@ -146,42 +164,49 @@ public class VectorAnimation : IndexedAnimation, VectorAnimationInterface
                     index--;
                 }
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "paintVectors", e);
+            }
         }
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP(graphics, this.basicColor);
         this.paintVectors(graphics, x, y);
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.circularIndexUtil.getIndex();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.circularIndexUtil.setIndex(index);
     }
+    
 
-    public virtual int[][] getPoints(int frame)
-    {
-        return this.currentPoints[frame];
+    @override
+    List<List<int>?> getPoints(int frame) {
+        return this.currentPoints[frame]!;
     }
+    
 
-    public virtual void setPoints(int[][][] currentPoints)
-    {
+    void setPoints(List<List<List<int>?>?> currentPoints) {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(currentPoints.Length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(currentPoints.length);
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        return base.getBasicColorP();
+    @override
+    BasicColor getBasicColorP() {
+        return super.getBasicColorP();
     }
-
 }
 

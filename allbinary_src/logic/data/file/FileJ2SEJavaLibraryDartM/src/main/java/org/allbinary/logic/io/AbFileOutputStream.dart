@@ -13,46 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-//using FileNotFoundException = java.io.FileNotFoundException;
-using FileOutputStream = java.io.FileOutputStream;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/FileOutputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
 
-namespace org.allbinary.logic.io;
+class AbFileOutputStream extends FileOutputStream {
+    
 
-public class AbFileOutputStream : FileOutputStream
-{
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromAbFile(AbFile file)
-    {
-        return new AbFileOutputStream(file.getPath(), false);
+    static AbFileOutputStream createFromAbFile(AbFile file) {
+        return AbFileOutputStream(file.getPath(), false);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromAbFileAppend(AbFile file, bool append)
-    {
-        return new AbFileOutputStream(file.getPath(), append);
+    static AbFileOutputStream createFromAbFileAppend(AbFile file, bool append) {
+        return AbFileOutputStream(file.getPath(), append);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromFilePath(string name)
-    {
-        return new AbFileOutputStream(name, false);
+    static AbFileOutputStream createFromFilePath(String name) {
+        return AbFileOutputStream(name, false);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromFilePathAppend(string name, bool append)
-    {
-        return new AbFileOutputStream(name, append);
+    static AbFileOutputStream createFromFilePathAppend(String name, bool append) {
+        return AbFileOutputStream(name, append);
     }
+    
 
-    public AbFileOutputStream(string name, bool append) : base(name, append)
-    {
-        // base(name, append) is called from the constructor declaration
+    AbFileOutputStream(String name, bool append) : super(name, append) {
+        
     }
-
 }
 

@@ -13,21 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics.displayable;
+abstract interface class ScalableListener {
+    
 
-public interface ScalableListener
-{
-    float getRatio(float ratio);
+    double getRatio(double ratio);
+    
 
     int getLeft(int xOffset);
+    
 
     int getTop(int yOffset);
+    
 
-    void scale(float ratio);
-
+    void scale(double ratio);
 }
 

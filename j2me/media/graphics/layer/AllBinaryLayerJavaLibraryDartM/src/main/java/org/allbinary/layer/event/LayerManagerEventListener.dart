@@ -13,28 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer.event
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/layer/event/LayerManagerEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/layer/event/LayerManagerEvent.dart';
 
-namespace org.allbinary.layer.@event;
+class LayerManagerEventListener implements LayerManagerEventListenerInterface {
+    
 
-public class LayerManagerEventListener : LayerManagerEventListenerInterface
-{
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
     }
+    
 
-    // throws Exception
-    public virtual void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent)
-    {
+    @override
+    void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent)
-    {
+    @override
+    void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent) {
     }
-
 }
 

@@ -13,26 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class IndexedAnimationBehaviorFactory extends AnimationBehaviorFactory {
+    int frameDelayTime = 0;
+    int loopTotal = 0;
 
-public class IndexedAnimationBehaviorFactory : AnimationBehaviorFactory
-{
-    public long frameDelayTime;
-    public int loopTotal;
-    public IndexedAnimationBehaviorFactory(int loopTotal, long frameDelayTime)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsIndexedAnimationBehaviorFactory() {
+    
+    
+    }
+    
+
+    IndexedAnimationBehaviorFactory(int loopTotal, int frameDelayTime) {
+        this.initFieldsIndexedAnimationBehaviorFactory();
         this.loopTotal = loopTotal;
         this.frameDelayTime = frameDelayTime;
     }
+    
 
-    public override AnimationBehavior getOrCreateInstance()
-    {
-        return new IndexedAnimationBehavior(this.loopTotal, this.frameDelayTime);
+    @override
+    AnimationBehavior getOrCreateInstance() {
+        return IndexedAnimationBehavior(this.loopTotal, this.frameDelayTime);
     }
-
 }
 

@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+class ScrolledMotionGesturesHandler extends BasicEventHandler {
+    static final ScrolledMotionGesturesHandler SINGLETON = ScrolledMotionGesturesHandler();
+    
 
-public class ScrolledMotionGesturesHandler : BasicEventHandler
-{
-    private static readonly ScrolledMotionGesturesHandler SINGLETON = new ScrolledMotionGesturesHandler();
-    public static ScrolledMotionGesturesHandler getInstance()
-    {
+    static ScrolledMotionGesturesHandler getInstance() {
         return ScrolledMotionGesturesHandler.SINGLETON;
     }
+    
 
-    public ScrolledMotionGesturesHandler()
-    {
+    ScrolledMotionGesturesHandler() {
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        BaseMotionGestureEventListener baseMotionGestureEventListener = ((BaseMotionGestureEventListener) eventListenerInterface);
-        baseMotionGestureEventListener.onScrolledMotionGestureEvent(((MotionGestureEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final BaseMotionGestureEventListener baseMotionGestureEventListener = (eventListenerInterface as BaseMotionGestureEventListener);
+        baseMotionGestureEventListener.onScrolledMotionGestureEvent((eventObject as MotionGestureEvent));
     }
-
 }
 

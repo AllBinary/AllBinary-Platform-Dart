@@ -13,122 +13,135 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.part
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PrimitiveLongUtil = org.allbinary.logic.math.PrimitiveLongUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveLongUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/part/PartInterface.dart';
 
-namespace org.allbinary.game.part;
+class CountedLayerInterfaceFactoryPart implements PartInterface, UpdateMyFontInterface {
+    static final CountedLayerInterfaceFactoryPart NULL_COUNTED_LAYER_INTERFACE_FACTORY = CountedLayerInterfaceFactoryPart(0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY);
+    late MyFontProcessor updateMyFontProcessor;
+    late MyFontProcessor myFontProcessor;
+    late Animation animationInterface;
+    int total = 0;
+    late List<int> totalString;
+    int xOffset = 0;
+    late CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory;
+    late PrimitiveLongUtil primitiveLongUtil;
 
-public class CountedLayerInterfaceFactoryPart : PartInterface, UpdateMyFontInterface
-{
-    public static readonly CountedLayerInterfaceFactoryPart NULL_COUNTED_LAYER_INTERFACE_FACTORY = new CountedLayerInterfaceFactoryPart(0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY);
-    private readonly MyFontProcessor updateMyFontProcessor;
-    private MyFontProcessor myFontProcessor;
-    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
-    private int total = 0;
-    private char[] totalString = NullUtil.getInstance().NULL_CHAR_ARRAY;
-    private int xOffset = 0;
-    private CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    private readonly PrimitiveLongUtil primitiveLongUtil;
-    public CountedLayerInterfaceFactoryPart(int total, CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
+    // Java field initializers run after the base constructor
+    void initFieldsCountedLayerInterfaceFactoryPart() {
+    this.updateMyFontProcessor = UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+    this.total = 0;
+    this.totalString = NullUtil.getInstance().NULL_CHAR_ARRAY;
+    this.xOffset = 0;
+    this.countedPickedUpLayerInterfaceFactory = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    
+    }
+    
+
+    CountedLayerInterfaceFactoryPart(int total, CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory) {
+        this.initFieldsCountedLayerInterfaceFactoryPart();
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(1000);
         this.init(total, countedPickedUpLayerInterfaceFactory);
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.setXOffset(font.charsWidth(this.totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >> 1));
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    private void init(int total, CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory)
-    {
+    void init(int total, CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory) {
         this.setCountedPickedUpLayerInterfaceFactory(countedPickedUpLayerInterfaceFactory);
         this.total = total;
     }
+    
 
-    // throws Exception
-    public virtual AllBinaryLayer getInstance(ABHashtable<object, object> hashtable, int x, int y, int z)
-    {
+    AllBinaryLayer getInstance4(ABHashtable hashtable, int x, int y, int z) {
         if (this.total > 0) {
             this.setTotal(this.total - 1);
             return this.getCountedPickedUpLayerInterfaceFactory().getNextInstance(hashtable, x, y, z);
         } else {
-            throw new Exception("No more left. Could use a listener to automatically remove");
+            throw JException('Exception', "No more left. Could use a listener to automatically remove");
         }
     }
+    
 
-    public virtual int getTotal()
-    {
+    int getTotal() {
         return this.total;
     }
+    
 
-    public virtual void setTotal(int total)
-    {
+    void setTotal(int total) {
         this.total = total;
         this.totalString = this.primitiveLongUtil.getCharArray(total);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
+    
 
-    public virtual Animation getAnimationInterface()
-    {
+    @override
+    Animation getAnimationInterface() {
         return this.animationInterface;
     }
+    
 
-    public virtual void setAnimationInterface(Animation animationInterface)
-    {
+    void setAnimationInterface(Animation animationInterface) {
         this.animationInterface = animationInterface;
     }
+    
 
-    public virtual int getXOffset()
-    {
+    int getXOffset() {
         return this.xOffset;
     }
+    
 
-    private void setXOffset(int totalStringWidth)
-    {
+    void setXOffset(int totalStringWidth) {
         this.xOffset = totalStringWidth;
     }
+    
 
-    public virtual char[] getTotalString()
-    {
+    List<int> getTotalString() {
         return this.totalString;
     }
+    
 
-    public virtual CountedPickedUpLayerInterfaceFactory getCountedPickedUpLayerInterfaceFactory()
-    {
+    CountedPickedUpLayerInterfaceFactory getCountedPickedUpLayerInterfaceFactory() {
         return this.countedPickedUpLayerInterfaceFactory;
     }
+    
 
-    public virtual void setCountedPickedUpLayerInterfaceFactory(CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory)
-    {
+    void setCountedPickedUpLayerInterfaceFactory(CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory) {
         this.countedPickedUpLayerInterfaceFactory = countedPickedUpLayerInterfaceFactory;
     }
-
 }
 

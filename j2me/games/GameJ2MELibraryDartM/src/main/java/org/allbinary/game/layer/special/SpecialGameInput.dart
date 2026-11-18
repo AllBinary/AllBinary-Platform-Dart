@@ -13,84 +13,85 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialGameInputInterface.dart';
 
-namespace org.allbinary.game.layer.special;
+class SpecialGameInput implements SpecialGameInputInterface {
+    
 
-public class SpecialGameInput : SpecialGameInputInterface
-{
-    // throws Exception
-    public virtual void up()
-    {
+    @override
+    void up() {
     }
+    
 
-    // throws Exception
-    public virtual void down()
-    {
+    @override
+    void down() {
     }
+    
 
-    // throws Exception
-    public virtual void right()
-    {
+    @override
+    void right() {
     }
+    
 
-    // throws Exception
-    public virtual void left()
-    {
+    @override
+    void left() {
     }
+    
 
-    // throws Exception
-    public virtual void strafeLeft()
-    {
+    @override
+    void strafeLeft() {
     }
+    
 
-    // throws Exception
-    public virtual void strafeRight()
-    {
+    @override
+    void strafeRight() {
     }
+    
 
-    // throws Exception
-    public virtual void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
-
 }
 

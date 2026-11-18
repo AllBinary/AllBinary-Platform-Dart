@@ -13,27 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LockableFeatureFactory {
+    static final LockableFeatureFactory instance = LockableFeatureFactory();
+    late BasicArrayList list;
 
-public class LockableFeatureFactory
-{
-    private static readonly LockableFeatureFactory instance = new LockableFeatureFactory();
-    public static LockableFeatureFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLockableFeatureFactory() {
+    this.list = BasicArrayListD();
+    }
+
+    LockableFeatureFactory() {
+        this.initFieldsLockableFeatureFactory();
+    }
+    
+
+    static LockableFeatureFactory getInstance() {
         return LockableFeatureFactory.instance;
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

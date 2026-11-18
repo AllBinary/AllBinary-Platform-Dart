@@ -13,40 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.destroy.event
 
-using System;
-using System.Linq;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryEventCircularPool = org.allbinary.logic.util.@event.AllBinaryEventCircularPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventCircularPool.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEvent.dart';
 
-namespace org.allbinary.game.combat.destroy.@event;
+class DestroyEventCircularStaticPool {
+    static final DestroyEventCircularStaticPool instance = DestroyEventCircularStaticPool();
+    late AllBinaryEventCircularPool EVENT_POOL;
 
-public class DestroyEventCircularStaticPool
-{
-    private static readonly DestroyEventCircularStaticPool instance = new DestroyEventCircularStaticPool();
-    public static DestroyEventCircularStaticPool getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDestroyEventCircularStaticPool() {
+    this.EVENT_POOL = AllBinaryEventCircularPool(20);
+    }
+    
+
+    static DestroyEventCircularStaticPool getInstance() {
         return DestroyEventCircularStaticPool.instance;
     }
+    
 
-    private AllBinaryEventCircularPool EVENT_POOL = new AllBinaryEventCircularPool(20);
-    private DestroyEventCircularStaticPool()
-    {
+    DestroyEventCircularStaticPool() {
+        this.initFieldsDestroyEventCircularStaticPool();
     }
+    
 
-    public virtual void init(AllBinaryGameCanvas combatGameCanvas)
-    {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(new DestroyEventFactory(combatGameCanvas));
+    void init(AllBinaryGameCanvas combatGameCanvas) {
+        this.EVENT_POOL.initAllBinaryEventCircularPool(DestroyEventFactory(combatGameCanvas));
     }
+    
 
-    // throws Exception
-    public virtual DestroyedEvent getInstanceForLayer(AllBinaryLayer layerInterface)
-    {
-        DestroyedEvent destroyedEvent = ((DestroyedEvent) this.EVENT_POOL.getNextInstance());
+    DestroyedEvent getInstanceForLayer(AllBinaryLayer layerInterface) {
+        DestroyedEvent destroyedEvent = (this.EVENT_POOL.getNextInstance() as DestroyedEvent);
         destroyedEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
         return destroyedEvent;
     }
-
 }
 

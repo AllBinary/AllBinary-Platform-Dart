@@ -13,74 +13,82 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArrayRotationAnimationInfo {
+    late List<Image?> imageArray;
+    int angleIncrement = 0;
+    int totalAngle = 0;
+    int dx = 0;
+    int dy = 0;
 
-public class ImageArrayRotationAnimationInfo
-{
-    private Image[] imageArray;
-    private int angleIncrement;
-    private int totalAngle;
-    private int dx;
-    private int dy;
-    public ImageArrayRotationAnimationInfo(Image[] imageArray, int angleIncrement, int totalAngle, int dx, int dy)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsImageArrayRotationAnimationInfo() {
+    
+    
+    
+    
+    
+    }
+    
+
+    ImageArrayRotationAnimationInfo(List<Image?> imageArray, int angleIncrement, int totalAngle, int dx, int dy) {
+        this.initFieldsImageArrayRotationAnimationInfo();
         this.imageArray = imageArray;
         this.angleIncrement = angleIncrement;
         this.totalAngle = totalAngle;
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public virtual void setImageArray(Image[] imageArray)
-    {
+    void setImageArray(List<Image?> imageArray) {
         this.imageArray = imageArray;
     }
+    
 
-    public virtual Image[] getImageArray()
-    {
+    List<Image?> getImageArray() {
         return this.imageArray;
     }
+    
 
-    public virtual AngleInfo getAngleInfoP()
-    {
-        return AngleInfo.getInstance(((short) this.angleIncrement));
+    AngleInfo getAngleInfoP() {
+        return AngleInfo.getInstance1((this.angleIncrement).toSigned(16));
     }
+    
 
-    public virtual void setTotalAngle(int totalAngle)
-    {
+    void setTotalAngle(int totalAngle) {
         this.totalAngle = totalAngle;
     }
+    
 
-    public virtual int getTotalAngle()
-    {
+    int getTotalAngle() {
         return this.totalAngle;
     }
+    
 
-    public virtual void setDx(int dx)
-    {
+    void setDx(int dx) {
         this.dx = dx;
     }
+    
 
-    public virtual int getDx()
-    {
+    int getDx() {
         return this.dx;
     }
+    
 
-    public virtual void setDy(int dy)
-    {
+    void setDy(int dy) {
         this.dy = dy;
     }
+    
 
-    public virtual int getDy()
-    {
+    int getDy() {
         return this.dy;
     }
-
 }
 

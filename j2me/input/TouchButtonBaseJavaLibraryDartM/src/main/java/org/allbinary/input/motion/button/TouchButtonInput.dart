@@ -13,55 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
+    late LogUtil logUtil;
+    late GameKeyEventFactory gameKeyEventFactory;
+    int TOUCH_BUTTON_SOURCE_ID = 0;
+    late GameKeyEvent gameKeyEvent;
 
-public class TouchButtonInput : Input, GameKeyEventSourceInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private readonly int TOUCH_BUTTON_SOURCE_ID;
-    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
-    public TouchButtonInput(int id, string name) : base(id, name)
-    {
-        this.TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
-        // base(id, name) is called from the constructor declaration
-        InputFactory inputFactory = InputFactory.getInstance();
+    // Java field initializers run after the base constructor
+    void initFieldsTouchButtonInput() {
+    this.logUtil = LogUtil.getInstance();
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    this.TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
+    this.gameKeyEvent = GameKeyEvent.NONE;
+    }
+    
+
+    TouchButtonInput(int id, String name) : super(id, name) {
+        this.initFieldsTouchButtonInput();
+        
+        final InputFactory inputFactory = InputFactory.getInstance();
         inputFactory.add(this.getId(), this);
     }
+    
 
-    public virtual void update(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    void update(InputToGameKeyMapping inputToGameKeyMapping) {
         try {
-            GameKey gameKey = inputToGameKeyMapping.getInstance(this.getId());
+            GameKey gameKey = inputToGameKeyMapping.getInstance1(this.getId());
             this.gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    public virtual int getSourceId()
-    {
+    @override
+    int getSourceId() {
         return this.TOUCH_BUTTON_SOURCE_ID;
     }
+    
 
-    public virtual GameKeyEvent getGameKeyEvent()
-    {
+    GameKeyEvent getGameKeyEvent() {
         return this.gameKeyEvent;
     }
-
 }
 

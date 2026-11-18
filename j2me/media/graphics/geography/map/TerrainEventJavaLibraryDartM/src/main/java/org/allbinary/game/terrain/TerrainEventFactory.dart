@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.terrain
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEvent.dart';
 
-namespace org.allbinary.game.terrain;
+class TerrainEventFactory implements AllBinaryEventObjectFactoryInterface {
+    
 
-public class TerrainEventFactory : AllBinaryEventObjectFactoryInterface
-{
-    public TerrainEventFactory()
-    {
+    TerrainEventFactory() {
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
-        return new TerrainEvent(NullUtil.getInstance().NULL_OBJECT);
+    @override
+    AllBinaryEventObject getInstance() {
+        return TerrainEvent(NullUtil.getInstance().NULL_OBJECT);
     }
-
 }
 

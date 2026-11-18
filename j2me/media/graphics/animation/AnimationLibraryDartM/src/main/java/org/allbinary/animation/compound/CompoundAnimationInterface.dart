@@ -13,23 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using AnimationInterface = org.allbinary.animation.AnimationInterface;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterface.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
 
-namespace org.allbinary.animation.compound;
+abstract interface class CompoundAnimationInterface implements AnimationInterface {
+    
 
-public interface CompoundAnimationInterface : AnimationInterface
-{
     void nextAnimation();
+    
 
     void previousAnimation();
+    
 
     void setAnimation(int index);
+    
 
     IndexedAnimation getCurrentAnimation();
-
 }
 

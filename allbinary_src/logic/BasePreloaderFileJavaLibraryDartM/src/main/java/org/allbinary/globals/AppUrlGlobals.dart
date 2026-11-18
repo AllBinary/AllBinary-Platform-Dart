@@ -13,48 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.globals
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.globals;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/globals/UrlGlobalsInterface.dart';
 
 //implements
-public class AppUrlGlobals : UrlGlobalsInterface
-{
-    public static readonly AppUrlGlobals NULL_APP_URL_GLOBALS = new AppUrlGlobals();
-    private string path = StringUtil.getInstance().EMPTY_STRING;
-    public override bool isTestingMode()
-    {
+class AppUrlGlobals extends UrlGlobalsInterface {
+    static final AppUrlGlobals NULL_APP_URL_GLOBALS = AppUrlGlobals();
+    late String path;
+
+    // Java field initializers run after the base constructor
+    void initFieldsAppUrlGlobals() {
+    this.path = StringUtil.getInstance().EMPTY_STRING;
+    }
+
+    AppUrlGlobals() {
+        this.initFieldsAppUrlGlobals();
+    }
+    
+
+    @override
+    bool isTestingMode() {
         return false;
     }
+    
 
-    public override string getWebappPath()
-    {
+    @override
+    String getWebappPath() {
         return this.path;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setWebappPath(string path)
-    {
+    void setWebappPath(String path) {
         this.path = path;
-        if (!(this.path.EndsWith("\\") || this.path.EndsWith("/"))) {
+        if (!(this.path.endsWith("\\") || this.path.endsWith("/"))) {
             this.path = this.path + "\\";
         }
     }
+    
 
-    public override string getTestHtmlPath()
-    {
+    @override
+    String getTestHtmlPath() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    // throws Exception
-    public override string getMainPath()
-    {
+    @override
+    String getMainPath() {
         return this.path;
     }
-
 }
 

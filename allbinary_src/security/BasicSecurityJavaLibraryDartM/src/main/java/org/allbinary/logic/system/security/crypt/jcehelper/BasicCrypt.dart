@@ -13,63 +13,79 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.crypt.jcehelper
 
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
-using CryptInterface = org.allbinary.init.crypt.jcehelper.CryptInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using ByteUtil = org.allbinary.logic.java.byteutil.ByteUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/init/crypt/jcehelper/CryptInterface.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/java/byteutil/ByteUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+class BasicCrypt implements CryptInterface {
+    late ByteUtil byteUtil;
+    late List<int> key;
 
-public class BasicCrypt : CryptInterface
-{
-    private readonly ByteUtil byteUtil = ByteUtil.getInstance();
-    private readonly sbyte[] key;
-    public BasicCrypt(string keyAsString)
-    {
-        sbyte[] key = NullUtil.getInstance().NULL_BYTE_ARRAY;
+    // Java field initializers run after the base constructor
+    void initFieldsBasicCrypt() {
+    this.byteUtil = ByteUtil.getInstance();
+    
+    }
+    
+
+    BasicCrypt(String keyAsString) {
+        this.initFieldsBasicCrypt();
+        List<int> key = NullUtil.getInstance().NULL_BYTE_ARRAY;
         try {
             key = TsUtil.getInstance().getByteArray(keyAsString);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.putOE(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
+            }
         }
         this.key = key;
     }
+    
 
-    public virtual sbyte[] encrypt(sbyte[] array)
-    {
+    @override
+    List<int> encrypt(List<int> array) {
         try {
             return this.mutilate(array);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
             return NullUtil.getInstance().NULL_BYTE_ARRAY;
+            }
         }
     }
+    
 
-    public virtual sbyte[] decrypt(sbyte[] array)
-    {
+    @override
+    List<int> decrypt(List<int> array) {
         try {
             return this.mutilate(array);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
             return NullUtil.getInstance().NULL_BYTE_ARRAY;
+            }
         }
     }
+    
 
-    public virtual sbyte[] mutilate(sbyte[] array)
-    {
-        sbyte value = 0;
-        for (int index = 0; index < this.key.Length; index++) {
+    List<int> mutilate(List<int> array) {
+        int value = 0;
+        for (int index = 0; index < this.key.length; index++) {
             value = this.key[index];
             array = this.byteUtil.xor(array, value);
         }
         return array;
     }
-
 }
 

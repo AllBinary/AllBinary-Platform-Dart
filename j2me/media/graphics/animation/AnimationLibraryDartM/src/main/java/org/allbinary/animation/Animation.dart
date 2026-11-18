@@ -13,120 +13,132 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BasicColorSetUtil = org.allbinary.graphics.color.BasicColorSetUtil;
-using OpenGLSurfaceChangedInterface = org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorSetUtil.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterface.dart';
 
-namespace org.allbinary.animation;
+class Animation implements AnimationInterface, OpenGLSurfaceChangedInterface {
+    late BasicColorSetUtil basicSetColorUtil;
+    late BasicColor basicColor;
+    int colorP = 0;
+    late BasicColor changeBasicColorP;
+    int changeColorP = 0;
+    int alphaP = 0;
 
-public class Animation : AnimationInterface, OpenGLSurfaceChangedInterface
-{
-    public readonly BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-    public BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    public int colorP = 0;
-    public BasicColor changeBasicColorP = BasicColorFactory.getInstance().NULL_COLOR;
-    public int changeColorP = 0;
-    public int alphaP = 0;
-    public Animation()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAnimation() {
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.colorP = 0;
+    this.changeBasicColorP = BasicColorFactory.getInstance().NULL_COLOR;
+    this.changeColorP = 0;
+    this.alphaP = 0;
     }
+    
 
-    public virtual void setAlpha(int alpha)
-    {
+    Animation() {
+        this.initFieldsAnimation();
+    }
+    
+
+    void setAlpha(int alpha) {
         this.alphaP = alpha;
     }
+    
 
-    // throws Exception
-    public virtual void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public virtual void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
     }
+    
 
-    public virtual void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
+    @override
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z) {
     }
+    
 
-    public virtual bool isThreed()
-    {
+    bool isThreed() {
         return false;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual void setBasicColorP(BasicColor basicColor)
-    {
+    void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
         this.colorP = this.basicColor.intValue();
     }
+    
 
-    public virtual void setBackgroundBasicColorP(BasicColor basicColor)
-    {
+    void setBackgroundBasicColorP(BasicColor basicColor) {
     }
+    
 
-    public virtual BasicColor getChangeBasicColor()
-    {
+    BasicColor getChangeBasicColor() {
         return this.changeBasicColorP;
     }
+    
 
-    public virtual void changeBasicColor(BasicColor basicColor)
-    {
+    void changeBasicColor(BasicColor basicColor) {
         this.changeBasicColorP = basicColor;
         this.changeColorP = this.changeBasicColorP.intValue();
     }
+    
 
-    public virtual int getChangeColor()
-    {
+    int getChangeColor() {
         return this.changeColorP;
     }
+    
 
-    public virtual int getColor()
-    {
+    int getColor() {
         return this.colorP;
     }
+    
 
-    public virtual void setScale(float scaleX, float scaleY)
-    {
+    void setScale(double scaleX, double scaleY) {
     }
+    
 
-    public virtual void setMaxScale(float maxScaleX, float maxScaleY)
-    {
+    void setMaxScale(double maxScaleX, double maxScaleY) {
     }
+    
 
-    // throws Exception
-    public virtual void set(GL gl)
-    {
+    @override
+    void set(GL gl) {
     }
+    
 
-    public virtual void setDx(int dx)
-    {
+    void setDx(int dx) {
     }
+    
 
-    public virtual int getDx()
-    {
+    int getDx() {
         return 0;
     }
+    
 
-    public virtual void setDy(int dy)
-    {
+    void setDy(int dy) {
     }
+    
 
-    public virtual int getDy()
-    {
+    int getDy() {
         return 0;
     }
-
 }
 

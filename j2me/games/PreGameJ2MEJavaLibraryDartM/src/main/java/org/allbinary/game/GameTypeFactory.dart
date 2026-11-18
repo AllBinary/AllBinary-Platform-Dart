@@ -13,25 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/GameType.dart';
 
-namespace org.allbinary.game;
+class GameTypeFactory {
+    static final GameTypeFactory instance = GameTypeFactory();
+    late List<GameType?> NULL_GAME_TYPE_ARRAY;
+    late GameType NONE;
+    late GameType SINGLE_PLAYER;
+    late GameType MULTI_PLAYER;
+    late GameType BOT;
 
-public class GameTypeFactory
-{
-    private static readonly GameTypeFactory instance = new GameTypeFactory();
-    public static GameTypeFactory getInstance()
-    {
-        return GameTypeFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGameTypeFactory() {
+    this.NULL_GAME_TYPE_ARRAY = List<GameType?>.filled(0, null);
+    this.NONE = GameType(StringUtil.getInstance().NULL_STRING);
+    this.SINGLE_PLAYER = GameType("Single Player");
+    this.MULTI_PLAYER = GameType("Multi Player");
+    this.BOT = GameType("Artificial Player");
     }
 
-    public GameType[] NULL_GAME_TYPE_ARRAY = new GameType[0];
-    public GameType NONE = new GameType(StringUtil.getInstance().NULL_STRING);
-    public GameType SINGLE_PLAYER = new GameType("Single Player");
-    public GameType MULTI_PLAYER = new GameType("Multi Player");
-    public GameType BOT = new GameType("Artificial Player");
+    GameTypeFactory() {
+        this.initFieldsGameTypeFactory();
+    }
+    
+
+    static GameTypeFactory getInstance() {
+        return GameTypeFactory.instance;
+    }
 }
 

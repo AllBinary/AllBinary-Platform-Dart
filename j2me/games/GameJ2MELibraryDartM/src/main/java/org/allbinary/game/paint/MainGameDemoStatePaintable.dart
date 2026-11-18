@@ -13,39 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
 
-namespace org.allbinary.game.paint;
+class MainGameDemoStatePaintable extends Paintable {
+    late Paintable ownershipPaintableInterface;
+    late Paintable menuPaintableInterface;
 
-public class MainGameDemoStatePaintable : Paintable
-{
-    private readonly Paintable ownershipPaintableInterface;
-    private readonly Paintable menuPaintableInterface;
-    public MainGameDemoStatePaintable(Paintable ownershipPaintableInterface, Paintable menuPaintableInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMainGameDemoStatePaintable() {
+    
+    
+    }
+    
+
+    MainGameDemoStatePaintable(Paintable ownershipPaintableInterface, Paintable menuPaintableInterface) {
+        this.initFieldsMainGameDemoStatePaintable();
         this.ownershipPaintableInterface = ownershipPaintableInterface;
         this.menuPaintableInterface = menuPaintableInterface;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.menuPaintableInterface.paint(graphics);
         this.ownershipPaintableInterface.paint(graphics);
     }
+    
 
-    public virtual Paintable getOwnershipPaintableInterface()
-    {
+    Paintable getOwnershipPaintableInterface() {
         return this.ownershipPaintableInterface;
     }
+    
 
-    public virtual Paintable getMenuPaintableInterface()
-    {
+    Paintable getMenuPaintableInterface() {
         return this.menuPaintableInterface;
     }
-
 }
 

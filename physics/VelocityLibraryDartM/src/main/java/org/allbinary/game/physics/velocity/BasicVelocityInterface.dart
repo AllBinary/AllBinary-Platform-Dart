@@ -13,40 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using Angle = org.allbinary.math.Angle;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
 
-namespace org.allbinary.game.physics.velocity;
+abstract interface class BasicVelocityInterface {
+    
 
-public interface BasicVelocityInterface
-{
     BasicDecimal getVelocityXBasicDecimalP();
+    
 
     BasicDecimal getVelocityYBasicDecimalP();
+    
 
     void zero();
+    
 
     void setVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    
 
     void addVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    
 
-    void setVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection);
+    void setVelocityWithDirection(int magnitude, Direction direction, Direction otherDirection);
+    
 
-    void addVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection);
+    void addVelocityWithDirection(int magnitude, Direction direction, Direction otherDirection);
+    
 
     void setVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    
 
     void addVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    
 
-    void setVelocity(long magnitude, Angle angle, Angle otherAngle);
+    void setVelocity(int magnitude, Angle angle, Angle otherAngle);
+    
 
-    void addVelocity(long magnitude, Angle angle, Angle otherAngle);
+    void addVelocity(int magnitude, Angle angle, Angle otherAngle);
+    
 
-    void addVelocityi(long magnitude, int angle, int otherAngle);
-
+    void addVelocityi(int magnitude, int angle, int otherAngle);
 }
 

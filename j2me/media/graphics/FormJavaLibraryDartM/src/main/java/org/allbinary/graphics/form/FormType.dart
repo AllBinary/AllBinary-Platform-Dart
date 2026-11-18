@@ -13,24 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics.form;
+class FormType {
+    late String name;
 
-public class FormType
-{
-    public readonly string name;
-    public FormType(string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsFormType() {
+    
+    }
+    
+
+    FormType(String name) {
+        this.initFieldsFormType();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return this.name;
     }
-
 }
 

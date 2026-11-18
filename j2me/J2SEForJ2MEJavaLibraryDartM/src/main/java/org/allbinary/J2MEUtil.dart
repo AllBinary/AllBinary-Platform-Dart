@@ -13,32 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary;
+class J2MEUtil {
+    
 
-public class J2MEUtil
-{
-    private J2MEUtil()
-    {
+    J2MEUtil() {
     }
+    
 
-    public static bool isJ2ME()
-    {
+    static bool isJ2ME() {
         return false;
     }
+    
 
-    public static bool isJ2SE()
-    {
+    static bool isJ2SE() {
         return true;
     }
+    
 
-    public static bool isHTML()
-    {
+    static bool isHTML() {
         return false;
     }
-
 }
 

@@ -13,24 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.canvas
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/NullCanvas.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
 
-namespace org.allbinary.game.canvas;
+class ABToGBUtil {
+    static final ABToGBUtil instance = ABToGBUtil();
+    late Canvas abCanvas;
+    late AllBinaryGameLayerManager allBinaryGameLayerManager;
 
-public class ABToGBUtil
-{
-    private static readonly ABToGBUtil instance = new ABToGBUtil();
-    public static ABToGBUtil getInstance()
-    {
-        return ABToGBUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsABToGBUtil() {
+    this.abCanvas = NullCanvas.NULL_CANVAS;
+    this.allBinaryGameLayerManager = AllBinaryGameLayerManager.getNullInstance();
     }
 
-    public Canvas abCanvas = NullCanvas.NULL_CANVAS;
-    public AllBinaryGameLayerManager allBinaryGameLayerManager = AllBinaryGameLayerManager.getNullInstance();
+    ABToGBUtil() {
+        this.initFieldsABToGBUtil();
+    }
+    
+
+    static ABToGBUtil getInstance() {
+        return ABToGBUtil.instance;
+    }
 }
 

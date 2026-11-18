@@ -13,97 +13,100 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using GameAdStateFactory = org.allbinary.business.advertisement.GameAdStateFactory;
-using GameAdState = org.allbinary.game.GameAdState;
-using Features = org.allbinary.game.configuration.feature.Features;
-using CurrentDisplayableFactory = org.allbinary.graphics.opengles.CurrentDisplayableFactory;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/GameAdStateFactory.dart';
+import 'package:allbinary/org/allbinary/game/GameAdState.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/CurrentDisplayableFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoGameBehavior.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class BaseGameBehavior extends DemoGameBehavior {
+    static final BaseGameBehavior instanceC = BaseGameBehavior();
+    
 
-public class BaseGameBehavior : DemoGameBehavior
-{
-    private static readonly BaseGameBehavior instanceC = new BaseGameBehavior();
-    public static DemoGameBehavior getInstance()
-    {
+    static DemoGameBehavior getInstance() {
         return BaseGameBehavior.instanceC;
     }
+    
 
-    // throws Exception
-    public override void init()
-    {
-        GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+    @override
+    void init() {
+        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         gameAdState.playingAdState();
     }
+    
 
-    public override void pause(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
-        Features features = Features.getInstance();
+    @override
+    void pause(AllBinaryGameCanvas allBinaryGameCanvas) {
+        final Features features = Features.getInstance();
         if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
-            CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+            final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
             currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gamePauseRunnable);
         }
     }
+    
 
-    public override void unPause(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void unPause(AllBinaryGameCanvas allBinaryGameCanvas) {
         if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
-            CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+            final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
             currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gameRunnable);
             currentDisplayableFactory.setDisplayable(allBinaryGameCanvas);
         }
     }
+    
 
-    // throws Exception
-    public override void updateTouch(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void updateTouch(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.updateTouch2();
     }
+    
 
-    // throws Exception
-    public override void updateScreenButtonPaintable(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void updateScreenButtonPaintable(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.updateScreenButtonPaintable2();
     }
+    
 
-    // throws Exception
-    public override void setGameState(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void setGameState(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.updateGameState();
     }
+    
 
-    public override void removeAllGameKeyInputListeners(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void removeAllGameKeyInputListeners(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.removeAllGameKeyInputListeners2();
     }
+    
 
-    // throws Exception
-    public override void updateEndGameProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void updateEndGameProcessor(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.updateEndGameProcessor2();
     }
+    
 
-    // throws Exception
-    public override void buildGame(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void buildGame(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.buildGame2();
     }
+    
 
-    // throws Exception
-    public override void run(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    @override
+    void run(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.run2();
     }
+    
 
-    // throws Exception
-    public override void setHighScore(AbeClientInformationInterface abeClientInformation, AllBinaryGameCanvas allBinaryGameCanvas, string name, long score, bool autoSubmit, bool isLast)
-    {
+    @override
+    void setHighScore(AbeClientInformationInterface abeClientInformation, AllBinaryGameCanvas allBinaryGameCanvas, String name, int score, bool autoSubmit, bool isLast) {
         allBinaryGameCanvas.setHighScore2(abeClientInformation, name, score, autoSubmit, isLast);
     }
-
 }
 

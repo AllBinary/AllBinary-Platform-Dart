@@ -13,39 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using RunnableCanvas = org.allbinary.canvas.RunnableCanvas;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/RunnableCanvas.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameRunnable.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class RunnableCanvasSingleThreadStartRunnable extends GameRunnable {
+    late LogUtil logUtil;
+    late RunnableCanvas runnableCanvas;
 
-public class RunnableCanvasSingleThreadStartRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly RunnableCanvas runnableCanvas;
-    public RunnableCanvasSingleThreadStartRunnable(RunnableCanvas demoCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRunnableCanvasSingleThreadStartRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    RunnableCanvasSingleThreadStartRunnable(RunnableCanvas demoCanvas) {
+        this.initFieldsRunnableCanvasSingleThreadStartRunnable();
         this.runnableCanvas = demoCanvas;
     }
+    
 
-    public override void run()
-    {
+    @override
+    void run() {
         try {
             this.runnableCanvas.run();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
         }
     }
+    
 
-    // throws Exception
-    public override void processLoopSleep()
-    {
+    @override
+    void processLoopSleep() {
         this.runnableCanvas.processLoopSleep();
     }
-
 }
 

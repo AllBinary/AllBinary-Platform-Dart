@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/InitUpdatePaintableInterface.dart';
 
-namespace org.allbinary.graphics.paint;
+class InitUpdatePaintable extends Paintable implements InitUpdatePaintableInterface {
+    
 
-public class InitUpdatePaintable : Paintable, InitUpdatePaintableInterface
-{
-    public InitUpdatePaintable()
-    {
+    InitUpdatePaintable() {
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    @override
+    void init() {
     }
+    
 
-    public virtual void update()
-    {
+    @override
+    void update() {
     }
-
 }
 

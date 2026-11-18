@@ -13,28 +13,42 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImageTranslate.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImage.dart';
 
-namespace org.allbinary.image.opengles;
+class OpenGLESDeviceImageTranslate extends OpenGLESImageTranslate {
+    double translateX = 0.0;
+    double translateY = 0.0;
+    double translateX2 = 0.0;
+    double translateY2 = 0.0;
 
-public class OpenGLESDeviceImageTranslate : OpenGLESImageTranslate
-{
-    public float translateX = 0.0f;
-    public float translateY = 0.0f;
-    public float translateX2 = 0.0f;
-    public float translateY2 = 0.0f;
-    public override void translate(GL10 gl, OpenGLESImage openGLESImage, float x, float y)
-    {
-        openGLESImage.imageProcessor.translate(gl, translateX + (openGLESImage.openGLESImageProperties.scaleX * x), translateY + (openGLESImage.openGLESImageProperties.scaleY * y));
+    // Java field initializers run after the base constructor
+    void initFieldsOpenGLESDeviceImageTranslate() {
+    this.translateX = 0.0;
+    this.translateY = 0.0;
+    this.translateX2 = 0.0;
+    this.translateY2 = 0.0;
     }
 
-    public override void translate2(GL10 gl, OpenGLESImage openGLESImage)
-    {
-        openGLESImage.imageProcessor.translate(gl, translateX2, translateY2);
+    OpenGLESDeviceImageTranslate() {
+        this.initFieldsOpenGLESDeviceImageTranslate();
     }
+    
 
+    @override
+    void translate(GL10 gl, OpenGLESImage openGLESImage, double x, double y) {
+        openGLESImage.imageProcessor.translate(gl, this.translateX + (openGLESImage.openGLESImageProperties.scaleX * x), this.translateY + (openGLESImage.openGLESImageProperties.scaleY * y));
+    }
+    
+
+    @override
+    void translate2(GL10 gl, OpenGLESImage openGLESImage) {
+        openGLESImage.imageProcessor.translate(gl, this.translateX2, this.translateY2);
+    }
 }
 

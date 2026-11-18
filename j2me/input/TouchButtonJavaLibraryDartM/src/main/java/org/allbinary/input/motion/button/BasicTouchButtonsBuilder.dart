@@ -13,27 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BaseTouchInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/CommonButtons.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonLocationHelper.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchButtonCellPositionFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButton.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonUpResource.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonDownResource.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonTurnLeftResource.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonTurnRightResource.dart';
 
-namespace org.allbinary.input.motion.button;
+class BasicTouchButtonsBuilder extends BaseTouchInput {
+    late LogUtil logUtil;
 
-public class BasicTouchButtonsBuilder : BaseTouchInput
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override BasicArrayList getList()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicTouchButtonsBuilder() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    BasicTouchButtonsBuilder() {
+        this.initFieldsBasicTouchButtonsBuilder();
+    }
+    
+
+    @override
+    BasicArrayList getList() {
         try {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
-            BasicArrayList list = new BasicArrayListD();
-            CommonButtons commonButtons = CommonButtons.getInstance();
-            TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
-            BasicTouchButtonCellPositionFactory basicTouchButtonCellPositionFactory = new BasicTouchButtonCellPositionFactory();
+            final BasicArrayList list = BasicArrayListD();
+            final CommonButtons commonButtons = CommonButtons.getInstance();
+            final TouchButtonLocationHelper touchButtonLocationHelper = TouchButtonLocationHelper();
+            final BasicTouchButtonCellPositionFactory basicTouchButtonCellPositionFactory = BasicTouchButtonCellPositionFactory();
             TouchButton UP = TouchButton.createButton(BasicTouchInputFactory.getInstance().UP, TouchButtonUpResource.getInstance(), commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
             TouchButton DOWN = TouchButton.createButton(BasicTouchInputFactory.getInstance().DOWN, TouchButtonDownResource.getInstance(), commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
             TouchButton LEFT = TouchButton.createButton(BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FOUR, TouchButtonTurnLeftResource.getInstance(), commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
@@ -43,11 +62,13 @@ public class BasicTouchButtonsBuilder : BaseTouchInput
             list.add(RIGHT);
             list.add(DOWN);
             return list;
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_LIST, e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
+            }
         }
     }
-
 }
 

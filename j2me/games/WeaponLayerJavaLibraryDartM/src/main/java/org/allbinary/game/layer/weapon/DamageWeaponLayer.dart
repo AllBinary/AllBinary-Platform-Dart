@@ -13,24 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.weapon
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using Movement = org.allbinary.physics.movement.Movement;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/physics/movement/Movement.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/WeaponLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/CollidableDamageWeaponBehavior.dart';
 
-namespace org.allbinary.game.layer.weapon;
+class DamageWeaponLayer extends WeaponLayer {
+    
 
-public class DamageWeaponLayer : WeaponLayer
-{
-    public DamageWeaponLayer(string name, RemoteInfo remoteInfo, Movement movement, Animation animationInterface, Animation destroyedAnimationInterface, Rectangle rectangle, ViewPositionBase viewPosition, string username, int actorSessionId, int id, int multiPlayerType) : base(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition)
-    {
-        // base(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition) is called from the constructor declaration
-        this.setCollidableInferface(new CollidableDamageWeaponBehavior(true));
+    DamageWeaponLayer(String name, RemoteInfo remoteInfo, Movement movement, Animation animationInterface, Animation destroyedAnimationInterface, Rectangle rectangle, ViewPositionBase viewPosition, String username, int actorSessionId, int id, int multiPlayerType) : super(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition) {
+        
+        this.setCollidableInferface(CollidableDamageWeaponBehavior(true));
     }
-
 }
 

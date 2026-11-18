@@ -13,110 +13,106 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using Form = javax.microedition.lcdui.Form;
-using InvalidRecordIDException = javax.microedition.rms.InvalidRecordIDException;
-using RecordStore = javax.microedition.rms.RecordStore;
-using RecordStoreException = javax.microedition.rms.RecordStoreException;
-using RecordStoreNotOpenException = javax.microedition.rms.RecordStoreNotOpenException;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace org.allbinary;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Displayable.dart';
+import 'package:allbinary/javax/microedition/lcdui/Form.dart';
+import 'package:allbinary/javax/microedition/rms/InvalidRecordIDException.dart';
+import 'package:allbinary/javax/microedition/rms/RecordStore.dart';
+import 'package:allbinary/javax/microedition/rms/RecordStoreException.dart';
+import 'package:allbinary/javax/microedition/rms/RecordStoreNotOpenException.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
 //J2SE
-public class TsUtil
-{
-    private static readonly TsUtil instance = new TsUtil();
-    public static TsUtil getInstance()
-    {
+class TsUtil {
+    static final TsUtil instance = TsUtil();
+    
+
+    static TsUtil getInstance() {
         return TsUtil.instance;
     }
+    
 
-    public virtual double longBitsToDouble(long bits)
-    {
-        return BitConverter.Int64BitsToDouble(bits);
+    double longBitsToDouble(int bits) {
+        return JNumber.longBitsToDouble(bits);
     }
+    
 
-    public virtual float intBitsToFloat(int bits)
-    {
-        return BitConverter.Int32BitsToSingle(bits);
+    double intBitsToFloat(int bits) {
+        return JNumber.intBitsToFloat(bits);
     }
+    
 
-    public virtual int hashCode(object anyType)
-    {
-        return anyType.GetHashCode();
+    int hashCode1(Object anyType) {
+        return anyType.hashCode;
     }
+    
 
-    // throws InterruptedException
-    public virtual void waitFor(object any, long timeoutMillis)
-    {
-        object anyType = ((object) any);
-        System.Threading.Monitor.Wait(anyType, (int) (timeoutMillis));
+    void waitFor(Object any, int timeoutMillis) {
+        final Object anyType = any;
+        anyType.wait(timeoutMillis);
     }
+    
 
-    // throws RecordStoreNotOpenException, InvalidRecordIDException, RecordStoreException
-    public virtual sbyte[] getRecord(object anyType, int recordId)
-    {
-        RecordStore recordStore = ((RecordStore) anyType);
-        sbyte[] data = null;
-        lock (this) {
-            data = new sbyte[recordStore.getRecordSize(recordId)];
+    List<int> getRecord(Object anyType, int recordId) {
+        final RecordStore recordStore = (anyType as RecordStore);
+        late List<int> data;
+        {
+            data = List<int>.filled(recordStore.getRecordSize(recordId), 0);
             recordStore.getRecord(recordId, data, 0);
         }
-        return (data.Length < 1 ? NullUtil.getInstance().NULL_BYTE_ARRAY : data);
+        return (data.length < 1 ? NullUtil.getInstance().NULL_BYTE_ARRAY : data);
     }
+    
 
-    public virtual int compareTo(string a, string b)
-    {
-        return string.CompareOrdinal(a, b);
+    int compareTo(String a, String b) {
+        return a.compareTo(b);
     }
+    
 
-    public virtual bool equalIgnoreCase(string a, string b)
-    {
-        return string.Equals(a, b, StringComparison.OrdinalIgnoreCase);
+    bool equalIgnoreCase(String a, String b) {
+        return (a.toLowerCase() == b.toLowerCase());
     }
+    
 
-    public virtual bool equalsNotstring(object anyType, object object2)
-    {
-        return anyType.Equals(object2);
+    bool equalsNotstring(Object anyType, Object object2) {
+        return anyType.equals(object2);
     }
+    
 
-    public virtual global::java.lang.ClassLoader getClassClassLoader(object anyType)
-    {
-        return global::java.lang.ClassLoader.getSystemClassLoader();
+    ClassLoader getClassClassLoader(Object anyType) {
+        return jClassName(anyType).getClassLoader();
     }
+    
 
-    public virtual int toNumberFromChar(char value)
-    {
-        return ((int) value);
-    }
-
-    public virtual int toNumber(int value)
-    {
+    int toNumberFromChar(int value) {
         return value;
     }
+    
 
-    public virtual sbyte[] getByteArray(string @string)
-    {
-        return System.Array.ConvertAll(System.Text.Encoding.UTF8.GetBytes(@string), value => unchecked((sbyte) value));
+    int toNumber(int value) {
+        return value;
     }
+    
 
-    public virtual bool isItemListener(Displayable owner)
-    {
-        if (owner is Form) {
+    List<int> getByteArray(String string) {
+        return JString.getBytes(string);
+    }
+    
+
+    bool isItemListener(Displayable owner) {
+        if ((owner is Form)) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual void gc()
-    {
-        GC.Collect();
+    void gc() {
+        JSystem.gc();
     }
-
 }
 

@@ -13,27 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.android.view
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.android.view;
+class AllBinaryRenderer {
+    static final AllBinaryRenderer instance = AllBinaryRenderer();
+    
 
-public class AllBinaryRenderer
-{
-    private static readonly AllBinaryRenderer instance = new AllBinaryRenderer();
-    public static AllBinaryRenderer getInstance()
-    {
+    static AllBinaryRenderer getInstance() {
         return AllBinaryRenderer.instance;
     }
+    
 
-    public virtual void setRunnable(global::java.lang.Runnable runnable)
-    {
+    void setRunnable(Runnable runnable) {
     }
+    
 
-    public virtual void clearRunnable()
-    {
+    void clearRunnable() {
     }
-
 }
 

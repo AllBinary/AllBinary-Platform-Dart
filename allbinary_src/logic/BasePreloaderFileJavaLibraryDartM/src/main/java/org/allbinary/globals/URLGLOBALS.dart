@@ -13,40 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.globals
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/globals/AppUrlGlobals.dart';
+import 'package:allbinary/org/allbinary/globals/UrlGlobalsInterface.dart';
 
-namespace org.allbinary.globals;
+class URLGLOBALS {
+    static UrlGlobalsInterface urlGlobalsInterface = AppUrlGlobals.NULL_APP_URL_GLOBALS;
+    
 
-public class URLGLOBALS
-{
-    private static UrlGlobalsInterface urlGlobalsInterface = AppUrlGlobals.NULL_APP_URL_GLOBALS;
-    public static void init(UrlGlobalsInterface urlGlobalsInterface)
-    {
+    static void init(UrlGlobalsInterface urlGlobalsInterface) {
         URLGLOBALS.urlGlobalsInterface = urlGlobalsInterface;
     }
+    
 
-    public static bool isTestingMode()
-    {
+    static bool isTestingMode() {
         return URLGLOBALS.urlGlobalsInterface.isTestingMode();
     }
+    
 
-    public static string getWebappPath()
-    {
+    static String getWebappPath() {
         return URLGLOBALS.urlGlobalsInterface.getWebappPath();
     }
+    
 
-    public static string getTestHtmlPath()
-    {
+    static String getTestHtmlPath() {
         return URLGLOBALS.urlGlobalsInterface.getTestHtmlPath();
     }
+    
 
-    // throws Exception
-    public static string getMainPath()
-    {
+    static String getMainPath() {
         return URLGLOBALS.urlGlobalsInterface.getMainPath();
     }
-
 }
 

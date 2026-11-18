@@ -13,52 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using CollidableBaseBehavior = org.allbinary.game.collision.CollidableBaseBehavior;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using DamageUtil = org.allbinary.game.combat.damage.DamageUtil;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehavior.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/combat/damage/DamageUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
 
-namespace org.allbinary.game.layer.special;
+class CollidableDestroyableDamageableBehavior extends CollidableBaseBehavior {
+    late DamageUtil damageUtil;
 
-public class CollidableDestroyableDamageableBehavior : CollidableBaseBehavior
-{
-    public readonly DamageUtil damageUtil = DamageUtil.getInstance();
-    public CollidableDestroyableDamageableBehavior(bool collidable) : base(collidable)
-    {
-        // base(collidable) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCollidableDestroyableDamageableBehavior() {
+    this.damageUtil = DamageUtil.getInstance();
     }
+    
 
-    public override bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
-    {
-        if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0]) {
-            return base.isCollision(ownerLayer, collisionLayer);
+    CollidableDestroyableDamageableBehavior(bool collidable) : super(collidable) {
+        this.initFieldsCollidableDestroyableDamageableBehavior();
+        
+    }
+    
+
+    @override
+    bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer) {
+        if (ownerLayer.getGroupInterface()[0]! != collisionLayer.getGroupInterface()[0]!) {
+            return super.isCollision(ownerLayer, collisionLayer);
         }
         return false;
     }
+    
 
-    // throws Exception
-    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface)
-    {
-        CollidableDestroyableDamageableLayer ownerCollidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) ownerLayer);
-        CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface);
+    @override
+    void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface) {
+        final CollidableDestroyableDamageableLayer ownerCollidableDestroyableDamageableLayer = (ownerLayer as CollidableDestroyableDamageableLayer);
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (collidableInterfaceCompositeInterface as CollidableDestroyableDamageableLayer);
         ownerCollidableDestroyableDamageableLayer.damage(collidableDestroyableDamageableLayer.getDamage(0), 0);
     }
+    
 
-    public override bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    @override
+    bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         ForcedLogUtil.log("No Longer Used", this);
         return false;
     }
+    
 
-    // throws Exception
-    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    @override
+    void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         ForcedLogUtil.log("No Longer Used", this);
     }
-
 }
 

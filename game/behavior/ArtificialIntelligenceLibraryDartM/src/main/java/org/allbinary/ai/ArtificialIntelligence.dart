@@ -13,35 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
 
-namespace org.allbinary.ai;
+class ArtificialIntelligence implements ArtificialIntelligenceInterface {
+    static const int AI_ID = 2;
+    static final ArtificialIntelligence instance = ArtificialIntelligence();
+    
 
-public class ArtificialIntelligence : ArtificialIntelligenceInterface
-{
-    public const int AI_ID = 2;
-    private static readonly ArtificialIntelligence instance = new ArtificialIntelligence();
-    public static ArtificialIntelligence getInstance()
-    {
+    static ArtificialIntelligence getInstance() {
         return ArtificialIntelligence.instance;
     }
+    
 
-    public ArtificialIntelligence()
-    {
+    ArtificialIntelligence() {
     }
+    
 
-    // throws Exception
-    public virtual void processAI(AllBinaryLayerManager layerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager layerManager) {
     }
+    
 
-    public virtual int getId()
-    {
+    @override
+    int getId() {
         return 1;
     }
-
 }
 

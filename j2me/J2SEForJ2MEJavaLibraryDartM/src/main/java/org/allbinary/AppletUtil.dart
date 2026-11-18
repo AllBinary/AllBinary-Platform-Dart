@@ -13,29 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary
 
-using System;
-using System.Linq;
-
-namespace org.allbinary;
+import 'package:allbinary/allbinary_java.dart';
 
 //import org.allbinary.logic.communication.log.PreLogUtil;
-public class AppletUtil
-{
-    private AppletUtil()
-    {
-    }
+class AppletUtil {
+    static bool applet = false;
+    
 
-    private static bool applet = false;
-    public static void setApplet()
-    {
+    AppletUtil() {
+    }
+    
+
+    static void setApplet() {
         AppletUtil.applet = true;
     }
+    
 
-    public static bool isAppletLoader(object anyType)
-    {
+    static bool isAppletLoader(Object anyType) {
         return AppletUtil.applet;
     }
-
 }
 

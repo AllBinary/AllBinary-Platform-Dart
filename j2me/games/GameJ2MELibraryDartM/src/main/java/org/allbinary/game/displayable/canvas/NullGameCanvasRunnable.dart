@@ -13,132 +13,156 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Item = javax.microedition.lcdui.Item;
-using GameState = org.allbinary.game.state.GameState;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
-using StdUtil = org.allbinary.logic.StdUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Item.dart';
+import 'package:allbinary/org/allbinary/game/state/GameState.dart';
+import 'package:allbinary/org/allbinary/game/state/GameStateFactory.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
+    static final NullGameCanvasRunnable NULL_GAME_CANVAS_RUNNABLE = NullGameCanvasRunnable();
+    late GameStateFactory gameStateFactory;
 
-public class NullGameCanvasRunnable : GameCanvasRunnableInterface
-{
-    public static readonly NullGameCanvasRunnable NULL_GAME_CANVAS_RUNNABLE = new NullGameCanvasRunnable();
-    public readonly GameStateFactory gameStateFactory = GameStateFactory.getInstance();
-    public virtual string getTitle()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNullGameCanvasRunnable() {
+    this.gameStateFactory = GameStateFactory.getInstance();
+    }
+
+    NullGameCanvasRunnable() {
+        this.initFieldsNullGameCanvasRunnable();
+    }
+    
+
+    @override
+    String getTitle() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    @override
+    bool isInitialized() {
         return false;
     }
+    
 
-    public virtual bool isPaused()
-    {
+    @override
+    bool isPaused() {
         return false;
     }
+    
 
-    public virtual void unPause()
-    {
+    @override
+    void unPause() {
     }
+    
 
-    public virtual void pause()
-    {
+    @override
+    void pause() {
     }
+    
 
-    public virtual bool isHighScoreSubmitted()
-    {
+    @override
+    bool isHighScoreSubmitted() {
         return false;
     }
+    
 
-    // throws Exception
-    public virtual void setHighScoreSubmitted(bool highScoreSubmitted)
-    {
+    @override
+    void setHighScoreSubmitted(bool highScoreSubmitted) {
     }
+    
 
-    // throws Exception
-    public virtual void processGameOver()
-    {
+    @override
+    void processGameOver() {
     }
+    
 
-    public virtual bool isGameOver()
-    {
+    @override
+    bool isGameOver() {
         return false;
     }
+    
 
-    public virtual void initCommands(CommandListener cmdListener)
-    {
+    @override
+    void initCommands(CommandListener cmdListener) {
     }
+    
 
-    // throws Exception
-    public virtual ABHashtable<object, object> getCurrentStateHashtable()
-    {
+    @override
+    ABHashtable getCurrentStateHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    // throws Exception
-    public virtual ABHashtable<object, object> getLoadStateHashtable()
-    {
+    @override
+    ABHashtable getLoadStateHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    // throws Exception
-    public virtual void setLoadStateHashtable(ABHashtable<object, object> hashtable)
-    {
+    @override
+    void setLoadStateHashtable(ABHashtable hashtable) {
     }
+    
 
-    public virtual int getType()
-    {
+    @override
+    int getType() {
         return -1;
     }
+    
 
-    // throws Exception
-    public virtual void setGameState(GameState gameState)
-    {
+    @override
+    void setGameState(GameState gameState) {
     }
+    
 
-    public virtual GameState getGameState()
-    {
+    @override
+    GameState getGameState() {
         return this.gameStateFactory.NO_GAME_STATE;
     }
+    
 
-    public virtual void itemStateChanged(Item item)
-    {
+    @override
+    void itemStateChanged(Item item) {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
+    
 
-    public virtual bool isRunning()
-    {
+    @override
+    bool isRunning() {
         return false;
     }
+    
 
-    public virtual void setRunning(bool isRunning)
-    {
+    @override
+    void setRunning(bool isRunning) {
     }
+    
 
-    // throws Exception
-    public virtual void setThread(global::org.allbinary.thread.NullThread thread)
-    {
+    @override
+    void setThread(Thread thread) {
     }
+    
 
-    public virtual void run()
-    {
+    @override
+    void run() {
     }
-
 }
 

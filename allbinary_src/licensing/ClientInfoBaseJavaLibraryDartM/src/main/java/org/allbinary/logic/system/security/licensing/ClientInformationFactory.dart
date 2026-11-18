@@ -13,25 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/ClientInformation.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class ClientInformationFactory {
+    
 
-public class ClientInformationFactory
-{
-    public virtual ClientInformation getInstance()
-    {
-        LogUtil logUtil = LogUtil.getInstance();
-        CommonStrings commonStrings = CommonStrings.getInstance();
+    ClientInformation getInstance() {
+        final LogUtil logUtil = LogUtil.getInstance();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, commonStrings.GET_INSTANCE);
-        StringUtil stringUtil = StringUtil.getInstance();
-        return new ClientInformation(stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING);
+        final StringUtil stringUtil = StringUtil.getInstance();
+        return ClientInformation(stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING);
     }
-
 }
 

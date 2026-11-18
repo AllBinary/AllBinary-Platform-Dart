@@ -13,57 +13,69 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.event
 
-using System;
-using System.Linq;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/input/event/VirtualKeyboardEvent.dart';
+import 'package:allbinary/org/allbinary/input/event/VirtualKeyboardEventListenerInterface.dart';
 
-namespace org.allbinary.input.@event;
+class VirtualKeyboardEventHandler extends BasicEventHandler {
+    static final VirtualKeyboardEventHandler gameKeyEventHandler = VirtualKeyboardEventHandler();
+    late VirtualKeyboardEvent SHOW_EVENT;
+    late VirtualKeyboardEvent HIDE_EVENT;
 
-public class VirtualKeyboardEventHandler : BasicEventHandler
-{
-    private static readonly VirtualKeyboardEventHandler gameKeyEventHandler = new VirtualKeyboardEventHandler();
-    private VirtualKeyboardEventHandler()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsVirtualKeyboardEventHandler() {
+    this.SHOW_EVENT = VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE);
+    this.HIDE_EVENT = VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE);
     }
+    
 
-    public readonly VirtualKeyboardEvent SHOW_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE);
-    public readonly VirtualKeyboardEvent HIDE_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE);
-    public static VirtualKeyboardEventHandler getInstance()
-    {
+    VirtualKeyboardEventHandler() {
+        this.initFieldsVirtualKeyboardEventHandler();
+    }
+    
+
+    static VirtualKeyboardEventHandler getInstance() {
         return VirtualKeyboardEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        VirtualKeyboardEventListenerInterface virtualKeyboardEventListenerInterface = ((VirtualKeyboardEventListenerInterface) eventListenerInterface);
-        virtualKeyboardEventListenerInterface.onVirtualKeyboardEvent(((VirtualKeyboardEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final VirtualKeyboardEventListenerInterface virtualKeyboardEventListenerInterface = (eventListenerInterface as VirtualKeyboardEventListenerInterface);
+        virtualKeyboardEventListenerInterface.onVirtualKeyboardEvent((eventObject as VirtualKeyboardEvent));
     }
+    
 
-    public virtual void open()
-    {
+    void open() {
         try {
-            System.Threading.Thread.Sleep((int) (120));
+            Thread.sleep(120);
             this.fireEvent(this.SHOW_EVENT);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "open", e);
+            }
         }
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    void close() {
         try {
-            System.Threading.Thread.Sleep((int) (120));
+            Thread.sleep(120);
             this.fireEvent(this.HIDE_EVENT);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
+            }
         }
     }
-
 }
 

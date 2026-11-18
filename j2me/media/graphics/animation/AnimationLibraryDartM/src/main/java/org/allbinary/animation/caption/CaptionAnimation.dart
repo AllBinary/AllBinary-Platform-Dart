@@ -13,24 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.caption
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation.caption;
+class CaptionAnimation extends Animation {
+    late Animation animationInterface;
+    late Animation overlayAnimationInterface;
+    int captionDx = 0;
+    int captionDy = 0;
+    int dx = 0;
+    int dy = 0;
 
-public class CaptionAnimation : Animation
-{
-    private readonly Animation animationInterface;
-    private readonly Animation overlayAnimationInterface;
-    private readonly int captionDx;
-    private readonly int captionDy;
-    private readonly int dx;
-    private readonly int dy;
-    public CaptionAnimation(Animation animationInterface, Animation overlayAnimationInterface, int captionDx, int captionDy, int dx, int dy)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCaptionAnimation() {
+    
+    
+    
+    
+    
+    
+    }
+    
+
+    CaptionAnimation(Animation animationInterface, Animation overlayAnimationInterface, int captionDx, int captionDy, int dx, int dy) {
+        this.initFieldsCaptionAnimation();
         this.animationInterface = animationInterface;
         this.overlayAnimationInterface = overlayAnimationInterface;
         this.captionDx = captionDx;
@@ -38,23 +48,24 @@ public class CaptionAnimation : Animation
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.animationInterface.paintXY(graphics, x + this.captionDx, y + this.captionDy);
         this.overlayAnimationInterface.paintXY(graphics, x + this.captionDx + this.dx, y + this.captionDy + this.dy);
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
+    @override
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z) {
         this.animationInterface.paintThreedXYZ(graphics, x + this.captionDx, y + this.captionDy, z);
         this.overlayAnimationInterface.paintThreedXYZ(graphics, x + this.captionDx + this.dx, y + this.captionDy + this.dy, z);
     }
-
 }
 

@@ -13,104 +13,121 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using CollidableAlwaysPickupNeverCollideBehaviorFactory = org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
-using DestroyedLayerProcessor = org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
-using BasicGroupFactory = org.allbinary.game.identification.BasicGroupFactory;
-using MultiPlayerGameLayer = org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using OpenGLSurfaceChangedInterface = org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyedLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/identification/BasicGroupFactory.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/MultiPlayerGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickupableInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class PickupLayer extends MultiPlayerGameLayer implements PickedUpLayerInterface, PickupableInterface {
+    late PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface;
+    bool destroyed = false;
+    late Animation animationInterface;
 
-public class PickupLayer : MultiPlayerGameLayer, PickedUpLayerInterface, PickupableInterface
-{
-    private PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    private bool destroyed = false;
-    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
-    public PickupLayer(string name, RemoteInfo remoteInfo, int total, PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, Animation animationInterface, Rectangle rectangle, ViewPositionBase viewPosition) : base(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition)
-    {
-        // base(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsPickupLayer() {
+    this.pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    this.destroyed = false;
+    this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+    }
+    
+
+    PickupLayer(String name, RemoteInfo remoteInfo, int total, PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, Animation animationInterface, Rectangle rectangle, ViewPositionBase viewPosition) : super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition) {
+        this.initFieldsPickupLayer();
+        
         this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance().createBehavior());
         this.setLayerWidth(10);
         this.setLayerHeight(10);
         this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
     }
+    
 
-    public virtual void init(PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, Animation animationInterface)
-    {
+    void init(PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, Animation animationInterface) {
         this.pickedUpLayerInterfaceFactoryInterface = pickedUpLayerInterfaceFactoryInterface;
         this.animationInterface = animationInterface;
         this.setDestroyed(false);
     }
+    
 
-    public virtual void initXYZ(int x, int y, int z)
-    {
+    void initXYZ(int x, int y, int z) {
         this.setPosition(x, y, z);
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        ViewPositionBase viewPosition = this.getViewPosition();
-        int viewX = viewPosition.getX();
-        int viewY = viewPosition.getY();
+    @override
+    void paint(Graphics graphics) {
+        final ViewPositionBase viewPosition = this.getViewPosition();
+        final int viewX = viewPosition.getX();
+        final int viewY = viewPosition.getY();
         this.animationInterface.paintXY(graphics, viewX, viewY);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
-        ViewPositionBase viewPosition = this.getViewPosition();
-        int viewX = viewPosition.getX();
-        int viewY = viewPosition.getY();
+    @override
+    void paintThreed(Graphics graphics) {
+        final ViewPositionBase viewPosition = this.getViewPosition();
+        final int viewX = viewPosition.getX();
+        final int viewY = viewPosition.getY();
         this.animationInterface.paintThreedXYZ(graphics, viewX, viewY, 3);
     }
+    
 
-    public virtual PickedUpLayerInterfaceFactoryInterface getPickedUpLayerInterfaceFactoryInterface()
-    {
+    @override
+    PickedUpLayerInterfaceFactoryInterface getPickedUpLayerInterfaceFactoryInterface() {
         return this.pickedUpLayerInterfaceFactoryInterface;
     }
+    
 
-    public virtual void setPickedUp()
-    {
+    @override
+    void setPickedUp() {
         this.setDestroyed(true);
     }
+    
 
-    public override bool isDestroyed()
-    {
+    @override
+    bool isDestroyed() {
         return this.destroyed;
     }
+    
 
-    public virtual void setDestroyed(bool destroyed)
-    {
+    void setDestroyed(bool destroyed) {
         this.destroyed = destroyed;
         if (this.isDestroyed()) {
             DestroyedLayerProcessor.getInstance().add(this);
         }
     }
+    
 
-    public override void damage(int damage, int damageType)
-    {
+    @override
+    void damage(int damage, int damageType) {
     }
+    
 
-    public override int getDamage(int damageType)
-    {
+    @override
+    int getDamage(int damageType) {
         return 0;
     }
+    
 
-    // throws Exception
-    public override void set(GL gl)
-    {
-        OpenGLSurfaceChangedInterface openGLSurfaceChangedInterface = ((OpenGLSurfaceChangedInterface) this.animationInterface);
+    @override
+    void set(GL gl) {
+        OpenGLSurfaceChangedInterface openGLSurfaceChangedInterface = (this.animationInterface as OpenGLSurfaceChangedInterface);
         openGLSurfaceChangedInterface.set(gl);
     }
-
 }
 

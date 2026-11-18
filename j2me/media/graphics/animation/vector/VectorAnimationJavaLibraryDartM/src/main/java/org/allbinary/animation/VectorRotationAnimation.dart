@@ -13,51 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/animation/VectorBaseRotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class VectorRotationAnimation extends VectorBaseRotationAnimation {
+    
 
-public class VectorRotationAnimation : VectorBaseRotationAnimation
-{
-    public VectorRotationAnimation(int[][][] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : base(AngleInfo.getInstance(((short) (AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.Length))), currentPoints, basicColor, animationBehavior)
-    {
-        // base(AngleInfo.getInstance(((short) (AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.Length))), currentPoints, basicColor, animationBehavior) is called from the constructor declaration
+    VectorRotationAnimation(List<List<List<int>?>?> currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : super(AngleInfo.getInstance1(((AngleFactory.getInstance().TOTAL_ANGLE ~/ currentPoints.length)).toSigned(16)), currentPoints, basicColor, animationBehavior) {
+        
         this.angleInfo.adjustAngle(this.getFrame());
     }
+    
 
-    public override void setFrameByDirection(Direction direction)
-    {
+    @override
+    void setFrameByDirection(Direction direction) {
         Angle angle = this.directionUtil.getFrameAngle(direction);
         this.adjustFrameToAngle(angle);
     }
+    
 
-    public override void setFrameToAngle(Angle angle)
-    {
+    @override
+    void setFrameToAngle(Angle angle) {
         this.adjustFrameToAngle(angle);
     }
+    
 
-    public override void setFrame(int index)
-    {
-        base.setFrame(index);
+    @override
+    void setFrame(int index) {
+        super.setFrame(index);
         this.angleInfo.adjustAngle(this.getFrame());
     }
+    
 
-    public override void adjustFrame(short newAngle)
-    {
-        this.setFrame(this.frameUtil.getFrameForAngle(newAngle, ((int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
+    @override
+    void adjustFrame(int newAngle) {
+        this.setFrame(this.frameUtil.getFrameForAngle(newAngle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
+    
 
-    public override void adjustFrameToAngle(Angle newAngle)
-    {
+    @override
+    void adjustFrameToAngle(Angle newAngle) {
         this.adjustFrame(newAngle.getValue());
     }
-
 }
 

@@ -13,109 +13,109 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.threed
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using MIDlet = javax.microedition.midlet.MIDlet;
-
-namespace org.allbinary.graphics.threed;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/midlet/MIDlet.dart';
+import 'package:allbinary/org/allbinary/graphics/threed/RatioProcessor.dart';
 
 //OpenGLNone
-public class SWTJOGLProcessor : global::java.lang.Runnable
-{
-    private static readonly SWTJOGLProcessor instance = new SWTJOGLProcessor();
-    public static SWTJOGLProcessor getInstance()
-    {
+class SWTJOGLProcessor implements Runnable {
+    static final SWTJOGLProcessor instance = SWTJOGLProcessor();
+    
+
+    static SWTJOGLProcessor getInstance() {
         return SWTJOGLProcessor.instance;
     }
+    
 
-    public virtual void init(object display, object comp)
-    {
+    void init(Object display, Object comp) {
     }
+    
 
-    public virtual bool isHolderCreated()
-    {
+    bool isHolderCreated() {
         return true;
     }
+    
 
-    public virtual void setRenderer(object renderer)
-    {
+    void setRenderer(Object renderer) {
     }
+    
 
-    public virtual bool isJOGL()
-    {
+    bool isJOGL() {
         return false;
     }
+    
 
-    public virtual void createSurface()
-    {
+    void createSurface() {
     }
+    
 
-    public virtual void onSurfaceCreated()
-    {
+    void onSurfaceCreated() {
     }
+    
 
-    public virtual void onSurfaceChangedForEvent(object @event)
-    {
+    void onSurfaceChangedForEvent(Object event) {
     }
+    
 
-    public virtual void onSurfaceChanged()
-    {
+    void onSurfaceChanged() {
     }
+    
 
-    public virtual void onSurfaceChangedWH(int width, int height)
-    {
+    void onSurfaceChangedWH(int width, int height) {
     }
+    
 
-    public virtual void addListener()
-    {
+    void addListener() {
     }
+    
 
-    public virtual void addListeners(MIDlet midlet)
-    {
+    void addListeners(MIDlet midlet) {
     }
+    
 
-    public virtual void run()
-    {
+    @override
+    void run() {
     }
+    
 
-    public virtual void clear()
-    {
+    void clear() {
     }
+    
 
-    public virtual void setCustom(int width, int height, float ratio)
-    {
+    void setCustom(int width, int height, double ratio) {
     }
+    
 
-    public virtual void setRatioProcessor(RatioProcessor ratioProcessor)
-    {
+    void setRatioProcessor(RatioProcessor ratioProcessor) {
     }
+    
 
-    public virtual bool isPortraitRatioProcessor()
-    {
+    bool isPortraitRatioProcessor() {
         return true;
     }
+    
 
-    public virtual int charWidth(Font font, char ch)
-    {
-        throw new SystemException();
+    int charWidth(Font font, int ch) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual int charsWidth(Font font, char[] ch, int offset, int length)
-    {
-        throw new SystemException();
+    int charsWidth(Font font, List<int> ch, int offset, int length) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual int stringWidth(Font font, string str)
-    {
-        throw new SystemException();
+    int stringWidth(Font font, String str) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual int substringWidth(Font font, string str, int offset, int len)
-    {
-        throw new SystemException();
+    int substringWidth(Font font, String str, int offset, int len) {
+        throw JException('RuntimeException', '');
     }
-
 }
 

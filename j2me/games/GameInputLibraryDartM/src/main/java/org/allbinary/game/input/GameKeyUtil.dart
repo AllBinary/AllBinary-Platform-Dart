@@ -13,29 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
 
-namespace org.allbinary.game.input;
+class GameKeyUtil {
+    static final GameKeyUtil instance = GameKeyUtil();
+    
 
-public class GameKeyUtil
-{
-    private static readonly GameKeyUtil instance = new GameKeyUtil();
-    public virtual bool isDirectionKey(int key)
-    {
+    bool isDirectionKey(int key) {
         if (key == Canvas.UP || key == Canvas.DOWN || key == Canvas.LEFT || key == Canvas.RIGHT) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public static GameKeyUtil getInstance()
-    {
+    static GameKeyUtil getInstance() {
         return GameKeyUtil.instance;
     }
-
 }
 

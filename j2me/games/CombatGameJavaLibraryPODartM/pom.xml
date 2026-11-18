@@ -124,7 +124,7 @@
 
         <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryDartM</module>
         <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryDartM</module>
-        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryDartM</module>
+        <!--<module>../../input/AllBinaryMagneticFieldSensorJavaLibraryDartM</module>-->
         <!--<module>../../android/VirtualKeyboardJavaLibraryDartM</module>-->
 
     </modules>

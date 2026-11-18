@@ -1,51 +1,57 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/CustomCustomItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItemInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABStringComponent.dart';
 
-namespace org.allbinary.graphics.form.item;
+class ABTextItem extends CustomCustomItem implements ABCustomItemInterface {
+    
 
-public class ABTextItem : CustomCustomItem, ABCustomItemInterface
-{
-    public ABTextItem(string label, int layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(label, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    ABTextItem(String label, int layout, String altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(label, backgroundBasicColor, foregroundBasicColor) {
+        
     }
+    
 
-    public virtual void keyPressed(int keyCode)
-    {
+    void keyPressed(int keyCode) {
     }
+    
 
-    public override void paintUnselected(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintUnselected(Graphics graphics, int x, int y) {
     }
+    
 
-    public virtual ABStringComponent getLabelStringComponent()
-    {
+    ABStringComponent getLabelStringComponent() {
         return ABStringComponent.NULL_STRING_COMPONENT;
     }
+    
 
-    public override int getMinimumWidth()
-    {
-        return base.getMinimumWidth();
+    @override
+    int getMinimumWidth() {
+        return super.getMinimumWidth();
     }
+    
 
-    public override int getMinimumHeight()
-    {
-        return base.getMinimumHeight();
+    @override
+    int getMinimumHeight() {
+        return super.getMinimumHeight();
     }
+    
 
-    public override string getLabel()
-    {
-        return base.getLabel();
+    @override
+    String getLabel() {
+        return super.getLabel();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        base.paintXY(graphics, x, y);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        super.paintXY(graphics, x, y);
     }
-
 }
 

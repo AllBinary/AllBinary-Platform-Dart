@@ -1,126 +1,145 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemPaintableFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormType.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemIndexPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/MultipleScrollSelectionFormRectPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormTypeFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/form/MultipleScrollSelectionFormVerticalPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/MultipleScrollSelectionFormHorizontalPaintable.dart';
 
-namespace org.allbinary.graphics.form;
+class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implements UpdateMyFontInterface {
+    late Paintable rectPaintable;
+    late ItemIndexPaintable multipleScrollSelectionHorizontalFormTypeItemIndexPaintable;
+    int backgroundColor = 0;
+    late MyFontProcessor myFontProcessor;
+    bool logged = false;
+    int fontHeight = 0;
 
-public class MultipleScrollSelectionHorizontalForm : ScrollSelectionForm, UpdateMyFontInterface
-{
-    // throws Exception
-    public static ScrollSelectionForm createForm(string title, ABCustomItem[] items, Rectangle rectangle, FormType formType, int border, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
-        ScrollSelectionForm scrollSelectionForm = new MultipleScrollSelectionHorizontalForm(title, items, ItemPaintableFactory.getInstance(), border, backgroundBasicColor, foregroundBasicColor);
+    // Java field initializers run after the base constructor
+    void initFieldsMultipleScrollSelectionHorizontalForm() {
+    this.rectPaintable = NullPaintable.getInstance();
+    this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
+    this.backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    this.logged = false;
+    this.fontHeight = 0;
+    }
+    
+
+    static ScrollSelectionForm createForm(String title, List<ABCustomItem?> items, Rectangle rectangle, FormType formType, int border, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        final ScrollSelectionForm scrollSelectionForm = MultipleScrollSelectionHorizontalForm(title, items, ItemPaintableFactory.getInstance(), border, backgroundBasicColor, foregroundBasicColor);
         scrollSelectionForm.init(rectangle, formType);
         return scrollSelectionForm;
     }
+    
 
-    private Paintable rectPaintable = NullPaintable.getInstance();
-    private ItemIndexPaintable multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
-    private readonly int backgroundColor = global::java.lang.JavaNumber.intValue(BasicColorFactory.getInstance().TRANSPARENT_GREY);
-    private MyFontProcessor myFontProcessor;
-    private bool logged = false;
-    private int fontHeight = 0;
-    public MultipleScrollSelectionHorizontalForm(string title, ABCustomItem[] items, ItemPaintableFactory formPaintableFactory, int border, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
-        // base(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    MultipleScrollSelectionHorizontalForm(String title, List<ABCustomItem?> items, ItemPaintableFactory formPaintableFactory, int border, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor) {
+        this.initFieldsMultipleScrollSelectionHorizontalForm();
+        
         if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
         } else {
-            this.rectPaintable = new MultipleScrollSelectionFormRectPaintable(this);
+            this.rectPaintable = MultipleScrollSelectionFormRectPaintable(this);
         }
     }
+    
 
-    public virtual void fillRect(Graphics graphics)
-    {
+    void fillRect(Graphics graphics) {
         graphics.setColor(this.backgroundColor);
         graphics.fillRect(this.x, this.y, this.rectangle.getWidth(), this.rectangle.getHeight());
     }
+    
 
-    // throws Exception
-    public override void init(Rectangle rectangle, FormType formType)
-    {
-        base.init(rectangle, formType);
-        FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+    @override
+    void init(Rectangle rectangle, FormType formType) {
+        super.init(rectangle, formType);
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.HORIZONTAL_FORM) {
-            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormHorizontalPaintable(this);
+            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = MultipleScrollSelectionFormHorizontalPaintable(this);
         } else if (formType == formTypeFactory.VERTICAL_CENTER_FORM) {
-            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormVerticalPaintable(this);
+            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = MultipleScrollSelectionFormVerticalPaintable(this);
         } else if (formType == formTypeFactory.NULL_FORM_TYPE) {
         } else {
-            throw new Exception(formTypeFactory.UNK);
+            throw JException('Exception', formTypeFactory.UNK);
         }
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual int paintHorizontal(Graphics graphics, int index, ABCustomItem item, int dx, int dy)
-    {
+    int paintHorizontal(Graphics graphics, int index, ABCustomItem item, int dx, int dy) {
         int dx2 = this.paintItem(graphics, index, item, dx, dy) + this.border;
         this.paintable.paint(graphics, index, dx, dy);
         dx = dx2;
         return dx;
     }
+    
 
-    // throws Exception
-    public virtual int paintVertical(Graphics graphics, int index, ABCustomItem item, int dx, int dy)
-    {
+    int paintVertical(Graphics graphics, int index, ABCustomItem item, int dx, int dy) {
         this.paintItem(graphics, index, item, dx, dy);
         this.paintable.paint(graphics, index, dx, dy);
         return dx;
     }
+    
 
-    public override int getStartIndex()
-    {
+    @override
+    int getStartIndex() {
         return this.getSelectedIndex();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         try {
             this.myFontProcessor.process(graphics);
-            int start = this.getStartIndex();
-            int size = this.size();
+            final int start = this.getStartIndex();
+            final int size = this.size();
             int dx = this.x;
-            int dy = this.y;
+            final int dy = this.y;
             this.rectPaintable.paint(graphics);
             graphics.drawString(this.getTitle(), this.x, this.y - this.fontHeight, 0);
-            ABCustomItem item = null;
+            late ABCustomItem item;
             for (int index = start; index < size; index++) {
                 item = this.get(index);
                 if (dx >= this.rectangle.getMaxX()) {
                     if (this.logged) {
                     } else {
                         this.logged = true;
-                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(((int) this.rectangle.getMaxX())).ToString(), this, this.canvasStrings.PAINT);
+                        PreLogUtil.put(StringMaker().append("painting beyond maxx: ").appendint(this.rectangle.getMaxX()).toString(), this, this.canvasStrings.PAINT);
                     }
                 }
                 dx = this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable.paint(graphics, index, item, dx, dy);
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             PreLogUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.PAINT);
+            }
         }
     }
-
 }
 

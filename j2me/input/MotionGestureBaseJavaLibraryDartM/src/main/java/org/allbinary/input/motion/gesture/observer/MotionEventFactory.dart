@@ -13,40 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+class MotionEventFactory implements AllBinaryEventObjectFactoryInterface {
+    static int index = 0;
+    late Object source;
+    int id = 0;
 
-public class MotionEventFactory : AllBinaryEventObjectFactoryInterface
-{
-    private static int index = 0;
-    private readonly object source;
-    private readonly int id;
-    public MotionEventFactory(object source, int id)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMotionEventFactory() {
+    
+    
+    }
+    
+
+    MotionEventFactory(Object source, int id) {
+        this.initFieldsMotionEventFactory();
         this.source = source;
         this.id = id;
         MotionEventFactory.index = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
-        InputFactory inputFactory = InputFactory.getInstance();
-        Input input = inputFactory.getInstanceById(MotionEventFactory.index++);
+    @override
+    AllBinaryEventObject getInstance() {
+        final InputFactory inputFactory = InputFactory.getInstance();
+        final Input input = inputFactory.getInstanceById(MotionEventFactory.index++);
         if (input == inputFactory.NO_INPUT) {
-            return new MotionGestureEvent(this.source, this.id, ((MotionGestureInput) TouchMotionGestureFactory.getInstance().NO_MOTION));
+            return MotionGestureEvent(this.source, this.id, (TouchMotionGestureFactory.getInstance().NO_MOTION as MotionGestureInput));
         } else {
-            return new MotionGestureEvent(this.source, this.id, ((MotionGestureInput) input));
+            return MotionGestureEvent(this.source, this.id, (input as MotionGestureInput));
         }
     }
-
 }
 

@@ -13,61 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using ImageItem = javax.microedition.lcdui.ImageItem;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using ScreenInfo = org.allbinary.graphics.form.ScreenInfo;
-using VectorUtil = org.allbinary.logic.VectorUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/ImageItem.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScreenInfo.dart';
+import 'package:allbinary/org/allbinary/logic/VectorUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/CommandTextItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
 
-namespace org.allbinary.graphics.form.item;
+class CommandTextItemArrayFactory {
+    late BasicArrayList list;
+    late Visitor visitorInterface;
 
-public class CommandTextItemArrayFactory
-{
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private readonly Visitor visitorInterface;
-    public CommandTextItemArrayFactory(Visitor visitorInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCommandTextItemArrayFactory() {
+    this.list = BasicArrayListD();
+    
+    }
+    
+
+    CommandTextItemArrayFactory(Visitor visitorInterface) {
+        this.initFieldsCommandTextItemArrayFactory();
         this.visitorInterface = visitorInterface;
     }
+    
 
-    public ABCustomItem[] getInstance(object vector, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
-        VectorUtil vectorUtil = VectorUtil.getInstance();
-        int size = vectorUtil.getSize(vector);
+    List<ABCustomItem?> getInstance3(Object vector, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        final VectorUtil vectorUtil = VectorUtil.getInstance();
+        final int size = vectorUtil.getSize(vector);
         this.list.clear();
-        CommandTextItem textItem = null;
+        late CommandTextItem textItem;
         int priorityLimit = 7;
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        bool isLargeEnoughDisplayForBigMenu = (displayInfo.isPortrait() && displayInfo.getLastHeight() >= ScreenInfo.getInstance().MEDIUM_WIDTH) || (!displayInfo.isPortrait() && displayInfo.getLastWidth() >= ScreenInfo.getInstance().MEDIUM_WIDTH);
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final bool isLargeEnoughDisplayForBigMenu = (displayInfo.isPortrait() && displayInfo.getLastHeight() >= ScreenInfo.getInstance().MEDIUM_WIDTH) || (!displayInfo.isPortrait() && displayInfo.getLastWidth() >= ScreenInfo.getInstance().MEDIUM_WIDTH);
         if (!isLargeEnoughDisplayForBigMenu && size > 3) {
             priorityLimit = 3;
         }
-        Command command = null;
-        for (int index_0 = 0; index_0 < size; index_0++) {
-            command = ((Command) vectorUtil.elementAt(vector, index_0));
+        late Command command;
+        for (int index = 0; index < size; index++) {
+            command = (vectorUtil.elementAt(vector, index) as Command);
             if (command.getPriority() < priorityLimit) {
-                bool? aBoolean = ((bool?) this.visitorInterface.visit(command));
-                if (aBoolean.Value) {
-                    textItem = new CommandTextItem(command, global::javax.microedition.lcdui.ImageItem.LAYOUT_DEFAULT, StringUtil.getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
+                bool aBoolean = (this.visitorInterface.visit(command) as bool);
+                if (aBoolean) {
+                    textItem = CommandTextItem(command, ImageItem.LAYOUT_DEFAULT, StringUtil.getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
                     this.list.add(textItem);
                 }
             }
         }
-        ABCustomItem[] textItemArray = new ABCustomItem[this.list.size()];
-        int size2 = textItemArray.Length;
-        for (int index_1 = 0; index_1 < size2; index_1++) {
-            textItemArray[index_1] = ((ABCustomItem) this.list.objectArray[index_1]);
+        final List<ABCustomItem?> textItemArray = List<ABCustomItem?>.filled(this.list.size(), null);
+        final int size2 = textItemArray.length;
+        for (int index = 0; index < size2; index++) {
+            textItemArray[index] = (this.list.objectArray[index]! as ABCustomItem);
         }
         return textItemArray;
     }
-
 }
 

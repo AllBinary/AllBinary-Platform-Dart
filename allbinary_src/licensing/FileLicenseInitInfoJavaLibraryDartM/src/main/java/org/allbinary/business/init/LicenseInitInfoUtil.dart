@@ -13,130 +13,139 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.business.init
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using TsUtil = org.allbinary.TsUtil;
-using PATH_GLOBALS = org.allbinary.globals.PATH_GLOBALS;
-using URLGLOBALS = org.allbinary.globals.URLGLOBALS;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AbDataInputStream = org.allbinary.logic.io.AbDataInputStream;
-using AbDataOutputStream = org.allbinary.logic.io.AbDataOutputStream;
-using AbFileInputStream = org.allbinary.logic.io.AbFileInputStream;
-using DataOutputStreamFactory = org.allbinary.logic.io.DataOutputStreamFactory;
-using FileStreamFactory = org.allbinary.logic.io.FileStreamFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using DatabaseEncoder = org.allbinary.logic.system.security.crypt.DatabaseEncoder;
-using WeakCrypt = org.allbinary.logic.system.security.crypt.WeakCrypt;
-using CommonLabels = org.allbinary.@string.CommonLabels;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/globals/PATH_GLOBALS.dart';
+import 'package:allbinary/org/allbinary/globals/URLGLOBALS.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbDataInputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbDataOutputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbFileInputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/DataOutputStreamFactory.dart';
+import 'package:allbinary/org/allbinary/logic/io/FileStreamFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/crypt/DatabaseEncoder.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/crypt/WeakCrypt.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/business/init/LicenseInitInfo.dart';
 
-namespace org.allbinary.business.init;
+class LicenseInitInfoUtil {
+    static final LicenseInitInfoUtil instance = LicenseInitInfoUtil();
+    late LogUtil logUtil;
+    late StringUtil stringUtil;
+    late String INITFILENAME;
+    late String ABOUT;
+    late String PRIVACY_POLICY;
+    late String filePath;
 
-public class LicenseInitInfoUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly LicenseInitInfoUtil instance = new LicenseInitInfoUtil();
-    public static LicenseInitInfoUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLicenseInitInfoUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.stringUtil = StringUtil.getInstance();
+    this.INITFILENAME = "licenseinitdata.dat";
+    this.ABOUT = "about";
+    this.PRIVACY_POLICY = "privacy_policy";
+    this.filePath = this.stringUtil.EMPTY_STRING;
+    }
+
+    LicenseInitInfoUtil() {
+        this.initFieldsLicenseInitInfoUtil();
+    }
+    
+
+    static LicenseInitInfoUtil getInstance() {
         return LicenseInitInfoUtil.instance;
     }
+    
 
-    private readonly StringUtil stringUtil = StringUtil.getInstance();
-    public readonly string INITFILENAME = "licenseinitdata.dat";
-    public readonly string ABOUT = "about";
-    public readonly string PRIVACY_POLICY = "privacy_policy";
-    private string filePath;
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setFilePath(string filePath)
-    {
+    void setFilePath(String filePath) {
         this.filePath = filePath;
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void write(LicenseInitInfo initData)
-    {
+    void write(LicenseInitInfo initData) {
         if (this.filePath == this.stringUtil.EMPTY_STRING) {
             this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
         try {
-            TsUtil tsUtil = TsUtil.getInstance();
-            AbDataOutputStream dataOutputStream = DataOutputStreamFactory.getInstance().getInstance(this.filePath, this.INITFILENAME);
-            sbyte[] licenseIdCrypted = tsUtil.getByteArray(new WeakCrypt(1).encrypt(initData.getLicenseId()));
+            final TsUtil tsUtil = TsUtil.getInstance();
+            final AbDataOutputStream dataOutputStream = DataOutputStreamFactory.getInstance().getInstance2(this.filePath, this.INITFILENAME);
+            final List<int> licenseIdCrypted = tsUtil.getByteArray(WeakCrypt(1).encrypt(initData.getLicenseId()));
             dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
-            int numberOfLicenseServers = initData.getNumberOfServers();
+            final int numberOfLicenseServers = initData.getNumberOfServers();
             dataOutputStream.writeInt(numberOfLicenseServers);
-            sbyte[] licenseServerCrypted = null;
+            late List<int> licenseServerCrypted;
             for (int index = 0; index < numberOfLicenseServers; index++) {
-                licenseServerCrypted = tsUtil.getByteArray(new WeakCrypt(3).encrypt(initData.getServer(index)));
+                licenseServerCrypted = tsUtil.getByteArray(WeakCrypt(3).encrypt(initData.getServer(index)));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put("Command Failed: " + this.INITFILENAME, this, "write", e);
             FileStreamFactory.getInstance().delete(this.filePath, this.INITFILENAME);
             throw e;
+            }
         }
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual LicenseInitInfo read()
-    {
+    LicenseInitInfo read() {
         return this.readAgain(0);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual LicenseInitInfo readAgain(int initializeCounter)
-    {
-        string METHOD_NAME = "readAgain";
+    LicenseInitInfo readAgain(int initializeCounter) {
+        final String METHOD_NAME = "readAgain";
         if (this.filePath == this.stringUtil.EMPTY_STRING) {
             this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
         try {
             this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);
-            FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
-            AbFileInputStream iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, this.INITFILENAME);
+            final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
+            final AbFileInputStream iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, this.INITFILENAME);
             if (iFile != null) {
-                AbDataInputStream iData = new AbDataInputStream(iFile);
-                LicenseInitInfo initInfo = new LicenseInitInfo();
-                sbyte[] decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
-                string licenseIdDecoded = System.Text.Encoding.UTF8.GetString((byte[]) (Array) decodedByteArray);
-                initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
+                final AbDataInputStream iData = AbDataInputStream(iFile);
+                final LicenseInitInfo initInfo = LicenseInitInfo();
+                List<int> decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
+                final String licenseIdDecoded = jNewString(decodedByteArray);
+                initInfo.setLicenseId(WeakCrypt(1).decrypt(licenseIdDecoded));
                 int numberOfLicenseServers = iData.readInt();
-                string NEXT_FILE = new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: ").ToString();
-                string licenseServerDecoded = null;
+                final String NEXT_FILE = StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: ").toString();
+                late String licenseServerDecoded;
                 for (int index = 0; index < numberOfLicenseServers; index++) {
                     decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
-                    licenseServerDecoded = System.Text.Encoding.UTF8.GetString((byte[]) (Array) decodedByteArray);
-                    initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
+                    licenseServerDecoded = jNewString(decodedByteArray);
+                    initInfo.setServer(WeakCrypt(3).decrypt(licenseServerDecoded), index);
                     this.logUtil.putF(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
                 }
                 return initInfo;
             } else {
-                throw new Exception("Could Not Load License InitInfo: " + this.INITFILENAME);
+                throw JException('Exception', "Could Not Load License InitInfo: " + this.INITFILENAME);
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             try {
                 this.logUtil.put("Command Failed: " + this.INITFILENAME, this, METHOD_NAME, e);
-            } catch (Exception e2) {
+            } catch (jcaught) {
+                {
+                    final dynamic e2 = jcaught;
                 this.logUtil.put("LicenseInitInfo Read Retry: " + this.INITFILENAME, this, "readAgain()", e2);
+                }
             }
-            throw new Exception("LicenseInitInfo Read Error: " + this.INITFILENAME);
+            throw JException('Exception', "LicenseInitInfo Read Error: " + this.INITFILENAME);
+            }
         }
     }
+    
 
-    public virtual string getFilePath()
-    {
+    String getFilePath() {
         return this.filePath;
     }
-
-    public LicenseInitInfoUtil()
-    {
-        this.filePath = this.stringUtil.EMPTY_STRING;
-    }
-
 }
 

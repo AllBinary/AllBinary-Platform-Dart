@@ -13,47 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.vector
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorCompositeInterface.dart';
 
-namespace org.allbinary.animation.vector;
+class CircleFilledAnimation extends Animation implements ColorCompositeInterface {
+    int width = 0;
+    int height = 0;
 
-public class CircleFilledAnimation : Animation, ColorCompositeInterface
-{
-    private int width;
-    private int height;
-    public CircleFilledAnimation(int width, int height, BasicColor basicColor) : base()
-    {
-        // base() is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCircleFilledAnimation() {
+    
+    
+    }
+    
+
+    CircleFilledAnimation(int width, int height, BasicColor basicColor) : super() {
+        this.initFieldsCircleFilledAnimation();
+        
         this.width = width;
         this.height = height;
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.fillRect(x, y, this.width, this.height);
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        return base.getBasicColorP();
+    @override
+    BasicColor getBasicColorP() {
+        return super.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
-        base.setBasicColorP(basicColor);
+    @override
+    void setBasicColorP(BasicColor basicColor) {
+        super.setBasicColorP(basicColor);
     }
-
 }
 

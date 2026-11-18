@@ -13,23 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.thirdparty.store
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/thirdparty/store/NoThirdPartyStore.dart';
+import 'package:allbinary/org/allbinary/thirdparty/store/ThirdPartyStore.dart';
 
-namespace org.allbinary.thirdparty.store;
+class ThirdPartyStoreFactory {
+    static final NoThirdPartyStore instance = NoThirdPartyStore();
+    
 
-public class ThirdPartyStoreFactory
-{
-    private static readonly NoThirdPartyStore instance = new NoThirdPartyStore();
-    public static ThirdPartyStore getInstance()
-    {
+    static ThirdPartyStore getInstance() {
         return ThirdPartyStoreFactory.instance;
     }
+    
 
-    private ThirdPartyStoreFactory()
-    {
+    ThirdPartyStoreFactory() {
     }
-
 }
 

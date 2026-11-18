@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.android.input.motion
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogLocationInputProcessor.dart';
 
-namespace org.allbinary.android.input.motion;
+class AnalogControllerVisitor {
+    
 
-public class AnalogControllerVisitor
-{
-    public virtual void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
+    void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor) {
     }
-
 }
 

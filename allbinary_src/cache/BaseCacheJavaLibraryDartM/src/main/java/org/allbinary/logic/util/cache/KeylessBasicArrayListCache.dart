@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.util.cache
 
 import 'package:allbinary/allbinary_java.dart';
@@ -46,9 +46,12 @@ class KeylessBasicArrayListCache extends IndexedBasicArrayListCache {
             }
             final BasicArrayList list = (this.getAt(this.index++) as BasicArrayList);
             return list;
-        } catch (e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET, e);
             return this.basicArrayListUtil.getImmutableInstance();
+            }
         }
     }
     

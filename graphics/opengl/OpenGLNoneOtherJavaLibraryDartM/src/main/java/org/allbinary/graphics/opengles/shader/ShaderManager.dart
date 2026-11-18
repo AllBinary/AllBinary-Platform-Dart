@@ -13,42 +13,49 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class ShaderManager {
+    static final ShaderManager instance = ShaderManager(-1, -1);
+    late String LOAD_SHADER;
+    late CommonStrings commonStrings;
+    int GL_VERTEX_SHADER = 0;
+    int GL_FRAGMENT_SHADER = 0;
 
-public class ShaderManager
-{
-    private static readonly ShaderManager instance = new ShaderManager(-1, -1);
-    public static ShaderManager getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsShaderManager() {
+    this.LOAD_SHADER = "loadShader";
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    }
+    
+
+    static ShaderManager getInstance() {
         return ShaderManager.instance;
     }
+    
 
-    public readonly string LOAD_SHADER = "loadShader";
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly int GL_VERTEX_SHADER;
-    public readonly int GL_FRAGMENT_SHADER;
-    public ShaderManager(int GL_VERTEX_SHADER, int GL_FRAGMENT_SHADER)
-    {
+    ShaderManager(int GL_VERTEX_SHADER, int GL_FRAGMENT_SHADER) {
+        this.initFieldsShaderManager();
         this.GL_VERTEX_SHADER = GL_VERTEX_SHADER;
         this.GL_FRAGMENT_SHADER = GL_FRAGMENT_SHADER;
     }
+    
 
-    public virtual int load(GL10 gl, string resource, string[] shaderAsStringArray, int shaderType)
-    {
+    int load(GL10 gl, String resource, List<String?> shaderAsStringArray, int shaderType) {
         return -1;
     }
+    
 
-    public virtual int loadShader(GL10 gl, string resource, BasicArrayList stringList, int shaderType)
-    {
+    int loadShader(GL10 gl, String resource, BasicArrayList stringList, int shaderType) {
         return -1;
     }
-
 }
 

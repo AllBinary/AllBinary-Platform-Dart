@@ -13,26 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemIndexDx.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollCurrentSelectionForm.dart';
 
-namespace org.allbinary.graphics.form;
+class TempHorizontalItemIndexDx extends ItemIndexDx {
+    late ScrollCurrentSelectionForm scrollCurrentSelectionForm;
 
-public class TempHorizontalItemIndexDx : ItemIndexDx
-{
-    private readonly ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-    public TempHorizontalItemIndexDx(ScrollCurrentSelectionForm scrollCurrentSelectionForm)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTempHorizontalItemIndexDx() {
+    
+    }
+    
+
+    TempHorizontalItemIndexDx(ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+        this.initFieldsTempHorizontalItemIndexDx();
         this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
     }
+    
 
-    // throws Exception
-    public override int getDx(int index, ABCustomItem item, int dx, int dy)
-    {
+    @override
+    int getDx(int index, ABCustomItem item, int dx, int dy) {
         return this.scrollCurrentSelectionForm.getXTempHorizontalForm(index, item, dx, dy);
     }
-
 }
 

@@ -13,21 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using DirectionalInterface = org.allbinary.direction.DirectionalInterface;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionalInterface.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimationInterface.dart';
 
-namespace org.allbinary.animation;
+abstract interface class RotationAnimationInterface implements IndexedAnimationInterface, DirectionalInterface {
+    
 
-public interface RotationAnimationInterface : IndexedAnimationInterface, DirectionalInterface
-{
     AngleInfo getAngleInfoP();
+    
 
     void nextRotation();
+    
 
     void previousRotation();
-
 }
 

@@ -13,26 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.direction
 
-using System;
-using System.Linq;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionFactory.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
 
-namespace org.allbinary.direction;
+class DirectionUtil {
+    static final DirectionUtil instance = DirectionUtil();
+    late List<Angle?> directionArray;
+    late List<Angle?> directionArray2;
 
-public class DirectionUtil
-{
-    private static readonly DirectionUtil instance = new DirectionUtil();
-    public static DirectionUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDirectionUtil() {
+    this.directionArray = List<Angle?>.filled(10, null);
+    this.directionArray2 = List<Angle?>.filled(10, null);
+    }
+    
+
+    static DirectionUtil getInstance() {
         return DirectionUtil.instance;
     }
+    
 
-    private Angle[] directionArray = new Angle[10];
-    private Angle[] directionArray2 = new Angle[10];
-    private DirectionUtil()
-    {
+    DirectionUtil() {
+        this.initFieldsDirectionUtil();
         AngleFactory angleFactory = AngleFactory.getInstance();
         DirectionFactory directionFactory = DirectionFactory.getInstance();
         this.directionArray[directionFactory.LEFT.getValue()] = angleFactory.LEFT;
@@ -44,16 +52,15 @@ public class DirectionUtil
         this.directionArray2[directionFactory.UP.getValue()] = angleFactory.UP;
         this.directionArray2[directionFactory.DOWN.getValue()] = angleFactory.DOWN;
     }
+    
 
-    public virtual Angle getAngle(Direction direction)
-    {
-        return this.directionArray2[direction.getValue()];
+    Angle getAngle(Direction direction) {
+        return this.directionArray2[direction.getValue()]!;
     }
+    
 
-    public virtual Angle getFrameAngle(Direction direction)
-    {
-        return this.directionArray[direction.getValue()];
+    Angle getFrameAngle(Direction direction) {
+        return this.directionArray[direction.getValue()]!;
     }
-
 }
 

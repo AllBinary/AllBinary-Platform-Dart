@@ -13,61 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.destroy
 
-using System;
-using System.Linq;
-using DestroyEventCircularStaticPool = org.allbinary.game.combat.destroy.@event.DestroyEventCircularStaticPool;
-using DestroyedEvent = org.allbinary.game.combat.destroy.@event.DestroyedEvent;
-using DestroyedEventHandler = org.allbinary.game.combat.destroy.@event.DestroyedEventHandler;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicLayerProcessor = org.allbinary.layer.BasicLayerProcessor;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEvent.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEventHandler.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/BasicLayerProcessor.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.game.combat.destroy;
+class DestroyedLayerProcessor extends BasicLayerProcessor {
+    static BasicLayerProcessor DESTROYED_LAYER_PROCESSOR = BasicLayerProcessor.NULL_LAYER_PROCESSOR;
+    
 
-public class DestroyedLayerProcessor : BasicLayerProcessor
-{
-    private static BasicLayerProcessor DESTROYED_LAYER_PROCESSOR = BasicLayerProcessor.NULL_LAYER_PROCESSOR;
-    private DestroyedLayerProcessor()
-    {
+    DestroyedLayerProcessor() {
     }
+    
 
-    public static void init()
-    {
-        DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR = new DestroyedLayerProcessor();
+    static void init() {
+        DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR = DestroyedLayerProcessor();
     }
+    
 
-    public static BasicLayerProcessor getInstance()
-    {
+    static BasicLayerProcessor getInstance() {
         return DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void process(AllBinaryLayerManager allBinaryLayerManager) {
         BasicArrayList list = this.getList();
         int size = list.size();
-        DestroyedEventHandler destroyedEventHandler = DestroyedEventHandler.getInstance();
-        DestroyEventCircularStaticPool destroyEventCircularStaticPool = DestroyEventCircularStaticPool.getInstance();
-        DestroyedEvent destroyedEvent = null;
-        AllBinaryLayer layerInterface = null;
+        final DestroyedEventHandler destroyedEventHandler = DestroyedEventHandler.getInstance();
+        final DestroyEventCircularStaticPool destroyEventCircularStaticPool = DestroyEventCircularStaticPool.getInstance();
+        late DestroyedEvent destroyedEvent;
+        late AllBinaryLayer layerInterface;
         for (int index = 0; index < size; index++) {
-            object layerInterfaceCanBeNull = list.objectArray[index];
+            Object layerInterfaceCanBeNull = list.objectArray[index]!;
             if (layerInterfaceCanBeNull != null) {
-                layerInterface = ((AllBinaryLayer) layerInterfaceCanBeNull);
+                layerInterface = (layerInterfaceCanBeNull as AllBinaryLayer);
                 allBinaryLayerManager.remove(layerInterface);
                 destroyedEvent = destroyEventCircularStaticPool.getInstanceForLayer(layerInterface);
                 destroyedEventHandler.fireEvent(destroyedEvent);
             } else {
-                CommonStrings commonStrings = CommonStrings.getInstance();
+                final CommonStrings commonStrings = CommonStrings.getInstance();
             }
         }
         list.clear();
     }
-
 }
 

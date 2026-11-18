@@ -13,61 +13,66 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
 
-namespace org.allbinary.animation.compound;
+class CompoundAnimationInterfaceFactory implements AnimationInterfaceFactoryInterface {
+    late List<AnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArrayP;
+    late AnimationBehaviorFactory animationBehaviorFactory;
 
-public class CompoundAnimationInterfaceFactory : AnimationInterfaceFactoryInterface
-{
-    public readonly AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArrayP;
-    public readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public CompoundAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCompoundAnimationInterfaceFactory() {
+    
+    
+    }
+    
+
+    CompoundAnimationInterfaceFactory(List<AnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) {
+        this.initFieldsCompoundAnimationInterfaceFactory();
         this.basicAnimationInterfaceFactoryInterfaceArrayP = basicAnimationInterfaceFactoryInterfaceArray;
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        int size = this.basicAnimationInterfaceFactoryInterfaceArrayP.Length;
-        Animation[] animationInterfaceArray = this.createArray(size);
+    @override
+    Animation getInstance1(int instanceId) {
+        final int size = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
+        final List<Animation?> animationInterfaceArray = this.createArray(size);
         for (int index = 0; index < size; index++) {
-            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArrayP[index].getInstance(instanceId);
+            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArrayP[index]!.getInstance1(instanceId);
         }
         return this.createAnimation(animationInterfaceArray);
     }
+    
 
-    public virtual Animation[] createArray(int size)
-    {
+    List<Animation?> createArray(int size) {
         return NullAnimationFactory.getFactoryInstance().EMPTY_ARRAY;
     }
+    
 
-    public virtual Animation createAnimation(Animation[] animationInterfaceArray)
-    {
-        return NullAnimationFactory.getFactoryInstance().getInstance(0);
+    Animation createAnimation(List<Animation?> animationInterfaceArray) {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(0);
     }
+    
 
-    public virtual AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray()
-    {
+    List<AnimationInterfaceFactoryInterface?> getBasicAnimationInterfaceFactoryInterfaceArray() {
         return this.basicAnimationInterfaceFactoryInterfaceArrayP;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
-        int size = this.basicAnimationInterfaceFactoryInterfaceArrayP.Length;
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
+        final int size = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
         for (int index = 0; index < size; index++) {
-            this.basicAnimationInterfaceFactoryInterfaceArrayP[index].setInitialScale(scaleProperties);
+            this.basicAnimationInterfaceFactoryInterfaceArrayP[index]!.setInitialScale(scaleProperties);
         }
     }
-
 }
 

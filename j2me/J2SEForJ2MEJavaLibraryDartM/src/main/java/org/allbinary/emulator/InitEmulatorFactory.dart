@@ -13,30 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.emulator
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.emulator;
+class InitEmulatorFactory {
+    static final InitEmulatorFactory instance = InitEmulatorFactory();
+    bool initEmulator = false;
 
-public class InitEmulatorFactory
-{
-    private static readonly InitEmulatorFactory instance = new InitEmulatorFactory();
-    public static InitEmulatorFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInitEmulatorFactory() {
+    this.initEmulator = false;
+    }
+
+    InitEmulatorFactory() {
+        this.initFieldsInitEmulatorFactory();
+    }
+    
+
+    static InitEmulatorFactory getInstance() {
         return InitEmulatorFactory.instance;
     }
+    
 
-    public virtual void setInitEmulator(bool initEmulator)
-    {
+    void setInitEmulator(bool initEmulator) {
         this.initEmulator = initEmulator;
     }
+    
 
-    public virtual bool isInitEmulator()
-    {
+    bool isInitEmulator() {
         return this.initEmulator;
     }
-
-    private bool initEmulator = false;
 }
 

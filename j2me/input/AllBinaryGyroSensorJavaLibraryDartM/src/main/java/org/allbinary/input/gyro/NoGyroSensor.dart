@@ -13,30 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using AllBinarySensorListener = org.allbinary.input.AllBinarySensorListener;
-using Orientation = org.allbinary.logic.math.Orientation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/AllBinarySensorListener.dart';
+import 'package:allbinary/org/allbinary/logic/math/Orientation.dart';
+import 'package:allbinary/org/allbinary/input/gyro/AllBinaryOrientationSensor.dart';
 
-namespace org.allbinary.input.gyro;
+class NoGyroSensor extends AllBinaryOrientationSensor implements AllBinarySensorListener {
+    
 
-public class NoGyroSensor : AllBinaryOrientationSensor, AllBinarySensorListener
-{
-    public NoGyroSensor()
-    {
+    NoGyroSensor() {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
+    
 
-    // throws Exception
-    public override Orientation getOrientation()
-    {
+    @override
+    Orientation getOrientation() {
         return Orientation.NONE;
     }
+    
 
-    public override void onSensorChange()
-    {
+    @override
+    void onSensorChange() {
     }
-
 }
 

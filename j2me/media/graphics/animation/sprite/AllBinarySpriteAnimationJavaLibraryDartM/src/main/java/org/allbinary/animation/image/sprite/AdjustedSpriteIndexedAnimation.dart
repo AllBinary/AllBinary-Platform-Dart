@@ -13,47 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image.sprite
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorUtil = org.allbinary.graphics.color.BasicColorUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/animation/image/sprite/SpriteIndexedAnimation.dart';
 
-namespace org.allbinary.animation.image.sprite;
+class AdjustedSpriteIndexedAnimation extends SpriteIndexedAnimation {
+    int dx = 0;
+    int dy = 0;
 
-public class AdjustedSpriteIndexedAnimation : SpriteIndexedAnimation
-{
-    private int dx;
-    private int dy;
-    public AdjustedSpriteIndexedAnimation(Sprite sprite, Image image, BasicColor[] basicColorArray, int dx, int dy, AnimationBehavior animationBehavior) : base(sprite, image, basicColorArray, animationBehavior)
-    {
-        // base(sprite, image, basicColorArray, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsAdjustedSpriteIndexedAnimation() {
+    
+    
+    }
+    
+
+    AdjustedSpriteIndexedAnimation(Sprite sprite, Image image, List<BasicColor?> basicColorArray, int dx, int dy, AnimationBehavior animationBehavior) : super(sprite, image, basicColorArray, animationBehavior) {
+        this.initFieldsAdjustedSpriteIndexedAnimation();
+        
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintFrame(Graphics graphics, int frame, int x, int y)
-    {
+    @override
+    void paintFrame(Graphics graphics, int frame, int x, int y) {
         this.setFrame(frame);
         this.sprite.setPosition(x + this.dx, y + this.dy);
-        base.paint(graphics);
+        super.paint(graphics);
     }
+    
 
-    public override void paintXY(Graphics g, int x, int y)
-    {
+    @override
+    void paintXY(Graphics g, int x, int y) {
         this.sprite.setPosition(x + this.dx, y + this.dy);
-        base.paint(g);
+        super.paint(g);
     }
+    
 
-    public override void paint(Graphics g)
-    {
+    @override
+    void paint(Graphics g) {
         this.sprite.setPosition(this.dx, this.dy);
-        base.paint(g);
+        super.paint(g);
     }
-
 }
 

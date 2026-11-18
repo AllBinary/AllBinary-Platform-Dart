@@ -13,30 +13,38 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.device
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/device/OpenGLESGraphicsFactory.dart';
 
-namespace org.allbinary.device;
+class OpenGLESGraphicsCompositeFactory {
+    static final OpenGLESGraphicsCompositeFactory instance = OpenGLESGraphicsCompositeFactory();
+    late OpenGLESGraphicsFactory openGLESGraphicsFactory;
 
-public class OpenGLESGraphicsCompositeFactory
-{
-    private static readonly OpenGLESGraphicsCompositeFactory instance = new OpenGLESGraphicsCompositeFactory();
-    public static OpenGLESGraphicsCompositeFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOpenGLESGraphicsCompositeFactory() {
+    this.openGLESGraphicsFactory = OpenGLESGraphicsFactory();
+    }
+
+    OpenGLESGraphicsCompositeFactory() {
+        this.initFieldsOpenGLESGraphicsCompositeFactory();
+    }
+    
+
+    static OpenGLESGraphicsCompositeFactory getInstance() {
         return OpenGLESGraphicsCompositeFactory.instance;
     }
+    
 
-    private OpenGLESGraphicsFactory openGLESGraphicsFactory = new OpenGLESGraphicsFactory();
-    public virtual void set(OpenGLESGraphicsFactory openGLESGraphicsFactory)
-    {
+    void set(OpenGLESGraphicsFactory openGLESGraphicsFactory) {
         this.openGLESGraphicsFactory = openGLESGraphicsFactory;
     }
+    
 
-    public virtual OpenGLESGraphicsFactory get()
-    {
+    OpenGLESGraphicsFactory get() {
         return this.openGLESGraphicsFactory;
     }
-
 }
 

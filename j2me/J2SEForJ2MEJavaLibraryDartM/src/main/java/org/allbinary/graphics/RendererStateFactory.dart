@@ -13,41 +13,49 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics;
+class RendererStateFactory {
+    static final RendererStateFactory instance = RendererStateFactory();
+    bool loaded = false;
+    bool surfaceChanged = false;
 
-public class RendererStateFactory
-{
-    private static readonly RendererStateFactory instance = new RendererStateFactory();
-    public static RendererStateFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRendererStateFactory() {
+    this.loaded = false;
+    this.surfaceChanged = false;
+    }
+
+    RendererStateFactory() {
+        this.initFieldsRendererStateFactory();
+    }
+    
+
+    static RendererStateFactory getInstance() {
         return RendererStateFactory.instance;
     }
+    
 
-    private bool loaded = false;
-    private bool surfaceChanged = false;
-    public virtual void setLoaded(bool loaded)
-    {
+    void setLoaded(bool loaded) {
         this.loaded = loaded;
     }
+    
 
-    public virtual bool isLoaded()
-    {
+    bool isLoaded() {
         return this.loaded;
     }
+    
 
-    public virtual void setSurfaceChanged(bool initialized)
-    {
+    void setSurfaceChanged(bool initialized) {
         this.surfaceChanged = initialized;
     }
+    
 
-    public virtual bool isSurfaceChanged()
-    {
+    bool isSurfaceChanged() {
         return this.surfaceChanged;
     }
-
 }
 

@@ -13,23 +13,21 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.animation.text;
+class TextChangeListener {
+    static final TextChangeListener instance = TextChangeListener();
+    
 
-public class TextChangeListener
-{
-    private static readonly TextChangeListener instance = new TextChangeListener();
-    public static TextChangeListener getInstance()
-    {
+    static TextChangeListener getInstance() {
         return TextChangeListener.instance;
     }
+    
 
-    public virtual void onMeasure()
-    {
+    void onMeasure() {
     }
-
 }
 

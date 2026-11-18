@@ -1,15 +1,13 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
 
-namespace org.allbinary.image.opengles;
+abstract interface class OpenGLSurfaceChangedInterface {
+    
 
-public interface OpenGLSurfaceChangedInterface
-{
-    // throws Exception
     void set(GL gl);
-
 }
 

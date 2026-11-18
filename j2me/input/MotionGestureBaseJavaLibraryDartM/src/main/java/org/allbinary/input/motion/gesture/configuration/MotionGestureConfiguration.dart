@@ -13,117 +13,128 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.configuration
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using MotionGestureToMotionGestureActionAssociation = org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureToMotionGestureActionAssociation.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.input.motion.gesture.configuration;
+class MotionGestureConfiguration {
+    bool diagonalMotionGestureAllowed = false;
+    int diagonalTolerance = 0;
+    int minimumMotionGesture = 0;
+    late String button;
+    late BasicColor color;
+    bool executingActions = false;
+    int mouseButtonMask = 0;
+    late BasicArrayList activeCommands;
 
-public class MotionGestureConfiguration
-{
-    private bool diagonalMotionGestureAllowed = true;
-    private int diagonalTolerance = 7;
-    private int minimumMotionGesture = 9;
-    private string button = StringUtil.getInstance().EMPTY_STRING;
-    private BasicColor color = BasicColorFactory.getInstance().BLUE;
-    private bool executingActions = true;
-    private int mouseButtonMask = 0;
-    private BasicArrayList activeCommands = new BasicArrayListD();
-    public MotionGestureConfiguration()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMotionGestureConfiguration() {
+    this.diagonalMotionGestureAllowed = true;
+    this.diagonalTolerance = 7;
+    this.minimumMotionGesture = 9;
+    this.button = StringUtil.getInstance().EMPTY_STRING;
+    this.color = BasicColorFactory.getInstance().BLUE;
+    this.executingActions = true;
+    this.mouseButtonMask = 0;
+    this.activeCommands = BasicArrayListD();
     }
+    
 
-    public virtual void addMotionGestureAction(BasicArrayList list, CompleteMotionGestureInputEvent commandAction)
-    {
-        this.activeCommands.add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
+    MotionGestureConfiguration() {
+        this.initFieldsMotionGestureConfiguration();
     }
+    
 
-    public virtual void clearMotionGestureAction()
-    {
+    void addMotionGestureAction(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {
+        this.activeCommands.add(MotionGestureToMotionGestureActionAssociation(list, commandAction));
+    }
+    
+
+    void clearMotionGestureAction() {
         this.activeCommands.clear();
     }
+    
 
-    public virtual BasicArrayList getAssociateCommandActionsList()
-    {
+    BasicArrayList getAssociateCommandActionsList() {
         return this.activeCommands;
     }
+    
 
-    public virtual bool isDiagonalMotionGestureAllowed()
-    {
+    bool isDiagonalMotionGestureAllowed() {
         return this.diagonalMotionGestureAllowed;
     }
+    
 
-    public virtual bool isExecutingActionsAllowed()
-    {
+    bool isExecutingActionsAllowed() {
         return this.executingActions;
     }
+    
 
-    public virtual void setExecutingActionsAllowed(bool executingActionAllowed)
-    {
+    void setExecutingActionsAllowed(bool executingActionAllowed) {
         this.executingActions = executingActionAllowed;
     }
+    
 
-    public virtual void setDiagonalMotionGestureAllowed(bool diagonalMotionGestureAllowed)
-    {
+    void setDiagonalMotionGestureAllowed(bool diagonalMotionGestureAllowed) {
         this.diagonalMotionGestureAllowed = diagonalMotionGestureAllowed;
     }
+    
 
-    public virtual int getDiagonalTolerance()
-    {
+    int getDiagonalTolerance() {
         return this.diagonalTolerance;
     }
+    
 
-    public virtual void setDiagonalTolerance(int diagonalTolerance)
-    {
+    void setDiagonalTolerance(int diagonalTolerance) {
         this.diagonalTolerance = diagonalTolerance;
     }
+    
 
-    public virtual int getMinimumMotionGesture()
-    {
+    int getMinimumMotionGesture() {
         return this.minimumMotionGesture;
     }
+    
 
-    public virtual void setMinimumMotionGesture(int minimumMotionGesture)
-    {
+    void setMinimumMotionGesture(int minimumMotionGesture) {
         this.minimumMotionGesture = minimumMotionGesture;
     }
+    
 
-    public virtual string getButton()
-    {
+    String getButton() {
         return this.button;
     }
+    
 
-    public virtual void setButton(string button)
-    {
+    void setButton(String button) {
         this.button = button;
     }
+    
 
-    public virtual BasicColor getColor()
-    {
+    BasicColor getColor() {
         return this.color;
     }
+    
 
-    public virtual void setColor(BasicColor color)
-    {
+    void setColor(BasicColor color) {
         this.color = color;
     }
+    
 
-    public virtual int getMouseButtonMask()
-    {
+    int getMouseButtonMask() {
         return this.mouseButtonMask;
     }
+    
 
-    public virtual void setMouseButtonMask(int mouseButtonMask)
-    {
+    void setMouseButtonMask(int mouseButtonMask) {
         this.mouseButtonMask = mouseButtonMask;
     }
-
 }
 

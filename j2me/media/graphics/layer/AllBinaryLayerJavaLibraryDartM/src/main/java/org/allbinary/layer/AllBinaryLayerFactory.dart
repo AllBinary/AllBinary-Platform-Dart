@@ -13,27 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/view/ViewPosition.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.layer;
+class AllBinaryLayerFactory implements AllBinaryLayerFactoryInterface {
+    late Rectangle rectangle;
 
-public class AllBinaryLayerFactory : AllBinaryLayerFactoryInterface
-{
-    private readonly Rectangle rectangle;
-    public AllBinaryLayerFactory(Rectangle rectangle)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryLayerFactory() {
+    
+    }
+    
+
+    AllBinaryLayerFactory(Rectangle rectangle) {
+        this.initFieldsAllBinaryLayerFactory();
         this.rectangle = rectangle;
     }
+    
 
-    public virtual AllBinaryLayer getInstance()
-    {
-        return new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
+    @override
+    AllBinaryLayer getInstance() {
+        return AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
     }
-
 }
 

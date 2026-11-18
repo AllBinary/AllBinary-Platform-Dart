@@ -13,33 +13,39 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.vector
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/vector/LineAnimation.dart';
 
-namespace org.allbinary.animation.vector;
+class LineAnimationFactory implements AnimationInterfaceFactoryInterface {
+    late BasicColor basicColor;
 
-public class LineAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    private BasicColor basicColor;
-    public LineAnimationFactory(BasicColor basicColor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLineAnimationFactory() {
+    
+    }
+    
+
+    LineAnimationFactory(BasicColor basicColor) {
+        this.initFieldsLineAnimationFactory();
         this.basicColor = basicColor;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        return new LineAnimation(this.basicColor);
+    @override
+    Animation getInstance1(int instanceId) {
+        return LineAnimation(this.basicColor);
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

@@ -13,53 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using TrackballMotionGestureFactory = org.allbinary.input.motion.gesture.TrackballMotionGestureFactory;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GamePersistanceStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/PersistentInputMapping.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TrackballMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/PCKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
 
-namespace org.allbinary.game.input;
+class PCGameInputMapping extends PersistentInputMapping {
+    
 
-public class PCGameInputMapping : PersistentInputMapping
-{
-    public PCGameInputMapping() : base(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID) is called from the constructor declaration
+    PCGameInputMapping() : super(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID) {
+        
     }
+    
 
-    // throws Exception
-    public override void init(AbeClientInformationInterface abeClientInformation)
-    {
+    @override
+    void init(AbeClientInformationInterface abeClientInformation) {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
         PCKeyFactory.getInstance();
         TouchMotionGestureFactory.getInstance();
         TrackballMotionGestureFactory.getInstance();
         BasicTouchInputFactory.getInstance();
-        base.init(abeClientInformation);
+        super.init(abeClientInformation);
         if (this.getTotalMapped() == 0 || this.isDefaultNew()) {
             this.getInputMapping().addMapping(this.getDefault());
             this.save(abeClientInformation);
         }
     }
+    
 
-    public override bool isDelete(Input input)
-    {
+    @override
+    bool isDelete(Input input) {
         if (input == PCKeyFactory.getInstance().DEL) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public override bool isSystemInput(Input input)
-    {
+    @override
+    bool isSystemInput(Input input) {
         return false;
     }
-
 }
 

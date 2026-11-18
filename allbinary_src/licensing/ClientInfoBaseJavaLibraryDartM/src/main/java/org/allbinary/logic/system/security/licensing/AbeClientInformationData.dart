@@ -13,39 +13,58 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class AbeClientInformationData {
+    static final AbeClientInformationData instance = AbeClientInformationData();
+    late String KEY;
+    late String NAME;
+    late String VERSION;
+    late String SPECIALNAME;
+    late String LICENSEID;
+    late String LICENSE_TYPE;
+    late String PREVIOUSLICENSEID;
+    late String OSNAME;
+    late String OSARCH;
+    late String OSVERSION;
+    late String OS;
+    late String HARDWARE;
+    late String LICENSESERVERS;
+    late String NEWLICENSE;
+    late String ISNEW;
+    late String SPECIAL;
 
-public class AbeClientInformationData
-{
-    private static readonly AbeClientInformationData instance = new AbeClientInformationData();
-    public static AbeClientInformationData getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAbeClientInformationData() {
+    this.KEY = "KEY";
+    this.NAME = "NAME";
+    this.VERSION = "VERSION";
+    this.SPECIALNAME = "SPECIALNAME";
+    this.LICENSEID = "LICENSEID";
+    this.LICENSE_TYPE = "LICENSETYPE";
+    this.PREVIOUSLICENSEID = "PREVIOUSLICENSEID";
+    this.OSNAME = "OSNAME";
+    this.OSARCH = "OSARCH";
+    this.OSVERSION = "OSVERSION";
+    this.OS = "OS";
+    this.HARDWARE = "HARDWARE";
+    this.LICENSESERVERS = "LICENSESERVERS";
+    this.NEWLICENSE = "NEWLICENSE";
+    this.ISNEW = "ISNEW";
+    this.SPECIAL = "SPECIAL";
+    }
+    
+
+    static AbeClientInformationData getInstance() {
         return AbeClientInformationData.instance;
     }
+    
 
-    private AbeClientInformationData()
-    {
+    AbeClientInformationData() {
+        this.initFieldsAbeClientInformationData();
     }
-
-    public readonly string KEY = "KEY";
-    public readonly string NAME = "NAME";
-    public readonly string VERSION = "VERSION";
-    public readonly string SPECIALNAME = "SPECIALNAME";
-    public readonly string LICENSEID = "LICENSEID";
-    public readonly string LICENSE_TYPE = "LICENSETYPE";
-    public readonly string PREVIOUSLICENSEID = "PREVIOUSLICENSEID";
-    public readonly string OSNAME = "OSNAME";
-    public readonly string OSARCH = "OSARCH";
-    public readonly string OSVERSION = "OSVERSION";
-    public readonly string OS = "OS";
-    public readonly string HARDWARE = "HARDWARE";
-    public readonly string LICENSESERVERS = "LICENSESERVERS";
-    public readonly string NEWLICENSE = "NEWLICENSE";
-    public readonly string ISNEW = "ISNEW";
-    public readonly string SPECIAL = "SPECIAL";
 }
 

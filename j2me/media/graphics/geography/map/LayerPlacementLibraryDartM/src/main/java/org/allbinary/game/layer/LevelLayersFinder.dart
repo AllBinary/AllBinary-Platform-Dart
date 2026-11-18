@@ -13,46 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using java.util;
-using Layer = org.allbinary.layer.Layer;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using EnumerationUtil = org.allbinary.util.EnumerationUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/util/Enumeration.dart';
+import 'package:allbinary/org/allbinary/layer/Layer.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/EnumerationUtil.dart';
 
-namespace org.allbinary.game.layer;
+class LevelLayersFinder {
+    static final LevelLayersFinder instance = LevelLayersFinder();
+    late EnumerationUtil enumerationUtil;
 
-public class LevelLayersFinder
-{
-    private static readonly LevelLayersFinder instance = new LevelLayersFinder();
-    public static LevelLayersFinder getInstance()
-    {
-        return LevelLayersFinder.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsLevelLayersFinder() {
+    this.enumerationUtil = EnumerationUtil.getInstance();
     }
 
-    private readonly EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
-    public virtual BasicArrayList get(ABHashtable<object, object> hashtable)
-    {
-        SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        BasicArrayList list = new BasicArrayListD();
-        Enumeration<object> enumeration = hashtable.keys();
-        ABHashtable<object, object> layerHashtableCanBeNull = null;
-        int? integerCanBeNull = null;
-        int? cachedIntegerCanBeNull = null;
+    LevelLayersFinder() {
+        this.initFieldsLevelLayersFinder();
+    }
+    
+
+    static LevelLayersFinder getInstance() {
+        return LevelLayersFinder.instance;
+    }
+    
+
+    BasicArrayList get(ABHashtable hashtable) {
+        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        final BasicArrayList list = BasicArrayListD();
+        final Enumeration enumeration = hashtable.keys();
+        late ABHashtable layerHashtableCanBeNull;
+        late int integerCanBeNull;
+        late int cachedIntegerCanBeNull;
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            layerHashtableCanBeNull = ((ABHashtable<object, object>) hashtable.get(((object) this.enumerationUtil.nextElement(enumeration))));
-            integerCanBeNull = ((int?) layerHashtableCanBeNull.get(((object) Layer.ID)));
-            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(((int) integerCanBeNull));
+            layerHashtableCanBeNull = (hashtable.get((this.enumerationUtil.nextElement(enumeration) as Object)) as ABHashtable);
+            integerCanBeNull = (layerHashtableCanBeNull.get((Layer.ID as Object)) as int);
+            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt((integerCanBeNull).toInt());
             if (!list.contains(cachedIntegerCanBeNull)) {
                 list.add(cachedIntegerCanBeNull);
             }
         }
         return list;
     }
-
 }
 

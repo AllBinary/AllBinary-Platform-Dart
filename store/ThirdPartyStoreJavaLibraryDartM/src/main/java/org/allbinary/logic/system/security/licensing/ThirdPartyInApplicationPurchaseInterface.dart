@@ -13,37 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LockableFeature.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+abstract interface class ThirdPartyInApplicationPurchaseInterface {
+    
 
-public interface ThirdPartyInApplicationPurchaseInterface
-{
     bool isPurchased(LockableFeature lockableFeature);
+    
 
-    void onCreate(object anyType, object stateObject);
+    void onCreate(Object anyType, Object stateObject);
+    
 
     void onDestroy();
+    
 
     void onStart();
+    
 
-    void onActivityResult(int requestCode, int resultCode, object dataObject);
+    void onActivityResult(int requestCode, int resultCode, Object dataObject);
+    
 
-    void onSaveInstanceState(object anyType);
+    void onSaveInstanceState(Object anyType);
+    
 
     void onStop();
+    
 
     void requestPurchase(LockableFeature lockableFeature);
+    
 
     void requestReceipts();
+    
 
     void add(LockableFeature lockableFeature);
+    
 
-    string getUserName();
+    String getUserName();
+    
 
     bool isEnabled();
-
 }
 

@@ -13,29 +13,40 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
 
-namespace org.allbinary.game.identification;
+class GroupCommonFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late int ID;
+    late String GROUP_NAME_LABEL;
+    late String ID_LABEL;
+    late String ADDING_LABEL;
+    late String TO_LABEL;
 
-public class GroupCommonFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GroupCommonFactory getInstance()
-    {
-        if (GroupCommonFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            GroupCommonFactory.instance = new GroupCommonFactory();
-        }
-        return ((GroupCommonFactory) GroupCommonFactory.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsGroupCommonFactory() {
+    this.ID = SmallIntegerSingletonFactory.getInstance().getAt(10);
+    this.GROUP_NAME_LABEL = "Group Name: ";
+    this.ID_LABEL = " Id: ";
+    this.ADDING_LABEL = "Adding: ";
+    this.TO_LABEL = " to: ";
     }
 
-    public readonly int? ID = SmallIntegerSingletonFactory.getInstance().getAt(10);
-    public readonly string GROUP_NAME_LABEL = "Group Name: ";
-    public readonly string ID_LABEL = " Id: ";
-    public readonly string ADDING_LABEL = "Adding: ";
-    public readonly string TO_LABEL = " to: ";
+    GroupCommonFactory() {
+        this.initFieldsGroupCommonFactory();
+    }
+    
+
+    static GroupCommonFactory getInstance() {
+        if (GroupCommonFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GroupCommonFactory.instance = GroupCommonFactory();
+        }
+        return (GroupCommonFactory.instance as GroupCommonFactory);
+    }
 }
 

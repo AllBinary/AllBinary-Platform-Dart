@@ -13,34 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/SoundsFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
 
-namespace org.allbinary.media.audio;
+class BaseSoundsFactory implements SoundsFactoryInterface {
+    bool initialized = false;
 
-public class BaseSoundsFactory : SoundsFactoryInterface
-{
-    private bool initialized = false;
-    public virtual void init()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBaseSoundsFactory() {
+    this.initialized = false;
     }
 
-    // throws Exception
-    public virtual Sound[] getSoundInterfaceArray()
-    {
-        return new Sound[0];
+    BaseSoundsFactory() {
+        this.initFieldsBaseSoundsFactory();
     }
+    
 
-    public virtual void setInitialized(bool initialized)
-    {
+    @override
+    void init() {
+    }
+    
+
+    @override
+    List<Sound?> getSoundInterfaceArray() {
+        return List<Sound?>.filled(0, null);
+    }
+    
+
+    @override
+    void setInitialized(bool initialized) {
         this.initialized = initialized;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    @override
+    bool isInitialized() {
         return this.initialized;
     }
-
 }
 

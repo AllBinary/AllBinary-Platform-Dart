@@ -13,29 +13,28 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.emulator.swt
 
-using System;
-using System.Linq;
-using Display = org.eclipse.swt.widgets.Display;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/eclipse/swt/widgets/Display.dart';
+import 'package:allbinary/org/allbinary/emulator/swt/SWTProcessor.dart';
 
-namespace org.allbinary.emulator.swt;
+class SWTRunnableProcessor extends SWTProcessor {
+    static final SWTRunnableProcessor instanceR = SWTRunnableProcessor();
+    
 
-public class SWTRunnableProcessor : SWTProcessor
-{
-    private static readonly SWTRunnableProcessor instanceR = new SWTRunnableProcessor();
-    public static SWTRunnableProcessor getInstance()
-    {
+    static SWTRunnableProcessor getInstance() {
         return SWTRunnableProcessor.instanceR;
     }
+    
 
-    private SWTRunnableProcessor()
-    {
+    SWTRunnableProcessor() {
     }
+    
 
-    public override void process(Display display)
-    {
+    void process(Display display) {
         this.runnable.run();
     }
-
 }
 

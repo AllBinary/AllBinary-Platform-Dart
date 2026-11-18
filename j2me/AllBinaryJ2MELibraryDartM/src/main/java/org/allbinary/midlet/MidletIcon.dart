@@ -13,14 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.midlet;
-
-public class MidletIcon
-{
-    public static string RESOURCE = "icon";
+class MidletIcon {
+    static String RESOURCE = "icon";
 }
 

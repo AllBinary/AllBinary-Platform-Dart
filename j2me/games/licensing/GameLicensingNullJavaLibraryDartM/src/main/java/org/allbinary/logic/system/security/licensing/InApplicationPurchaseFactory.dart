@@ -13,75 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/LockableFeature.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class InApplicationPurchaseFactory {
+    static final InApplicationPurchaseFactory instance = InApplicationPurchaseFactory();
+    
 
-public class InApplicationPurchaseFactory
-{
-    private static readonly InApplicationPurchaseFactory instance = new InApplicationPurchaseFactory();
-    public static InApplicationPurchaseFactory getInstance()
-    {
+    static InApplicationPurchaseFactory getInstance() {
         return InApplicationPurchaseFactory.instance;
     }
+    
 
-    private InApplicationPurchaseFactory()
-    {
+    InApplicationPurchaseFactory() {
     }
+    
 
-    public virtual void init(object anyType, object stateObject)
-    {
+    void init(Object anyType, Object stateObject) {
     }
+    
 
-    public virtual void onCreate(object anyType, object stateObject)
-    {
+    void onCreate(Object anyType, Object stateObject) {
     }
+    
 
-    public virtual void onStart()
-    {
+    void onStart() {
     }
+    
 
-    public virtual void onResult(int requestCode, int resultCode, object data)
-    {
+    void onResult(int requestCode, int resultCode, Object data) {
     }
+    
 
-    public virtual void onSaveState(object anyType)
-    {
+    void onSaveState(Object anyType) {
     }
+    
 
-    public virtual void onStop()
-    {
+    void onStop() {
     }
+    
 
-    public virtual void onDestroy()
-    {
+    void onDestroy() {
     }
+    
 
-    public virtual void purchase(LockableFeature lockableFeature)
-    {
+    void purchase(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual bool isPurchased(LockableFeature lockableFeature)
-    {
+    bool isPurchased(LockableFeature lockableFeature) {
         return false;
     }
+    
 
-    public virtual void add(LockableFeature lockableFeature)
-    {
+    void add(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual string getUserName()
-    {
+    String getUserName() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    bool isEnabled() {
         return false;
     }
-
 }
 

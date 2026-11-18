@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonsPaintable.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonsPaintableFactory {
+    
 
-public class TouchButtonsPaintableFactory
-{
-    public static Paintable getInstance(BasicColor basicColor)
-    {
-        return new TouchButtonsPaintable(basicColor);
+    static Paintable getInstance1(BasicColor basicColor) {
+        return TouchButtonsPaintable(basicColor);
     }
-
 }
 

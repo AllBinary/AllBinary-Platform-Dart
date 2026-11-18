@@ -13,7 +13,7 @@
  *   
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.string
 
 import 'package:allbinary/allbinary_java.dart';
@@ -29,7 +29,7 @@ class StringUtil {
 
     // Java field initializers run after the base constructor
     void initFieldsStringUtil() {
-    this.INIT_STRING = "";
+    this.INIT_STRING = jNewString("");
     this.NULL_STRING = "null";
     this.EMPTY_STRING = "";
     this.ONE_EMPTY_STRING_ARRAY = <String?>[this.EMPTY_STRING];

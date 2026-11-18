@@ -13,20 +13,30 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class Shader {
+    late String shaderName;
+    late BasicArrayList shaderStringList;
+    late String shaderAsString;
+    int shaderHandle = 0;
 
-public class Shader
-{
-    public string shaderName = StringUtil.getInstance().EMPTY_STRING;
-    public BasicArrayList shaderStringList = BasicArrayListUtil.getInstance().getImmutableInstance();
-    public string shaderAsString = StringUtil.getInstance().EMPTY_STRING;
-    public int shaderHandle = 0;
+    // Java field initializers run after the base constructor
+    void initFieldsShader() {
+    this.shaderName = StringUtil.getInstance().EMPTY_STRING;
+    this.shaderStringList = BasicArrayListUtil.getInstance().getImmutableInstance();
+    this.shaderAsString = StringUtil.getInstance().EMPTY_STRING;
+    this.shaderHandle = 0;
+    }
+
+    Shader() {
+        this.initFieldsShader();
+    }
 }
 

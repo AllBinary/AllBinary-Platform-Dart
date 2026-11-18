@@ -13,37 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using MyCommandsFactory = org.allbinary.graphics.displayable.command.MyCommandsFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/command/MyCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidlet.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletEvent.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletStateFactory.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletEventHandler.dart';
 
-namespace org.allbinary.game.midlet;
+class CreateGameRunnable implements Runnable {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late DemoGameMidlet demoGameMidlet;
+    late ABHashtable hashtable;
+    late DemoGameMidletEvent startGameMidletEvent;
 
-public class CreateGameRunnable : global::java.lang.Runnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly DemoGameMidlet demoGameMidlet;
-    private readonly ABHashtable<object, object> hashtable;
-    private readonly DemoGameMidletEvent startGameMidletEvent;
-    public CreateGameRunnable(DemoGameMidlet demoGameMidlet, ABHashtable<object, object> hashtable)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCreateGameRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    }
+    
+
+    CreateGameRunnable(DemoGameMidlet demoGameMidlet, ABHashtable hashtable) {
+        this.initFieldsCreateGameRunnable();
         this.demoGameMidlet = demoGameMidlet;
         this.hashtable = hashtable;
-        this.startGameMidletEvent = new DemoGameMidletEvent(this, DemoGameMidletStateFactory.getInstance().START_GAME);
+        this.startGameMidletEvent = DemoGameMidletEvent(this, DemoGameMidletStateFactory.getInstance().START_GAME);
     }
+    
 
-    public virtual void run()
-    {
+    @override
+    void run() {
         try {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
-            ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             this.demoGameMidlet.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, progressCanvas);
             this.demoGameMidlet.stopGameCanvasRunnableInterface();
             this.demoGameMidlet.setGameCanvasRunnableInterface(this.demoGameMidlet.createGameCanvasRunnableInterface());
@@ -51,10 +65,12 @@ public class CreateGameRunnable : global::java.lang.Runnable
             this.demoGameMidlet.startGameCanvasRunnableInterface();
             DemoGameMidletEventHandler.getInstance().fireEvent(this.startGameMidletEvent);
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+            }
         }
     }
-
 }
 

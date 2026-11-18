@@ -13,54 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.special
 
-using System;
-using System.Linq;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using IndexedAnimationBehavior = org.allbinary.animation.IndexedAnimationBehavior;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/special/SpecialAnimationInterface.dart';
 
-namespace org.allbinary.animation.special;
+class SpecialAnimation extends IndexedAnimation implements SpecialAnimationInterface {
+    static final SpecialAnimation NULL_SPECIAL_ANIMATION = SpecialAnimation(IndexedAnimationBehavior(1, 250));
+    
 
-public class SpecialAnimation : IndexedAnimation, SpecialAnimationInterface
-{
-    private static readonly SpecialAnimation NULL_SPECIAL_ANIMATION = new SpecialAnimation(new IndexedAnimationBehavior(1, 250));
-    public static SpecialAnimation getInstance()
-    {
+    static SpecialAnimation getInstance() {
         return SpecialAnimation.NULL_SPECIAL_ANIMATION;
     }
+    
 
-    public SpecialAnimation(AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    SpecialAnimation(AnimationBehavior animationBehavior) : super(animationBehavior) {
+        
     }
+    
 
-    public override void nextFrame()
-    {
-        IndexedAnimationBehavior indexedAnimationBehavior = (((IndexedAnimationBehavior) this.animationBehaviorP));
+    @override
+    void nextFrame() {
+        final IndexedAnimationBehavior indexedAnimationBehavior = ((this.animationBehaviorP as IndexedAnimationBehavior));
         indexedAnimationBehavior.loopIndex++;
     }
+    
 
-    public virtual void setLastFrame()
-    {
+    @override
+    void setLastFrame() {
     }
+    
 
-    public virtual bool isComplete()
-    {
+    @override
+    bool isComplete() {
         return false;
     }
+    
 
-    public virtual void open()
-    {
+    void open() {
     }
+    
 
-    public virtual void close()
-    {
+    void close() {
     }
+    
 
-    public virtual void process()
-    {
+    void process() {
     }
-
 }
 

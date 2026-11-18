@@ -13,20 +13,28 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.emulator.swt
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/emulator/swt/SWTProcessor.dart';
 
-namespace org.allbinary.emulator.swt;
+class SWTProcessorUtil {
+    static final SWTProcessorUtil instance = SWTProcessorUtil();
+    late SWTProcessor swtProcessor;
 
-public class SWTProcessorUtil
-{
-    private static readonly SWTProcessorUtil instance = new SWTProcessorUtil();
-    public static SWTProcessorUtil getInstance()
-    {
-        return SWTProcessorUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsSWTProcessorUtil() {
+    this.swtProcessor = SWTProcessor.getInstance();
     }
 
-    public SWTProcessor swtProcessor = SWTProcessor.getInstance();
+    SWTProcessorUtil() {
+        this.initFieldsSWTProcessorUtil();
+    }
+    
+
+    static SWTProcessorUtil getInstance() {
+        return SWTProcessorUtil.instance;
+    }
 }
 

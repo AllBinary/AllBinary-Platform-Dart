@@ -13,60 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.time
 
-using System;
-using System.Linq;
-using Calendar = java.util.Calendar;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/util/Calendar.dart';
 
-namespace org.allbinary.time;
+class TimeUtil {
+    static final TimeUtil instance = TimeUtil();
+    static final Calendar calendar = Calendar.getInstance();
+    
 
-public class TimeUtil
-{
-    private static readonly TimeUtil instance = new TimeUtil();
-    public static TimeUtil getInstance()
-    {
+    static TimeUtil getInstance() {
         return TimeUtil.instance;
     }
+    
 
-    public virtual void setCalendar(Calendar calendar, string yearString, string monthString, string dayString, string hourString)
-    {
-        int year = global::java.lang.JavaNumber.intValue(int.Parse(yearString));
-        int month = global::java.lang.JavaNumber.intValue(int.Parse(monthString));
-        int day = global::java.lang.JavaNumber.intValue(int.Parse(dayString));
-        int hour = global::java.lang.JavaNumber.intValue(int.Parse(hourString));
+    void setCalendar(Calendar calendar, String yearString, String monthString, String dayString, String hourString) {
+        int year = (int.parse(yearString)).toInt();
+        int month = (int.parse(monthString)).toInt();
+        int day = (int.parse(dayString)).toInt();
+        int hour = (int.parse(hourString)).toInt();
         calendar.set(year, month, day, hour, 0);
     }
+    
 
-    public virtual void setCalendarWithTime(Calendar calendar, string yearString, string monthString, string dayString, string hourString, string minuteString, string secondString)
-    {
-        int year = global::java.lang.JavaNumber.intValue(int.Parse(yearString));
-        int month = global::java.lang.JavaNumber.intValue(int.Parse(monthString));
-        int day = global::java.lang.JavaNumber.intValue(int.Parse(dayString));
-        int hour = global::java.lang.JavaNumber.intValue(int.Parse(hourString));
-        int minute = global::java.lang.JavaNumber.intValue(int.Parse(minuteString));
-        int second = global::java.lang.JavaNumber.intValue(int.Parse(secondString));
+    void setCalendarWithTime(Calendar calendar, String yearString, String monthString, String dayString, String hourString, String minuteString, String secondString) {
+        int year = (int.parse(yearString)).toInt();
+        int month = (int.parse(monthString)).toInt();
+        int day = (int.parse(dayString)).toInt();
+        int hour = (int.parse(hourString)).toInt();
+        int minute = (int.parse(minuteString)).toInt();
+        int second = (int.parse(secondString)).toInt();
         calendar.set(year, month, day, hour, minute, second);
     }
+    
 
-    public virtual void setExpirationCalendar(Calendar calendar, string yearsString, string monthsString, string daysString, string hoursString, string minutesString, string secondsString)
-    {
-        int year = calendar.get(Calendar.YEAR) + global::java.lang.JavaNumber.intValue(int.Parse(yearsString));
-        int month = calendar.get(Calendar.MONTH) + global::java.lang.JavaNumber.intValue(int.Parse(monthsString));
-        int day = calendar.get(Calendar.DAY_OF_MONTH) + global::java.lang.JavaNumber.intValue(int.Parse(daysString));
-        int hour = calendar.get(Calendar.HOUR) + global::java.lang.JavaNumber.intValue(int.Parse(hoursString));
-        int minute = calendar.get(Calendar.MINUTE) + global::java.lang.JavaNumber.intValue(int.Parse(minutesString));
-        int second = calendar.get(Calendar.SECOND) + global::java.lang.JavaNumber.intValue(int.Parse(secondsString));
+    void setExpirationCalendar(Calendar calendar, String yearsString, String monthsString, String daysString, String hoursString, String minutesString, String secondsString) {
+        int year = calendar.get(Calendar.YEAR) + (int.parse(yearsString)).toInt();
+        int month = calendar.get(Calendar.MONTH) + (int.parse(monthsString)).toInt();
+        int day = calendar.get(Calendar.DAY_OF_MONTH) + (int.parse(daysString)).toInt();
+        int hour = calendar.get(Calendar.HOUR) + (int.parse(hoursString)).toInt();
+        int minute = calendar.get(Calendar.MINUTE) + (int.parse(minutesString)).toInt();
+        int second = calendar.get(Calendar.SECOND) + (int.parse(secondsString)).toInt();
         calendar.set(year, month, day, hour, minute, second);
     }
+    
 
-    private static readonly Calendar calendar = Calendar.getInstance();
-    public virtual long getTotalTime(string yearString, string monthString, string dayString, string hourString, string minuteString, string secondString)
-    {
-        long time = TimeUtil.calendar.getTimeInMillis();
+    int getTotalTime(String yearString, String monthString, String dayString, String hourString, String minuteString, String secondString) {
+        int time = TimeUtil.calendar.getTimeInMillis();
         this.setExpirationCalendar(TimeUtil.calendar, yearString, monthString, dayString, hourString, minuteString, secondString);
-        long timeDelta = TimeUtil.calendar.getTimeInMillis();
+        int timeDelta = TimeUtil.calendar.getTimeInMillis();
         return timeDelta - time;
     }
-
 }
 

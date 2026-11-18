@@ -1,45 +1,51 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game;
+class BasicGameInfoFactory {
+    static final BasicGameInfoFactory SINGLETON = BasicGameInfoFactory();
+    int currentReleaseIndex = 0;
+    int currentDestroyIndex = 0;
+    int total = 0;
 
-public class BasicGameInfoFactory
-{
-    private static readonly BasicGameInfoFactory SINGLETON = new BasicGameInfoFactory();
-    public static BasicGameInfoFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicGameInfoFactory() {
+    this.currentReleaseIndex = 0;
+    this.currentDestroyIndex = 0;
+    this.total = 0;
+    }
+    
+
+    static BasicGameInfoFactory getInstance() {
         return BasicGameInfoFactory.SINGLETON;
     }
+    
 
-    public int currentReleaseIndex = 0;
-    public int currentDestroyIndex = 0;
-    public int total = 0;
-    private BasicGameInfoFactory()
-    {
+    BasicGameInfoFactory() {
+        this.initFieldsBasicGameInfoFactory();
     }
+    
 
-    public virtual void init(int total)
-    {
+    void init(int total) {
         this.currentReleaseIndex = 0;
         this.currentDestroyIndex = 0;
         this.total = total;
     }
+    
 
-    public virtual bool isPeaked()
-    {
+    bool isPeaked() {
         if (this.currentDestroyIndex >= this.total) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual int howManyLeft()
-    {
+    int howManyLeft() {
         return this.total - this.currentDestroyIndex;
     }
-
 }
 

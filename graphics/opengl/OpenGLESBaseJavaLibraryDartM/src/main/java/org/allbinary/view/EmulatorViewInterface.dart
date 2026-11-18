@@ -1,19 +1,20 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.view
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using MIDlet = javax.microedition.midlet.MIDlet;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Displayable.dart';
+import 'package:allbinary/javax/microedition/midlet/MIDlet.dart';
 
-namespace org.allbinary.view;
+abstract interface class EmulatorViewInterface {
+    
 
-public interface EmulatorViewInterface
-{
     void setMidlet(MIDlet midlet);
+    
 
-    void onEmulatorInitComplete(object midletActivity);
+    void onEmulatorInitComplete(Object midletActivity);
+    
 
     void onSetDisplayable(Displayable displayable);
-
 }
 

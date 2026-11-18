@@ -13,37 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BaseTouchInput.dart';
 
-namespace org.allbinary.input.motion.button;
+class BasicTouchButtonsBuilder extends BaseTouchInput {
+    static final BasicTouchButtonsBuilder SINGLETON = BasicTouchButtonsBuilder();
+    late LogUtil logUtil;
 
-public class BasicTouchButtonsBuilder : BaseTouchInput
-{
-    private static readonly BasicTouchButtonsBuilder SINGLETON = new BasicTouchButtonsBuilder();
-    public static BaseTouchInput getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicTouchButtonsBuilder() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    BasicTouchButtonsBuilder() {
+        this.initFieldsBasicTouchButtonsBuilder();
+    }
+    
+
+    static BaseTouchInput getInstance() {
         return BasicTouchButtonsBuilder.SINGLETON;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override BasicArrayList getList()
-    {
+    @override
+    BasicArrayList getList() {
         try {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.GET_LIST);
-            BasicArrayList list = new BasicArrayListD();
+            final BasicArrayList list = BasicArrayListD();
             return list;
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_LIST, e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
+            }
         }
     }
-
 }
 

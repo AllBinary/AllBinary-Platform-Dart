@@ -13,37 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.caption
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Player = javax.microedition.media.Player;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AnimationEventHandler = org.allbinary.animation.AnimationEventHandler;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/media/Player.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationEventHandler.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
 
-namespace org.allbinary.animation.caption;
+class CaptionIndexedAnimation extends IndexedAnimation {
+    late Animation animationInterface;
+    late IndexedAnimation movieIndexedAnimationInterface;
+    int captionDx = 0;
+    int captionDy = 0;
+    int dx = 0;
+    int dy = 0;
+    int time = 0;
+    late AllBinaryEventObject END_EVENT;
+    late TimeDelayHelper timeDelayHelper;
+    late Player player;
 
-public class CaptionIndexedAnimation : IndexedAnimation
-{
-    private Animation animationInterface;
-    private IndexedAnimation movieIndexedAnimationInterface;
-    private int captionDx;
-    private int captionDy;
-    private int dx;
-    private int dy;
-    private int time;
-    private AllBinaryEventObject END_EVENT;
-    private TimeDelayHelper timeDelayHelper;
-    private Player player;
-    public CaptionIndexedAnimation(Animation animationInterface, IndexedAnimation movieIndexedAnimationInterface, Player player, int captionDx, int captionDy, int dx, int dy, int time, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCaptionIndexedAnimation() {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+
+    CaptionIndexedAnimation(Animation animationInterface, IndexedAnimation movieIndexedAnimationInterface, Player player, int captionDx, int captionDy, int dx, int dy, int time, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsCaptionIndexedAnimation();
+        
         this.animationInterface = animationInterface;
         this.movieIndexedAnimationInterface = movieIndexedAnimationInterface;
         this.captionDx = captionDx;
@@ -51,16 +65,16 @@ public class CaptionIndexedAnimation : IndexedAnimation
         this.dx = dx;
         this.dy = dy;
         this.time = time;
-        this.END_EVENT = new AllBinaryEventObject(this);
-        int timePerFrame = this.time / this.getSize();
-        this.timeDelayHelper = new TimeDelayHelper(timePerFrame);
+        this.END_EVENT = AllBinaryEventObject(this);
+        int timePerFrame = this.time ~/ this.getSize();
+        this.timeDelayHelper = TimeDelayHelper(timePerFrame);
         this.player = player;
         this.player.start();
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
             this.movieIndexedAnimationInterface.nextFrame();
         }
@@ -68,56 +82,64 @@ public class CaptionIndexedAnimation : IndexedAnimation
             AnimationEventHandler.getInstance().fireEvent(this.END_EVENT);
         }
     }
+    
 
-    public override bool isLastFrame()
-    {
+    @override
+    bool isLastFrame() {
         if (this.movieIndexedAnimationInterface.getFrame() == this.getSize() - 1) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         this.movieIndexedAnimationInterface.previousFrame();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.movieIndexedAnimationInterface.setFrame(index);
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.movieIndexedAnimationInterface.getFrame();
     }
+    
 
-    public override int getSize()
-    {
+    @override
+    int getSize() {
         return this.movieIndexedAnimationInterface.getSize();
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.animationInterface.paintXY(graphics, x + this.captionDx, y + this.captionDy);
         this.movieIndexedAnimationInterface.paintXY(graphics, x + this.captionDx + this.dx, y + this.captionDy + this.dy);
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
+    @override
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z) {
         this.animationInterface.paintThreedXYZ(graphics, x + this.captionDx, y + this.captionDy, z);
         this.movieIndexedAnimationInterface.paintThreedXYZ(graphics, x + this.captionDx + this.dx, y + this.captionDy + this.dy, z);
     }
-
 }
 

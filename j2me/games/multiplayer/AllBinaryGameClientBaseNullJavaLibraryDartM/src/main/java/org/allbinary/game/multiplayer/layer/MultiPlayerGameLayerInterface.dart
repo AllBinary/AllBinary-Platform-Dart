@@ -13,15 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.multiplayer.layer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/MultiplayerBehavior.dart';
 
-namespace org.allbinary.game.multiplayer.layer;
+abstract interface class MultiPlayerGameLayerInterface {
+    
 
-public interface MultiPlayerGameLayerInterface
-{
     MultiplayerBehavior getMultiplayerBehavior();
-
 }
 

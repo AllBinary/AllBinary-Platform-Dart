@@ -1,52 +1,51 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
 
-namespace org.allbinary.graphics.displayable;
+class ScreenRelationalUtil {
+    static final ScreenRelationalUtil instance = ScreenRelationalUtil();
+    
 
-public class ScreenRelationalUtil
-{
-    private static readonly ScreenRelationalUtil instance = new ScreenRelationalUtil();
-    public static ScreenRelationalUtil getInstance()
-    {
+    static ScreenRelationalUtil getInstance() {
         return ScreenRelationalUtil.instance;
     }
+    
 
-    public virtual float getScaleImage(Image image)
-    {
+    double getScaleImage(Image image) {
         return this.getScaleWH(image.getWidth(), image.getHeight());
     }
+    
 
-    public virtual float getScaleWH(int aWidth, int aHeight)
-    {
+    double getScaleWH(int aWidth, int aHeight) {
         return this.getScaleWHA(aWidth, aHeight, 20);
     }
+    
 
-    public virtual float getScaleWHA(int aWidth, int aHeight, int add)
-    {
-        DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-        int[] last = displayInfoSingleton.getLast();
-        float width = ((float) last[displayInfoSingleton.WIDTH]);
-        float height = ((float) last[displayInfoSingleton.HEIGHT]);
-        float largestSize = width;
+    double getScaleWHA(int aWidth, int aHeight, int add) {
+        final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        final List<int> last = displayInfoSingleton.getLast();
+        final double width = (last[displayInfoSingleton.WIDTH]).toDouble();
+        final double height = (last[displayInfoSingleton.HEIGHT]).toDouble();
+        double largestSize = width;
         if (largestSize < height) {
             largestSize = height;
         }
-        float scale = (largestSize) / ((float) aWidth);
+        double scale = (largestSize) / (aWidth).toDouble();
         return scale;
     }
+    
 
-    public virtual int getScaledHeight(int aWidth, int aHeight)
-    {
-        return ((int) (this.getScaleWH(aWidth, aHeight) * ((float) aHeight)));
+    int getScaledHeight(int aWidth, int aHeight) {
+        return JMath.toInt32((this.getScaleWH(aWidth, aHeight) * (aHeight).toDouble()));
     }
+    
 
-    public virtual int getScaledHeightAdd(int aWidth, int aHeight, int add)
-    {
-        return ((int) (this.getScaleWHA(aWidth, aHeight, add) * ((float) aHeight)));
+    int getScaledHeightAdd(int aWidth, int aHeight, int add) {
+        return JMath.toInt32((this.getScaleWHA(aWidth, aHeight, add) * (aHeight).toDouble()));
     }
-
 }
 

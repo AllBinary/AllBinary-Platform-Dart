@@ -13,40 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.motion.action
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using CompleteMotionGestureInputEventListener = org.allbinary.game.input.CompleteMotionGestureInputEventListener;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using PressGameKeyEventHandler = org.allbinary.game.input.@event.PressGameKeyEventHandler;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventListener.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/PressGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
 
-namespace org.allbinary.game.input.motion.action;
+class SingleKeyPressGameKeyFromMotionGestureEventListener extends CompleteMotionGestureInputEventListener {
+    late LogUtil logUtil;
 
-public class SingleKeyPressGameKeyFromMotionGestureEventListener : CompleteMotionGestureInputEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSingleKeyPressGameKeyFromMotionGestureEventListener() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    SingleKeyPressGameKeyFromMotionGestureEventListener() {
+        this.initFieldsSingleKeyPressGameKeyFromMotionGestureEventListener();
+    }
+    
+
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
-    {
+    @override
+    void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent) {
         try {
-            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent);
-            GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
+            final GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (completeMotionGestureInputEvent as GameKeyCompleteMotionGestureInputEvent);
+            final GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
             PressGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
+            }
         }
     }
-
 }
 

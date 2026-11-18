@@ -13,50 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.input.motion;
+class AllMotionRecognizer {
+    static int index = 0;
+    int id = 0;
 
-public class AllMotionRecognizer
-{
-    private readonly int id;
-    private static int index = 0;
-    public AllMotionRecognizer()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAllMotionRecognizer() {
+    
+    }
+    
+
+    AllMotionRecognizer() {
+        this.initFieldsAllMotionRecognizer();
         this.id = AllMotionRecognizer.index++;
     }
+    
 
-    // throws Exception
-    public virtual void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processStartMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processEndMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processMovedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processMovedMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processScrolledMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    void processScrolledMotionEvent(int x, int y, int deviceId, int modifiers) {
     }
+    
 
-    public virtual int getId()
-    {
+    int getId() {
         return this.id;
     }
-
 }
 

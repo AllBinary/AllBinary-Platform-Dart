@@ -13,14 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityBehaviorBase.dart';
 
-namespace org.allbinary.game.physics.velocity;
-
-public class NoDragVelocityBehavior : VelocityBehaviorBase
-{
-    public static readonly NoDragVelocityBehavior instance = new NoDragVelocityBehavior();
+class NoDragVelocityBehavior extends VelocityBehaviorBase {
+    static final NoDragVelocityBehavior instance = NoDragVelocityBehavior();
 }
 

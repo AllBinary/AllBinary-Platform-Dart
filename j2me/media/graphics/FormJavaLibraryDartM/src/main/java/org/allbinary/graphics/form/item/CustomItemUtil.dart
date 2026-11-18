@@ -13,20 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
 
-namespace org.allbinary.graphics.form.item;
+class CustomItemUtil {
+    static final CustomItemUtil instance = CustomItemUtil();
+    late List<ABCustomItem?> CUSTOM_ITEM_ARRAY;
 
-public class CustomItemUtil
-{
-    private static readonly CustomItemUtil instance = new CustomItemUtil();
-    public static CustomItemUtil getInstance()
-    {
-        return CustomItemUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsCustomItemUtil() {
+    this.CUSTOM_ITEM_ARRAY = List<ABCustomItem?>.filled(0, null);
     }
 
-    public readonly ABCustomItem[] CUSTOM_ITEM_ARRAY = new ABCustomItem[0];
+    CustomItemUtil() {
+        this.initFieldsCustomItemUtil();
+    }
+    
+
+    static CustomItemUtil getInstance() {
+        return CustomItemUtil.instance;
+    }
 }
 

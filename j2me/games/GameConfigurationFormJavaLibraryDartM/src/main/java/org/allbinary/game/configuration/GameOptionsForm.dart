@@ -13,147 +13,156 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using Choice = javax.microedition.lcdui.Choice;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Item = javax.microedition.lcdui.Item;
-using TextField = javax.microedition.lcdui.TextField;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GameFeatureChoiceGroups = org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
-using GameFeatureFormUtil = org.allbinary.game.configuration.feature.GameFeatureFormUtil;
-using GameFeatureItemCommandListener = org.allbinary.game.configuration.feature.GameFeatureItemCommandListener;
-using GameFeatureItemStateListener = org.allbinary.game.configuration.feature.GameFeatureItemStateListener;
-using SensorFeatureFactory = org.allbinary.game.configuration.feature.SensorFeatureFactory;
-using GameConfigurationPersistanceSingleton = org.allbinary.game.configuration.persistance.GameConfigurationPersistanceSingleton;
-using KeyValuePersistance = org.allbinary.game.configuration.persistance.KeyValuePersistance;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using MyCommandsFactory = org.allbinary.graphics.displayable.command.MyCommandsFactory;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using OrientationData = org.allbinary.input.gyro.OrientationData;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using HashtableUtil = org.allbinary.util.HashtableUtil;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Choice.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/Item.dart';
+import 'package:allbinary/javax/microedition/lcdui/TextField.dart';
+import 'package:allbinary/org/allbinary/MIDPUtil.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureFormUtil.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureItemCommandListener.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureItemStateListener.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/SensorFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GameConfigurationPersistanceSingleton.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/KeyValuePersistance.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/command/MyCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/CommandForm.dart';
+import 'package:allbinary/org/allbinary/input/gyro/OrientationData.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/HashtableUtil.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationTextInput.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationSingleton.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfiguration.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationGauge.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationUtil.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationCentral.dart';
 
-namespace org.allbinary.game.configuration;
+class GameOptionsForm extends CommandForm {
+    late MIDPUtil meUtil;
 
-public class GameOptionsForm : CommandForm
-{
-    private readonly MIDPUtil meUtil = MIDPUtil.getInstance();
-    public GameOptionsForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(commandListener, title, backgrounBasicColor, foregroundBasicColor)
-    {
-        // base(commandListener, title, backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameOptionsForm() {
+    this.meUtil = MIDPUtil.getInstance();
+    }
+    
+
+    GameOptionsForm(CommandListener commandListener, String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : super(commandListener, title, backgrounBasicColor, foregroundBasicColor) {
+        this.initFieldsGameOptionsForm();
+        
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.addConfiguration();
-        GameFeatureFormUtil gameFeatureFormUtil = GameFeatureFormUtil.getInstance();
+        final GameFeatureFormUtil gameFeatureFormUtil = GameFeatureFormUtil.getInstance();
         gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getExclusiveInstance().get(), Choice.EXCLUSIVE);
         gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getMultipleInstance().get(), Choice.MULTIPLE);
         this.initCommands(commandListener);
-        this.setItemStateListener(new GameFeatureItemStateListener(this));
+        this.setItemStateListener(GameFeatureItemStateListener(this));
         this.addTextFieldsIfSimulated();
     }
+    
 
-    // throws Exception
-    public virtual void closeClientInformation(AbeClientInformationInterface abeClientInformation)
-    {
-        base.close();
+    void closeClientInformation(AbeClientInformationInterface abeClientInformation) {
+        super.close();
         this.save(abeClientInformation);
     }
+    
 
-    private void addTextFieldsIfSimulated()
-    {
-        string key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
-        ABHashtable<object, object> hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
+    void addTextFieldsIfSimulated() {
+        String key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
+        final ABHashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
         if (hashtable != null) {
-            object listCanBeNull = hashtable.get(key);
+            Object listCanBeNull = hashtable.get(key);
             if (listCanBeNull != null) {
-                BasicArrayList list = ((BasicArrayList) listCanBeNull);
+                final BasicArrayList list = (listCanBeNull as BasicArrayList);
                 if (list.contains(SensorFeatureFactory.getInstance().SIMULATED_ORIENTATION_SENSORS)) {
                     this.addTextFields();
                 }
             }
         }
     }
+    
 
-    private void addTextFields()
-    {
-        ABHashtable<object, object> hashtable = GameConfigurationTextInput.getHashtable();
-        int size = hashtable.size();
-        object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
-        GameConfigurationTextInput gameConfigurationTextInput = null;
-        TextField textField = null;
+    void addTextFields() {
+        final ABHashtable hashtable = GameConfigurationTextInput.getHashtable();
+        final int size = hashtable.size();
+        final List<Object?> objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        late GameConfigurationTextInput gameConfigurationTextInput;
+        late TextField textField;
         for (int index = 0; index < size; index++) {
-            gameConfigurationTextInput = ((GameConfigurationTextInput) hashtable.get(((object) objectArray[index])));
-            textField = new TextField(gameConfigurationTextInput.getLabel(), gameConfigurationTextInput.getText(), 30, TextField.ANY);
+            gameConfigurationTextInput = (hashtable.get(objectArray[index]!) as GameConfigurationTextInput);
+            textField = TextField(gameConfigurationTextInput.getLabel(), gameConfigurationTextInput.getText(), 30, TextField.ANY);
             this.meUtil.appendItem(this, textField);
         }
     }
+    
 
-    private void addConfiguration()
-    {
-        string METHOD_NAME = "addConfiguration";
-        string NAME = "Name: ";
-        BasicArrayList list = GameConfigurationSingleton.getInstance().getOptionsBasicArrayList();
-        Command GAUGE_CHANGE = MyCommandsFactory.getInstance().GAUGE_CHANGE;
-        StringMaker stringMaker = new StringMaker();
-        int size = list.size();
-        GameConfiguration gameConfiguration = null;
-        GameConfigurationGauge gauge = null;
+    void addConfiguration() {
+        final String METHOD_NAME = "addConfiguration";
+        final String NAME = "Name: ";
+        final BasicArrayList list = GameConfigurationSingleton.getInstance().getOptionsBasicArrayList();
+        final Command GAUGE_CHANGE = MyCommandsFactory.getInstance().GAUGE_CHANGE;
+        final StringMaker stringMaker = StringMaker();
+        final int size = list.size();
+        late GameConfiguration gameConfiguration;
+        late GameConfigurationGauge gauge;
         for (int index = 0; index < size; index++) {
-            gameConfiguration = ((GameConfiguration) list.objectArray[index]);
+            gameConfiguration = (list.objectArray[index]! as GameConfiguration);
             stringMaker.delete(0, stringMaker.length());
-            this.logUtil.putF(stringMaker.append(NAME).append(gameConfiguration.ToString()).ToString(), this, METHOD_NAME);
-            gauge = new GameConfigurationGauge(gameConfiguration);
+            this.logUtil.putF(stringMaker.append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
+            gauge = GameConfigurationGauge(gameConfiguration);
             gauge.setDefaultCommand(GAUGE_CHANGE);
-            gauge.setItemCommandListener(new GameFeatureItemCommandListener(this));
+            gauge.setItemCommandListener(GameFeatureItemCommandListener(this));
             this.meUtil.appendItem(this, gauge);
         }
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
-        GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+    @override
+    void initCommands(CommandListener cmdListener) {
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         this.removeAllCommands();
         this.addCommand(gameCommandsFactory.CLOSE_OPTIONS);
         this.addCommand(gameCommandsFactory.DEFAULT_OPTIONS);
         this.setCommandListener(cmdListener);
     }
+    
 
-    // throws Exception
-    public virtual void save(AbeClientInformationInterface abeClientInformation)
-    {
-        int size = this.size();
-        Item item = null;
-        for (int index_2 = 0; index_2 < size; index_2++) {
-            item = this.get(index_2);
-            if (item is GameConfigurationGauge) {
-                GameConfigurationUtil.getInstance().update(((GameConfigurationGauge) item));
-            } else if (item is TextField) {
-                GameConfigurationTextInput.update(((TextField) item));
+    void save(AbeClientInformationInterface abeClientInformation) {
+        final int size = this.size();
+        late Item item;
+        for (int index = 0; index < size; index++) {
+            item = this.get(index);
+            if ((item is GameConfigurationGauge)) {
+                GameConfigurationUtil.getInstance().update(item);
+            } else if ((item is TextField)) {
+                GameConfigurationTextInput.update(item);
             }
         }
         GameConfigurationUtil.getInstance().updateCompetitionValue();
-        ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-        GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
-        hashtable.put(SCALE.getName(), (global::java.lang.JavaNumber.intValue(SCALE.getValue())).ToString());
-        KeyValuePersistance keyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
+        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+        final GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
+        hashtable.put(SCALE.getName(), jstr((SCALE.getValue()).toInt()));
+        final KeyValuePersistance keyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
         keyValuePersistance.clear();
         keyValuePersistance.loadAll(abeClientInformation);
-        BasicArrayList list = keyValuePersistance.getIds();
+        final BasicArrayList list = keyValuePersistance.getIds();
         keyValuePersistance.save(abeClientInformation, hashtable);
-        int size2 = list.size();
-        int? integer = null;
-        for (int index_3 = 0; index_3 < size2; index_3++) {
-            integer = ((int?) list.objectArray[index_3]);
-            keyValuePersistance.delete(abeClientInformation, ((int) integer));
+        final int size2 = list.size();
+        late int integer;
+        for (int index = 0; index < size2; index++) {
+            integer = (list.objectArray[index]! as int);
+            keyValuePersistance.delete(abeClientInformation, (integer).toInt());
         }
     }
-
 }
 

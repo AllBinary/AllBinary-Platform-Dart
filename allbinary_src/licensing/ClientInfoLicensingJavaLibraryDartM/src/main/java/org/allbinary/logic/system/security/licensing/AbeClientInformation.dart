@@ -13,49 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using LicenseInitInfo = org.allbinary.business.init.LicenseInitInfo;
-using LicenseInitInfoUtil = org.allbinary.business.init.LicenseInitInfoUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.logic.system.security.licensing;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/business/init/LicenseInitInfo.dart';
+import 'package:allbinary/org/allbinary/business/init/LicenseInitInfoUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringValidationUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/os/OperatingSystemFactory.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/ClientInformation.dart';
 
 // This is the information sent to the license server
-public class AbeClientInformation : ClientInformation
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public AbeClientInformation(string name, string version, string specialName, string shortName) : base(name, version, specialName, shortName)
-    {
-        // base(name, version, specialName, shortName) is called from the constructor declaration
-    }
+class AbeClientInformation extends ClientInformation {
+    late LogUtil logUtil;
 
-    public override void init()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAbeClientInformation() {
+    this.logUtil = LogUtil.getInstance();
+    }
+    
+
+    AbeClientInformation(String name, String version, String specialName, String shortName) : super(name, version, specialName, shortName) {
+        this.initFieldsAbeClientInformation();
+        
+    }
+    
+
+    @override
+    void init() {
         try {
             this.setOperatingSystemInterface(OperatingSystemFactory.getInstance().getOperatingSystemInstance());
-            LicenseInitInfo licenseInitInfo = LicenseInitInfoUtil.getInstance().read();
+            final LicenseInitInfo licenseInitInfo = LicenseInitInfoUtil.getInstance().read();
             this.setLicenseId(licenseInitInfo.getLicenseId());
             this.setLicenseServers(licenseInitInfo.getServerList());
-            StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+            final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
             if (stringValidationUtil.isEmpty(this.getLicenseId())) {
-                string NONE = "No License Id";
+                final String NONE = "No License Id";
                 this.setLicenseId(NONE);
             }
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(new StringMaker().append("Special Name: ").append(this.getSpecialName()).ToString(), this, commonStrings.CONSTRUCTOR);
-        } catch (Exception e) {
-            LogUtil logUtil = LogUtil.getInstance();
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(StringMaker().append("Special Name: ").append(this.getSpecialName()).toString(), this, commonStrings.CONSTRUCTOR);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final LogUtil logUtil = LogUtil.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            }
         }
     }
-
 }
 

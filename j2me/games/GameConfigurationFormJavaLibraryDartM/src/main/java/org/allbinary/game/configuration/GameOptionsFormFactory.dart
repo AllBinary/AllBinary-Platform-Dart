@@ -13,40 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/CommandForm.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameOptionsForm.dart';
 
-namespace org.allbinary.game.configuration;
+class GameOptionsFormFactory {
+    static final GameOptionsFormFactory instance = GameOptionsFormFactory();
+    late LogUtil logUtil;
 
-public class GameOptionsFormFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly GameOptionsFormFactory instance = new GameOptionsFormFactory();
-    private GameOptionsFormFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameOptionsFormFactory() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    public static GameOptionsFormFactory getInstance()
-    {
+    GameOptionsFormFactory() {
+        this.initFieldsGameOptionsFormFactory();
+    }
+    
+
+    static GameOptionsFormFactory getInstance() {
         return GameOptionsFormFactory.instance;
     }
+    
 
-    public virtual CommandForm init(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
-    {
+    CommandForm init(CommandListener commandListener, String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
         try {
-            return new GameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            return GameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             return CommandForm.getNullCommandForm();
+            }
         }
     }
-
 }
 

@@ -13,48 +13,52 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using Image = javax.microedition.lcdui.Image;
-using MIDPUtil = org.allbinary.MIDPUtil;
-
-namespace org.allbinary.image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/MIDPUtil.dart';
 
 //ImageCacheBaseJavaLibrary - J2ME
-public class ImageFactory
-{
-    private static readonly ImageFactory instance = new ImageFactory();
-    public static ImageFactory getInstance()
-    {
+class ImageFactory {
+    static final ImageFactory instance = ImageFactory();
+    
+
+    static ImageFactory getInstance() {
         return ImageFactory.instance;
     }
+    
 
-    // throws Exception
-    public virtual Image createImageUrl(string url)
-    {
+    Image createImageUrl(String url) {
         return Image.createImage(url);
     }
+    
 
-    // throws Exception
-    public virtual Image createImage(string caller, int width, int height)
-    {
+    Image createImage(String caller, int width, int height) {
         return MIDPUtil.getInstance().createImageWH(width, height);
     }
+    
 
-    // throws Exception
-    public virtual Image createImageFromInputStream(object key, InputStream inputStream)
-    {
-        Image image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
+    Image createImageFromInputStream([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is InputStream) {
+            return this.createImageFromInputStream$1(p0);
+        }
+        if (!identical(p1, jnone) && p1 is InputStream) {
+            return this.createImageFromInputStream$2(p0, p1);
+        }
+        throw JException('NoSuchMethodError', 'createImageFromInputStream');
+    }
+
+    Image createImageFromInputStream$2(Object key, InputStream inputStream) {
+        final Image image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
         return image;
     }
+    
 
-    // throws Exception
-    public virtual Image createImageFromInputStream(InputStream inputStream)
-    {
+    Image createImageFromInputStream$1(InputStream inputStream) {
         return MIDPUtil.getInstance().createImageFromInputStream(inputStream);
     }
-
 }
 

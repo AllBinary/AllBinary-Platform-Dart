@@ -13,42 +13,55 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using PositionStrings = org.allbinary.math.PositionStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/math/PositionStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
 
-namespace org.allbinary.animation.image;
+class AnimationFactoryInitializationVisitor {
+    int width = 0;
+    int height = 0;
+    int dx = 0;
+    int dy = 0;
+    int originalDx = 0;
+    int originalDy = 0;
 
-public class AnimationFactoryInitializationVisitor
-{
-    public int width = 0;
-    public int height = 0;
-    public int dx = 0;
-    public int dy = 0;
-    public int originalDx = 0;
-    public int originalDy = 0;
-    public virtual void visit()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAnimationFactoryInitializationVisitor() {
+    this.width = 0;
+    this.height = 0;
+    this.dx = 0;
+    this.dy = 0;
+    this.originalDx = 0;
+    this.originalDy = 0;
     }
 
-    public override string ToString()
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        CommonLabels commonLabels = CommonLabels.getInstance();
-        StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).appendfloat(((float) this.dx));
-        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).appendfloat(((float) this.dy));
+    AnimationFactoryInitializationVisitor() {
+        this.initFieldsAnimationFactoryInitializationVisitor();
+    }
+    
+
+    void visit() {
+    }
+    
+
+    @override
+    String toString() {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
+        final StringMaker stringBuffer = StringMaker();
+        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).appendfloat((this.dx).toDouble());
+        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).appendfloat((this.dy).toDouble());
         stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.appendint(this.width);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(this.height);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

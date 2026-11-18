@@ -13,22 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/PlayerType.dart';
 
-namespace org.allbinary.game;
+class PlayerTypesFactory {
+    static final PlayerTypesFactory SINGLETON = PlayerTypesFactory();
+    late PlayerType PLAYER_TYPE_ONE;
+    late PlayerType PLAYER_TYPE_TWO;
+    late PlayerType PLAYER_TYPE_THREE;
 
-public class PlayerTypesFactory
-{
-    public readonly PlayerType PLAYER_TYPE_ONE = new PlayerType("Player Type One", 0);
-    public readonly PlayerType PLAYER_TYPE_TWO = new PlayerType("Player Type Two", 1);
-    public readonly PlayerType PLAYER_TYPE_THREE = new PlayerType("Player Type Three", 2);
-    private static readonly PlayerTypesFactory SINGLETON = new PlayerTypesFactory();
-    public static PlayerTypesFactory getInstance()
-    {
-        return PlayerTypesFactory.SINGLETON;
+    // Java field initializers run after the base constructor
+    void initFieldsPlayerTypesFactory() {
+    this.PLAYER_TYPE_ONE = PlayerType("Player Type One", 0);
+    this.PLAYER_TYPE_TWO = PlayerType("Player Type Two", 1);
+    this.PLAYER_TYPE_THREE = PlayerType("Player Type Three", 2);
     }
 
+    PlayerTypesFactory() {
+        this.initFieldsPlayerTypesFactory();
+    }
+    
+
+    static PlayerTypesFactory getInstance() {
+        return PlayerTypesFactory.SINGLETON;
+    }
 }
 

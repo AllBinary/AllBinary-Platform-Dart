@@ -13,37 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageBaseRotationAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class AdjustedImageBaseRotationAnimation extends ImageBaseRotationAnimation {
+    int dx = 0;
+    int dy = 0;
 
-public class AdjustedImageBaseRotationAnimation : ImageBaseRotationAnimation
-{
-    private int dx = 0;
-    private int dy = 0;
-    public AdjustedImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle, int dx, int dy, AnimationBehavior animationBehavior) : base(image, angleInfo, totalAngle, animationBehavior)
-    {
-        // base(image, angleInfo, totalAngle, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsAdjustedImageBaseRotationAnimation() {
+    this.dx = 0;
+    this.dy = 0;
+    }
+    
+
+    AdjustedImageBaseRotationAnimation(Image image, AngleInfo angleInfo, int totalAngle, int dx, int dy, AnimationBehavior animationBehavior) : super(image, angleInfo, totalAngle, animationBehavior) {
+        this.initFieldsAdjustedImageBaseRotationAnimation();
+        
         this.init(dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual void init(int dx, int dy)
-    {
+    void init(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        base.paintXY(graphics, x + this.dx, y + this.dy);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

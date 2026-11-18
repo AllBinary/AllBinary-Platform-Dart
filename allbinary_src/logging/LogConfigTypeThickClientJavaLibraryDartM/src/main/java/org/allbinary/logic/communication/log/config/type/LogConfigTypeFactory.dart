@@ -13,42 +13,48 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.communication.log.config.type
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/config/type/LogConfigType.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/config/type/LogConfigTypes.dart';
 
-namespace org.allbinary.logic.communication.log.config.type;
+class LogConfigTypeFactory {
+    static final LogConfigTypeFactory instance = LogConfigTypeFactory();
+    late String NO_DESCRIPTION;
+    late LogConfigType OS;
+    late LogConfigType FACTORYERROR;
+    late LogConfigType FILE;
+    late LogConfigType FILEERROR;
+    late LogConfigType IDLOGGING;
+    late LogConfigType REPLACE;
+    late LogConfigType REPLACE_INFO;
+    late LogConfigType REPLACEERROR;
 
-public class LogConfigTypeFactory
-{
-    private static readonly LogConfigTypeFactory instance = new LogConfigTypeFactory();
-    public static LogConfigTypeFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLogConfigTypeFactory() {
+    this.NO_DESCRIPTION = "No Description";
+    this.OS = LogConfigType("Operating System", this.NO_DESCRIPTION);
+    this.FACTORYERROR = LogConfigType("Factory Error", this.NO_DESCRIPTION);
+    this.FILE = LogConfigType("File", this.NO_DESCRIPTION);
+    this.FILEERROR = LogConfigType("File Error", this.NO_DESCRIPTION);
+    this.IDLOGGING = LogConfigType("ID Logging", this.NO_DESCRIPTION);
+    this.REPLACE = LogConfigType("Replace", this.NO_DESCRIPTION);
+    this.REPLACE_INFO = LogConfigType("Replace Info", this.NO_DESCRIPTION);
+    this.REPLACEERROR = LogConfigType("Replace Error", this.NO_DESCRIPTION);
+    }
+    
+
+    static LogConfigTypeFactory getInstance() {
         return LogConfigTypeFactory.instance;
     }
+    
 
-    private readonly string NO_DESCRIPTION = "No Description";
-    public readonly LogConfigType OS;
-    public readonly LogConfigType FACTORYERROR;
-    public readonly LogConfigType FILE;
-    public readonly LogConfigType FILEERROR;
-    public readonly LogConfigType IDLOGGING;
-    public readonly LogConfigType REPLACE;
-    public readonly LogConfigType REPLACE_INFO;
-    public readonly LogConfigType REPLACEERROR;
-    private LogConfigTypeFactory()
-    {
-        this.OS = new LogConfigType("Operating System", this.NO_DESCRIPTION);
-        this.FACTORYERROR = new LogConfigType("Factory Error", this.NO_DESCRIPTION);
-        this.FILE = new LogConfigType("File", this.NO_DESCRIPTION);
-        this.FILEERROR = new LogConfigType("File Error", this.NO_DESCRIPTION);
-        this.IDLOGGING = new LogConfigType("ID Logging", this.NO_DESCRIPTION);
-        this.REPLACE = new LogConfigType("Replace", this.NO_DESCRIPTION);
-        this.REPLACE_INFO = new LogConfigType("Replace Info", this.NO_DESCRIPTION);
-        this.REPLACEERROR = new LogConfigType("Replace Error", this.NO_DESCRIPTION);
-        LogConfigTypes.LOGGING.add(OS);
+    LogConfigTypeFactory() {
+        this.initFieldsLogConfigTypeFactory();
+        LogConfigTypes.LOGGING.add(this.OS);
         LogConfigTypes.LOGGING.add(this.FACTORYERROR);
     }
-
 }
 

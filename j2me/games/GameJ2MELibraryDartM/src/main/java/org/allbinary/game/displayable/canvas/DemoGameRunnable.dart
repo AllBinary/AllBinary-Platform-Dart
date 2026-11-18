@@ -13,42 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameRunnable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class DemoGameRunnable extends GameRunnable {
+    late LogUtil logUtil;
+    late DemoCanvas demoCanvas;
+    late GameTickTimeDelayHelper gameTickTimeDelayHelper;
 
-public class DemoGameRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly DemoCanvas demoCanvas;
-    public DemoGameRunnable(DemoCanvas demoCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDemoGameRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
+
+    DemoGameRunnable(DemoCanvas demoCanvas) {
+        this.initFieldsDemoGameRunnable();
         this.demoCanvas = demoCanvas;
     }
+    
 
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public override void run()
-    {
+    @override
+    void run() {
         try {
             this.demoCanvas.getLoopTimeHelperP().setStartTime(this.gameTickTimeDelayHelper.setStartTime());
             this.demoCanvas.processGame();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
         }
     }
+    
 
-    // throws Exception
-    public override void processLoopSleep()
-    {
+    @override
+    void processLoopSleep() {
         this.demoCanvas.processLoopSleep();
     }
-
 }
 

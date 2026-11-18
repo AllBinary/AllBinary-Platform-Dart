@@ -13,41 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
 
-namespace org.allbinary.game.score;
+class Scoreable implements ScoreableInterface {
+    static int ID = SmallIntegerSingletonFactory.getInstance().getAt(3);
+    int points = 0;
 
-public class Scoreable : ScoreableInterface
-{
-    public static int? ID = SmallIntegerSingletonFactory.getInstance().getAt(3);
-    private int points;
-    public Scoreable(int points)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsScoreable() {
+    
+    }
+    
+
+    Scoreable(int points) {
+        this.initFieldsScoreable();
         this.points = points;
     }
+    
 
-    public virtual void addPoints(int points)
-    {
+    @override
+    void addPoints(int points) {
         this.points += points;
     }
+    
 
-    public virtual void removePoints(int points)
-    {
+    @override
+    void removePoints(int points) {
         this.points -= points;
     }
+    
 
-    public virtual void setPoints(int points)
-    {
+    void setPoints(int points) {
         this.points = points;
     }
+    
 
-    public virtual int getPoints()
-    {
+    @override
+    int getPoints() {
         return this.points;
     }
-
 }
 

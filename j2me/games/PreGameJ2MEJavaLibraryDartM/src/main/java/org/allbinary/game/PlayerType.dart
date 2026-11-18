@@ -13,37 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game;
+class PlayerType {
+    int id = 0;
+    late String name;
 
-public class PlayerType
-{
-    private int id;
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public PlayerType(string name, int value)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPlayerType() {
+    
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    PlayerType(String name, int value) {
+        this.initFieldsPlayerType();
         this.name = name;
         this.id = value;
     }
+    
 
-    public virtual int getId()
-    {
+    int getId() {
         return this.id;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return this.getName();
     }
-
 }
 

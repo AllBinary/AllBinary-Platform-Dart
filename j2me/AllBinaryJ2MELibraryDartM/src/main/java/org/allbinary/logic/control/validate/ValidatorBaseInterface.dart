@@ -13,23 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.control.validate
 
-using System;
-using System.Linq;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.logic.control.validate;
+abstract interface class ValidatorBaseInterface {
+    
 
-public interface ValidatorBaseInterface
-{
-    bool? isValid();
+    bool isValid();
+    
 
-    string validationInfo();
+    String validationInfo();
+    
 
-    ABHashtable<object, object> toHashtable();
+    ABHashtable toHashtable();
+    
 
     BasicArrayList toList();
-
 }
 

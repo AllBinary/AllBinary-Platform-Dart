@@ -13,35 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
 
-namespace org.allbinary.image;
+class PreResourceImageUtil {
+    static final PreResourceImageUtil instance = PreResourceImageUtil();
+    
 
-public class PreResourceImageUtil
-{
-    private static readonly PreResourceImageUtil instance = new PreResourceImageUtil();
-    public static PreResourceImageUtil getInstance()
-    {
+    static PreResourceImageUtil getInstance() {
         return PreResourceImageUtil.instance;
     }
+    
 
-    public virtual Image encapsulate(Image image)
-    {
+    Image encapsulate(Image image) {
         return image;
     }
+    
 
-    public virtual void updateGL(GL gl, Image image)
-    {
+    void updateGL(GL gl, Image image) {
     }
+    
 
-    public virtual void update(Graphics graphics, Image image)
-    {
+    void update(Graphics graphics, Image image) {
     }
-
 }
 

@@ -13,39 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.weapon.mine
 
-using System;
-using System.Linq;
-using BasicGameResources = org.allbinary.game.layer.resources.BasicGameResources;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/resources/BasicGameResources.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
-namespace org.allbinary.game.ag.layer.weapon.mine;
+class MineWeaponResources extends BasicGameResources {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late String DROP_TEXT_RESOURCE;
+    late String DROP_RESOURCE;
+    late String DROP_ICON_RESOURCE;
 
-public class MineWeaponResources : BasicGameResources
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static MineWeaponResources getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMineWeaponResources() {
+    this.DROP_TEXT_RESOURCE = "/mine_drop_text_20_by_20.png";
+    this.DROP_RESOURCE = "/mine_drop_20_by_20.png";
+    this.DROP_ICON_RESOURCE = "/mine_drop_icon_20_by_20.png";
+    }
+    
+
+    static MineWeaponResources getInstance() {
         if (MineWeaponResources.instance == NullUtil.getInstance().NULL_OBJECT) {
-            MineWeaponResources.instance = new MineWeaponResources();
+            MineWeaponResources.instance = MineWeaponResources();
         }
-        return ((MineWeaponResources) MineWeaponResources.instance);
+        return (MineWeaponResources.instance as MineWeaponResources);
     }
+    
 
-    public readonly string DROP_TEXT_RESOURCE = "/mine_drop_text_20_by_20.png";
-    public readonly string DROP_RESOURCE = "/mine_drop_20_by_20.png";
-    public readonly string DROP_ICON_RESOURCE = "/mine_drop_icon_20_by_20.png";
-    public MineWeaponResources()
-    {
-        string ROOT = "/mine";
-        string SMALL = "_20_by_20.png";
-        string MEDIUM = SMALL;
-        string SIZE_FOUR = SMALL;
-        string SIZE_FIVE = SMALL;
-        string SIZE_SIX = SMALL;
-        string[] SIZE = new string[] { SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX };
-        base.init(ROOT, SIZE);
+    MineWeaponResources() {
+        this.initFieldsMineWeaponResources();
+        final String ROOT = "/mine";
+        final String SMALL = "_20_by_20.png";
+        final String MEDIUM = SMALL;
+        final String SIZE_FOUR = SMALL;
+        final String SIZE_FIVE = SMALL;
+        final String SIZE_SIX = SMALL;
+        final List<String?> SIZE = <String?>[SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX];
+        super.init(ROOT, SIZE);
     }
-
 }
 

@@ -13,24 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligence = org.allbinary.ai.ArtificialIntelligence;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligence.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.ag.ai;
+class NullAI extends ArtificialIntelligence {
+    
 
-public class NullAI : ArtificialIntelligence
-{
-    public NullAI()
-    {
+    NullAI() {
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
     }
-
 }
 

@@ -13,97 +13,120 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManagerLoggingBase.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManager.dart';
 
-namespace org.allbinary.layer;
+class LayerManagerLogging extends LayerManagerLoggingBase {
+    static final LayerManagerLogging instance = LayerManagerLogging();
+    static bool removeFailed = false;
+    late LogUtil logUtil;
+    late StringMaker stringBuilder;
+    late String APPEND;
+    late String APPEND_;
+    late String u_AT_;
+    late String ATTEMPT_REMOVE_;
+    late String REMOVE_;
+    late String REMOVE;
+    late String DID_NOT_REMOVE;
+    late String CLEAR;
 
-public class LayerManagerLogging : LayerManagerLoggingBase
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly LayerManagerLogging instance = new LayerManagerLogging();
-    public static LayerManagerLogging getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerManagerLogging() {
+    this.logUtil = LogUtil.getInstance();
+    this.stringBuilder = StringMaker();
+    this.APPEND = "append";
+    this.APPEND_ = " append: ";
+    this.u_AT_ = " at: ";
+    this.ATTEMPT_REMOVE_ = " Remove Attempt: ";
+    this.REMOVE_ = " Remove: ";
+    this.REMOVE = "remove";
+    this.DID_NOT_REMOVE = " Did not remove: ";
+    this.CLEAR = " Clear List";
+    }
+
+    LayerManagerLogging() {
+        this.initFieldsLayerManagerLogging();
+    }
+    
+
+    static LayerManagerLogging getInstance() {
         return LayerManagerLogging.instance;
     }
+    
 
-    private readonly StringMaker stringBuilder = new StringMaker();
-    private readonly string APPEND = "append";
-    private readonly string APPEND_ = " append: ";
-    private readonly string _AT_ = " at: ";
-    private readonly string ATTEMPT_REMOVE_ = " Remove Attempt: ";
-    private readonly string REMOVE_ = " Remove: ";
-    private readonly string REMOVE = "remove";
-    private readonly string DID_NOT_REMOVE = " Did not remove: ";
-    private readonly string CLEAR = " Clear List";
-    private static bool removeFailed = false;
-    // throws Exception
-    public override void append(AllBinaryLayer layerInterface)
-    {
+    @override
+    void append(AllBinaryLayer layerInterface) {
         this.stringBuilder.delete(0, this.stringBuilder.length());
-        this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.APPEND_).append(layerInterface.getName()).ToString(), this, this.APPEND);
+        this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.APPEND_).append(layerInterface.getName()).toString(), this, this.APPEND);
     }
+    
 
-    public override void appendAt(AllBinaryLayer layerInterface, int index)
-    {
+    @override
+    void appendAt(AllBinaryLayer layerInterface, int index) {
         this.stringBuilder.delete(0, this.stringBuilder.length());
-        this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.APPEND_).append(layerInterface.getName()).append(this._AT_).appendint(index).ToString(), this, this.APPEND);
+        this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.APPEND_).append(layerInterface.getName()).append(this.u_AT_).appendint(index).toString(), this, this.APPEND);
     }
+    
 
-    public override void remove(AllBinaryLayer layerInterface)
-    {
+    @override
+    void remove(AllBinaryLayer layerInterface) {
         if (layerInterface == null) {
             this.stringBuilder.delete(0, this.stringBuilder.length());
-            this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).ToString(), this, this.REMOVE);
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString1(layerInterface)).toString(), this, this.REMOVE);
         } else {
             this.stringBuilder.delete(0, this.stringBuilder.length());
-            this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.ATTEMPT_REMOVE_).append(layerInterface.getName()).ToString(), this, this.REMOVE);
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, this.REMOVE);
         }
     }
+    
 
-    public override void removeResult(LayerManager layerManager, AllBinaryLayer layerInterface, bool result)
-    {
+    @override
+    void removeResult(LayerManager layerManager, AllBinaryLayer layerInterface, bool result) {
         if (layerInterface == null) {
             this.stringBuilder.delete(0, this.stringBuilder.length());
-            this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).ToString(), this, this.REMOVE);
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.REMOVE_).append(StringUtil.getInstance().toString1(layerInterface)).toString(), this, this.REMOVE);
         } else if (result) {
             if (LayerManagerLogging.removeFailed) {
                 this.stringBuilder.delete(0, this.stringBuilder.length());
-                this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.REMOVE_).append(layerInterface.getName()).ToString(), this, this.REMOVE);
+                this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.REMOVE_).append(layerInterface.getName()).toString(), this, this.REMOVE);
             }
         } else {
             this.stringBuilder.delete(0, this.stringBuilder.length());
-            this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.DID_NOT_REMOVE).append(layerInterface.getName()).ToString(), this, this.REMOVE);
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, this.REMOVE);
             LayerManagerLogging.removeFailed = true;
         }
     }
+    
 
-    private void log(LayerManager layerManager)
-    {
+    void log(LayerManager layerManager) {
         this.stringBuilder.delete(0, this.stringBuilder.length());
-        int size = layerManager.getSize();
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        this.stringBuilder.append(Convert.ToString(TsUtil.getInstance().hashCode(layerManager), 16)).append(commonSeps.COLON_SEP);
+        final int size = layerManager.getSize();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        this.stringBuilder.append(Integer.toHexString(TsUtil.getInstance().hashCode1(layerManager))).append(commonSeps.COLON_SEP);
         this.stringBuilder.appendint(size).append(commonSeps.COLON_SEP);
-        AllBinaryLayer allBinaryLayer = null;
+        late AllBinaryLayer allBinaryLayer;
         for (int index = 0; index < size; index++) {
-            allBinaryLayer = (((AllBinaryLayer) layerManager.getLayerAt(index)));
+            allBinaryLayer = ((layerManager.getLayerAt(index) as AllBinaryLayer));
             this.stringBuilder.append(allBinaryLayer.getName()).append(commonSeps.COMMA);
         }
-        this.logUtil.putF(this.stringBuilder.ToString(), this, this.REMOVE);
+        this.logUtil.putF(this.stringBuilder.toString(), this, this.REMOVE);
     }
+    
 
-    public override void clear()
-    {
+    @override
+    void clear() {
         this.stringBuilder.delete(0, this.stringBuilder.length());
-        this.logUtil.putF(this.stringBuilder.appendint(((int) TsUtil.getInstance().hashCode(this))).append(this.CLEAR).ToString(), this, this.CLEAR);
+        this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode1(this)).append(this.CLEAR).toString(), this, this.CLEAR);
     }
-
 }
 

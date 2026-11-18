@@ -13,26 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using LongArrayIdentifierInterface = org.allbinary.thirdparty.store.LongArrayIdentifierInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/thirdparty/store/LongArrayIdentifierInterface.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformation.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class StoreAppClientInformation extends AbeClientInformation implements LongArrayIdentifierInterface {
+    late List<int> longArrayIdentifier;
 
-public class StoreAppClientInformation : AbeClientInformation, LongArrayIdentifierInterface
-{
-    private readonly long[] longArrayIdentifier;
-    public StoreAppClientInformation(string name, string version, string specialName, string shortName, long[] longArrayIdentifier) : base(name, version, specialName, shortName)
-    {
-        // base(name, version, specialName, shortName) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsStoreAppClientInformation() {
+    
+    }
+    
+
+    StoreAppClientInformation(String name, String version, String specialName, String shortName, List<int> longArrayIdentifier) : super(name, version, specialName, shortName) {
+        this.initFieldsStoreAppClientInformation();
+        
         this.longArrayIdentifier = longArrayIdentifier;
     }
+    
 
-    public virtual long[] getLongArrayIdentifier()
-    {
+    @override
+    List<int> getLongArrayIdentifier() {
         return this.longArrayIdentifier;
     }
-
 }
 

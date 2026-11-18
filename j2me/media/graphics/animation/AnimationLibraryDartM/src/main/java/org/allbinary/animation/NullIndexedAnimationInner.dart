@@ -13,23 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/NullIndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class NullIndexedAnimationInner extends NullIndexedAnimation {
+    
 
-public class NullIndexedAnimationInner : NullIndexedAnimation
-{
-    public NullIndexedAnimationInner() : base(new IndexedAnimationBehavior(1, 250))
-    {
-        // base(new IndexedAnimationBehavior(1, 250)) is called from the constructor declaration
+    NullIndexedAnimationInner() : super(IndexedAnimationBehavior(1, 250)) {
+        
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
     }
-
 }
 

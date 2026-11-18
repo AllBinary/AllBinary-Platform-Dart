@@ -13,7 +13,7 @@
  *   
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.communication.log
 
 import 'package:allbinary/allbinary_java.dart';
@@ -59,7 +59,7 @@ class LogUtil {
     void putF(String specialMessage, Object anyType, String functionName) {
         String className = CommonStrings.getInstance().EMPTY;
         if (jClassName(anyType) != null) {
-            className = StringMaker().append(jClassName(anyType)).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode1(anyType))).toString();
+            className = jNewString(StringMaker().append(jClassName(anyType)).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode1(anyType))).toString());
         }
         final String message = this.logFormatUtil.getS(className, functionName, specialMessage);
         JSystem.println(jstr(this.LOG_SUCCESS));
@@ -79,7 +79,7 @@ class LogUtil {
         if (jClassName(anyType) != null) {
             final int hashCodeValue = TsUtil.getInstance().hashCode1(anyType);
             final String hexString = Integer.toHexString(hashCodeValue);
-            className = StringMaker().append(jClassName(anyType)).append(CommonSeps.getInstance().COLON).append(hexString).toString();
+            className = jNewString(StringMaker().append(jClassName(anyType)).append(CommonSeps.getInstance().COLON).append(hexString).toString());
         }
         final String message = this.logFormatUtil.get(className, functionName, specialMessage, exception);
         JSystem.println(jstr(this.LOG_SUCCESS));

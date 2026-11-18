@@ -13,30 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.configuration.persistance;
+class GameDifficultyFactory {
+    static final GameDifficultyFactory instance = GameDifficultyFactory();
+    int level = 0;
 
-public class GameDifficultyFactory
-{
-    private static readonly GameDifficultyFactory instance = new GameDifficultyFactory();
-    public static GameDifficultyFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameDifficultyFactory() {
+    this.level = 0;
+    }
+
+    GameDifficultyFactory() {
+        this.initFieldsGameDifficultyFactory();
+    }
+    
+
+    static GameDifficultyFactory getInstance() {
         return GameDifficultyFactory.instance;
     }
+    
 
-    private int level = 0;
-    public virtual void setLevel(int level)
-    {
+    void setLevel(int level) {
         this.level = level;
     }
+    
 
-    public virtual int getLevel()
-    {
+    int getLevel() {
         return this.level;
     }
-
 }
 

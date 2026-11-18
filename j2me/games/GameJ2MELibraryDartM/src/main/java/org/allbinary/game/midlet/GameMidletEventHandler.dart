@@ -13,33 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/midlet/GameMidletEventListener.dart';
 
-namespace org.allbinary.game.midlet;
+class GameMidletEventHandler extends BasicEventHandler {
+    static final GameMidletEventHandler gameKeyEventHandler = GameMidletEventHandler();
+    
 
-public class GameMidletEventHandler : BasicEventHandler
-{
-    private static readonly GameMidletEventHandler gameKeyEventHandler = new GameMidletEventHandler();
-    private GameMidletEventHandler()
-    {
+    GameMidletEventHandler() {
     }
+    
 
-    public static GameMidletEventHandler getInstance()
-    {
+    static GameMidletEventHandler getInstance() {
         return GameMidletEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        GameMidletEventListener gameMidletEventListener = ((GameMidletEventListener) eventListenerInterface);
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final GameMidletEventListener gameMidletEventListener = (eventListenerInterface as GameMidletEventListener);
         gameMidletEventListener.onGameEnd(eventObject);
     }
-
 }
 

@@ -13,29 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class AdjustedVectorAnimation extends VectorAnimation {
+    int dx = 0;
+    int dy = 0;
 
-public class AdjustedVectorAnimation : VectorAnimation
-{
-    private int dx;
-    private int dy;
-    public AdjustedVectorAnimation(int[][][] currentPoints, BasicColor basicColor, int dx, int dy, AnimationBehavior animationBehavior) : base(currentPoints, basicColor, animationBehavior)
-    {
-        // base(currentPoints, basicColor, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsAdjustedVectorAnimation() {
+    
+    
+    }
+    
+
+    AdjustedVectorAnimation(List<List<List<int>?>?> currentPoints, BasicColor basicColor, int dx, int dy, AnimationBehavior animationBehavior) : super(currentPoints, basicColor, animationBehavior) {
+        this.initFieldsAdjustedVectorAnimation();
+        
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        base.paintXY(graphics, x + this.dx, y + this.dy);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

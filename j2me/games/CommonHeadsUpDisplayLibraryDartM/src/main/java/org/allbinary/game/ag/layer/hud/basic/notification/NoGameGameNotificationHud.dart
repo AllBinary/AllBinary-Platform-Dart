@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.notification
 
-using System;
-using System.Linq;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHudFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.notification;
+class NoGameGameNotificationHud extends GameNotificationHud {
+    
 
-public class NoGameGameNotificationHud : GameNotificationHud
-{
-    public NoGameGameNotificationHud() : base(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED)
-    {
-        // base(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED) is called from the constructor declaration
+    NoGameGameNotificationHud() : super(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED) {
+        
         this.updateMaxWidth = 40;
         this.updateMaxHeight = 14;
     }
-
 }
 

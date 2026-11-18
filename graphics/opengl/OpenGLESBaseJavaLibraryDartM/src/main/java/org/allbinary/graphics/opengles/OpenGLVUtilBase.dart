@@ -13,26 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
 
-namespace org.allbinary.graphics.opengles;
+class OpenGLVUtilBase {
+    
 
-public class OpenGLVUtilBase
-{
-    public virtual void glTexEnvix(GL10 gl, int target, int pname, int param)
-    {
+    void glTexEnvix(GL10 gl, int target, int pname, int param) {
     }
+    
 
-    public virtual void glTexParameterix(GL10 gl, int target, int pname, int param)
-    {
+    void glTexParameterix(GL10 gl, int target, int pname, int param) {
     }
+    
 
-    public virtual void glGenerateMipmap(GL10 gl, int textureId, int target, bool generateMipMap)
-    {
+    void glGenerateMipmap(GL10 gl, int textureId, int target, bool generateMipMap) {
     }
-
 }
 

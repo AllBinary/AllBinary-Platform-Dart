@@ -13,50 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.crypt.jcehelper
 
-using System;
-using System.Linq;
-using KeySpec = java.security.spec.KeySpec;
-using DESKeySpec = javax.crypto.spec.DESKeySpec;
-using DESedeKeySpec = javax.crypto.spec.DESedeKeySpec;
-using TsUtil = org.allbinary.TsUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/security/spec/KeySpec.dart';
+import 'package:allbinary/javax/crypto/spec/DESKeySpec.dart';
+import 'package:allbinary/javax/crypto/spec/DESedeKeySpec.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+class KeySpecFactory {
+    static final KeySpecFactory instance = KeySpecFactory();
+    late String DES;
+    late String DESEDE;
+    late String BLOWFISH;
 
-public class KeySpecFactory
-{
-    private static readonly KeySpecFactory instance = new KeySpecFactory();
-    public static KeySpecFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsKeySpecFactory() {
+    this.DES = "DES";
+    this.DESEDE = "DESede";
+    this.BLOWFISH = "Blowfish";
+    }
+    
+
+    static KeySpecFactory getInstance() {
         return KeySpecFactory.instance;
     }
+    
 
-    public readonly string DES = "DES";
-    public readonly string DESEDE = "DESede";
-    public readonly string BLOWFISH = "Blowfish";
-    private KeySpecFactory()
-    {
+    KeySpecFactory() {
+        this.initFieldsKeySpecFactory();
     }
+    
 
-    public virtual KeySpec getInstance(string algorithm, sbyte[] keyData)
-    {
+    KeySpec getInstance2(String algorithm, List<int> keyData) {
         try {
-            TsUtil tsUtil = TsUtil.getInstance();
+            final TsUtil tsUtil = TsUtil.getInstance();
             if (tsUtil.compareTo(algorithm, this.DES) == 0) {
-                return new DESKeySpec(keyData);
+                return DESKeySpec(keyData);
             } else if (tsUtil.compareTo(algorithm, this.DESEDE) == 0) {
-                return new DESedeKeySpec(keyData);
+                return DESedeKeySpec(keyData);
             } else {
-                throw new SystemException();
+                throw JException('RuntimeException', '');
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-            throw new SystemException();
+            throw JException('RuntimeException', '');
+            }
         }
     }
-
 }
 

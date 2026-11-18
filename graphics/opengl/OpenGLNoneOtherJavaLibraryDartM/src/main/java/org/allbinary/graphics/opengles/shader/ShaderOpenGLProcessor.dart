@@ -1,37 +1,36 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using OpenGLProcessor = org.allbinary.graphics.opengles.OpenGLProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLProcessor.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class ShaderOpenGLProcessor extends OpenGLProcessor {
+    
 
-public class ShaderOpenGLProcessor : OpenGLProcessor
-{
-    public ShaderOpenGLProcessor()
-    {
+    ShaderOpenGLProcessor() {
     }
+    
 
-    public virtual void process0(GL10 gl)
-    {
+    void process0(GL10 gl) {
     }
+    
 
-    public virtual void process1(GL10 gl)
-    {
+    void process1(GL10 gl) {
     }
+    
 
-    public override void process(GL10 gl)
-    {
+    @override
+    void process(GL10 gl) {
     }
+    
 
-    public virtual void process2(GL10 gl)
-    {
+    void process2(GL10 gl) {
     }
+    
 
-    public virtual void process3(GL10 gl)
-    {
+    void process3(GL10 gl) {
     }
-
 }
 

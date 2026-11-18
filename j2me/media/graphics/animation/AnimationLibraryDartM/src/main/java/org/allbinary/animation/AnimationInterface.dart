@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using LocationPaintableInterface = org.allbinary.graphics.paint.LocationPaintableInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/LocationPaintableInterface.dart';
 
-namespace org.allbinary.animation;
+abstract interface class AnimationInterface implements LocationPaintableInterface {
+    
 
-public interface AnimationInterface : LocationPaintableInterface
-{
-    // throws Exception
     void nextFrame();
+    
 
     void paintThreedXYZ(Graphics graphics, int x, int y, int z);
-
 }
 

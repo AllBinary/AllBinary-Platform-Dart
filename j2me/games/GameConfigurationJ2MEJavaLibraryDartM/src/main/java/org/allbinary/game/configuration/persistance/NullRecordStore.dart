@@ -13,15 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
-using RecordStore = javax.microedition.rms.RecordStore;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/rms/RecordStore.dart';
 
-namespace org.allbinary.game.configuration.persistance;
-
-public class NullRecordStore : RecordStore
-{
-    public static NullRecordStore NULL_RECORD_STORE = new NullRecordStore();
+class NullRecordStore extends RecordStore {
+    static NullRecordStore NULL_RECORD_STORE = NullRecordStore();
 }
 

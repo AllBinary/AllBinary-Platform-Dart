@@ -13,35 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.font
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
 
-namespace org.allbinary.graphics.font;
+class MyFontProcessor {
+    static final MyFontProcessor instance = MyFontProcessor();
+    
 
-public class MyFontProcessor
-{
-    public static int defaultCharWidth(Font font)
-    {
-        return font.charWidth('C');
+    static int defaultCharWidth(Font font) {
+        return font.charWidth("C".codeUnitAt(0));
     }
+    
 
-    public static int defaultStringWidth(Font font, int size)
-    {
+    static int defaultStringWidth(Font font, int size) {
         return MyFontProcessor.defaultCharWidth(font) * size;
     }
+    
 
-    private static readonly MyFontProcessor instance = new MyFontProcessor();
-    public static MyFontProcessor getInstance()
-    {
+    static MyFontProcessor getInstance() {
         return MyFontProcessor.instance;
     }
+    
 
-    public virtual void process(Graphics graphics)
-    {
+    void process(Graphics graphics) {
     }
-
 }
 

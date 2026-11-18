@@ -13,30 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input;
+import 'package:allbinary/allbinary_java.dart';
 
 //TouchJ2MENone
-public class TouchJ2ME
-{
-    public TouchJ2ME()
-    {
-    }
+class TouchJ2ME {
+    
 
-    public virtual void pointerDragged(int x, int y)
-    {
+    TouchJ2ME() {
     }
+    
 
-    public virtual void pointerPressed(int x, int y)
-    {
+    void pointerDragged(int x, int y) {
     }
+    
 
-    public virtual void pointerReleased(int x, int y)
-    {
+    void pointerPressed(int x, int y) {
     }
+    
 
+    void pointerReleased(int x, int y) {
+    }
 }
 

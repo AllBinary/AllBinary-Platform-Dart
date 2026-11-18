@@ -13,41 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using SpecialAnimation = org.allbinary.animation.special.SpecialAnimation;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/special/SpecialAnimation.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class NullSpecialAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+    static NullSpecialAnimationFactory NULL_SPECIAL_ANIMATION_FACTORY = NullSpecialAnimationFactory();
+    
 
-public class NullSpecialAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    private static NullSpecialAnimationFactory NULL_SPECIAL_ANIMATION_FACTORY = new NullSpecialAnimationFactory();
-    private NullSpecialAnimationFactory()
-    {
+    NullSpecialAnimationFactory() {
     }
+    
 
-    public static NullSpecialAnimationFactory getFactoryInstance()
-    {
+    static NullSpecialAnimationFactory getFactoryInstance() {
         return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         return SpecialAnimation.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
         return SpecialAnimation.getInstance();
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

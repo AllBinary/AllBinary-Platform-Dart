@@ -13,16 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/score/displayable/HighScoresCanvas.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresCanvasInputProcessor.dart';
 
-namespace org.allbinary.game.score;
+abstract interface class HighScoresCanvasInputProcessorFactoryInterface {
+    
 
-public interface HighScoresCanvasInputProcessorFactoryInterface
-{
-    HighScoresCanvasInputProcessor getInstance(HighScoresCanvas highScoresCanvas);
-
+    HighScoresCanvasInputProcessor getInstance1(HighScoresCanvas highScoresCanvas);
 }
 

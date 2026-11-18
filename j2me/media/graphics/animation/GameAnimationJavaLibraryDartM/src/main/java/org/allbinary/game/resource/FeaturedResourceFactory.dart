@@ -13,62 +13,78 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureControlledInterface = org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
-using GraphicsFeatureFactory = org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GameFeatureControlledInterface.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GraphicsFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevelFactory.dart';
 
-namespace org.allbinary.game.resource;
+class FeaturedResourceFactory {
+    late LogUtil logUtil;
+    late BasicArrayList list;
+    late CommonStrings commonStrings;
+    late String ANIMATION_FEATURES;
+    late String IMAGE_LABEL;
+    late String IMAGE_GRAPHICS_ARRAY;
+    late String IMAGE_GRAPHICS_ROTATION;
+    late String SPRITE_QUARTER;
+    late String SPRITE_FULL;
+    late String IS_LOADING_LEVEL_LABEL;
+    late String IS_FEATURE;
+    late String GAME_FEATURE_CONTROLLED;
 
-public class FeaturedResourceFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public FeaturedResourceFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsFeaturedResourceFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.list = BasicArrayListD();
+    this.commonStrings = CommonStrings.getInstance();
+    this.ANIMATION_FEATURES = "Animation Features: Vector: ";
+    this.IMAGE_LABEL = " Image: ";
+    this.IMAGE_GRAPHICS_ARRAY = "Image Array: ";
+    this.IMAGE_GRAPHICS_ROTATION = "Image Rotate: ";
+    this.SPRITE_QUARTER = " Sprite Quarter: ";
+    this.SPRITE_FULL = " Sprite Full: ";
+    this.IS_LOADING_LEVEL_LABEL = " isLoadingLevel ";
+    this.IS_FEATURE = " isFeature: ";
+    this.GAME_FEATURE_CONTROLLED = "GameFeatureControlledInterface: ";
     }
+    
 
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly string ANIMATION_FEATURES = "Animation Features: Vector: ";
-    private readonly string IMAGE_LABEL = " Image: ";
-    private readonly string IMAGE_GRAPHICS_ARRAY = "Image Array: ";
-    private readonly string IMAGE_GRAPHICS_ROTATION = "Image Rotate: ";
-    private readonly string SPRITE_QUARTER = " Sprite Quarter: ";
-    private readonly string SPRITE_FULL = " Sprite Full: ";
-    private readonly string IS_LOADING_LEVEL_LABEL = " isLoadingLevel ";
-    private readonly string IS_FEATURE = " isFeature: ";
-    private readonly string GAME_FEATURE_CONTROLLED = "GameFeatureControlledInterface: ";
-    // throws Exception
-    public virtual void init(int level)
-    {
+    FeaturedResourceFactory() {
+        this.initFieldsFeaturedResourceFactory();
+    }
+    
+
+    void init(int level) {
         int size = this.list.size();
         for (int index = 0; index < size; index++) {
-            GameFeatureControlledInterface featureInterface = ((GameFeatureControlledInterface) this.list.objectArray[index]);
+            GameFeatureControlledInterface featureInterface = (this.list.objectArray[index]! as GameFeatureControlledInterface);
             bool isLoadingLevel = featureInterface.isLoadingLevel(level);
             bool isFeature = featureInterface.isFeature();
-            this.logUtil.putF(new StringMaker().append(this.GAME_FEATURE_CONTROLLED).append(featureInterface.ToString()).append(this.IS_LOADING_LEVEL_LABEL).append(ResourceLoadingLevelFactory.getInstance().getLevelString(level)).append(CommonSeps.getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(this.IS_FEATURE).appendboolean(isFeature).ToString(), this, this.commonStrings.INIT);
+            this.logUtil.putF(StringMaker().append(this.GAME_FEATURE_CONTROLLED).append(featureInterface.toString()).append(this.IS_LOADING_LEVEL_LABEL).append(ResourceLoadingLevelFactory.getInstance().getLevelString(level)).append(CommonSeps.getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(this.IS_FEATURE).appendboolean(isFeature).toString(), this, this.commonStrings.INIT);
             if (isLoadingLevel && isFeature) {
                 featureInterface.init(level);
             }
         }
         Features features = Features.getInstance();
         GraphicsFeatureFactory graphicsFeatureFactory = GraphicsFeatureFactory.getInstance();
-        StringMaker stringBuffer = new StringMaker();
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append(this.ANIMATION_FEATURES);
         stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS));
         stringBuffer.append(this.IMAGE_LABEL);
         stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
-        this.logUtil.putF(stringBuffer.ToString(), this, this.commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
         if (features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS)) {
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(this.IMAGE_GRAPHICS_ARRAY);
@@ -79,25 +95,24 @@ public class FeaturedResourceFactory
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_QUARTER_ROTATION_GRAPHICS));
             stringBuffer.append(this.SPRITE_FULL);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
-            this.logUtil.putF(stringBuffer.ToString(), this, this.commonStrings.INIT);
+            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
         }
     }
+    
 
-    public virtual void clear()
-    {
+    void clear() {
         this.list.clear();
     }
+    
 
-    public virtual void add(GameFeatureControlledInterface featureInterface)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).ToString(), this, this.commonStrings.ADD);
+    void add(GameFeatureControlledInterface featureInterface) {
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString1(featureInterface)).toString(), this, this.commonStrings.ADD);
         this.list.add(featureInterface);
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

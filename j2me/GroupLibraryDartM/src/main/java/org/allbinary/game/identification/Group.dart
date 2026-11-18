@@ -13,51 +13,62 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/identification/GroupInterface.dart';
+import 'package:allbinary/org/allbinary/game/identification/GroupCommonFactory.dart';
 
-namespace org.allbinary.game.identification;
+class Group implements GroupInterface {
+    late String name;
+    int teamId = 0;
+    late String string;
 
-public class Group : GroupInterface
-{
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private readonly short teamId;
-    private string @string = StringUtil.getInstance().EMPTY_STRING;
-    public Group(string teamName, short teamId)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGroup() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    
+    this.string = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    Group(String teamName, int teamId) {
+        this.initFieldsGroup();
         this.teamId = teamId;
         this.setName(teamName);
     }
+    
 
-    public virtual string getGroupName()
-    {
+    @override
+    String getGroupName() {
         return this.name;
     }
+    
 
-    public virtual void setName(string name)
-    {
+    void setName(String name) {
         this.name = name;
-        GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
-        StringMaker stringBuffer = new StringMaker();
+        final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append(groupCommonFactory.GROUP_NAME_LABEL);
         stringBuffer.append(this.name);
         stringBuffer.append(groupCommonFactory.ID_LABEL);
         stringBuffer.appendshort(this.teamId);
-        this.@string = stringBuffer.ToString();
+        this.string = stringBuffer.toString();
     }
+    
 
-    public virtual short getGroupId()
-    {
+    @override
+    int getGroupId() {
         return this.teamId;
     }
+    
 
-    public override string ToString()
-    {
-        return this.@string;
+    @override
+    String toString() {
+        return this.string;
     }
-
 }
 

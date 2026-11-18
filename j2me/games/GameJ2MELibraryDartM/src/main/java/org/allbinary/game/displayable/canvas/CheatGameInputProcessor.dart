@@ -13,45 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventUtil = org.allbinary.game.input.@event.GameKeyEventUtil;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using SpecialGameInputFactory = org.allbinary.game.layer.special.SpecialGameInputFactory;
-using SpecialGameInputInterface = org.allbinary.game.layer.special.SpecialGameInputInterface;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialGameInputFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialGameInputInterface.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class CheatGameInputProcessor extends PlayerGameInput {
+    static SpecialGameInputInterface inputProcessor = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
+    late String PROCESS_GAME;
+    late AllBinaryGameCanvas gameCanvas;
+    late GameKeyFactory gameKeyFactory;
 
-public class CheatGameInputProcessor : PlayerGameInput
-{
-    private readonly string PROCESS_GAME = "processGame";
-    private readonly AllBinaryGameCanvas gameCanvas;
-    public static SpecialGameInputInterface inputProcessor = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
-    public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas) : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCheatGameInputProcessor() {
+    this.PROCESS_GAME = "processGame";
+    
+    this.gameKeyFactory = GameKeyFactory.getInstance();
+    }
+    
+
+    CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas) : super(BasicArrayListD(), BasicArrayListD(), -1) {
+        this.initFieldsCheatGameInputProcessor();
+        
         this.gameCanvas = gameCanvas;
     }
+    
 
-    private readonly GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void update()
-    {
+    @override
+    void update() {
         try {
-            AllBinaryGameLayerManager gameLayerManager = this.gameCanvas.getLayerManager();
-            BasicArrayList list = this.getGameKeyEventList();
-            int size = list.size();
+            final AllBinaryGameLayerManager gameLayerManager = this.gameCanvas.getLayerManager();
+            final BasicArrayList list = this.getGameKeyEventList();
+            final int size = list.size();
             for (int index = 0; index < size; index++) {
-                object anyType = list.objectArray[index];
-                int key = GameKeyEventUtil.getKey(anyType);
+                final Object anyType = list.objectArray[index]!;
+                final int key = GameKeyEventUtil.getKey(anyType);
                 if (key == this.gameKeyFactory.LEVEL_DOWN.getId()) {
                     CheatGameInputProcessor.inputProcessor.strafeLeft();
                     break;
@@ -80,10 +86,12 @@ public class CheatGameInputProcessor : PlayerGameInput
                 }
             }
             list.clear();
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
+            }
         }
     }
-
 }
 

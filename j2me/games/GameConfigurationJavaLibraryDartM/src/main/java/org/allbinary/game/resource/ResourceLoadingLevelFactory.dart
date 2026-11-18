@@ -13,41 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevel.dart';
 
-namespace org.allbinary.game.resource;
+class ResourceLoadingLevelFactory {
+    static final ResourceLoadingLevelFactory instance = ResourceLoadingLevelFactory();
+    late ResourceLoadingLevel LOAD_EARLY;
+    late ResourceLoadingLevel LOAD_TOUCH;
+    late ResourceLoadingLevel LOAD_GAME;
+    late ResourceLoadingLevel LEVEL;
+    late ResourceLoadingLevel MAX_LEVEL;
+    late ResourceLoadingLevel LOAD_ALL;
+    late List<ResourceLoadingLevel?> RESOURCE_LOADING_LEVEL_ARRAY;
 
-public class ResourceLoadingLevelFactory
-{
-    private static readonly ResourceLoadingLevelFactory instance = new ResourceLoadingLevelFactory();
-    public static ResourceLoadingLevelFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsResourceLoadingLevelFactory() {
+    this.LOAD_EARLY = ResourceLoadingLevel("Load Early", Integer.MAX_VALUE);
+    this.LOAD_TOUCH = ResourceLoadingLevel("Load Touch", Integer.MAX_VALUE - 1);
+    this.LOAD_GAME = ResourceLoadingLevel("Load Game", Integer.MAX_VALUE - 2);
+    this.LEVEL = ResourceLoadingLevel("Level", Integer.MAX_VALUE - 99);
+    this.MAX_LEVEL = ResourceLoadingLevel("Max Level", Integer.MAX_VALUE - 100);
+    this.LOAD_ALL = ResourceLoadingLevel("Load All", -1);
+    this.RESOURCE_LOADING_LEVEL_ARRAY = <ResourceLoadingLevel?>[this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY];
+    }
+
+    ResourceLoadingLevelFactory() {
+        this.initFieldsResourceLoadingLevelFactory();
+    }
+    
+
+    static ResourceLoadingLevelFactory getInstance() {
         return ResourceLoadingLevelFactory.instance;
     }
+    
 
-    public readonly ResourceLoadingLevel LOAD_EARLY = new ResourceLoadingLevel("Load Early", int.MaxValue);
-    public readonly ResourceLoadingLevel LOAD_TOUCH = new ResourceLoadingLevel("Load Touch", int.MaxValue - 1);
-    public readonly ResourceLoadingLevel LOAD_GAME = new ResourceLoadingLevel("Load Game", int.MaxValue - 2);
-    public readonly ResourceLoadingLevel LEVEL = new ResourceLoadingLevel("Level", int.MaxValue - 99);
-    public readonly ResourceLoadingLevel MAX_LEVEL = new ResourceLoadingLevel("Max Level", int.MaxValue - 100);
-    public readonly ResourceLoadingLevel LOAD_ALL = new ResourceLoadingLevel("Load All", -1);
-    private readonly ResourceLoadingLevel[] RESOURCE_LOADING_LEVEL_ARRAY;
-    public virtual string getLevelString(int level)
-    {
-        for (int index = 0; index < this.RESOURCE_LOADING_LEVEL_ARRAY.Length; index++) {
-            if (level == this.RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel()) {
-                return this.RESOURCE_LOADING_LEVEL_ARRAY[index].getName();
+    String getLevelString(int level) {
+        for (int index = 0; index < this.RESOURCE_LOADING_LEVEL_ARRAY.length; index++) {
+            if (level == this.RESOURCE_LOADING_LEVEL_ARRAY[index]!.getLevel()) {
+                return this.RESOURCE_LOADING_LEVEL_ARRAY[index]!.getName();
             }
         }
-        return (level).ToString();
+        return jstr(level);
     }
-
-    public ResourceLoadingLevelFactory()
-    {
-        this.RESOURCE_LOADING_LEVEL_ARRAY = new ResourceLoadingLevel[] { this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY };
-    }
-
 }
 

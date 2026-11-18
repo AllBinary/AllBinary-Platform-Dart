@@ -13,49 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBase.dart';
+import 'package:allbinary/org/allbinary/game/score/NullHighScoresSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
 
-namespace org.allbinary.game.score;
+class HighScoresHelper2 extends HighScoresHelperBase {
+    late CircularIndexUtil circularIndexUtil;
+    late HighScores selectedHighScores;
 
-public class HighScoresHelper2 : HighScoresHelperBase
-{
-    private readonly CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstanceAt(0, 0);
-    private HighScores selectedHighScores = NullHighScoresSingletonFactory.getInstance();
-    public override void setSelectedHighScores(HighScores selectedHighScores)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoresHelper2() {
+    this.circularIndexUtil = CircularIndexUtil.createInstanceAt(0, 0);
+    this.selectedHighScores = NullHighScoresSingletonFactory.getInstance();
+    }
+
+    HighScoresHelper2() {
+        this.initFieldsHighScoresHelper2();
+    }
+    
+
+    @override
+    void setSelectedHighScores(HighScores selectedHighScores) {
         this.selectedHighScores = selectedHighScores;
     }
+    
 
-    public override HighScores getSelectedHighScores()
-    {
+    @override
+    HighScores getSelectedHighScores() {
         return this.selectedHighScores;
     }
+    
 
-    public override void setHighScoresArray(HighScores[] highScoresArrayP)
-    {
-        base.setHighScoresArray(highScoresArrayP);
-        this.circularIndexUtil.setSize(this.highScoresArrayP.Length);
+    @override
+    void setHighScoresArray(List<HighScores?> highScoresArrayP) {
+        super.setHighScoresArray(highScoresArrayP);
+        this.circularIndexUtil.setSize(this.highScoresArrayP.length);
         this.selectHighScores();
     }
+    
 
-    public override void selectHighScores()
-    {
-        if (this.highScoresArrayP.Length == 0) {
+    @override
+    void selectHighScores() {
+        if (this.highScoresArrayP.length == 0) {
             this.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
             return;
         }
         this.circularIndexUtil.next();
-        HighScores highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
+        HighScores highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()]!;
         int index = 0;
-        while (highScores.getTotal() < 1 && index < this.highScoresArrayP.Length) {
-            highScores = this.highScoresArrayP[this.circularIndexUtil.next()];
+        while (highScores.getTotal() < 1 && index < this.highScoresArrayP.length) {
+            highScores = this.highScoresArrayP[this.circularIndexUtil.next()]!;
             index++;
         }
         this.setSelectedHighScores(highScores);
     }
-
 }
 

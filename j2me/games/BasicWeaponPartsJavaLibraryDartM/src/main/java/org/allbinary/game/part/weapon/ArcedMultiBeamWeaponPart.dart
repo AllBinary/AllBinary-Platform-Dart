@@ -13,46 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.part.weapon
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using WeaponLayer = org.allbinary.game.layer.weapon.WeaponLayer;
-using WeaponLayerCircularPool = org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using AngleFactory = org.allbinary.math.AngleFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/game/combat/weapon/WeaponProperties.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/WeaponLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/WeaponLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/RelativeRelationship.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/game/part/weapon/BasicWeaponPart.dart';
 
-namespace org.allbinary.game.part.weapon;
+class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
+    late WeaponLayerCircularPool weaponLayerCircularStaticPool;
+    int total = 0;
+    int TOTAL_ANGLE = 0;
 
-public class ArcedMultiBeamWeaponPart : BasicWeaponPart
-{
-    private readonly WeaponLayerCircularPool weaponLayerCircularStaticPool;
-    private readonly int total;
-    public ArcedMultiBeamWeaponPart(Animation animationInterface, AllBinaryLayer sourceLayerInterface, WeaponLayerCircularPool weaponLayerCircularStaticPool, int total, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) : base(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship)
-    {
-        // base(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsArcedMultiBeamWeaponPart() {
+    
+    
+    this.TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
+    }
+    
+
+    ArcedMultiBeamWeaponPart(Animation animationInterface, AllBinaryLayer sourceLayerInterface, WeaponLayerCircularPool weaponLayerCircularStaticPool, int total, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) : super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship) {
+        this.initFieldsArcedMultiBeamWeaponPart();
+        
         this.total = total;
         this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
     }
+    
 
-    private readonly int TOTAL_ANGLE = ((int) AngleFactory.getInstance().TOTAL_ANGLE);
-    // throws Exception
-    public override void processScore(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
-    {
-        short increment = ((short) ((this.total - 1) / this.TOTAL_ANGLE));
-        short minAngle = ((short) (((int) angle) - ((((int) increment) * this.total) >> 1)));
+    @override
+    void processScore(AllBinaryLayerManager allbinaryLayerManager, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface) {
+        final int increment = (((this.total - 1) ~/ this.TOTAL_ANGLE)).toSigned(16);
+        final int minAngle = ((angle - ((increment * this.total) >> 1))).toSigned(16);
         int next = 0;
-        WeaponLayer weaponLayer = null;
+        late WeaponLayer weaponLayer;
         for (int index = 0; index < this.total; index++) {
-            weaponLayer = this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(this.getOwnerLayerInterface(), this.relativeRelationship.getX(), this.relativeRelationship.getY(), 0, (minAngle + increment), ((int) otherAngle), weaponProperties, scoreableInterface);
+            weaponLayer = this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(this.getOwnerLayerInterface(), this.relativeRelationship.getX(), this.relativeRelationship.getY(), 0, (minAngle + increment), otherAngle, weaponProperties, scoreableInterface);
             allbinaryLayerManager.append(weaponLayer);
-            next += ((int) increment);
+            next += increment;
         }
     }
-
 }
 

@@ -13,83 +13,98 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenTypesFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenType.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchScreenFactory {
+    static final TouchScreenFactory SINGLETON = TouchScreenFactory();
+    late LogUtil logUtil;
+    bool touch = false;
+    bool multiTouch = false;
+    bool multiTouchDistinct = false;
+    late TouchScreenType touchScreenType;
 
-public class TouchScreenFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly TouchScreenFactory SINGLETON = new TouchScreenFactory();
-    private bool touch = false;
-    private bool multiTouch = false;
-    private bool multiTouchDistinct = false;
-    private TouchScreenType touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
-    private TouchScreenFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchScreenFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.touch = false;
+    this.multiTouch = false;
+    this.multiTouchDistinct = false;
+    this.touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
+    }
+    
+
+    TouchScreenFactory() {
+        this.initFieldsTouchScreenFactory();
         try {
             this.setTouch(true);
             this.setMultiTouch(false);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, TouchScreenFactory.SINGLETON, commonStrings.GET_INSTANCE, e);
+            }
         }
     }
+    
 
-    public static TouchScreenFactory getInstance()
-    {
+    static TouchScreenFactory getInstance() {
         return TouchScreenFactory.SINGLETON;
     }
+    
 
-    public virtual void setMultiTouch(bool multiTouch)
-    {
+    void setMultiTouch(bool multiTouch) {
         this.multiTouch = multiTouch;
     }
+    
 
-    public virtual bool isMultiTouch()
-    {
+    bool isMultiTouch() {
         return this.multiTouch;
     }
+    
 
-    public virtual void setTouch(bool touch)
-    {
+    void setTouch(bool touch) {
         this.touch = touch;
     }
+    
 
-    public virtual bool isTouch()
-    {
+    bool isTouch() {
         return this.touch;
     }
+    
 
-    public virtual void setMultiTouchDistinct(bool multiTouchDistinct)
-    {
+    void setMultiTouchDistinct(bool multiTouchDistinct) {
         this.multiTouchDistinct = multiTouchDistinct;
     }
+    
 
-    public virtual bool isMultiTouchDistinct()
-    {
+    bool isMultiTouchDistinct() {
         return this.multiTouchDistinct;
     }
+    
 
-    public virtual void setTouchScreenType(TouchScreenType touchScreenType)
-    {
+    void setTouchScreenType(TouchScreenType touchScreenType) {
         this.touchScreenType = touchScreenType;
     }
+    
 
-    public virtual TouchScreenType getTouchScreenType()
-    {
+    TouchScreenType getTouchScreenType() {
         return this.touchScreenType;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append("TouchScreen: ");
         stringBuffer.appendboolean(this.isTouch());
         stringBuffer.append(" MultiTouch: ");
@@ -97,9 +112,8 @@ public class TouchScreenFactory
         stringBuffer.append(" Distinct MultiTouch: ");
         stringBuffer.appendboolean(this.isMultiTouchDistinct());
         stringBuffer.append(" TouchScreenType: ");
-        stringBuffer.append(StringUtil.getInstance().toString(this.getTouchScreenType()));
-        return stringBuffer.ToString();
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getTouchScreenType()));
+        return stringBuffer.toString();
     }
-
 }
 

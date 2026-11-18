@@ -13,24 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game.score;
+class HighScoreCommands {
+    static final HighScoreCommands instance = HighScoreCommands();
+    late Command DISPLAY;
+    late Command PERSONAL;
+    late Command WORLD;
 
-public class HighScoreCommands
-{
-    private static readonly HighScoreCommands instance = new HighScoreCommands();
-    public static HighScoreCommands getInstance()
-    {
-        return HighScoreCommands.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoreCommands() {
+    this.DISPLAY = Command.with4("Scores", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.PERSONAL = Command.with4("Personal", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.WORLD = Command.with4("World", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
     }
 
-    public readonly Command DISPLAY = new Command("Scores", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command PERSONAL = new Command("Personal", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command WORLD = new Command("World", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    HighScoreCommands() {
+        this.initFieldsHighScoreCommands();
+    }
+    
+
+    static HighScoreCommands getInstance() {
+        return HighScoreCommands.instance;
+    }
 }
 

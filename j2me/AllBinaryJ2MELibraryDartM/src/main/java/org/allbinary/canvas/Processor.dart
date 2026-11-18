@@ -13,29 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.canvas
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.canvas;
+class Processor {
+    static final Processor SINGLETON = Processor();
+    
 
-public class Processor
-{
-    private static readonly Processor SINGLETON = new Processor();
-    public static Processor getInstance()
-    {
+    static Processor getInstance() {
         return Processor.SINGLETON;
     }
+    
 
-    // throws Exception
-    public virtual void process()
-    {
+    void process() {
     }
+    
 
-    // throws Exception
-    public virtual void processt(long timeDelta)
-    {
+    void processt(int timeDelta) {
     }
-
 }
 

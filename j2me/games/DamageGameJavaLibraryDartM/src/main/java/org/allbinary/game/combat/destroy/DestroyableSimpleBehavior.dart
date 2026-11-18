@@ -13,34 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.destroy
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyableBaseBehavior.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyedLayerProcessor.dart';
 
-namespace org.allbinary.game.combat.destroy;
+class DestroyableSimpleBehavior extends DestroyableBaseBehavior {
+    late CollidableCompositeLayer ownerLayer;
+    bool destroyed = false;
 
-public class DestroyableSimpleBehavior : DestroyableBaseBehavior
-{
-    public readonly CollidableCompositeLayer ownerLayer;
-    private bool destroyed = false;
-    public DestroyableSimpleBehavior(CollidableCompositeLayer ownerLayer)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDestroyableSimpleBehavior() {
+    
+    this.destroyed = false;
+    }
+    
+
+    DestroyableSimpleBehavior(CollidableCompositeLayer ownerLayer) {
+        this.initFieldsDestroyableSimpleBehavior();
         this.ownerLayer = ownerLayer;
     }
+    
 
-    public override bool isDestroyed()
-    {
+    @override
+    bool isDestroyed() {
         return this.destroyed;
     }
+    
 
-    public override void setDestroyed(bool destroyed)
-    {
+    @override
+    void setDestroyed(bool destroyed) {
         this.destroyed = destroyed;
         if (this.isDestroyed()) {
             DestroyedLayerProcessor.getInstance().add(this.ownerLayer);
         }
     }
-
 }
 

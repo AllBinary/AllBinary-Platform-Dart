@@ -13,19 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class NullOpenGLTextureProcessor {
+    static final OpenGLObject3dProcessor instance = OpenGLObject3dProcessor();
+    
 
-public class NullOpenGLTextureProcessor
-{
-    private static readonly OpenGLObject3dProcessor instance = new OpenGLObject3dProcessor();
-    public static OpenGLObject3dProcessor getInstance()
-    {
+    static OpenGLObject3dProcessor getInstance() {
         return NullOpenGLTextureProcessor.instance;
     }
-
 }
 

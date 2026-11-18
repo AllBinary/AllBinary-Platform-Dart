@@ -13,30 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerType.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class PickedUpLayerTypeFactory {
+    static final PickedUpLayerTypeFactory instance = PickedUpLayerTypeFactory();
+    late PickedUpLayerType NONE;
+    late PickedUpLayerType BEAM;
+    late PickedUpLayerType MINE;
+    late PickedUpLayerType PROJECTILE;
+    late PickedUpLayerType ENHANCEMENT;
+    late PickedUpLayerType MORPH;
+    late PickedUpLayerType PART;
+    late PickedUpLayerType HEAL;
+    late PickedUpLayerType LIFE;
+    late PickedUpLayerType POINTS;
 
-public class PickedUpLayerTypeFactory
-{
-    private static readonly PickedUpLayerTypeFactory instance = new PickedUpLayerTypeFactory();
-    public static PickedUpLayerTypeFactory getInstance()
-    {
-        return PickedUpLayerTypeFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsPickedUpLayerTypeFactory() {
+    this.NONE = PickedUpLayerType(StringUtil.getInstance().NULL_STRING);
+    this.BEAM = PickedUpLayerType("BEAM");
+    this.MINE = PickedUpLayerType("MINE");
+    this.PROJECTILE = PickedUpLayerType("PROJECTILE");
+    this.ENHANCEMENT = PickedUpLayerType("Enhancement");
+    this.MORPH = PickedUpLayerType("Morph");
+    this.PART = PickedUpLayerType("Part");
+    this.HEAL = PickedUpLayerType("Heal");
+    this.LIFE = PickedUpLayerType("Life");
+    this.POINTS = PickedUpLayerType("Points");
     }
 
-    public PickedUpLayerType NONE = new PickedUpLayerType(StringUtil.getInstance().NULL_STRING);
-    public PickedUpLayerType BEAM = new PickedUpLayerType("BEAM");
-    public PickedUpLayerType MINE = new PickedUpLayerType("MINE");
-    public PickedUpLayerType PROJECTILE = new PickedUpLayerType("PROJECTILE");
-    public PickedUpLayerType ENHANCEMENT = new PickedUpLayerType("Enhancement");
-    public PickedUpLayerType MORPH = new PickedUpLayerType("Morph");
-    public PickedUpLayerType PART = new PickedUpLayerType("Part");
-    public PickedUpLayerType HEAL = new PickedUpLayerType("Heal");
-    public PickedUpLayerType LIFE = new PickedUpLayerType("Life");
-    public PickedUpLayerType POINTS = new PickedUpLayerType("Points");
+    PickedUpLayerTypeFactory() {
+        this.initFieldsPickedUpLayerTypeFactory();
+    }
+    
+
+    static PickedUpLayerTypeFactory getInstance() {
+        return PickedUpLayerTypeFactory.instance;
+    }
 }
 

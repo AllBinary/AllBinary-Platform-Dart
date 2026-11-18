@@ -13,32 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/physics/movement/MovementInterface.dart';
 
-namespace org.allbinary.physics.movement;
+class Movement implements MovementInterface {
+    
 
-public class Movement : MovementInterface
-{
-    public Movement()
-    {
+    Movement() {
     }
+    
 
-    public virtual void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    @override
+    void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle) {
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryGameLayer layer)
-    {
+    @override
+    void process(AllBinaryGameLayer layer) {
     }
+    
 
-    public virtual void stop()
-    {
+    @override
+    void stop() {
     }
-
 }
 

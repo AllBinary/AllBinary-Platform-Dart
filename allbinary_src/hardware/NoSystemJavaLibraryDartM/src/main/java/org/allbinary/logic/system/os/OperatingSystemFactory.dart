@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.system.os
 
 import 'package:allbinary/allbinary_java.dart';
@@ -51,8 +51,11 @@ class OperatingSystemFactory {
             final String osString = StringMaker().append("OperatingSystem Info: ").append(this.genericOperatingSystem.toString()).toString();
             JSystem.println(jstr(osString));
             this.logUtil.putF(osString, this, commonStrings.GET_INSTANCE);
-        } catch (e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            }
         }
         return this.genericOperatingSystem;
     }

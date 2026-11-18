@@ -13,51 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.scroller
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using PlayerQueue = org.allbinary.media.audio.PlayerQueue;
-using SecondaryPlayerQueueFactory = org.allbinary.media.audio.SecondaryPlayerQueueFactory;
-using Sound = org.allbinary.media.audio.Sound;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/rand/MyRandomFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/PlayerQueue.dart';
+import 'package:allbinary/org/allbinary/media/audio/SecondaryPlayerQueueFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
 
-namespace org.allbinary.game.ag.ai.scroller;
+class HorizontalScreenPatrolAI extends BasicAI {
+    static final int SOUND = SmallIntegerSingletonFactory.getInstance().getAt(433);
+    int keyDirection = 0;
+    late DisplayInfoSingleton displayInfoSingleton;
+    int firingX = 0;
+    int firedIndex = 0;
+    int MAX_FIRE = 0;
+    late TimeDelayHelper timeDelayHelper;
+    late PlayerQueue secondaryPlayerQueue;
+    late Sound sound;
 
-public class HorizontalScreenPatrolAI : BasicAI
-{
-    public int keyDirection = Canvas.LEFT;
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private int firingX;
-    private int firedIndex = 0;
-    private readonly int MAX_FIRE = 28;
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(240);
-    private readonly PlayerQueue secondaryPlayerQueue = SecondaryPlayerQueueFactory.getInstance();
-    private readonly Sound sound;
-    public static readonly int? SOUND = SmallIntegerSingletonFactory.getInstance().getAt(433);
-    public HorizontalScreenPatrolAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        this.firingX = this.displayInfoSingleton.getLastHalfWidth();
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
-        this.sound = ((Sound) hashtable.get(HorizontalScreenPatrolAI.SOUND));
+    // Java field initializers run after the base constructor
+    void initFieldsHorizontalScreenPatrolAI() {
+    this.keyDirection = Canvas.LEFT;
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.firingX = this.displayInfoSingleton.getLastHalfWidth();
+    this.firedIndex = 0;
+    this.MAX_FIRE = 28;
+    this.timeDelayHelper = TimeDelayHelper(240);
+    this.secondaryPlayerQueue = SecondaryPlayerQueueFactory.getInstance();
+    
+    }
+    
+
+    HorizontalScreenPatrolAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(ownerLayerInterface, gameInput) {
+        this.initFieldsHorizontalScreenPatrolAI();
+        
+        this.sound = (hashtable.get(HorizontalScreenPatrolAI.SOUND) as Sound);
         if (this.sound == null) {
-            throw new Exception("No Sound Provided!!");
+            throw JException('Exception', "No Sound Provided!!");
         }
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        base.processKeyAI(this.keyDirection);
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        super.processKeyAI(this.keyDirection);
         if (this.timeDelayHelper.isTimeTNT()) {
             AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
             int currentOwnerLayerX = layerInterface.getXP();
@@ -69,24 +80,23 @@ public class HorizontalScreenPatrolAI : BasicAI
                 this.secondaryPlayerQueue.add(this.sound);
             }
             if (currentOwnerLayerX < this.firingX && currentOwnerLayerX > -layerInterface.getWidth()) {
-                base.processKeyAI(Canvas.KEY_NUM1);
-                AllBinaryGameLayerManager gameLayerManager = ((AllBinaryGameLayerManager) allBinaryLayerManager);
+                super.processKeyAI(Canvas.KEY_NUM1);
+                final AllBinaryGameLayerManager gameLayerManager = (allBinaryLayerManager as AllBinaryGameLayerManager);
                 int FIRE = (gameLayerManager.getGameInfo().getCurrentLevel() + 12) >> 2;
                 if (FIRE > this.MAX_FIRE) {
                     FIRE = this.MAX_FIRE;
                 }
                 if (this.firedIndex > FIRE) {
                     this.firedIndex = 0;
-                    this.firingX = int.MinValue;
+                    this.firingX = Integer.MIN_VALUE;
                 }
                 this.firedIndex++;
             }
         }
     }
+    
 
-    public virtual void nextDirection()
-    {
+    void nextDirection() {
     }
-
 }
 

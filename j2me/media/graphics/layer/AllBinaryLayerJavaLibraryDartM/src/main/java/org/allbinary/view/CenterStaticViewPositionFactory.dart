@@ -13,24 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.view
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/view/StaticViewPosition.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
 
-namespace org.allbinary.view;
+class CenterStaticViewPositionFactory {
+    
 
-public class CenterStaticViewPositionFactory
-{
-    public CenterStaticViewPositionFactory()
-    {
+    CenterStaticViewPositionFactory() {
     }
+    
 
-    public virtual ViewPositionBase getInstance(int z)
-    {
+    ViewPositionBase getInstance1(int z) {
         DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-        return new StaticViewPosition((displayInfoSingleton.getLastWidth() >> 1), (displayInfoSingleton.getLastHeight() >> 1), z);
+        return StaticViewPosition((displayInfoSingleton.getLastWidth() >> 1), (displayInfoSingleton.getLastHeight() >> 1), z);
     }
-
 }
 

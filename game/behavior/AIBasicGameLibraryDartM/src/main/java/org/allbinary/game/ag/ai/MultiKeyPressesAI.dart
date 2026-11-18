@@ -13,83 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/KeyPressesAI.dart';
 
-namespace org.allbinary.game.ag.ai;
+class MultiKeyPressesAI extends KeyPressesAI {
+    late TimeDelayHelper toggleTimeHelper;
+    late GameTickTimeDelayHelper gameTickTimeDelayHelper;
 
-public class MultiKeyPressesAI : KeyPressesAI
-{
-    private readonly TimeDelayHelper toggleTimeHelper = new TimeDelayHelper(600);
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public MultiKeyPressesAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(hashtable, ownerLayerInterface, gameInput)
-    {
-        // base(hashtable, ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsMultiKeyPressesAI() {
+    this.toggleTimeHelper = TimeDelayHelper(600);
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
+
+    MultiKeyPressesAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(hashtable, ownerLayerInterface, gameInput) {
+        this.initFieldsMultiKeyPressesAI();
+        
         this.update();
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
     }
+    
 
-    // throws Exception
-    private void update()
-    {
+    void update() {
         GameInput gameInput = this.getGameInput();
-        int?[] keys = this.keys;
-        int size = keys.Length;
+        final List<int?> keys = this.keys;
+        final int size = keys.length;
         if (this.isOn()) {
-            for (int index_1 = 0; index_1 < size; index_1++) {
-                int key = global::java.lang.JavaNumber.intValue(keys[index_1]);
+            for (int index = 0; index < size; index++) {
+                int key = (keys[index]!).toInt();
                 if (key != -1) {
                     gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
         } else {
-            for (int index_0 = 0; index_0 < size; index_0++) {
-                int key = global::java.lang.JavaNumber.intValue(keys[index_0]);
+            for (int index = 0; index < size; index++) {
+                int key = (keys[index]!).toInt();
                 if (key != -1) {
                     gameInput.addForRemoval(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
         }
     }
+    
 
-    // throws Exception
-    public override void toggle()
-    {
+    @override
+    void toggle() {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
-            base.toggle();
+            super.toggle();
             this.update();
         }
     }
+    
 
-    // throws Exception
-    public override void disable()
-    {
+    @override
+    void disable() {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
-            base.disable();
+            super.disable();
             this.update();
         }
     }
+    
 
-    // throws Exception
-    public override void enable()
-    {
+    @override
+    void enable() {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
-            base.enable();
+            super.enable();
             this.update();
         }
     }
-
 }
 

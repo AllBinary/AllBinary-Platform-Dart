@@ -13,27 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.destroy.event
 
-using System;
-using System.Linq;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/event/DestroyedEvent.dart';
 
-namespace org.allbinary.game.combat.destroy.@event;
+class DestroyEventFactory implements AllBinaryEventObjectFactoryInterface {
+    late AllBinaryGameCanvas combatGameCanvas;
 
-public class DestroyEventFactory : AllBinaryEventObjectFactoryInterface
-{
-    private AllBinaryGameCanvas combatGameCanvas;
-    public DestroyEventFactory(AllBinaryGameCanvas combatGameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDestroyEventFactory() {
+    
+    }
+    
+
+    DestroyEventFactory(AllBinaryGameCanvas combatGameCanvas) {
+        this.initFieldsDestroyEventFactory();
         this.combatGameCanvas = combatGameCanvas;
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
-        return new DestroyedEvent(this.combatGameCanvas);
+    @override
+    AllBinaryEventObject getInstance() {
+        return DestroyedEvent(this.combatGameCanvas);
     }
-
 }
 

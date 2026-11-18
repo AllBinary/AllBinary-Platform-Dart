@@ -13,23 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.java
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
 
-namespace org.allbinary.logic.java;
+class PrimitiveArrayToString {
+    
 
-public class PrimitiveArrayToString
-{
-    public static string toString(float[] floats)
-    {
-        StringMaker stringBuffer = new StringMaker();
-        for (int index = 0; index < floats.Length; index++) {
+    static String toString1(List<double> floats) {
+        final StringMaker stringBuffer = StringMaker();
+        for (int index = 0; index < floats.length; index++) {
             stringBuffer.appendfloat(floats[index]);
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

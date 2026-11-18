@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+abstract interface class PopupMenuInterface {
+    
 
-public interface PopupMenuInterface
-{
-    // throws Exception
     void popupMenu();
+    
 
     void closeMenu();
+    
 
-    // throws Exception
     void toggleMenu();
-
 }
 

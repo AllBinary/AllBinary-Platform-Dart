@@ -13,117 +13,124 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.mapping
 
-using System;
-using System.Linq;
-using Input = org.allbinary.game.input.Input;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
 
-namespace org.allbinary.game.input.mapping;
+class InputMapping {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late ABHashtable hashtable;
+    late BasicArrayList mappedList;
 
-public class InputMapping
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private readonly BasicArrayList mappedList = new BasicArrayListD();
-    public InputMapping()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInputMapping() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    this.mappedList = BasicArrayListD();
     }
+    
 
-    public virtual int getTotalMapped()
-    {
+    InputMapping() {
+        this.initFieldsInputMapping();
+    }
+    
+
+    int getTotalMapped() {
         return this.hashtable.size();
     }
+    
 
-    public virtual bool isDefaultNew()
-    {
+    bool isDefaultNew() {
         return false;
     }
+    
 
-    public virtual InputToGameKeyMapping getDefault()
-    {
+    InputToGameKeyMapping getDefault() {
         return InputToGameKeyMapping.getNullInstance();
     }
+    
 
-    public virtual void removeAll()
-    {
+    void removeAll() {
         this.hashtable.clear();
         this.mappedList.clear();
     }
+    
 
-    public virtual void remove(Input input, Input mappedToInput)
-    {
-        StringMaker stringBuffer = new StringMaker();
-        StringUtil stringUtil = StringUtil.getInstance();
+    void remove(Input input, Input mappedToInput) {
+        final StringMaker stringBuffer = StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
         stringBuffer.append(CommonLabels.getInstance().START_LABEL);
-        stringBuffer.append(stringUtil.toString(input));
+        stringBuffer.append(stringUtil.toString1(input));
         stringBuffer.append(" == ");
-        stringBuffer.append(stringUtil.toString(mappedToInput));
-        this.logUtil.putF(stringBuffer.ToString(), this, "InputMapping::remove");
-        BasicArrayList list = this.getMappedInput(input);
+        stringBuffer.append(stringUtil.toString1(mappedToInput));
+        this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
+        final BasicArrayList list = this.getMappedInput(input);
         if (list.contains(mappedToInput)) {
             list.remove(mappedToInput);
             this.mappedList.remove(mappedToInput);
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("Removed: ");
-            stringBuffer.append(stringUtil.toString(input));
+            stringBuffer.append(stringUtil.toString1(input));
             stringBuffer.append(" == ");
-            stringBuffer.append(stringUtil.toString(mappedToInput));
-            this.logUtil.putF(stringBuffer.ToString(), this, "InputMapping::remove");
+            stringBuffer.append(stringUtil.toString1(mappedToInput));
+            this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
         } else {
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("Not Deleted: ");
-            stringBuffer.append(stringUtil.toString(input));
+            stringBuffer.append(stringUtil.toString1(input));
             stringBuffer.append(" == ");
-            stringBuffer.append(stringUtil.toString(mappedToInput));
-            this.logUtil.putF(stringBuffer.ToString(), this, "InputMapping::remove");
+            stringBuffer.append(stringUtil.toString1(mappedToInput));
+            this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
         }
     }
+    
 
-    // throws Exception
-    public virtual void addMapping(InputToGameKeyMapping inputToGameKeyMapping)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    void addMapping(InputToGameKeyMapping inputToGameKeyMapping) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    public virtual void add(Input input, Input mappedToInput)
-    {
+    void add(Input input, Input mappedToInput) {
         BasicArrayList list = this.getMappedInput(input);
         if (!list.contains(mappedToInput)) {
             list.add(mappedToInput);
             this.mappedList.add(mappedToInput);
         }
     }
+    
 
-    public virtual bool isMapped(Input input)
-    {
+    bool isMapped(Input input) {
         return this.mappedList.contains(input);
     }
+    
 
-    public virtual BasicArrayList getMappedInput(Input id)
-    {
-        object mappingInputCanBeNullList = this.hashtable.get(id);
+    BasicArrayList getMappedInput(Input id) {
+        final Object mappingInputCanBeNullList = this.hashtable.get(id);
         if (mappingInputCanBeNullList == null) {
-            BasicArrayList list = new BasicArrayListD();
+            final BasicArrayList list = BasicArrayListD();
             this.hashtable.put(id, list);
             return list;
         }
-        return ((BasicArrayList) mappingInputCanBeNullList);
+        return (mappingInputCanBeNullList as BasicArrayList);
     }
+    
 
-    public virtual ABHashtable<object, object> getHashtable()
-    {
+    ABHashtable getHashtable() {
         return this.hashtable;
     }
-
 }
 

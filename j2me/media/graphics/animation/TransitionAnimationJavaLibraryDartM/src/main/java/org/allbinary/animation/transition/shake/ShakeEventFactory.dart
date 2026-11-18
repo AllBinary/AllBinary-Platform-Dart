@@ -13,27 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/transition/shake/ShakeEvent.dart';
 
-namespace org.allbinary.animation.transition.shake;
+class ShakeEventFactory {
+    static final ShakeEventFactory instance = ShakeEventFactory();
+    late ShakeEvent MICRO;
+    late ShakeEvent SMALL;
+    late ShakeEvent MEDIUM;
+    late ShakeEvent LARGE;
 
-public class ShakeEventFactory
-{
-    private static readonly ShakeEventFactory instance = new ShakeEventFactory();
-    public static ShakeEventFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsShakeEventFactory() {
+    this.MICRO = ShakeEvent();
+    this.SMALL = ShakeEvent();
+    this.MEDIUM = ShakeEvent();
+    this.LARGE = ShakeEvent();
+    }
+
+    ShakeEventFactory() {
+        this.initFieldsShakeEventFactory();
+    }
+    
+
+    static ShakeEventFactory getInstance() {
         return ShakeEventFactory.instance;
     }
+    
 
-    public ShakeEvent MICRO = new ShakeEvent();
-    public ShakeEvent SMALL = new ShakeEvent();
-    public ShakeEvent MEDIUM = new ShakeEvent();
-    public ShakeEvent LARGE = new ShakeEvent();
-    public virtual void init()
-    {
+    void init() {
     }
-
 }
 

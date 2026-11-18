@@ -13,54 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputInterface.dart';
 
-namespace org.allbinary.game.input;
+class CompleteMotionGestureInputEvent extends AllBinaryEventObject implements CompleteMotionGestureInputInterface {
+    late LogUtil logUtil;
+    late String name;
+    late MotionGestureInput motionGestureInput;
 
-public class CompleteMotionGestureInputEvent : AllBinaryEventObject, CompleteMotionGestureInputInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private MotionGestureInput motionGestureInput = TouchMotionGestureFactory.getInstance().NO_MOTION;
-    public CompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput) : base(motionGestureInput)
-    {
-        // base(motionGestureInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCompleteMotionGestureInputEvent() {
+    this.logUtil = LogUtil.getInstance();
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.motionGestureInput = TouchMotionGestureFactory.getInstance().NO_MOTION;
+    }
+    
+
+    CompleteMotionGestureInputEvent(String name, MotionGestureInput motionGestureInput) : super(motionGestureInput) {
+        this.initFieldsCompleteMotionGestureInputEvent();
+        
         this.setName(name);
         try {
             this.setMotionGestureInput(motionGestureInput);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "InputToGameKeyEventAction", e);
+            }
         }
     }
+    
 
-    public virtual void setName(string name)
-    {
+    void setName(String name) {
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    @override
+    String getName() {
         return this.name;
     }
+    
 
-    public virtual void setMotionGestureInput(MotionGestureInput motionGestureInput)
-    {
+    void setMotionGestureInput(MotionGestureInput motionGestureInput) {
         this.motionGestureInput = motionGestureInput;
     }
+    
 
-    public virtual MotionGestureInput getMotionGestureInput()
-    {
+    MotionGestureInput getMotionGestureInput() {
         return this.motionGestureInput;
     }
-
 }
 

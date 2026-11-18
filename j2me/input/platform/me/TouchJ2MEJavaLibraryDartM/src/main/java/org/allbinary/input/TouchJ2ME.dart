@@ -13,59 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input
 
-using System;
-using System.Linq;
-using AllMotionRecognizer = org.allbinary.input.motion.AllMotionRecognizer;
-using BasicMotionGesturesHandler = org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-using GameMotionGestureListener = org.allbinary.input.motion.gesture.observer.GameMotionGestureListener;
-using MotionGestureReceiveInterfaceFactory = org.allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.input;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/AllMotionRecognizer.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/GameMotionGestureListener.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureReceiveInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
 //TouchJ2ME
-public class TouchJ2ME
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly int DEVICE_ID = 0;
-    private AllMotionRecognizer motionRecognizer = new AllMotionRecognizer();
-    public TouchJ2ME()
-    {
+class TouchJ2ME {
+    late LogUtil logUtil;
+    int DEVICE_ID = 0;
+    late AllMotionRecognizer motionRecognizer;
+
+    // Java field initializers run after the base constructor
+    void initFieldsTouchJ2ME() {
+    this.logUtil = LogUtil.getInstance();
+    this.DEVICE_ID = 0;
+    this.motionRecognizer = AllMotionRecognizer();
+    }
+    
+
+    TouchJ2ME() {
+        this.initFieldsTouchJ2ME();
         BasicMotionGesturesHandler motionGesturesHandler = this.motionRecognizer.getMotionGestureRecognizer().getMotionGesturesHandler();
-        motionGesturesHandler.addListenerInterface(new GameMotionGestureListener(MotionGestureReceiveInterfaceFactory.getInstance()));
+        motionGesturesHandler.addListenerInterface(GameMotionGestureListener(MotionGestureReceiveInterfaceFactory.getInstance()));
     }
+    
 
-    public virtual void pointerDragged(int x, int y)
-    {
+    void pointerDragged(int x, int y) {
         try {
-            this.motionRecognizer.processDraggedMotionEvent(x, y, DEVICE_ID, 0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            this.motionRecognizer.processDraggedMotionEvent(x, y, this.DEVICE_ID, 0);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "pointerDragged", e);
+            }
         }
     }
+    
 
-    public virtual void pointerPressed(int x, int y)
-    {
+    void pointerPressed(int x, int y) {
         try {
-            this.motionRecognizer.processStartMotionEvent(x, y, DEVICE_ID, 0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            this.motionRecognizer.processStartMotionEvent(x, y, this.DEVICE_ID, 0);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "pointerPressed", e);
+            }
         }
     }
+    
 
-    public virtual void pointerReleased(int x, int y)
-    {
+    void pointerReleased(int x, int y) {
         try {
-            this.motionRecognizer.processEndMotionEvent(x, y, DEVICE_ID, 0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            this.motionRecognizer.processEndMotionEvent(x, y, this.DEVICE_ID, 0);
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "pointerReleased", e);
+            }
         }
     }
-
 }
 

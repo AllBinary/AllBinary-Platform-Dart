@@ -13,35 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.damage
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/combat/damage/DamageableInterface.dart';
 
-namespace org.allbinary.game.combat.damage;
+class DamageableBaseBehavior implements DamageableInterface {
+    static final DamageableBaseBehavior instance = DamageableBaseBehavior();
+    
 
-public class DamageableBaseBehavior : DamageableInterface
-{
-    private static readonly DamageableBaseBehavior instance = new DamageableBaseBehavior();
-    public static DamageableBaseBehavior getInstance()
-    {
+    static DamageableBaseBehavior getInstance() {
         return DamageableBaseBehavior.instance;
     }
+    
 
-    public virtual string getName()
-    {
-        return this.GetType().FullName;
+    @override
+    String getName() {
+        return jClassName(this);
     }
+    
 
-    // throws Exception
-    public virtual void damage(int damage, int damageType)
-    {
+    @override
+    void damage(int damage, int damageType) {
     }
+    
 
-    // throws Exception
-    public virtual int getDamage(int damageType)
-    {
+    @override
+    int getDamage(int damageType) {
         return 6000;
     }
-
 }
 

@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// package org.allbinary.input.magnetic.field
 
-using System;
-using System.Linq;
-using AllBinarySensorListener = org.allbinary.input.AllBinarySensorListener;
-using Orientation = org.allbinary.logic.math.Orientation;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/AllBinarySensorListener.dart';
+import 'package:allbinary/org/allbinary/logic/math/Orientation.dart';
+import 'package:allbinary/org/allbinary/input/magnetic/field/AllBinaryMagneticFieldSensor.dart';
 
-namespace org.allbinary.input.magnetic.field;
+class NoMagneticFieldSensor extends AllBinaryMagneticFieldSensor implements AllBinarySensorListener {
+    
 
-public class NoMagneticFieldSensor : AllBinaryMagneticFieldSensor, AllBinarySensorListener
-{
-    // throws Exception
-    public virtual Orientation getOrientation()
-    {
+    Orientation getOrientation() {
         return Orientation.NONE;
     }
+    
 
-    public override void onSensorChange()
-    {
+    @override
+    void onSensorChange() {
     }
-
 }
 

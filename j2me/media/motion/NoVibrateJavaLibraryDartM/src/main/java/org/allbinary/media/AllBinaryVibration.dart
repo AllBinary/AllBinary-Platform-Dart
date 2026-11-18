@@ -13,37 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media
 
-using System;
-using System.Linq;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationCentral.dart';
+import 'package:allbinary/org/allbinary/media/AllBinaryVibrationME.dart';
+import 'package:allbinary/org/allbinary/media/AllBinaryNoVibration.dart';
 
-namespace org.allbinary.media;
+class AllBinaryVibration extends AllBinaryVibrationME {
+    static AllBinaryVibrationME VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
+    
 
-public class AllBinaryVibration : AllBinaryVibrationME
-{
-    private static AllBinaryVibrationME VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
-    private AllBinaryVibration()
-    {
+    AllBinaryVibration() {
     }
+    
 
-    public static AllBinaryVibrationME getInstance()
-    {
+    static AllBinaryVibrationME getInstance() {
         return AllBinaryVibration.VIBRATION;
     }
+    
 
-    public static void init()
-    {
-        if (global::java.lang.JavaNumber.intValue(GameConfigurationCentral.getInstance().VIBRATION.getValue()) == 0) {
+    static void init() {
+        if ((GameConfigurationCentral.getInstance().VIBRATION.getValue()).toInt() == 0) {
             AllBinaryVibration.VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
         } else {
-            AllBinaryVibration.VIBRATION = new AllBinaryVibration();
+            AllBinaryVibration.VIBRATION = AllBinaryVibration();
         }
     }
+    
 
-    public override void vibrate(int duration, int type, int volume)
-    {
+    @override
+    void vibrate(int duration, int type, int volume) {
     }
-
 }
 

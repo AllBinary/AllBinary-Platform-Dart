@@ -13,38 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using AllBinaryEventCircularPool = org.allbinary.logic.util.@event.AllBinaryEventCircularPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventCircularPool.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionEventFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+class MotionEventCircularPool {
+    int MIN = 0;
+    late AllBinaryEventCircularPool eventPool;
 
-public class MotionEventCircularPool
-{
-    public static MotionEventCircularPool createPool(int id)
-    {
-        return new MotionEventCircularPool(id);
+    // Java field initializers run after the base constructor
+    void initFieldsMotionEventCircularPool() {
+    this.MIN = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
+    this.eventPool = AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - this.MIN);
     }
+    
 
-    private readonly int MIN = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
-    private AllBinaryEventCircularPool eventPool;
-    private MotionEventCircularPool(int id)
-    {
-        this.eventPool = new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - this.MIN);
-        this.eventPool.initAllBinaryEventCircularPool(new MotionEventFactory(this.eventPool, id));
+    static MotionEventCircularPool createPool(int id) {
+        return MotionEventCircularPool(id);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual MotionGestureEvent getInstance(MotionGestureInput motionGestureInput)
-    {
-        return ((MotionGestureEvent) this.eventPool.getInstance(motionGestureInput.getId() - this.MIN));
+    MotionEventCircularPool(int id) {
+        this.initFieldsMotionEventCircularPool();
+        this.eventPool.initAllBinaryEventCircularPool(MotionEventFactory(this.eventPool, id));
     }
+    
 
+    MotionGestureEvent getInstance1(MotionGestureInput motionGestureInput) {
+        return (this.eventPool.getInstance1(motionGestureInput.getId() - this.MIN) as MotionGestureEvent);
+    }
 }
 

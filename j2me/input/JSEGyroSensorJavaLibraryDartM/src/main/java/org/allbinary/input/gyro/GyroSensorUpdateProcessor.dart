@@ -13,19 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
 
-namespace org.allbinary.input.gyro;
+class GyroSensorUpdateProcessor extends Processor {
+    
 
-public class GyroSensorUpdateProcessor : Processor
-{
-    // throws Exception
-    public override void process()
-    {
+    void process() {
     }
-
 }
 

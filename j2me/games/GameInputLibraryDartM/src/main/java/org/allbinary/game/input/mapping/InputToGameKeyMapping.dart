@@ -13,110 +13,122 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.mapping
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputMapping.dart';
 
-namespace org.allbinary.game.input.mapping;
+class InputToGameKeyMapping extends InputMapping {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late GameKeyFactory gameKeyFactory;
+    late List<GameKey?> mappedGameKeys;
+    late List<GameKey?> platformToGameKeyMapping;
+    late List<GameKey?> negativePlatformToGameKeyMapping;
 
-public class InputToGameKeyMapping : InputMapping
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static InputToGameKeyMapping getNullInstance()
-    {
-        if (InputToGameKeyMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
-            InputToGameKeyMapping.instance = new InputToGameKeyMapping();
-        }
-        return ((InputToGameKeyMapping) InputToGameKeyMapping.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsInputToGameKeyMapping() {
+    this.gameKeyFactory = GameKeyFactory.getInstance();
+    this.mappedGameKeys = <GameKey?>[this.gameKeyFactory.UP, this.gameKeyFactory.DOWN, this.gameKeyFactory.LEFT, this.gameKeyFactory.RIGHT];
+    this.platformToGameKeyMapping = List<GameKey?>.filled(InputFactory.getInstance().MAX, null);
+    this.negativePlatformToGameKeyMapping = List<GameKey?>.filled(0, null);
     }
+    
 
-    private readonly GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-    private readonly GameKey[] mappedGameKeys;
-    private readonly GameKey[] platformToGameKeyMapping = new GameKey[InputFactory.getInstance().MAX];
-    public GameKey[] negativePlatformToGameKeyMapping = new GameKey[0];
-    public InputToGameKeyMapping()
-    {
-        this.mappedGameKeys = new GameKey[] { this.gameKeyFactory.UP, this.gameKeyFactory.DOWN, this.gameKeyFactory.LEFT, this.gameKeyFactory.RIGHT };
+    static InputToGameKeyMapping getNullInstance() {
+        if (InputToGameKeyMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InputToGameKeyMapping.instance = InputToGameKeyMapping();
+        }
+        return (InputToGameKeyMapping.instance as InputToGameKeyMapping);
+    }
+    
+
+    InputToGameKeyMapping() {
+        this.initFieldsInputToGameKeyMapping();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.clear();
     }
+    
 
-    private void clear()
-    {
-        for (int index = this.platformToGameKeyMapping.Length - 1; index >= 0; index--) {
+    void clear() {
+        for (int index = this.platformToGameKeyMapping.length - 1; index >= 0; index--) {
             this.platformToGameKeyMapping[index] = this.gameKeyFactory.NONE;
         }
     }
+    
 
-    public override void removeAll()
-    {
-        base.removeAll();
+    @override
+    void removeAll() {
+        super.removeAll();
         this.clear();
     }
+    
 
-    public override void addMapping(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    @override
+    void addMapping(InputToGameKeyMapping inputToGameKeyMapping) {
         for (int index = inputToGameKeyMapping.getMaxMappable() - 1; index >= 0; index--) {
-            Input input = inputToGameKeyMapping.getInstance(index);
+            final Input input = inputToGameKeyMapping.getInstance1(index);
             if (input != this.gameKeyFactory.NONE) {
                 this.addAll(input, inputToGameKeyMapping.getMappedInput(input));
             }
         }
     }
+    
 
-    private void addAll(Input input, BasicArrayList list)
-    {
+    void addAll(Input input, BasicArrayList list) {
         for (int index = list.size() - 1; index >= 0; index--) {
-            Input mappedToInput = ((Input) list.objectArray[index]);
+            Input mappedToInput = (list.objectArray[index]! as Input);
             this.add(input, mappedToInput);
         }
     }
+    
 
-    public override void add(Input input, Input mappedToInput)
-    {
-        base.add(input, mappedToInput);
+    @override
+    void add(Input input, Input mappedToInput) {
+        super.add(input, mappedToInput);
         this.set(input, mappedToInput);
     }
+    
 
-    public override void remove(Input input, Input mappedToInput)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).ToString(), this, "InputToGameKeyMapping::remove");
-        base.remove(input, mappedToInput);
+    @override
+    void remove(Input input, Input mappedToInput) {
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString1(input)).append(" == ").append(StringUtil.getInstance().toString1(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
+        super.remove(input, mappedToInput);
         this.set(input, this.gameKeyFactory.NONE);
     }
+    
 
-    private void set(Input input, Input mappedToInput)
-    {
+    void set(Input input, Input mappedToInput) {
         int id = mappedToInput.getId();
-        if (id >= 0 && id < this.platformToGameKeyMapping.Length) {
-            this.platformToGameKeyMapping[id] = ((GameKey) input);
+        if (id >= 0 && id < this.platformToGameKeyMapping.length) {
+            this.platformToGameKeyMapping[id] = (input as GameKey);
         }
     }
+    
 
-    public virtual int getMaxMappable()
-    {
-        return this.platformToGameKeyMapping.Length;
+    int getMaxMappable() {
+        return this.platformToGameKeyMapping.length;
     }
+    
 
-    public virtual BasicArrayList getReverseInstance(int id)
-    {
-        BasicArrayList list = new BasicArrayListD();
-        InputFactory inputFactory = InputFactory.getInstance();
-        for (int index = 0; index < this.platformToGameKeyMapping.Length; index++) {
-            if (this.platformToGameKeyMapping[index].getId() == id) {
+    BasicArrayList getReverseInstance(int id) {
+        BasicArrayList list = BasicArrayListD();
+        final InputFactory inputFactory = InputFactory.getInstance();
+        for (int index = 0; index < this.platformToGameKeyMapping.length; index++) {
+            if (this.platformToGameKeyMapping[index]!.getId() == id) {
                 Input input = inputFactory.getInstanceById(index);
                 if (input != null) {
                     list.add(input);
@@ -125,81 +137,81 @@ public class InputToGameKeyMapping : InputMapping
         }
         return list;
     }
+    
 
-    // throws Exception
-    private void initGameKey(Canvas canvas, GameKey gameKey)
-    {
+    void initGameKey(Canvas canvas, GameKey gameKey) {
         int key = canvas.getKeyCode(gameKey.getId());
-        if (key < 0 && -key < this.negativePlatformToGameKeyMapping.Length) {
+        if (key < 0 && -key < this.negativePlatformToGameKeyMapping.length) {
             this.negativePlatformToGameKeyMapping[-key] = gameKey;
         } else if (key > 0) {
-            if (this.platformToGameKeyMapping[key] == this.gameKeyFactory.NONE) {
+            if (this.platformToGameKeyMapping[key]! == this.gameKeyFactory.NONE) {
                 this.platformToGameKeyMapping[key] = gameKey;
             }
         } else {
-            PreLogUtil.putOE(new StringMaker().append(gameKey.ToString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).ToString(), this, this.commonStrings.INIT, new Exception());
+            PreLogUtil.putOE(StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).toString(), this, this.commonStrings.INIT, JException('Exception', ''));
         }
     }
+    
 
-    // throws Exception
-    private int getSmallestCanvasGameKeyCode(Canvas canvas)
-    {
+    int getSmallestCanvasGameKeyCode(Canvas canvas) {
         int nextKey = 0;
         int smallestKey = 0;
-        for (int index = this.mappedGameKeys.Length; --index >= 0; ) {
-            nextKey = canvas.getKeyCode(this.mappedGameKeys[index].getId());
+        for (int index = this.mappedGameKeys.length; --index >= 0; ) {
+            nextKey = canvas.getKeyCode(this.mappedGameKeys[index]!.getId());
             if (nextKey < smallestKey) {
                 smallestKey = nextKey;
             }
         }
         return smallestKey;
     }
+    
 
-    public virtual void init(Canvas canvas)
-    {
+    void init(Canvas canvas) {
         try {
-            GameKey[] negativePlatformToGameKeyMapping = new GameKey[0];
+            List<GameKey?> negativePlatformToGameKeyMapping = List<GameKey?>.filled(0, null);
             int smallestKey = this.getSmallestCanvasGameKeyCode(canvas);
             if (smallestKey < 0) {
                 smallestKey--;
                 if (smallestKey < -256) {
                     smallestKey = -256;
                 }
-                negativePlatformToGameKeyMapping = new GameKey[-smallestKey];
-                for (int index_5 = negativePlatformToGameKeyMapping.Length; --index_5 >= 0; ) {
-                    negativePlatformToGameKeyMapping[index_5] = this.gameKeyFactory.NONE;
+                negativePlatformToGameKeyMapping = List<GameKey?>.filled(-smallestKey, null);
+                for (int index = negativePlatformToGameKeyMapping.length; --index >= 0; ) {
+                    negativePlatformToGameKeyMapping[index] = this.gameKeyFactory.NONE;
                 }
                 this.negativePlatformToGameKeyMapping = negativePlatformToGameKeyMapping;
             }
-            for (int index_6 = this.mappedGameKeys.Length; --index_6 >= 0; ) {
-                this.initGameKey(canvas, this.mappedGameKeys[index_6]);
+            for (int index = this.mappedGameKeys.length; --index >= 0; ) {
+                this.initGameKey(canvas, this.mappedGameKeys[index]!);
             }
-        } catch (Exception t) {
+        } catch (jcaught) {
+            {
+                final dynamic t = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, t);
+            }
         }
     }
+    
 
-    public virtual GameKey getInstanceForCanvas(Canvas canvas, int id)
-    {
-        if (id >= 0 && id < this.platformToGameKeyMapping.Length) {
-            return this.platformToGameKeyMapping[id];
-        } else if (id < 0 && -id < this.negativePlatformToGameKeyMapping.Length) {
-            return this.negativePlatformToGameKeyMapping[-id];
+    GameKey getInstanceForCanvas(Canvas canvas, int id) {
+        if (id >= 0 && id < this.platformToGameKeyMapping.length) {
+            return this.platformToGameKeyMapping[id]!;
+        } else if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length) {
+            return this.negativePlatformToGameKeyMapping[-id]!;
         } else {
             return this.gameKeyFactory.NONE;
         }
     }
+    
 
-    public virtual GameKey getInstance(int id)
-    {
-        if (id >= 0 && id < this.platformToGameKeyMapping.Length) {
-            return this.platformToGameKeyMapping[id];
-        } else if (id < 0 && -id < this.negativePlatformToGameKeyMapping.Length) {
-            return this.negativePlatformToGameKeyMapping[-id];
+    GameKey getInstance1(int id) {
+        if (id >= 0 && id < this.platformToGameKeyMapping.length) {
+            return this.platformToGameKeyMapping[id]!;
+        } else if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length) {
+            return this.negativePlatformToGameKeyMapping[-id]!;
         } else {
             return this.gameKeyFactory.NONE;
         }
     }
-
 }
 

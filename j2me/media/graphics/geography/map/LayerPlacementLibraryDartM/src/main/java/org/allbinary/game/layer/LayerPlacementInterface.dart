@@ -13,23 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/layer/LayerPlacementType.dart';
 
-namespace org.allbinary.game.layer;
+abstract interface class LayerPlacementInterface {
+    
 
-public interface LayerPlacementInterface
-{
     int getWidth();
+    
 
     int getHeight();
+    
 
     LayerPlacementType getLayerType();
+    
 
-    // throws Exception
-    ABHashtable<object, object> getInstance();
-
+    ABHashtable getInstance();
 }
 

@@ -13,32 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/compound/CompoundAnimationInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/animation/compound/CompoundIndexedAnimation.dart';
 
-namespace org.allbinary.animation.compound;
+class CompoundIndexedAnimationInterfaceFactory extends CompoundAnimationInterfaceFactory {
+    
 
-public class CompoundIndexedAnimationInterfaceFactory : CompoundAnimationInterfaceFactory
-{
-    public CompoundIndexedAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) : base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory)
-    {
-        // base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory) is called from the constructor declaration
+    CompoundIndexedAnimationInterfaceFactory(List<AnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) : super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory) {
+        
     }
+    
 
-    public override Animation[] createArray(int size)
-    {
-        return new Animation[size];
+    @override
+    List<Animation?> createArray(int size) {
+        return List<Animation?>.filled(size, null);
     }
+    
 
-    public override Animation createAnimation(Animation[] animationArray)
-    {
-        return new CompoundIndexedAnimation(animationArray, this.animationBehaviorFactory.getOrCreateInstance());
+    @override
+    Animation createAnimation(List<Animation?> animationArray) {
+        return CompoundIndexedAnimation(animationArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
-
 }
 

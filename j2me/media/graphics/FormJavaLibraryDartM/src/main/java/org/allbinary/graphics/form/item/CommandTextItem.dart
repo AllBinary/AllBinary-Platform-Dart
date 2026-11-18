@@ -13,32 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextItem.dart';
 
-namespace org.allbinary.graphics.form.item;
+class CommandTextItem extends ABTextItem {
+    late Command command;
 
-public class CommandTextItem : ABTextItem
-{
-    private readonly Command command;
-    public CommandTextItem(Command command, int layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCommandTextItem() {
+    
+    }
+    
+
+    CommandTextItem(Command command, int layout, String altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor) {
+        this.initFieldsCommandTextItem();
+        
         this.command = command;
     }
+    
 
-    public override bool isFocusable()
-    {
+    @override
+    bool isFocusable() {
         return true;
     }
+    
 
-    public virtual Command getCommand()
-    {
+    Command getCommand() {
         return this.command;
     }
-
 }
 

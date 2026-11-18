@@ -13,41 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameInputProcessor = org.allbinary.game.input.GameInputProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialUpGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialDownGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialRightGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialLeftGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/Special1GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/Special3GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialAnalogUpGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialAnalogDownGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialAnalogRightGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialAnalogLeftGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialAnalogLeftTriggerGameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/SpecialAnalogRightTriggerGameInputProcessor.dart';
 
-namespace org.allbinary.game.layer.special;
+class AnalogInputBuilder {
+    static final AnalogInputBuilder instance = AnalogInputBuilder();
+    
 
-public class AnalogInputBuilder
-{
-    private static readonly AnalogInputBuilder instance = new AnalogInputBuilder();
-    public static AnalogInputBuilder getInstance()
-    {
+    static AnalogInputBuilder getInstance() {
         return AnalogInputBuilder.instance;
     }
+    
 
-    public virtual void disable(GameInputProcessor[] inputProcessorArray, CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
-    {
-        inputProcessorArray[Canvas.UP] = new SpecialUpGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.DOWN] = new SpecialDownGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.RIGHT] = new SpecialRightGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.LEFT] = new SpecialLeftGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.KEY_NUM0] = new Special1GameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.KEY_NUM5] = new Special3GameInputProcessor(collidableDestroyableDamageableLayer);
+    void disable(List<GameInputProcessor?> inputProcessorArray, CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) {
+        inputProcessorArray[Canvas.UP] = SpecialUpGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.DOWN] = SpecialDownGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.RIGHT] = SpecialRightGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.LEFT] = SpecialLeftGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.KEY_NUM0] = Special1GameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.KEY_NUM5] = Special3GameInputProcessor(collidableDestroyableDamageableLayer);
     }
+    
 
-    public virtual void enable(GameInputProcessor[] inputProcessorArray, CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
-    {
-        inputProcessorArray[Canvas.UP] = new SpecialAnalogUpGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.DOWN] = new SpecialAnalogDownGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.RIGHT] = new SpecialAnalogRightGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.LEFT] = new SpecialAnalogLeftGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.KEY_NUM0] = new SpecialAnalogLeftTriggerGameInputProcessor(collidableDestroyableDamageableLayer);
-        inputProcessorArray[Canvas.KEY_NUM5] = new SpecialAnalogRightTriggerGameInputProcessor(collidableDestroyableDamageableLayer);
+    void enable(List<GameInputProcessor?> inputProcessorArray, CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) {
+        inputProcessorArray[Canvas.UP] = SpecialAnalogUpGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.DOWN] = SpecialAnalogDownGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.RIGHT] = SpecialAnalogRightGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.LEFT] = SpecialAnalogLeftGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.KEY_NUM0] = SpecialAnalogLeftTriggerGameInputProcessor(collidableDestroyableDamageableLayer);
+        inputProcessorArray[Canvas.KEY_NUM5] = SpecialAnalogRightTriggerGameInputProcessor(collidableDestroyableDamageableLayer);
     }
-
 }
 

@@ -13,24 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
+import 'package:allbinary/org/allbinary/media/audio/PlayerComposite.dart';
+import 'package:allbinary/org/allbinary/media/audio/AllBinaryMediaManager.dart';
 
-namespace org.allbinary.media.audio;
+class CompositeSound extends Sound {
+    
 
-public class CompositeSound : Sound
-{
-    public CompositeSound(string resource) : base(resource)
-    {
-        // base(resource) is called from the constructor declaration
+    CompositeSound(String resource) : super(resource) {
+        
     }
+    
 
-    // throws Exception
-    public override void init()
-    {
-        this.setPlayerP(new PlayerComposite(AllBinaryMediaManager.createPlayer(this.getResource()), 570));
+    @override
+    void init() {
+        this.setPlayerP(PlayerComposite(AllBinaryMediaManager.createPlayer(this.getResource()), 570));
     }
-
 }
 

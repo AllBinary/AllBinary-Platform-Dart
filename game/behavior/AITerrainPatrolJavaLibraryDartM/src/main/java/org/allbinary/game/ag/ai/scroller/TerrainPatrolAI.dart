@@ -13,51 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.scroller
 
-using System;
-using System.Linq;
-using GameInput = org.allbinary.game.input.GameInput;
-using BasicTerrainInfo = org.allbinary.game.terrain.BasicTerrainInfo;
-using TerrainEvent = org.allbinary.game.terrain.TerrainEvent;
-using TerrainEventCircularStaticPool = org.allbinary.game.terrain.TerrainEventCircularStaticPool;
-using TerrainEventHandler = org.allbinary.game.terrain.TerrainEventHandler;
-using TerrainEventListener = org.allbinary.game.terrain.TerrainEventListener;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/terrain/BasicTerrainInfo.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEvent.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEventCircularStaticPool.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/terrain/TerrainEventListener.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/scroller/PacePatrolAI.dart';
 
-namespace org.allbinary.game.ag.ai.scroller;
+class TerrainPatrolAI extends PacePatrolAI {
+    late TerrainEventListener terrainEventListener;
+    late Angle DOWN;
+    late BasicTerrainInfo CLIFF;
 
-public class TerrainPatrolAI : PacePatrolAI
-{
-    private readonly TerrainEventListener terrainEventListener = new TerrainEventListener();
-    private readonly Angle DOWN = AngleFactory.getInstance().DOWN;
-    private readonly BasicTerrainInfo CLIFF;
-    public TerrainPatrolAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(hashtable, ownerLayerInterface, gameInput)
-    {
-        this.CLIFF = new BasicTerrainInfo(this.DOWN);
-        // base(hashtable, ownerLayerInterface, gameInput) is called from the constructor declaration
-        TerrainEventHandler.getInstance(ownerLayerInterface).addListener(this.terrainEventListener);
+    // Java field initializers run after the base constructor
+    void initFieldsTerrainPatrolAI() {
+    this.terrainEventListener = TerrainEventListener();
+    this.DOWN = AngleFactory.getInstance().DOWN;
+    this.CLIFF = BasicTerrainInfo(this.DOWN);
+    }
+    
+
+    TerrainPatrolAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(hashtable, ownerLayerInterface, gameInput) {
+        this.initFieldsTerrainPatrolAI();
+        
+        TerrainEventHandler.getInstance1(ownerLayerInterface).addListener(this.terrainEventListener);
         this.terrainEventListener.onTerrainEvent(TerrainEventCircularStaticPool.getInstance().getNext(this.CLIFF));
     }
+    
 
-    public override void update()
-    {
-        base.update();
+    @override
+    void update() {
+        super.update();
         this.changeDirectionIfCliffReached();
     }
+    
 
-    private void changeDirectionIfCliffReached()
-    {
-        BasicArrayList list = this.terrainEventListener.getList();
-        int size = list.size();
+    void changeDirectionIfCliffReached() {
+        final BasicArrayList list = this.terrainEventListener.getList();
+        final int size = list.size();
         for (int index = 0; index < size; index++) {
-            TerrainEvent terrainEvent = ((TerrainEvent) list.removeAt(index));
-            BasicTerrainInfo basicTerrainInfo = terrainEvent.getBasicTerrainInfo();
-            Angle angle = basicTerrainInfo.getAngle();
-            if (angle == this.DOWN) {
+            final TerrainEvent terrainEvent = (list.removeAt(index) as TerrainEvent);
+            final BasicTerrainInfo basicTerrainInfo = terrainEvent.getBasicTerrainInfo();
+            final Angle angle = basicTerrainInfo.getAngle();
+            if (identical(angle, this.DOWN)) {
                 this.nextDirection();
                 if (!this.isFollowLimitedByTerrain) {
                     this.logUtil.putF("Following Limited", this, "onTerrainEvent");
@@ -66,6 +74,5 @@ public class TerrainPatrolAI : PacePatrolAI
             }
         }
     }
-
 }
 

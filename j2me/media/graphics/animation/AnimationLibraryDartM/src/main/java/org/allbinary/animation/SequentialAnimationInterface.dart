@@ -13,17 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterface.dart';
+import 'package:allbinary/org/allbinary/animation/SequenceInterface.dart';
 
-namespace org.allbinary.animation;
+abstract interface class SequentialAnimationInterface implements AnimationInterface, SequenceInterface {
+    
 
-public interface SequentialAnimationInterface : AnimationInterface, SequenceInterface
-{
     int getSize();
+    
 
     void previousFrame();
-
 }
 

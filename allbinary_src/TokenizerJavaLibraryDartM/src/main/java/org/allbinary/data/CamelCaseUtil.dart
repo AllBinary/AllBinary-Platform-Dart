@@ -13,45 +13,50 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.data
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-using Tokenizer = org.allbinary.logic.@string.tokens.Tokenizer;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringValidationUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/tokens/Tokenizer.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.data;
+class CamelCaseUtil {
+    static final CamelCaseUtil instance = CamelCaseUtil();
+    late CommonSeps commonSeps;
 
-public class CamelCaseUtil
-{
-    private static readonly CamelCaseUtil instance = new CamelCaseUtil();
-    public static CamelCaseUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCamelCaseUtil() {
+    this.commonSeps = CommonSeps.getInstance();
+    }
+
+    CamelCaseUtil() {
+        this.initFieldsCamelCaseUtil();
+    }
+    
+
+    static CamelCaseUtil getInstance() {
         return CamelCaseUtil.instance;
     }
+    
 
-    private readonly CommonSeps commonSeps = CommonSeps.getInstance();
-    // throws Exception
-    public virtual string getAsCamelCase(string @string, StringMaker stringBuilder)
-    {
-        StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+    String getAsCamelCase(String string, StringMaker stringBuilder) {
+        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         stringBuilder.delete(0, stringBuilder.length());
-        BasicArrayList list = new BasicArrayListD();
-        Tokenizer tokenizer = new Tokenizer(this.commonSeps.UNDERSCORE);
-        tokenizer.getTokensFromString(@string, list);
-        int size = list.size();
-        string word = null;
+        final BasicArrayList list = BasicArrayListD();
+        final Tokenizer tokenizer = Tokenizer(this.commonSeps.UNDERSCORE);
+        tokenizer.getTokensFromString(string, list);
+        final int size = list.size();
+        late String word;
         for (int i = 0; i < size; i++) {
-            word = ((string) list.get(i));
-            word = (stringValidationUtil.isEmpty(word) ? word : new StringMaker().appendchar(char.ToUpper(word[0])).append(word.Substring(1).ToLower()).ToString());
+            word = (list.get(i) as String);
+            word = (stringValidationUtil.isEmpty(word) ? word : StringMaker().appendchar(Character.toUpperCase(word.codeUnitAt(0))).append(word.substring(1).toLowerCase()).toString());
             stringBuilder.append(word);
         }
-        return stringBuilder.ToString();
+        return stringBuilder.toString();
     }
-
 }
 

@@ -13,24 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.path
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPath.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPathData.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/PathUtil.dart';
 
-namespace org.allbinary.logic.io.path;
+class AbFilePath extends AbPath {
+    
 
-public class AbFilePath : AbPath
-{
-    public AbFilePath(string aPath) : base(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING)
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING) is called from the constructor declaration
-        AbPathData pathData = AbPathData.getInstance();
-        PathUtil abPathUtil = PathUtil.getInstance();
+    AbFilePath(String aPath) : super(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING) {
+        
+        final AbPathData pathData = AbPathData.getInstance();
+        final PathUtil abPathUtil = PathUtil.getInstance();
         this.schema = this.getSchema(aPath);
         this.setName(pathData.getNameFromPath(aPath));
-        this.setPath(abPathUtil.adjust(this.getPathFromPath(abPathUtil.removeNameFromPath(aPath).ToString())));
+        this.setPath(abPathUtil.adjust(this.getPathFromPath(abPathUtil.removeNameFromPath(aPath).toString())));
     }
-
 }
 

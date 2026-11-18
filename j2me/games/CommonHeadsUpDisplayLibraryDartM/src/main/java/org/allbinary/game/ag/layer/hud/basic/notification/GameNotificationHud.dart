@@ -13,63 +13,69 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.notification
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicHud = org.allbinary.game.graphics.hud.BasicHud;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using GameNotificationEvent = org.allbinary.game.layer.hud.@event.GameNotificationEvent;
-using GameNotificationListenerInterface = org.allbinary.game.layer.hud.@event.GameNotificationListenerInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHud.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHudFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEvent.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.notification;
+class GameNotificationHud extends BasicHud implements GameNotificationListenerInterface {
+    static final GameNotificationHud NULL_GAME_NOTIFICATION = GameNotificationHud(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 0, BasicColorFactory.getInstance().RED);
+    late String METHOD_NAME;
+    late GameNotificationEvent lastGameNotificationEvent;
 
-public class GameNotificationHud : BasicHud, GameNotificationListenerInterface
-{
-    public static readonly GameNotificationHud NULL_GAME_NOTIFICATION = new GameNotificationHud(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 0, BasicColorFactory.getInstance().RED);
-    public GameNotificationHud(int location, int direction, int bufferZone, BasicColor basicColor) : base(location, direction, bufferZone, basicColor)
-    {
-        // base(location, direction, bufferZone, basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameNotificationHud() {
+    this.METHOD_NAME = "onGameNotificationEvent";
+    this.lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
     }
+    
 
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
+    GameNotificationHud(int location, int direction, int bufferZone, BasicColor basicColor) : super(location, direction, bufferZone, basicColor) {
+        this.initFieldsGameNotificationHud();
+        
+    }
+    
+
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    private readonly string METHOD_NAME = "onGameNotificationEvent";
-    private GameNotificationEvent lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
-    // throws Exception
-    public virtual void onGameNotificationEvent(GameNotificationEvent gameNotificationEvent)
-    {
-        if (this.lastGameNotificationEvent != gameNotificationEvent) {
+    @override
+    void onGameNotificationEvent(GameNotificationEvent gameNotificationEvent) {
+        if (!identical(this.lastGameNotificationEvent, gameNotificationEvent)) {
             this.lastGameNotificationEvent = gameNotificationEvent;
             this.logUtil.putF(gameNotificationEvent.getString(), this, this.METHOD_NAME);
         }
         this.add(gameNotificationEvent.getString(), gameNotificationEvent.getSeconds(), gameNotificationEvent.getBasicColorP(), gameNotificationEvent.getPermanent());
     }
+    
 
-    public virtual void add(string @string, int? seconds, BasicColor basicColor, bool? permanent)
-    {
+    void add(String string, int seconds, BasicColor basicColor, bool permanent) {
     }
+    
 
-    // throws Exception
-    public virtual void processTick()
-    {
+    void processTick() {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual void clear()
-    {
+    void clear() {
     }
-
 }
 

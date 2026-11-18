@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.event
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/event/DisplayChangeEventListener.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/event/DisplayChangeEvent.dart';
 
-namespace org.allbinary.graphics.displayable.@event;
+class DisplayChangeEventHandler extends BasicEventHandler {
+    static final DisplayChangeEventHandler SINGLETON = DisplayChangeEventHandler();
+    
 
-public class DisplayChangeEventHandler : BasicEventHandler
-{
-    private static readonly DisplayChangeEventHandler SINGLETON = new DisplayChangeEventHandler();
-    public static DisplayChangeEventHandler getInstance()
-    {
+    static DisplayChangeEventHandler getInstance() {
         return DisplayChangeEventHandler.SINGLETON;
     }
+    
 
-    private DisplayChangeEventHandler()
-    {
+    DisplayChangeEventHandler() {
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        DisplayChangeEventListener displayChangeEventListener = (((DisplayChangeEventListener) eventListenerInterface));
-        displayChangeEventListener.onDisplayChangeEvent(((DisplayChangeEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final DisplayChangeEventListener displayChangeEventListener = ((eventListenerInterface as DisplayChangeEventListener));
+        displayChangeEventListener.onDisplayChangeEvent((eventObject as DisplayChangeEvent));
     }
-
 }
 

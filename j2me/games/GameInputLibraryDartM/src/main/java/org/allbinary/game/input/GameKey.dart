@@ -13,26 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
 
-namespace org.allbinary.game.input;
+class GameKey extends Input {
+    static final GameKey NULL_GAME_KEY = GameKey(-1, StringUtil.getInstance().NULL_STRING);
+    
 
-public class GameKey : Input
-{
-    public static readonly GameKey NULL_GAME_KEY = new GameKey(-1, StringUtil.getInstance().NULL_STRING);
-    public GameKey(int key, string name) : base(key, name)
-    {
-        // base(key, name) is called from the constructor declaration
+    GameKey(int key, String name) : super(key, name) {
+        
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append("GameKey ").append(base.ToString()).ToString();
+    @override
+    String toString() {
+        return StringMaker().append("GameKey ").append(super.toString()).toString();
     }
-
 }
 

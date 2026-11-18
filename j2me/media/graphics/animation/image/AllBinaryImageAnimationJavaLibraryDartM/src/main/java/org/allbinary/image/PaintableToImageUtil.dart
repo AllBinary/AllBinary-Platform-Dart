@@ -13,26 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/image/GameFeatureImageCacheFactory.dart';
 
-namespace org.allbinary.image;
+class PaintableToImageUtil {
+    static final PaintableToImageUtil instance = PaintableToImageUtil();
+    
 
-public class PaintableToImageUtil
-{
-    private static readonly PaintableToImageUtil instance = new PaintableToImageUtil();
-    // throws Exception
-    public static Image getImage(PaintableInterface paintableInterface, int width, int height)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(PaintableToImageUtil.instance.GetType().FullName, width, height);
+    static Image getImage(PaintableInterface paintableInterface, int width, int height) {
+        Image image = GameFeatureImageCacheFactory.getInstance().get(jClassName(PaintableToImageUtil.instance), width, height);
         Graphics graphics = image.getGraphics();
         paintableInterface.paint(graphics);
         return image;
     }
-
 }
 

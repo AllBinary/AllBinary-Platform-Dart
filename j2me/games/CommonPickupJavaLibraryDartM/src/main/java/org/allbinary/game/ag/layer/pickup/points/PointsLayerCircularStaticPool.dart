@@ -13,30 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.points
 
-using System;
-using System.Linq;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerCircularPool.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/points/PointsLayer.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+class PointsLayerCircularStaticPool extends AllBinaryLayerCircularPool {
+    
 
-public class PointsLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    public PointsLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
-        base.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
+    PointsLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total) {
+        super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
+    
 
-    // throws Exception
-    public virtual void visit(AllBinaryLayer sourceLayerInterface)
-    {
-        PointsLayer pointsLayer = ((PointsLayer) this.getNextInstance());
-        ScoreableInterface scoreableInterface = ((ScoreableInterface) sourceLayerInterface);
+    void visit(AllBinaryLayer sourceLayerInterface) {
+        PointsLayer pointsLayer = (this.getNextInstance() as PointsLayer);
+        ScoreableInterface scoreableInterface = (sourceLayerInterface as ScoreableInterface);
         pointsLayer.visit(scoreableInterface);
     }
-
 }
 

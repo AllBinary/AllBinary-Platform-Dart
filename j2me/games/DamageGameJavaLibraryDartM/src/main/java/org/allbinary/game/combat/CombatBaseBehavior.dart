@@ -13,45 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat
 
-using System;
-using System.Linq;
-using DamageableBaseBehavior = org.allbinary.game.combat.damage.DamageableBaseBehavior;
-using DestroyableBaseBehavior = org.allbinary.game.combat.destroy.DestroyableBaseBehavior;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/combat/damage/DamageableBaseBehavior.dart';
+import 'package:allbinary/org/allbinary/game/combat/destroy/DestroyableBaseBehavior.dart';
 
-namespace org.allbinary.game.combat;
+class CombatBaseBehavior {
+    static final CombatBaseBehavior NULL_COMBAT_BEHAVIOR = CombatBaseBehavior(DamageableBaseBehavior.getInstance(), DestroyableBaseBehavior.getInstance());
+    late DamageableBaseBehavior damageableBaseBehavior;
+    late DestroyableBaseBehavior destroyableBaseBehavior;
+    bool readyForExplosion = false;
 
-public class CombatBaseBehavior
-{
-    public static readonly CombatBaseBehavior NULL_COMBAT_BEHAVIOR = new CombatBaseBehavior(DamageableBaseBehavior.getInstance(), DestroyableBaseBehavior.getInstance());
-    private readonly DamageableBaseBehavior damageableBaseBehavior;
-    private readonly DestroyableBaseBehavior destroyableBaseBehavior;
-    private bool readyForExplosion = false;
-    public CombatBaseBehavior(DamageableBaseBehavior damageableBaseBehavior, DestroyableBaseBehavior destroyableBaseBehavior)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCombatBaseBehavior() {
+    
+    
+    this.readyForExplosion = false;
+    }
+    
+
+    CombatBaseBehavior(DamageableBaseBehavior damageableBaseBehavior, DestroyableBaseBehavior destroyableBaseBehavior) {
+        this.initFieldsCombatBaseBehavior();
         this.damageableBaseBehavior = damageableBaseBehavior;
         this.destroyableBaseBehavior = destroyableBaseBehavior;
     }
+    
 
-    public virtual DamageableBaseBehavior getDamageableBaseBehavior()
-    {
+    DamageableBaseBehavior getDamageableBaseBehavior() {
         return this.damageableBaseBehavior;
     }
+    
 
-    public virtual DestroyableBaseBehavior getDestroyableBaseBehavior()
-    {
+    DestroyableBaseBehavior getDestroyableBaseBehavior() {
         return this.destroyableBaseBehavior;
     }
+    
 
-    public bool isReadyForExplosion()
-    {
+    bool isReadyForExplosion() {
         return this.readyForExplosion;
     }
+    
 
-    public void setReadyForExplosion(bool readyForExplosion)
-    {
+    void setReadyForExplosion(bool readyForExplosion) {
         this.readyForExplosion = readyForExplosion;
     }
-
 }
 

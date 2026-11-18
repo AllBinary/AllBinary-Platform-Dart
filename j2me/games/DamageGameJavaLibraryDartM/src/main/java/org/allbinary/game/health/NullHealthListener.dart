@@ -13,18 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthListenerInterface.dart';
 
-namespace org.allbinary.game.health;
+class NullHealthListener implements HealthListenerInterface {
+    static final NullHealthListener NULL_HEALTH_LISTENER = NullHealthListener();
+    
 
-public class NullHealthListener : HealthListenerInterface
-{
-    public static readonly NullHealthListener NULL_HEALTH_LISTENER = new NullHealthListener();
-    public virtual void onHealthChange()
-    {
+    @override
+    void onHealthChange() {
     }
-
 }
 

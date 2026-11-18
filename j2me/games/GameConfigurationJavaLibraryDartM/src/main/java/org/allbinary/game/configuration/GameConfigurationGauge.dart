@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using Gauge = javax.microedition.lcdui.Gauge;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Gauge.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfiguration.dart';
 
-namespace org.allbinary.game.configuration;
+class GameConfigurationGauge extends Gauge {
+    
 
-public class GameConfigurationGauge : Gauge
-{
-    public GameConfigurationGauge(GameConfiguration gameConfiguration) : base(gameConfiguration.getName(), ((bool) (gameConfiguration.isModifiable())), global::java.lang.JavaNumber.intValue(gameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue()), global::java.lang.JavaNumber.intValue(gameConfiguration.getValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue()))
-    {
-        // base(gameConfiguration.getName(), ((bool) (gameConfiguration.isModifiable())), global::java.lang.JavaNumber.intValue(gameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue()), global::java.lang.JavaNumber.intValue(gameConfiguration.getValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue())) is called from the constructor declaration
+    GameConfigurationGauge(GameConfiguration gameConfiguration) : super(gameConfiguration.getName(), gameConfiguration.isModifiable(), (gameConfiguration.getMaxValue()).toInt() - (gameConfiguration.getMinValue()).toInt(), (gameConfiguration.getValue()).toInt() - (gameConfiguration.getMinValue()).toInt()) {
+        
     }
-
 }
 

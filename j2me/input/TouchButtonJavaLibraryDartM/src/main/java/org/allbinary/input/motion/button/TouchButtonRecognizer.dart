@@ -13,65 +13,80 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using RectangleCollisionUtil = org.allbinary.math.RectangleCollisionUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpGameKeyEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/math/RectangleCollisionUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/CurrentlyPressedTouchButtonSingleton.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/ReleaseHelper.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/MultitouchReleaseHelper.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButton.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonRecognizer {
+    late LogUtil logUtil;
+    late RectangleCollisionUtil rectangleCollisionUtil;
+    late UpGameKeyEventHandler upGameKeyEventHandler;
+    late DownGameKeyEventHandler downGameKeyEventHandler;
+    late TouchButtonInput lastPressedTouchButtonInput;
+    late CurrentlyPressedTouchButtonSingleton currentlyPressedTouchButtonSingleton;
+    late ReleaseHelper releaseHelper;
 
-public class TouchButtonRecognizer
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-    public readonly UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    private readonly DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
-    private TouchButtonInput lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
-    public readonly CurrentlyPressedTouchButtonSingleton currentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance();
-    private readonly ReleaseHelper releaseHelper = null;
-    public TouchButtonRecognizer()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchButtonRecognizer() {
+    this.logUtil = LogUtil.getInstance();
+    this.rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    this.lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
+    this.currentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance();
+    
+    }
+    
+
+    TouchButtonRecognizer() {
+        this.initFieldsTouchButtonRecognizer();
         if (TouchScreenFactory.getInstance().isMultiTouch()) {
-            this.releaseHelper = new MultitouchReleaseHelper(this);
+            this.releaseHelper = MultitouchReleaseHelper(this);
         } else {
-            this.releaseHelper = new ReleaseHelper(this);
+            this.releaseHelper = ReleaseHelper(this);
         }
     }
+    
 
-    // throws Exception
-    private void processRelease(TouchButtonInput touchButtonInput, int deviceId)
-    {
+    void processRelease(TouchButtonInput touchButtonInput, int deviceId) {
         this.releaseHelper.release(touchButtonInput, deviceId);
-        GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
+        final GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
         this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
         this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
         this.currentlyPressedTouchButtonSingleton.remove(touchButtonInput);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool releaseTouchButtonInput(int x, int y, int deviceId)
-    {
+    bool releaseTouchButtonInput(int x, int y, int deviceId) {
         TouchButtonInput touchButtonInput = this.lastPressedTouchButtonInput;
         if (this.currentlyPressedTouchButtonSingleton.contains(touchButtonInput)) {
             this.lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
             this.processRelease(touchButtonInput, deviceId);
             return true;
         } else {
-            BasicArrayList list = TouchButtonFactory.getInstance().getList();
-            Rectangle rectangle = null;
-            GPoint point = null;
-            TouchButton touchButton = null;
+            final BasicArrayList list = TouchButtonFactory.getInstance().getList();
+            late Rectangle rectangle;
+            late GPoint point;
+            late TouchButton touchButton;
             for (int index = list.size() - 1; index >= 0; index--) {
-                touchButton = ((TouchButton) list.objectArray[index]);
+                touchButton = (list.objectArray[index]! as TouchButton);
                 rectangle = touchButton.getRectangle();
                 point = rectangle.getPoint();
                 if (this.rectangleCollisionUtil.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y)) {
@@ -83,19 +98,17 @@ public class TouchButtonRecognizer
         }
         return false;
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool pressTouchButtonInput(int x, int y, int deviceId)
-    {
-        BasicArrayList list = TouchButtonFactory.getInstance().getList();
-        Rectangle rectangle = null;
-        GPoint point = null;
-        TouchButton touchButton = null;
-        TouchButtonInput touchButtonInput = null;
-        GameKeyEvent gameKeyEvent = null;
+    bool pressTouchButtonInput(int x, int y, int deviceId) {
+        final BasicArrayList list = TouchButtonFactory.getInstance().getList();
+        late Rectangle rectangle;
+        late GPoint point;
+        late TouchButton touchButton;
+        late TouchButtonInput touchButtonInput;
+        late GameKeyEvent gameKeyEvent;
         for (int index = list.size() - 1; index >= 0; index--) {
-            touchButton = ((TouchButton) list.objectArray[index]);
+            touchButton = (list.objectArray[index]! as TouchButton);
             rectangle = touchButton.getRectangle();
             point = rectangle.getPoint();
             if (this.rectangleCollisionUtil.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y)) {
@@ -113,6 +126,5 @@ public class TouchButtonRecognizer
         }
         return false;
     }
-
 }
 

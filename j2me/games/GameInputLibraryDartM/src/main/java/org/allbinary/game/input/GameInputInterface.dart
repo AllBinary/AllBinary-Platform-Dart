@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/NamedInterface.dart';
 
-namespace org.allbinary.game.input;
+abstract interface class GameInputInterface implements NamedInterface {
+    
 
-public interface GameInputInterface : NamedInterface
-{
-    // throws Exception
     void processInput(AllBinaryLayerManager layerManager);
+    
 
     void initInputProcessors();
-
 }
 

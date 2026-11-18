@@ -13,25 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.media.audio;
+class SoundStrings {
+    static final SoundStrings instance = SoundStrings();
+    late String STOP_ALL;
+    late String CLOSE_ALL;
+    late String SOUND;
+    late String INIT_SOUND;
+    late String STOPPING_SOUND;
+    late String CLOSING_SOUND;
 
-public class SoundStrings
-{
-    private static readonly SoundStrings instance = new SoundStrings();
-    public static SoundStrings getInstance()
-    {
-        return SoundStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsSoundStrings() {
+    this.STOP_ALL = "stopAll";
+    this.CLOSE_ALL = "closeAll";
+    this.SOUND = " Sound: ";
+    this.INIT_SOUND = "Initializing Sound: ";
+    this.STOPPING_SOUND = "Stopping Sound: ";
+    this.CLOSING_SOUND = "Closing Sound: ";
     }
 
-    public readonly string STOP_ALL = "stopAll";
-    public readonly string CLOSE_ALL = "closeAll";
-    public readonly string SOUND = " Sound: ";
-    public readonly string INIT_SOUND = "Initializing Sound: ";
-    public readonly string STOPPING_SOUND = "Stopping Sound: ";
-    public readonly string CLOSING_SOUND = "Closing Sound: ";
+    SoundStrings() {
+        this.initFieldsSoundStrings();
+    }
+    
+
+    static SoundStrings getInstance() {
+        return SoundStrings.instance;
+    }
 }
 

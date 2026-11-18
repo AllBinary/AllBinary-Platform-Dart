@@ -13,62 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-using LocalPlayerInputIdFactory = org.allbinary.game.input.LocalPlayerInputIdFactory;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/LocalPlayerInputIdFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpKeyEventHandlerBase.dart';
 
-namespace org.allbinary.game.input.@event;
+class UpKeyEventHandler extends UpKeyEventHandlerBase {
+    static final UpKeyEventHandler instance = UpKeyEventHandler();
+    static final List<UpKeyEventHandlerBase?> instanceArray = <UpKeyEventHandlerBase?>[UpKeyEventHandlerBase(), UpKeyEventHandlerBase(), UpKeyEventHandlerBase(), UpKeyEventHandlerBase(), UpKeyEventHandlerBase(), UpKeyEventHandlerBase()];
+    late LocalPlayerInputIdFactory playerInputIdFactory;
 
-public class UpKeyEventHandler : UpKeyEventHandlerBase
-{
-    private static readonly UpKeyEventHandler instance = new UpKeyEventHandler();
-    private static readonly UpKeyEventHandlerBase[] instanceArray = new UpKeyEventHandlerBase[] { new UpKeyEventHandlerBase(), new UpKeyEventHandlerBase(), new UpKeyEventHandlerBase(), new UpKeyEventHandlerBase(), new UpKeyEventHandlerBase(), new UpKeyEventHandlerBase() };
-    public static UpKeyEventHandler getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsUpKeyEventHandler() {
+    this.playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
+    }
+    
+
+    static UpKeyEventHandler getInstance() {
         return UpKeyEventHandler.instance;
     }
+    
 
-    private readonly LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
-    public virtual UpKeyEventHandlerBase getInstanceForDevice(int deviceId)
-    {
-        int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-        return UpKeyEventHandler.instanceArray[playerInputId];
+    UpKeyEventHandlerBase getInstanceForDevice(int deviceId) {
+        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
+        return UpKeyEventHandler.instanceArray[playerInputId]!;
     }
+    
 
-    public virtual UpKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
-    {
-        return UpKeyEventHandler.instanceArray[playerInputId];
+    UpKeyEventHandlerBase getInstanceForPlayer(int playerInputId) {
+        return UpKeyEventHandler.instanceArray[playerInputId]!;
     }
+    
 
-    private UpKeyEventHandler()
-    {
+    UpKeyEventHandler() {
+        this.initFieldsUpKeyEventHandler();
     }
+    
 
-    public override void removeAllListeners()
-    {
-        base.removeAllListeners();
-        for (int index = UpKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            UpKeyEventHandler.instanceArray[index].removeAllListeners();
+    @override
+    void removeAllListeners() {
+        super.removeAllListeners();
+        for (int index = UpKeyEventHandler.instanceArray.length - 1; index >= 0; index--) {
+            UpKeyEventHandler.instanceArray[index]!.removeAllListeners();
         }
     }
+    
 
-    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
-        base.removeListenerSingleThreaded(eventListenerInterface);
-        for (int index = UpKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            UpKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+    @override
+    void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
+        super.removeListenerSingleThreaded(eventListenerInterface);
+        for (int index = UpKeyEventHandler.instanceArray.length - 1; index >= 0; index--) {
+            UpKeyEventHandler.instanceArray[index]!.removeListenerSingleThreaded(eventListenerInterface);
         }
     }
+    
 
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
-        base.removeListener(eventListenerInterface);
-        for (int index = UpKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            UpKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
+    @override
+    void removeListener(EventListenerInterface eventListenerInterface) {
+        super.removeListener(eventListenerInterface);
+        for (int index = UpKeyEventHandler.instanceArray.length - 1; index >= 0; index--) {
+            UpKeyEventHandler.instanceArray[index]!.removeListener(eventListenerInterface);
         }
     }
-
 }
 

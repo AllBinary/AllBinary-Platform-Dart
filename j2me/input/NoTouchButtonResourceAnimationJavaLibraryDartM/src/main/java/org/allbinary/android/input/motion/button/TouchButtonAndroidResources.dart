@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.android.input.motion.button
 
-using System;
-using System.Linq;
-using Init = org.allbinary.init.Init;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/init/Init.dart';
 
-namespace org.allbinary.android.input.motion.button;
+class TouchButtonAndroidResources extends Init {
+    
 
-public class TouchButtonAndroidResources : Init
-{
-    public override void init()
-    {
+    @override
+    void init() {
     }
-
 }
 

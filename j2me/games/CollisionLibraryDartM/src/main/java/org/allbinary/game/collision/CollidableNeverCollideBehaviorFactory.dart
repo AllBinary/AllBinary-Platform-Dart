@@ -13,25 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableNeverCollideBehavior.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehavior.dart';
 
-namespace org.allbinary.game.collision;
+class CollidableNeverCollideBehaviorFactory extends CollidableBaseBehaviorFactory {
+    static final CollidableNeverCollideBehaviorFactory instanceC = CollidableNeverCollideBehaviorFactory();
+    late CollidableNeverCollideBehavior instance;
 
-public class CollidableNeverCollideBehaviorFactory : CollidableBaseBehaviorFactory
-{
-    private static readonly CollidableNeverCollideBehaviorFactory instanceC = new CollidableNeverCollideBehaviorFactory();
-    public static CollidableNeverCollideBehaviorFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCollidableNeverCollideBehaviorFactory() {
+    this.instance = CollidableNeverCollideBehavior(false);
+    }
+
+    CollidableNeverCollideBehaviorFactory() {
+        this.initFieldsCollidableNeverCollideBehaviorFactory();
+    }
+    
+
+    static CollidableNeverCollideBehaviorFactory getInstance() {
         return CollidableNeverCollideBehaviorFactory.instanceC;
     }
+    
 
-    private readonly CollidableNeverCollideBehavior instance = new CollidableNeverCollideBehavior(false);
-    public override CollidableBaseBehavior createBehavior()
-    {
+    @override
+    CollidableBaseBehavior createBehavior() {
         return this.instance;
     }
-
 }
 

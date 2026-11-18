@@ -13,32 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
 
-namespace org.allbinary.input.motion.button;
+class BaseTouchInput {
+    late CommonStrings commonStrings;
+    late BasicArrayListUtil basicArrayListUtil;
 
-public class BaseTouchInput
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    public BaseTouchInput()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBaseTouchInput() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BaseTouchInput() {
+        this.initFieldsBaseTouchInput();
+    }
+    
+
+    BasicArrayList getList() {
         return this.basicArrayListUtil.getImmutableInstance();
     }
+    
 
-    public override string ToString()
-    {
-        return this.GetType().FullName;
+    @override
+    String toString() {
+        return jClassName(this);
     }
-
 }
 

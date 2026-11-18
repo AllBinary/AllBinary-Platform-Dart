@@ -13,70 +13,82 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventListener.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventListenerInterface.dart';
 
-namespace org.allbinary.game.input;
+class CompleteMotionGestureInputEventHandler extends BasicEventHandler {
+    static final CompleteMotionGestureInputEventHandler SINGLETON = CompleteMotionGestureInputEventHandler();
+    late BasicArrayList list;
 
-public class CompleteMotionGestureInputEventHandler : BasicEventHandler
-{
-    private static readonly CompleteMotionGestureInputEventHandler SINGLETON = new CompleteMotionGestureInputEventHandler();
-    public static CompleteMotionGestureInputEventHandler getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCompleteMotionGestureInputEventHandler() {
+    this.list = BasicArrayListD();
+    }
+    
+
+    static CompleteMotionGestureInputEventHandler getInstance() {
         return CompleteMotionGestureInputEventHandler.SINGLETON;
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private CompleteMotionGestureInputEventHandler()
-    {
+    CompleteMotionGestureInputEventHandler() {
+        this.initFieldsCompleteMotionGestureInputEventHandler();
     }
+    
 
-    public virtual void addListener(CompleteMotionGestureInputEventListener completeMotionGestureInputEventListener)
-    {
+    void addListener(CompleteMotionGestureInputEventListener completeMotionGestureInputEventListener) {
         if (!this.list.contains(completeMotionGestureInputEventListener)) {
             this.list.add(completeMotionGestureInputEventListener);
         }
     }
+    
 
-    public override void removeAllListeners()
-    {
+    @override
+    void removeAllListeners() {
         this.list.clear();
-        base.removeAllListeners();
+        super.removeAllListeners();
     }
+    
 
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    @override
+    void removeListener(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
-        base.removeListener(eventListenerInterface);
+        super.removeListener(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public override void fireEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void fireEvent(AllBinaryEventObject eventObject) {
         for (int index = this.list.size(); --index >= 0; ) {
             try {
-                CompleteMotionGestureInputEventListener completeMotionGestureInputEventListener = ((CompleteMotionGestureInputEventListener) this.list.objectArray[index]);
-                completeMotionGestureInputEventListener.onCompleteMotionGestureInputEvent(((CompleteMotionGestureInputEvent) eventObject));
-            } catch (Exception e) {
+                CompleteMotionGestureInputEventListener completeMotionGestureInputEventListener = (this.list.objectArray[index]! as CompleteMotionGestureInputEventListener);
+                completeMotionGestureInputEventListener.onCompleteMotionGestureInputEvent((eventObject as CompleteMotionGestureInputEvent));
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                }
             }
         }
-        base.fireEvent(eventObject);
+        super.fireEvent(eventObject);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        CompleteMotionGestureInputEventListenerInterface completeMotionGestureInputEventListenerInterface = ((CompleteMotionGestureInputEventListenerInterface) eventListenerInterface);
-        completeMotionGestureInputEventListenerInterface.onCompleteMotionGestureInputEvent(((CompleteMotionGestureInputEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final CompleteMotionGestureInputEventListenerInterface completeMotionGestureInputEventListenerInterface = (eventListenerInterface as CompleteMotionGestureInputEventListenerInterface);
+        completeMotionGestureInputEventListenerInterface.onCompleteMotionGestureInputEvent((eventObject as CompleteMotionGestureInputEvent));
     }
-
 }
 

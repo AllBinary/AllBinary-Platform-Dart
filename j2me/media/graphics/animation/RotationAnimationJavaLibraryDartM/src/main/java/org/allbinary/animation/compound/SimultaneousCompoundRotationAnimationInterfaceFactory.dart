@@ -13,36 +13,38 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using RotationAnimation = org.allbinary.animation.RotationAnimation;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimation.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/animation/compound/CompoundAnimationInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/animation/compound/SimultaneousCompoundRotationAnimation.dart';
 
-namespace org.allbinary.animation.compound;
+class SimultaneousCompoundRotationAnimationInterfaceFactory extends CompoundAnimationInterfaceFactory {
+    
 
-public class SimultaneousCompoundRotationAnimationInterfaceFactory : CompoundAnimationInterfaceFactory
-{
-    public SimultaneousCompoundRotationAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) : base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory)
-    {
-        // base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory) is called from the constructor declaration
+    SimultaneousCompoundRotationAnimationInterfaceFactory(List<AnimationInterfaceFactoryInterface?> basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) : super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory) {
+        
         if (animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
             ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
         }
     }
+    
 
-    public override Animation[] createArray(int size)
-    {
-        return new RotationAnimation[size];
+    @override
+    List<Animation?> createArray(int size) {
+        return List<RotationAnimation?>.filled(size, null);
     }
+    
 
-    public override Animation createAnimation(Animation[] animationInterfaceArray)
-    {
-        return new SimultaneousCompoundRotationAnimation(((RotationAnimation[]) animationInterfaceArray), this.animationBehaviorFactory.getOrCreateInstance());
+    @override
+    Animation createAnimation(List<Animation?> animationInterfaceArray) {
+        return SimultaneousCompoundRotationAnimation((animationInterfaceArray as List<RotationAnimation?>), this.animationBehaviorFactory.getOrCreateInstance());
     }
-
 }
 

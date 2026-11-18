@@ -1,25 +1,23 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class MultiPlayerGameFeatureFactory {
+    static final MultiPlayerGameFeatureFactory instance = MultiPlayerGameFeatureFactory();
+    
 
-public class MultiPlayerGameFeatureFactory
-{
-    private static readonly MultiPlayerGameFeatureFactory instance = new MultiPlayerGameFeatureFactory();
-    public static MultiPlayerGameFeatureFactory getInstance()
-    {
+    static MultiPlayerGameFeatureFactory getInstance() {
         return MultiPlayerGameFeatureFactory.instance;
     }
+    
 
-    private MultiPlayerGameFeatureFactory()
-    {
+    MultiPlayerGameFeatureFactory() {
     }
+    
 
-    public virtual void addCommands(object anyType)
-    {
+    void addCommands(Object anyType) {
     }
-
 }
 

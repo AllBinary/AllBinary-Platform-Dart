@@ -13,55 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using ByteArrayInputStream = java.io.ByteArrayInputStream;
-using DataInputStream = java.io.DataInputStream;
-//using EOFException = java.io.EOFException;
-//using IOException = java.io.IOException;
-using RecordComparator = javax.microedition.rms.RecordComparator;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayInputStream.dart';
+import 'package:allbinary/java/io/DataInputStream.dart';
+import 'package:allbinary/javax/microedition/rms/RecordComparator.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.score;
+class ScoreComparator implements RecordComparator {
+    late LogUtil logUtil;
+    bool isHighestBest = false;
 
-public class ScoreComparator : RecordComparator
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly bool isHighestBest;
-    public ScoreComparator(bool isHighestBest)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsScoreComparator() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    ScoreComparator(bool isHighestBest) {
+        this.initFieldsScoreComparator();
         this.isHighestBest = isHighestBest;
     }
+    
 
-    public virtual long getBestScore()
-    {
-        return (this.isHighestBest ? long.MaxValue : 0);
+    int getBestScore() {
+        return (this.isHighestBest ? Long.MAX_VALUE : 0);
     }
+    
 
-    public virtual int compare(sbyte[] recordOne, sbyte[] recordTwo)
-    {
-        ByteArrayInputStream byteArrayInputStreamOne = new ByteArrayInputStream(recordOne);
-        DataInputStream inputStreamOne = new DataInputStream(byteArrayInputStreamOne);
-        ByteArrayInputStream byteArrayInputStreamTwo = new ByteArrayInputStream(recordTwo);
-        DataInputStream inputStreamTwo = new DataInputStream(byteArrayInputStreamTwo);
-        long scoreOne = 0L;
-        long scoreTwo = 0L;
+    @override
+    int compare(List<int> recordOne, List<int> recordTwo) {
+        final ByteArrayInputStream byteArrayInputStreamOne = ByteArrayInputStream(recordOne);
+        final DataInputStream inputStreamOne = DataInputStream(byteArrayInputStreamOne);
+        final ByteArrayInputStream byteArrayInputStreamTwo = ByteArrayInputStream(recordTwo);
+        final DataInputStream inputStreamTwo = DataInputStream(byteArrayInputStreamTwo);
+        int scoreOne = 0;
+        int scoreTwo = 0;
         try {
             inputStreamOne.readUTF();
             inputStreamTwo.readUTF();
             scoreOne = inputStreamOne.readLong();
             scoreTwo = inputStreamTwo.readLong();
-        } catch (System.IO.EndOfStreamException e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            if (jIsException(jcaught, 'EOFException')) {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
-        } catch (System.IO.IOException e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            } else if (jIsException(jcaught, 'IOException')) {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            } else {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
+            }
         }
         if (this.isHighestBest) {
             return this.getHighTooLow(scoreOne, scoreTwo);
@@ -69,9 +79,9 @@ public class ScoreComparator : RecordComparator
             return this.getLowTooHigh(scoreOne, scoreTwo);
         }
     }
+    
 
-    public virtual int getHighTooLow(long scoreOne, long scoreTwo)
-    {
+    int getHighTooLow(int scoreOne, int scoreTwo) {
         if (scoreOne > scoreTwo) {
             return RecordComparator.PRECEDES;
         } else if (scoreOne < scoreTwo) {
@@ -80,9 +90,9 @@ public class ScoreComparator : RecordComparator
             return RecordComparator.EQUIVALENT;
         }
     }
+    
 
-    public virtual int getLowTooHigh(long scoreOne, long scoreTwo)
-    {
+    int getLowTooHigh(int scoreOne, int scoreTwo) {
         if (scoreOne < scoreTwo) {
             return RecordComparator.PRECEDES;
         } else if (scoreOne > scoreTwo) {
@@ -91,6 +101,5 @@ public class ScoreComparator : RecordComparator
             return RecordComparator.EQUIVALENT;
         }
     }
-
 }
 

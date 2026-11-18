@@ -13,38 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using BasicArrayListResetablePool = org.allbinary.logic.util.cache.BasicArrayListResetablePool;
-using CacheableInterface = org.allbinary.logic.util.cache.CacheableInterface;
-using CacheableInterfaceFactoryInterface = org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
-using PoolInterface = org.allbinary.logic.util.cache.PoolInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/BasicArrayListResetablePool.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/PoolInterface.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationCacheableInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationInfo.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationCacheable.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArrayRotationAnimationPool extends BasicArrayListResetablePool {
+    static PoolInterface IMAGE_ROTATION_ANIMATION_POOL = ImageArrayRotationAnimationPool(ImageArrayRotationAnimationCacheableInterfaceFactory());
+    
 
-public class ImageArrayRotationAnimationPool : BasicArrayListResetablePool
-{
-    private static PoolInterface IMAGE_ROTATION_ANIMATION_POOL = new ImageArrayRotationAnimationPool(new ImageArrayRotationAnimationCacheableInterfaceFactory());
-    public ImageArrayRotationAnimationPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : base(cacheableInterfaceFactoryInterface)
-    {
-        // base(cacheableInterfaceFactoryInterface) is called from the constructor declaration
+    ImageArrayRotationAnimationPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : super(cacheableInterfaceFactoryInterface) {
+        
     }
+    
 
-    public static PoolInterface getInstance()
-    {
+    static PoolInterface getInstance() {
         return ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL;
     }
+    
 
-    // throws Exception
-    public override CacheableInterface remove(object key)
-    {
-        CacheableInterface cacheableInterface = base.remove(key);
-        ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo) key);
-        ImageArrayRotationAnimationCacheable imageArrayRotationAnimationCacheable = (((ImageArrayRotationAnimationCacheable) cacheableInterface));
+    @override
+    CacheableInterface remove(Object key) {
+        final CacheableInterface cacheableInterface = super.remove(key);
+        final ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (key as ImageArrayRotationAnimationInfo);
+        final ImageArrayRotationAnimationCacheable imageArrayRotationAnimationCacheable = ((cacheableInterface as ImageArrayRotationAnimationCacheable));
         imageArrayRotationAnimationCacheable.setImageArray(allBinaryImageRotationAnimationInfo.getImageArray());
         return cacheableInterface;
     }
-
 }
 

@@ -13,27 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics;
+class GraphicsStrings {
+    static final GraphicsStrings instance = GraphicsStrings();
+    late String ANIMATION;
+    late String ANGLE;
+    late String MOVEMENT_ANGLE;
+    late String ROTATION;
+    late String OPACITY;
+    late String HTML;
+    late String WIDTH;
+    late String HEIGHT;
 
-public class GraphicsStrings
-{
-    private static readonly GraphicsStrings instance = new GraphicsStrings();
-    public static GraphicsStrings getInstance()
-    {
-        return GraphicsStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGraphicsStrings() {
+    this.ANIMATION = "animation";
+    this.ANGLE = "angle";
+    this.MOVEMENT_ANGLE = "movement_angle";
+    this.ROTATION = "rotation";
+    this.OPACITY = "opacity";
+    this.HTML = "HTML";
+    this.WIDTH = "width";
+    this.HEIGHT = "height";
     }
 
-    public readonly string ANIMATION = "animation";
-    public readonly string ANGLE = "angle";
-    public readonly string MOVEMENT_ANGLE = "movement_angle";
-    public readonly string ROTATION = "rotation";
-    public readonly string OPACITY = "opacity";
-    public readonly string HTML = "HTML";
-    public readonly string WIDTH = "width";
-    public readonly string HEIGHT = "height";
+    GraphicsStrings() {
+        this.initFieldsGraphicsStrings();
+    }
+    
+
+    static GraphicsStrings getInstance() {
+        return GraphicsStrings.instance;
+    }
 }
 

@@ -13,17 +13,16 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
 
-namespace org.allbinary.game.layer;
+abstract interface class SpriteFactoryInterface {
+    
 
-public interface SpriteFactoryInterface
-{
     Sprite createSprite(Image image, int frameWidth, int frameHeight);
-
 }
 

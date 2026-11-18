@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.part.weapon
 
-using System;
-using System.Linq;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/combat/weapon/WeaponProperties.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.game.part.weapon;
+abstract interface class SalvoInterface {
+    
 
-public interface SalvoInterface
-{
-    // throws Exception
-    void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle);
+    void process(AllBinaryLayerManager allbinaryLayerManager, int angle, int otherAngle);
+    
 
-    // throws Exception
-    void processScore(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface);
-
+    void processScore(AllBinaryLayerManager allbinaryLayerManager, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface);
 }
 

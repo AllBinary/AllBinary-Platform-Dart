@@ -13,35 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using File = java.io.File;
-using FileInputStream = java.io.FileInputStream;
-//using FileNotFoundException = java.io.FileNotFoundException;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/File.dart';
+import 'package:allbinary/java/io/FileInputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFileNativeUtil.dart';
 
-namespace org.allbinary.logic.io;
+class AbFileInputStream extends FileInputStream {
+    
 
-public class AbFileInputStream : FileInputStream
-{
-    public AbFileInputStream(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    AbFileInputStream(String name) : super(name) {
+        
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileInputStream createFromAbFile(AbFile file)
-    {
-        return new AbFileInputStream(AbFileNativeUtil.get(file).getPath());
+    static AbFileInputStream createFromAbFile(AbFile file) {
+        return AbFileInputStream(AbFileNativeUtil.get(file).getPath());
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileInputStream createFromFile(File file)
-    {
-        return new AbFileInputStream(file.getPath());
+    static AbFileInputStream createFromFile(File file) {
+        return AbFileInputStream(file.getPath());
     }
-
 }
 

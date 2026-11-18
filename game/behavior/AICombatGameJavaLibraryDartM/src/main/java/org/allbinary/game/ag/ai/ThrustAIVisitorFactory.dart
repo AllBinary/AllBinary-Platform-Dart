@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/ThrustAIVisitor.dart';
 
-namespace org.allbinary.game.ag.ai;
+class ThrustAIVisitorFactory {
+    static final ThrustAIVisitor instance = ThrustAIVisitor();
+    
 
-public class ThrustAIVisitorFactory
-{
-    private static readonly ThrustAIVisitor instance = new ThrustAIVisitor();
-    public static ThrustAIVisitor getInstance()
-    {
+    static ThrustAIVisitor getInstance() {
         return ThrustAIVisitorFactory.instance;
     }
-
 }
 

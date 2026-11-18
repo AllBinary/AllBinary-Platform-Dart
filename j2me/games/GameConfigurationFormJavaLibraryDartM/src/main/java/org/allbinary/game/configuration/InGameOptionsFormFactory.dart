@@ -13,49 +13,61 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using Init = org.allbinary.init.Init;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/CommandForm.dart';
+import 'package:allbinary/org/allbinary/init/Init.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/configuration/InGameOptionsForm.dart';
 
-namespace org.allbinary.game.configuration;
+class InGameOptionsFormFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late CommandForm SINGLETON;
 
-public class InGameOptionsFormFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static InGameOptionsFormFactory getInstance()
-    {
-        if (InGameOptionsFormFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            InGameOptionsFormFactory.instance = new InGameOptionsFormFactory();
-        }
-        return ((InGameOptionsFormFactory) InGameOptionsFormFactory.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsInGameOptionsFormFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.SINGLETON = CommandForm.getNullCommandForm();
     }
 
-    private CommandForm SINGLETON = CommandForm.getNullCommandForm();
-    public virtual void init(CommandListener commandListener, Init initInterface, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
-    {
+    InGameOptionsFormFactory() {
+        this.initFieldsInGameOptionsFormFactory();
+    }
+    
+
+    static InGameOptionsFormFactory getInstance() {
+        if (InGameOptionsFormFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InGameOptionsFormFactory.instance = InGameOptionsFormFactory();
+        }
+        return (InGameOptionsFormFactory.instance as InGameOptionsFormFactory);
+    }
+    
+
+    void init(CommandListener commandListener, Init initInterface, String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
         try {
             if (this.SINGLETON == CommandForm.getNullCommandForm()) {
                 initInterface.init();
-                this.SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+                this.SINGLETON = InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            }
         }
     }
+    
 
-    public virtual CommandForm get()
-    {
+    CommandForm get() {
         return this.SINGLETON;
     }
-
 }
 

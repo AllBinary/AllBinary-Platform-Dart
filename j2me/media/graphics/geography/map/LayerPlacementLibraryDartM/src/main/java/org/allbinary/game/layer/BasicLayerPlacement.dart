@@ -13,43 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/LayerPlacementType.dart';
 
-namespace org.allbinary.game.layer;
+class BasicLayerPlacement {
+    late LayerPlacementType layerType;
+    int width = 0;
+    int height = 0;
 
-public class BasicLayerPlacement
-{
-    private LayerPlacementType layerType;
-    private int width;
-    private int height;
-    public BasicLayerPlacement(LayerPlacementType layerType, int width, int height)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicLayerPlacement() {
+    
+    
+    
+    }
+    
+
+    BasicLayerPlacement(LayerPlacementType layerType, int width, int height) {
+        this.initFieldsBasicLayerPlacement();
         this.layerType = layerType;
         this.width = width;
         this.height = height;
     }
+    
 
-    public virtual int getWidth()
-    {
+    int getWidth() {
         return this.width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    int getHeight() {
         return this.height;
     }
+    
 
-    public virtual LayerPlacementType getLayerType()
-    {
+    LayerPlacementType getLayerType() {
         return this.layerType;
     }
+    
 
-    public virtual void setLayerType(LayerPlacementType layerType)
-    {
+    void setLayerType(LayerPlacementType layerType) {
         this.layerType = layerType;
     }
-
 }
 

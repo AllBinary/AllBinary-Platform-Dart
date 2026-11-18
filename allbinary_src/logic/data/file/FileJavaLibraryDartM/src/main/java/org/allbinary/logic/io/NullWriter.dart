@@ -13,46 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using Writer = java.io.Writer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/Writer.dart';
 
-namespace org.allbinary.logic.io;
+class NullWriter extends Writer {
+    static final NullWriter NULL_WRITER = NullWriter();
+    
 
-public class NullWriter : Writer
-{
-    public static readonly NullWriter NULL_WRITER = new NullWriter();
-    // throws IOException
-    public override void write(int c)
-    {
+    void write([dynamic p0 = jnone, dynamic p1 = jnone, dynamic p2 = jnone]) {
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is int) {
+            this.write$1$I(p0);
+            return;
+        }
+        if (!identical(p2, jnone) && jIsList(p0) && p1 is int && p2 is int) {
+            this.write$3$L_I_I(p0, p1, p2);
+            return;
+        }
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is String) {
+            this.write$1$S(p0);
+            return;
+        }
+        if (!identical(p2, jnone) && p0 is String && p1 is int && p2 is int) {
+            this.write$3$S_I_I(p0, p1, p2);
+            return;
+        }
+        throw JException('NoSuchMethodError', 'write');
     }
 
-    // throws IOException
-    public override void write(char[] cbuf, int off, int len)
-    {
+    void write$1$I(int c) {
     }
+    
 
-    // throws IOException
-    public override void write(string str)
-    {
+    void write$3$L_I_I(List<int> cbuf, int off, int len) {
     }
+    
 
-    // throws IOException
-    public override void write(string str, int off, int len)
-    {
+    void write$1$S(String str) {
     }
+    
 
-    // throws IOException
-    public override void flush()
-    {
+    void write$3$S_I_I(String str, int off, int len) {
     }
+    
 
-    // throws IOException
-    public override void close()
-    {
+    @override
+    void flush() {
     }
+    
 
+    @override
+    void close() {
+    }
 }
 

@@ -13,57 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input
 
-using System;
-using System.Linq;
-using AccelerometerSensorFactory = org.allbinary.input.accelerometer.AccelerometerSensorFactory;
-using GyroSensorFactory = org.allbinary.input.gyro.GyroSensorFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/accelerometer/AccelerometerSensorFactory.dart';
+import 'package:allbinary/org/allbinary/input/gyro/GyroSensorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.input;
+class AllBinarySensorManager {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late String ORIENTATION_SENSOR_INPUT;
+    late String ORIENTATION_TYPE;
+    late BasicArrayList list;
 
-public class AllBinarySensorManager
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static AllBinarySensorManager getInstance()
-    {
-        if (AllBinarySensorManager.instance == NullUtil.getInstance().NULL_OBJECT) {
-            AllBinarySensorManager.instance = new AllBinarySensorManager();
-        }
-        return ((AllBinarySensorManager) AllBinarySensorManager.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinarySensorManager() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    this.ORIENTATION_TYPE = "Orientation Type";
+    this.list = BasicArrayListD();
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly string ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
-    public readonly string ORIENTATION_TYPE = "Orientation Type";
-    private AllBinarySensorManager()
-    {
+    static AllBinarySensorManager getInstance() {
+        if (AllBinarySensorManager.instance == NullUtil.getInstance().NULL_OBJECT) {
+            AllBinarySensorManager.instance = AllBinarySensorManager();
+        }
+        return (AllBinarySensorManager.instance as AllBinarySensorManager);
+    }
+    
+
+    AllBinarySensorManager() {
+        this.initFieldsAllBinarySensorManager();
         try {
             GyroSensorFactory.init();
             AccelerometerSensorFactory.init();
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            }
         }
     }
+    
 
-    public virtual void init()
-    {
+    void init() {
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual BasicArrayList getSensorNamesList()
-    {
+    BasicArrayList getSensorNamesList() {
         return this.list;
     }
+    
 
-    public virtual void shutdown()
-    {
+    void shutdown() {
     }
-
 }
 

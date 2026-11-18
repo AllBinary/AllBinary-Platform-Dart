@@ -13,290 +13,342 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-using File = java.io.File;
-using FileFilter = java.io.FileFilter;
-using FilenameFilter = java.io.FilenameFilter;
-//using IOException = java.io.IOException;
-using URI = java.net.URI;
-using TsUtil = org.allbinary.TsUtil;
-using AbPath = org.allbinary.logic.io.path.AbPath;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/File.dart';
+import 'package:allbinary/java/io/FileFilter.dart';
+import 'package:allbinary/java/io/FilenameFilter.dart';
+import 'package:allbinary/java/net/URI.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPath.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFileInterface.dart';
 
-namespace org.allbinary.logic.io.file;
+class AbFile implements AbFileInterface {
+    static final AbFile NULL_FILE = AbFile.createAbFileFromRawPath(StringUtil.getInstance().EMPTY_STRING);
+    late File file;
 
-public class AbFile : AbFileInterface
-{
-    public static readonly AbFile NULL_FILE = AbFile.createAbFileFromRawPath(StringUtil.getInstance().EMPTY_STRING);
-    // throws Exception
-    public static AbFile createAbFileWithChild(AbFile file, string childPathName)
-    {
-        return new AbFile(new File(file.getFile(), childPathName));
+    // Java field initializers run after the base constructor
+    void initFieldsAbFile() {
+    
     }
+    
 
-    // throws Exception
-    public static AbFile createAbFile(string filePath)
-    {
-        return new AbFile(new File(new AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString()));
+    static AbFile createAbFileWithChild(AbFile file, String childPathName) {
+        return AbFile(File(file.getFile(), childPathName));
     }
+    
 
-    // throws Exception
-    public static AbFile createAbFilePathAndName(string filePath, string fileName)
-    {
-        return new AbFile(new File(new AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString(), fileName));
+    static AbFile createAbFile(String filePath) {
+        return AbFile(File(AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString()));
     }
+    
 
-    public static AbFile createAbFileFromAbPath(AbPath abPath)
-    {
-        return new AbFile(new File(abPath.toFileSystemString()));
+    static AbFile createAbFilePathAndName(String filePath, String fileName) {
+        return AbFile(File(AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString(), fileName));
     }
+    
 
-    public static AbFile createAbFileFromRawPath(string filePath)
-    {
-        return new AbFile(new File(filePath));
+    static AbFile createAbFileFromAbPath(AbPath abPath) {
+        return AbFile(File(abPath.toFileSystemString()));
     }
+    
 
-    private readonly File file;
-    public AbFile(File file)
-    {
+    static AbFile createAbFileFromRawPath(String filePath) {
+        return AbFile(File(filePath));
+    }
+    
+
+    AbFile(File file) {
+        this.initFieldsAbFile();
         this.file = file;
     }
+    
 
-    public virtual File getFile()
-    {
+    File getFile() {
         return this.file;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.file.getName();
     }
+    
 
-    public virtual string getParent()
-    {
+    @override
+    String getParent() {
         return this.file.getParent();
     }
+    
 
-    public virtual object getParentFile()
-    {
+    Object getParentFile() {
         return this.file.getParentFile();
     }
+    
 
-    public virtual string getPath()
-    {
+    @override
+    String getPath() {
         return this.file.getPath();
     }
+    
 
-    public virtual bool isAbsolute()
-    {
+    @override
+    bool isAbsolute() {
         return this.file.isAbsolute();
     }
+    
 
-    public virtual string getAbsolutePath()
-    {
+    @override
+    String getAbsolutePath() {
         return this.file.getAbsolutePath();
     }
+    
 
-    public virtual object getAbsoluteFile()
-    {
+    Object getAbsoluteFile() {
         return this.file.getAbsoluteFile();
     }
+    
 
-    // throws IOException
-    public virtual string getCanonicalPath()
-    {
+    @override
+    String getCanonicalPath() {
         return this.file.getCanonicalPath();
     }
+    
 
-    // throws IOException
-    public virtual object getCanonicalFile()
-    {
+    Object getCanonicalFile() {
         return this.file.getCanonicalFile();
     }
+    
 
-    public virtual URI toURI()
-    {
+    @override
+    URI toURI() {
         return this.file.toURI();
     }
+    
 
-    public virtual bool canRead()
-    {
+    @override
+    bool canRead() {
         return this.file.canRead();
     }
+    
 
-    public virtual bool canWrite()
-    {
+    @override
+    bool canWrite() {
         return this.file.canWrite();
     }
+    
 
-    public virtual bool exists()
-    {
+    @override
+    bool exists() {
         return this.file.exists();
     }
+    
 
-    public virtual bool isDirectory()
-    {
+    @override
+    bool isDirectory() {
         return this.file.isDirectory();
     }
+    
 
-    public virtual bool isFile()
-    {
+    @override
+    bool isFile() {
         return this.file.isFile();
     }
+    
 
-    public virtual bool isHidden()
-    {
+    @override
+    bool isHidden() {
         return this.file.isHidden();
     }
+    
 
-    public virtual long lastModified()
-    {
+    @override
+    int lastModified() {
         return this.file.lastModified();
     }
+    
 
-    public virtual long length()
-    {
-        return ((long) this.file.length());
+    @override
+    int length() {
+        return this.file.length();
     }
+    
 
-    // throws IOException
-    public virtual bool createNewFile()
-    {
+    @override
+    bool createNewFile() {
         return this.file.createNewFile();
     }
+    
 
-    // throws IOException
-    public virtual bool delete()
-    {
+    @override
+    bool delete() {
         return this.file.delete();
     }
+    
 
-    public virtual void deleteOnExit()
-    {
+    @override
+    void deleteOnExit() {
         this.file.deleteOnExit();
     }
+    
 
-    public virtual string[] list()
-    {
+    @override
+    List<String?> list() {
         return this.file.list();
     }
+    
 
-    public virtual string[] listWithFilter(FilenameFilter filter)
-    {
+    @override
+    List<String?> listWithFilter(FilenameFilter filter) {
         return this.file.list(filter);
     }
+    
 
-    public virtual object[] listFiles()
-    {
-        return ((object[]) this.file.listFiles());
+    List<Object?> listFiles() {
+        return (this.file.listFiles() as List<Object?>);
     }
+    
 
-    public virtual object[] listFilesFileNameFilter(FilenameFilter filter)
-    {
-        return ((object[]) this.file.listFiles(filter));
+    List<Object?> listFilesFileNameFilter(FilenameFilter filter) {
+        return (this.file.listFiles(filter) as List<Object?>);
     }
+    
 
-    public virtual object[] listFilesFileFilter(FileFilter filter)
-    {
-        return ((object[]) this.file.listFiles(filter));
+    List<Object?> listFilesFileFilter(FileFilter filter) {
+        return (this.file.listFiles(filter) as List<Object?>);
     }
+    
 
-    public virtual bool mkdir()
-    {
+    @override
+    bool mkdir() {
         return this.file.mkdir();
     }
+    
 
-    public virtual bool mkdirs()
-    {
+    @override
+    bool mkdirs() {
         return this.file.mkdirs();
     }
+    
 
-    public virtual bool renameTo(AbFile dest)
-    {
+    bool renameTo(AbFile dest) {
         return this.file.renameTo(dest.getFile());
     }
+    
 
-    public virtual bool setLastModified(long time)
-    {
+    @override
+    bool setLastModified(int time) {
         return this.file.setLastModified(time);
     }
+    
 
-    public virtual bool setReadOnly()
-    {
+    @override
+    bool setReadOnly() {
         return this.file.setReadOnly();
     }
+    
 
-    public virtual bool setWritable(bool writable, bool ownerOnly)
-    {
+    bool setWritable([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p1, jnone) && p0 is bool && p1 is bool) {
+            return this.setWritable$2(p0, p1);
+        }
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is bool) {
+            return this.setWritable$1(p0);
+        }
+        throw JException('NoSuchMethodError', 'setWritable');
+    }
+
+    bool setWritable$2(bool writable, bool ownerOnly) {
         return this.file.setExecutable(writable, ownerOnly);
     }
+    
 
-    public virtual bool setWritable(bool writable)
-    {
+    bool setWritable$1(bool writable) {
         return this.file.setWritable(writable);
     }
+    
 
-    public virtual bool setReadable(bool readable, bool ownerOnly)
-    {
+    bool setReadable([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p1, jnone) && p0 is bool && p1 is bool) {
+            return this.setReadable$2(p0, p1);
+        }
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is bool) {
+            return this.setReadable$1(p0);
+        }
+        throw JException('NoSuchMethodError', 'setReadable');
+    }
+
+    bool setReadable$2(bool readable, bool ownerOnly) {
         return this.file.setReadable(readable, ownerOnly);
     }
+    
 
-    public virtual bool setReadable(bool readable)
-    {
+    bool setReadable$1(bool readable) {
         return this.file.setReadable(readable);
     }
+    
 
-    public virtual bool setExecutable(bool executable, bool ownerOnly)
-    {
+    bool setExecutable([dynamic p0 = jnone, dynamic p1 = jnone]) {
+        if (!identical(p1, jnone) && p0 is bool && p1 is bool) {
+            return this.setExecutable$2(p0, p1);
+        }
+        if (!identical(p0, jnone) && identical(p1, jnone) && p0 is bool) {
+            return this.setExecutable$1(p0);
+        }
+        throw JException('NoSuchMethodError', 'setExecutable');
+    }
+
+    bool setExecutable$2(bool executable, bool ownerOnly) {
         return this.file.setExecutable(executable, ownerOnly);
     }
+    
 
-    public virtual bool setExecutable(bool executable)
-    {
+    bool setExecutable$1(bool executable) {
         return this.file.setExecutable(executable);
     }
+    
 
-    public virtual bool canExecute()
-    {
+    bool canExecute() {
         return this.file.canExecute();
     }
+    
 
-    public virtual long getTotalSpace()
-    {
+    int getTotalSpace() {
         return this.file.getTotalSpace();
     }
+    
 
-    public virtual long getFreeSpace()
-    {
+    int getFreeSpace() {
         return this.file.getFreeSpace();
     }
+    
 
-    public virtual long getUsableSpace()
-    {
+    int getUsableSpace() {
         return this.file.getUsableSpace();
     }
+    
 
-    public virtual int compareTo(File pathname)
-    {
+    int compareTo(File pathname) {
         return this.file.compareTo(pathname);
     }
+    
 
-    public override bool Equals(object obj)
-    {
+    bool equals(Object obj) {
         return TsUtil.getInstance().equalsNotstring(this.file, obj);
     }
+    
 
-    public override int GetHashCode()
-    {
-        return this.file.GetHashCode();
+    @override
+    int get hashCode {
+        return this.file.hashCode;
     }
+    
 
-    public override string ToString()
-    {
-        return this.file.ToString();
+    @override
+    String toString() {
+        return this.file.toString();
     }
-
 }
 

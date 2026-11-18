@@ -13,30 +13,36 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheType.dart';
 
-namespace org.allbinary.logic.util.cache;
+class PoolType {
+    late CacheType cacheType;
 
-public class PoolType
-{
-    private readonly CacheType cacheType;
-    public PoolType(CacheType cacheType)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPoolType() {
+    
+    }
+    
+
+    PoolType(CacheType cacheType) {
+        this.initFieldsPoolType();
         this.cacheType = cacheType;
     }
+    
 
-    public virtual CacheType getCacheType()
-    {
+    CacheType getCacheType() {
         return this.cacheType;
     }
+    
 
-    public override string ToString()
-    {
-        string POOL_TYPE = "PoolType: ";
-        return POOL_TYPE + this.getCacheType().ToString();
+    @override
+    String toString() {
+        final String POOL_TYPE = "PoolType: ";
+        return POOL_TYPE + this.getCacheType().toString();
     }
-
 }
 

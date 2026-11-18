@@ -13,48 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using AxisMathVectorUtil = org.allbinary.logic.math.vector.AxisMathVectorUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/BasicVelocityProperties.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/logic/math/vector/AxisMathVectorUtil.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/physics/movement/Movement.dart';
 
-namespace org.allbinary.physics.movement;
+class ConstantVelocityNotifyViewChangeMovement extends Movement {
+    late BasicVelocityProperties basicVelocityProperties;
+    late BasicDecimal speedBasicDecimal;
+    late AxisMathVectorUtil axisMathVectorUtil;
 
-public class ConstantVelocityNotifyViewChangeMovement : Movement
-{
-    public BasicVelocityProperties basicVelocityProperties;
-    private BasicDecimal speedBasicDecimal;
-    private readonly AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-    public ConstantVelocityNotifyViewChangeMovement()
-    {
-        this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
-        this.basicVelocityProperties = new BasicVelocityProperties();
+    // Java field initializers run after the base constructor
+    void initFieldsConstantVelocityNotifyViewChangeMovement() {
+    
+    
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    ConstantVelocityNotifyViewChangeMovement() {
+        this.initFieldsConstantVelocityNotifyViewChangeMovement();
+        this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
+        this.basicVelocityProperties = BasicVelocityProperties();
+    }
+    
+
+    @override
+    void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle) {
         this.speedBasicDecimal = speedBasicDecimal;
         AngleFactory angleFactory = AngleFactory.getInstance();
         this.basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
     }
+    
 
-    public virtual void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
-    {
+    void moveOutsideRadius(AllBinaryLayer layer, int radius, int angle, int otherAngle) {
         int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
-        int xVector = ((int) (this.axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue));
-        int yVector = ((int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue));
-        int zVector = ((int) (this.axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue));
+        int xVector = ((this.axisMathVectorUtil.calculateX(radius, angle) ~/ scaleFactorValue)).toSigned(32);
+        int yVector = ((this.axisMathVectorUtil.calculateY(radius, angle) ~/ scaleFactorValue)).toSigned(32);
+        int zVector = ((this.axisMathVectorUtil.calculateZ(radius, otherAngle) ~/ scaleFactorValue)).toSigned(32);
         layer.moveDXYZ(xVector, yVector, zVector);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    @override
+    void process(AllBinaryGameLayer layer) {
         int x = this.basicVelocityProperties.getVelocityXBasicDecimalP().getScaled();
         int y = this.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
         int z = this.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
@@ -63,11 +72,11 @@ public class ConstantVelocityNotifyViewChangeMovement : Movement
             layer.onViewPositionChangeEvent();
         }
     }
+    
 
-    public override void stop()
-    {
+    @override
+    void stop() {
         this.basicVelocityProperties.zero();
     }
-
 }
 

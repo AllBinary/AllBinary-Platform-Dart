@@ -13,82 +13,98 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimationInterface.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class VectorBaseRotationAnimation extends RotationAnimation implements VectorAnimationInterface {
+    late List<List<List<int>?>?> currentPoints;
 
-public class VectorBaseRotationAnimation : RotationAnimation, VectorAnimationInterface
-{
-    private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-    public VectorBaseRotationAnimation(AngleInfo angleInfo, int[][][] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior)
-    {
-        // base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsVectorBaseRotationAnimation() {
+    this.currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    }
+    
+
+    VectorBaseRotationAnimation(AngleInfo angleInfo, List<List<List<int>?>?> currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : super(angleInfo, CircularIndexUtil.createInstance(360 ~/ angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) {
+        this.initFieldsVectorBaseRotationAnimation();
+        
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.circularIndexUtil.getIndex();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.circularIndexUtil.setIndex(index);
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         this.circularIndexUtil.next();
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         this.circularIndexUtil.previous();
     }
+    
 
-    public override int getSize()
-    {
-        return this.currentPoints.Length;
+    @override
+    int getSize() {
+        return this.currentPoints.length;
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP(graphics, this.basicColor);
         try {
             int nextPointX = 0;
             int nextPointY = 0;
-            int[] nextPoint = null;
-            int[] point = null;
-            int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
-            int size = currentPointsFrame.Length;
+            late List<int> nextPoint;
+            late List<int> point;
+            final List<List<int>?> currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()]!;
+            final int size = currentPointsFrame.length;
             int index = size - 2;
             while (--index >= 0) {
-                nextPoint = currentPointsFrame[index];
-                point = currentPointsFrame[index + 1];
+                nextPoint = currentPointsFrame[index]!;
+                point = currentPointsFrame[index + 1]!;
                 nextPointX = nextPoint[0];
                 nextPointY = nextPoint[1];
                 if (nextPointX != 1000) {
@@ -97,31 +113,36 @@ public class VectorBaseRotationAnimation : RotationAnimation, VectorAnimationInt
                     index--;
                 }
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "paintVectors", e);
+            }
         }
     }
+    
 
-    public virtual int[][] getPoints(int frame)
-    {
-        return this.currentPoints[frame];
+    @override
+    List<List<int>?> getPoints(int frame) {
+        return this.currentPoints[frame]!;
     }
+    
 
-    public virtual void setPoints(int[][][] currentPoints)
-    {
+    void setPoints(List<List<List<int>?>?> currentPoints) {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.currentPoints.Length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.currentPoints.length);
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        return base.getBasicColorP();
+    @override
+    BasicColor getBasicColorP() {
+        return super.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
-        base.setBasicColorP(basicColor);
+    @override
+    void setBasicColorP(BasicColor basicColor) {
+        super.setBasicColorP(basicColor);
     }
-
 }
 

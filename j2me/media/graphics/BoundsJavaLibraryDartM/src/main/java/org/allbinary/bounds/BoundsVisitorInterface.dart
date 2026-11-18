@@ -13,25 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.bounds
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.bounds;
+abstract interface class BoundsVisitorInterface {
+    
 
-public interface BoundsVisitorInterface
-{
     int getX();
+    
 
     int getY();
+    
 
     void maxX();
+    
 
     void maxY();
+    
 
     void minX();
+    
 
     void minY();
-
 }
 

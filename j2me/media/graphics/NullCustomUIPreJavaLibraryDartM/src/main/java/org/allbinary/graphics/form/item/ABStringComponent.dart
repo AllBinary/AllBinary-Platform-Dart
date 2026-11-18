@@ -1,32 +1,30 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
 
-namespace org.allbinary.graphics.form.item;
+class ABStringComponent {
+    static final ABStringComponent NULL_STRING_COMPONENT = ABStringComponent(BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+    
 
-public class ABStringComponent
-{
-    public static readonly ABStringComponent NULL_STRING_COMPONENT = new ABStringComponent(BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
-    public virtual BasicColor getBackgroundBasicColor()
-    {
+    BasicColor getBackgroundBasicColor() {
         return BasicColorFactory.getInstance().WHITE;
     }
+    
 
-    public ABStringComponent(BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
+    ABStringComponent(BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
     }
+    
 
-    public virtual BasicColor getForegroundBasicColor()
-    {
+    BasicColor getForegroundBasicColor() {
         return BasicColorFactory.getInstance().WHITE;
     }
+    
 
-    public virtual void setForegroundBasicColor(BasicColor foregroundBasicColor)
-    {
+    void setForegroundBasicColor(BasicColor foregroundBasicColor) {
     }
-
 }
 

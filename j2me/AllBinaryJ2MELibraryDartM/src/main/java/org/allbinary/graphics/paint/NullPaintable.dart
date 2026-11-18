@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
 
-namespace org.allbinary.graphics.paint;
+class NullPaintable extends Paintable {
+    static final NullPaintable SINGLETON = NullPaintable();
+    
 
-public class NullPaintable : Paintable
-{
-    private static readonly NullPaintable SINGLETON = new NullPaintable();
-    private NullPaintable()
-    {
+    NullPaintable() {
     }
+    
 
-    public static Paintable getInstance()
-    {
+    static Paintable getInstance() {
         return NullPaintable.SINGLETON;
     }
-
 }
 

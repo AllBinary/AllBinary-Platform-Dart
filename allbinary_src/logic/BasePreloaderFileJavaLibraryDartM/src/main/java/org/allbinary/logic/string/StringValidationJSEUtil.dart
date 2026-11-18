@@ -13,29 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.string
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.@string;
+class StringValidationJSEUtil {
+    
 
-public class StringValidationJSEUtil
-{
-    private StringValidationJSEUtil()
-    {
+    StringValidationJSEUtil() {
     }
+    
 
-    public static bool isBlank(string @string)
-    {
-        int len = @string.Length;
+    static bool isBlank(String string) {
+        int len = string.length;
         for (int i = 0; i < len; i++) {
-            char c = @string[i];
-            if (char.IsWhiteSpace(c) == false) {
+            int c = string.codeUnitAt(i);
+            if (Character.isWhitespace(c) == false) {
                 return false;
             }
         }
         return true;
     }
-
 }
 

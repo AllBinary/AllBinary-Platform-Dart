@@ -13,42 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
-namespace org.allbinary.input.gyro;
+class OrientationMotionGestureFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late MotionGestureInput LEFT;
+    late MotionGestureInput RIGHT;
+    late MotionGestureInput UP;
+    late MotionGestureInput DOWN;
+    late MotionGestureInput ROLL_LEFT;
+    late MotionGestureInput ROLL_RIGHT;
 
-public class OrientationMotionGestureFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static OrientationMotionGestureFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOrientationMotionGestureFactory() {
+    
+    
+    
+    
+    
+    
+    }
+    
+
+    static OrientationMotionGestureFactory getInstance() {
         if (OrientationMotionGestureFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            OrientationMotionGestureFactory.instance = new OrientationMotionGestureFactory();
+            OrientationMotionGestureFactory.instance = OrientationMotionGestureFactory();
         }
-        return ((OrientationMotionGestureFactory) OrientationMotionGestureFactory.instance);
+        return (OrientationMotionGestureFactory.instance as OrientationMotionGestureFactory);
     }
+    
 
-    public readonly MotionGestureInput LEFT;
-    public readonly MotionGestureInput RIGHT;
-    public readonly MotionGestureInput UP;
-    public readonly MotionGestureInput DOWN;
-    public readonly MotionGestureInput ROLL_LEFT;
-    public readonly MotionGestureInput ROLL_RIGHT;
-    private OrientationMotionGestureFactory()
-    {
+    OrientationMotionGestureFactory() {
+        this.initFieldsOrientationMotionGestureFactory();
         int MAX = InputFactory.getInstance().MAX;
-        this.LEFT = new MotionGestureInput(MAX - 20, "Left Orient");
-        this.RIGHT = new MotionGestureInput(MAX - 21, "Right Orient");
-        this.UP = new MotionGestureInput(MAX - 22, "Up Orient");
-        this.DOWN = new MotionGestureInput(MAX - 23, "Down Orient");
-        this.ROLL_LEFT = new MotionGestureInput(MAX - 24, "Roll Left");
-        this.ROLL_RIGHT = new MotionGestureInput(MAX - 25, "Roll Right");
+        this.LEFT = MotionGestureInput(MAX - 20, "Left Orient");
+        this.RIGHT = MotionGestureInput(MAX - 21, "Right Orient");
+        this.UP = MotionGestureInput(MAX - 22, "Up Orient");
+        this.DOWN = MotionGestureInput(MAX - 23, "Down Orient");
+        this.ROLL_LEFT = MotionGestureInput(MAX - 24, "Roll Left");
+        this.ROLL_RIGHT = MotionGestureInput(MAX - 25, "Roll Right");
     }
-
 }
 

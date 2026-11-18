@@ -13,42 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.layer;
+class BasicLayerProcessor {
+    static final BasicLayerProcessor NULL_LAYER_PROCESSOR = BasicLayerProcessor();
+    late LogUtil logUtil;
+    late BasicArrayList list;
 
-public class BasicLayerProcessor
-{
-    public static readonly BasicLayerProcessor NULL_LAYER_PROCESSOR = new BasicLayerProcessor();
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public BasicLayerProcessor()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicLayerProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    this.list = BasicArrayListD();
     }
+    
 
-    public virtual void add(AllBinaryLayer layerInterface)
-    {
+    BasicLayerProcessor() {
+        this.initFieldsBasicLayerProcessor();
+    }
+    
+
+    void add(AllBinaryLayer layerInterface) {
         if (!this.list.contains(layerInterface)) {
             this.list.add(layerInterface);
         }
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+    void process(AllBinaryLayerManager allBinaryLayerManager) {
+        throw JException('Exception', CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

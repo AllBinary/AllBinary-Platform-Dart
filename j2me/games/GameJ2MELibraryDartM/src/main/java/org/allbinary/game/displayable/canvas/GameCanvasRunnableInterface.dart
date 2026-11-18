@@ -13,52 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using ItemStateListener = javax.microedition.lcdui.ItemStateListener;
-using GameStateCompositeInterface = org.allbinary.game.state.GameStateCompositeInterface;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using RunnableInterface = org.allbinary.thread.RunnableInterface;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/ItemStateListener.dart';
+import 'package:allbinary/org/allbinary/game/state/GameStateCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/thread/RunnableInterface.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+abstract interface class GameCanvasRunnableInterface implements RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface {
+    
 
-public interface GameCanvasRunnableInterface : RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface
-{
-    string getTitle();
+    String getTitle();
+    
 
     bool isInitialized();
+    
 
     bool isPaused();
+    
 
     void unPause();
+    
 
     void pause();
+    
 
     bool isHighScoreSubmitted();
+    
 
-    // throws Exception
     void setHighScoreSubmitted(bool highScoreSubmitted);
+    
 
-    // throws Exception
     void processGameOver();
+    
 
     bool isGameOver();
+    
 
     void initCommands(CommandListener cmdListener);
+    
 
-    // throws Exception
-    ABHashtable<object, object> getCurrentStateHashtable();
+    ABHashtable getCurrentStateHashtable();
+    
 
-    // throws Exception
-    ABHashtable<object, object> getLoadStateHashtable();
+    ABHashtable getLoadStateHashtable();
+    
 
-    // throws Exception
-    void setLoadStateHashtable(ABHashtable<object, object> hashtable);
+    void setLoadStateHashtable(ABHashtable hashtable);
+    
 
     int getType();
-
 }
 

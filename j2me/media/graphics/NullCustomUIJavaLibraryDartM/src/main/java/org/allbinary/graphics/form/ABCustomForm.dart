@@ -1,82 +1,88 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/form/CustomScreen.dart';
 
-namespace org.allbinary.graphics.form;
+class ABCustomForm extends CustomScreen {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
 
-public class ABCustomForm : CustomScreen
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public ABCustomForm(string title, ABCustomItem[] items, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsABCustomForm() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     }
+    
 
-    public virtual ABCustomItem[] getAllitems()
-    {
-        return new ABCustomItem[0];
+    ABCustomForm(String title, List<ABCustomItem?> items, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        this.initFieldsABCustomForm();
     }
+    
 
-    public virtual int size()
-    {
+    List<ABCustomItem?> getAllitems() {
+        return List<ABCustomItem?>.filled(0, null);
+    }
+    
+
+    int size() {
         return 0;
     }
+    
 
-    public virtual void setSelectedIndex(int index)
-    {
+    void setSelectedIndex(int index) {
     }
+    
 
-    public virtual int getSelectedIndex()
-    {
+    int getSelectedIndex() {
         return 0;
     }
+    
 
-    public virtual void deleteAll()
-    {
+    void deleteAll() {
     }
+    
 
-    public virtual void delete(int itemNum)
-    {
+    void delete(int itemNum) {
     }
+    
 
-    public virtual int append(ABCustomItem item)
-    {
+    int append(ABCustomItem item) {
         return -1;
     }
+    
 
-    public virtual void insert(int itemNum, ABCustomItem item)
-    {
+    void insert(int itemNum, ABCustomItem item) {
     }
+    
 
-    public virtual void set(int itemNum, ABCustomItem item)
-    {
+    void set(int itemNum, ABCustomItem item) {
     }
+    
 
-    public virtual ABCustomItem get(int itemNum)
-    {
+    ABCustomItem get(int itemNum) {
         return ABCustomItem.getNullInstance();
     }
+    
 
-    public virtual int getWidth()
-    {
-        throw new SystemException();
+    int getWidth() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual string getTitle()
-    {
+    String getTitle() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
-
 }
 

@@ -13,27 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/health/HealthBarAnimation.dart';
 
-namespace org.allbinary.game.health;
+class HealthBarTwodAnimation extends HealthBarAnimation {
+    
 
-public class HealthBarTwodAnimation : HealthBarAnimation
-{
-    public HealthBarTwodAnimation(AllBinaryLayer layerInterface, int location) : base(layerInterface, location)
-    {
-        // base(layerInterface, location) is called from the constructor declaration
+    HealthBarTwodAnimation(AllBinaryLayer layerInterface, int location) : super(layerInterface, location) {
+        
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        int ax = this.allbinaryLayer.getViewPosition().getX();
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        final int ax = this.allbinaryLayer.getViewPosition().getX();
         this.basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.colorP);
         graphics.fillRect(ax, this.getY() - 1, this.x2, this.thickness);
     }
-
 }
 

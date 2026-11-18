@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.communication.log
 
 import 'package:allbinary/allbinary_java.dart';
@@ -26,8 +26,11 @@ class ForcedLogUtil {
     static void log(String message, Object anyType) {
         try {
             throw JException('Exception', message);
-        } catch (e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             PreLogUtil.putOE(CommonStrings.getInstance().EXCEPTION, anyType, "log", e);
+            }
         }
     }
 }

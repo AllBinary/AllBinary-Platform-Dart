@@ -13,36 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.game.collision;
+class CollisionHelper {
+    late AllBinaryLayer sourceLayerInterface;
 
-public class CollisionHelper
-{
-    public AllBinaryLayer sourceLayerInterface;
-    public CollisionHelper(AllBinaryLayer sourceLayerInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCollisionHelper() {
+    
+    }
+    
+
+    CollisionHelper(AllBinaryLayer sourceLayerInterface) {
+        this.initFieldsCollisionHelper();
         this.sourceLayerInterface = sourceLayerInterface;
     }
+    
 
-    public virtual bool isCollidable(CollidableCompositeLayer layerInterface)
-    {
+    bool isCollidable(CollidableCompositeLayer layerInterface) {
         return true;
     }
+    
 
-    public virtual AllBinaryLayer getOwnerLayerInterface()
-    {
+    AllBinaryLayer getOwnerLayerInterface() {
         return this.sourceLayerInterface;
     }
+    
 
-    public virtual void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface)
-    {
+    void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface) {
         this.sourceLayerInterface = sourceLayerInterface;
     }
-
 }
 

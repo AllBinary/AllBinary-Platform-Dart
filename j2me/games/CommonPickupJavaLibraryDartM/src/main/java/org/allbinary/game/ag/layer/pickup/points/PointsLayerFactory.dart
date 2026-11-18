@@ -13,27 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.points
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/pickup/points/PointsLayer.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+class PointsLayerFactory implements AllBinaryLayerFactoryInterface {
+    int points = 0;
 
-public class PointsLayerFactory : AllBinaryLayerFactoryInterface
-{
-    private readonly int points;
-    public PointsLayerFactory(int points)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPointsLayerFactory() {
+    
+    }
+    
+
+    PointsLayerFactory(int points) {
+        this.initFieldsPointsLayerFactory();
         this.points = points;
     }
+    
 
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
-        return new PointsLayer(this.points);
+    @override
+    AllBinaryLayer getInstance() {
+        return PointsLayer(this.points);
     }
-
 }
 

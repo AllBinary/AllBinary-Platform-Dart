@@ -13,50 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/PoolInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
 
-namespace org.allbinary.logic.util.cache;
+class AbstractArrayListPool implements PoolInterface {
+    late CommonStrings commonStrings;
+    late BasicArrayList buffers;
+    late CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface;
 
-public class AbstractArrayListPool : PoolInterface
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public BasicArrayList buffers = new BasicArrayListD();
-    public CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface;
-    public AbstractArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAbstractArrayListPool() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.buffers = BasicArrayListD();
+    
+    }
+    
+
+    AbstractArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) {
+        this.initFieldsAbstractArrayListPool();
         this.cacheableInterfaceFactoryInterface = cacheableInterfaceFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual void clear()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    @override
+    void clear() {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    // throws Exception
-    public virtual CacheableInterface remove(object key)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    @override
+    CacheableInterface remove(Object key) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    // throws Exception
-    public virtual void add(CacheableInterface cacheableInterface)
-    {
+    @override
+    void add(CacheableInterface cacheableInterface) {
         this.buffers.add(cacheableInterface);
     }
+    
 
-    // throws Exception
-    public virtual void addArray(CacheableInterface[] cacheableInterfaces)
-    {
-        for (int index = 0; index < cacheableInterfaces.Length; index++) {
-            this.buffers.add(cacheableInterfaces[index]);
+    @override
+    void addArray(List<CacheableInterface?> cacheableInterfaces) {
+        for (int index = 0; index < cacheableInterfaces.length; index++) {
+            this.buffers.add(cacheableInterfaces[index]!);
         }
     }
-
 }
 

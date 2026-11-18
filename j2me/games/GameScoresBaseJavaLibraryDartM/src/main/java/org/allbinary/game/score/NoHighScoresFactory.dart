@@ -13,38 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresBase.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresResultsListener.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBase.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBaseInterface.dart';
 
-namespace org.allbinary.game.score;
+class NoHighScoresFactory extends HighScoresBase {
+    static final NoHighScoresFactory instance = NoHighScoresFactory();
+    late LogUtil logUtil;
+    late List<HighScores?> NO_HIGH_SCORES;
 
-public class NoHighScoresFactory : HighScoresBase
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly NoHighScoresFactory instance = new NoHighScoresFactory();
-    public static NoHighScoresFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNoHighScoresFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.NO_HIGH_SCORES = List<HighScores?>.filled(0, null);
+    }
+    
+
+    static NoHighScoresFactory getInstance() {
         return NoHighScoresFactory.instance;
     }
+    
 
-    public readonly HighScores[] NO_HIGH_SCORES = new HighScores[0];
-    private NoHighScoresFactory()
-    {
+    NoHighScoresFactory() {
+        this.initFieldsNoHighScoresFactory();
     }
+    
 
-    public override void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener)
-    {
+    @override
+    void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener) {
         this.logUtil.putF("Getting No HighScores", this, "fetchHighScores");
         highScoresResultsListener.setHighScoresArray(this.NO_HIGH_SCORES);
     }
+    
 
-    public override HighScoresHelperBaseInterface createHighScoresHelper()
-    {
-        return new HighScoresHelperBase();
+    @override
+    HighScoresHelperBaseInterface createHighScoresHelper() {
+        return HighScoresHelperBase();
     }
-
 }
 

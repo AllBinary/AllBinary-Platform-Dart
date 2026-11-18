@@ -13,31 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gyro.action
 
-using System;
-using System.Linq;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using OrientationMotionGestureFactory = org.allbinary.input.gyro.OrientationMotionGestureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformInputMappingFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/input/gyro/OrientationMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
 
-namespace org.allbinary.input.motion.gyro.action;
+class LeftOrientationInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class LeftOrientationInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyCompleteMotionGestureInputEvent getInstance()
-    {
+    static GameKeyCompleteMotionGestureInputEvent getInstance() {
         if (LeftOrientationInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
-            LeftOrientationInputToGameKeyEventAction.instance = new LeftOrientationInputToGameKeyEventAction();
+            LeftOrientationInputToGameKeyEventAction.instance = LeftOrientationInputToGameKeyEventAction();
         }
-        return ((GameKeyCompleteMotionGestureInputEvent) LeftOrientationInputToGameKeyEventAction.instance);
+        return (LeftOrientationInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent);
     }
+    
 
-    private LeftOrientationInputToGameKeyEventAction() : base("Left Action", OrientationMotionGestureFactory.getInstance().LEFT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping())
-    {
-        // base("Left Action", OrientationMotionGestureFactory.getInstance().LEFT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) is called from the constructor declaration
+    LeftOrientationInputToGameKeyEventAction() : super("Left Action", OrientationMotionGestureFactory.getInstance().LEFT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) {
+        
     }
-
 }
 

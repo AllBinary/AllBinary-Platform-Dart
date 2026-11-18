@@ -13,23 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
 
-namespace org.allbinary.logic.util.cache;
+class NoCacheableFactory implements CacheableInterfaceFactoryInterface {
+    
 
-public class NoCacheableFactory : CacheableInterfaceFactoryInterface
-{
-    public NoCacheableFactory()
-    {
+    NoCacheableFactory() {
     }
+    
 
-    // throws Exception
-    public virtual CacheableInterface getInstance(object key)
-    {
-        throw new Exception("This Factory Does Not");
+    @override
+    CacheableInterface getInstance1(Object key) {
+        throw JException('Exception', "This Factory Does Not");
     }
-
 }
 

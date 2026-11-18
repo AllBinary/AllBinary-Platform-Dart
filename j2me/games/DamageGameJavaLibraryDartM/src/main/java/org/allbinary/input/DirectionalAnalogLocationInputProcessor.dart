@@ -13,36 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input
 
-using System;
-using System.Linq;
-using AnalogLocationInputProcessor = org.allbinary.android.input.motion.AnalogLocationInputProcessor;
-using GameInputProcessor = org.allbinary.game.input.GameInputProcessor;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using AnalogLocationInput = org.allbinary.game.input.analog.AnalogLocationInput;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/android/input/motion/AnalogLocationInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/analog/AnalogLocationInput.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/CustomGPoint.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.input;
+class DirectionalAnalogLocationInputProcessor extends AnalogLocationInputProcessor implements GameKeyEventSourceInterface {
+    late LogUtil logUtil;
+    late List<GameInputProcessor?> inputProcessorArray;
+    late GameKeyFactory gameKeyFactory;
+    late GameKeyEvent leftGameKeyEvent;
+    late GameKeyEvent rightGameKeyEvent;
+    late GameKeyEvent upGameKeyEvent;
+    late GameKeyEvent downGameKeyEvent;
+    late GameKeyEvent leftTriggerGameKeyEvent;
+    late GameKeyEvent rightTriggerGameKeyEvent;
 
-public class DirectionalAnalogLocationInputProcessor : AnalogLocationInputProcessor, GameKeyEventSourceInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly GameInputProcessor[] inputProcessorArray;
-    private readonly GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-    private GameKeyEvent leftGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent rightGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent upGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent downGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent leftTriggerGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent rightTriggerGameKeyEvent = GameKeyEvent.NONE;
-    public DirectionalAnalogLocationInputProcessor(GameInputProcessor[] inputProcessorArray)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDirectionalAnalogLocationInputProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.gameKeyFactory = GameKeyFactory.getInstance();
+    this.leftGameKeyEvent = GameKeyEvent.NONE;
+    this.rightGameKeyEvent = GameKeyEvent.NONE;
+    this.upGameKeyEvent = GameKeyEvent.NONE;
+    this.downGameKeyEvent = GameKeyEvent.NONE;
+    this.leftTriggerGameKeyEvent = GameKeyEvent.NONE;
+    this.rightTriggerGameKeyEvent = GameKeyEvent.NONE;
+    }
+    
+
+    DirectionalAnalogLocationInputProcessor(List<GameInputProcessor?> inputProcessorArray) {
+        this.initFieldsDirectionalAnalogLocationInputProcessor();
         this.inputProcessorArray = inputProcessorArray;
         try {
             this.leftGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.LEFT);
@@ -51,47 +64,54 @@ public class DirectionalAnalogLocationInputProcessor : AnalogLocationInputProces
             this.downGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.DOWN);
             this.leftTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.KEY_NUM0);
             this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.KEY_NUM5);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            }
         }
     }
+    
 
-    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInput analogLocationInput)
-    {
+    @override
+    void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInput analogLocationInput) {
         try {
-            CustomGPoint customGPoint = null;
+            late CustomGPoint customGPoint;
             customGPoint = analogLocationInput.getCustomGPoint();
             int x = customGPoint.getX();
             int y = customGPoint.getY();
             int leftTrigger = analogLocationInput.getLeftTrigger();
             int rightTrigger = analogLocationInput.getRightTrigger();
             if (x < 0) {
-                this.inputProcessorArray[this.leftGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.leftGameKeyEvent, x);
+                this.inputProcessorArray[this.leftGameKeyEvent.getKey()]!.processAnalog(allbinaryLayerManager, this.leftGameKeyEvent, x);
             } else if (x > 0) {
-                this.inputProcessorArray[this.rightGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightGameKeyEvent, x);
+                this.inputProcessorArray[this.rightGameKeyEvent.getKey()]!.processAnalog(allbinaryLayerManager, this.rightGameKeyEvent, x);
             }
             if (y < 0) {
-                this.inputProcessorArray[this.downGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.downGameKeyEvent, y);
+                this.inputProcessorArray[this.downGameKeyEvent.getKey()]!.processAnalog(allbinaryLayerManager, this.downGameKeyEvent, y);
             } else if (y > 0) {
-                this.inputProcessorArray[this.upGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.upGameKeyEvent, y);
+                this.inputProcessorArray[this.upGameKeyEvent.getKey()]!.processAnalog(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
             if (leftTrigger > 0) {
-                this.inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
+                this.inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()]!.processAnalog(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
             }
             if (rightTrigger > 0) {
-                this.inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
+                this.inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()]!.processAnalog(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put("Unable to process analog input", this, commonStrings.PROCESS, e);
+            }
         }
     }
+    
 
-    public virtual int getSourceId()
-    {
+    @override
+    int getSourceId() {
         return 0;
     }
-
 }
 

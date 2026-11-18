@@ -13,26 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
 
-namespace org.allbinary.graphics.form;
+class ItemIndexDx {
+    static final ItemIndexDx instance = ItemIndexDx();
+    
 
-public class ItemIndexDx
-{
-    private static readonly ItemIndexDx instance = new ItemIndexDx();
-    public static ItemIndexDx getInstance()
-    {
+    static ItemIndexDx getInstance() {
         return ItemIndexDx.instance;
     }
+    
 
-    // throws Exception
-    public virtual int getDx(int index, ABCustomItem item, int dx, int dy)
-    {
+    int getDx(int index, ABCustomItem item, int dx, int dy) {
         return 0;
     }
-
 }
 

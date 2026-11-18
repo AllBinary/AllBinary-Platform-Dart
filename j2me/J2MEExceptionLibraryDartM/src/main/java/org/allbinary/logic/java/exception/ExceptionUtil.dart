@@ -13,7 +13,7 @@
  *   
  */
 // Generated Code Do Not Modify
-// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
 // package org.allbinary.logic.java.exception
 
 import 'package:allbinary/allbinary_java.dart';
@@ -46,7 +46,7 @@ class ExceptionUtil {
         final ByteArrayOutputStream bs = ByteArrayOutputStream();
         e.printStackTrace();
         final String output = bs.toString();
-        return output;
+        return jNewString(output);
     }
 }
 

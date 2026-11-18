@@ -13,46 +13,44 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
 
-namespace org.allbinary.media.image;
+class ImageModifierUtil {
+    static final ImageModifierUtil instance = ImageModifierUtil();
+    
 
-public class ImageModifierUtil
-{
-    private static readonly ImageModifierUtil instance = new ImageModifierUtil();
-    public static ImageModifierUtil getInstanceOrCreate()
-    {
+    static ImageModifierUtil getInstanceOrCreate() {
         return ImageModifierUtil.instance;
     }
+    
 
-    public virtual void setColor(Image unusedOriginalImage, Image image, int imageIndex, BasicColor basicColor)
-    {
+    void setColor(Image unusedOriginalImage, Image image, int imageIndex, BasicColor basicColor) {
     }
+    
 
-    public virtual void changeColor(Image unusedOriginalImage, Image image, int imageIndex, BasicColor basicColor)
-    {
+    void changeColor(Image unusedOriginalImage, Image image, int imageIndex, BasicColor basicColor) {
     }
+    
 
-    public virtual void setAlpha(Image originalImage, Image image, int imageIndex, int alphaInt)
-    {
+    void setAlpha(Image originalImage, Image image, int imageIndex, int alphaInt) {
     }
+    
 
-    public virtual Image[] getImageArray(Image[] originalImageArray)
-    {
+    List<Image?> getImageArray(List<Image?> originalImageArray) {
         return originalImageArray;
     }
+    
 
-    public virtual void handleImage(Image[] imageArray, int index, Image image)
-    {
+    void handleImage(List<Image?> imageArray, int index, Image image) {
     }
+    
 
-    public virtual void reset()
-    {
+    void reset() {
     }
-
 }
 

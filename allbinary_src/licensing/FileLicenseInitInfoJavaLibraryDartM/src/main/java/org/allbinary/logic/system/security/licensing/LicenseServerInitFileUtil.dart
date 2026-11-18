@@ -13,52 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using OutputStream = java.io.OutputStream;
-using LicenseInitInfoUtil = org.allbinary.business.init.LicenseInitInfoUtil;
-using ResourceUtil = org.allbinary.data.resource.ResourceUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using FileStreamFactory = org.allbinary.logic.io.FileStreamFactory;
-using StreamUtil = org.allbinary.logic.io.StreamUtil;
-using FileFactory = org.allbinary.logic.io.file.FileFactory;
-using SimpleFileUtil = org.allbinary.logic.io.file.SimpleFileUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/java/io/OutputStream.dart';
+import 'package:allbinary/org/allbinary/business/init/LicenseInitInfoUtil.dart';
+import 'package:allbinary/org/allbinary/data/resource/ResourceUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/FileStreamFactory.dart';
+import 'package:allbinary/org/allbinary/logic/io/StreamUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/FileFactory.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/SimpleFileUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.logic.system.security.licensing;
+class LicenseServerInitFileUtil {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late OutputStream NULL_OUTPUT_STREAM;
 
-public class LicenseServerInitFileUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly OutputStream NULL_OUTPUT_STREAM = SimpleFileUtil.nullOutputStream();
-    public void init()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLicenseServerInitFileUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.NULL_OUTPUT_STREAM = SimpleFileUtil.nullOutputStream();
+    }
+
+    LicenseServerInitFileUtil() {
+        this.initFieldsLicenseServerInitFileUtil();
+    }
+    
+
+    void init() {
         try {
-            string filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
+            final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
             if (FileFactory.getInstance().isFile(filePath)) {
                 this.logUtil.putF("Using Existing License File", this, this.commonStrings.INIT);
             } else {
                 this.write();
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            }
         }
     }
+    
 
-    private void write()
-    {
+    void write() {
         OutputStream fileOutputStream = this.NULL_OUTPUT_STREAM;
         try {
-            ResourceUtil resourceUtil = ResourceUtil.getInstance();
-            string filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
-            InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
+            final InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
             this.logUtil.putF("Writing Default License File", this, this.commonStrings.INIT);
-            FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
+            final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
             fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, filePath);
             int b = 0;
             int index = 0;
@@ -70,14 +83,16 @@ public class LicenseServerInitFileUtil
                 fileOutputStream.write(b);
                 index++;
             }
-            this.logUtil.putF("Wrote Bytes: " + index, this, this.commonStrings.INIT);
+            this.logUtil.putF("Wrote Bytes: " + jstr(index), this, this.commonStrings.INIT);
             fileOutputStream.flush();
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            }
         } finally {
             StreamUtil.getInstance().close(fileOutputStream);
         }
     }
-
 }
 

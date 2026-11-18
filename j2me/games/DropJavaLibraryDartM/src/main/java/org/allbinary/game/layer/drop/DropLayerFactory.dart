@@ -13,54 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.drop
 
-using System;
-using System.Linq;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
 
-namespace org.allbinary.game.layer.drop;
+class DropLayerFactory {
+    static final DropLayerFactory DROP_LAYER_FACTORY = DropLayerFactory();
+    late BasicArrayList list;
+    late BasicArrayListUtil basicArrayListUtil;
 
-public class DropLayerFactory
-{
-    private static readonly DropLayerFactory DROP_LAYER_FACTORY = new DropLayerFactory();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private DropLayerFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDropLayerFactory() {
+    this.list = BasicArrayListD();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
     }
+    
 
-    public virtual void clear()
-    {
+    DropLayerFactory() {
+        this.initFieldsDropLayerFactory();
+    }
+    
+
+    void clear() {
         this.list.clear();
     }
+    
 
-    public static DropLayerFactory getInstance()
-    {
+    static DropLayerFactory getInstance() {
         return DropLayerFactory.DROP_LAYER_FACTORY;
     }
+    
 
-    public virtual int getSize()
-    {
+    int getSize() {
         return this.list.size();
     }
+    
 
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    public virtual PickedUpLayerInterfaceFactoryInterface getRandomInstance()
-    {
-        return ((PickedUpLayerInterfaceFactoryInterface) this.basicArrayListUtil.getRandom(this.list));
+    PickedUpLayerInterfaceFactoryInterface getRandomInstance() {
+        return (this.basicArrayListUtil.getRandom(this.list) as PickedUpLayerInterfaceFactoryInterface);
     }
+    
 
-    public virtual void add(PickedUpLayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
-    {
+    void add(PickedUpLayerInterfaceFactoryInterface layerInterfaceFactoryInterface) {
         this.list.add(layerInterfaceFactoryInterface);
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

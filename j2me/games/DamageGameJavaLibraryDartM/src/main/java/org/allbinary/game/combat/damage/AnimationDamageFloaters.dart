@@ -13,68 +13,82 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.damage
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/game/combat/damage/DamageFloaters.dart';
 
-namespace org.allbinary.game.combat.damage;
+class AnimationDamageFloaters extends DamageFloaters {
+    late LogUtil logUtil;
+    late AllBinaryLayer layerInterface;
+    late List<IndexedAnimation?> animationInterfaceArray;
+    late CircularIndexUtil circularIndexUtil;
+    int dx = 0;
+    int dy = 0;
 
-public class AnimationDamageFloaters : DamageFloaters
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private AllBinaryLayer layerInterface;
-    private IndexedAnimation[] animationInterfaceArray;
-    private readonly CircularIndexUtil circularIndexUtil;
-    private int dx;
-    private int dy;
-    public AnimationDamageFloaters(AllBinaryLayer layerInterface, IndexedAnimation[] animationInterfaceArray, int dx, int dy)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAnimationDamageFloaters() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    
+    
+    
+    }
+    
+
+    AnimationDamageFloaters(AllBinaryLayer layerInterface, List<IndexedAnimation?> animationInterfaceArray, int dx, int dy) {
+        this.initFieldsAnimationDamageFloaters();
         this.animationInterfaceArray = animationInterfaceArray;
-        for (int index = this.animationInterfaceArray.Length - 1; index >= 0; index--) {
-            this.animationInterfaceArray[index].setFrame(this.animationInterfaceArray[index].getSize() - 1);
+        for (int index = this.animationInterfaceArray.length - 1; index >= 0; index--) {
+            this.animationInterfaceArray[index]!.setFrame(this.animationInterfaceArray[index]!.getSize() - 1);
         }
         this.layerInterface = layerInterface;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.Length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void add(int damage)
-    {
+    @override
+    void add(int damage) {
         int i = this.circularIndexUtil.getIndex();
-        this.animationInterfaceArray[i].setFrame(0);
+        this.animationInterfaceArray[i]!.setFrame(0);
         this.circularIndexUtil.next();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         try {
-            ViewPositionBase viewPosition = this.layerInterface.getViewPosition();
-            int x = viewPosition.getX();
-            int y = viewPosition.getY();
-            for (int index = 0; index < this.animationInterfaceArray.Length; index++) {
-                IndexedAnimation animationInterface = this.animationInterfaceArray[index];
+            final ViewPositionBase viewPosition = this.layerInterface.getViewPosition();
+            final int x = viewPosition.getX();
+            final int y = viewPosition.getY();
+            for (int index = 0; index < this.animationInterfaceArray.length; index++) {
+                IndexedAnimation animationInterface = this.animationInterfaceArray[index]!;
                 if (animationInterface.getFrame() < animationInterface.getAnimationSize() - 1) {
                     int delta = animationInterface.getFrame() * 20;
                     animationInterface.paintXY(graphics, x + this.dx, y - delta + this.dy);
                     animationInterface.nextFrame();
                 }
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            CanvasStrings canvasStrings = CanvasStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            final CanvasStrings canvasStrings = CanvasStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
+            }
         }
     }
-
 }
 

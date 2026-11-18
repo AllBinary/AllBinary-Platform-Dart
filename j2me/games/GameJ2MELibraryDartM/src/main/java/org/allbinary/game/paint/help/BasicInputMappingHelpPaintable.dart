@@ -13,63 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint.help
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using Input = org.allbinary.game.input.Input;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameInputMapping = org.allbinary.game.input.mapping.GameInputMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/PlatformInputMappingFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/GameInputMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/PersistentInputMapping.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/paint/help/HelpPaintable.dart';
 
-namespace org.allbinary.game.paint.help;
+class BasicInputMappingHelpPaintable extends HelpPaintable {
+    late List<GameInputMapping?> gameInputMappingArray;
+    late GameKey NONE;
 
-public class BasicInputMappingHelpPaintable : HelpPaintable
-{
-    private GameInputMapping[] gameInputMappingArray;
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    public BasicInputMappingHelpPaintable(GameInputMapping[] gameInputMappingArray, BasicColor basicColor) : base("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor)
-    {
-        // base("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsBasicInputMappingHelpPaintable() {
+    
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    }
+    
+
+    BasicInputMappingHelpPaintable(List<GameInputMapping?> gameInputMappingArray, BasicColor basicColor) : super("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor) {
+        this.initFieldsBasicInputMappingHelpPaintable();
+        
         this.gameInputMappingArray = gameInputMappingArray;
         this.update(this.NONE, this.NONE);
     }
+    
 
-    public virtual void update(GameKey selectedGameKey, Input selectedInput)
-    {
-        PersistentInputMapping gameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
-        string EQUAL = " = ";
-        StringMaker stringMaker = new StringMaker();
-        int size = this.gameInputMappingArray.Length;
-        string[] keyInfo = new string[size];
-        GameInputMapping gameInputMapping = null;
-        GameKey gameKey = null;
-        BasicArrayList list = null;
+    void update(GameKey selectedGameKey, Input selectedInput) {
+        final PersistentInputMapping gameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
+        final String EQUAL = " = ";
+        final StringMaker stringMaker = StringMaker();
+        final int size = this.gameInputMappingArray.length;
+        final List<String?> keyInfo = List<String?>.filled(size, null);
+        late GameInputMapping gameInputMapping;
+        late GameKey gameKey;
+        late BasicArrayList list;
         for (int index = 0; index < size; index++) {
-            gameInputMapping = this.gameInputMappingArray[index];
+            gameInputMapping = this.gameInputMappingArray[index]!;
             gameKey = gameInputMapping.getGameKey();
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             stringMaker.delete(0, stringMaker.length());
-            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)).ToString();
+            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)).toString();
         }
-        base.setInputInfoP(keyInfo);
+        super.setInputInfoP(keyInfo);
     }
+    
 
-    private string get(BasicArrayList keyList)
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        StringMaker stringBuffer = new StringMaker();
-        string AND = "and ";
-        Input key = null;
-        int size = keyList.size();
+    String get(BasicArrayList keyList) {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final StringMaker stringBuffer = StringMaker();
+        final String AND = "and ";
+        late Input key;
+        final int size = keyList.size();
         for (int index = 0; index < size; index++) {
-            key = ((Input) keyList.objectArray[index]);
+            key = (keyList.objectArray[index]! as Input);
             stringBuffer.append(key.getName());
             if (index + 1 < keyList.size()) {
                 if (keyList.size() == 2) {
@@ -84,8 +91,7 @@ public class BasicInputMappingHelpPaintable : HelpPaintable
                 }
             }
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

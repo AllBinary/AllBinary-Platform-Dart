@@ -13,64 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using LocalPlayerInputIdFactory = org.allbinary.game.input.LocalPlayerInputIdFactory;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/LocalPlayerInputIdFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/DownKeyEventHandlerBase.dart';
 
-namespace org.allbinary.game.input.@event;
+class DownKeyEventHandler extends DownKeyEventHandlerBase {
+    static final DownKeyEventHandler instance = DownKeyEventHandler();
+    static final List<DownKeyEventHandlerBase?> instanceArray = <DownKeyEventHandlerBase?>[DownKeyEventHandlerBase(), DownKeyEventHandlerBase(), DownKeyEventHandlerBase(), DownKeyEventHandlerBase(), DownKeyEventHandlerBase(), DownKeyEventHandlerBase()];
+    late LocalPlayerInputIdFactory playerInputIdFactory;
 
-public class DownKeyEventHandler : DownKeyEventHandlerBase
-{
-    private static readonly DownKeyEventHandler instance = new DownKeyEventHandler();
-    private static readonly DownKeyEventHandlerBase[] instanceArray = new DownKeyEventHandlerBase[] { new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase() };
-    public static DownKeyEventHandler getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDownKeyEventHandler() {
+    this.playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
+    }
+    
+
+    static DownKeyEventHandler getInstance() {
         return DownKeyEventHandler.instance;
     }
+    
 
-    private readonly LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
-    public virtual DownKeyEventHandlerBase getInstanceForDevice(int deviceId)
-    {
-        int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-        return DownKeyEventHandler.instanceArray[playerInputId];
+    DownKeyEventHandlerBase getInstanceForDevice(int deviceId) {
+        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
+        return DownKeyEventHandler.instanceArray[playerInputId]!;
     }
+    
 
-    public virtual DownKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
-    {
-        return DownKeyEventHandler.instanceArray[playerInputId];
+    DownKeyEventHandlerBase getInstanceForPlayer(int playerInputId) {
+        return DownKeyEventHandler.instanceArray[playerInputId]!;
     }
+    
 
-    private DownKeyEventHandler()
-    {
+    DownKeyEventHandler() {
+        this.initFieldsDownKeyEventHandler();
     }
+    
 
-    public override void removeAllListeners()
-    {
-        base.removeAllListeners();
-        for (int index = DownKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            DownKeyEventHandler.instanceArray[index].removeAllListeners();
+    @override
+    void removeAllListeners() {
+        super.removeAllListeners();
+        for (int index = DownKeyEventHandler.instanceArray.length - 1; index >= 0; index--) {
+            DownKeyEventHandler.instanceArray[index]!.removeAllListeners();
         }
     }
+    
 
-    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
-        base.removeListenerSingleThreaded(eventListenerInterface);
-        for (int index = DownKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            DownKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+    @override
+    void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
+        super.removeListenerSingleThreaded(eventListenerInterface);
+        for (int index = DownKeyEventHandler.instanceArray.length - 1; index >= 0; index--) {
+            DownKeyEventHandler.instanceArray[index]!.removeListenerSingleThreaded(eventListenerInterface);
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
-        base.removeListener(eventListenerInterface);
-        for (int index = DownKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            DownKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
+    @override
+    void removeListener(EventListenerInterface eventListenerInterface) {
+        super.removeListener(eventListenerInterface);
+        for (int index = DownKeyEventHandler.instanceArray.length - 1; index >= 0; index--) {
+            DownKeyEventHandler.instanceArray[index]!.removeListener(eventListenerInterface);
         }
     }
-
 }
 

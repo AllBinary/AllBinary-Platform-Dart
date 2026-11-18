@@ -13,111 +13,126 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-using ByteArrayOutputStream = java.io.ByteArrayOutputStream;
-using InputStream = java.io.InputStream;
-using OutputStream = java.io.OutputStream;
-using Reader = java.io.Reader;
-using Writer = java.io.Writer;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using NullOutputStream = org.allbinary.logic.io.NullOutputStream;
-using NullReader = org.allbinary.logic.io.NullReader;
-using NullWriter = org.allbinary.logic.io.NullWriter;
-using StreamUtil = org.allbinary.logic.io.StreamUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayOutputStream.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/java/io/OutputStream.dart';
+import 'package:allbinary/java/io/Reader.dart';
+import 'package:allbinary/java/io/Writer.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/NullOutputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/NullReader.dart';
+import 'package:allbinary/org/allbinary/logic/io/NullWriter.dart';
+import 'package:allbinary/org/allbinary/logic/io/StreamUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.logic.io.file;
+class SimpleFileUtil {
+    static final SimpleFileUtil instance = SimpleFileUtil();
+    late LogUtil logUtil;
+    late Writer NULL_WRITER;
+    late Reader NULL_READER;
+    late CommonStrings commonStrings;
+    late NullUtil nullUtil;
+    late StreamUtil streamUtil;
 
-public class SimpleFileUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly SimpleFileUtil instance = new SimpleFileUtil();
-    public static SimpleFileUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSimpleFileUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.NULL_WRITER = SimpleFileUtil.nullWriter();
+    this.NULL_READER = SimpleFileUtil.nullReader();
+    this.commonStrings = CommonStrings.getInstance();
+    this.nullUtil = NullUtil.getInstance();
+    this.streamUtil = StreamUtil.getInstance();
+    }
+
+    SimpleFileUtil() {
+        this.initFieldsSimpleFileUtil();
+    }
+    
+
+    static SimpleFileUtil getInstance() {
         return SimpleFileUtil.instance;
     }
+    
 
-    public static OutputStream nullOutputStream()
-    {
+    static OutputStream nullOutputStream() {
         return NullOutputStream.NULL_OUTPUT_STREAM;
     }
+    
 
-    public static Writer nullWriter()
-    {
+    static Writer nullWriter() {
         return NullWriter.NULL_WRITER;
     }
+    
 
-    public static Reader nullReader()
-    {
+    static Reader nullReader() {
         return NullReader.NULL_READER;
     }
+    
 
-    public readonly Writer NULL_WRITER = SimpleFileUtil.nullWriter();
-    public readonly Reader NULL_READER = SimpleFileUtil.nullReader();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly NullUtil nullUtil = NullUtil.getInstance();
-    private readonly StreamUtil streamUtil = StreamUtil.getInstance();
-    public virtual BasicArrayList loadFileAsList(InputStream inputStream, int max, sbyte[] byteArray1)
-    {
+    BasicArrayList loadFileAsList(InputStream inputStream, int max, List<int> byteArray1) {
         return this.loadFileAsListReturnLine(inputStream, max, byteArray1, 0);
     }
+    
 
-    public virtual BasicArrayList loadFileAsListReturnLine(InputStream inputStream, int max, sbyte[] byteArray1, int includeReturnLine)
-    {
-        BasicArrayList stringList = new BasicArrayListD();
+    BasicArrayList loadFileAsListReturnLine(InputStream inputStream, int max, List<int> byteArray1, int includeReturnLine) {
+        final BasicArrayList stringList = BasicArrayListD();
         if (inputStream == null) {
             return stringList;
         }
-        sbyte[] byteArray = this.nullUtil.NULL_BYTE_ARRAY;
+        List<int> byteArray = this.nullUtil.NULL_BYTE_ARRAY;
         try {
-            ByteArrayOutputStream outputStream2 = new ByteArrayOutputStream(max);
+            final ByteArrayOutputStream outputStream2 = ByteArrayOutputStream(max);
             byteArray = this.streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
             this.streamUtil.close(inputStream);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.streamUtil.close(inputStream);
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
+            }
         }
         if (byteArray == null) {
             return stringList;
         }
-        int size = byteArray.Length;
+        final int size = byteArray.length;
         int index = 0;
         int startIndex = 0;
         int returnLine = 0;
         while (index < size) {
             startIndex = index;
-            while (index < size - 1 && byteArray[index] != ((sbyte) '\n')) {
+            while (index < size - 1 && byteArray[index] != ("\n".codeUnitAt(0)).toSigned(8)) {
                 index++;
             }
             if (includeReturnLine == 0) {
-                if (index > 0 && byteArray[index - 1] == ((sbyte) '\r')) {
+                if (index > 0 && byteArray[index - 1] == ("\r".codeUnitAt(0)).toSigned(8)) {
                     returnLine = 1;
                 } else {
                     returnLine = 0;
                 }
             }
-            string s = System.Text.Encoding.UTF8.GetString((byte[]) (Array) byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex));
+            final String s = JString.fromChars(byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex));
             stringList.add(s);
             index++;
         }
         return stringList;
     }
+    
 
-    public virtual string createStringFromArrayOfStrings(string[] stringArray)
-    {
-        StringMaker stringMaker = new StringMaker();
-        int size = stringArray.Length;
+    String createStringFromArrayOfStrings(List<String?> stringArray) {
+        final StringMaker stringMaker = StringMaker();
+        final int size = stringArray.length;
         for (int index = 0; index < size; index++) {
-            stringMaker.append(stringArray[index]);
+            stringMaker.append(stringArray[index]!);
         }
-        return stringMaker.ToString();
+        return stringMaker.toString();
     }
-
 }
 

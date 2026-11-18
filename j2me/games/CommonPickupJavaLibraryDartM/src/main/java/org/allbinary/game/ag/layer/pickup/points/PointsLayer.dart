@@ -13,36 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.pickup.points
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/score/ScoreableInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/view/ViewPosition.dart';
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+class PointsLayer extends AllBinaryLayer {
+    int points = 0;
 
-public class PointsLayer : AllBinaryLayer
-{
-    private readonly int points;
-    public PointsLayer(int points) : base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD())
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsPointsLayer() {
+    
+    }
+    
+
+    PointsLayer(int points) : super(StringUtil.getInstance().EMPTY_STRING, Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) {
+        this.initFieldsPointsLayer();
+        
         this.points = points;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual void visit(ScoreableInterface scoreableInterface)
-    {
+    void visit(ScoreableInterface scoreableInterface) {
         scoreableInterface.addPoints(this.points);
     }
-
 }
 

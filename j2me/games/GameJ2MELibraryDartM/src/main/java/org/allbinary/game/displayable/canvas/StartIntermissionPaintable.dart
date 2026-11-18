@@ -13,103 +13,126 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Anchor = org.allbinary.graphics.Anchor;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BasicColorSetUtil = org.allbinary.graphics.color.BasicColorSetUtil;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using FontDebugFactory = org.allbinary.graphics.font.FontDebugFactory;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using InitUpdatePaintable = org.allbinary.graphics.paint.InitUpdatePaintable;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorSetUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/FontDebugFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/InitUpdatePaintable.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMyFontInterface {
+    late FontDebugFactory fontDebugFactory;
+    late BasicColorSetUtil basicSetColorUtil;
+    late AllBinaryGameCanvas gameCanvas;
+    late List<String?> stringArray;
+    int fontSize = 0;
+    late Font font;
+    late List<int> lastWidth;
+    late MyFontProcessor updateMyFontProcessor;
+    late MyFontProcessor myFontProcessor;
+    late BasicColor basicColor;
+    int color = 0;
+    late List<int> lineYOffsetArray;
+    bool hasChanged = false;
+    int anchor = 0;
+    int fontHeightP = 0;
+    late String BEGIN_LEVEL;
+    late String EMPTY_STRING;
 
-public class StartIntermissionPaintable : InitUpdatePaintable, UpdateMyFontInterface
-{
-    public readonly FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
-    public readonly BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-    public readonly AllBinaryGameCanvas gameCanvas;
-    public readonly string[] stringArray;
-    public readonly int fontSize;
-    public readonly Font font;
-    public readonly int[] lastWidth;
-    private readonly MyFontProcessor updateMyFontProcessor;
-    private MyFontProcessor myFontProcessor;
-    private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
-    private int color;
-    public int[] lineYOffsetArray = NullUtil.getInstance().NULL_INT_ARRAY;
-    private bool hasChanged = true;
-    private int anchor = Anchor.TOP_LEFT;
-    public int fontHeightP = 0;
-    public StartIntermissionPaintable(AllBinaryGameCanvas gameCanvas, string[] stringArray, BasicColor basicColor, Font font)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
+    // Java field initializers run after the base constructor
+    void initFieldsStartIntermissionPaintable() {
+    this.fontDebugFactory = FontDebugFactory.getInstance();
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    
+    
+    
+    
+    
+    this.updateMyFontProcessor = UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.basicColor = BasicColorFactory.getInstance().BLACK;
+    
+    this.lineYOffsetArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.hasChanged = true;
+    this.anchor = Anchor.TOP_LEFT;
+    this.fontHeightP = 0;
+    this.BEGIN_LEVEL = "Begin Level ";
+    this.EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    StartIntermissionPaintable(AllBinaryGameCanvas gameCanvas, List<String?> stringArray, BasicColor basicColor, Font font) {
+        this.initFieldsStartIntermissionPaintable();
         this.gameCanvas = gameCanvas;
         this.stringArray = stringArray;
-        this.lastWidth = new int[this.stringArray.Length];
+        this.lastWidth = List<int>.filled(this.stringArray.length, 0);
         this.setBasicColorP(basicColor);
         this.color = basicColor.intValue();
         this.fontSize = font.getSize();
         this.font = font;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.fontHeightP = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        Font existingFont = graphics.getFont();
+        final Font existingFont = graphics.getFont();
         this.fontDebugFactory.setFont(this.font, graphics);
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         this.basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.color);
         int beginWidth = 0;
-        for (int index = this.lineYOffsetArray.Length - 1; index >= 0; index--) {
+        for (int index = this.lineYOffsetArray.length - 1; index >= 0; index--) {
             if (this.hasChanged) {
-                this.lastWidth[index] = (graphics.getFont().stringWidth(this.stringArray[index]) >> 1);
+                this.lastWidth[index] = (graphics.getFont().stringWidth(this.stringArray[index]!) >> 1);
             }
             beginWidth = this.lastWidth[index];
-            graphics.drawString(this.stringArray[index], displayInfo.getLastHalfWidth() - beginWidth, displayInfo.getLastHalfHeight() - this.lineYOffsetArray[index], this.anchor);
+            graphics.drawString(this.stringArray[index]!, displayInfo.getLastHalfWidth() - beginWidth, displayInfo.getLastHalfHeight() - this.lineYOffsetArray[index], this.anchor);
         }
         this.hasChanged = false;
         this.fontDebugFactory.setFont(existingFont, graphics);
     }
+    
 
-    private readonly string BEGIN_LEVEL = "Begin Level ";
-    private readonly string EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-    public override void update()
-    {
+    @override
+    void update() {
         int level = this.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
-        this.stringArray[0] = new StringMaker().append(this.BEGIN_LEVEL).appendint(level).ToString();
-        for (int index = this.stringArray.Length - 1; index >= 1; index--) {
+        this.stringArray[0] = StringMaker().append(this.BEGIN_LEVEL).appendint(level).toString();
+        for (int index = this.stringArray.length - 1; index >= 1; index--) {
             this.stringArray[index] = this.EMPTY_STRING;
         }
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    BasicColor getBasicColorP() {
         return this.basicColor;
     }
-
 }
 

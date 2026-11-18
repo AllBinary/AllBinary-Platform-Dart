@@ -13,69 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonInput.dart';
 
-namespace org.allbinary.input.motion.button;
+class BasicTouchInputFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late TouchButtonInput SPECIAL_BUTTON_SEVEN_TESTING_ONLY;
+    late TouchButtonInput SPECIAL_BUTTON_EIGHT_TESTING_ONLY;
+    late TouchButtonInput SPECIAL_BUTTON_SIX;
+    late TouchButtonInput SPECIAL_BUTTON_FIVE;
+    late TouchButtonInput SPECIAL_BUTTON_FOUR;
+    late TouchButtonInput SPECIAL_BUTTON_THREE;
+    late TouchButtonInput SPECIAL_BUTTON_TWO;
+    late TouchButtonInput SPECIAL_BUTTON_ONE;
+    late TouchButtonInput UP;
+    late TouchButtonInput LEFT;
+    late TouchButtonInput RIGHT;
+    late TouchButtonInput DOWN;
+    late TouchButtonInput NONE;
+    bool initialized = false;
+    late BasicArrayList list;
 
-public class BasicTouchInputFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static BasicTouchInputFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicTouchInputFactory() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    this.initialized = false;
+    this.list = BasicArrayListD();
+    }
+    
+
+    static BasicTouchInputFactory getInstance() {
         if (BasicTouchInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            BasicTouchInputFactory.instance = new BasicTouchInputFactory();
+            BasicTouchInputFactory.instance = BasicTouchInputFactory();
         }
-        return ((BasicTouchInputFactory) BasicTouchInputFactory.instance);
+        return (BasicTouchInputFactory.instance as BasicTouchInputFactory);
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly TouchButtonInput SPECIAL_BUTTON_SEVEN_TESTING_ONLY;
-    public readonly TouchButtonInput SPECIAL_BUTTON_EIGHT_TESTING_ONLY;
-    public readonly TouchButtonInput SPECIAL_BUTTON_SIX;
-    public readonly TouchButtonInput SPECIAL_BUTTON_FIVE;
-    public readonly TouchButtonInput SPECIAL_BUTTON_FOUR;
-    public readonly TouchButtonInput SPECIAL_BUTTON_THREE;
-    public readonly TouchButtonInput SPECIAL_BUTTON_TWO;
-    public readonly TouchButtonInput SPECIAL_BUTTON_ONE;
-    public readonly TouchButtonInput UP;
-    public readonly TouchButtonInput LEFT;
-    public readonly TouchButtonInput RIGHT;
-    public readonly TouchButtonInput DOWN;
-    public readonly TouchButtonInput NONE;
-    private bool initialized = false;
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private BasicTouchInputFactory()
-    {
+    BasicTouchInputFactory() {
+        this.initFieldsBasicTouchInputFactory();
         int MAX = InputFactory.getInstance().MAX;
-        this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY = new TouchButtonInput(MAX - 41, "Button 7 - Testing Only May Cross Over Key Values");
-        this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY = new TouchButtonInput(MAX - 42, "Button 8 - Testing Only May Cross Over Key Values");
-        this.SPECIAL_BUTTON_SIX = new TouchButtonInput(MAX - 30, "Button 6");
-        this.SPECIAL_BUTTON_FIVE = new TouchButtonInput(MAX - 31, "Button 5");
-        this.SPECIAL_BUTTON_FOUR = new TouchButtonInput(MAX - 32, "Button 4");
-        this.SPECIAL_BUTTON_THREE = new TouchButtonInput(MAX - 33, "Button 3");
-        this.SPECIAL_BUTTON_TWO = new TouchButtonInput(MAX - 34, "Button 2");
-        this.SPECIAL_BUTTON_ONE = new TouchButtonInput(MAX - 35, "Button 1");
-        this.UP = new TouchButtonInput(MAX - 36, "Up Button");
-        this.LEFT = new TouchButtonInput(MAX - 37, "Left Button");
-        this.RIGHT = new TouchButtonInput(MAX - 38, "Right Button");
-        this.DOWN = new TouchButtonInput(MAX - 39, "Down Button");
-        this.NONE = new TouchButtonInput(MAX - 40, "No Button");
+        this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY = TouchButtonInput(MAX - 41, "Button 7 - Testing Only May Cross Over Key Values");
+        this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY = TouchButtonInput(MAX - 42, "Button 8 - Testing Only May Cross Over Key Values");
+        this.SPECIAL_BUTTON_SIX = TouchButtonInput(MAX - 30, "Button 6");
+        this.SPECIAL_BUTTON_FIVE = TouchButtonInput(MAX - 31, "Button 5");
+        this.SPECIAL_BUTTON_FOUR = TouchButtonInput(MAX - 32, "Button 4");
+        this.SPECIAL_BUTTON_THREE = TouchButtonInput(MAX - 33, "Button 3");
+        this.SPECIAL_BUTTON_TWO = TouchButtonInput(MAX - 34, "Button 2");
+        this.SPECIAL_BUTTON_ONE = TouchButtonInput(MAX - 35, "Button 1");
+        this.UP = TouchButtonInput(MAX - 36, "Up Button");
+        this.LEFT = TouchButtonInput(MAX - 37, "Left Button");
+        this.RIGHT = TouchButtonInput(MAX - 38, "Right Button");
+        this.DOWN = TouchButtonInput(MAX - 39, "Down Button");
+        this.NONE = TouchButtonInput(MAX - 40, "No Button");
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void init(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    void init(InputToGameKeyMapping inputToGameKeyMapping) {
         if (!this.initialized) {
             this.initialized = true;
             this.list.add(this.UP);
@@ -94,26 +113,25 @@ public class BasicTouchInputFactory
             this.updateAllFromList(this.list, inputToGameKeyMapping);
         }
     }
+    
 
-    public virtual void updateAll(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    void updateAll(InputToGameKeyMapping inputToGameKeyMapping) {
         this.updateAllFromList(this.list, inputToGameKeyMapping);
     }
+    
 
-    public virtual void updateAllFromList(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).ToString(), this, "updateAll");
-        TouchButtonInput touchButtonInput = null;
+    void updateAllFromList(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping) {
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this, "updateAll");
+        late TouchButtonInput touchButtonInput;
         for (int index = list.size() - 1; index >= 0; index--) {
-            touchButtonInput = ((TouchButtonInput) list.objectArray[index]);
+            touchButtonInput = (list.objectArray[index]! as TouchButtonInput);
             touchButtonInput.update(inputToGameKeyMapping);
         }
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    BasicArrayList getList() {
         return this.list;
     }
-
 }
 

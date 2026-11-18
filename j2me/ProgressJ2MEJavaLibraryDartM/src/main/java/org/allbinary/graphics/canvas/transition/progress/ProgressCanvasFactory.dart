@@ -13,32 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.canvas.transition.progress
 
-using System;
-using System.Linq;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
 
-namespace org.allbinary.graphics.canvas.transition.progress;
+class ProgressCanvasFactory {
+    static Object PROGRESS_FORM_SCREEN = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class ProgressCanvasFactory
-{
-    private static object PROGRESS_FORM_SCREEN = NullUtil.getInstance().NULL_OBJECT;
-    public static ProgressCanvas getInstance()
-    {
+    static ProgressCanvas getInstance() {
         if (ProgressCanvasFactory.PROGRESS_FORM_SCREEN == NullUtil.getInstance().NULL_OBJECT) {
-            ProgressCanvasFactory.PROGRESS_FORM_SCREEN = new ProgressCanvas(StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+            ProgressCanvasFactory.PROGRESS_FORM_SCREEN = ProgressCanvas(StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
         }
-        return ((ProgressCanvas) ProgressCanvasFactory.PROGRESS_FORM_SCREEN);
+        return (ProgressCanvasFactory.PROGRESS_FORM_SCREEN as ProgressCanvas);
     }
+    
 
-    public static PaintableInterface getLazyInstance()
-    {
+    static PaintableInterface getLazyInstance() {
         return NullPaintable.getInstance();
     }
-
 }
 

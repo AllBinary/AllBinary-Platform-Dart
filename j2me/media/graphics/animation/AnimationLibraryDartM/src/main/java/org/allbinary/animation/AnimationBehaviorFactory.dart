@@ -13,24 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class AnimationBehaviorFactory {
+    static final AnimationBehaviorFactory instance = AnimationBehaviorFactory();
+    
 
-public class AnimationBehaviorFactory
-{
-    private static readonly AnimationBehaviorFactory instance = new AnimationBehaviorFactory();
-    public static AnimationBehaviorFactory getInstance()
-    {
+    static AnimationBehaviorFactory getInstance() {
         return AnimationBehaviorFactory.instance;
     }
+    
 
-    public virtual AnimationBehavior getOrCreateInstance()
-    {
+    AnimationBehavior getOrCreateInstance() {
         return AnimationBehavior.getInstance();
     }
-
 }
 

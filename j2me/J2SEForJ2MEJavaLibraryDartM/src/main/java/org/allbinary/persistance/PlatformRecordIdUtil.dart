@@ -13,28 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.persistance
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
 
-namespace org.allbinary.persistance;
+class PlatformRecordIdUtil {
+    static final PlatformRecordIdUtil instance = PlatformRecordIdUtil();
+    late String PLATFORM_SHORT_NAME;
 
-public class PlatformRecordIdUtil
-{
-    private static readonly PlatformRecordIdUtil instance = new PlatformRecordIdUtil();
-    public static PlatformRecordIdUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPlatformRecordIdUtil() {
+    this.PLATFORM_SHORT_NAME = "JSE";
+    }
+
+    PlatformRecordIdUtil() {
+        this.initFieldsPlatformRecordIdUtil();
+    }
+    
+
+    static PlatformRecordIdUtil getInstance() {
         return PlatformRecordIdUtil.instance;
     }
+    
 
-    private readonly string PLATFORM_SHORT_NAME = "JSE";
-    public virtual string getRecordId(AbeClientInformationInterface abeClientInformation, string baseRecordId)
-    {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).ToString();
+    String getRecordId(AbeClientInformationInterface abeClientInformation, String baseRecordId) {
+        return StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).toString();
     }
-
 }
 

@@ -13,20 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.midlet;
+class MidletStrings {
+    static final MidletStrings instance = MidletStrings();
+    late String COMMAND_ACTION;
 
-public class MidletStrings
-{
-    private static readonly MidletStrings instance = new MidletStrings();
-    public static MidletStrings getInstance()
-    {
-        return MidletStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsMidletStrings() {
+    this.COMMAND_ACTION = "commandAction";
     }
 
-    public readonly string COMMAND_ACTION = "commandAction";
+    MidletStrings() {
+        this.initFieldsMidletStrings();
+    }
+    
+
+    static MidletStrings getInstance() {
+        return MidletStrings.instance;
+    }
 }
 

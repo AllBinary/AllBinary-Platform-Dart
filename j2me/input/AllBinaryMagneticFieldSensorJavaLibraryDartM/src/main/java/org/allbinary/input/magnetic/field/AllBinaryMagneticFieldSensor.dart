@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unused_local_variable, unnecessary_null_comparison
+// package org.allbinary.input.magnetic.field
 
-using System;
-using System.Linq;
-using AllBinarySensor = org.allbinary.input.AllBinarySensor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/AllBinarySensor.dart';
 
-namespace org.allbinary.input.magnetic.field;
+class AllBinaryMagneticFieldSensor extends AllBinarySensor {
+    
 
-public class AllBinaryMagneticFieldSensor : AllBinarySensor
-{
-    public AllBinaryMagneticFieldSensor()
-    {
+    AllBinaryMagneticFieldSensor() {
     }
-
 }
 

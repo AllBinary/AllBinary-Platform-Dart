@@ -13,25 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/layer/SingleLayerLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
 
-namespace org.allbinary.layer;
+class SingleLayerLayerProcessor extends LayerProcessor {
+    
 
-public class SingleLayerLayerProcessor : LayerProcessor
-{
-    public SingleLayerLayerProcessor() : base(new SingleLayerLayerManager())
-    {
-        // base(new SingleLayerLayerManager()) is called from the constructor declaration
+    SingleLayerLayerProcessor() : super(SingleLayerLayerManager()) {
+        
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void process(AllBinaryLayerManager allBinaryLayerManager) {
         LayerManager layerManager = this.getLayerManager();
-        this.processAt(allBinaryLayerManager, ((AllBinaryLayer) layerManager.getLayerAt(0)), 0);
+        this.processAt(allBinaryLayerManager, (layerManager.getLayerAt(0) as AllBinaryLayer), 0);
     }
-
 }
 

@@ -13,30 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.resources
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
 
-namespace org.allbinary.resources;
+class KeyValueFactory {
+    static final KeyValueFactory instance = KeyValueFactory();
+    late ABHashtable MAP;
 
-public class KeyValueFactory
-{
-    private static readonly KeyValueFactory instance = new KeyValueFactory();
-    public static KeyValueFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsKeyValueFactory() {
+    this.MAP = StdUtil.getInstance().createHashtable();
+    }
+
+    KeyValueFactory() {
+        this.initFieldsKeyValueFactory();
+    }
+    
+
+    static KeyValueFactory getInstance() {
         return KeyValueFactory.instance;
     }
+    
 
-    public readonly ABHashtable<object, object> MAP = StdUtil.getInstance().createHashtable();
-    public virtual string get(string key)
-    {
-        if (!this.MAP.containsKey(((object) key))) {
+    String get(String key) {
+        if (!this.MAP.containsKey((key as Object))) {
             return key;
         }
-        return ((string) this.MAP.get(((object) key)));
+        return (this.MAP.get((key as Object)) as String);
     }
-
 }
 

@@ -13,36 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using HighScores = org.allbinary.game.score.HighScores;
-using HighScoresHelperBase = org.allbinary.game.score.HighScoresHelperBase;
-using NullHighScoresSingletonFactory = org.allbinary.game.score.NullHighScoresSingletonFactory;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScores.dart';
+import 'package:allbinary/org/allbinary/game/score/HighScoresHelperBase.dart';
+import 'package:allbinary/org/allbinary/game/score/NullHighScoresSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/game/state/GameStateFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class EndGameProcessor extends Processor {
+    late GameStateFactory gameStateFactory;
+    late AllBinaryGameCanvas gameCanvas;
+    int WAIT = 0;
 
-public class EndGameProcessor : Processor
-{
-    public readonly GameStateFactory gameStateFactory = GameStateFactory.getInstance();
-    private AllBinaryGameCanvas gameCanvas;
-    private readonly long WAIT = 5000L;
-    public EndGameProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsEndGameProcessor() {
+    this.gameStateFactory = GameStateFactory.getInstance();
+    
+    this.WAIT = 5000;
+    }
+    
+
+    EndGameProcessor(AllBinaryGameCanvas gameCanvas) {
+        this.initFieldsEndGameProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         if (this.gameCanvas.isHighScoreSubmitted()) {
             if (this.gameCanvas.getGameStateTimeHelper().isElapsedTNT(this.WAIT)) {
                 if (this.gameCanvas.getGameState() == this.gameStateFactory.SHOW_END_RESULT_GAME_STATE) {
-                    HighScoresHelperBase highScoresBase = ((HighScoresHelperBase) this.gameCanvas.highScoresHelper);
-                    HighScores highScores = highScoresBase.getSelectedHighScores();
+                    final HighScoresHelperBase highScoresBase = (this.gameCanvas.highScoresHelper as HighScoresHelperBase);
+                    final HighScores highScores = highScoresBase.getSelectedHighScores();
                     if (highScores != NullHighScoresSingletonFactory.getInstance()) {
                         highScoresBase.selectHighScores();
                         this.gameCanvas.getRealHighScoresPaintable().setHighScores(highScores);
@@ -56,6 +64,5 @@ public class EndGameProcessor : Processor
             }
         }
     }
-
 }
 

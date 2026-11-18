@@ -13,32 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.init.crypt.jcehelper
 
-using System;
-using System.Linq;
-using ByteArrayInputStream = java.io.ByteArrayInputStream;
-using ByteArrayOutputStream = java.io.ByteArrayOutputStream;
-using InputStream = java.io.InputStream;
-using TsUtil = org.allbinary.TsUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayInputStream.dart';
+import 'package:allbinary/java/io/ByteArrayOutputStream.dart';
+import 'package:allbinary/java/io/InputStream.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/init/crypt/jcehelper/CryptInterface.dart';
 
-namespace org.allbinary.init.crypt.jcehelper;
+class BasicCryptUtil {
+    static final BasicCryptUtil instance = BasicCryptUtil();
+    late LogUtil logUtil;
+    late TsUtil tsUtil;
+    late String XML_START;
 
-public class BasicCryptUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly BasicCryptUtil instance = new BasicCryptUtil();
-    public static BasicCryptUtil getInstance()
-    {
-        return BasicCryptUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsBasicCryptUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.tsUtil = TsUtil.getInstance();
+    this.XML_START = "<?xml";
     }
 
-    private readonly TsUtil tsUtil = TsUtil.getInstance();
-    private readonly string XML_START = "<?xml";
-    // throws Exception
-    public virtual InputStream getDecryptedInputStream(InputStream inputStream, CryptInterface cryptInterface)
-    {
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+    BasicCryptUtil() {
+        this.initFieldsBasicCryptUtil();
+    }
+    
+
+    static BasicCryptUtil getInstance() {
+        return BasicCryptUtil.instance;
+    }
+    
+
+    InputStream getDecryptedInputStream(InputStream inputStream, CryptInterface cryptInterface) {
+        ByteArrayOutputStream buffer = ByteArrayOutputStream();
         int ch = 0;
         while (true) {
             ch = inputStream.read();
@@ -47,14 +57,13 @@ public class BasicCryptUtil
             }
             buffer.write(ch);
         }
-        sbyte[] decrypted = cryptInterface.decrypt(buffer.toByteArray());
-        string decryptedString = System.Text.Encoding.UTF8.GetString((byte[]) (Array) decrypted);
-        int index = decryptedString.IndexOf(this.XML_START);
+        List<int> decrypted = cryptInterface.decrypt(buffer.toByteArray());
+        String decryptedString = jNewString(decrypted);
+        int index = JString.indexOf(decryptedString, this.XML_START);
         if (index > 0) {
-            decryptedString = decryptedString.Substring(index);
+            decryptedString = decryptedString.substring(index);
         }
-        return new ByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
+        return ByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
     }
-
 }
 

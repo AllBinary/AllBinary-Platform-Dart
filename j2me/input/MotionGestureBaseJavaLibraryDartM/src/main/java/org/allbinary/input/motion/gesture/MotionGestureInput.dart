@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture
 
-using System;
-using System.Linq;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
 
-namespace org.allbinary.input.motion.gesture;
+class MotionGestureInput extends Input {
+    
 
-public class MotionGestureInput : Input
-{
-    public MotionGestureInput(int id, string name) : base(id, name)
-    {
-        // base(id, name) is called from the constructor declaration
-        InputFactory inputFactory = InputFactory.getInstance();
+    MotionGestureInput(int id, String name) : super(id, name) {
+        
+        final InputFactory inputFactory = InputFactory.getInstance();
         inputFactory.add(this.getId(), this);
     }
-
 }
 

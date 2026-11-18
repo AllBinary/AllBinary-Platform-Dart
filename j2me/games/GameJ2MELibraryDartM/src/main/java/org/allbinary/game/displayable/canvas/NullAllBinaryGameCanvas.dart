@@ -13,47 +13,52 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvasInterface.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class NullAllBinaryGameCanvas implements AllBinaryGameCanvasInterface {
+    static final NullAllBinaryGameCanvas NULL_ALLBINARY_GAME_CANVAS = NullAllBinaryGameCanvas();
+    
 
-public class NullAllBinaryGameCanvas : AllBinaryGameCanvasInterface
-{
-    public static readonly NullAllBinaryGameCanvas NULL_ALLBINARY_GAME_CANVAS = new NullAllBinaryGameCanvas();
-    public virtual AllBinaryGameLayerManager getLayerManager()
-    {
-        throw new SystemException();
+    @override
+    AllBinaryGameLayerManager getLayerManager() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void addCommand(Command cmd)
-    {
-        throw new SystemException();
+    @override
+    void addCommand(Command cmd) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual int getHeight()
-    {
-        throw new SystemException();
+    @override
+    int getHeight() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual int getWidth()
-    {
-        throw new SystemException();
+    @override
+    int getWidth() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void removeCommand(Command cmd)
-    {
-        throw new SystemException();
+    @override
+    void removeCommand(Command cmd) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void setCommandListener(CommandListener l)
-    {
-        throw new SystemException();
+    @override
+    void setCommandListener(CommandListener l) {
+        throw JException('RuntimeException', '');
     }
-
 }
 

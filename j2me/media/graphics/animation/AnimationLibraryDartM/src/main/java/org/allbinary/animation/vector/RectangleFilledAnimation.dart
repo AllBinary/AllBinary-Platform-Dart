@@ -13,56 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.vector
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorCompositeInterface.dart';
 
-namespace org.allbinary.animation.vector;
+class RectangleFilledAnimation extends Animation implements ColorCompositeInterface {
+    int widthP = 0;
+    int heightP = 0;
 
-public class RectangleFilledAnimation : Animation, ColorCompositeInterface
-{
-    public int widthP;
-    public int heightP;
-    public RectangleFilledAnimation(int width, int height, BasicColor basicColor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsRectangleFilledAnimation() {
+    
+    
+    }
+    
+
+    RectangleFilledAnimation(int width, int height, BasicColor basicColor) {
+        this.initFieldsRectangleFilledAnimation();
         this.widthP = width;
         this.heightP = height;
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.fillRect(x, y, this.widthP, this.heightP);
     }
+    
 
-    public virtual void setWidth(int width)
-    {
+    void setWidth(int width) {
         this.widthP = width;
     }
+    
 
-    public virtual void setHeight(int height)
-    {
+    void setHeight(int height) {
         this.heightP = height;
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        return base.getBasicColorP();
+    @override
+    BasicColor getBasicColorP() {
+        return super.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
-        base.setBasicColorP(basicColor);
+    @override
+    void setBasicColorP(BasicColor basicColor) {
+        super.setBasicColorP(basicColor);
     }
-
 }
 

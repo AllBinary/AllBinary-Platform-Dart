@@ -13,68 +13,69 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/J2MEGameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/J2MEKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/Input.dart';
 
-namespace org.allbinary.game.input;
+class PlatformKeyFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class PlatformKeyFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static PlatformKeyFactory getInstance()
-    {
+    static PlatformKeyFactory getInstance() {
         if (PlatformKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            PlatformKeyFactory.instance = new PlatformKeyFactory();
+            PlatformKeyFactory.instance = PlatformKeyFactory();
         }
-        return ((PlatformKeyFactory) PlatformKeyFactory.instance);
+        return (PlatformKeyFactory.instance as PlatformKeyFactory);
     }
+    
 
-    public virtual string getString(int keyCode)
-    {
+    String getString(int keyCode) {
         return J2MEGameKey.getString(keyCode);
     }
+    
 
-    public virtual bool isSubmission(Input input)
-    {
+    bool isSubmission(Input input) {
         return J2MEKeyFactory.getInstance().isSubmission(input);
     }
+    
 
-    public virtual bool isDelete(Input input)
-    {
+    bool isDelete(Input input) {
         return J2MEKeyFactory.getInstance().isDelete(input);
     }
+    
 
-    public virtual bool isBackSpace(Input input)
-    {
+    bool isBackSpace(Input input) {
         return J2MEKeyFactory.getInstance().isBackSpace(input);
     }
+    
 
-    public virtual bool isLeft(Input input)
-    {
+    bool isLeft(Input input) {
         return J2MEKeyFactory.getInstance().isLeft(input);
     }
+    
 
-    public virtual bool isRight(Input input)
-    {
+    bool isRight(Input input) {
         return J2MEKeyFactory.getInstance().isRight(input);
     }
+    
 
-    public virtual bool isUp(Input input)
-    {
+    bool isUp(Input input) {
         return J2MEKeyFactory.getInstance().isUp(input);
     }
+    
 
-    public virtual bool isDown(Input input)
-    {
+    bool isDown(Input input) {
         return J2MEKeyFactory.getInstance().isDown(input);
     }
+    
 
-    public virtual bool isEnter(Input input)
-    {
+    bool isEnter(Input input) {
         return J2MEKeyFactory.getInstance().isEnter(input);
     }
-
 }
 

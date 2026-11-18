@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.part
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/part/PartInterface.dart';
 
-namespace org.allbinary.game.part;
+class PartInterfaceUtil {
+    static final List<PartInterface?> SINGLETON = List<PartInterface?>.filled(0, null);
+    
 
-public class PartInterfaceUtil
-{
-    private static readonly PartInterface[] SINGLETON = new PartInterface[0];
-    public static PartInterface[] getZeroArray()
-    {
+    static List<PartInterface?> getZeroArray() {
         return PartInterfaceUtil.SINGLETON;
     }
-
 }
 

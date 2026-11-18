@@ -13,29 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/audio/AudioContentTypeData.dart';
 
-namespace org.allbinary.audio;
+class AudioContentTypeDataFactory {
+    static final AudioContentTypeDataFactory instance = AudioContentTypeDataFactory();
+    late AudioContentTypeData MIME_AUDIO_TONE;
+    late AudioContentTypeData MIME_AUDIO_AMR;
+    late AudioContentTypeData MIME_AUDIO_AMR_WB;
+    late AudioContentTypeData MIME_AUDIO_WAV;
+    late AudioContentTypeData MIME_AUDIO_MIDI;
+    late AudioContentTypeData MIME_AUDIO_SP_MIDI;
 
-public class AudioContentTypeDataFactory
-{
-    private static readonly AudioContentTypeDataFactory instance = new AudioContentTypeDataFactory();
-    public static AudioContentTypeDataFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAudioContentTypeDataFactory() {
+    this.MIME_AUDIO_TONE = AudioContentTypeData("audio/x-tone-seq");
+    this.MIME_AUDIO_AMR = AudioContentTypeData("audio/amr");
+    this.MIME_AUDIO_AMR_WB = AudioContentTypeData("audio/amr-wb");
+    this.MIME_AUDIO_WAV = AudioContentTypeData("audio/x-wav");
+    this.MIME_AUDIO_MIDI = AudioContentTypeData("audio/midi");
+    this.MIME_AUDIO_SP_MIDI = AudioContentTypeData("audio/sp-midi");
+    }
+    
+
+    static AudioContentTypeDataFactory getInstance() {
         return AudioContentTypeDataFactory.instance;
     }
+    
 
-    public readonly AudioContentTypeData MIME_AUDIO_TONE = new AudioContentTypeData("audio/x-tone-seq");
-    public readonly AudioContentTypeData MIME_AUDIO_AMR = new AudioContentTypeData("audio/amr");
-    public readonly AudioContentTypeData MIME_AUDIO_AMR_WB = new AudioContentTypeData("audio/amr-wb");
-    public readonly AudioContentTypeData MIME_AUDIO_WAV = new AudioContentTypeData("audio/x-wav");
-    public readonly AudioContentTypeData MIME_AUDIO_MIDI = new AudioContentTypeData("audio/midi");
-    public readonly AudioContentTypeData MIME_AUDIO_SP_MIDI = new AudioContentTypeData("audio/sp-midi");
-    private AudioContentTypeDataFactory()
-    {
+    AudioContentTypeDataFactory() {
+        this.initFieldsAudioContentTypeDataFactory();
     }
-
 }
 

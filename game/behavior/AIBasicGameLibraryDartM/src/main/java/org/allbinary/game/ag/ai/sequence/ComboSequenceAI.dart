@@ -13,33 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.sequence
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/sequence/SequenceAI.dart';
 
-namespace org.allbinary.game.ag.ai.sequence;
+class ComboSequenceAI extends SequenceAI {
+    
 
-public class ComboSequenceAI : SequenceAI
-{
-    public ComboSequenceAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterface, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterface, ownerLayerInterface, gameInput) is called from the constructor declaration
+    ComboSequenceAI(List<ArtificialIntelligenceInterface?> artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(artificialIntelligenceInterface, ownerLayerInterface, gameInput) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray = this.getArtificialIntelligenceInterface();
-        int size = artificialIntelligenceInterfaceArray.Length;
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        final List<ArtificialIntelligenceInterface?> artificialIntelligenceInterfaceArray = this.getArtificialIntelligenceInterface();
+        final int size = artificialIntelligenceInterfaceArray.length;
         for (int index = 0; index < size; index++) {
             this.setIndex(index);
-            base.processAI(allBinaryLayerManager);
+            super.processAI(allBinaryLayerManager);
         }
     }
-
 }
 

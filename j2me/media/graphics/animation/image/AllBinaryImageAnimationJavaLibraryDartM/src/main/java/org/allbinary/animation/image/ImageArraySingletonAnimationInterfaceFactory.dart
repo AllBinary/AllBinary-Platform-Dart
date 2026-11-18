@@ -13,24 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using SingletonAnimationInterfaceFactory = org.allbinary.animation.SingletonAnimationInterfaceFactory;
-using IndexedAnimationToImageArrayUtil = org.allbinary.image.IndexedAnimationToImageArrayUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/SingletonAnimationInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArraySingletonAnimationInterfaceFactory extends SingletonAnimationInterfaceFactory {
+    
 
-public class ImageArraySingletonAnimationInterfaceFactory : SingletonAnimationInterfaceFactory
-{
-    public ImageArraySingletonAnimationInterfaceFactory(Image[] imageArray) : base(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance()))
-    {
-        // base(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance())) is called from the constructor declaration
+    ImageArraySingletonAnimationInterfaceFactory(List<Image?> imageArray) : super(ImageArrayAnimation(imageArray, AnimationBehavior.getInstance())) {
+        
     }
-
 }
 

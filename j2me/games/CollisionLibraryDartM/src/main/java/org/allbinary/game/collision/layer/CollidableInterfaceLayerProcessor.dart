@@ -13,41 +13,42 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision.layer
 
-using System;
-using System.Linq;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/collision/layer/CollidableInterfaceLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/collision/layer/AllBinaryCollisionManager.dart';
 
-namespace org.allbinary.game.collision.layer;
+class CollidableInterfaceLayerProcessor extends LayerProcessor {
+    
 
-public class CollidableInterfaceLayerProcessor : LayerProcessor
-{
-    public CollidableInterfaceLayerProcessor() : base(new CollidableInterfaceLayerManager())
-    {
-        // base(new CollidableInterfaceLayerManager()) is called from the constructor declaration
+    CollidableInterfaceLayerProcessor() : super(CollidableInterfaceLayerManager()) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface = ((CollidableInterfaceCompositeInterface) layerInterface);
-        if (collidableInterfaceCompositeInterface.getCollidableInferface().isCollidable(((CollidableCompositeLayer) collidableInterfaceCompositeInterface))) {
+    @override
+    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index) {
+        CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface = (layerInterface as CollidableInterfaceCompositeInterface);
+        if (collidableInterfaceCompositeInterface.getCollidableInferface().isCollidable((collidableInterfaceCompositeInterface as CollidableCompositeLayer))) {
             AllBinaryCollisionManager.getInstance().process(this.getLayerManager(), collidableInterfaceCompositeInterface, index);
         }
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    @override
+    bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsCollidableInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

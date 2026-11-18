@@ -13,49 +13,81 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using NullUtil = org.allbinary.logic.NullUtil;
-using CommonPhoneStrings = org.allbinary.@string.CommonPhoneStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonPhoneStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
 
-namespace org.allbinary.game.input;
+class GameKeyFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late GameKey NONE;
+    late GameKey UP;
+    late GameKey DOWN;
+    late GameKey LEFT;
+    late GameKey RIGHT;
+    late GameKey KEY_POUND;
+    late GameKey KEY_STAR;
+    late GameKey KEY_NUM0;
+    late GameKey KEY_NUM1;
+    late GameKey KEY_NUM2;
+    late GameKey KEY_NUM3;
+    late GameKey KEY_NUM4;
+    late GameKey KEY_NUM5;
+    late GameKey KEY_NUM6;
+    late GameKey KEY_NUM7;
+    late GameKey KEY_NUM8;
+    late GameKey KEY_NUM9;
+    late GameKey GAME_A;
+    late GameKey GAME_B;
+    late GameKey GAME_C;
+    late GameKey GAME_D;
+    late GameKey FIRE;
+    late GameKey LEVEL_DOWN;
+    late GameKey LEVEL_UP;
 
-public class GameKeyFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyFactory getInstance()
-    {
-        if (GameKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            GameKeyFactory.instance = new GameKeyFactory();
-        }
-        return ((GameKeyFactory) GameKeyFactory.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyFactory() {
+    this.NONE = GameKey(InputFactory.getInstance().MAX - 1, "None");
+    this.UP = GameKey(Canvas.UP, CommonPhoneStrings.getInstance().UP);
+    this.DOWN = GameKey(Canvas.DOWN, CommonPhoneStrings.getInstance().DOWN);
+    this.LEFT = GameKey(Canvas.LEFT, CommonPhoneStrings.getInstance().LEFT);
+    this.RIGHT = GameKey(Canvas.RIGHT, CommonPhoneStrings.getInstance().RIGHT);
+    this.KEY_POUND = GameKey(Canvas.KEY_POUND, "POUND");
+    this.KEY_STAR = GameKey(Canvas.KEY_STAR, "STAR");
+    this.KEY_NUM0 = GameKey(Canvas.KEY_NUM0, CommonPhoneStrings.getInstance().ZERO);
+    this.KEY_NUM1 = GameKey(Canvas.KEY_NUM1, CommonPhoneStrings.getInstance().ONE);
+    this.KEY_NUM2 = GameKey(Canvas.KEY_NUM2, CommonPhoneStrings.getInstance().TWO);
+    this.KEY_NUM3 = GameKey(Canvas.KEY_NUM3, CommonPhoneStrings.getInstance().THREE);
+    this.KEY_NUM4 = GameKey(Canvas.KEY_NUM4, CommonPhoneStrings.getInstance().FOUR);
+    this.KEY_NUM5 = GameKey(Canvas.KEY_NUM5, CommonPhoneStrings.getInstance().FIVE);
+    this.KEY_NUM6 = GameKey(Canvas.KEY_NUM6, CommonPhoneStrings.getInstance().SIX);
+    this.KEY_NUM7 = GameKey(Canvas.KEY_NUM7, CommonPhoneStrings.getInstance().SEVEN);
+    this.KEY_NUM8 = GameKey(Canvas.KEY_NUM8, CommonPhoneStrings.getInstance().EIGHT);
+    this.KEY_NUM9 = GameKey(Canvas.KEY_NUM9, CommonPhoneStrings.getInstance().NINE);
+    this.GAME_A = GameKey(Canvas.GAME_A, "Game A");
+    this.GAME_B = GameKey(Canvas.GAME_B, "Game B");
+    this.GAME_C = GameKey(Canvas.GAME_C, "Game C");
+    this.GAME_D = GameKey(Canvas.GAME_D, "Game D");
+    this.FIRE = GameKey(Canvas.FIRE, CommonPhoneStrings.getInstance().FIRE);
+    this.LEVEL_DOWN = GameKey(Canvas.KEY_NUM9 + 1, "Cheat Level Up");
+    this.LEVEL_UP = GameKey(Canvas.KEY_NUM9 + 2, "Cheat Level Down");
     }
 
-    public readonly GameKey NONE = new GameKey(InputFactory.getInstance().MAX - 1, "None");
-    public readonly GameKey UP = new GameKey(Canvas.UP, CommonPhoneStrings.getInstance().UP);
-    public readonly GameKey DOWN = new GameKey(Canvas.DOWN, CommonPhoneStrings.getInstance().DOWN);
-    public readonly GameKey LEFT = new GameKey(Canvas.LEFT, CommonPhoneStrings.getInstance().LEFT);
-    public readonly GameKey RIGHT = new GameKey(Canvas.RIGHT, CommonPhoneStrings.getInstance().RIGHT);
-    public readonly GameKey KEY_POUND = new GameKey(Canvas.KEY_POUND, "POUND");
-    public readonly GameKey KEY_STAR = new GameKey(Canvas.KEY_STAR, "STAR");
-    public readonly GameKey KEY_NUM0 = new GameKey(Canvas.KEY_NUM0, CommonPhoneStrings.getInstance().ZERO);
-    public readonly GameKey KEY_NUM1 = new GameKey(Canvas.KEY_NUM1, CommonPhoneStrings.getInstance().ONE);
-    public readonly GameKey KEY_NUM2 = new GameKey(Canvas.KEY_NUM2, CommonPhoneStrings.getInstance().TWO);
-    public readonly GameKey KEY_NUM3 = new GameKey(Canvas.KEY_NUM3, CommonPhoneStrings.getInstance().THREE);
-    public readonly GameKey KEY_NUM4 = new GameKey(Canvas.KEY_NUM4, CommonPhoneStrings.getInstance().FOUR);
-    public readonly GameKey KEY_NUM5 = new GameKey(Canvas.KEY_NUM5, CommonPhoneStrings.getInstance().FIVE);
-    public readonly GameKey KEY_NUM6 = new GameKey(Canvas.KEY_NUM6, CommonPhoneStrings.getInstance().SIX);
-    public readonly GameKey KEY_NUM7 = new GameKey(Canvas.KEY_NUM7, CommonPhoneStrings.getInstance().SEVEN);
-    public readonly GameKey KEY_NUM8 = new GameKey(Canvas.KEY_NUM8, CommonPhoneStrings.getInstance().EIGHT);
-    public readonly GameKey KEY_NUM9 = new GameKey(Canvas.KEY_NUM9, CommonPhoneStrings.getInstance().NINE);
-    public readonly GameKey GAME_A = new GameKey(Canvas.GAME_A, "Game A");
-    public readonly GameKey GAME_B = new GameKey(Canvas.GAME_B, "Game B");
-    public readonly GameKey GAME_C = new GameKey(Canvas.GAME_C, "Game C");
-    public readonly GameKey GAME_D = new GameKey(Canvas.GAME_D, "Game D");
-    public readonly GameKey FIRE = new GameKey(Canvas.FIRE, CommonPhoneStrings.getInstance().FIRE);
-    public GameKey LEVEL_DOWN = new GameKey(Canvas.KEY_NUM9 + 1, "Cheat Level Up");
-    public GameKey LEVEL_UP = new GameKey(Canvas.KEY_NUM9 + 2, "Cheat Level Down");
+    GameKeyFactory() {
+        this.initFieldsGameKeyFactory();
+    }
+    
+
+    static GameKeyFactory getInstance() {
+        if (GameKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameKeyFactory.instance = GameKeyFactory();
+        }
+        return (GameKeyFactory.instance as GameKeyFactory);
+    }
 }
 

@@ -13,46 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
 
-namespace org.allbinary.media.image;
+class ImageJ2MEScaleUtil {
+    static final ImageJ2MEScaleUtil instance = ImageJ2MEScaleUtil();
+    
 
-public class ImageJ2MEScaleUtil
-{
-    private static readonly ImageJ2MEScaleUtil instance = new ImageJ2MEScaleUtil();
-    public static ImageJ2MEScaleUtil getInstance()
-    {
+    static ImageJ2MEScaleUtil getInstance() {
         return ImageJ2MEScaleUtil.instance;
     }
+    
 
-    private ImageJ2MEScaleUtil()
-    {
+    ImageJ2MEScaleUtil() {
     }
+    
 
-    // throws Exception
-    public virtual Image[] scaleArray(Image[] images, int width, int height)
-    {
-        Image[] scaledImages = new Image[images.Length];
-        for (int index = images.Length; --index >= 0; ) {
-            scaledImages[index] = this.scale(images[index], width, height);
+    List<Image?> scaleArray(List<Image?> images, int width, int height) {
+        final List<Image?> scaledImages = List<Image?>.filled(images.length, null);
+        for (int index = images.length; --index >= 0; ) {
+            scaledImages[index] = this.scale(images[index]!, width, height);
         }
         return scaledImages;
     }
+    
 
-    // throws Exception
-    public virtual Image scale(Image image, int width, int height)
-    {
-        int sourceWidth = image.getWidth();
-        int sourceHeight = image.getHeight();
-        int[] originalData = new int[image.getWidth() * image.getHeight()];
+    Image scale(Image image, int width, int height) {
+        final int sourceWidth = image.getWidth();
+        final int sourceHeight = image.getHeight();
+        final List<int> originalData = List<int>.filled(image.getWidth() * image.getHeight(), 0);
         image.getRGB(originalData, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
-        int[] scaledData = new int[width * height];
-        int heightRatioFactor = (8 * sourceHeight) / height;
-        int widthRatioFactor = (8 * sourceWidth) / width;
-        int scaledIndex = scaledData.Length - 1;
+        final List<int> scaledData = List<int>.filled(width * height, 0);
+        final int heightRatioFactor = (8 * sourceHeight) ~/ height;
+        final int widthRatioFactor = (8 * sourceWidth) ~/ width;
+        int scaledIndex = scaledData.length - 1;
         int dx = 0;
         int dy = 0;
         for (int index = height; --index >= 0; ) {
@@ -62,9 +59,8 @@ public class ImageJ2MEScaleUtil
                 scaledData[scaledIndex--] = originalData[(sourceWidth * dy) + dx];
             }
         }
-        Image scaledImage = Image.createRGBImage(scaledData, width, height, true);
+        final Image scaledImage = Image.createRGBImage(scaledData, width, height, true);
         return scaledImage;
     }
-
 }
 

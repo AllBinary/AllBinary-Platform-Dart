@@ -13,31 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.event
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.game.configuration.@event;
+class GameFeatureEvent extends AllBinaryEventObject {
+    late String whatChanged;
 
-public class GameFeatureEvent : AllBinaryEventObject
-{
-    private readonly string whatChanged;
-    public GameFeatureEvent(object anyType, string whatChanged) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameFeatureEvent() {
+    
+    }
+    
+
+    GameFeatureEvent(Object anyType, String whatChanged) : super(anyType) {
+        this.initFieldsGameFeatureEvent();
+        
         this.whatChanged = whatChanged;
     }
+    
 
-    public virtual string getWhatChanged()
-    {
+    String getWhatChanged() {
         return this.whatChanged;
     }
+    
 
-    public virtual object getGameOption()
-    {
+    Object getGameOption() {
         return this.getSource();
     }
-
 }
 

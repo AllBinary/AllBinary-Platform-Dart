@@ -13,24 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.system.security.crypt.jcehelper
 
-using System;
-using System.Linq;
-using CryptInterface = org.allbinary.init.crypt.jcehelper.CryptInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/init/crypt/jcehelper/CryptInterface.dart';
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+class NoCrypt implements CryptInterface {
+    
 
-public class NoCrypt : CryptInterface
-{
-    public virtual sbyte[] encrypt(sbyte[] array)
-    {
+    @override
+    List<int> encrypt(List<int> array) {
         return array;
     }
+    
 
-    public virtual sbyte[] decrypt(sbyte[] array)
-    {
+    @override
+    List<int> decrypt(List<int> array) {
         return array;
     }
-
 }
 

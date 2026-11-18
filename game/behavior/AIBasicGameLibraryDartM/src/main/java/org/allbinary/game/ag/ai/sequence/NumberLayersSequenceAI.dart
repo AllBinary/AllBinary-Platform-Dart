@@ -13,35 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.sequence
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/sequence/SequenceAI.dart';
 
-namespace org.allbinary.game.ag.ai.sequence;
+class NumberLayersSequenceAI extends SequenceAI {
+    int numberOfLayersLeft = 0;
 
-public class NumberLayersSequenceAI : SequenceAI
-{
-    private int numberOfLayersLeft;
-    public NumberLayersSequenceAI(int numberOfEnemiesLeft, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterface, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterface, ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsNumberLayersSequenceAI() {
+    
+    }
+    
+
+    NumberLayersSequenceAI(int numberOfEnemiesLeft, List<ArtificialIntelligenceInterface?> artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(artificialIntelligenceInterface, ownerLayerInterface, gameInput) {
+        this.initFieldsNumberLayersSequenceAI();
+        
         this.numberOfLayersLeft = numberOfEnemiesLeft;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.getIndex() == 0) {
             if (allBinaryLayerManager.getSize() < this.numberOfLayersLeft) {
                 this.setIndex(1);
             }
         }
-        base.processAI(allBinaryLayerManager);
+        super.processAI(allBinaryLayerManager);
     }
-
 }
 

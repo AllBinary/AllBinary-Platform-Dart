@@ -13,20 +13,28 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.path
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPath.dart';
 
-namespace org.allbinary.logic.io.path;
+class AbPathUtil {
+    static final AbPathUtil instance = AbPathUtil();
+    late AbPath NO_ABPATH;
 
-public class AbPathUtil
-{
-    private static readonly AbPathUtil instance = new AbPathUtil();
-    public static AbPathUtil getInstance()
-    {
-        return AbPathUtil.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsAbPathUtil() {
+    this.NO_ABPATH = AbPath.createAbPath();
     }
 
-    public readonly AbPath NO_ABPATH = AbPath.createAbPath();
+    AbPathUtil() {
+        this.initFieldsAbPathUtil();
+    }
+    
+
+    static AbPathUtil getInstance() {
+        return AbPathUtil.instance;
+    }
 }
 

@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer.relationship
 
-using System;
-using System.Linq;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
+import 'package:allbinary/org/allbinary/layer/relationship/RelativeLayerRelationship.dart';
 
-namespace org.allbinary.layer.relationship;
+class MiddleRelativeLayerRelationship extends RelativeLayerRelationship {
+    
 
-public class MiddleRelativeLayerRelationship : RelativeLayerRelationship
-{
-    public MiddleRelativeLayerRelationship(AllBinaryLayer layer) : base(layer, PointFactory.getInstance().createXY(layer.getHalfWidth(), layer.getHalfHeight()), BasicArrayListUtil.getInstance().getImmutableInstance())
-    {
-        // base(layer, PointFactory.getInstance().createXY(layer.getHalfWidth(), layer.getHalfHeight()), BasicArrayListUtil.getInstance().getImmutableInstance()) is called from the constructor declaration
+    MiddleRelativeLayerRelationship(AllBinaryLayer layer) : super(layer, PointFactory.getInstance().createXY(layer.getHalfWidth(), layer.getHalfHeight()), BasicArrayListUtil.getInstance().getImmutableInstance()) {
+        
     }
-
 }
 

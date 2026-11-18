@@ -13,41 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
 
-namespace org.allbinary.game.identification;
+class BasicGroupFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late String NAME;
+    late String NO_SUCH_GROUP;
+    late Group GOOD;
+    late Group ENEMY;
+    late Group ENEMY_ON_LEVEL;
+    late Group NONE;
+    late List<Group?> GOOD_ARRAY;
+    late List<Group?> ENEMY_ARRAY;
+    late List<Group?> ENEMY_ON_LEVEL_ARRAY;
+    late List<Group?> NONE_ARRAY;
 
-public class BasicGroupFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static BasicGroupFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicGroupFactory() {
+    this.NAME = "GROUP_NAME";
+    this.NO_SUCH_GROUP = "No Such Group: ";
+    this.GOOD = Group("Good Guys", (0).toSigned(16));
+    this.ENEMY = Group("Bad Guys", (1).toSigned(16));
+    this.ENEMY_ON_LEVEL = Group("Bad Guys on Level", (2).toSigned(16));
+    this.NONE = Group("Not On A Team", (3).toSigned(16));
+    this.GOOD_ARRAY = <Group?>[this.GOOD];
+    this.ENEMY_ARRAY = <Group?>[this.ENEMY];
+    this.ENEMY_ON_LEVEL_ARRAY = <Group?>[this.ENEMY, this.ENEMY_ON_LEVEL];
+    this.NONE_ARRAY = <Group?>[this.NONE];
+    }
+
+    BasicGroupFactory() {
+        this.initFieldsBasicGroupFactory();
+    }
+    
+
+    static BasicGroupFactory getInstance() {
         if (BasicGroupFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            BasicGroupFactory.instance = new BasicGroupFactory();
+            BasicGroupFactory.instance = BasicGroupFactory();
         }
-        return ((BasicGroupFactory) BasicGroupFactory.instance);
+        return (BasicGroupFactory.instance as BasicGroupFactory);
     }
-
-    public readonly string NAME = "GROUP_NAME";
-    public readonly string NO_SUCH_GROUP = "No Such Group: ";
-    public readonly Group GOOD = new Group("Good Guys", ((short) 0));
-    public readonly Group ENEMY = new Group("Bad Guys", ((short) 1));
-    public readonly Group ENEMY_ON_LEVEL = new Group("Bad Guys on Level", ((short) 2));
-    public readonly Group NONE = new Group("Not On A Team", ((short) 3));
-    public readonly Group[] GOOD_ARRAY;
-    public readonly Group[] ENEMY_ARRAY;
-    public readonly Group[] ENEMY_ON_LEVEL_ARRAY;
-    public readonly Group[] NONE_ARRAY;
-    public BasicGroupFactory()
-    {
-        this.GOOD_ARRAY = new Group[] { this.GOOD };
-        this.ENEMY_ARRAY = new Group[] { this.ENEMY };
-        this.ENEMY_ON_LEVEL_ARRAY = new Group[] { this.ENEMY, this.ENEMY_ON_LEVEL };
-        this.NONE_ARRAY = new Group[] { this.NONE };
-    }
-
 }
 

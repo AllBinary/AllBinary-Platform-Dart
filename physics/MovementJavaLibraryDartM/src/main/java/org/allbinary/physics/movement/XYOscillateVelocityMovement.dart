@@ -13,32 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using VelocityProperties = org.allbinary.game.physics.velocity.VelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityProperties.dart';
+import 'package:allbinary/org/allbinary/logic/math/BasicDecimal.dart';
+import 'package:allbinary/org/allbinary/physics/movement/BasicConstantVelocityMovement.dart';
 
-namespace org.allbinary.physics.movement;
+class XYOscillateVelocityMovement extends BasicConstantVelocityMovement {
+    int oscillateMin = 0;
+    int oscillateMax = 0;
+    int oscillate = 0;
+    bool oscillatePositive = false;
 
-public class XYOscillateVelocityMovement : BasicConstantVelocityMovement
-{
-    private int oscillateMin;
-    private int oscillateMax;
-    private int oscillate = 0;
-    private bool oscillatePositive = false;
-    public XYOscillateVelocityMovement(BasicDecimal speedBasicDecimal, int oscillateMin, int oscillateMax) : base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled())))
-    {
-        // base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled()))) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsXYOscillateVelocityMovement() {
+    
+    
+    this.oscillate = 0;
+    this.oscillatePositive = false;
+    }
+    
+
+    XYOscillateVelocityMovement(BasicDecimal speedBasicDecimal, int oscillateMin, int oscillateMax) : super(speedBasicDecimal, VelocityProperties((speedBasicDecimal.getUnscaled()).toSigned(32), (speedBasicDecimal.getUnscaled()).toSigned(32))) {
+        this.initFieldsXYOscillateVelocityMovement();
+        
         this.oscillateMin = oscillateMin;
         this.oscillateMax = oscillateMax;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
-        base.process(layer);
+    @override
+    void process(AllBinaryGameLayer layer) {
+        super.process(layer);
         if (this.oscillate < this.oscillateMin) {
             this.oscillatePositive = true;
             this.getVelocityProperties().getVelocityYBasicDecimalP().addint(3000);
@@ -54,6 +63,5 @@ public class XYOscillateVelocityMovement : BasicConstantVelocityMovement
             this.getVelocityProperties().getVelocityXBasicDecimalP().subtractint(5000);
         }
     }
-
 }
 

@@ -13,31 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerType.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class PickedUpLayerInterfaceFactoryBase implements PickedUpLayerInterfaceFactoryInterface {
+    static final PickedUpLayerInterfaceFactoryBase NULL_PICKED_UP_LAYER_FACTORY_BASE = PickedUpLayerInterfaceFactoryBase();
+    
 
-public class PickedUpLayerInterfaceFactoryBase : PickedUpLayerInterfaceFactoryInterface
-{
-    public static readonly PickedUpLayerInterfaceFactoryBase NULL_PICKED_UP_LAYER_FACTORY_BASE = new PickedUpLayerInterfaceFactoryBase();
-    public virtual AllBinaryLayer getIconLayer()
-    {
-        throw new SystemException();
+    @override
+    AllBinaryLayer getIconLayer() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual Animation getAnimationInterface()
-    {
-        throw new SystemException();
+    @override
+    Animation getAnimationInterface() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual PickedUpLayerType getPickedUpLayerType()
-    {
-        throw new SystemException();
+    @override
+    PickedUpLayerType getPickedUpLayerType() {
+        throw JException('RuntimeException', '');
     }
-
 }
 

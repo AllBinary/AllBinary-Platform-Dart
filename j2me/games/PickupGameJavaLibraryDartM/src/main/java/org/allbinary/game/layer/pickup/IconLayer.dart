@@ -13,44 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/NullAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/view/ViewPosition.dart';
 
-namespace org.allbinary.game.layer.pickup;
+class IconLayer extends AllBinaryLayer {
+    static final IconLayer NULL_ICON_LAYER = IconLayer(NullAnimationFactory.getFactoryInstance().getInstance1(0), 0, 0);
+    late Animation animationInterface;
 
-public class IconLayer : AllBinaryLayer
-{
-    public static readonly IconLayer NULL_ICON_LAYER = new IconLayer(NullAnimationFactory.getFactoryInstance().getInstance(0), 0, 0);
-    private Animation animationInterface;
-    public IconLayer(Animation animationInterface, int width, int height) : base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), ViewPosition.getInstanceD())
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), ViewPosition.getInstanceD()) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsIconLayer() {
+    
+    }
+    
+
+    IconLayer(Animation animationInterface, int width, int height) : super(StringUtil.getInstance().EMPTY_STRING, Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), ViewPosition.getInstanceD()) {
+        this.initFieldsIconLayer();
+        
         this.animationInterface = animationInterface;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, this.x, this.y);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
         this.animationInterface.paintThreedXYZ(graphics, this.x, this.y, this.z);
     }
+    
 
-    public virtual Animation getAnimationInterface()
-    {
+    Animation getAnimationInterface() {
         return this.animationInterface;
     }
-
 }
 

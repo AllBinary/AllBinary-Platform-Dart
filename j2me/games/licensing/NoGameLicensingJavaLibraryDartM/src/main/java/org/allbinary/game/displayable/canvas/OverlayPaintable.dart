@@ -13,35 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using InitUpdatePaintable = org.allbinary.graphics.paint.InitUpdatePaintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/InitUpdatePaintable.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class OverlayPaintable extends InitUpdatePaintable {
+    late LogUtil logUtil;
 
-public class OverlayPaintable : InitUpdatePaintable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public OverlayPaintable()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOverlayPaintable() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    public override void update()
-    {
+    OverlayPaintable() {
+        this.initFieldsOverlayPaintable();
+    }
+    
+
+    @override
+    void update() {
         try {
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
-
 }
 

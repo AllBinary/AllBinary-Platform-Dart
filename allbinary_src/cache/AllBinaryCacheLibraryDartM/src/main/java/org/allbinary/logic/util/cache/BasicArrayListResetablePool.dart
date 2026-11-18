@@ -13,33 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/AbstractArrayListPool.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
 
-namespace org.allbinary.logic.util.cache;
+class BasicArrayListResetablePool extends AbstractArrayListPool {
+    
 
-public class BasicArrayListResetablePool : AbstractArrayListPool
-{
-    public BasicArrayListResetablePool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : base(cacheableInterfaceFactoryInterface)
-    {
-        // base(cacheableInterfaceFactoryInterface) is called from the constructor declaration
+    BasicArrayListResetablePool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : super(cacheableInterfaceFactoryInterface) {
+        
     }
+    
 
-    public override void clear()
-    {
+    @override
+    void clear() {
     }
+    
 
-    // throws Exception
-    public override CacheableInterface remove(object key)
-    {
+    @override
+    CacheableInterface remove(Object key) {
         int size = this.buffers.size();
         if (size > 0) {
-            return ((CacheableInterface) this.buffers.removeAt(size - 1));
+            return (this.buffers.removeAt(size - 1) as CacheableInterface);
         } else {
-            return this.cacheableInterfaceFactoryInterface.getInstance(key);
+            return this.cacheableInterfaceFactoryInterface.getInstance1(key);
         }
     }
-
 }
 

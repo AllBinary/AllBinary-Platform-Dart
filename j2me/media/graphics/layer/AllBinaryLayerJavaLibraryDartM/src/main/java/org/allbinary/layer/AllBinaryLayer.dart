@@ -13,210 +13,243 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicGroupFactory = org.allbinary.game.identification.BasicGroupFactory;
-using Group = org.allbinary.game.identification.Group;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using OpenGLFeatureUtil = org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-using TsUtil = org.allbinary.TsUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using PositionStrings = org.allbinary.math.PositionStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
-using ViewPositionEvent = org.allbinary.view.@event.ViewPositionEvent;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/identification/BasicGroupFactory.dart';
+import 'package:allbinary/org/allbinary/game/identification/Group.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/RectangleFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureUtil.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/math/PositionStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/view/event/ViewPositionEvent.dart';
+import 'package:allbinary/org/allbinary/layer/Layer.dart';
+import 'package:allbinary/org/allbinary/layer/LayerInterface.dart';
 
-namespace org.allbinary.layer;
+class AllBinaryLayer extends Layer implements LayerInterface {
+    static final AllBinaryLayer NULL_ALLBINARY_LAYER = AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
+    static const String TYPE = "Type: ";
+    late ViewPositionEvent viewPositionEvent;
+    int halfWidth = 0;
+    int halfHeight = 0;
+    late String name;
+    late ViewPositionBase viewPosition;
 
-public class AllBinaryLayer : Layer, LayerInterface
-{
-    public static readonly AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
-    public readonly ViewPositionEvent viewPositionEvent;
-    private int halfWidth = 0;
-    private int halfHeight = 0;
-    private readonly string name;
-    private ViewPositionBase viewPosition = ViewPositionBase.NULL_VIEW_POSITION;
-    public AllBinaryLayer(string name, Rectangle rectangle, ViewPositionBase viewPosition) : base(rectangle.getWidth(), rectangle.getHeight())
-    {
-        this.viewPositionEvent = new ViewPositionEvent(this);
-        // base(rectangle.getWidth(), rectangle.getHeight()) is called from the constructor declaration
-        string localName = null;
-        localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Convert.ToString(TsUtil.getInstance().hashCode(this), 16)).ToString();
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryLayer() {
+    this.viewPositionEvent = ViewPositionEvent(this);
+    this.halfWidth = 0;
+    this.halfHeight = 0;
+    
+    this.viewPosition = ViewPositionBase.NULL_VIEW_POSITION;
+    }
+    
+
+    AllBinaryLayer(String name, Rectangle rectangle, ViewPositionBase viewPosition) : super(rectangle.getWidth(), rectangle.getHeight()) {
+        this.initFieldsAllBinaryLayer();
+        
+        late String localName;
+        localName = StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode1(this))).toString();
         this.name = localName;
-        GPoint point = rectangle.getPoint();
+        final GPoint point = rectangle.getPoint();
         this.setPosition(point.getX(), point.getY(), point.getZ());
         this.setHalfWidth((this.getWidth() >> 1));
         this.setHalfHeight((this.getHeight() >> 1));
         this.viewPosition = viewPosition;
         this.viewPosition.setAllbinaryLayer(this);
     }
+    
 
-    public override void setPosition(int x, int y, int z)
-    {
-        base.setPosition(x, y, z);
+    @override
+    void setPosition(int x, int y, int z) {
+        super.setPosition(x, y, z);
     }
+    
 
-    public override void moveDXYZ(int dx, int dy, int dz)
-    {
-        base.moveDXYZ(dx, dy, dz);
+    @override
+    void moveDXYZ(int dx, int dy, int dz) {
+        super.moveDXYZ(dx, dy, dz);
     }
+    
 
-    public override int getXP()
-    {
-        return base.getXP();
+    @override
+    int getXP() {
+        return super.getXP();
     }
+    
 
-    public override int getYP()
-    {
-        return base.getYP();
+    @override
+    int getYP() {
+        return super.getYP();
     }
+    
 
-    public override int getZP()
-    {
-        return base.getZP();
+    @override
+    int getZP() {
+        return super.getZP();
     }
+    
 
-    public override int getWidth()
-    {
-        return base.getWidth();
+    @override
+    int getWidth() {
+        return super.getWidth();
     }
+    
 
-    public override int getHeight()
-    {
-        return base.getHeight();
+    @override
+    int getHeight() {
+        return super.getHeight();
     }
+    
 
-    public override void setVisible(bool visible)
-    {
-        base.setVisible(visible);
+    @override
+    void setVisible(bool visible) {
+        super.setVisible(visible);
     }
+    
 
-    public override bool isVisible()
-    {
-        return base.isVisible();
+    @override
+    bool isVisible() {
+        return super.isVisible();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        base.paint(graphics);
+    @override
+    void paint(Graphics graphics) {
+        super.paint(graphics);
     }
+    
 
-    // throws Exception
-    public virtual void onChangeEvent(ViewPositionEvent layerManagerEvent)
-    {
+    void onChangeEvent(ViewPositionEvent layerManagerEvent) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    @override
+    void paintThreed(Graphics graphics) {
     }
+    
 
-    public virtual int getX2()
-    {
+    @override
+    int getX2() {
         return this.getXP() + this.getWidth();
     }
+    
 
-    public virtual int getY2()
-    {
+    @override
+    int getY2() {
         return this.getYP() + this.getHeight();
     }
+    
 
-    public virtual int getZ2()
-    {
-        return ((int) (this.getZP() + this.getDepth()));
+    @override
+    int getZ2() {
+        return ((this.getZP() + this.getDepth())).toSigned(32);
     }
+    
 
-    public virtual string getName()
-    {
+    @override
+    String getName() {
         return this.name;
     }
+    
 
-    public virtual void setHalfWidth(int halfWidth)
-    {
+    void setHalfWidth(int halfWidth) {
         this.halfWidth = halfWidth;
     }
+    
 
-    public virtual int getHalfWidth()
-    {
+    @override
+    int getHalfWidth() {
         return this.halfWidth;
     }
+    
 
-    public virtual void setHalfHeight(int halfHeight)
-    {
+    void setHalfHeight(int halfHeight) {
         this.halfHeight = halfHeight;
     }
+    
 
-    public virtual int getHalfHeight()
-    {
+    @override
+    int getHalfHeight() {
         return this.halfHeight;
     }
+    
 
-    public virtual int getHalfDepth()
-    {
-        return ((int) this.getDepth()) / 2;
+    int getHalfDepth() {
+        return (this.getDepth()).toSigned(32) ~/ 2;
     }
+    
 
-    public virtual ViewPositionBase getViewPosition()
-    {
+    ViewPositionBase getViewPosition() {
         return this.viewPosition;
     }
+    
 
-    public virtual void setViewPosition(ViewPositionBase viewPosition)
-    {
+    void setViewPosition(ViewPositionBase viewPosition) {
         this.viewPosition = viewPosition;
     }
+    
 
-    public virtual Group[] getGroupInterface()
-    {
+    @override
+    List<Group?> getGroupInterface() {
         return BasicGroupFactory.getInstance().NONE_ARRAY;
     }
+    
 
-    public virtual bool implmentsTickableInterface()
-    {
+    @override
+    bool implmentsTickableInterface() {
         return false;
     }
+    
 
-    public virtual bool implmentsGameInputInterface()
-    {
+    @override
+    bool implmentsGameInputInterface() {
         return false;
     }
+    
 
-    public virtual bool implmentsArtificialIntelligenceCompositeInterface()
-    {
+    @override
+    bool implmentsArtificialIntelligenceCompositeInterface() {
         return false;
     }
+    
 
-    public virtual bool implmentsCollidableInterface()
-    {
+    @override
+    bool implmentsCollidableInterface() {
         return false;
     }
+    
 
-    public virtual bool implementsThreedInterface()
-    {
+    bool implementsThreedInterface() {
         return OpenGLFeatureUtil.getInstance().isAnyThreed();
     }
+    
 
-    public virtual int getType()
-    {
+    @override
+    int getType() {
         return -1;
     }
+    
 
-    public virtual int getMultiPlayerType()
-    {
+    int getMultiPlayerType() {
         return -1;
     }
+    
 
-    private const string TYPE = "Type: ";
-    public override void toStringAppend(StringMaker stringBuffer)
-    {
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        PositionStrings positionStrings = PositionStrings.getInstance();
-        CommonLabels commonLabels = CommonLabels.getInstance();
+    @override
+    void toStringAppend(StringMaker stringBuffer) {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final PositionStrings positionStrings = PositionStrings.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
         stringBuffer.append(this.getName());
         stringBuffer.append(commonSeps.COLON);
         stringBuffer.append(AllBinaryLayer.TYPE);
@@ -237,13 +270,13 @@ public class AllBinaryLayer : Layer, LayerInterface
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(this.getHeight());
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         this.toStringAppend(stringBuffer);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

@@ -13,42 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GamePersistanceStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/PersistentInputMapping.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/PCKeyFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyFactory.dart';
 
-namespace org.allbinary.game.input;
+class DesktopDefaultGameInputMapping extends PersistentInputMapping {
+    
 
-public class DesktopDefaultGameInputMapping : PersistentInputMapping
-{
-    public DesktopDefaultGameInputMapping() : base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) is called from the constructor declaration
-        PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
-        InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
-        GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-        TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
-        BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
+    DesktopDefaultGameInputMapping() : super(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) {
+        
+        final PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
+        final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
+        final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+        final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
         inputToGameKeyMapping.add(gameKeyFactory.FIRE, pcKeyFactory.ENTER);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.FOUR);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory._P);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.u_P);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.p);
         inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.DPAD_UP);
         inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.DPAD_DOWN);
         inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.DPAD_LEFT);
         inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.DPAD_RIGHT);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory._Y);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory._I);
-        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory._U);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory._H);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory._J);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory._N);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory._M);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.u_Y);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.u_I);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.u_U);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.u_H);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.u_J);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.u_N);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory.u_M);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.y);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.i);
         inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.u);
@@ -56,13 +57,13 @@ public class DesktopDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.j);
         inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.n);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory.m);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory._Q);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory._E);
-        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory._W);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory._A);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory._D);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory._S);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory._X);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.u_Q);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.u_E);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.u_W);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.u_A);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.u_D);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.u_S);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory.u_X);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.q);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.e);
         inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.w);
@@ -95,6 +96,5 @@ public class DesktopDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.LEVEL_DOWN, pcKeyFactory.COMMA);
         inputToGameKeyMapping.add(gameKeyFactory.LEVEL_UP, pcKeyFactory.PERIOD);
     }
-
 }
 

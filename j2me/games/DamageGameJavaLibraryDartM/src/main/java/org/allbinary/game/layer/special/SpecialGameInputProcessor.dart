@@ -13,20 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
-using GameInputProcessor = org.allbinary.game.input.GameInputProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
 
-namespace org.allbinary.game.layer.special;
+class SpecialGameInputProcessor extends GameInputProcessor {
+    late CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer;
 
-public class SpecialGameInputProcessor : GameInputProcessor
-{
-    public readonly CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer;
-    public SpecialGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSpecialGameInputProcessor() {
+    
+    }
+    
+
+    SpecialGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) {
+        this.initFieldsSpecialGameInputProcessor();
         this.collidableDestroyableDamageableLayer = collidableDestroyableDamageableLayer;
     }
-
 }
 

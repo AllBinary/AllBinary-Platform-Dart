@@ -13,38 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game;
+class GameMode {
+    static GameMode NONE = GameMode(StringUtil.getInstance().NULL_STRING);
+    static GameMode SERVER = GameMode("Server");
+    static GameMode CLIENT = GameMode("Client");
+    late String name;
 
-public class GameMode
-{
-    public static GameMode NONE = new GameMode(StringUtil.getInstance().NULL_STRING);
-    public static GameMode SERVER = new GameMode("Server");
-    public static GameMode CLIENT = new GameMode("Client");
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private GameMode(string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameMode() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    GameMode(String name) {
+        this.initFieldsGameMode();
         this.setName(name);
     }
+    
 
-    private void setName(string name)
-    {
+    void setName(String name) {
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return this.getName();
     }
-
 }
 

@@ -13,37 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
 
-namespace org.allbinary.game.input;
+class NoPlayerGameInput extends PlayerGameInput {
+    static final NoPlayerGameInput SINGLETON = NoPlayerGameInput();
+    
 
-public class NoPlayerGameInput : PlayerGameInput
-{
-    private static readonly NoPlayerGameInput SINGLETON = new NoPlayerGameInput();
-    public static NoPlayerGameInput getInstance()
-    {
+    static NoPlayerGameInput getInstance() {
         return NoPlayerGameInput.SINGLETON;
     }
+    
 
-    private NoPlayerGameInput() : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    NoPlayerGameInput() : super(BasicArrayListD(), BasicArrayListD(), -1) {
+        
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    @override
+    void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
-
 }
 

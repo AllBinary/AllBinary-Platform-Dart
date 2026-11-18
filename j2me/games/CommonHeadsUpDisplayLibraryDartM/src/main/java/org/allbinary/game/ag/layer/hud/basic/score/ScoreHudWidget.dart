@@ -13,37 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.score
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using NumberStringHud = org.allbinary.game.ag.layer.hud.basic.NumberStringHud;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/NumberStringHud.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.score;
+class ScoreHudWidget extends NumberStringHud {
+    
 
-public class ScoreHudWidget : NumberStringHud
-{
-    // throws Exception
-    public static ScoreHudWidget getInstance(int maxscore, int location, int direction)
-    {
-        return new ScoreHudWidget(maxscore, location, direction, 2, BasicColorFactory.getInstance().GREY);
+    static ScoreHudWidget getInstance3(int maxscore, int location, int direction) {
+        return ScoreHudWidget(maxscore, location, direction, 2, BasicColorFactory.getInstance().GREY);
     }
+    
 
-    public ScoreHudWidget(int maxscore, int location, int direction, int bufferZone, BasicColor basicColor) : base("Pts ", maxscore, location, direction, bufferZone, basicColor)
-    {
-        // base("Pts ", maxscore, location, direction, bufferZone, basicColor) is called from the constructor declaration
+    ScoreHudWidget(int maxscore, int location, int direction, int bufferZone, BasicColor basicColor) : super("Pts ", maxscore, location, direction, bufferZone, basicColor) {
+        
         this.updateMaxHeight = 14;
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.updateMaxWidth = font.getSize() * 5;
-        base.updateMeasurement(graphics);
+        super.updateMeasurement(graphics);
     }
-
 }
 

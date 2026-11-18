@@ -13,32 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/ScalableListener.dart';
 
-namespace org.allbinary.graphics.displayable;
+class BaseScalable implements ScalableListener {
+    
 
-public class BaseScalable : ScalableListener
-{
-    public virtual float getRatio(float ratio)
-    {
-        return 1f;
+    @override
+    double getRatio(double ratio) {
+        return 1.0;
     }
+    
 
-    public virtual int getLeft(int xOffset)
-    {
+    @override
+    int getLeft(int xOffset) {
         return -1;
     }
+    
 
-    public virtual int getTop(int yOffset)
-    {
+    @override
+    int getTop(int yOffset) {
         return -1;
     }
+    
 
-    public virtual void scale(float ratio)
-    {
+    @override
+    void scale(double ratio) {
     }
-
 }
 

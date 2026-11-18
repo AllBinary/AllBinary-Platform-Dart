@@ -13,149 +13,167 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Features = org.allbinary.game.configuration.feature.Features;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using DemoCanvas = org.allbinary.game.displayable.canvas.DemoCanvas;
-using GameInputMappingCanvas = org.allbinary.game.displayable.canvas.GameInputMappingCanvas;
-using GameInputMappingInstructionsCanvas = org.allbinary.game.displayable.canvas.GameInputMappingInstructionsCanvas;
-using GameRunnable = org.allbinary.game.displayable.canvas.GameRunnable;
-using NullDisplayable = org.allbinary.game.displayable.canvas.NullDisplayable;
-using NullWaitGameRunnable = org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
-using SWTUtil = org.allbinary.game.layer.SWTUtil;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
-using GraphicsStrings = org.allbinary.graphics.GraphicsStrings;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using NullRunnable = org.allbinary.thread.NullRunnable;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Displayable.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameInputMappingCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameInputMappingInstructionsCanvas.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameRunnable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/NullDisplayable.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/NullWaitGameRunnable.dart';
+import 'package:allbinary/org/allbinary/game/layer/SWTUtil.dart';
+import 'package:allbinary/org/allbinary/game/score/displayable/HighScoresCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/GraphicsStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/MyCanvas.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/thread/NullRunnable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
 
-namespace org.allbinary.graphics.opengles;
+class CurrentDisplayableFactory {
+    static final CurrentDisplayableFactory instance = CurrentDisplayableFactory();
+    late CommonStrings commonStrings;
+    late CanvasStrings canvasStrings;
+    late StringUtil stringUtil;
+    late String SET_DISPLAYABLE;
+    late String SET_RUNNABLE;
+    late String CLEAR_RUNNABLE;
+    late String SET_USED_RUNNABLE;
+    late String RUNNABLE;
+    late String RUNNABLE_WAS_ALREADY_IN_USE;
+    late BasicArrayList DEFAULT_CHILD_NAME_LIST;
+    late Displayable displayable;
+    late Displayable openGlReadydisplayable;
+    late GameRunnable runnable;
+    late GameRunnable usedRunnable;
 
-public class CurrentDisplayableFactory
-{
-    private static readonly CurrentDisplayableFactory instance = new CurrentDisplayableFactory();
-    public static CurrentDisplayableFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCurrentDisplayableFactory() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.canvasStrings = CanvasStrings.getInstance();
+    this.stringUtil = StringUtil.getInstance();
+    this.SET_DISPLAYABLE = "setDisplayable";
+    this.SET_RUNNABLE = "setRunnable";
+    this.CLEAR_RUNNABLE = "clearRunnable";
+    this.SET_USED_RUNNABLE = "setUsedRunnable";
+    this.RUNNABLE = "Runnable: ";
+    this.RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
+    this.DEFAULT_CHILD_NAME_LIST = BasicArrayListD();
+    this.displayable = NullDisplayable.getInstance();
+    this.openGlReadydisplayable = NullDisplayable.getInstance();
+    this.runnable = NullWaitGameRunnable.getInstance();
+    this.usedRunnable = NullWaitGameRunnable.getInstance();
+    }
+    
+
+    static CurrentDisplayableFactory getInstance() {
         return CurrentDisplayableFactory.instance;
     }
+    
 
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly CanvasStrings canvasStrings = CanvasStrings.getInstance();
-    private readonly StringUtil stringUtil = StringUtil.getInstance();
-    private readonly string SET_DISPLAYABLE = "setDisplayable";
-    private readonly string SET_RUNNABLE = "setRunnable";
-    private readonly string CLEAR_RUNNABLE = "clearRunnable";
-    private readonly string SET_USED_RUNNABLE = "setUsedRunnable";
-    private readonly string RUNNABLE = "Runnable: ";
-    private readonly string RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
-    public readonly BasicArrayList DEFAULT_CHILD_NAME_LIST = new BasicArrayListD();
-    private Displayable displayable = NullDisplayable.getInstance();
-    private Displayable openGlReadydisplayable = NullDisplayable.getInstance();
-    private GameRunnable runnable = NullWaitGameRunnable.getInstance();
-    private GameRunnable usedRunnable = NullWaitGameRunnable.getInstance();
-    private CurrentDisplayableFactory()
-    {
+    CurrentDisplayableFactory() {
+        this.initFieldsCurrentDisplayableFactory();
         this.DEFAULT_CHILD_NAME_LIST.add(this.canvasStrings.ABOUT);
         this.DEFAULT_CHILD_NAME_LIST.add(this.canvasStrings.OPTIONS);
         this.DEFAULT_CHILD_NAME_LIST.add(GameInputMappingCanvas.NAME);
         this.DEFAULT_CHILD_NAME_LIST.add(GameInputMappingInstructionsCanvas.NAME);
         this.DEFAULT_CHILD_NAME_LIST.add(HighScoresCanvas.NAME);
     }
+    
 
-    public virtual void setMyCanvas(MyCanvas displayable)
-    {
-        if (this.displayable is MyCanvas) {
-            if (displayable.hasChild(((MyCanvas) this.displayable))) {
-                PreLogUtil.put(new StringMaker().append("Child Displayable is already set for: ").append(this.stringUtil.toString(displayable)).ToString(), this, this.SET_DISPLAYABLE);
+    void setMyCanvas(MyCanvas displayable) {
+        if ((this.displayable is MyCanvas)) {
+            if (displayable.hasChild((this.displayable as MyCanvas))) {
+                PreLogUtil.put(StringMaker().append("Child Displayable is already set for: ").append(this.stringUtil.toString1(displayable)).toString(), this, this.SET_DISPLAYABLE);
                 return;
             }
         }
         this.setDisplayable(displayable);
     }
+    
 
-    public virtual void setDisplayable(Displayable displayable)
-    {
+    void setDisplayable(Displayable displayable) {
         this.displayable = displayable;
         this.setOpenGlReadydisplayable(displayable);
     }
+    
 
-    public virtual void setOpenGlReadydisplayable(Displayable openGlReadydisplayable)
-    {
+    void setOpenGlReadydisplayable(Displayable openGlReadydisplayable) {
         this.openGlReadydisplayable = openGlReadydisplayable;
         this.update();
     }
+    
 
-    public virtual Displayable getOpenGlReadydisplayable()
-    {
+    Displayable getOpenGlReadydisplayable() {
         return this.openGlReadydisplayable;
     }
+    
 
-    public virtual void setRunnable(GameRunnable runnable)
-    {
-        PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(runnable)).ToString(), this, this.SET_RUNNABLE);
+    void setRunnable(GameRunnable runnable) {
+        PreLogUtil.put(StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString1(runnable)).toString(), this, this.SET_RUNNABLE);
         this.runnable = runnable;
-        if (this.usedRunnable != this.runnable) {
+        if (!identical(this.usedRunnable, this.runnable)) {
             this.update();
         } else {
-            PreLogUtil.put(new StringMaker().append(this.RUNNABLE_WAS_ALREADY_IN_USE).append(this.stringUtil.toString(runnable)).ToString(), this, this.SET_RUNNABLE);
+            PreLogUtil.put(StringMaker().append(this.RUNNABLE_WAS_ALREADY_IN_USE).append(this.stringUtil.toString1(runnable)).toString(), this, this.SET_RUNNABLE);
         }
     }
+    
 
-    public virtual void clearRunnable()
-    {
-        PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable.getInstance())).ToString(), this, this.CLEAR_RUNNABLE);
+    void clearRunnable() {
+        PreLogUtil.put(StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString1(NullRunnable.getInstance())).toString(), this, this.CLEAR_RUNNABLE);
         this.setUsedRunnable(NullWaitGameRunnable.getInstance());
     }
+    
 
-    private void update()
-    {
-        lock (this) {
-            CommonSeps commonSeps = CommonSeps.getInstance();
-            Features features = Features.getInstance();
-            StringMaker stringMaker = new StringMaker();
-            stringMaker.append(this.stringUtil.toString(this.openGlReadydisplayable));
+    void update() {
+        {
+            final CommonSeps commonSeps = CommonSeps.getInstance();
+            final Features features = Features.getInstance();
+            final StringMaker stringMaker = StringMaker();
+            stringMaker.append(this.stringUtil.toString1(this.openGlReadydisplayable));
             if (SWTUtil.isSWT && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
-                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(SWTUtil.SWT).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable.getInstance())).ToString(), this, this.commonStrings.UPDATE);
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(SWTUtil.SWT).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString1(NullRunnable.getInstance())).toString(), this, this.commonStrings.UPDATE);
                 this.setUsedRunnable(NullWaitGameRunnable.getInstance());
             } else if (J2MEUtil.isHTML()) {
-                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(GraphicsStrings.getInstance().HTML).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).ToString(), this, this.commonStrings.UPDATE);
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(GraphicsStrings.getInstance().HTML).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString1(this.runnable)).toString(), this, this.commonStrings.UPDATE);
                 this.setUsedRunnable(this.runnable);
-            } else if (this.openGlReadydisplayable is DemoCanvas || this.openGlReadydisplayable is AllBinaryGameCanvas || features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
-                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(OpenGLFeatureFactory.getInstance().OPENGL.ToString()).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).ToString(), this, this.commonStrings.UPDATE);
+            } else if ((this.openGlReadydisplayable is DemoCanvas) || (this.openGlReadydisplayable is AllBinaryGameCanvas) || features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(OpenGLFeatureFactory.getInstance().OPENGL.toString()).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString1(this.runnable)).toString(), this, this.commonStrings.UPDATE);
                 this.setUsedRunnable(this.runnable);
             } else {
-                PreLogUtil.put(stringMaker.append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable.getInstance())).ToString(), this, this.commonStrings.UPDATE);
+                PreLogUtil.put(stringMaker.append(this.RUNNABLE).append(this.stringUtil.toString1(NullRunnable.getInstance())).toString(), this, this.commonStrings.UPDATE);
                 this.setUsedRunnable(NullWaitGameRunnable.getInstance());
             }
         }
     }
+    
 
-    public virtual Displayable getDisplayable()
-    {
+    Displayable getDisplayable() {
         return this.displayable;
     }
+    
 
-    public virtual GameRunnable getUsedRunnable()
-    {
+    GameRunnable getUsedRunnable() {
         return this.usedRunnable;
     }
+    
 
-    public virtual void setUsedRunnable(GameRunnable usedRunnable)
-    {
-        PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).append(CommonSeps.getInstance().COLON_SEP).append(this.stringUtil.toString(usedRunnable)).ToString(), this, this.SET_USED_RUNNABLE);
+    void setUsedRunnable(GameRunnable usedRunnable) {
+        PreLogUtil.put(StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString1(this.runnable)).append(CommonSeps.getInstance().COLON_SEP).append(this.stringUtil.toString1(usedRunnable)).toString(), this, this.SET_USED_RUNNABLE);
         this.usedRunnable = usedRunnable;
     }
-
 }
 

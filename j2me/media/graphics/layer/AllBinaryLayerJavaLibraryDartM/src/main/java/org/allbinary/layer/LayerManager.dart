@@ -1,47 +1,60 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using TsUtil = org.allbinary.TsUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using SynchObject = org.allbinary.thread.SynchObject;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using ABSystemWrapper = org.allbinary.logic.ABSystemWrapper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/thread/SynchObject.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/logic/ABSystemWrapper.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManagerLoggingBase.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/Layer.dart';
 
-namespace org.allbinary.layer;
+class LayerManager {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late ABSystemWrapper systemWrapper;
+    late TsUtil tsUtil;
+    late LayerManagerLoggingBase layerManagerLogging;
+    late BasicArrayList list;
+    late SynchObject anyType;
 
-public class LayerManager
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
-    private readonly TsUtil tsUtil = TsUtil.getInstance();
-    private readonly LayerManagerLoggingBase layerManagerLogging;
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private readonly SynchObject anyType = new SynchObject();
-    public LayerManager(LayerManagerLoggingBase layerManagerLogging)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerManager() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.systemWrapper = ABSystemWrapper.getInstance();
+    this.tsUtil = TsUtil.getInstance();
+    
+    this.list = BasicArrayListD();
+    this.anyType = SynchObject();
+    }
+    
+
+    LayerManager(LayerManagerLoggingBase layerManagerLogging) {
+        this.initFieldsLayerManager();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.layerManagerLogging = layerManagerLogging;
     }
+    
 
-    public virtual bool contains(AllBinaryLayer layerInterface)
-    {
+    bool contains(AllBinaryLayer layerInterface) {
         return this.list.contains(layerInterface);
     }
+    
 
-    // throws Exception
-    public virtual void update(AllBinaryLayer layerInterface)
-    {
+    void update(AllBinaryLayer layerInterface) {
         bool had = this.list.remove(layerInterface);
         if (had) {
-            AllBinaryLayer nextLayerInterface = null;
-            int size = this.list.size();
+            late AllBinaryLayer nextLayerInterface;
+            final int size = this.list.size();
             for (int index = 0; index < size; index++) {
-                nextLayerInterface = ((AllBinaryLayer) this.list.get(index));
+                nextLayerInterface = (this.list.get(index) as AllBinaryLayer);
                 if (layerInterface.getZP() > nextLayerInterface.getZP()) {
                     this.list.addAt(index, layerInterface);
                     return;
@@ -50,14 +63,13 @@ public class LayerManager
             this.list.add(layerInterface);
         }
     }
+    
 
-    // throws Exception
-    public virtual void insert(AllBinaryLayer layerInterface)
-    {
-        AllBinaryLayer nextLayerInterface = null;
-        int size = this.list.size();
+    void insert(AllBinaryLayer layerInterface) {
+        late AllBinaryLayer nextLayerInterface;
+        final int size = this.list.size();
         for (int index = 0; index < size; index++) {
-            nextLayerInterface = ((AllBinaryLayer) this.list.get(index));
+            nextLayerInterface = (this.list.get(index) as AllBinaryLayer);
             if (layerInterface.getZP() > nextLayerInterface.getZP()) {
                 this.appendAt(layerInterface, index);
                 return;
@@ -65,64 +77,59 @@ public class LayerManager
         }
         this.append(layerInterface);
     }
+    
 
-    // throws Exception
-    public virtual void append(AllBinaryLayer layerInterface)
-    {
+    void append(AllBinaryLayer layerInterface) {
         this.layerManagerLogging.append(layerInterface);
         this.list.add(layerInterface);
     }
+    
 
-    // throws Exception
-    public virtual void appendAt(AllBinaryLayer layerInterface, int index)
-    {
+    void appendAt(AllBinaryLayer layerInterface, int index) {
         this.layerManagerLogging.appendAt(layerInterface, index);
         this.list.addAt(index, layerInterface);
     }
+    
 
-    // throws Exception
-    public virtual void remove(AllBinaryLayer layerInterface)
-    {
-        lock (this.anyType) {
+    void remove(AllBinaryLayer layerInterface) {
+        {
             this.layerManagerLogging.remove(layerInterface);
-            bool result = this.list.remove(layerInterface);
+            final bool result = this.list.remove(layerInterface);
             this.layerManagerLogging.removeResult(this, layerInterface, result);
         }
     }
+    
 
-    public virtual Layer getLayerAt(int index)
-    {
-        return ((Layer) this.list.objectArray[index]);
+    Layer getLayerAt(int index) {
+        return (this.list.objectArray[index]! as Layer);
     }
+    
 
-    public virtual int getSize()
-    {
+    int getSize() {
         return this.list.size();
     }
+    
 
-    // throws Exception
-    public virtual void cleanup()
-    {
-        lock (this.anyType) {
+    void cleanup() {
+        {
             this.list.clear();
             this.layerManagerLogging.clear();
             this.tsUtil.gc();
             this.tsUtil.gc();
         }
     }
+    
 
-    public virtual void paint(Graphics g, int x, int y)
-    {
-        lock (this.anyType) {
-            Layer comp = null;
+    void paint(Graphics g, int x, int y) {
+        {
+            late Layer comp;
             for (int index = this.list.size(); --index >= 0; ) {
-                comp = ((Layer) this.list.objectArray[index]);
+                comp = (this.list.objectArray[index]! as Layer);
                 if (comp != null && comp.isVisible()) {
                     comp.paint(g);
                 }
             }
         }
     }
-
 }
 

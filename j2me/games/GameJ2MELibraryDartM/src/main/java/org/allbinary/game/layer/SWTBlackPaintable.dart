@@ -13,25 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BasicColorSetUtil = org.allbinary.graphics.color.BasicColorSetUtil;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorSetUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
 
-namespace org.allbinary.game.layer;
+class SWTBlackPaintable extends Paintable {
+    late BasicColorSetUtil basicSetColorUtil;
+    late BasicColor BLACK;
 
-public class SWTBlackPaintable : Paintable
-{
-    private readonly BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-    private readonly BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
-    public override void paint(Graphics graphics)
-    {
-        this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
+    // Java field initializers run after the base constructor
+    void initFieldsSWTBlackPaintable() {
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.BLACK = BasicColorFactory.getInstance().BLACK;
     }
 
+    SWTBlackPaintable() {
+        this.initFieldsSWTBlackPaintable();
+    }
+    
+
+    void paint(Graphics graphics) {
+        this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
+    }
 }
 

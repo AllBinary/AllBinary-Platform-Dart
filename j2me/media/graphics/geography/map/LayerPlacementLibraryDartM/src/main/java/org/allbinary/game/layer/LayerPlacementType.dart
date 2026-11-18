@@ -13,29 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.layer;
+class LayerPlacementType {
+    int type = 0;
 
-public class LayerPlacementType
-{
-    private int type;
-    public LayerPlacementType(int type)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLayerPlacementType() {
+    
+    }
+    
+
+    LayerPlacementType(int type) {
+        this.initFieldsLayerPlacementType();
         this.type = type;
     }
+    
 
-    public virtual int getType()
-    {
+    int getType() {
         return this.type;
     }
+    
 
-    public virtual void setType(int type)
-    {
+    void setType(int type) {
         this.type = type;
     }
-
 }
 

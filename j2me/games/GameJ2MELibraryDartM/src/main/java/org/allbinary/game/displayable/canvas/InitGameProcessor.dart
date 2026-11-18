@@ -13,31 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class InitGameProcessor extends Processor {
+    late AllBinaryGameCanvas gameCanvas;
 
-public class InitGameProcessor : Processor
-{
-    private AllBinaryGameCanvas gameCanvas;
-    public InitGameProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInitGameProcessor() {
+    
+    }
+    
+
+    InitGameProcessor(AllBinaryGameCanvas gameCanvas) {
+        this.initFieldsInitGameProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         if (ProgressCanvasFactory.getInstance().isInGame()) {
             this.gameCanvas.setProcessGameProcessorInit();
         }
     }
-
 }
 

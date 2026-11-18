@@ -13,53 +13,63 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.resources
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GraphicsFeature = org.allbinary.game.configuration.feature.GraphicsFeature;
-using GraphicsFeatureFactory = org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using OpenGLFeatureUtil = org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GraphicsFeature.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/GraphicsFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureUtil.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.game.layer.resources;
+class GameGraphicsResourceUtil {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late String SPRITE;
+    late String QUARTER;
+    late String name;
 
-public class GameGraphicsResourceUtil
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameGraphicsResourceUtil getInstance()
-    {
-        if (GameGraphicsResourceUtil.instance == NullUtil.getInstance().NULL_OBJECT) {
-            GameGraphicsResourceUtil.instance = new GameGraphicsResourceUtil();
-        }
-        return ((GameGraphicsResourceUtil) GameGraphicsResourceUtil.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsGameGraphicsResourceUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.SPRITE = "_sprite";
+    this.QUARTER = "_quarter";
+    this.name = StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly string SPRITE = "_sprite";
-    public readonly string QUARTER = "_quarter";
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public GameGraphicsResourceUtil()
-    {
+    static GameGraphicsResourceUtil getInstance() {
+        if (GameGraphicsResourceUtil.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameGraphicsResourceUtil.instance = GameGraphicsResourceUtil();
+        }
+        return (GameGraphicsResourceUtil.instance as GameGraphicsResourceUtil);
+    }
+    
+
+    GameGraphicsResourceUtil() {
+        this.initFieldsGameGraphicsResourceUtil();
         try {
             this.name = this.getString();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            }
         }
     }
+    
 
-    // throws Exception
-    private string getString()
-    {
-        GraphicsFeatureFactory graphicsFeatureFactory = GraphicsFeatureFactory.getInstance();
+    String getString() {
+        final GraphicsFeatureFactory graphicsFeatureFactory = GraphicsFeatureFactory.getInstance();
         GraphicsFeature graphicsFeature = graphicsFeatureFactory.NONE;
-        Features features = Features.getInstance();
+        final Features features = Features.getInstance();
         if (features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS)) {
             graphicsFeature = graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS;
         } else if (features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS)) {
@@ -71,14 +81,13 @@ public class GameGraphicsResourceUtil
         }
         return this.getStringForFeature(graphicsFeature);
     }
+    
 
-    // throws Exception
-    public virtual string getStringForFeature(GraphicsFeature graphicsFeature)
-    {
-        StringMaker stringBuffer = new StringMaker();
-        GraphicsFeatureFactory graphicsFeatureFactory = GraphicsFeatureFactory.getInstance();
+    String getStringForFeature(GraphicsFeature graphicsFeature) {
+        final StringMaker stringBuffer = StringMaker();
+        final GraphicsFeatureFactory graphicsFeatureFactory = GraphicsFeatureFactory.getInstance();
         stringBuffer.delete(0, stringBuffer.length());
-        Features features = Features.getInstance();
+        final Features features = Features.getInstance();
         if (features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS)) {
         } else if (features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS)) {
             if (graphicsFeature == graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS || graphicsFeature == graphicsFeatureFactory.IMAGE_ROTATION_ON_THE_FLY) {
@@ -88,20 +97,19 @@ public class GameGraphicsResourceUtil
                 stringBuffer.append(this.QUARTER);
                 stringBuffer.append(this.SPRITE);
             } else {
-                throw new Exception("None/Unknown Sub Image Resource Type Specified");
+                throw JException('Exception', "None/Unknown Sub Image Resource Type Specified");
             }
         } else if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             stringBuffer.append(CanvasStrings.getInstance().OBJ_MODEL);
         } else {
-            throw new Exception("None/Unknown Main Image Resource Type Specified");
+            throw JException('Exception', "None/Unknown Main Image Resource Type Specified");
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

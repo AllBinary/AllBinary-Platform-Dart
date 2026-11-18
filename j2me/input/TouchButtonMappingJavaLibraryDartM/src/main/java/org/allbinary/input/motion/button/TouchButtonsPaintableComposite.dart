@@ -13,62 +13,79 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using CompleteMotionGestureInputEventHandler = org.allbinary.game.input.CompleteMotionGestureInputEventHandler;
-using CompleteMotionGestureInputEventListenerInterface = org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
-using GameKey = org.allbinary.game.input.GameKey;
-using InputMappingInterface = org.allbinary.game.input.mapping.InputMappingInterface;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ProcessPaintable = org.allbinary.graphics.paint.ProcessPaintable;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputMappingInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/ProcessPaintable.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/TouchMotionGestureFactory.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonsMappingPaintable.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonsPaintableComposite extends ProcessPaintable implements CompleteMotionGestureInputEventListenerInterface {
+    late LogUtil logUtil;
+    late CommonStrings commonStrings;
+    late InputMappingInterface inputMappingInterface;
+    late TouchButtonsMappingPaintable touchButtonsPaintable;
+    late TimeDelayHelper timeHelper;
+    bool released = false;
+    late String METHOD_NAME;
+    late String RELEASE;
+    late String FAST_REPEAT;
+    late String IGNORE;
 
-public class TouchButtonsPaintableComposite : ProcessPaintable, CompleteMotionGestureInputEventListenerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private InputMappingInterface inputMappingInterface;
-    public TouchButtonsMappingPaintable touchButtonsPaintable;
-    private TimeDelayHelper timeHelper = new TimeDelayHelper(250);
-    private bool released = true;
-    public TouchButtonsPaintableComposite(InputMappingInterface inputMappingInterface, BasicColor basicColor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchButtonsPaintableComposite() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    this.timeHelper = TimeDelayHelper(250);
+    this.released = true;
+    this.METHOD_NAME = "onCompleteMotionGestureInputEvent";
+    this.RELEASE = "Ignoring: MotionGestureInput Release";
+    this.FAST_REPEAT = "Ignoring: MotionGestureInput Repeated To Quickly";
+    this.IGNORE = "Ignoring: Until Released";
+    }
+    
+
+    TouchButtonsPaintableComposite(InputMappingInterface inputMappingInterface, BasicColor basicColor) {
+        this.initFieldsTouchButtonsPaintableComposite();
         this.inputMappingInterface = inputMappingInterface;
         CompleteMotionGestureInputEventHandler.getInstance().addListenerInterface(this);
-        this.touchButtonsPaintable = new TouchButtonsMappingPaintable(basicColor);
+        this.touchButtonsPaintable = TouchButtonsMappingPaintable(basicColor);
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    private readonly string METHOD_NAME = "onCompleteMotionGestureInputEvent";
-    private readonly string RELEASE = "Ignoring: MotionGestureInput Release";
-    private readonly string FAST_REPEAT = "Ignoring: MotionGestureInput Repeated To Quickly";
-    private readonly string IGNORE = "Ignoring: Until Released";
-    public virtual void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
-    {
+    @override
+    void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent) {
         try {
             this.logUtil.putF(this.commonStrings.START, this, "onCompleteMotionGestureInputEvent");
-            TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
-            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent);
-            GameKey gameKey = gameKeyCompleteMotionGestureInputEvent.getGameKey();
-            MotionGestureInput motionGestureInput = completeMotionGestureInputEvent.getMotionGestureInput();
+            final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+            final GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (completeMotionGestureInputEvent as GameKeyCompleteMotionGestureInputEvent);
+            final GameKey gameKey = gameKeyCompleteMotionGestureInputEvent.getGameKey();
+            final MotionGestureInput motionGestureInput = completeMotionGestureInputEvent.getMotionGestureInput();
             if (motionGestureInput == touchMotionGestureFactory.RELEASED) {
                 this.logUtil.putF(this.RELEASE, this, this.METHOD_NAME);
                 this.released = true;
@@ -83,17 +100,20 @@ public class TouchButtonsPaintableComposite : ProcessPaintable, CompleteMotionGe
                 return;
             }
             this.released = false;
-            this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).ToString(), this, this.METHOD_NAME);
+            this.logUtil.putF(StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString1(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString1(motionGestureInput)).toString(), this, this.METHOD_NAME);
             this.inputMappingInterface.processInputMapping(gameKey, motionGestureInput);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_NAME, e);
+            }
         }
     }
+    
 
-    public override void process()
-    {
+    @override
+    void process() {
         CompleteMotionGestureInputEventHandler.getInstance().removeListener(this);
     }
-
 }
 

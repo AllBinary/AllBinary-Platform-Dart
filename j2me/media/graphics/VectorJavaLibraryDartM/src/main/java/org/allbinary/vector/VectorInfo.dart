@@ -13,65 +13,72 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.vector
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.vector;
+class VectorInfo {
+    int width = 0;
+    int height = 0;
+    late List<List<int>?> points;
+    int totalFrames = 0;
 
-public class VectorInfo
-{
-    private int width;
-    private int height;
-    private int[][] points;
-    private int totalFrames;
-    public VectorInfo(int width, int height, int[][] points, int totalFrames)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsVectorInfo() {
+    
+    
+    
+    
+    }
+    
+
+    VectorInfo(int width, int height, List<List<int>?> points, int totalFrames) {
+        this.initFieldsVectorInfo();
         this.width = width;
         this.height = height;
         this.points = points;
         this.totalFrames = totalFrames;
     }
+    
 
-    public virtual int getWidth()
-    {
+    int getWidth() {
         return this.width;
     }
+    
 
-    private void setWidth(int width)
-    {
+    void setWidth(int width) {
         this.width = width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    int getHeight() {
         return this.height;
     }
+    
 
-    private void setHeight(int height)
-    {
+    void setHeight(int height) {
         this.height = height;
     }
+    
 
-    public virtual int[][] getPoints()
-    {
+    List<List<int>?> getPoints() {
         return this.points;
     }
+    
 
-    private void setPoints(int[][] points)
-    {
+    void setPoints(List<List<int>?> points) {
         this.points = points;
     }
+    
 
-    public virtual int getTotalFrames()
-    {
+    int getTotalFrames() {
         return this.totalFrames;
     }
+    
 
-    private void setTotalFrames(int totalFrames)
-    {
+    void setTotalFrames(int totalFrames) {
         this.totalFrames = totalFrames;
     }
-
 }
 

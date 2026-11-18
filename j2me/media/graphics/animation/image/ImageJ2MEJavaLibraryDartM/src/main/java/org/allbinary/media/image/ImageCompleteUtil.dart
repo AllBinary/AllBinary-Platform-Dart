@@ -13,25 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
 
-namespace org.allbinary.media.image;
+class ImageCompleteUtil {
+    static final ImageCompleteUtil instance = ImageCompleteUtil();
+    
 
-public class ImageCompleteUtil
-{
-    private static readonly ImageCompleteUtil instance = new ImageCompleteUtil();
-    public static ImageCompleteUtil getInstance()
-    {
+    static ImageCompleteUtil getInstance() {
         return ImageCompleteUtil.instance;
     }
+    
 
-    // throws Exception
-    public virtual void waitForImage(Image image, string name)
-    {
+    void waitForImage(Image image, String name) {
     }
-
 }
 

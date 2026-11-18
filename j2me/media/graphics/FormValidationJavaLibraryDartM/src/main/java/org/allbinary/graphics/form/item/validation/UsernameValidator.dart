@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item.validation
 
-using System;
-using System.Linq;
-using ABTextFieldItem = org.allbinary.graphics.form.item.ABTextFieldItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextFieldItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/validation/TextFieldItemValidator.dart';
 
-namespace org.allbinary.graphics.form.item.validation;
+class UsernameValidator extends TextFieldItemValidator {
+    
 
-public class UsernameValidator : TextFieldItemValidator
-{
-    public UsernameValidator(ABTextFieldItem textFieldItem, int min, int max, bool allowOnEmpty) : base(textFieldItem, min, max, allowOnEmpty)
-    {
-        // base(textFieldItem, min, max, allowOnEmpty) is called from the constructor declaration
+    UsernameValidator(ABTextFieldItem textFieldItem, int min, int max, bool allowOnEmpty) : super(textFieldItem, min, max, allowOnEmpty) {
+        
     }
-
 }
 

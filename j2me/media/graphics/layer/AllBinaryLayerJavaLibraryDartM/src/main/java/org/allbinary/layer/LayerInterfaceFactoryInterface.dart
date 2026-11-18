@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
 
-namespace org.allbinary.layer;
+abstract interface class LayerInterfaceFactoryInterface {
+    
 
-public interface LayerInterfaceFactoryInterface
-{
-    // throws Exception
-    AllBinaryLayer getNextInstance(ABHashtable<object, object> hashtable, int x, int y, int z);
-
+    AllBinaryLayer getNextInstance(ABHashtable hashtable, int x, int y, int z);
 }
 

@@ -13,25 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehavior.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehavior.dart';
 
-namespace org.allbinary.game.collision;
+class CollidableAlwaysPickupNeverCollideBehaviorFactory extends CollidableBaseBehaviorFactory {
+    static final CollidableAlwaysPickupNeverCollideBehaviorFactory instanceC = CollidableAlwaysPickupNeverCollideBehaviorFactory();
+    late CollidableAlwaysPickupNeverCollideBehavior instance;
 
-public class CollidableAlwaysPickupNeverCollideBehaviorFactory : CollidableBaseBehaviorFactory
-{
-    private static readonly CollidableAlwaysPickupNeverCollideBehaviorFactory instanceC = new CollidableAlwaysPickupNeverCollideBehaviorFactory();
-    public static CollidableAlwaysPickupNeverCollideBehaviorFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCollidableAlwaysPickupNeverCollideBehaviorFactory() {
+    this.instance = CollidableAlwaysPickupNeverCollideBehavior();
+    }
+
+    CollidableAlwaysPickupNeverCollideBehaviorFactory() {
+        this.initFieldsCollidableAlwaysPickupNeverCollideBehaviorFactory();
+    }
+    
+
+    static CollidableAlwaysPickupNeverCollideBehaviorFactory getInstance() {
         return CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC;
     }
+    
 
-    private readonly CollidableAlwaysPickupNeverCollideBehavior instance = new CollidableAlwaysPickupNeverCollideBehavior();
-    public override CollidableBaseBehavior createBehavior()
-    {
+    @override
+    CollidableBaseBehavior createBehavior() {
         return this.instance;
     }
-
 }
 

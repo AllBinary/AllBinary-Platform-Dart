@@ -13,19 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/PCGameInputMapping.dart';
+import 'package:allbinary/org/allbinary/game/input/MotionLaptopDefaultGameInputMapping.dart';
 
-namespace org.allbinary.game.input;
+class MotionLaptopGameInputMapping extends PCGameInputMapping {
+    
 
-public class MotionLaptopGameInputMapping : PCGameInputMapping
-{
-    public override InputToGameKeyMapping getDefault()
-    {
-        return new MotionLaptopDefaultGameInputMapping().getInputMapping();
+    @override
+    InputToGameKeyMapping getDefault() {
+        return MotionLaptopDefaultGameInputMapping().getInputMapping();
     }
-
 }
 

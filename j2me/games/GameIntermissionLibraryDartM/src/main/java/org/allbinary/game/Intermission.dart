@@ -13,45 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/game/IntermissionInterface.dart';
+import 'package:allbinary/org/allbinary/game/NullIntermissionEnableListener.dart';
+import 'package:allbinary/org/allbinary/game/IntermissionEnableListenerInterface.dart';
 
-namespace org.allbinary.game;
+class Intermission implements IntermissionInterface {
+    bool enabled = false;
+    late TimeDelayHelper timeElapsedHelper;
+    late IntermissionEnableListenerInterface intermissionEnableListener;
 
-public class Intermission : IntermissionInterface
-{
-    private bool enabled = false;
-    private readonly TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
-    private IntermissionEnableListenerInterface intermissionEnableListener = NullIntermissionEnableListener.getInstance();
-    public Intermission()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsIntermission() {
+    this.enabled = false;
+    this.timeElapsedHelper = TimeDelayHelper(0);
+    this.intermissionEnableListener = NullIntermissionEnableListener.getInstance();
     }
+    
 
-    public virtual void setListener(IntermissionEnableListenerInterface enableListener)
-    {
+    Intermission() {
+        this.initFieldsIntermission();
+    }
+    
+
+    @override
+    void setListener(IntermissionEnableListenerInterface enableListener) {
         this.intermissionEnableListener = enableListener;
     }
+    
 
-    public virtual TimeDelayHelper getTimeDelayHelper()
-    {
+    @override
+    TimeDelayHelper getTimeDelayHelper() {
         return this.timeElapsedHelper;
     }
+    
 
-    public virtual void setEnabled(bool enabled)
-    {
+    @override
+    void setEnabled(bool enabled) {
         this.enabled = enabled;
         if (this.isEnabled()) {
             this.getTimeDelayHelper().setStartTimeTNT();
         }
         this.intermissionEnableListener.notifyIntermission(enabled);
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    @override
+    bool isEnabled() {
         return this.enabled;
     }
-
 }
 

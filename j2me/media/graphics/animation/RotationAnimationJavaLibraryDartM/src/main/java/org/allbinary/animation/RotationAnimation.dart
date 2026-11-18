@@ -13,105 +13,126 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using DirectionUtil = org.allbinary.direction.DirectionUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using Angle = org.allbinary.math.Angle;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using FrameUtil = org.allbinary.math.FrameUtil;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/math/FrameUtil.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/RotationAnimationInterface.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
 
-namespace org.allbinary.animation;
+class RotationAnimation extends IndexedAnimation implements RotationAnimationInterface {
+    late FrameUtil frameUtil;
+    late DirectionUtil directionUtil;
+    late AngleInfo angleInfo;
+    late CircularIndexUtil circularIndexUtil;
 
-public class RotationAnimation : IndexedAnimation, RotationAnimationInterface
-{
-    public readonly FrameUtil frameUtil = FrameUtil.getInstance();
-    public readonly DirectionUtil directionUtil = DirectionUtil.getInstance();
-    public readonly AngleInfo angleInfo;
-    public CircularIndexUtil circularIndexUtil;
-    public RotationAnimation(AngleInfo angleInfo, CircularIndexUtil circularIndexUtil, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsRotationAnimation() {
+    this.frameUtil = FrameUtil.getInstance();
+    this.directionUtil = DirectionUtil.getInstance();
+    
+    
+    }
+    
+
+    RotationAnimation(AngleInfo angleInfo, CircularIndexUtil circularIndexUtil, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsRotationAnimation();
+        
         this.angleInfo = angleInfo;
         this.circularIndexUtil = circularIndexUtil;
     }
+    
 
-    public virtual void nextRotationX()
-    {
+    void nextRotationX() {
     }
+    
 
-    public virtual void previousRotationX()
-    {
+    void previousRotationX() {
     }
+    
 
-    public virtual void nextRotation()
-    {
+    @override
+    void nextRotation() {
         this.angleInfo.adjustAngle(this.circularIndexUtil.next());
     }
+    
 
-    public virtual void previousRotation()
-    {
+    @override
+    void previousRotation() {
         this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
     }
+    
 
-    public virtual void nextRotationZ()
-    {
+    void nextRotationZ() {
     }
+    
 
-    public virtual void previousRotationZ()
-    {
+    void previousRotationZ() {
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.circularIndexUtil.setIndex(index);
-        int newFrame = this.circularIndexUtil.getIndex();
+        final int newFrame = this.circularIndexUtil.getIndex();
         this.angleInfo.adjustAngle(newFrame);
     }
+    
 
-    public virtual void setFrameByDirection(Direction direction)
-    {
-        Angle angle = this.directionUtil.getFrameAngle(direction);
+    @override
+    void setFrameByDirection(Direction direction) {
+        final Angle angle = this.directionUtil.getFrameAngle(direction);
         this.adjustFrameToAngle(angle);
     }
+    
 
-    public virtual void setFrameToAngle(Angle angle)
-    {
+    @override
+    void setFrameToAngle(Angle angle) {
         this.adjustFrameToAngle(angle);
     }
+    
 
-    public virtual void adjustFrameToAngle(Angle angle)
-    {
+    @override
+    void adjustFrameToAngle(Angle angle) {
         this.adjustFrame(angle.getValue());
     }
+    
 
-    public virtual void adjustFrame(short angle)
-    {
-        this.setFrame(this.frameUtil.getFrameForAngle(angle, ((int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
+    @override
+    void adjustFrame(int angle) {
+        this.setFrame(this.frameUtil.getFrameForAngle(angle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.circularIndexUtil.getIndex();
     }
+    
 
-    public override int getSize()
-    {
+    @override
+    int getSize() {
         return this.circularIndexUtil.getSize();
     }
+    
 
-    public virtual AngleInfo getAngleInfoP()
-    {
+    @override
+    AngleInfo getAngleInfoP() {
         return this.angleInfo;
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append(base.ToString()).append("circularIndexUtil: ").append(this.circularIndexUtil.ToString()).append("angleInfo: ").append(this.angleInfo.ToString()).ToString();
+    @override
+    String toString() {
+        return StringMaker().append(super.toString()).append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
     }
-
 }
 

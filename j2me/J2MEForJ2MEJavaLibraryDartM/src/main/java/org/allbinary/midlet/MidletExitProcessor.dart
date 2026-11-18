@@ -13,26 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
-using MIDlet = javax.microedition.midlet.MIDlet;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/midlet/MIDlet.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
 
-namespace org.allbinary.midlet;
+class MidletExitProcessor extends Processor {
+    late MIDlet midlet;
 
-public class MidletExitProcessor : Processor
-{
-    private readonly MIDlet midlet;
-    public MidletExitProcessor(MIDlet midlet)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsMidletExitProcessor() {
+    
+    }
+    
+
+    MidletExitProcessor(MIDlet midlet) {
+        this.initFieldsMidletExitProcessor();
         this.midlet = midlet;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
     }
-
 }
 

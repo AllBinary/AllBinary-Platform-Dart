@@ -13,36 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.math.vector
 
-using System;
-using System.Linq;
-using NoDecimalTrigTable = org.allbinary.math.NoDecimalTrigTable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/math/NoDecimalTrigTable.dart';
 
-namespace org.allbinary.logic.math.vector;
+class AxisMathVectorUtil {
+    static final AxisMathVectorUtil instance = AxisMathVectorUtil();
+    late NoDecimalTrigTable noDecimalTrigTable;
 
-public class AxisMathVectorUtil
-{
-    private static readonly AxisMathVectorUtil instance = new AxisMathVectorUtil();
-    public static AxisMathVectorUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAxisMathVectorUtil() {
+    this.noDecimalTrigTable = NoDecimalTrigTable.getInstance();
+    }
+
+    AxisMathVectorUtil() {
+        this.initFieldsAxisMathVectorUtil();
+    }
+    
+
+    static AxisMathVectorUtil getInstance() {
         return AxisMathVectorUtil.instance;
     }
+    
 
-    private readonly NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
-    public virtual long calculateX(long magnitude, int angle)
-    {
-        return magnitude * this.noDecimalTrigTable.cos(angle) / 10;
+    int calculateX(int magnitude, int angle) {
+        return magnitude * this.noDecimalTrigTable.cos(angle) ~/ 10;
     }
+    
 
-    public virtual long calculateY(long magnitude, int angle)
-    {
-        return magnitude * this.noDecimalTrigTable.sin(angle) / 10;
+    int calculateY(int magnitude, int angle) {
+        return magnitude * this.noDecimalTrigTable.sin(angle) ~/ 10;
     }
+    
 
-    public virtual long calculateZ(long magnitude, int otherAngle)
-    {
-        return magnitude * this.noDecimalTrigTable.sin(otherAngle) / 10;
+    int calculateZ(int magnitude, int otherAngle) {
+        return magnitude * this.noDecimalTrigTable.sin(otherAngle) ~/ 10;
     }
-
 }
 

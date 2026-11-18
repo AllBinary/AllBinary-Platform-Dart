@@ -13,32 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
-using MIDlet = javax.microedition.midlet.MIDlet;
-using AppletUtil = org.allbinary.AppletUtil;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/midlet/MIDlet.dart';
+import 'package:allbinary/org/allbinary/AppletUtil.dart';
+import 'package:allbinary/org/allbinary/J2MEUtil.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/midlet/MidletExitProcessor.dart';
 
-namespace org.allbinary.midlet;
+class MidletExitProcessorFactory {
+    static final MidletExitProcessorFactory instance = MidletExitProcessorFactory();
+    
 
-public class MidletExitProcessorFactory
-{
-    private static readonly MidletExitProcessorFactory instance = new MidletExitProcessorFactory();
-    public static MidletExitProcessorFactory getInstance()
-    {
+    static MidletExitProcessorFactory getInstance() {
         return MidletExitProcessorFactory.instance;
     }
+    
 
-    public virtual Processor getExitInstance(MIDlet midlet)
-    {
+    Processor getExitInstance(MIDlet midlet) {
         if (AppletUtil.isAppletLoader(midlet) || J2MEUtil.isJ2ME()) {
             return Processor.getInstance();
         } else {
-            return new MidletExitProcessor(midlet);
+            return MidletExitProcessor(midlet);
         }
     }
-
 }
 

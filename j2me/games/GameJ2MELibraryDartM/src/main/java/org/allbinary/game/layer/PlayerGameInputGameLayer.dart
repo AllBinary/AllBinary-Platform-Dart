@@ -13,50 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using PlayerGameInputCompositeInterface = org.allbinary.game.input.PlayerGameInputCompositeInterface;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using StaticViewPosition = org.allbinary.view.StaticViewPosition;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInputCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/CanvasStrings.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/view/StaticViewPosition.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
 
-namespace org.allbinary.game.layer;
+class PlayerGameInputGameLayer extends AllBinaryGameLayer implements PlayerGameInputCompositeInterface {
+    late PlayerGameInput playerGameInput;
 
-public class PlayerGameInputGameLayer : AllBinaryGameLayer, PlayerGameInputCompositeInterface
-{
-    private PlayerGameInput playerGameInput;
-    public PlayerGameInputGameLayer(int playerInputId) : base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), new StaticViewPosition(0, 0, 0))
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), new StaticViewPosition(0, 0, 0)) is called from the constructor declaration
-        this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList(), new BasicArrayListD(), playerInputId);
-        CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    // Java field initializers run after the base constructor
+    void initFieldsPlayerGameInputGameLayer() {
+    
+    }
+    
+
+    PlayerGameInputGameLayer(int playerInputId) : super(StringUtil.getInstance().EMPTY_STRING, Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), StaticViewPosition(0, 0, 0)) {
+        this.initFieldsPlayerGameInputGameLayer();
+        
+        this.playerGameInput = PlayerGameInput(this.getGameKeyEventList(), BasicArrayListD(), playerInputId);
+        final CanvasStrings canvasStrings = CanvasStrings.getInstance();
         this.logUtil.putF("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, canvasStrings.PAINT);
     }
+    
 
-    public virtual PlayerGameInput getPlayerGameInput()
-    {
+    @override
+    PlayerGameInput getPlayerGameInput() {
         return this.playerGameInput;
     }
+    
 
-    public virtual void initInputProcessors()
-    {
+    @override
+    void initInputProcessors() {
     }
+    
 
-    // throws Exception
-    public override void processInput(AllBinaryLayerManager myManager)
-    {
+    @override
+    void processInput(AllBinaryLayerManager myManager) {
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
-
 }
 

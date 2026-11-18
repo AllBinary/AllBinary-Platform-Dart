@@ -13,17 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.init.crypt.jcehelper
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.init.crypt.jcehelper;
+abstract interface class CryptInterface {
+    
 
-public interface CryptInterface
-{
-    sbyte[] encrypt(sbyte[] array);
+    List<int> encrypt(List<int> array);
+    
 
-    sbyte[] decrypt(sbyte[] array);
-
+    List<int> decrypt(List<int> array);
 }
 

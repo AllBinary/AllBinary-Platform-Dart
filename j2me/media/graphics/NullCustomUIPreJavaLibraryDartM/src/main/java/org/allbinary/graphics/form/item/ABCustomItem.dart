@@ -1,88 +1,86 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Screen = javax.microedition.lcdui.Screen;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Screen.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.graphics.form.item;
+class ABCustomItem {
+    static Object NULL_CUSTOM_ITEM = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class ABCustomItem
-{
-    public static object NULL_CUSTOM_ITEM = NullUtil.getInstance().NULL_OBJECT;
-    public static ABCustomItem getNullInstance()
-    {
+    static ABCustomItem getNullInstance() {
         if (ABCustomItem.NULL_CUSTOM_ITEM == NullUtil.getInstance().NULL_OBJECT) {
-            ABCustomItem.NULL_CUSTOM_ITEM = new ABCustomItem(StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+            ABCustomItem.NULL_CUSTOM_ITEM = ABCustomItem(StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
         }
-        return ((ABCustomItem) ABCustomItem.NULL_CUSTOM_ITEM);
+        return (ABCustomItem.NULL_CUSTOM_ITEM as ABCustomItem);
     }
+    
 
-    public ABCustomItem(string label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
+    ABCustomItem(String label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
     }
+    
 
-    public virtual void setOwner(Screen owner)
-    {
+    void setOwner(Screen owner) {
     }
+    
 
-    public virtual void paintXY(Graphics graphics, int x, int y)
-    {
+    void paintXY(Graphics graphics, int x, int y) {
     }
+    
 
-    public virtual void paintUnselected(Graphics graphics, int x, int y)
-    {
+    void paintUnselected(Graphics graphics, int x, int y) {
     }
+    
 
-    public virtual bool isFocusable()
-    {
+    bool isFocusable() {
         return false;
     }
+    
 
-    public virtual string getLabel()
-    {
+    String getLabel() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual void setLabel(string label)
-    {
+    void setLabel(String label) {
     }
+    
 
-    public virtual int getHeight()
-    {
+    int getHeight() {
         return 0;
     }
+    
 
-    public virtual void setHeight(int height)
-    {
+    void setHeight(int height) {
     }
+    
 
-    public virtual float getValue()
-    {
-        return 0.0f;
+    double getValue() {
+        return 0.0;
     }
+    
 
-    public virtual void setValue(float value)
-    {
+    void setValue(double value) {
     }
+    
 
-    public virtual int getMinimumWidth()
-    {
+    int getMinimumWidth() {
         return 0;
     }
+    
 
-    public virtual int getMinimumHeight()
-    {
+    int getMinimumHeight() {
         return 0;
     }
+    
 
-    public virtual void preMeasurement(Graphics graphics)
-    {
+    void preMeasurement(Graphics graphics) {
     }
-
 }
 

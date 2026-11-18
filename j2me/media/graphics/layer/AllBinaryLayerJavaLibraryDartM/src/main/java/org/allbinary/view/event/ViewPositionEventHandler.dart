@@ -13,71 +13,82 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.view.event
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/view/event/ViewPositionEvent.dart';
+import 'package:allbinary/org/allbinary/view/event/ViewPositionEventListenerInterface.dart';
 
-namespace org.allbinary.view.@event;
+class ViewPositionEventHandler extends BasicEventHandler {
+    static ViewPositionEventHandler SINGLETON = ViewPositionEventHandler();
+    late BasicArrayList list;
 
-public class ViewPositionEventHandler : BasicEventHandler
-{
-    private static ViewPositionEventHandler SINGLETON = new ViewPositionEventHandler();
-    public static ViewPositionEventHandler getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsViewPositionEventHandler() {
+    this.list = BasicArrayListD();
+    }
+    
+
+    static ViewPositionEventHandler getInstance() {
         return ViewPositionEventHandler.SINGLETON;
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private ViewPositionEventHandler()
-    {
+    ViewPositionEventHandler() {
+        this.initFieldsViewPositionEventHandler();
     }
+    
 
-    public virtual void addListener(AllBinaryLayer layerInterface)
-    {
+    void addListener(AllBinaryLayer layerInterface) {
         if (!this.list.contains(layerInterface)) {
             this.list.add(layerInterface);
         }
     }
+    
 
-    public override void removeAllListeners()
-    {
+    @override
+    void removeAllListeners() {
         this.list.clear();
-        base.removeAllListeners();
+        super.removeAllListeners();
     }
+    
 
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    @override
+    void removeListener(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
-        base.removeListener(eventListenerInterface);
+        super.removeListener(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public override void fireEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void fireEvent(AllBinaryEventObject eventObject) {
         for (int index = this.list.size(); --index >= 0; ) {
             try {
-                AllBinaryLayer layerInterface = ((AllBinaryLayer) this.list.objectArray[index]);
-                layerInterface.onChangeEvent(((ViewPositionEvent) eventObject));
-            } catch (Exception e) {
+                AllBinaryLayer layerInterface = (this.list.objectArray[index]! as AllBinaryLayer);
+                layerInterface.onChangeEvent((eventObject as ViewPositionEvent));
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                }
             }
         }
-        base.fireEvent(eventObject);
+        super.fireEvent(eventObject);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        ViewPositionEventListenerInterface viewPositionEventListenerInterface = (((ViewPositionEventListenerInterface) eventListenerInterface));
-        viewPositionEventListenerInterface.onChangeEvent(((ViewPositionEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final ViewPositionEventListenerInterface viewPositionEventListenerInterface = ((eventListenerInterface as ViewPositionEventListenerInterface));
+        viewPositionEventListenerInterface.onChangeEvent((eventObject as ViewPositionEvent));
     }
-
 }
 

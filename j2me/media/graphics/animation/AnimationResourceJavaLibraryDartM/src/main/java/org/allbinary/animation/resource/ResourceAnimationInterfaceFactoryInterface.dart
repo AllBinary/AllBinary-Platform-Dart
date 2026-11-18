@@ -13,17 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.resource
 
-using System;
-using System.Linq;
-using BasicAnimationInterfaceFactoryInterface = org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.dart';
 
-namespace org.allbinary.animation.resource;
+abstract interface class ResourceAnimationInterfaceFactoryInterface {
+    
 
-public interface ResourceAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(string resource);
-
+    BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(String resource);
 }
 

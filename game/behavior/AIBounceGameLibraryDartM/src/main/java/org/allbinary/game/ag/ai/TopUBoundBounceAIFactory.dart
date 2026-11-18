@@ -13,39 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using TopULayerBounds = org.allbinary.bounds.TopULayerBounds;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using VelocityInterface = org.allbinary.game.physics.velocity.VelocityInterface;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/bounds/TopULayerBounds.dart';
+import 'package:allbinary/org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterface.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/BoundBounceAI.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/ReverseVelocityBoundsVisitor.dart';
 
-namespace org.allbinary.game.ag.ai;
+class TopUBoundBounceAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    
 
-public class TopUBoundBounceAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface) ownerLayerInterface);
-        VelocityInterface velocityInterface = ((VelocityInterface) velocityInterfaceCompositeInterface.getVelocityProperties());
-        int maxDistancePerTick = (velocityInterface.getMaxForwardVelocity() >> velocityInterface.getVelocityXBasicDecimalP().getScaledFactor());
-        int halfWidth = ownerLayerInterface.getWidth() * 2 + maxDistancePerTick + 1;
-        int halfHeight = ownerLayerInterface.getHeight() * 2 + maxDistancePerTick + 1;
-        GPoint point = PointFactory.getInstance().createXY(halfWidth, halfHeight + 60);
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        Rectangle rectangle = new Rectangle(point, (displayInfo.getLastWidth() - halfWidth - point.getX()), (displayInfo.getLastHeight() - halfHeight - point.getY()));
-        return new BoundBounceAI(ownerLayerInterface, gameInput, new TopULayerBounds(rectangle), new ReverseVelocityBoundsVisitor(ownerLayerInterface));
+    @override
+    ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (ownerLayerInterface as VelocityInterfaceCompositeInterface);
+        final VelocityInterface velocityInterface = (velocityInterfaceCompositeInterface.getVelocityProperties() as VelocityInterface);
+        final int maxDistancePerTick = (velocityInterface.getMaxForwardVelocity() >> velocityInterface.getVelocityXBasicDecimalP().getScaledFactor());
+        final int halfWidth = ownerLayerInterface.getWidth() * 2 + maxDistancePerTick + 1;
+        final int halfHeight = ownerLayerInterface.getHeight() * 2 + maxDistancePerTick + 1;
+        final GPoint point = PointFactory.getInstance().createXY(halfWidth, halfHeight + 60);
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final Rectangle rectangle = Rectangle(point, (displayInfo.getLastWidth() - halfWidth - point.getX()), (displayInfo.getLastHeight() - halfHeight - point.getY()));
+        return BoundBounceAI(ownerLayerInterface, gameInput, TopULayerBounds(rectangle), ReverseVelocityBoundsVisitor(ownerLayerInterface));
     }
-
 }
 

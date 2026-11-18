@@ -13,20 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
 
-namespace org.allbinary.logic.util.cache;
+class BasicArrayListCacheable extends BasicArrayListD implements CacheableInterface {
+    
 
-public class BasicArrayListCacheable : BasicArrayListD, CacheableInterface
-{
-    public virtual object getKey()
-    {
+    @override
+    Object getKey() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
-
 }
 

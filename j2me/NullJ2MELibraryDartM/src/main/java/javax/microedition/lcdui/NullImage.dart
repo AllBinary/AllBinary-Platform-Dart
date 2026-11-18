@@ -13,15 +13,14 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package javax.microedition.lcdui
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
 
-namespace javax.microedition.lcdui;
-
-public class NullImage
-{
-    public static readonly Image[] NULL_IMAGE_ARRAY = new Image[0];
-    public static readonly Image NULL_IMAGE = new Image();
+class NullImage {
+    static final JArray<Image?> NULL_IMAGE_ARRAY = JArray<Image?>.filled(0, null);
+    static final Image NULL_IMAGE = Image();
 }
 

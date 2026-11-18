@@ -13,103 +13,103 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image.sprite
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using ProceduralAnimationInterfaceFactoryInterface = org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
-using BaseImageAnimationFactory = org.allbinary.animation.image.BaseImageAnimationFactory;
-using AnimationFactorySpriteScaleUtil = org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/image/BaseImageAnimationFactory.dart';
+import 'package:allbinary/org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/animation/image/sprite/AllBinarySpriteRotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/image/sprite/AllBinaryAdjustedSpriteRotationAnimation.dart';
 
-namespace org.allbinary.animation.image.sprite;
+class AllBinarySpriteRotationAnimationFactory extends BaseImageAnimationFactory implements ProceduralAnimationInterfaceFactoryInterface {
+    late AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil;
 
-public class AllBinarySpriteRotationAnimationFactory : BaseImageAnimationFactory, ProceduralAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    public static AllBinarySpriteRotationAnimationFactory createWHDY(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0, 0, animationBehaviorFactory);
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinarySpriteRotationAnimationFactory() {
+    this.animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    }
+    
+
+    static AllBinarySpriteRotationAnimationFactory createWHDY(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        final AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0, 0, animationBehaviorFactory);
         spriteRotationAnimationFactory.initWH(dx, dy);
         return spriteRotationAnimationFactory;
     }
+    
 
-    // throws Exception
-    public static AllBinarySpriteRotationAnimationFactory createWH(Image image, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    static AllBinarySpriteRotationAnimationFactory createWH(Image image, AnimationBehaviorFactory animationBehaviorFactory) {
         return AllBinarySpriteRotationAnimationFactory.createWHDY(image, 0, 0, animationBehaviorFactory);
     }
+    
 
-    // throws Exception
-    public static AllBinarySpriteRotationAnimationFactory createDXY(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0, 0, animationBehaviorFactory);
+    static AllBinarySpriteRotationAnimationFactory createDXY(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        final AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0, 0, animationBehaviorFactory);
         spriteRotationAnimationFactory.init(dx, dy);
         return spriteRotationAnimationFactory;
     }
+    
 
-    // throws Exception
-    public static AllBinarySpriteRotationAnimationFactory createDXYQ(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0, 0, animationBehaviorFactory);
+    static AllBinarySpriteRotationAnimationFactory createDXYQ(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        final AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0, 0, animationBehaviorFactory);
         spriteRotationAnimationFactory.init(dx, dy);
         return spriteRotationAnimationFactory;
     }
+    
 
-    // throws Exception
-    public static AllBinarySpriteRotationAnimationFactory createQ(Image image, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        return new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0, 0, animationBehaviorFactory);
+    static AllBinarySpriteRotationAnimationFactory createQ(Image image, AnimationBehaviorFactory animationBehaviorFactory) {
+        return AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0, 0, animationBehaviorFactory);
     }
+    
 
-    // throws Exception
-    public static AllBinarySpriteRotationAnimationFactory createWHF(Image image, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        return new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0, 0, animationBehaviorFactory);
+    static AllBinarySpriteRotationAnimationFactory createWHF(Image image, AnimationBehaviorFactory animationBehaviorFactory) {
+        return AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0, 0, animationBehaviorFactory);
     }
+    
 
-    private readonly AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
-    public AllBinarySpriteRotationAnimationFactory(Image image, int[] sequenceArray, int width, int height, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) : base(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory)
-    {
-        // base(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory) is called from the constructor declaration
+    AllBinarySpriteRotationAnimationFactory(Image image, List<int> sequenceArray, int width, int height, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) : super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory) {
+        this.initFieldsAllBinarySpriteRotationAnimationFactory();
+        
         if (animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
             ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
         }
     }
+    
 
-    public virtual void init(int dx, int dy)
-    {
+    void init(int dx, int dy) {
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
+    
 
-    private void initWH(int dx, int dy)
-    {
+    void initWH(int dx, int dy) {
         this.init(dx, dy);
-        this.animationFactoryInitializationVisitor.dx += -this.animationFactoryInitializationVisitor.width / 5;
-        this.animationFactoryInitializationVisitor.dy += -this.animationFactoryInitializationVisitor.height / 5;
+        this.animationFactoryInitializationVisitor.dx += -this.animationFactoryInitializationVisitor.width ~/ 5;
+        this.animationFactoryInitializationVisitor.dy += -this.animationFactoryInitializationVisitor.height ~/ 5;
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
-        Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+    @override
+    Animation getInstance1(int instanceId) {
+        final Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
-            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, this.getImage(), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return AllBinaryAdjustedSpriteRotationAnimation(sprite, this.getImage(), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new AllBinarySpriteRotationAnimation(sprite, this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
+            return AllBinarySpriteRotationAnimation(sprite, this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
-        return this.getInstance(0);
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
+        return this.getInstance1(0);
     }
-
 }
 

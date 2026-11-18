@@ -13,37 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using ImageCache = org.allbinary.image.ImageCache;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/image/ImageCache.dart';
 
-namespace org.allbinary.media.image;
+class ImageScaleUtil {
+    static final ImageScaleUtil instance = ImageScaleUtil();
+    
 
-public class ImageScaleUtil
-{
-    private static readonly ImageScaleUtil instance = new ImageScaleUtil();
-    public static ImageScaleUtil getInstance()
-    {
+    static ImageScaleUtil getInstance() {
         return ImageScaleUtil.instance;
     }
+    
 
-    private ImageScaleUtil()
-    {
+    ImageScaleUtil() {
     }
+    
 
-    // throws Exception
-    public virtual Image createImage2(ImageCache imageCache, Image originalImage, float scaleNominatorX, float scaleDenominatorX, float scaleNominatorY, float scaleDenominatorY, bool cached)
-    {
+    Image createImage2(ImageCache imageCache, Image originalImage, double scaleNominatorX, double scaleDenominatorX, double scaleNominatorY, double scaleDenominatorY, bool cached) {
         return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
     }
+    
 
-    // throws Exception
-    public virtual Image createImage3(ImageCache imageCache, Image originalImage, float scaleNominatorX, float scaleDenominatorX, float scaleNominatorY, float scaleDenominatorY, bool cached, bool mutable)
-    {
+    Image createImage3(ImageCache imageCache, Image originalImage, double scaleNominatorX, double scaleDenominatorX, double scaleNominatorY, double scaleDenominatorY, bool cached, bool mutable) {
         return originalImage;
     }
-
 }
 

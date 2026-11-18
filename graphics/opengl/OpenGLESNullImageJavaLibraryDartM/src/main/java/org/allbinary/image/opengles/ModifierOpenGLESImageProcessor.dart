@@ -13,19 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/image/opengles/OpenGLESImageProcessor.dart';
 
-namespace org.allbinary.image.opengles;
+class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
+    static final ModifierOpenGLESImageProcessor instanceC = ModifierOpenGLESImageProcessor();
+    
 
-public class ModifierOpenGLESImageProcessor : OpenGLESImageProcessor
-{
-    private static readonly ModifierOpenGLESImageProcessor instanceC = new ModifierOpenGLESImageProcessor();
-    public static ModifierOpenGLESImageProcessor getInstance()
-    {
+    static ModifierOpenGLESImageProcessor getInstance() {
         return ModifierOpenGLESImageProcessor.instanceC;
     }
-
 }
 

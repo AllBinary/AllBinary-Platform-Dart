@@ -13,30 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using ScreenInfo = org.allbinary.graphics.form.ScreenInfo;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/game/commands/GameCommandsFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScreenInfo.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
 
-namespace org.allbinary.graphics.form.item;
+class LimitCommandsVisitor extends Visitor {
+    bool isNotSmallDisplay = false;
 
-public class LimitCommandsVisitor : Visitor
-{
-    private readonly bool isNotSmallDisplay;
-    public LimitCommandsVisitor()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLimitCommandsVisitor() {
+    
+    }
+    
+
+    LimitCommandsVisitor() {
+        this.initFieldsLimitCommandsVisitor();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         this.isNotSmallDisplay = (displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_WIDTH) || (!displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_HEIGHT);
     }
+    
 
-    public override object visit(object anyType)
-    {
-        Command command = ((Command) anyType);
+    @override
+    Object visit(Object anyType) {
+        Command command = (anyType as Command);
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
         if (this.isNotSmallDisplay || command.getPriority() == 1 || command == GameCommandsFactory.getInstance().EXIT_COMMAND || command == GameCommandsFactory.getInstance().EXIT_WITHOUT_PROGRESS_COMMAND) {
             return booleanFactory.TRUE;
@@ -44,6 +50,5 @@ public class LimitCommandsVisitor : Visitor
             return booleanFactory.FALSE;
         }
     }
-
 }
 

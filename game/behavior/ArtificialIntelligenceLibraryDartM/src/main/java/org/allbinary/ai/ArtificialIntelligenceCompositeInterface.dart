@@ -13,16 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
 
-namespace org.allbinary.ai;
+abstract interface class ArtificialIntelligenceCompositeInterface {
+    
 
-public interface ArtificialIntelligenceCompositeInterface
-{
-    // throws Exception
     ArtificialIntelligenceInterface getArtificialIntelligenceInterface();
-
 }
 

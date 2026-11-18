@@ -13,39 +13,52 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.screen
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/screen/AboutCommandProcessor.dart';
 
-namespace org.allbinary.graphics.displayable.screen;
+class WebCommandProcessor {
+    static final WebCommandProcessor instance = WebCommandProcessor();
+    late LogUtil logUtil;
+    late AboutCommandProcessor aboutCommandProcessor;
+    late BasicArrayList list;
 
-public class WebCommandProcessor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly WebCommandProcessor instance = new WebCommandProcessor();
-    public static WebCommandProcessor getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsWebCommandProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    this.aboutCommandProcessor = AboutCommandProcessor.getInstance();
+    this.list = BasicArrayListD();
+    }
+
+    WebCommandProcessor() {
+        this.initFieldsWebCommandProcessor();
+    }
+    
+
+    static WebCommandProcessor getInstance() {
         return WebCommandProcessor.instance;
     }
+    
 
-    private readonly AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
-    public readonly BasicArrayList list = new BasicArrayListD();
-    public virtual void process(CommandListener midletCommandListener, Command command, Canvas canvas)
-    {
+    void process(CommandListener midletCommandListener, Command command, Canvas canvas) {
         try {
             this.list.removeAt(0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+            }
         }
     }
-
 }
 

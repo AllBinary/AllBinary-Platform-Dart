@@ -13,22 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.screen
 
-using System;
-using System.Linq;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
 
-namespace org.allbinary.graphics.displayable.screen;
+class FullScreenPaintableFactory {
+    static final FullScreenPaintableFactory instance = FullScreenPaintableFactory();
+    late Paintable paintable;
 
-public class FullScreenPaintableFactory
-{
-    private static readonly FullScreenPaintableFactory instance = new FullScreenPaintableFactory();
-    public static FullScreenPaintableFactory getInstance()
-    {
-        return FullScreenPaintableFactory.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsFullScreenPaintableFactory() {
+    this.paintable = NullPaintable.getInstance();
     }
 
-    public Paintable paintable = NullPaintable.getInstance();
+    FullScreenPaintableFactory() {
+        this.initFieldsFullScreenPaintableFactory();
+    }
+    
+
+    static FullScreenPaintableFactory getInstance() {
+        return FullScreenPaintableFactory.instance;
+    }
 }
 

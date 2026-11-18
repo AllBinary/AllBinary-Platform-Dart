@@ -13,103 +13,117 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/event/UpKeyEventListenerInterface.dart';
 
-namespace org.allbinary.game.input.@event;
+class UpKeyEventHandlerBase extends BasicEventHandler {
+    static const String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
+    static const String LISTENER_LABEL = " PlayerGameInput Listener: ";
+    late BasicArrayList list;
 
-public class UpKeyEventHandlerBase : BasicEventHandler
-{
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public UpKeyEventHandlerBase()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsUpKeyEventHandlerBase() {
+    this.list = BasicArrayListD();
     }
+    
 
-    public virtual void addListener(PlayerGameInput playerGameInput)
-    {
+    UpKeyEventHandlerBase() {
+        this.initFieldsUpKeyEventHandlerBase();
+    }
+    
+
+    void addListener(PlayerGameInput playerGameInput) {
         if (!this.list.contains(playerGameInput)) {
             this.list.add(playerGameInput);
         }
     }
+    
 
-    public override void removeAllListeners()
-    {
+    @override
+    void removeAllListeners() {
         this.list.clear();
-        base.removeAllListeners();
+        super.removeAllListeners();
     }
+    
 
-    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    @override
+    void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
-        base.removeListenerSingleThreaded(eventListenerInterface);
+        super.removeListenerSingleThreaded(eventListenerInterface);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    @override
+    void removeListener(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
-        base.removeListener(eventListenerInterface);
+        super.removeListener(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public virtual void fireEventForInteger(int? eventObject)
-    {
-        for (int index_0 = this.list.size(); --index_0 >= 0; ) {
+    void fireEventForInteger(int eventObject) {
+        for (int index = this.list.size(); --index >= 0; ) {
             try {
-                PlayerGameInput playerGameInput = ((PlayerGameInput) this.list.objectArray[index_0]);
+                PlayerGameInput playerGameInput = (this.list.objectArray[index]! as PlayerGameInput);
                 playerGameInput.onUpKeyEvent(eventObject);
-            } catch (Exception e) {
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                }
             }
         }
         int index = 0;
-        EventListenerInterface eventListenerInterface = null;
+        late EventListenerInterface eventListenerInterface;
         while (index < this.eventListenerInterfaceList.size()) {
             try {
-                eventListenerInterface = ((EventListenerInterface) this.eventListenerInterfaceList.get(index));
+                eventListenerInterface = (this.eventListenerInterfaceList.get(index) as EventListenerInterface);
                 this.processForInteger(eventObject, eventListenerInterface);
-            } catch (Exception e) {
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                }
             }
             index++;
         }
     }
+    
 
-    // throws Exception
-    public virtual void processForInteger(int? eventObject, EventListenerInterface eventListenerInterface)
-    {
-        UpKeyEventListenerInterface upKeyEventListenerInterface = ((UpKeyEventListenerInterface) eventListenerInterface);
+    void processForInteger(int eventObject, EventListenerInterface eventListenerInterface) {
+        final UpKeyEventListenerInterface upKeyEventListenerInterface = (eventListenerInterface as UpKeyEventListenerInterface);
         upKeyEventListenerInterface.onUpKeyEvent(eventObject);
     }
+    
 
-    private const string TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
-    private const string LISTENER_LABEL = " PlayerGameInput Listener: ";
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(base.ToString());
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        stringBuffer.append(super.toString());
         stringBuffer.append(UpKeyEventHandlerBase.TOTAL_LISTENERS);
         stringBuffer.appendint(this.list.size());
         for (int index = 0; index < this.list.size(); index++) {
             try {
-                EventListenerInterface eventListenerInterface = ((EventListenerInterface) this.list.get(index));
+                EventListenerInterface eventListenerInterface = (this.list.get(index) as EventListenerInterface);
                 stringBuffer.append(UpKeyEventHandlerBase.LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface.ToString());
-            } catch (Exception e) {
+                stringBuffer.append(eventListenerInterface.toString());
+            } catch (jcaught) {
+                {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
+                }
             }
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

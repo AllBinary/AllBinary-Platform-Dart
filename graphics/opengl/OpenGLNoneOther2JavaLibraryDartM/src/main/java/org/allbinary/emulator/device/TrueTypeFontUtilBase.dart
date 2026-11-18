@@ -13,27 +13,25 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.emulator.device
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.emulator.device;
+class TrueTypeFontUtilBase {
+    
 
-public class TrueTypeFontUtilBase
-{
-    public TrueTypeFontUtilBase(int scale)
-    {
+    TrueTypeFontUtilBase(int scale) {
     }
+    
 
-    public virtual int getAsTextureSize(int textureSize)
-    {
+    int getAsTextureSize(int textureSize) {
         return -1;
     }
+    
 
-    public virtual int getCellSize(int cellSize)
-    {
+    int getCellSize(int cellSize) {
         return -1;
     }
-
 }
 

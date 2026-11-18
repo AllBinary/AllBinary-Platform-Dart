@@ -13,24 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tracking
 
-using System;
-using System.Linq;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerCircularPool.dart';
 
-namespace org.allbinary.game.tracking;
+class GenericTrackingLayerCircularStaticPool extends AllBinaryLayerCircularPool {
+    static GenericTrackingLayerCircularStaticPool SINGLETON = GenericTrackingLayerCircularStaticPool();
+    
 
-public class GenericTrackingLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    private static GenericTrackingLayerCircularStaticPool SINGLETON = new GenericTrackingLayerCircularStaticPool();
-    private GenericTrackingLayerCircularStaticPool()
-    {
+    GenericTrackingLayerCircularStaticPool() {
     }
+    
 
-    public static GenericTrackingLayerCircularStaticPool getInstance()
-    {
+    static GenericTrackingLayerCircularStaticPool getInstance() {
         return GenericTrackingLayerCircularStaticPool.SINGLETON;
     }
-
 }
 

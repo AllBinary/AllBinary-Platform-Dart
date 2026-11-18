@@ -13,65 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image.sprite
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using Direction = org.allbinary.direction.Direction;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/math/AngleInfo.dart';
+import 'package:allbinary/org/allbinary/animation/image/sprite/HackRotationSpriteIndexedAnimation.dart';
 
-namespace org.allbinary.animation.image.sprite;
+class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation {
+    
 
-public class AllBinarySpriteRotationAnimation : HackRotationSpriteIndexedAnimation
-{
-    public AllBinarySpriteRotationAnimation(Sprite sprite, Image image, AnimationBehavior animationBehavior) : base(sprite, image, AngleInfo.getInstance(((short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()))), animationBehavior)
-    {
-        // base(sprite, image, AngleInfo.getInstance(((short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()))), animationBehavior) is called from the constructor declaration
+    AllBinarySpriteRotationAnimation(Sprite sprite, Image image, AnimationBehavior animationBehavior) : super(sprite, image, AngleInfo.getInstance1(((AngleFactory.getInstance().TOTAL_ANGLE ~/ sprite.getRawFrameCount())).toSigned(16)), animationBehavior) {
+        
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
+    
 
-    public override void nextRotation()
-    {
+    @override
+    void nextRotation() {
         this.sprite.nextFrame();
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
+    
 
-    public override void previousRotation()
-    {
+    @override
+    void previousRotation() {
         this.sprite.prevFrame();
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
+    
 
-    public override void setFrameByDirection(Direction direction)
-    {
+    @override
+    void setFrameByDirection(Direction direction) {
         Angle angle = this.directionUtil.getFrameAngle(direction);
         this.adjustFrameToAngle(angle);
     }
+    
 
-    public override void setFrameToAngle(Angle angle)
-    {
+    @override
+    void setFrameToAngle(Angle angle) {
         this.adjustFrameToAngle(angle);
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.sprite.setFrame(index);
         this.angleInfo.adjustAngle(this.getFrame());
     }
+    
 
-    public override void adjustFrameToAngle(Angle angle)
-    {
+    @override
+    void adjustFrameToAngle(Angle angle) {
         this.adjustFrame(angle.getValue());
     }
+    
 
-    public override void adjustFrame(short angle)
-    {
-        this.setFrame(this.frameUtil.getFrameForAngle(angle, ((int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
+    @override
+    void adjustFrame(int angle) {
+        this.setFrame(this.frameUtil.getFrameForAngle(angle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
-
 }
 

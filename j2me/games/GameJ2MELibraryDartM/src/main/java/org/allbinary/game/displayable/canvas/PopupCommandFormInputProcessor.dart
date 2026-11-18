@@ -13,34 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using ScrollSelectionForm = org.allbinary.graphics.form.ScrollSelectionForm;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/MyCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/CommandFormInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/PopupMenuInputProcessor.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class PopupCommandFormInputProcessor extends CommandFormInputProcessor {
+    
 
-public class PopupCommandFormInputProcessor : CommandFormInputProcessor
-{
-    public PopupCommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas, ScrollSelectionForm form, PopupMenuInputProcessor popupMenuInputProcessor) : base(gameKeyEventList, playerInputId, gameCanvas, form)
-    {
-        // base(gameKeyEventList, playerInputId, gameCanvas, form) is called from the constructor declaration
+    PopupCommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas, ScrollSelectionForm form, PopupMenuInputProcessor popupMenuInputProcessor) : super(gameKeyEventList, playerInputId, gameCanvas, form) {
+        
     }
+    
 
-    // throws Exception
-    public override int processInput(int key)
-    {
-        return base.processInput(key);
+    @override
+    int processInput(int key) {
+        return super.processInput(key);
     }
+    
 
-    // throws Exception
-    public override void processMotionInput(MotionGestureEvent motionGestureEvent)
-    {
-        base.processMotionInput(motionGestureEvent);
+    @override
+    void processMotionInput(MotionGestureEvent motionGestureEvent) {
+        super.processMotionInput(motionGestureEvent);
     }
-
 }
 

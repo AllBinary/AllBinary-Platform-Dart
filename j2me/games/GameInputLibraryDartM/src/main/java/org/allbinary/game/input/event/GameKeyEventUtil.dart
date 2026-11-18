@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
 
-namespace org.allbinary.game.input.@event;
+class GameKeyEventUtil {
+    
 
-public class GameKeyEventUtil
-{
-    private GameKeyEventUtil()
-    {
+    GameKeyEventUtil() {
     }
+    
 
-    public static int getKey(object anyType)
-    {
-        GameKeyEvent gameKeyEvent = ((GameKeyEvent) anyType);
+    static int getKey(Object anyType) {
+        GameKeyEvent gameKeyEvent = (anyType as GameKeyEvent);
         return gameKeyEvent.getKey();
     }
-
 }
 

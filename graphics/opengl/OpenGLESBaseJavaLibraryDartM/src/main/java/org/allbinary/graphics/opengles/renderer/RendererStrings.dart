@@ -13,24 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.renderer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics.opengles.renderer;
+class RendererStrings {
+    static final RendererStrings instance = RendererStrings();
+    late String ON_SURFACE_CREATED;
+    late String ON_SURFACE_CHANGED;
+    late String ON_DRAW_FRAME;
+    late String ON_DRAW_FRAME_THREED;
+    late String ON_DRAW_FRAME_2D;
 
-public class RendererStrings
-{
-    private static readonly RendererStrings instance = new RendererStrings();
-    public static RendererStrings getInstance()
-    {
-        return RendererStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsRendererStrings() {
+    this.ON_SURFACE_CREATED = "onSurfaceCreated";
+    this.ON_SURFACE_CHANGED = "onSurfaceChanged";
+    this.ON_DRAW_FRAME = "onDrawFrame";
+    this.ON_DRAW_FRAME_THREED = "onDrawFrameThreed";
+    this.ON_DRAW_FRAME_2D = "onDrawFrame2d";
     }
 
-    public readonly string ON_SURFACE_CREATED = "onSurfaceCreated";
-    public readonly string ON_SURFACE_CHANGED = "onSurfaceChanged";
-    public readonly string ON_DRAW_FRAME = "onDrawFrame";
-    public readonly string ON_DRAW_FRAME_THREED = "onDrawFrameThreed";
-    public readonly string ON_DRAW_FRAME_2D = "onDrawFrame2d";
+    RendererStrings() {
+        this.initFieldsRendererStrings();
+    }
+    
+
+    static RendererStrings getInstance() {
+        return RendererStrings.instance;
+    }
 }
 

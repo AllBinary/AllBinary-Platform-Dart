@@ -13,161 +13,186 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using GameConfigurationPersistanceSingleton = org.allbinary.game.configuration.persistance.GameConfigurationPersistanceSingleton;
-using KeyValuePersistance = org.allbinary.game.configuration.persistance.KeyValuePersistance;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/GameConfigurationPersistanceSingleton.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/KeyValuePersistance.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfiguration.dart';
 
-namespace org.allbinary.game.configuration;
+class GameConfigurationCentral {
+    static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+    late LogUtil logUtil;
+    late GameConfiguration SCALE;
+    late GameConfiguration ORIENTATION;
+    late GameConfiguration SENSOR_UPDATE_RATE;
+    late GameConfiguration VIBRATION;
+    late GameConfiguration CHALLENGE_LEVEL;
+    late GameConfiguration COLLIDE_DAMAGE;
+    late GameConfiguration DURABILITY_CHALLENGE_LEVEL;
+    late GameConfiguration SPEED_CHALLENGE_LEVEL;
+    late GameConfiguration ATTACK_CHALLENGE_LEVEL;
+    late GameConfiguration CONTROL_LEVEL;
+    late GameConfiguration PLAYER_INPUT_WAIT;
+    late GameConfiguration SPEED;
+    late GameConfiguration SOUND_VOLUME;
+    late GameConfiguration MAX_GAME_OBJECTS;
+    late GameConfiguration MAX_LAYERS;
+    int gameControlFidelity = 0;
 
-public class GameConfigurationCentral
-{
-    private static object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
-    public static GameConfigurationCentral getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameConfigurationCentral() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    this.gameControlFidelity = 36;
+    }
+    
+
+    static GameConfigurationCentral getInstance() {
         if (GameConfigurationCentral.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
-            GameConfigurationCentral.SINGLETON = new GameConfigurationCentral();
+            GameConfigurationCentral.SINGLETON = GameConfigurationCentral();
         }
-        return ((GameConfigurationCentral) GameConfigurationCentral.SINGLETON);
+        return (GameConfigurationCentral.SINGLETON as GameConfigurationCentral);
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly GameConfiguration SCALE;
-    public readonly GameConfiguration ORIENTATION;
-    public readonly GameConfiguration SENSOR_UPDATE_RATE;
-    public readonly GameConfiguration VIBRATION;
-    public readonly GameConfiguration CHALLENGE_LEVEL;
-    public readonly GameConfiguration COLLIDE_DAMAGE;
-    public readonly GameConfiguration DURABILITY_CHALLENGE_LEVEL;
-    public readonly GameConfiguration SPEED_CHALLENGE_LEVEL;
-    public readonly GameConfiguration ATTACK_CHALLENGE_LEVEL;
-    public readonly GameConfiguration CONTROL_LEVEL;
-    public readonly GameConfiguration PLAYER_INPUT_WAIT;
-    public readonly GameConfiguration SPEED;
-    public readonly GameConfiguration SOUND_VOLUME;
-    public readonly GameConfiguration MAX_GAME_OBJECTS;
-    public readonly GameConfiguration MAX_LAYERS;
-    private int gameControlFidelity = 36;
-    private GameConfigurationCentral()
-    {
-        SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        this.SCALE = new GameConfiguration("Scale", smallIntegerSingletonFactory.getAt(2), smallIntegerSingletonFactory.getAt(2), smallIntegerSingletonFactory.getAt(3));
-        this.ORIENTATION = new GameConfiguration("Orientation", smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(8));
-        this.SENSOR_UPDATE_RATE = new GameConfiguration("Sensor Update Rate", smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(3));
-        this.VIBRATION = new GameConfiguration("Vibration", smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(3));
-        this.CHALLENGE_LEVEL = new GameConfiguration("Global Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.COLLIDE_DAMAGE = new GameConfiguration("Collide Damage Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.DURABILITY_CHALLENGE_LEVEL = new GameConfiguration("Enemy Durability Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.SPEED_CHALLENGE_LEVEL = new GameConfiguration("Enemy Speed Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.ATTACK_CHALLENGE_LEVEL = new GameConfiguration("Enemy Attack Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.CONTROL_LEVEL = new GameConfiguration("Control Fidelity", smallIntegerSingletonFactory.getAt(5), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.PLAYER_INPUT_WAIT = new GameConfiguration("Input Wait", smallIntegerSingletonFactory.getAt(5), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.SPEED = new GameConfiguration("Game Speed (Device Specific)", smallIntegerSingletonFactory.getAt(5), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
-        this.SOUND_VOLUME = new GameConfiguration("Sound Volume", smallIntegerSingletonFactory.getAt(6), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(10));
-        this.MAX_GAME_OBJECTS = new GameConfiguration("Max Game Objects", smallIntegerSingletonFactory.getAt(20), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(50));
-        this.MAX_LAYERS = new GameConfiguration("Max Layers", smallIntegerSingletonFactory.getAt(20), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(50));
+    GameConfigurationCentral() {
+        this.initFieldsGameConfigurationCentral();
+        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        this.SCALE = GameConfiguration("Scale", smallIntegerSingletonFactory.getAt(2), smallIntegerSingletonFactory.getAt(2), smallIntegerSingletonFactory.getAt(3));
+        this.ORIENTATION = GameConfiguration("Orientation", smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(8));
+        this.SENSOR_UPDATE_RATE = GameConfiguration("Sensor Update Rate", smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(3));
+        this.VIBRATION = GameConfiguration("Vibration", smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(3));
+        this.CHALLENGE_LEVEL = GameConfiguration("Global Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.COLLIDE_DAMAGE = GameConfiguration("Collide Damage Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.DURABILITY_CHALLENGE_LEVEL = GameConfiguration("Enemy Durability Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.SPEED_CHALLENGE_LEVEL = GameConfiguration("Enemy Speed Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.ATTACK_CHALLENGE_LEVEL = GameConfiguration("Enemy Attack Challenge Level", smallIntegerSingletonFactory.getAt(3), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.CONTROL_LEVEL = GameConfiguration("Control Fidelity", smallIntegerSingletonFactory.getAt(5), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.PLAYER_INPUT_WAIT = GameConfiguration("Input Wait", smallIntegerSingletonFactory.getAt(5), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.SPEED = GameConfiguration("Game Speed (Device Specific)", smallIntegerSingletonFactory.getAt(5), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(10));
+        this.SOUND_VOLUME = GameConfiguration("Sound Volume", smallIntegerSingletonFactory.getAt(6), smallIntegerSingletonFactory.getAt(0), smallIntegerSingletonFactory.getAt(10));
+        this.MAX_GAME_OBJECTS = GameConfiguration("Max Game Objects", smallIntegerSingletonFactory.getAt(20), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(50));
+        this.MAX_LAYERS = GameConfiguration("Max Layers", smallIntegerSingletonFactory.getAt(20), smallIntegerSingletonFactory.getAt(1), smallIntegerSingletonFactory.getAt(50));
     }
+    
 
-    public virtual void load(AbeClientInformationInterface abeClientInformation)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
+    void load(AbeClientInformationInterface abeClientInformation) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try {
-            SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-            KeyValuePersistance keyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
+            final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+            final KeyValuePersistance keyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
             keyValuePersistance.clear();
             keyValuePersistance.loadAll(abeClientInformation);
-            BasicArrayList list = keyValuePersistance.getIds();
+            final BasicArrayList list = keyValuePersistance.getIds();
             if (list.size() > 0) {
-                ABHashtable<object, object> hashtable = keyValuePersistance.get(0);
-                object anyType = ((object) this.SCALE.getName());
-                string value = ((string) hashtable.get(anyType));
-                this.SCALE.setValue(smallIntegerSingletonFactory.getAt(global::java.lang.JavaNumber.intValue(int.Parse((value).ToString()))));
+                final ABHashtable hashtable = keyValuePersistance.get(0);
+                final Object anyType = (this.SCALE.getName() as Object);
+                final String value = (hashtable.get(anyType) as String);
+                this.SCALE.setValue(smallIntegerSingletonFactory.getAt((int.parse(value)).toInt()));
             } else {
                 this.logUtil.putF("No Game Configuration To Load", this, commonStrings.LOAD);
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.LOAD, e);
+            }
         }
     }
+    
 
-    public virtual void setGameControlFidelity(int gameControlFidelity)
-    {
+    void setGameControlFidelity(int gameControlFidelity) {
         this.gameControlFidelity = gameControlFidelity;
     }
+    
 
-    public virtual int getGameControlFidelity()
-    {
+    int getGameControlFidelity() {
         return this.gameControlFidelity;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        CommonSeps commonStrings = CommonSeps.getInstance();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        final CommonSeps commonStrings = CommonSeps.getInstance();
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.SCALE.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.SCALE.getValue())));
+        stringBuffer.appendint((this.SCALE.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.ORIENTATION.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.ORIENTATION.getValue())));
+        stringBuffer.appendint((this.ORIENTATION.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.SENSOR_UPDATE_RATE.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.SENSOR_UPDATE_RATE.getValue())));
+        stringBuffer.appendint((this.SENSOR_UPDATE_RATE.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.VIBRATION.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.VIBRATION.getValue())));
+        stringBuffer.appendint((this.VIBRATION.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.CHALLENGE_LEVEL.getValue())));
+        stringBuffer.appendint((this.CHALLENGE_LEVEL.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.COLLIDE_DAMAGE.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.COLLIDE_DAMAGE.getValue())));
+        stringBuffer.appendint((this.COLLIDE_DAMAGE.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.DURABILITY_CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.DURABILITY_CHALLENGE_LEVEL.getValue())));
+        stringBuffer.appendint((this.DURABILITY_CHALLENGE_LEVEL.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.SPEED_CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.SPEED_CHALLENGE_LEVEL.getValue())));
+        stringBuffer.appendint((this.SPEED_CHALLENGE_LEVEL.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.ATTACK_CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.ATTACK_CHALLENGE_LEVEL.getValue())));
+        stringBuffer.appendint((this.ATTACK_CHALLENGE_LEVEL.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.CONTROL_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.CONTROL_LEVEL.getValue())));
+        stringBuffer.appendint((this.CONTROL_LEVEL.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.SPEED.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.SPEED.getValue())));
+        stringBuffer.appendint((this.SPEED.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.MAX_GAME_OBJECTS.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.MAX_GAME_OBJECTS.getValue())));
+        stringBuffer.appendint((this.MAX_GAME_OBJECTS.getValue()).toInt());
         stringBuffer.append(commonStrings.COMMA_SEP);
         stringBuffer.append(this.MAX_LAYERS.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.appendint(((int) global::java.lang.JavaNumber.intValue(this.MAX_LAYERS.getValue())));
-        return stringBuffer.ToString();
+        stringBuffer.appendint((this.MAX_LAYERS.getValue()).toInt());
+        return stringBuffer.toString();
     }
-
 }
 

@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.platform.graphics
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/platform/graphics/PlatformBitmapBase.dart';
 
-namespace org.allbinary.platform.graphics;
+class PlatformBitmapBaseFactory {
+    static final PlatformBitmapBaseFactory NULL_PLATFORM_BITMAP_BASE_FACTORY = PlatformBitmapBaseFactory();
+    
 
-public class PlatformBitmapBaseFactory
-{
-    public static readonly PlatformBitmapBaseFactory NULL_PLATFORM_BITMAP_BASE_FACTORY = new PlatformBitmapBaseFactory();
-    public virtual PlatformBitmapBase createBitmap(Image image)
-    {
+    PlatformBitmapBase createBitmap(Image image) {
         return PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE;
     }
-
 }
 

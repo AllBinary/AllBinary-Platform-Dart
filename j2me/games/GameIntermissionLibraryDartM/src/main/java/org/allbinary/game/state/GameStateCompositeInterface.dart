@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.state
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/state/GameState.dart';
 
-namespace org.allbinary.game.state;
+abstract interface class GameStateCompositeInterface {
+    
 
-public interface GameStateCompositeInterface
-{
-    // throws Exception
     void setGameState(GameState gameState);
+    
 
     GameState getGameState();
-
 }
 

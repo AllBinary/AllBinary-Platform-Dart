@@ -13,31 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-using GameFeatureEvent = org.allbinary.game.configuration.@event.GameFeatureEvent;
-using GameFeatureEventHandler = org.allbinary.game.configuration.@event.GameFeatureEventHandler;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameFeatureEvent.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/GameFeatureEventHandler.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationSingleton.dart';
 
-namespace org.allbinary.game.configuration;
+class GameConfiguration {
+    static final int MIN_VALUE = Integer.MIN_VALUE;
+    late String name;
+    late int defaultValue;
+    late int value;
+    late int minValue;
+    late int maxValue;
+    late bool modifiable;
 
-public class GameConfiguration
-{
-    private static readonly int? MIN_VALUE = int.MinValue;
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private int? defaultValue = SmallIntegerSingletonFactory.getInstance().getAt(0);
-    private int? value = GameConfiguration.MIN_VALUE;
-    private int? minValue;
-    private int? maxValue;
-    private bool? modifiable = BooleanFactory.getInstance().TRUE;
-    public GameConfiguration(string name, int? defaultValue, int? minValue, int? maxValue)
-    {
-        this.minValue = this.defaultValue;
-        this.maxValue = this.defaultValue;
+    // Java field initializers run after the base constructor
+    void initFieldsGameConfiguration() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.defaultValue = SmallIntegerSingletonFactory.getInstance().getAt(0);
+    this.value = GameConfiguration.MIN_VALUE;
+    this.minValue = this.defaultValue;
+    this.maxValue = this.defaultValue;
+    this.modifiable = BooleanFactory.getInstance().TRUE;
+    }
+    
+
+    GameConfiguration(String name, int defaultValue, int minValue, int maxValue) {
+        this.initFieldsGameConfiguration();
         this.setName(name);
         this.setDefaultValue(defaultValue);
         this.value = this.getDefaultValue();
@@ -45,95 +54,93 @@ public class GameConfiguration
         this.setMaxValue(maxValue);
         GameConfigurationSingleton.getInstance().getHashtable().put(this.getName(), this);
     }
+    
 
-    // throws Exception
-    public virtual void setValue(int? value)
-    {
-        if (this.value != value) {
-            int? oldValue = this.value;
+    void setValue(int value) {
+        if (!identical(this.value, value)) {
+            final int oldValue = this.value;
             this.value = value;
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").appendint(((int) ((int) oldValue))).append(" to ").appendint(((int) ((int) this.value))).ToString()));
+            GameFeatureEventHandler.getInstance().fireEvent(GameFeatureEvent(this, StringMaker().append(this.name).append(" value: from: ").appendint((oldValue).toInt()).append(" to ").appendint((this.value).toInt()).toString()));
         }
     }
+    
 
-    public virtual int? getValue()
-    {
+    int getValue() {
         return this.value;
     }
+    
 
-    public virtual void setMaxValue(int? maxValue)
-    {
+    void setMaxValue(int maxValue) {
         this.maxValue = maxValue;
     }
+    
 
-    public virtual int? getMaxValue()
-    {
+    int getMaxValue() {
         return this.maxValue;
     }
+    
 
-    public virtual void setMinValue(int? minValue)
-    {
+    void setMinValue(int minValue) {
         this.minValue = minValue;
     }
+    
 
-    public virtual int? getMinValue()
-    {
+    int getMinValue() {
         return this.minValue;
     }
+    
 
-    public virtual void setName(string name)
-    {
+    void setName(String name) {
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    public virtual void setDefaultValue(int? defaultValue)
-    {
+    void setDefaultValue(int defaultValue) {
         this.defaultValue = defaultValue;
     }
+    
 
-    public virtual int? getDefaultValue()
-    {
+    int getDefaultValue() {
         return this.defaultValue;
     }
+    
 
-    // throws Exception
-    public virtual void setDefault()
-    {
+    void setDefault() {
         this.setValue(this.getDefaultValue());
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);
         stringBuffer.append(" Min: ");
-        stringBuffer.appendint(((int) ((int) this.getMinValue())));
+        stringBuffer.appendint((this.getMinValue()).toInt());
         stringBuffer.append(" Max: ");
-        stringBuffer.appendint(((int) ((int) this.getMaxValue())));
+        stringBuffer.appendint((this.getMaxValue()).toInt());
         stringBuffer.append(" Value: ");
-        stringBuffer.appendint(((int) ((int) this.getValue())));
+        stringBuffer.appendint((this.getValue()).toInt());
         stringBuffer.append(" Default: ");
-        stringBuffer.appendint(((int) ((int) this.getDefaultValue())));
+        stringBuffer.appendint((this.getDefaultValue()).toInt());
         stringBuffer.append(" Modifiable: ");
-        stringBuffer.appendboolean(this.isModifiable().Value);
-        return stringBuffer.ToString();
+        stringBuffer.appendboolean(this.isModifiable());
+        return stringBuffer.toString();
     }
+    
 
-    public virtual void setModifiable(bool? modifiable)
-    {
+    void setModifiable(bool modifiable) {
         this.modifiable = modifiable;
     }
+    
 
-    public virtual bool? isModifiable()
-    {
+    bool isModifiable() {
         return this.modifiable;
     }
-
 }
 

@@ -13,139 +13,154 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image.sprite
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColorFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
 
-namespace org.allbinary.animation.image.sprite;
+class SpriteIndexedAnimation extends IndexedAnimation implements ColorCompositeInterface {
+    late Sprite sprite;
+    late Image image;
+    late List<BasicColor?> basicColorArray;
 
-public class SpriteIndexedAnimation : IndexedAnimation, ColorCompositeInterface
-{
-    public readonly Sprite sprite;
-    public readonly Image image;
-    private readonly BasicColor[] basicColorArray;
-    public SpriteIndexedAnimation(Sprite sprite, Image image, BasicColor[] basicColorArray, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsSpriteIndexedAnimation() {
+    
+    
+    
+    }
+    
+
+    SpriteIndexedAnimation(Sprite sprite, Image image, List<BasicColor?> basicColorArray, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsSpriteIndexedAnimation();
+        
         this.sprite = sprite;
         this.image = image;
         this.basicColorArray = basicColorArray;
-        if (this.basicColorArray.Length != 0 && this.getSize() != this.basicColorArray.Length) {
-            throw new Exception(new StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).appendint(this.getSize()).append("!=").appendint(this.basicColorArray.Length).ToString());
+        if (this.basicColorArray.length != 0 && this.getSize() != this.basicColorArray.length) {
+            throw JException('Exception', StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).appendint(this.getSize()).append("!=").appendint(this.basicColorArray.length).toString());
         }
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    @override
+    int getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
-        for (int index = 0; index < this.basicColorArray.Length; index++) {
-            if (basicColor == this.basicColorArray[index]) {
+    @override
+    void setBasicColorP(BasicColor basicColor) {
+        for (int index = 0; index < this.basicColorArray.length; index++) {
+            if (identical(basicColor, this.basicColorArray[index]!)) {
                 this.setFrame(index);
                 break;
             }
         }
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
-        if (this.basicColorArray.Length < this.getFrame()) {
-            return this.basicColorArray[this.getFrame()];
+    @override
+    BasicColor getBasicColorP() {
+        if (this.basicColorArray.length < this.getFrame()) {
+            return this.basicColorArray[this.getFrame()]!;
         } else {
             return BasicColorFactory.getInstance().WHITE;
         }
     }
+    
 
-    public virtual void paintFrame(Graphics graphics, int frame, int x, int y)
-    {
+    void paintFrame(Graphics graphics, int frame, int x, int y) {
         this.setFrame(frame);
         this.sprite.setPosition(x, y);
         this.sprite.paint(graphics);
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.sprite.setPosition(x, y);
         this.sprite.paint(graphics);
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    void paint(Graphics graphics) {
         this.sprite.paint(graphics);
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         this.sprite.nextFrame();
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         this.sprite.prevFrame();
     }
+    
 
-    public override int getSize()
-    {
+    @override
+    int getSize() {
         return this.sprite.getRawFrameCount();
     }
+    
 
-    public override void setFrame(int frame)
-    {
+    @override
+    void setFrame(int frame) {
         this.sprite.setFrame(frame);
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.sprite.getFrame();
     }
+    
 
-    public override bool isLastFrame()
-    {
+    @override
+    bool isLastFrame() {
         if (this.sprite.getFrame() == this.getSize() - 1) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual int getLastFrame()
-    {
+    int getLastFrame() {
         return this.getSize();
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    void close() {
     }
+    
 
-    // throws Throwable
-    public virtual void finalize()
-    {
+    void finalize() {
     }
-
 }
 

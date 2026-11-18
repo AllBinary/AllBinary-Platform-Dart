@@ -13,37 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.motion.action
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using CompleteMotionGestureInputEventListener = org.allbinary.game.input.CompleteMotionGestureInputEventListener;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEventListener.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
 
-namespace org.allbinary.game.input.motion.action;
+class NoCompleteMotionGestureInputEventListener extends CompleteMotionGestureInputEventListener {
+    static final NoCompleteMotionGestureInputEventListener instance = NoCompleteMotionGestureInputEventListener();
+    
 
-public class NoCompleteMotionGestureInputEventListener : CompleteMotionGestureInputEventListener
-{
-    private static readonly NoCompleteMotionGestureInputEventListener instance = new NoCompleteMotionGestureInputEventListener();
-    private NoCompleteMotionGestureInputEventListener()
-    {
+    NoCompleteMotionGestureInputEventListener() {
     }
+    
 
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
-    {
+    @override
+    void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent) {
     }
+    
 
-    public static NoCompleteMotionGestureInputEventListener getInstance()
-    {
+    static NoCompleteMotionGestureInputEventListener getInstance() {
         return NoCompleteMotionGestureInputEventListener.instance;
     }
-
 }
 

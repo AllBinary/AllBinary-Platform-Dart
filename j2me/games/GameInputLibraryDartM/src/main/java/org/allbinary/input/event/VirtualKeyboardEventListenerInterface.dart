@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.event
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/input/event/VirtualKeyboardEvent.dart';
 
-namespace org.allbinary.input.@event;
+abstract interface class VirtualKeyboardEventListenerInterface implements EventListenerInterface {
+    
 
-public interface VirtualKeyboardEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
     void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent);
-
 }
 

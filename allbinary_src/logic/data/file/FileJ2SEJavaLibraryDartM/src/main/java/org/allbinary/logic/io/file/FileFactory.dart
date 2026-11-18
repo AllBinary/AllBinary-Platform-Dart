@@ -13,35 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
 
-namespace org.allbinary.logic.io.file;
+class FileFactory {
+    static final FileFactory instance = FileFactory();
+    
 
-public class FileFactory
-{
-    private static readonly FileFactory instance = new FileFactory();
-    public static FileFactory getInstance()
-    {
+    static FileFactory getInstance() {
         return FileFactory.instance;
     }
+    
 
-    // throws Exception
-    public virtual AbFile getInstance(string filePath)
-    {
+    AbFile getInstance1(String filePath) {
         return AbFile.createAbFileFromRawPath(filePath);
     }
+    
 
-    // throws Exception
-    public virtual AbFile getInstance(AbFile file, string childFilePath)
-    {
+    AbFile getInstance2(AbFile file, String childFilePath) {
         return AbFile.createAbFileWithChild(file, childFilePath);
     }
+    
 
-    // throws Exception
-    public virtual bool isFile(string path)
-    {
+    bool isFile(String path) {
         AbFile file = AbFile.createAbFile(path);
         if (file.exists()) {
             return true;
@@ -49,6 +46,5 @@ public class FileFactory
             return false;
         }
     }
-
 }
 

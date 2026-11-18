@@ -13,30 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonInput.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/BasicTouchInputFactory.dart';
 
-namespace org.allbinary.input.motion.button;
+class CancelTouchButtonInputFactory {
+    static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    late List<TouchButtonInput?> cancelInputArray;
 
-public class CancelTouchButtonInputFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static CancelTouchButtonInputFactory getInstance()
-    {
-        if (CancelTouchButtonInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            CancelTouchButtonInputFactory.instance = new CancelTouchButtonInputFactory();
-        }
-        return ((CancelTouchButtonInputFactory) CancelTouchButtonInputFactory.instance);
+    // Java field initializers run after the base constructor
+    void initFieldsCancelTouchButtonInputFactory() {
+    this.cancelInputArray = List<TouchButtonInput?>.filled(InputFactory.getInstance().MAX, null);
     }
+    
 
-    private readonly TouchButtonInput[] cancelInputArray = new TouchButtonInput[InputFactory.getInstance().MAX];
-    private CancelTouchButtonInputFactory()
-    {
-        BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
-        for (int index = this.cancelInputArray.Length - 1; index >= 0; index--) {
+    static CancelTouchButtonInputFactory getInstance() {
+        if (CancelTouchButtonInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            CancelTouchButtonInputFactory.instance = CancelTouchButtonInputFactory();
+        }
+        return (CancelTouchButtonInputFactory.instance as CancelTouchButtonInputFactory);
+    }
+    
+
+    CancelTouchButtonInputFactory() {
+        this.initFieldsCancelTouchButtonInputFactory();
+        final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
+        for (int index = this.cancelInputArray.length - 1; index >= 0; index--) {
             this.cancelInputArray[index] = basicTouchInputFactory.NONE;
         }
         this.cancelInputArray[basicTouchInputFactory.UP.getSourceId()] = basicTouchInputFactory.DOWN;
@@ -44,11 +51,10 @@ public class CancelTouchButtonInputFactory
         this.cancelInputArray[basicTouchInputFactory.LEFT.getSourceId()] = basicTouchInputFactory.RIGHT;
         this.cancelInputArray[basicTouchInputFactory.RIGHT.getSourceId()] = basicTouchInputFactory.LEFT;
     }
+    
 
-    public virtual TouchButtonInput getCancel(TouchButtonInput touchButtonInput)
-    {
-        return this.cancelInputArray[touchButtonInput.getSourceId()];
+    TouchButtonInput getCancel(TouchButtonInput touchButtonInput) {
+        return this.cancelInputArray[touchButtonInput.getSourceId()]!;
     }
-
 }
 

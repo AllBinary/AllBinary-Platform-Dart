@@ -13,37 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/media/image/ImageRotationUtil.dart';
 
-namespace org.allbinary.media.image;
+class ImageToRotationImageArrayUtil {
+    static final ImageToRotationImageArrayUtil instance = ImageToRotationImageArrayUtil();
+    
 
-public class ImageToRotationImageArrayUtil
-{
-    private static readonly ImageToRotationImageArrayUtil instance = new ImageToRotationImageArrayUtil();
-    public static ImageToRotationImageArrayUtil getInstance()
-    {
+    static ImageToRotationImageArrayUtil getInstance() {
         return ImageToRotationImageArrayUtil.instance;
     }
+    
 
-    private ImageToRotationImageArrayUtil()
-    {
+    ImageToRotationImageArrayUtil() {
     }
+    
 
-    // throws Exception
-    public virtual Image[] generate(Image image, int angleIncrement, int totalAngle)
-    {
-        ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
-        int totalFrames = totalAngle / angleIncrement;
-        Image[] imageArray = new Image[totalFrames];
+    List<Image?> generate(Image image, int angleIncrement, int totalAngle) {
+        final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
+        final int totalFrames = totalAngle ~/ angleIncrement;
+        final List<Image?> imageArray = List<Image?>.filled(totalFrames, null);
         imageArray[0] = image;
         for (int index = 1; index < totalFrames; index++) {
             imageArray[index] = imageRotationUtil.createRotatedImage(image, index * angleIncrement);
         }
         return imageArray;
     }
-
 }
 

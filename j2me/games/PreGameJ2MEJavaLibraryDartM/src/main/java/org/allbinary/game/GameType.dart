@@ -13,24 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game;
+class GameType {
+    late String name;
 
-public class GameType
-{
-    private string name;
-    public GameType(string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameType() {
+    
+    }
+    
+
+    GameType(String name) {
+        this.initFieldsGameType();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return this.name;
     }
-
 }
 

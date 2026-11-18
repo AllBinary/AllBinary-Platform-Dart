@@ -13,52 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.damage
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using CollidableDestroyableDamageableLayer = org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/game/combat/damage/DamageableInterface.dart';
 
-namespace org.allbinary.game.combat.damage;
+class DamageUtil {
+    static final DamageUtil instance = DamageUtil();
+    late LogUtil logUtil;
+    late String COLLIDE;
 
-public class DamageUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly DamageUtil instance = new DamageUtil();
-    public static DamageUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDamageUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.COLLIDE = "collide";
+    }
+    
+
+    static DamageUtil getInstance() {
         return DamageUtil.instance;
     }
+    
 
-    public readonly string COLLIDE = "collide";
-    private DamageUtil()
-    {
+    DamageUtil() {
+        this.initFieldsDamageUtil();
     }
+    
 
-    // throws Exception
-    public virtual void process(DamageableInterface damageableInterface, DamageableInterface damageableInterface2)
-    {
+    void process(DamageableInterface damageableInterface, DamageableInterface damageableInterface2) {
         damageableInterface.damage(damageableInterface2.getDamage(0), 0);
     }
+    
 
-    // throws Exception
-    public virtual void debugDamage(CollidableCompositeLayer collidableInterfaceCompositeInterface1, CollidableCompositeLayer collidableInterfaceCompositeInterface)
-    {
-        CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface);
+    void debugDamage(CollidableCompositeLayer collidableInterfaceCompositeInterface1, CollidableCompositeLayer collidableInterfaceCompositeInterface) {
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (collidableInterfaceCompositeInterface as CollidableDestroyableDamageableLayer);
         int damage = collidableDestroyableDamageableLayer.getDamage(0);
         if (damage > 20000) {
-            StringMaker stringBuffer = new StringMaker();
+            StringMaker stringBuffer = StringMaker();
             stringBuffer.append("Collision ");
-            stringBuffer.append(collidableInterfaceCompositeInterface1.ToString());
+            stringBuffer.append(collidableInterfaceCompositeInterface1.toString());
             stringBuffer.append(" with: ");
-            stringBuffer.append(collidableInterfaceCompositeInterface.ToString());
+            stringBuffer.append(collidableInterfaceCompositeInterface.toString());
             stringBuffer.append(" damage: ");
             stringBuffer.appendint(damage);
-            this.logUtil.putF(stringBuffer.ToString(), collidableInterfaceCompositeInterface1, this.COLLIDE);
+            this.logUtil.putF(stringBuffer.toString(), collidableInterfaceCompositeInterface1, this.COLLIDE);
         }
     }
-
 }
 

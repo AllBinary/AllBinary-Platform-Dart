@@ -13,56 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/NumberInSameGroupSequence.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/NumberOnOwnGroupSequenceAI.dart';
 
-namespace org.allbinary.game.ag.ai;
+class NumberOnOwnGroupSequenceAIFactory {
+    late LogUtil logUtil;
 
-public class NumberOnOwnGroupSequenceAIFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        int?[] integerArray = NumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
-        BasicArrayList list = new BasicArrayListD();
-        for (int index_0 = 0; index_0 < integerArray.Length; index_0++) {
-            object integerCanBeNull = hashtable.get(((object) integerArray[index_0]));
+    // Java field initializers run after the base constructor
+    void initFieldsNumberOnOwnGroupSequenceAIFactory() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    NumberOnOwnGroupSequenceAIFactory() {
+        this.initFieldsNumberOnOwnGroupSequenceAIFactory();
+    }
+    
+
+    ArtificialIntelligenceInterface getInstance4(ABHashtable hashtable, List<ArtificialIntelligenceInterface?> artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        final List<int?> integerArray = NumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
+        final BasicArrayList list = BasicArrayListD();
+        for (int index = 0; index < integerArray.length; index++) {
+            Object integerCanBeNull = hashtable.get(integerArray[index]!);
             if (integerCanBeNull == null) {
                 break;
             }
             list.add(integerCanBeNull);
         }
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("Total AI Properties: ");
         stringBuffer.appendint(list.size());
         stringBuffer.append(" == Total AI: ");
-        stringBuffer.appendint(artificialIntelligenceInterface.Length);
+        stringBuffer.appendint(artificialIntelligenceInterface.length);
         stringBuffer.append(" + 1");
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.GET_INSTANCE);
-        if (artificialIntelligenceInterface.Length - 1 > list.size()) {
-            throw new Exception("Not enough AI properties.");
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+        if (artificialIntelligenceInterface.length - 1 > list.size()) {
+            throw JException('Exception', "Not enough AI properties.");
         }
-        if (artificialIntelligenceInterface.Length - 1 < list.size()) {
-            throw new Exception("Too Many AI properties.");
+        if (artificialIntelligenceInterface.length - 1 < list.size()) {
+            throw JException('Exception', "Too Many AI properties.");
         }
-        int?[] numberOnSameTeam = new int?[list.size()];
-        for (int index_1 = 0; index_1 < numberOnSameTeam.Length; index_1++) {
-            numberOnSameTeam[index_1] = ((int?) list.objectArray[index_1]);
+        List<int?> numberOnSameTeam = List<int?>.filled(list.size(), null);
+        for (int index = 0; index < numberOnSameTeam.length; index++) {
+            numberOnSameTeam[index] = (list.objectArray[index]! as int);
         }
-        return new NumberOnOwnGroupSequenceAI(numberOnSameTeam, artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+        return NumberOnOwnGroupSequenceAI(numberOnSameTeam, artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
-
 }
 

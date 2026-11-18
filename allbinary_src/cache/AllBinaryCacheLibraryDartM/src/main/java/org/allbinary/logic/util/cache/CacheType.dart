@@ -13,42 +13,48 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
 
-namespace org.allbinary.logic.util.cache;
+class CacheType {
+    late String vendor;
+    late String type;
 
-public class CacheType
-{
-    private readonly string vendor;
-    private readonly string type;
-    public CacheType(string vendor, string type)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCacheType() {
+    
+    
+    }
+    
+
+    CacheType(String vendor, String type) {
+        this.initFieldsCacheType();
         this.vendor = vendor;
         this.type = type;
     }
+    
 
-    public virtual string getVendor()
-    {
+    String getVendor() {
         return this.vendor;
     }
+    
 
-    public virtual string getType()
-    {
+    String getType() {
         return this.type;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("CacheType: Vendor: ");
         stringBuffer.append(this.getVendor());
         stringBuffer.append(" Type: ");
         stringBuffer.append(this.getType());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

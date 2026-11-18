@@ -13,32 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CacheableInterface = org.allbinary.logic.util.cache.CacheableInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
+import 'package:allbinary/org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationInfo.dart';
 
-namespace org.allbinary.animation.image;
+class ImageArrayRotationAnimationCacheable extends AdjustedImageArrayRotationAnimation implements CacheableInterface {
+    
 
-public class ImageArrayRotationAnimationCacheable : AdjustedImageArrayRotationAnimation, CacheableInterface
-{
-    public ImageArrayRotationAnimationCacheable(object anyType, AnimationBehavior animationBehavior) : base((((ImageArrayRotationAnimationInfo) anyType)).getImageArray(), (((ImageArrayRotationAnimationInfo) anyType)).getAngleInfoP(), (((ImageArrayRotationAnimationInfo) anyType)).getTotalAngle(), (((ImageArrayRotationAnimationInfo) anyType)).getDx(), (((ImageArrayRotationAnimationInfo) anyType)).getDy(), animationBehavior)
-    {
-        // base((((ImageArrayRotationAnimationInfo) anyType)).getImageArray(), (((ImageArrayRotationAnimationInfo) anyType)).getAngleInfoP(), (((ImageArrayRotationAnimationInfo) anyType)).getTotalAngle(), (((ImageArrayRotationAnimationInfo) anyType)).getDx(), (((ImageArrayRotationAnimationInfo) anyType)).getDy(), animationBehavior) is called from the constructor declaration
+    ImageArrayRotationAnimationCacheable(Object anyType, AnimationBehavior animationBehavior) : super(((anyType as ImageArrayRotationAnimationInfo)).getImageArray(), ((anyType as ImageArrayRotationAnimationInfo)).getAngleInfoP(), ((anyType as ImageArrayRotationAnimationInfo)).getTotalAngle(), ((anyType as ImageArrayRotationAnimationInfo)).getDx(), ((anyType as ImageArrayRotationAnimationInfo)).getDy(), animationBehavior) {
+        
     }
+    
 
-    public virtual object getKey()
-    {
+    @override
+    Object getKey() {
         return NullUtil.getInstance().NULL_OBJECT;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
-
 }
 

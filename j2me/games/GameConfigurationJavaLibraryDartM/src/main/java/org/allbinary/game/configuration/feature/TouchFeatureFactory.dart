@@ -13,27 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/TouchFeature.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class TouchFeatureFactory {
+    static final TouchFeatureFactory instance = TouchFeatureFactory();
+    late TouchFeature TOUCH_ENABLED;
+    late TouchFeature SHOW_SCREEN_BUTTONS;
+    late TouchFeature AUTO_HIDE_SHOW_SCREEN_BUTTONS;
+    late TouchFeature HIDE_SCREEN_BUTTONS;
 
-public class TouchFeatureFactory
-{
-    private static readonly TouchFeatureFactory instance = new TouchFeatureFactory();
-    public static TouchFeatureFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchFeatureFactory() {
+    this.TOUCH_ENABLED = TouchFeature("Touch Enabled");
+    this.SHOW_SCREEN_BUTTONS = TouchFeature("Show");
+    this.AUTO_HIDE_SHOW_SCREEN_BUTTONS = TouchFeature("Auto Hide (One Level)");
+    this.HIDE_SCREEN_BUTTONS = TouchFeature("Hide");
+    }
+    
+
+    static TouchFeatureFactory getInstance() {
         return TouchFeatureFactory.instance;
     }
+    
 
-    private TouchFeatureFactory()
-    {
+    TouchFeatureFactory() {
+        this.initFieldsTouchFeatureFactory();
     }
-
-    public readonly TouchFeature TOUCH_ENABLED = new TouchFeature("Touch Enabled");
-    public readonly TouchFeature SHOW_SCREEN_BUTTONS = new TouchFeature("Show");
-    public readonly TouchFeature AUTO_HIDE_SHOW_SCREEN_BUTTONS = new TouchFeature("Auto Hide (One Level)");
-    public readonly TouchFeature HIDE_SCREEN_BUTTONS = new TouchFeature("Hide");
 }
 

@@ -13,53 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
-using GPointCircularPool = org.allbinary.graphics.GPointCircularPool;
-using MotionGestureRecognizer = org.allbinary.input.motion.gesture.MotionGestureRecognizer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/CustomGPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/GPointCircularPool.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureRecognizer.dart';
+import 'package:allbinary/org/allbinary/input/motion/MotionRecognizer.dart';
 
-namespace org.allbinary.input.motion;
+class GestureOnlyMotionRecognizer extends MotionRecognizer {
+    static int index = 0;
+    static final GPointCircularPool pointCircularPool = GPointCircularPool(40);
+    late MotionGestureRecognizer motionGestureRecognizer;
+    int id = 0;
 
-public class GestureOnlyMotionRecognizer : MotionRecognizer
-{
-    private readonly MotionGestureRecognizer motionGestureRecognizer;
-    private readonly int id;
-    private static int index = 0;
-    private static readonly GPointCircularPool pointCircularPool = new GPointCircularPool(40);
-    public GestureOnlyMotionRecognizer()
-    {
-        this.id = GestureOnlyMotionRecognizer.index++;
-        this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
+    // Java field initializers run after the base constructor
+    void initFieldsGestureOnlyMotionRecognizer() {
+    
+    
     }
+    
 
-    // throws Exception
-    public override void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance());
+    GestureOnlyMotionRecognizer() {
+        this.initFieldsGestureOnlyMotionRecognizer();
+        this.id = GestureOnlyMotionRecognizer.index++;
+        this.motionGestureRecognizer = MotionGestureRecognizer(this.id);
+    }
+    
+
+    @override
+    void processStartMotionEvent(int x, int y, int deviceId, int modifiers) {
+        CustomGPoint point = (GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
     }
+    
 
-    // throws Exception
-    public override void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance());
+    @override
+    void processEndMotionEvent(int x, int y, int deviceId, int modifiers) {
+        CustomGPoint point = (GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
     }
+    
 
-    // throws Exception
-    public override void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance());
+    @override
+    void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers) {
+        CustomGPoint point = (GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
     }
-
 }
 

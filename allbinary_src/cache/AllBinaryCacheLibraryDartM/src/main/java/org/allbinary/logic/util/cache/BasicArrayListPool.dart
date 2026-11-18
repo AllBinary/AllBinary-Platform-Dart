@@ -13,57 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/AbstractArrayListPool.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/BasicArrayListCacheable.dart';
 
-namespace org.allbinary.logic.util.cache;
+class BasicArrayListPool extends AbstractArrayListPool {
+    
 
-public class BasicArrayListPool : AbstractArrayListPool
-{
-    public BasicArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : base(cacheableInterfaceFactoryInterface)
-    {
-        // base(cacheableInterfaceFactoryInterface) is called from the constructor declaration
+    BasicArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : super(cacheableInterfaceFactoryInterface) {
+        
     }
+    
 
-    public override void clear()
-    {
+    @override
+    void clear() {
         this.buffers.clear();
     }
+    
 
-    // throws Exception
-    public override CacheableInterface remove(object key)
-    {
+    @override
+    CacheableInterface remove(Object key) {
         int size = this.buffers.size();
         if (size > 0) {
-            return ((CacheableInterface) this.buffers.removeAt(size - 1));
+            return (this.buffers.removeAt(size - 1) as CacheableInterface);
         } else {
-            return this.cacheableInterfaceFactoryInterface.getInstance(key);
+            return this.cacheableInterfaceFactoryInterface.getInstance1(key);
         }
     }
+    
 
-    // throws Exception
-    public virtual void addAll(BasicArrayList usedList)
-    {
+    void addAll(BasicArrayList usedList) {
         for (int index = usedList.size(); --index >= 0; ) {
-            CacheableInterface anyType = ((CacheableInterface) usedList.objectArray[index]);
+            CacheableInterface anyType = (usedList.objectArray[index]! as CacheableInterface);
             this.add(anyType);
         }
         usedList.clear();
     }
+    
 
-    // throws Exception
-    public virtual void releaseUsedBackToPool(BasicArrayList usedList)
-    {
+    void releaseUsedBackToPool(BasicArrayList usedList) {
         for (int index = usedList.size(); --index >= 0; ) {
-            BasicArrayListCacheable list = ((BasicArrayListCacheable) usedList.objectArray[index]);
+            BasicArrayListCacheable list = (usedList.objectArray[index]! as BasicArrayListCacheable);
             if (list.size() == 0) {
                 usedList.removeAt(index);
                 this.add(list);
             }
         }
     }
-
 }
 

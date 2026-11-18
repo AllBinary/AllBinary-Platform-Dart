@@ -13,26 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.font
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
 
-namespace org.allbinary.graphics.font;
+class FontDebugFactory {
+    static final FontDebugFactory instance = FontDebugFactory();
+    
 
-public class FontDebugFactory
-{
-    private static readonly FontDebugFactory instance = new FontDebugFactory();
-    public static FontDebugFactory getInstance()
-    {
+    static FontDebugFactory getInstance() {
         return FontDebugFactory.instance;
     }
+    
 
-    public virtual void setFont(Font font, Graphics graphics)
-    {
+    void setFont(Font font, Graphics graphics) {
         graphics.setFont(font);
     }
-
 }
 

@@ -13,104 +13,128 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameAdStateFactory = org.allbinary.business.advertisement.GameAdStateFactory;
-using Processor = org.allbinary.canvas.Processor;
-using GameAdState = org.allbinary.game.GameAdState;
-using GameNotification = org.allbinary.game.ag.layer.hud.basic.notification.GameNotification;
-using GameNotificationHud = org.allbinary.game.ag.layer.hud.basic.notification.GameNotificationHud;
-using GameNotificationEventHandler = org.allbinary.game.layer.hud.@event.GameNotificationEventHandler;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
-using GPoint = org.allbinary.graphics.GPoint;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/GameAdStateFactory.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/game/GameAdState.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.dart';
+import 'package:allbinary/org/allbinary/game/layer/hud/event/GameNotificationEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/CustomGPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/SetAndRemoveProcessor.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/NextUnremoveableProcessor.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic;
+class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyFontInterface {
+    late GameTickTimeDelayHelper gameTickTimeDelayHelper;
+    late String EMPTY_STRING;
+    late DisplayInfoSingleton displayInfo;
+    late TimeDelayHelper timeDelayHelper;
+    late CircularIndexUtil circularIndexUtil;
+    late GameNotification gameNotification;
+    late GameNotification permanentGameNotification;
+    late Processor setAndRemoveProcessor;
+    late Processor nextUnremoveableProcessor;
+    late Processor processor;
+    late String PERMANENT_GAME_NOTIFICATION;
+    late String lastString;
+    late String string;
+    late CustomGPoint point;
+    int width = 0;
 
-public class PlayerGameNotificationHud : GameNotificationHud, UpdateMyFontInterface
-{
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    private readonly string EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-    private readonly DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
-    private readonly CircularIndexUtil circularIndexUtil;
-    private readonly GameNotification gameNotification = new GameNotification();
-    private readonly GameNotification permanentGameNotification = new GameNotification();
-    private readonly Processor setAndRemoveProcessor;
-    private readonly Processor nextUnremoveableProcessor;
-    private Processor processor = Processor.getInstance();
-    private readonly string PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";
-    private string lastString = StringUtil.getInstance().EMPTY_STRING;
-    private string @string;
-    private CustomGPoint point = CustomGPoint.NULL_CUSTOM_POINT;
-    private int width = 0;
-    public PlayerGameNotificationHud(int location, int direction, int bufferZone, BasicColor basicColor) : base(location, direction, bufferZone, basicColor)
-    {
-        this.setAndRemoveProcessor = new SetAndRemoveProcessor(this);
-        this.nextUnremoveableProcessor = new NextUnremoveableProcessor(this);
-        this.@string = this.EMPTY_STRING;
-        // base(location, direction, bufferZone, basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsPlayerGameNotificationHud() {
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    this.EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    this.displayInfo = DisplayInfoSingleton.getInstance();
+    this.timeDelayHelper = TimeDelayHelper(0);
+    
+    this.gameNotification = GameNotification();
+    this.permanentGameNotification = GameNotification();
+    this.setAndRemoveProcessor = SetAndRemoveProcessor(this);
+    this.nextUnremoveableProcessor = NextUnremoveableProcessor(this);
+    this.processor = Processor.getInstance();
+    this.PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";
+    this.lastString = StringUtil.getInstance().EMPTY_STRING;
+    this.string = this.EMPTY_STRING;
+    this.point = CustomGPoint.NULL_CUSTOM_POINT;
+    this.width = 0;
+    }
+    
+
+    PlayerGameNotificationHud(int location, int direction, int bufferZone, BasicColor basicColor) : super(location, direction, bufferZone, basicColor) {
+        this.initFieldsPlayerGameNotificationHud();
+        
         this.circularIndexUtil = CircularIndexUtil.createInstance(0);
-        GameNotificationEventHandler gameNotificationEventHandler = GameNotificationEventHandler.getInstance();
+        final GameNotificationEventHandler gameNotificationEventHandler = GameNotificationEventHandler.getInstance();
         gameNotificationEventHandler.removeAllListeners();
         gameNotificationEventHandler.addListenerInterface(this);
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
+    @override
+    void updateMeasurement(Graphics graphics) {
         try {
-            base.updateMeasurement(graphics);
-            Font font = graphics.getFont();
-            this.width = font.stringWidth(this.@string);
+            super.updateMeasurement(graphics);
+            final Font font = graphics.getFont();
+            this.width = font.stringWidth(this.string);
             this.processor.process();
             this.processor = Processor.getInstance();
-        } catch (Exception e) {
-            LogUtil logUtil = LogUtil.getInstance();
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final LogUtil logUtil = LogUtil.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    public override GPoint getPoint(int x, int y)
-    {
+    @override
+    GPoint getPoint(int x, int y) {
         this.point = CustomGPoint.getInstance3(0, 0);
         this.point.setX(x);
         this.point.setY(y);
         return this.point;
     }
+    
 
-    public override void add(string @string, int? seconds, BasicColor basicColor, bool? permanent)
-    {
-        if (permanent.Value) {
-            if (this.lastString != @string) {
-                this.lastString = @string;
-                this.logUtil.putF(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(@string).ToString(), this, this.commonStrings.ADD);
+    @override
+    void add(String string, int seconds, BasicColor basicColor, bool permanent) {
+        if (permanent) {
+            if (this.lastString != string) {
+                this.lastString = string;
+                this.logUtil.putF(StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, this.commonStrings.ADD);
             }
-            this.permanentGameNotification.add(@string, seconds, basicColor);
+            this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
         } else {
-            this.gameNotification.add(@string, seconds, basicColor);
+            this.gameNotification.add(string, seconds, basicColor);
         }
     }
+    
 
-    // throws Exception
-    public override void processTick()
-    {
+    @override
+    void processTick() {
         if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
-            GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             if (gameAdState.isShowingAtLocation(this.getLocation())) {
                 this.offsetY = -54;
             } else {
@@ -121,65 +145,62 @@ public class PlayerGameNotificationHud : GameNotificationHud, UpdateMyFontInterf
             } else if (this.permanentGameNotification.getSize() > 0) {
                 this.setNextUnremoveable();
             } else {
-                this.@string = this.EMPTY_STRING;
+                this.string = this.EMPTY_STRING;
             }
         }
     }
+    
 
-    // throws Exception
-    private void setAndRemove()
-    {
-        this.@string = ((string) this.gameNotification.stringList.removeAt(0));
+    void setAndRemove() {
+        this.string = (this.gameNotification.stringList.removeAt(0) as String);
         this.processor = this.setAndRemoveProcessor;
     }
+    
 
-    // throws Exception
-    public virtual void setAndRemoveProcess()
-    {
+    void setAndRemoveProcess() {
         this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
         this.point.setX(this.getX());
         this.point.setY(this.getY());
-        int? time = ((int?) this.gameNotification.timeList.removeAt(0));
-        int iTime = ((int) time) * 1000;
+        final int time = (this.gameNotification.timeList.removeAt(0) as int);
+        int iTime = (time).toInt() * 1000;
         if (iTime == 0) {
             iTime = 500;
         }
         this.timeDelayHelper.delay = iTime;
-        this.setBasicColorP(((BasicColor) this.gameNotification.colorList.removeAt(0)));
+        this.setBasicColorP((this.gameNotification.colorList.removeAt(0) as BasicColor));
     }
+    
 
-    // throws Exception
-    private void setNextUnremoveable()
-    {
-        int index = this.circularIndexUtil.getIndex();
-        this.@string = ((string) this.permanentGameNotification.stringList.objectArray[index]);
+    void setNextUnremoveable() {
+        final int index = this.circularIndexUtil.getIndex();
+        this.string = (this.permanentGameNotification.stringList.objectArray[index]! as String);
         this.processor = this.nextUnremoveableProcessor;
     }
+    
 
-    // throws Exception
-    public virtual void setNextUnremoveableProcess()
-    {
-        int index = this.circularIndexUtil.getIndex();
+    void setNextUnremoveableProcess() {
+        final int index = this.circularIndexUtil.getIndex();
         this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
         this.point.setX(this.getX());
         this.point.setY(this.getY());
-        int? time = ((int?) this.permanentGameNotification.timeList.objectArray[index]);
-        this.timeDelayHelper.delay = ((int) time) * 1000;
-        this.setBasicColorP(((BasicColor) this.permanentGameNotification.colorList.objectArray[index]));
+        int time = (this.permanentGameNotification.timeList.objectArray[index]! as int);
+        this.timeDelayHelper.delay = (time).toInt() * 1000;
+        this.setBasicColorP((this.permanentGameNotification.colorList.objectArray[index]! as BasicColor));
         this.circularIndexUtil.next();
     }
+    
 
-    public override void clear()
-    {
+    @override
+    void clear() {
         this.gameNotification.clear();
         this.permanentGameNotification.clear();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        base.paintString(graphics, this.@string);
+        super.paintString(graphics, this.string);
     }
-
 }
 

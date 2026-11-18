@@ -13,45 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.math
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/math/RectangleCollisionUtil.dart';
 
-namespace org.allbinary.math;
+class RectangleCollisionPointUtil {
+    
 
-public class RectangleCollisionPointUtil
-{
-    private RectangleCollisionPointUtil()
-    {
+    RectangleCollisionPointUtil() {
     }
+    
 
-    public static bool allPointsInside(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list)
-    {
-        RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-        GPoint point = null;
+    static bool allPointsInside(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list) {
+        final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+        late GPoint point;
         for (int index = list.size(); --index >= 0; ) {
-            point = ((GPoint) list.objectArray[index]);
+            point = (list.objectArray[index]! as GPoint);
             if (!rectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX(), point.getY())) {
                 return false;
             }
         }
         return true;
     }
+    
 
-    public static bool allPointsInsideCell(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list, int xCellSize, int yCellSize)
-    {
-        RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-        GPoint point = null;
+    static bool allPointsInsideCell(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list, int xCellSize, int yCellSize) {
+        final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+        late GPoint point;
         for (int index = list.size(); --index >= 0; ) {
-            point = ((GPoint) list.objectArray[index]);
+            point = (list.objectArray[index]! as GPoint);
             if (!rectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX() * xCellSize, point.getY() * yCellSize)) {
                 return false;
             }
         }
         return true;
     }
-
 }
 

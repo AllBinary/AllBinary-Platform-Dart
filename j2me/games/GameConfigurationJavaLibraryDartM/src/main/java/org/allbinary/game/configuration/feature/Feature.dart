@@ -13,45 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-using ChangedGameFeatureListener = org.allbinary.game.configuration.@event.ChangedGameFeatureListener;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/event/ChangedGameFeatureListener.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class Feature {
+    static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    late String name;
 
-public class Feature
-{
-    private static ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private readonly string name;
-    public Feature(string name)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsFeature() {
+    
+    }
+    
+
+    Feature(String name) {
+        this.initFieldsFeature();
         this.name = name;
         Feature.add(name, this);
         ChangedGameFeatureListener.getInstance().add(this);
     }
+    
 
-    public static Feature getInstance(string name)
-    {
-        return ((Feature) Feature.hashtable.get(name));
+    static Feature getInstance1(String name) {
+        return (Feature.hashtable.get(name) as Feature);
     }
+    
 
-    private static void add(string name, Feature gameFeature)
-    {
+    static void add(String name, Feature gameFeature) {
         Feature.hashtable.put(name, gameFeature);
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return this.getName();
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

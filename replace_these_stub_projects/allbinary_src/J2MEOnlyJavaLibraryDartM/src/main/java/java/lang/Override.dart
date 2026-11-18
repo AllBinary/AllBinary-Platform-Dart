@@ -1,9 +1,7 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package java.lang
 
-using System;
-using System.Linq;
+// Java annotation Override: annotations have no Dart form
 
-namespace java.lang;
-
-/* Otherwise - classOrInterfaceDeclaration - type - AnnotationDeclaration */
 

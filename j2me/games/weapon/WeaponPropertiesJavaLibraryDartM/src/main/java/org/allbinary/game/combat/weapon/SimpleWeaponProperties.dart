@@ -13,53 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.combat.weapon
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.combat.weapon;
+class SimpleWeaponProperties {
+    int damage = 0;
+    int dissipation = 0;
+    int range = 0;
 
-public class SimpleWeaponProperties
-{
-    private int damage = 0;
-    private short dissipation = 0;
-    private int range = 0;
-    public virtual void set(SimpleWeaponProperties simpleWeaponProperties)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSimpleWeaponProperties() {
+    this.damage = 0;
+    this.dissipation = 0;
+    this.range = 0;
+    }
+
+    SimpleWeaponProperties() {
+        this.initFieldsSimpleWeaponProperties();
+    }
+    
+
+    void set(SimpleWeaponProperties simpleWeaponProperties) {
         this.setDamage(simpleWeaponProperties.getDamage());
         this.setDissipation(simpleWeaponProperties.getDissipation());
         this.setRange(simpleWeaponProperties.getRange());
     }
+    
 
-    public virtual void setDamage(int damage)
-    {
+    void setDamage(int damage) {
         this.damage = damage;
     }
+    
 
-    public virtual int getDamage()
-    {
+    int getDamage() {
         return this.damage;
     }
+    
 
-    public virtual void setDissipation(short dissipation)
-    {
+    void setDissipation(int dissipation) {
         this.dissipation = dissipation;
     }
+    
 
-    public virtual short getDissipation()
-    {
+    int getDissipation() {
         return this.dissipation;
     }
+    
 
-    public virtual int getRange()
-    {
+    int getRange() {
         return this.range;
     }
+    
 
-    public virtual void setRange(int range)
-    {
+    void setRange(int range) {
         this.range = range;
     }
-
 }
 

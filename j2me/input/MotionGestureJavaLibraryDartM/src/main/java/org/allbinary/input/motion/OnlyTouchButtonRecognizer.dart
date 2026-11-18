@@ -13,33 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
-using TouchButtonRecognizer = org.allbinary.input.motion.button.TouchButtonRecognizer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonRecognizer.dart';
+import 'package:allbinary/org/allbinary/input/motion/MotionRecognizer.dart';
 
-namespace org.allbinary.input.motion;
+class OnlyTouchButtonRecognizer extends MotionRecognizer {
+    late TouchButtonRecognizer touchButtonRecognizer;
+    bool touchButtonProcessing = false;
 
-public class OnlyTouchButtonRecognizer : MotionRecognizer
-{
-    private readonly TouchButtonRecognizer touchButtonRecognizer;
-    private bool touchButtonProcessing = false;
-    public OnlyTouchButtonRecognizer()
-    {
-        this.touchButtonRecognizer = new TouchButtonRecognizer();
+    // Java field initializers run after the base constructor
+    void initFieldsOnlyTouchButtonRecognizer() {
+    
+    this.touchButtonProcessing = false;
     }
+    
 
-    // throws Exception
-    public override void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    OnlyTouchButtonRecognizer() {
+        this.initFieldsOnlyTouchButtonRecognizer();
+        this.touchButtonRecognizer = TouchButtonRecognizer();
+    }
+    
+
+    @override
+    void processStartMotionEvent(int x, int y, int deviceId, int modifiers) {
         if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId)) {
             this.touchButtonProcessing = true;
         }
     }
+    
 
-    // throws Exception
-    public override void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    @override
+    void processEndMotionEvent(int x, int y, int deviceId, int modifiers) {
         if (this.touchButtonProcessing) {
             this.touchButtonProcessing = false;
         }
@@ -47,14 +54,13 @@ public class OnlyTouchButtonRecognizer : MotionRecognizer
             return;
         }
     }
+    
 
-    // throws Exception
-    public override void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    @override
+    void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers) {
         if (this.touchButtonProcessing) {
             this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
         }
     }
-
 }
 

@@ -13,35 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.input;
+class GameInputStrings {
+    static final GameInputStrings instance = GameInputStrings();
+    late String PROCESS_INPUT;
+    late String KEY_PRESSED;
+    late String KEY_RELEASED;
+    late String KEY_REPEATED;
+    late String ON_PRESS_GAME_KEY;
+    late String ON_DOWN_GAME_KEY;
+    late String ON_UP_GAME_KEY;
+    late String NO_KEY;
+    late String ADD_KEY_EVENT;
+    late String REMOVE_KEY_EVENT;
+    late String STRAFE_LEFT;
+    late String STRAFE_RIGHT;
+    late String PROCESS_MOTION_INPUT;
+    late String UDPATE_CURRENT_TOUCH_INPUT_FACTORY;
+    late String ENABLE_PLAYER_GAME_INPUTS;
+    late String ENABLE_PLAYER_GAME_INPUT;
 
-public class GameInputStrings
-{
-    private static readonly GameInputStrings instance = new GameInputStrings();
-    public static GameInputStrings getInstance()
-    {
-        return GameInputStrings.instance;
+    // Java field initializers run after the base constructor
+    void initFieldsGameInputStrings() {
+    this.PROCESS_INPUT = "processInput";
+    this.KEY_PRESSED = "keyPressed";
+    this.KEY_RELEASED = "keyReleased";
+    this.KEY_REPEATED = "keyRepeated";
+    this.ON_PRESS_GAME_KEY = "onPressGameKeyEvent";
+    this.ON_DOWN_GAME_KEY = "onDownGameKeyEvent";
+    this.ON_UP_GAME_KEY = "onUpGameKeyEvent";
+    this.NO_KEY = "Key Code Not Mapped For Game: ";
+    this.ADD_KEY_EVENT = "addGameKeyEvent";
+    this.REMOVE_KEY_EVENT = "removeGameKeyEvent";
+    this.STRAFE_LEFT = "strafeLeft";
+    this.STRAFE_RIGHT = "strafeRight";
+    this.PROCESS_MOTION_INPUT = "processMotionInput";
+    this.UDPATE_CURRENT_TOUCH_INPUT_FACTORY = "updateCurrentTouchInputFactory";
+    this.ENABLE_PLAYER_GAME_INPUTS = "Enabling PlayerGameInputs: ";
+    this.ENABLE_PLAYER_GAME_INPUT = "Enabling PlayerGameInput: ";
     }
 
-    public readonly string PROCESS_INPUT = "processInput";
-    public readonly string KEY_PRESSED = "keyPressed";
-    public readonly string KEY_RELEASED = "keyReleased";
-    public readonly string KEY_REPEATED = "keyRepeated";
-    public readonly string ON_PRESS_GAME_KEY = "onPressGameKeyEvent";
-    public readonly string ON_DOWN_GAME_KEY = "onDownGameKeyEvent";
-    public readonly string ON_UP_GAME_KEY = "onUpGameKeyEvent";
-    public readonly string NO_KEY = "Key Code Not Mapped For Game: ";
-    public readonly string ADD_KEY_EVENT = "addGameKeyEvent";
-    public readonly string REMOVE_KEY_EVENT = "removeGameKeyEvent";
-    public readonly string STRAFE_LEFT = "strafeLeft";
-    public readonly string STRAFE_RIGHT = "strafeRight";
-    public readonly string PROCESS_MOTION_INPUT = "processMotionInput";
-    public readonly string UDPATE_CURRENT_TOUCH_INPUT_FACTORY = "updateCurrentTouchInputFactory";
-    public readonly string ENABLE_PLAYER_GAME_INPUTS = "Enabling PlayerGameInputs: ";
-    public readonly string ENABLE_PLAYER_GAME_INPUT = "Enabling PlayerGameInput: ";
+    GameInputStrings() {
+        this.initFieldsGameInputStrings();
+    }
+    
+
+    static GameInputStrings getInstance() {
+        return GameInputStrings.instance;
+    }
 }
 

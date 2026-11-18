@@ -13,19 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+abstract interface class AnimationInterfaceFactoryInterface implements BasicAnimationInterfaceFactoryInterface {
+    
 
-public interface AnimationInterfaceFactoryInterface : BasicAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    Animation getInstance(int instanceId);
+    Animation getInstance1(int instanceId);
+    
 
     void setInitialScale(ScaleProperties scaleProperties);
-
 }
 

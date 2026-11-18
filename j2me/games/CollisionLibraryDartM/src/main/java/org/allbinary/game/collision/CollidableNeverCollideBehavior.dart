@@ -13,38 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/CollidableCompositeLayer.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableBaseBehavior.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableInterfaceCompositeInterface.dart';
 
-namespace org.allbinary.game.collision;
+class CollidableNeverCollideBehavior extends CollidableBaseBehavior {
+    
 
-public class CollidableNeverCollideBehavior : CollidableBaseBehavior
-{
-    public CollidableNeverCollideBehavior(bool isCollidable) : base(isCollidable)
-    {
-        // base(isCollidable) is called from the constructor declaration
+    CollidableNeverCollideBehavior(bool isCollidable) : super(isCollidable) {
+        
     }
+    
 
-    public override bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer)
-    {
+    @override
+    bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer) {
         return false;
     }
+    
 
-    // throws Exception
-    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer)
-    {
+    @override
+    void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer) {
     }
+    
 
-    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    @override
+    void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
     }
+    
 
-    public override bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    @override
+    bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         return false;
     }
-
 }
 

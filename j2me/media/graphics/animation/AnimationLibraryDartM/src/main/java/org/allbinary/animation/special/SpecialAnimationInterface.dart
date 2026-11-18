@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.special
 
-using System;
-using System.Linq;
-using IndexedAnimationInterface = org.allbinary.animation.IndexedAnimationInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimationInterface.dart';
 
-namespace org.allbinary.animation.special;
+abstract interface class SpecialAnimationInterface implements IndexedAnimationInterface {
+    
 
-public interface SpecialAnimationInterface : IndexedAnimationInterface
-{
     void setLastFrame();
+    
 
     bool isComplete();
-
 }
 

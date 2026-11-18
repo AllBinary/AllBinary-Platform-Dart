@@ -13,45 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenTypesFactory.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchScreenType.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchScreenFactory {
+    static final TouchScreenFactory SINGLETON = TouchScreenFactory();
+    bool multiTouch = false;
+    bool touch = false;
+    late TouchScreenType touchScreenType;
 
-public class TouchScreenFactory
-{
-    private static readonly TouchScreenFactory SINGLETON = new TouchScreenFactory();
-    private bool multiTouch = false;
-    private bool touch = false;
-    private TouchScreenType touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
-    private TouchScreenFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTouchScreenFactory() {
+    this.multiTouch = false;
+    this.touch = false;
+    this.touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
     }
+    
 
-    public static TouchScreenFactory getInstance()
-    {
+    TouchScreenFactory() {
+        this.initFieldsTouchScreenFactory();
+    }
+    
+
+    static TouchScreenFactory getInstance() {
         return TouchScreenFactory.SINGLETON;
     }
+    
 
-    public virtual bool isMultiTouch()
-    {
+    bool isMultiTouch() {
         return this.multiTouch;
     }
+    
 
-    public virtual void setTouch(bool touch)
-    {
+    void setTouch(bool touch) {
     }
+    
 
-    public virtual bool isTouch()
-    {
+    bool isTouch() {
         return this.touch;
     }
+    
 
-    public virtual TouchScreenType getTouchScreenType()
-    {
+    TouchScreenType getTouchScreenType() {
         return this.touchScreenType;
     }
-
 }
 

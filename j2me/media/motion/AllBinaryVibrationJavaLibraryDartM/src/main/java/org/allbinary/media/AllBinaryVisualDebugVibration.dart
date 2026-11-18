@@ -13,53 +13,63 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Anchor = org.allbinary.graphics.Anchor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/Anchor.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/media/AllBinaryVibrationME.dart';
 
-namespace org.allbinary.media;
+class AllBinaryVisualDebugVibration extends AllBinaryVibrationME implements UpdateMyFontInterface {
+    late DisplayInfoSingleton displayInfoSingleton;
+    late TimeDelayHelper timeDelayHelper;
+    late String VIBRATING;
+    late MyFontProcessor myFontProcessor;
+    int anchor = 0;
+    int width = 0;
 
-public class AllBinaryVisualDebugVibration : AllBinaryVibrationME, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(int.MaxValue);
-    private readonly string VIBRATING = "Vibrating";
-    private MyFontProcessor myFontProcessor;
-    private int anchor = Anchor.TOP_LEFT;
-    private int width = 0;
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryVisualDebugVibration() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.timeDelayHelper = TimeDelayHelper(Integer.MAX_VALUE);
+    this.VIBRATING = "Vibrating";
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    this.anchor = Anchor.TOP_LEFT;
+    this.width = 0;
+    }
+
+    AllBinaryVisualDebugVibration() {
+        this.initFieldsAllBinaryVisualDebugVibration();
+    }
+    
+
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.width = font.stringWidth(this.VIBRATING);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void vibrate(int duration, int type, int volume)
-    {
+    @override
+    void vibrate(int duration, int type, int volume) {
         this.timeDelayHelper.delay = duration;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    void paint(Graphics graphics) {
         if (this.timeDelayHelper.isTimeTNT()) {
-            this.timeDelayHelper.delay = int.MaxValue;
+            this.timeDelayHelper.delay = Integer.MAX_VALUE;
             this.myFontProcessor.process(graphics);
-            graphics.drawString(this.VIBRATING, this.displayInfoSingleton.getLastHalfWidth() - (width >> 1), 0, this.anchor);
+            graphics.drawString(this.VIBRATING, this.displayInfoSingleton.getLastHalfWidth() - (this.width >> 1), 0, this.anchor);
         }
     }
-
-    public AllBinaryVisualDebugVibration()
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
-    }
-
 }
 

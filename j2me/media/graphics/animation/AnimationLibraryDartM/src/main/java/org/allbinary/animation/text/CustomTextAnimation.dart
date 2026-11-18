@@ -13,82 +13,101 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using FontDebugFactory = org.allbinary.graphics.font.FontDebugFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/graphics/font/FontDebugFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/animation/text/TextAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/text/TextInterface.dart';
+import 'package:allbinary/org/allbinary/animation/text/TextChangeListener.dart';
 
-namespace org.allbinary.animation.text;
+class CustomTextAnimation extends TextAnimation implements TextInterface {
+    late FontDebugFactory fontDebugFactory;
+    int fontSize = 0;
+    late Font font;
+    late String lastText;
+    bool hasChanged = false;
+    int textWidth = 0;
 
-public class CustomTextAnimation : TextAnimation, TextInterface
-{
-    public readonly FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
-    public readonly int fontSize;
-    public Font font;
-    private string lastText = StringUtil.getInstance().INIT_STRING;
-    public bool hasChanged = true;
-    public CustomTextAnimation(string text, int fontSize, AnimationBehavior animationBehavior) : base(text, animationBehavior)
-    {
-        // base(text, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCustomTextAnimation() {
+    this.fontDebugFactory = FontDebugFactory.getInstance();
+    
+    
+    this.lastText = StringUtil.getInstance().INIT_STRING;
+    this.hasChanged = true;
+    this.textWidth = 0;
+    }
+    
+
+    CustomTextAnimation(String text, int fontSize, AnimationBehavior animationBehavior) : super(text, animationBehavior) {
+        this.initFieldsCustomTextAnimation();
+        
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.myFontProcessor.process(graphics);
-        Font existingFont = graphics.getFont();
+        final Font existingFont = graphics.getFont();
         this.fontDebugFactory.setFont(this.font, graphics);
-        base.paintXYNoUpdate(graphics, x, y);
+        super.paintXYNoUpdate(graphics, x, y);
         this.fontDebugFactory.setFont(existingFont, graphics);
     }
+    
 
-    public override void setScale(float scaleX, float scaleY)
-    {
+    @override
+    void setScale(double scaleX, double scaleY) {
         if (scaleX != scaleY) {
-            throw new SystemException();
+            throw JException('RuntimeException', '');
         }
         this.hasChanged = true;
-        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, ((int) (((float) this.fontSize) * scaleX)));
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, JMath.toInt32(((this.fontSize).toDouble() * scaleX)));
     }
+    
 
-    public override void setTextWithOnMeasure(string text, TextChangeListener textChangeListener)
-    {
-        base.setTextWithOnMeasure(text, textChangeListener);
+    @override
+    void setTextWithOnMeasure(String text, TextChangeListener textChangeListener) {
+        super.setTextWithOnMeasure(text, textChangeListener);
     }
+    
 
-    public override void setText(string text)
-    {
+    @override
+    void setText(String text) {
         if (this.lastText != text) {
             this.hasChanged = true;
             this.lastText = text;
-            base.setText(text);
+            super.setText(text);
         }
     }
+    
 
-    public virtual string getText()
-    {
+    @override
+    String getText() {
         return this.lastText;
     }
+    
 
-    private int textWidth = 0;
-    public override int getWidth()
-    {
+    @override
+    int getWidth() {
         if (this.hasChanged) {
-            this.textWidth = this.font.stringWidth(this.textArrayP[0]);
+            this.textWidth = this.font.stringWidth(this.textArrayP[0]!);
             this.hasChanged = false;
         }
         return this.textWidth;
     }
+    
 
-    public override int getFontHeight()
-    {
+    @override
+    int getFontHeight() {
         return this.font.getHeight();
     }
-
 }
 

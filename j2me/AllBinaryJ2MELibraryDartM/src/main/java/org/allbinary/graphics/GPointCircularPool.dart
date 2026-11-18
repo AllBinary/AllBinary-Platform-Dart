@@ -13,24 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
-using BaseCircularPool = org.allbinary.logic.util.cache.BaseCircularPool;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/BaseCircularPool.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/graphics/CustomGPoint.dart';
 
-namespace org.allbinary.graphics;
+class GPointCircularPool extends BaseCircularPool {
+    
 
-public class GPointCircularPool : BaseCircularPool
-{
-    public GPointCircularPool(int size)
-    {
+    GPointCircularPool(int size) {
         this.circularIndexUtil = CircularIndexUtil.createInstance(size);
-        this.OBJECT_ARRAY = new object[size];
+        this.OBJECT_ARRAY = List<Object?>.filled(size, null);
         for (int index = size - 1; index >= 0; index--) {
             this.OBJECT_ARRAY[index] = CustomGPoint.getInstance3(0, 0);
         }
     }
-
 }
 

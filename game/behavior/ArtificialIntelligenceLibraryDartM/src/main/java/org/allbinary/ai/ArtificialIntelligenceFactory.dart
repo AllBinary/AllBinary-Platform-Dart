@@ -13,19 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligence.dart';
 
-namespace org.allbinary.ai;
+class ArtificialIntelligenceFactory implements ArtificialIntelligenceFactoryInterface {
+    
 
-public class ArtificialIntelligenceFactory : ArtificialIntelligenceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligence getInstance(object anyType)
-    {
-        throw new SystemException();
+    @override
+    ArtificialIntelligence getInstance1(Object anyType) {
+        throw JException('RuntimeException', '');
     }
-
 }
 

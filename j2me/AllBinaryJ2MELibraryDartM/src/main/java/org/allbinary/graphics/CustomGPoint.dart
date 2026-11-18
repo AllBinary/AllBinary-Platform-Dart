@@ -13,62 +13,72 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
 
-namespace org.allbinary.graphics;
+class CustomGPoint extends GPoint {
+    static final CustomGPoint NULL_CUSTOM_POINT = CustomGPoint(0, 0, 0);
+    int cx = 0;
+    int cy = 0;
+    int cz = 0;
 
-public class CustomGPoint : GPoint
-{
-    public static readonly CustomGPoint NULL_CUSTOM_POINT = new CustomGPoint(0, 0, 0);
-    public static CustomGPoint getInstance(GPoint point)
-    {
-        return new CustomGPoint(point.getX(), point.getY(), point.getZ());
+    // Java field initializers run after the base constructor
+    void initFieldsCustomGPoint() {
+    this.cx = 0;
+    this.cy = 0;
+    this.cz = 0;
     }
+    
 
-    public static CustomGPoint getInstance3(int x, int y)
-    {
-        return new CustomGPoint(x, y, 3);
+    static CustomGPoint getInstance1(GPoint point) {
+        return CustomGPoint(point.getX(), point.getY(), point.getZ());
     }
+    
 
-    private int cx = 0;
-    private int cy = 0;
-    private int cz = 0;
-    public CustomGPoint(int x, int y, int z) : base(x, y, z)
-    {
-        // base(x, y, z) is called from the constructor declaration
+    static CustomGPoint getInstance3(int x, int y) {
+        return CustomGPoint(x, y, 3);
     }
+    
 
-    public virtual void setX(int x)
-    {
+    CustomGPoint(int x, int y, int z) : super(x, y, z) {
+        this.initFieldsCustomGPoint();
+        
+    }
+    
+
+    void setX(int x) {
         this.cx = x;
     }
+    
 
-    public override int getX()
-    {
+    @override
+    int getX() {
         return this.cx;
     }
+    
 
-    public virtual void setY(int y)
-    {
+    void setY(int y) {
         this.cy = y;
     }
+    
 
-    public override int getY()
-    {
+    @override
+    int getY() {
         return this.cy;
     }
+    
 
-    public virtual void setZ(int z)
-    {
+    void setZ(int z) {
         this.cz = z;
     }
+    
 
-    public override int getZ()
-    {
+    @override
+    int getZ() {
         return this.cz;
     }
-
 }
 

@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/CompositeSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
 
 //Use 8hz16bitmono for most J2ME
-public class GameBeginSound : CompositeSound
-{
-    private static Sound soundInterface = new GameBeginSound();
-    private GameBeginSound() : base("resource:/wav/begin.wav")
-    {
-        // base("resource:/wav/begin.wav") is called from the constructor declaration
-    }
+class GameBeginSound extends CompositeSound {
+    static Sound soundInterface = GameBeginSound();
+    
 
-    public static Sound getInstance()
-    {
+    GameBeginSound() : super("resource:/wav/begin.wav") {
+        
+    }
+    
+
+    static Sound getInstance() {
         return GameBeginSound.soundInterface;
     }
-
 }
 

@@ -13,31 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tick
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/game/tick/TickableInterface.dart';
 
-namespace org.allbinary.game.tick;
+class NullTickable implements TickableInterface {
+    static final NullTickable SINGLETON = NullTickable();
+    late String NAME;
 
-public class NullTickable : TickableInterface
-{
-    private static readonly NullTickable SINGLETON = new NullTickable();
-    public static NullTickable getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsNullTickable() {
+    this.NAME = "NulLTickable";
+    }
+
+    NullTickable() {
+        this.initFieldsNullTickable();
+    }
+    
+
+    static NullTickable getInstance() {
         return NullTickable.SINGLETON;
     }
+    
 
-    // throws Exception
-    public virtual void processTick(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    @override
+    void processTick(AllBinaryLayerManager allBinaryLayerManager) {
     }
+    
 
-    private readonly string NAME = "NulLTickable";
-    public virtual string getName()
-    {
+    @override
+    String getName() {
         return this.NAME;
     }
-
 }
 

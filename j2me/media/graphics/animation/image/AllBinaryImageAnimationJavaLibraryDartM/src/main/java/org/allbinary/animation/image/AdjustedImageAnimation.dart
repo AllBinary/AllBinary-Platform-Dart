@@ -13,56 +13,66 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class AdjustedImageAnimation extends ImageAnimation {
+    int dx = 0;
+    int dy = 0;
 
-public class AdjustedImageAnimation : ImageAnimation
-{
-    private int dx = 0;
-    private int dy = 0;
-    public AdjustedImageAnimation(Image image, int dx, int dy, AnimationBehavior animationBehavior) : base(image, animationBehavior)
-    {
-        // base(image, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsAdjustedImageAnimation() {
+    this.dx = 0;
+    this.dy = 0;
+    }
+    
+
+    AdjustedImageAnimation(Image image, int dx, int dy, AnimationBehavior animationBehavior) : super(image, animationBehavior) {
+        this.initFieldsAdjustedImageAnimation();
+        
         this.init(dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual void init(int dx, int dy)
-    {
+    void init(int dx, int dy) {
         this.setDx(dx);
         this.setDy(dy);
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        base.paintXY(graphics, x + this.dx, y + this.dy);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
+    
 
-    public override void setDx(int dx)
-    {
+    @override
+    void setDx(int dx) {
         this.dx = dx;
     }
+    
 
-    public override int getDx()
-    {
+    @override
+    int getDx() {
         return this.dx;
     }
+    
 
-    public override void setDy(int dy)
-    {
+    @override
+    void setDy(int dy) {
         this.dy = dy;
     }
+    
 
-    public override int getDy()
-    {
+    @override
+    int getDy() {
         return this.dy;
     }
-
 }
 

@@ -13,67 +13,86 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-using FilenameFilter = java.io.FilenameFilter;
-//using IOException = java.io.IOException;
-using URI = java.net.URI;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/FilenameFilter.dart';
+import 'package:allbinary/java/net/URI.dart';
 
-namespace org.allbinary.logic.io.file;
+abstract interface class AbFileInterface {
+    
 
-public interface AbFileInterface
-{
     bool canRead();
+    
 
     bool canWrite();
+    
 
-    // throws IOException
     bool createNewFile();
+    
 
-    // throws IOException
     bool delete();
+    
 
     void deleteOnExit();
+    
 
     bool exists();
+    
 
-    string getAbsolutePath();
+    String getAbsolutePath();
+    
 
-    // throws IOException
-    string getCanonicalPath();
+    String getCanonicalPath();
+    
 
-    string getParent();
+    String getParent();
+    
 
-    string getPath();
+    String getPath();
+    
 
     bool isAbsolute();
+    
 
     bool isDirectory();
+    
 
     bool isFile();
+    
 
     bool isHidden();
+    
 
-    long lastModified();
+    int lastModified();
+    
 
-    long length();
+    int length();
+    
 
-    string[] list();
+    List<String?> list();
+    
 
-    string[] listWithFilter(FilenameFilter filter);
+    List<String?> listWithFilter(FilenameFilter filter);
+    
 
     bool mkdir();
+    
 
     bool mkdirs();
+    
 
-    bool setLastModified(long time);
+    bool setLastModified(int time);
+    
 
     bool setReadOnly();
+    
 
-    string ToString();
+    @override
+    String toString();
+    
 
     URI toURI();
-
 }
 

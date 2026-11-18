@@ -13,60 +13,64 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/displayable/DisplayInfoSingleton.dart';
 
-namespace org.allbinary.graphics.displayable;
+class GameTickDisplayInfoSingleton {
+    static final GameTickDisplayInfoSingleton instance = GameTickDisplayInfoSingleton();
+    late DisplayInfoSingleton displayInfoSingleton;
+    int lastWidth = 0;
+    int lastHeight = 0;
+    int lastHalfWidth = 0;
+    int lastHalfHeight = 0;
 
-public class GameTickDisplayInfoSingleton
-{
-    private static readonly GameTickDisplayInfoSingleton instance = new GameTickDisplayInfoSingleton();
-    public static GameTickDisplayInfoSingleton getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameTickDisplayInfoSingleton() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.lastWidth = this.displayInfoSingleton.getLastWidth();
+    this.lastHeight = this.displayInfoSingleton.getLastHeight();
+    this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
+    this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
+    }
+
+    GameTickDisplayInfoSingleton() {
+        this.initFieldsGameTickDisplayInfoSingleton();
+    }
+    
+
+    static GameTickDisplayInfoSingleton getInstance() {
         return GameTickDisplayInfoSingleton.instance;
     }
+    
 
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private int lastWidth;
-    private int lastHeight;
-    private int lastHalfWidth;
-    private int lastHalfHeight;
-    public virtual void update()
-    {
+    void update() {
         this.lastWidth = this.displayInfoSingleton.getLastWidth();
         this.lastHeight = this.displayInfoSingleton.getLastHeight();
         this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
         this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
     }
+    
 
-    public virtual int getLastWidth()
-    {
+    int getLastWidth() {
         return this.lastWidth;
     }
+    
 
-    public virtual int getLastHeight()
-    {
+    int getLastHeight() {
         return this.lastHeight;
     }
+    
 
-    public virtual int getLastHalfWidth()
-    {
+    int getLastHalfWidth() {
         return this.lastHalfWidth;
     }
+    
 
-    public virtual int getLastHalfHeight()
-    {
+    int getLastHalfHeight() {
         return this.lastHalfHeight;
     }
-
-    public GameTickDisplayInfoSingleton()
-    {
-        this.lastWidth = this.displayInfoSingleton.getLastWidth();
-        this.lastHeight = this.displayInfoSingleton.getLastHeight();
-        this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
-        this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
-    }
-
 }
 

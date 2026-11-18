@@ -13,44 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
 
-namespace org.allbinary.game.score;
+class HighScoreCommandsBaseFactory {
+    late LogUtil logUtil;
+    late List<Command?> HIGH_SCORE_COMMANDS;
 
-public class HighScoreCommandsBaseFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly Command[] HIGH_SCORE_COMMANDS;
-    public HighScoreCommandsBaseFactory(Command[] HIGH_SCORE_COMMANDS)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoreCommandsBaseFactory() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    HighScoreCommandsBaseFactory(List<Command?> HIGH_SCORE_COMMANDS) {
+        this.initFieldsHighScoreCommandsBaseFactory();
         this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
     }
+    
 
-    public virtual bool isHighScoreCommand(Command command)
-    {
-        for (int index = this.HIGH_SCORE_COMMANDS.Length - 1; index >= 0; index--) {
-            if (command == this.HIGH_SCORE_COMMANDS[index]) {
+    bool isHighScoreCommand(Command command) {
+        for (int index = this.HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--) {
+            if (identical(command, this.HIGH_SCORE_COMMANDS[index]!)) {
                 return true;
             }
         }
         return false;
     }
+    
 
-    // throws Exception
-    public virtual int getIndex(Command command)
-    {
-        for (int index = this.HIGH_SCORE_COMMANDS.Length - 1; index >= 0; index--) {
-            if (command == this.HIGH_SCORE_COMMANDS[index]) {
+    int getIndex(Command command) {
+        for (int index = this.HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--) {
+            if (identical(command, this.HIGH_SCORE_COMMANDS[index]!)) {
                 return index;
             }
         }
-        throw new Exception("No Such Command");
+        throw JException('Exception', "No Such Command");
     }
-
 }
 

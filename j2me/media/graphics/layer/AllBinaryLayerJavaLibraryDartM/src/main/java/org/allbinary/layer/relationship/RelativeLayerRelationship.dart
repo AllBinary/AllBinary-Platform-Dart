@@ -13,39 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.layer.relationship
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/GPoint.dart';
+import 'package:allbinary/org/allbinary/graphics/RelativeRelationship.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.layer.relationship;
+class RelativeLayerRelationship extends RelativeRelationship {
+    late AllBinaryLayer layer;
 
-public class RelativeLayerRelationship : RelativeRelationship
-{
-    private AllBinaryLayer layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList) : base(point, typesAllowedList)
-    {
-        // base(point, typesAllowedList) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsRelativeLayerRelationship() {
+    this.layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    }
+    
+
+    RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList) : super(point, typesAllowedList) {
+        this.initFieldsRelativeLayerRelationship();
+        
         this.layer = layer;
     }
+    
 
-    public override int getX()
-    {
-        return this.layer.getXP() + base.getX();
+    @override
+    int getX() {
+        return this.layer.getXP() + super.getX();
     }
+    
 
-    public override int getY()
-    {
-        return this.layer.getYP() + base.getY();
+    @override
+    int getY() {
+        return this.layer.getYP() + super.getY();
     }
+    
 
-    public override int getZ()
-    {
-        return this.layer.getZP() + base.getZ();
+    @override
+    int getZ() {
+        return this.layer.getZP() + super.getZ();
     }
-
 }
 

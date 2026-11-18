@@ -13,65 +13,73 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.direction
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
 
-namespace org.allbinary.direction;
+class Direction {
+    static List<Direction?> directionArray = List<Direction?>.filled(13, null);
+    late String name;
+    late String otherName;
+    int value = 0;
+    int frameFactor = 0;
 
-public class Direction
-{
-    private static Direction[] directionArray = new Direction[13];
-    private string name;
-    private string otherName;
-    private int value;
-    private int frameFactor;
-    public Direction(string name, string otherName, int value, int frameFactor)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsDirection() {
+    
+    
+    
+    
+    }
+    
+
+    Direction(String name, String otherName, int value, int frameFactor) {
+        this.initFieldsDirection();
         this.name = name;
         this.otherName = otherName;
         this.value = value;
         this.frameFactor = frameFactor;
         Direction.directionArray[value] = this;
     }
+    
 
-    public static Direction getInstance(int direction)
-    {
-        return Direction.directionArray[direction];
+    static Direction getInstance1(int direction) {
+        return Direction.directionArray[direction]!;
     }
+    
 
-    public virtual int getValue()
-    {
+    int getValue() {
         return this.value;
     }
+    
 
-    public virtual int getFrameFactor()
-    {
+    int getFrameFactor() {
         return this.frameFactor;
     }
+    
 
-    public virtual string getOtherName()
-    {
+    String getOtherName() {
         return this.otherName;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append("Direction: ");
         stringBuffer.append(this.getName());
         stringBuffer.append(" Or: ");
         stringBuffer.append(this.getOtherName());
         stringBuffer.append(" Value: ");
         stringBuffer.appendint(this.value);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

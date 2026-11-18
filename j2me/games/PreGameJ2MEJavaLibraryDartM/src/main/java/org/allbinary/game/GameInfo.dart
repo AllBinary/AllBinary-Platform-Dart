@@ -13,128 +13,149 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using StdUtil = org.allbinary.logic.StdUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonLabels.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/GameTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/GameMode.dart';
+import 'package:allbinary/org/allbinary/game/PlayerTypesFactory.dart';
+import 'package:allbinary/org/allbinary/game/GameInfoData.dart';
+import 'package:allbinary/org/allbinary/game/GameType.dart';
+import 'package:allbinary/org/allbinary/game/PlayerType.dart';
 
-namespace org.allbinary.game;
+class GameInfo {
+    static final GameInfo NONE = GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, -1, -1);
+    static const String LEVEL_NAME = "LEVEL";
+    late LogUtil logUtil;
+    late GameInfoData gameInfoData;
+    late GameType gameType;
+    late GameMode gameMode;
+    late PlayerType playerType;
+    int highestLevel = 0;
+    int currentLevel = 0;
+    late String NEW_LEVEL;
+    late String SET_CURRENT_LEVEL;
+    late String NEXT_GAME_LEVEL;
 
-public class GameInfo
-{
-    public static readonly GameInfo NONE = new GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, -1, -1);
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public const string LEVEL_NAME = "LEVEL";
-    private readonly GameInfoData gameInfoData = GameInfoData.getInstance();
-    private readonly GameType gameType;
-    private readonly GameMode gameMode;
-    private readonly PlayerType playerType;
-    private int highestLevel = 0;
-    private int currentLevel;
-    public GameInfo(GameType gameType, GameMode gameMode, PlayerType playerType, int highestLevel, int currentLevel)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameInfo() {
+    this.logUtil = LogUtil.getInstance();
+    this.gameInfoData = GameInfoData.getInstance();
+    
+    
+    
+    this.highestLevel = 0;
+    
+    this.NEW_LEVEL = "New Level: ";
+    this.SET_CURRENT_LEVEL = "setCurrentLevel";
+    this.NEXT_GAME_LEVEL = "nextGameLevel";
+    }
+    
+
+    GameInfo(GameType gameType, GameMode gameMode, PlayerType playerType, int highestLevel, int currentLevel) {
+        this.initFieldsGameInfo();
         this.gameType = gameType;
         this.gameMode = gameMode;
         this.setHighestLevel(highestLevel);
         this.currentLevel = currentLevel;
         this.playerType = playerType;
     }
+    
 
-    public virtual GameType getGameType()
-    {
+    GameType getGameType() {
         return this.gameType;
     }
+    
 
-    public virtual GameMode getGameMode()
-    {
+    GameMode getGameMode() {
         return this.gameMode;
     }
+    
 
-    public virtual PlayerType getPlayerType()
-    {
+    PlayerType getPlayerType() {
         return this.playerType;
     }
+    
 
-    public virtual int getHighestLevel()
-    {
+    int getHighestLevel() {
         return this.highestLevel;
     }
+    
 
-    public virtual void setHighestLevel(int highestLevel)
-    {
+    void setHighestLevel(int highestLevel) {
         this.highestLevel = highestLevel;
     }
+    
 
-    public virtual int getCurrentLevel()
-    {
+    int getCurrentLevel() {
         return this.currentLevel;
     }
+    
 
-    private readonly string NEW_LEVEL = "New Level: ";
-    private readonly string SET_CURRENT_LEVEL = "setCurrentLevel";
-    public virtual void setCurrentLevel(int currentLevel)
-    {
+    void setCurrentLevel(int currentLevel) {
         this.currentLevel = currentLevel;
-        this.logUtil.putF(new StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).ToString(), this, this.SET_CURRENT_LEVEL);
+        this.logUtil.putF(StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.SET_CURRENT_LEVEL);
     }
+    
 
-    private readonly string NEXT_GAME_LEVEL = "nextGameLevel";
-    public virtual void nextGameLevel()
-    {
+    void nextGameLevel() {
         if (this.getCurrentLevel() < this.getHighestLevel()) {
             this.currentLevel++;
         }
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().NEXT).append(CommonSeps.getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).ToString(), this, this.NEXT_GAME_LEVEL);
+        this.logUtil.putF(StringMaker().append(CommonLabels.getInstance().NEXT).append(CommonSeps.getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
     }
+    
 
-    public virtual void previousGameLevel()
-    {
+    void previousGameLevel() {
         if (this.getCurrentLevel() > 1) {
             this.currentLevel--;
         }
     }
+    
 
-    public virtual bool isLastLevel()
-    {
+    bool isLastLevel() {
         if (this.getCurrentLevel() >= this.getHighestLevel()) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual ABHashtable<object, object> toHashtable()
-    {
-        ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().ToString());
-        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.ToString());
-        hashtable.put(this.gameInfoData.PLAYER_TYPE, this.playerType.ToString());
-        hashtable.put(this.gameInfoData.HIGHEST_LEVEL, (this.getHighestLevel()).ToString());
-        hashtable.put(this.gameInfoData.CURRENT_LEVEL, (this.currentLevel).ToString());
+    ABHashtable toHashtable() {
+        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
+        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());
+        hashtable.put(this.gameInfoData.PLAYER_TYPE, this.playerType.toString());
+        hashtable.put(this.gameInfoData.HIGHEST_LEVEL, jstr(this.getHighestLevel()));
+        hashtable.put(this.gameInfoData.CURRENT_LEVEL, jstr(this.currentLevel));
         return hashtable;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
-        CommonSeps commonSeps = CommonSeps.getInstance();
+    @override
+    String toString() {
+        final StringMaker stringBuffer = StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
         stringBuffer.append(this.gameInfoData.GAME_TYPE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(this.getGameType().ToString());
+        stringBuffer.append(this.getGameType().toString());
         stringBuffer.append(commonSeps.COMMA_SEP);
         stringBuffer.append(this.gameInfoData.GAME_MODE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(this.gameMode.ToString());
+        stringBuffer.append(this.gameMode.toString());
         stringBuffer.append(commonSeps.COMMA_SEP);
         stringBuffer.append(this.gameInfoData.PLAYER_TYPE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(StringUtil.getInstance().toString(this.playerType));
+        stringBuffer.append(StringUtil.getInstance().toString1(this.playerType));
         stringBuffer.append(commonSeps.COMMA_SEP);
         stringBuffer.append(this.gameInfoData.HIGHEST_LEVEL);
         stringBuffer.append(commonSeps.EQUALS);
@@ -143,8 +164,7 @@ public class GameInfo
         stringBuffer.append(this.gameInfoData.CURRENT_LEVEL);
         stringBuffer.append(commonSeps.EQUALS);
         stringBuffer.appendint(this.currentLevel);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

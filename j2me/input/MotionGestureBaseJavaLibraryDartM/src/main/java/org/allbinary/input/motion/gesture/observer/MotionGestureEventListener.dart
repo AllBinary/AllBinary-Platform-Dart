@@ -13,34 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/observer/MotionGestureEvent.dart';
 
-namespace org.allbinary.input.motion.gesture.observer;
+abstract interface class MotionGestureEventListener implements BaseMotionGestureEventListener {
+    
 
-public interface MotionGestureEventListener : BaseMotionGestureEventListener
-{
     void onPressedMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onUpMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onDownMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onLeftMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onRightMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev);
+    
 
     void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    // throws Exception
     void released(MotionGestureEvent ev);
-
 }
 

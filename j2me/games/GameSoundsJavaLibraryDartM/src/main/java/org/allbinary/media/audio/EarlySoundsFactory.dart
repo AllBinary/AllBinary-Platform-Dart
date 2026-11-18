@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/BaseSoundsFactory.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
+import 'package:allbinary/org/allbinary/media/audio/SelectSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/ErrorSound.dart';
 
-namespace org.allbinary.media.audio;
+class EarlySoundsFactory extends BaseSoundsFactory {
+    static final EarlySoundsFactory instance = EarlySoundsFactory();
+    
 
-public class EarlySoundsFactory : BaseSoundsFactory
-{
-    private static readonly EarlySoundsFactory instance = new EarlySoundsFactory();
-    // throws Exception
-    public override Sound[] getSoundInterfaceArray()
-    {
-        Sound[] soundInterfaceArray = new Sound[2];
+    @override
+    List<Sound?> getSoundInterfaceArray() {
+        List<Sound?> soundInterfaceArray = List<Sound?>.filled(2, null);
         int index = 0;
         soundInterfaceArray[index++] = SelectSound.getInstance();
         soundInterfaceArray[index++] = ErrorSound.getInstance();
         return soundInterfaceArray;
     }
+    
 
-    public static EarlySoundsFactory getInstance()
-    {
+    static EarlySoundsFactory getInstance() {
         return EarlySoundsFactory.instance;
     }
-
 }
 

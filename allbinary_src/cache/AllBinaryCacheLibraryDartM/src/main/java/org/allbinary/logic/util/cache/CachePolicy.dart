@@ -13,48 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.logic.util.cache;
+class CachePolicy {
+    late String name;
+    int maxTime = 0;
+    int maxSize = 0;
 
-public class CachePolicy
-{
-    private readonly string name;
-    private long maxTime = 0L;
-    private long maxSize = 0L;
-    public CachePolicy(string name, long maxTime, long maxSize)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCachePolicy() {
+    
+    this.maxTime = 0;
+    this.maxSize = 0;
+    }
+    
+
+    CachePolicy(String name, int maxTime, int maxSize) {
+        this.initFieldsCachePolicy();
         this.name = name;
         this.setMaxTime(maxTime);
         this.setMaxSize(maxSize);
     }
+    
 
-    public virtual long getMaxTime()
-    {
+    int getMaxTime() {
         return this.maxTime;
     }
+    
 
-    public virtual void setMaxTime(long maxTime)
-    {
+    void setMaxTime(int maxTime) {
         this.maxTime = maxTime;
     }
+    
 
-    public virtual long getMaxSize()
-    {
+    int getMaxSize() {
         return this.maxSize;
     }
+    
 
-    public virtual void setMaxSize(long maxSize)
-    {
+    void setMaxSize(int maxSize) {
         this.maxSize = maxSize;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

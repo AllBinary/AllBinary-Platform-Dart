@@ -13,30 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.content
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
 
-namespace org.allbinary.content;
+class CommandUriAction {
+    static final CommandUriAction instance = CommandUriAction();
+    late LogUtil logUtil;
 
-public class CommandUriAction
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly CommandUriAction instance = new CommandUriAction();
-    public static CommandUriAction getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCommandUriAction() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    CommandUriAction() {
+        this.initFieldsCommandUriAction();
+    }
+    
+
+    static CommandUriAction getInstance() {
         return CommandUriAction.instance;
     }
+    
 
-    public virtual void add(Command command, string url)
-    {
+    void add(Command command, String url) {
     }
+    
 
-    public virtual void process(Command command)
-    {
+    void process(Command command) {
     }
-
 }
 

@@ -13,44 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessorInterface.dart';
 
-namespace org.allbinary.game.input;
+class GameInputProcessorComposite extends PlayerGameInput {
+    late String name;
+    late GameInputProcessorInterface gameInputProcessorInterface;
+    late String NAME_LABEL;
 
-public class GameInputProcessorComposite : PlayerGameInput
-{
-    private readonly string name;
-    private readonly GameInputProcessorInterface gameInputProcessorInterface;
-    public GameInputProcessorComposite(string name, GameInputProcessorInterface gameInputProcessorInterface) : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameInputProcessorComposite() {
+    
+    
+    this.NAME_LABEL = " GameInputProcessorInterface: ";
+    }
+    
+
+    GameInputProcessorComposite(String name, GameInputProcessorInterface gameInputProcessorInterface) : super(BasicArrayListD(), BasicArrayListD(), -1) {
+        this.initFieldsGameInputProcessorComposite();
+        
         this.name = name;
         this.gameInputProcessorInterface = gameInputProcessorInterface;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void update()
-    {
+    @override
+    void update() {
         try {
             BasicArrayList list = this.getGameKeyEventList();
             this.gameInputProcessorInterface.onInput(list);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    private readonly string NAME_LABEL = " GameInputProcessorInterface: ";
-    public override string ToString()
-    {
-        return new StringMaker().append(base.ToString()).append(this.NAME_LABEL).append(this.name).ToString();
+    @override
+    String toString() {
+        return StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.name).toString();
     }
-
 }
 

@@ -1,47 +1,52 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.drop
 
-using System;
-using System.Linq;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListUtil.dart';
 
-namespace org.allbinary.game.layer.drop;
+class PlacedLayerFactory {
+    static final PlacedLayerFactory instance = PlacedLayerFactory();
+    late BasicArrayList list;
+    late BasicArrayListUtil basicArrayListUtil;
 
-public class PlacedLayerFactory
-{
-    private static readonly PlacedLayerFactory instance = new PlacedLayerFactory();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private PlacedLayerFactory()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsPlacedLayerFactory() {
+    this.list = BasicArrayListD();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
     }
+    
 
-    public virtual void clear()
-    {
+    PlacedLayerFactory() {
+        this.initFieldsPlacedLayerFactory();
+    }
+    
+
+    void clear() {
         this.list.clear();
     }
+    
 
-    public static PlacedLayerFactory getInstance()
-    {
+    static PlacedLayerFactory getInstance() {
         return PlacedLayerFactory.instance;
     }
+    
 
-    public virtual int getSize()
-    {
+    int getSize() {
         return this.list.size();
     }
+    
 
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    public virtual AllBinaryLayerFactoryInterface getRandomInstance()
-    {
-        return ((AllBinaryLayerFactoryInterface) this.basicArrayListUtil.getRandom(this.list));
+    AllBinaryLayerFactoryInterface getRandomInstance() {
+        return (this.basicArrayListUtil.getRandom(this.list) as AllBinaryLayerFactoryInterface);
     }
+    
 
-    public virtual void add(AllBinaryLayerFactoryInterface layerInterfaceFactoryInterface)
-    {
+    void add(AllBinaryLayerFactoryInterface layerInterfaceFactoryInterface) {
         this.list.add(layerInterfaceFactoryInterface);
     }
-
 }
 

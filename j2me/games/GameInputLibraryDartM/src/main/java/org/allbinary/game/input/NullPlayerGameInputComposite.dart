@@ -13,35 +13,39 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInputCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/NoPlayerGameInput.dart';
+import 'package:allbinary/org/allbinary/game/input/PlayerGameInput.dart';
 
-namespace org.allbinary.game.input;
+class NullPlayerGameInputComposite implements PlayerGameInputCompositeInterface {
+    static final NullPlayerGameInputComposite NULL_PLAYER_GAME_INPUT_COMPOSITE = NullPlayerGameInputComposite();
+    
 
-public class NullPlayerGameInputComposite : PlayerGameInputCompositeInterface
-{
-    public static readonly NullPlayerGameInputComposite NULL_PLAYER_GAME_INPUT_COMPOSITE = new NullPlayerGameInputComposite();
-    public virtual string getName()
-    {
+    @override
+    String getName() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    // throws Exception
-    public virtual void processInput(AllBinaryLayerManager layerManager)
-    {
+    @override
+    void processInput(AllBinaryLayerManager layerManager) {
     }
+    
 
-    public virtual void initInputProcessors()
-    {
+    @override
+    void initInputProcessors() {
     }
+    
 
-    public virtual PlayerGameInput getPlayerGameInput()
-    {
+    @override
+    PlayerGameInput getPlayerGameInput() {
         return NoPlayerGameInput.getInstance();
     }
-
 }
 

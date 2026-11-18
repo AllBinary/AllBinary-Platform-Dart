@@ -13,45 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.globals
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-using WebappClassLoaderInfo = org.allbinary.logic.system.loader.WebappClassLoaderInfo;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringValidationUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/loader/WebappClassLoaderInfo.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/globals/AppUrlGlobals.dart';
+import 'package:allbinary/org/allbinary/globals/URLGLOBALS.dart';
 
-namespace org.allbinary.globals;
+class Globals {
+    static final Globals instance = Globals();
+    late LogUtil logUtil;
 
-public class Globals
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly Globals instance = new Globals();
-    public static Globals getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGlobals() {
+    this.logUtil = LogUtil.getInstance();
+    }
+    
+
+    static Globals getInstance() {
         return Globals.instance;
     }
+    
 
-    private Globals()
-    {
+    Globals() {
+        this.initFieldsGlobals();
     }
+    
 
-    public virtual void init(global::java.lang.ClassLoader classLoader, string pathString)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
+    void init(ClassLoader classLoader, String pathString) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final AppUrlGlobals appUrlGlobals = AppUrlGlobals();
         appUrlGlobals.setWebappPath(pathString);
         URLGLOBALS.init(appUrlGlobals);
         WebappClassLoaderInfo.setLoader(classLoader);
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = StringMaker();
         stringBuffer.append("Setting Up AllBinary System Configuration Args: ");
         stringBuffer.append(pathString);
         stringBuffer.append(" ClassLoader: ");
-        stringBuffer.append(classLoader.GetType().FullName);
-        this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.INIT);
-        StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+        stringBuffer.append(jClassName(classLoader));
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         if (stringValidationUtil.isEmpty(pathString)) {
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("No Path Provided. Using Process Path: ");
@@ -60,13 +67,12 @@ public class Globals
             stringBuffer.append(CommonSeps.getInstance().EQUALS);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
             stringBuffer.append(URLGLOBALS.getWebappPath());
-            this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.INIT);
+            this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
         }
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append("Webapp Path Set To: ");
         stringBuffer.append(URLGLOBALS.getWebappPath());
-        this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
     }
-
 }
 

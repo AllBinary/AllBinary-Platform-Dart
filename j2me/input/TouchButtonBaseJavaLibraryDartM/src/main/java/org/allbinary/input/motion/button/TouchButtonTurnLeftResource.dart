@@ -13,24 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/input/motion/button/TouchButtonResource.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonTurnLeftResource extends TouchButtonResource {
+    static final TouchButtonResource instance = TouchButtonTurnLeftResource();
+    
 
-public class TouchButtonTurnLeftResource : TouchButtonResource
-{
-    private static readonly TouchButtonResource instance = new TouchButtonTurnLeftResource();
-    public static TouchButtonResource getInstance()
-    {
+    static TouchButtonResource getInstance() {
         return TouchButtonTurnLeftResource.instance;
     }
+    
 
-    private TouchButtonTurnLeftResource() : base("/touch_button_turn_left_arrow_64_by_64.png", "/touch_button_turn_left_arrow_hint_64_by_64.png")
-    {
-        // base("/touch_button_turn_left_arrow_64_by_64.png", "/touch_button_turn_left_arrow_hint_64_by_64.png") is called from the constructor declaration
+    TouchButtonTurnLeftResource() : super("/touch_button_turn_left_arrow_64_by_64.png", "/touch_button_turn_left_arrow_hint_64_by_64.png") {
+        
     }
-
 }
 

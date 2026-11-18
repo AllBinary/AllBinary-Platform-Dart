@@ -13,45 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.event
 
-using System;
-using System.Linq;
-using ResourceLoadingLevel = org.allbinary.game.resource.ResourceLoadingLevel;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevel.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevelFactory.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.game.configuration.@event;
+class GameInitializedEvent extends AllBinaryEventObject {
+    late ResourceLoadingLevel resourceLoadingLevel;
+    int level = 0;
 
-public class GameInitializedEvent : AllBinaryEventObject
-{
-    private ResourceLoadingLevel resourceLoadingLevel = ResourceLoadingLevelFactory.getInstance().LEVEL;
-    private int level = 0;
-    public GameInitializedEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameInitializedEvent() {
+    this.resourceLoadingLevel = ResourceLoadingLevelFactory.getInstance().LEVEL;
+    this.level = 0;
     }
+    
 
-    public virtual void setLevel(int level)
-    {
+    GameInitializedEvent(Object anyType) : super(anyType) {
+        this.initFieldsGameInitializedEvent();
+        
+    }
+    
+
+    void setLevel(int level) {
         this.level = level;
         this.resourceLoadingLevel = ResourceLoadingLevelFactory.getInstance().LEVEL;
     }
+    
 
-    public virtual int getLevel()
-    {
+    int getLevel() {
         return this.level;
     }
+    
 
-    public virtual void setResourceLoadingLevel(ResourceLoadingLevel resourceLoadingLevel)
-    {
+    void setResourceLoadingLevel(ResourceLoadingLevel resourceLoadingLevel) {
         this.resourceLoadingLevel = resourceLoadingLevel;
         this.level = this.resourceLoadingLevel.getLevel();
     }
+    
 
-    public virtual ResourceLoadingLevel getResourceLoadingLevel()
-    {
+    ResourceLoadingLevel getResourceLoadingLevel() {
         return this.resourceLoadingLevel;
     }
-
 }
 

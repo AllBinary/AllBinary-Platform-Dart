@@ -13,40 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.scroller
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/time/GameTickTimeDelayHelperFactory.dart';
+import 'package:allbinary/org/allbinary/time/TimeDelayHelper.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/scroller/TimeFiredInterface.dart';
 
-namespace org.allbinary.game.ag.ai.scroller;
+class TimedFireAI extends BasicAI {
+    static final int TIME = SmallIntegerSingletonFactory.getInstance().getAt(1);
+    late TimeDelayHelper maxFireDelayTimeHelper;
+    int delay = 0;
 
-public class TimedFireAI : BasicAI
-{
-    public static readonly int? TIME = SmallIntegerSingletonFactory.getInstance().getAt(1);
-    public readonly TimeDelayHelper maxFireDelayTimeHelper = new TimeDelayHelper(0);
-    private readonly int delay;
-    public TimedFireAI(int delay, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsTimedFireAI() {
+    this.maxFireDelayTimeHelper = TimeDelayHelper(0);
+    
+    }
+    
+
+    TimedFireAI(int delay, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(ownerLayerInterface, gameInput) {
+        this.initFieldsTimedFireAI();
+        
         this.delay = delay;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        TimeFiredInterface timeFiredInterface = ((TimeFiredInterface) this.getOwnerLayerInterface());
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        TimeFiredInterface timeFiredInterface = (this.getOwnerLayerInterface() as TimeFiredInterface);
         if (this.maxFireDelayTimeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime) && timeFiredInterface.getLastFireTime() + this.maxFireDelayTimeHelper.delay < this.maxFireDelayTimeHelper.getStartTime()) {
-            base.processKeyAI(Canvas.KEY_NUM1);
+            super.processKeyAI(Canvas.KEY_NUM1);
             this.maxFireDelayTimeHelper.delay = this.delay;
         }
     }
-
 }
 

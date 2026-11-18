@@ -1,103 +1,113 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package javax.microedition.lcdui
 
-using System;
-using System.Linq;
-using java.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/util/Stack.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
 
-namespace javax.microedition.lcdui;
+class NullCanvas extends Canvas {
+    static final NullCanvas NULL_CANVAS = NullCanvas();
+    
 
-public class NullCanvas : Canvas
-{
-    public static readonly NullCanvas NULL_CANVAS = new NullCanvas();
-    public NullCanvas()
-    {
+    NullCanvas() {
     }
+    
 
-    public override void setFullScreenMode(bool mode)
-    {
+    @override
+    void setFullScreenMode(bool mode) {
     }
+    
 
-    public override void sizeChanged(int w, int h)
-    {
+    @override
+    void sizeChanged(int w, int h) {
     }
+    
 
-    public virtual Stack<object> getCommandStack()
-    {
-        throw new SystemException();
+    Stack getCommandStack() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual bool isCommand(Command command)
-    {
-        throw new SystemException();
+    bool isCommand(Command command) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public override void addCommand(Command command)
-    {
+    @override
+    void addCommand(Command command) {
     }
+    
 
-    public override void removeCommand(Command command)
-    {
+    @override
+    void removeCommand(Command command) {
     }
+    
 
-    public virtual void removeAllCommands()
-    {
+    void removeAllCommands() {
     }
+    
 
-    public override void setCommandListener(CommandListener l)
-    {
+    @override
+    void setCommandListener(CommandListener l) {
     }
+    
 
-    public virtual CommandListener getCustomCommandListener()
-    {
-        throw new SystemException();
+    CommandListener getCustomCommandListener() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual bool isPaused()
-    {
-        throw new SystemException();
+    bool isPaused() {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public virtual void removePauseCommand()
-    {
+    void removePauseCommand() {
     }
+    
 
-    public virtual void pause()
-    {
+    void pause() {
     }
+    
 
-    public virtual void unPause()
-    {
+    void unPause() {
     }
+    
 
-    // throws Exception
-    public virtual void process()
-    {
+    void process() {
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    @override
+    void paint(Graphics graphics) {
     }
+    
 
-    public virtual void destroy()
-    {
+    void destroy() {
     }
+    
 
-    public virtual void setPaused(bool isPaused)
-    {
-        throw new SystemException();
+    void setPaused(bool isPaused) {
+        throw JException('RuntimeException', '');
     }
+    
 
-    public override void pointerDragged(int x, int y)
-    {
+    @override
+    void pointerDragged(int x, int y) {
     }
+    
 
-    public override void pointerPressed(int x, int y)
-    {
+    @override
+    void pointerPressed(int x, int y) {
     }
+    
 
-    public override void pointerReleased(int x, int y)
-    {
+    @override
+    void pointerReleased(int x, int y) {
     }
-
 }
 

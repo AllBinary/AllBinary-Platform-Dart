@@ -13,38 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.init
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using ResourceInitialization = org.allbinary.game.resource.ResourceInitialization;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceInitialization.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevelFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/init/BaseGameInitialization.dart';
 
-namespace org.allbinary.game.init;
+class CommonGameInitialization extends BaseGameInitialization {
+    late CommonStrings commonStrings;
 
-public class CommonGameInitialization : BaseGameInitialization
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public CommonGameInitialization(ResourceInitialization[] resourceInitializationArray, int portion) : base(resourceInitializationArray, portion)
-    {
-        // base(resourceInitializationArray, portion) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsCommonGameInitialization() {
+    this.commonStrings = CommonStrings.getInstance();
     }
+    
 
-    // throws Exception
-    public override void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int level)
-    {
-        base.init(abeClientInformation, commandListener, level);
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
+    CommonGameInitialization(List<ResourceInitialization?> resourceInitializationArray, int portion) : super(resourceInitializationArray, portion) {
+        this.initFieldsCommonGameInitialization();
+        
+    }
+    
+
+    @override
+    void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int level) {
+        super.init(abeClientInformation, commandListener, level);
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (!this.isGameInitialized() && level == resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
             this.setGameInitialized(true);
-            ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             SmallIntegerSingletonFactory.getInstance().init();
             progressCanvas.addNormalPortion(50, "Integers");
             PointFactory.getInstance().init();
@@ -52,16 +58,14 @@ public class CommonGameInitialization : BaseGameInitialization
             AngleFactory.getInstance();
             progressCanvas.addNormalPortion(50, "Angles");
             this.initGame();
-            this.resourceInitializationArray[this.GAME_RESOURCES].init();
+            this.resourceInitializationArray[this.GAME_RESOURCES]!.init();
         }
-        base.resourceInitialization(level);
+        super.resourceInitialization(level);
     }
+    
 
-    // throws Exception
-    public virtual void initGame()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    void initGame() {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
-
 }
 

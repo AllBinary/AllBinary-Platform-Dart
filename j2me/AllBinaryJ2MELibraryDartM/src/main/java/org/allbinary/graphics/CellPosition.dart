@@ -13,63 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
-using V = org.allbinary.graph.V;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graph/V.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/string/CommonSeps.dart';
 
-namespace org.allbinary.graphics;
+class CellPosition extends V {
+    int id = 0;
+    int column = 0;
+    int row = 0;
 
-public class CellPosition : V
-{
-    private readonly int id;
-    private readonly int column;
-    private readonly int row;
-    public CellPosition(int column, int row, int columns, int rows)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCellPosition() {
+    
+    
+    
+    }
+    
+
+    CellPosition(int column, int row, int columns, int rows) {
+        this.initFieldsCellPosition();
         this.column = column;
         this.row = row;
         this.id = (row * columns) + column;
     }
+    
 
-    public virtual int getColumn()
-    {
+    int getColumn() {
         return this.column;
     }
+    
 
-    public virtual int getRow()
-    {
+    int getRow() {
         return this.row;
     }
+    
 
-    public override string ToString()
-    {
+    @override
+    String toString() {
         return CellPosition.toStringColRow(this.getColumn(), this.getRow());
     }
+    
 
-    public static string toStringCellPosition(CellPosition basicGeographicMapCellPosition)
-    {
+    static String toStringCellPosition(CellPosition basicGeographicMapCellPosition) {
         return CellPosition.toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
     }
+    
 
-    public static string toStringColRow(int i_column, int i_row)
-    {
-        StringMaker stringBuffer = new StringMaker();
+    static String toStringColRow(int i_column, int i_row) {
+        StringMaker stringBuffer = StringMaker();
         CommonSeps commonSeps = CommonSeps.getInstance();
         stringBuffer.append(commonSeps.PARENTHESIS_OPEN);
         stringBuffer.appendint(i_column);
         stringBuffer.append(commonSeps.COMMA);
         stringBuffer.appendint(i_row);
         stringBuffer.append(commonSeps.PARENTHESIS_CLOSE);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public override int getId()
-    {
+    @override
+    int getId() {
         return this.id;
     }
-
 }
 

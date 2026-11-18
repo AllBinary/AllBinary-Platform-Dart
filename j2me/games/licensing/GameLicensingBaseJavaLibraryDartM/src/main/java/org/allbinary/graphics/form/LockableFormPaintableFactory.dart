@@ -13,25 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemPaintableFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/form/LockablePaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/PaintableForm.dart';
 
-namespace org.allbinary.graphics.form;
+class LockableFormPaintableFactory extends ItemPaintableFactory {
+    int lockedIndex = 0;
 
-public class LockableFormPaintableFactory : ItemPaintableFactory
-{
-    private readonly int lockedIndex;
-    public LockableFormPaintableFactory(int lockedIndex)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsLockableFormPaintableFactory() {
+    
+    }
+    
+
+    LockableFormPaintableFactory(int lockedIndex) {
+        this.initFieldsLockableFormPaintableFactory();
         this.lockedIndex = lockedIndex;
     }
+    
 
-    // throws Exception
-    public override ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm)
-    {
-        return new LockablePaintable(this.lockedIndex);
+    @override
+    ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm) {
+        return LockablePaintable(this.lockedIndex);
     }
-
 }
 

@@ -13,81 +13,96 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-using ByteArrayInputStream = java.io.ByteArrayInputStream;
-using ByteArrayOutputStream = java.io.ByteArrayOutputStream;
-using DataInputStream = java.io.DataInputStream;
-using DataOutputStream = java.io.DataOutputStream;
-using RecordEnumeration = javax.microedition.rms.RecordEnumeration;
-using RecordStore = javax.microedition.rms.RecordStore;
-using RecordStoreException = javax.microedition.rms.RecordStoreException;
-using TsUtil = org.allbinary.TsUtil;
-using GameInfo = org.allbinary.game.GameInfo;
-using NullRecordComparator = org.allbinary.game.configuration.persistance.NullRecordComparator;
-using NullRecordFilter = org.allbinary.game.configuration.persistance.NullRecordFilter;
-using NullRecordStore = org.allbinary.game.configuration.persistance.NullRecordStore;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using ExceptionUtil = org.allbinary.logic.java.exception.ExceptionUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using PlatformRecordIdUtil = org.allbinary.persistance.PlatformRecordIdUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/io/ByteArrayInputStream.dart';
+import 'package:allbinary/java/io/ByteArrayOutputStream.dart';
+import 'package:allbinary/java/io/DataInputStream.dart';
+import 'package:allbinary/java/io/DataOutputStream.dart';
+import 'package:allbinary/javax/microedition/rms/RecordEnumeration.dart';
+import 'package:allbinary/javax/microedition/rms/RecordStore.dart';
+import 'package:allbinary/javax/microedition/rms/RecordStoreException.dart';
+import 'package:allbinary/org/allbinary/TsUtil.dart';
+import 'package:allbinary/org/allbinary/game/GameInfo.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/NullRecordComparator.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/NullRecordFilter.dart';
+import 'package:allbinary/org/allbinary/game/configuration/persistance/NullRecordStore.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/PreLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/java/exception/ExceptionUtil.dart';
+import 'package:allbinary/org/allbinary/logic/math/SmallIntegerSingletonFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/persistance/PlatformRecordIdUtil.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
 
-namespace org.allbinary.game.score;
+class HighScoreNamePersistanceSingleton {
+    static HighScoreNamePersistanceSingleton SINGLETON = HighScoreNamePersistanceSingleton();
+    late LogUtil logUtil;
+    late TsUtil tsUtil;
+    late CommonStrings commonStrings;
+    late PlatformRecordIdUtil platformRecordIdUtil;
+    late String RECORD_ID;
+    late String name;
+    late BasicArrayList nameBasicArrayList;
 
-public class HighScoreNamePersistanceSingleton
-{
-    private static HighScoreNamePersistanceSingleton SINGLETON = new HighScoreNamePersistanceSingleton();
-    public static HighScoreNamePersistanceSingleton getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsHighScoreNamePersistanceSingleton() {
+    this.logUtil = LogUtil.getInstance();
+    this.tsUtil = TsUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
+    this.RECORD_ID = "_SN";
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.nameBasicArrayList = BasicArrayListD();
+    }
+
+    HighScoreNamePersistanceSingleton() {
+        this.initFieldsHighScoreNamePersistanceSingleton();
+    }
+    
+
+    static HighScoreNamePersistanceSingleton getInstance() {
         return HighScoreNamePersistanceSingleton.SINGLETON;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly TsUtil tsUtil = TsUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
-    private readonly string RECORD_ID = "_SN";
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private BasicArrayList nameBasicArrayList = new BasicArrayListD();
-    public virtual void clear()
-    {
+    void clear() {
         this.name = StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    // throws Exception
-    public virtual void deleteAll(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo)
-    {
+    void deleteAll(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo) {
         int size = this.nameBasicArrayList.size();
         for (int index = 0; index < size; index++) {
-            int? integer = ((int?) this.nameBasicArrayList.objectArray[index]);
-            this.delete(abeClientInformation, gameInfo, ((int) integer));
+            final int integer = (this.nameBasicArrayList.objectArray[index]! as int);
+            this.delete(abeClientInformation, gameInfo, (integer).toInt());
         }
         this.clear();
     }
+    
 
-    private string getRecordId(AbeClientInformationInterface abeClientInformation)
-    {
+    String getRecordId(AbeClientInformationInterface abeClientInformation) {
         return this.platformRecordIdUtil.getRecordId(abeClientInformation, this.RECORD_ID);
     }
+    
 
-    // throws Exception
-    public virtual void delete(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo, int deleteId)
-    {
+    void delete(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo, int deleteId) {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
-            this.logUtil.putF(new StringMaker().append("Deleting: ").appendint(deleteId).ToString(), this, this.commonStrings.delete);
+            this.logUtil.putF(StringMaker().append("Deleting: ").appendint(deleteId).toString(), this, this.commonStrings.delete);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             recordStore.deleteRecord(deleteId);
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             throw e;
+            }
         } finally {
             if (recordStore != null) {
                 PreLogUtil.put("Closing RecordStore", this, this.commonStrings.delete);
@@ -95,77 +110,92 @@ public class HighScoreNamePersistanceSingleton
             }
         }
     }
+    
 
-    public virtual BasicArrayList getIds()
-    {
+    BasicArrayList getIds() {
         return this.nameBasicArrayList;
     }
+    
 
-    public virtual string load(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo)
-    {
+    String load(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo) {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
             if (this.name == StringUtil.getInstance().EMPTY_STRING) {
-                string LOADING_ID = "Loading id: ";
+                final String LOADING_ID = "Loading id: ";
                 recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
-                RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
-                SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-                sbyte[] recordAsBytes = null;
-                ByteArrayInputStream byteArrayInputStream = null;
-                DataInputStream inputStream = null;
+                final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
+                final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+                late List<int> recordAsBytes;
+                late ByteArrayInputStream byteArrayInputStream;
+                late DataInputStream inputStream;
                 while (recordEnum.hasNextElement()) {
-                    int id = recordEnum.nextRecordId();
-                    this.logUtil.putF(new StringMaker().append(LOADING_ID).appendint(id).ToString(), this, this.commonStrings.LOAD);
+                    final int id = recordEnum.nextRecordId();
+                    this.logUtil.putF(StringMaker().append(LOADING_ID).appendint(id).toString(), this, this.commonStrings.LOAD);
                     recordAsBytes = this.tsUtil.getRecord(recordStore, id);
-                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
-                    inputStream = new DataInputStream(byteArrayInputStream);
+                    byteArrayInputStream = ByteArrayInputStream(recordAsBytes);
+                    inputStream = DataInputStream(byteArrayInputStream);
                     while (inputStream.available() > 0) {
                         this.name = inputStream.readUTF();
                     }
                     this.nameBasicArrayList.add(smallIntegerSingletonFactory.getAt(id));
                 }
             }
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.save(abeClientInformation, gameInfo, this.name);
-            this.logUtil.putF(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).ToString(), this, this.commonStrings.LOAD);
+            this.logUtil.putF(StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, this.commonStrings.LOAD);
+            }
         } finally {
             try {
                 if (recordStore != null) {
                     PreLogUtil.put("Closing RecordStore", this, this.commonStrings.LOAD);
                     recordStore.closeRecordStore();
                 }
-            } catch (RecordStoreException e) {
+            } catch (jcaught) {
+                if (jcaught is RecordStoreException) {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.LOAD, e);
+                } else {
+                    rethrow;
+                }
             }
         }
         return this.name;
     }
+    
 
-    public virtual void save(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo, string name)
-    {
+    void save(AbeClientInformationInterface abeClientInformation, GameInfo gameInfo, String name) {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
-            this.logUtil.putF(new StringMaker().append("Saving: ").append(name).ToString(), this, this.commonStrings.SAVE);
+            this.logUtil.putF(StringMaker().append("Saving: ").append(name).toString(), this, this.commonStrings.SAVE);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
+            final ByteArrayOutputStream byteArrayOutputStream = ByteArrayOutputStream();
+            final DataOutputStream outputStream = DataOutputStream(byteArrayOutputStream);
             outputStream.writeUTF(name);
-            sbyte[] savedGameBytes = byteArrayOutputStream.toByteArray();
-            recordStore.addRecord(savedGameBytes, 0, savedGameBytes.Length);
+            final List<int> savedGameBytes = byteArrayOutputStream.toByteArray();
+            recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
             this.name = name;
-        } catch (Exception e) {
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e);
+            }
         } finally {
             try {
                 if (recordStore != null) {
                     PreLogUtil.put("Closing RecordStore", this, this.commonStrings.SAVE);
                     recordStore.closeRecordStore();
                 }
-            } catch (RecordStoreException e) {
+            } catch (jcaught) {
+                if (jcaught is RecordStoreException) {
+                    final dynamic e = jcaught;
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e);
+                } else {
+                    rethrow;
+                }
             }
         }
     }
-
 }
 

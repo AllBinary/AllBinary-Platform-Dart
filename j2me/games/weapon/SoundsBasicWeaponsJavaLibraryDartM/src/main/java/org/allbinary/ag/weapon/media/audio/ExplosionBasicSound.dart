@@ -13,26 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.ag.weapon.media.audio
 
-using System;
-using System.Linq;
-using CompositeSound = org.allbinary.media.audio.CompositeSound;
-using Sound = org.allbinary.media.audio.Sound;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/CompositeSound.dart';
+import 'package:allbinary/org/allbinary/media/audio/Sound.dart';
 
-namespace org.allbinary.ag.weapon.media.audio;
+class ExplosionBasicSound extends CompositeSound {
+    static Sound soundInterface = ExplosionBasicSound();
+    
 
-public class ExplosionBasicSound : CompositeSound
-{
-    private static Sound soundInterface = new ExplosionBasicSound();
-    private ExplosionBasicSound() : base("resource:/wav/explosion.wav")
-    {
-        // base("resource:/wav/explosion.wav") is called from the constructor declaration
+    ExplosionBasicSound() : super("resource:/wav/explosion.wav") {
+        
     }
+    
 
-    public static Sound getInstance()
-    {
+    static Sound getInstance() {
         return ExplosionBasicSound.soundInterface;
     }
-
 }
 

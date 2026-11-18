@@ -13,71 +13,83 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.motion.action
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/CompleteMotionGestureInputEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKeyEventSourceInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEventFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/input/motion/gesture/MotionGestureInput.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
+import 'package:allbinary/org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEventFactory.dart';
 
-namespace org.allbinary.game.input.motion.action;
+class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface {
+    late GameKeyEventFactory gameKeyEventFactory;
+    int SOURCE_ID = 0;
+    late GameKey gameKey;
+    late GameKeyEvent gameKeyEvent;
+    late InputToGameKeyMapping inputToGameKeyMapping;
 
-public class GameKeyCompleteMotionGestureInputEvent : CompleteMotionGestureInputEvent, GameKeyEventSourceInterface
-{
-    private readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private readonly int SOURCE_ID;
-    private GameKey gameKey = GameKey.NULL_GAME_KEY;
-    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
-    private InputToGameKeyMapping inputToGameKeyMapping;
-    public GameKeyCompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) : base(name, motionGestureInput)
-    {
-        this.SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
-        // base(name, motionGestureInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsGameKeyCompleteMotionGestureInputEvent() {
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    this.SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    this.gameKeyEvent = GameKeyEvent.NONE;
+    
+    }
+    
+
+    GameKeyCompleteMotionGestureInputEvent(String name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) : super(name, motionGestureInput) {
+        this.initFieldsGameKeyCompleteMotionGestureInputEvent();
+        
         this.inputToGameKeyMapping = inputToGameKeyMapping;
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
         this.update();
     }
+    
 
-    public virtual int getSourceId()
-    {
+    @override
+    int getSourceId() {
         return this.SOURCE_ID;
     }
+    
 
-    public virtual void update()
-    {
+    void update() {
         try {
-            this.setGameKey(this.inputToGameKeyMapping.getInstance(this.getMotionGestureInput().getId()));
+            this.setGameKey(this.inputToGameKeyMapping.getInstance1(this.getMotionGestureInput().getId()));
             this.setGameKeyEvent(this.gameKeyEventFactory.getInstanceForInput(this, this.getGameKey()));
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+        } catch (jcaught) {
+            {
+                final dynamic e = jcaught;
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            }
         }
     }
+    
 
-    public virtual void setGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    void setGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.gameKeyEvent = gameKeyEvent;
     }
+    
 
-    public virtual GameKeyEvent getGameKeyEvent()
-    {
+    GameKeyEvent getGameKeyEvent() {
         return this.gameKeyEvent;
     }
+    
 
-    public virtual void setGameKey(GameKey gameKey)
-    {
+    void setGameKey(GameKey gameKey) {
         this.gameKey = gameKey;
     }
+    
 
-    public virtual GameKey getGameKey()
-    {
+    GameKey getGameKey() {
         return this.gameKey;
     }
-
 }
 

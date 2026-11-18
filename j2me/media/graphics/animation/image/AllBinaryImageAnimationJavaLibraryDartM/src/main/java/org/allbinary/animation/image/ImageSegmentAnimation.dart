@@ -13,27 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/util/CircularIndexUtil.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageAnimation.dart';
 
-namespace org.allbinary.animation.image;
+class ImageSegmentAnimation extends ImageAnimation {
+    int startX = 0;
+    int startY = 0;
+    int drawWidth = 0;
+    int drawHeight = 0;
+    late CircularIndexUtil circularIndexUtil;
+    late List<int> sequenceArray;
 
-public class ImageSegmentAnimation : ImageAnimation
-{
-    private int startX;
-    private int startY;
-    private int drawWidth;
-    private int drawHeight;
-    private CircularIndexUtil circularIndexUtil;
-    private int[] sequenceArray;
-    public ImageSegmentAnimation(Image image, int[] sequenceArray, AnimationBehavior animationBehavior) : base(image, animationBehavior)
-    {
-        // base(image, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsImageSegmentAnimation() {
+    
+    
+    
+    
+    
+    
+    }
+    
+
+    ImageSegmentAnimation(Image image, List<int> sequenceArray, AnimationBehavior animationBehavior) : super(image, animationBehavior) {
+        this.initFieldsImageSegmentAnimation();
+        
         this.startX = 0;
         this.startY = 0;
         this.drawWidth = this.getImage().getWidth();
@@ -41,85 +52,92 @@ public class ImageSegmentAnimation : ImageAnimation
         this.circularIndexUtil = CircularIndexUtil.createInstance(this.drawHeight);
         this.sequenceArray = sequenceArray;
     }
+    
 
-    public override void nextFrame()
-    {
+    @override
+    void nextFrame() {
         this.circularIndexUtil.next();
     }
+    
 
-    public override void previousFrame()
-    {
+    @override
+    void previousFrame() {
         this.circularIndexUtil.previous();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    @override
+    void setFrame(int index) {
         this.circularIndexUtil.setIndex(index);
     }
+    
 
-    public override int getFrame()
-    {
+    @override
+    int getFrame() {
         return this.circularIndexUtil.getIndex();
     }
+    
 
-    public override int getSize()
-    {
+    @override
+    int getSize() {
         return this.circularIndexUtil.getSize();
     }
+    
 
-    public override void setSequence(int[] sequenceArray)
-    {
+    @override
+    void setSequence(List<int> sequenceArray) {
         this.sequenceArray = sequenceArray;
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return this.sequenceArray;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
     }
+    
 
-    public virtual int getStartX()
-    {
+    int getStartX() {
         return this.startX;
     }
+    
 
-    public virtual void setStartX(int startX)
-    {
+    void setStartX(int startX) {
         this.startX = startX;
     }
+    
 
-    public virtual int getStartY()
-    {
+    int getStartY() {
         return this.startY;
     }
+    
 
-    public virtual void setStartY(int startY)
-    {
+    void setStartY(int startY) {
         this.startY = startY;
     }
+    
 
-    public virtual int getDrawWidth()
-    {
+    int getDrawWidth() {
         return this.drawWidth;
     }
+    
 
-    public virtual void setDrawWidth(int drawWidth)
-    {
+    void setDrawWidth(int drawWidth) {
         this.drawWidth = drawWidth;
     }
+    
 
-    public virtual int getDrawHeight()
-    {
+    int getDrawHeight() {
         return this.drawHeight;
     }
+    
 
-    public virtual void setDrawHeight(int drawHeight)
-    {
+    void setDrawHeight(int drawHeight) {
         this.drawHeight = drawHeight;
     }
-
 }
 

@@ -1,17 +1,16 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.business.advertisement
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/business/advertisement/AdConfiguration.dart';
 
-namespace org.allbinary.business.advertisement;
+class AppNameLicensingAdConfiguration extends AdConfiguration {
+    
 
-public class AppNameLicensingAdConfiguration : AdConfiguration
-{
-    public AppNameLicensingAdConfiguration() : base(new object[] { StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING })
-    {
-        // base(new object[] { StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING }) is called from the constructor declaration
+    AppNameLicensingAdConfiguration() : super(<Object?>[StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING]) {
+        
     }
-
 }
 

@@ -13,43 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.mapping
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameKey.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.game.input.mapping;
+class GameInputMapping {
+    late String name;
+    late GameKey gameKey;
 
-public class GameInputMapping
-{
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private GameKey gameKey = GameKey.NULL_GAME_KEY;
-    public GameInputMapping(string name, GameKey gameKey)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsGameInputMapping() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    }
+    
+
+    GameInputMapping(String name, GameKey gameKey) {
+        this.initFieldsGameInputMapping();
         this.setName(name);
         this.setGameKey(gameKey);
     }
+    
 
-    private void setGameKey(GameKey gameKey)
-    {
+    void setGameKey(GameKey gameKey) {
         this.gameKey = gameKey;
     }
+    
 
-    public virtual GameKey getGameKey()
-    {
+    GameKey getGameKey() {
         return this.gameKey;
     }
+    
 
-    private void setName(string name)
-    {
+    void setName(String name) {
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    String getName() {
         return this.name;
     }
-
 }
 

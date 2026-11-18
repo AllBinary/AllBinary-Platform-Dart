@@ -13,64 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-using BaseResourceAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-using Features = org.allbinary.game.configuration.feature.Features;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using ImageCacheFactory = org.allbinary.image.ImageCacheFactory;
-using StdUtil = org.allbinary.logic.StdUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/animation/resource/BaseResourceAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
+import 'package:allbinary/org/allbinary/game/resource/ResourceLoadingLevelFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/OpenGLFeatureFactory.dart';
+import 'package:allbinary/org/allbinary/image/ImageCache.dart';
+import 'package:allbinary/org/allbinary/image/ImageCacheFactory.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
 
-namespace org.allbinary.input.motion.button;
+class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extends BaseResourceAnimationInterfaceFactoryInterfaceFactory {
+    
 
-public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : BaseResourceAnimationInterfaceFactoryInterfaceFactory
-{
-    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory()
-    {
-        return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
+    static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory() {
+        return TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
     }
+    
 
-    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(string name) : base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable())
-    {
-        // base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable()) is called from the constructor declaration
+    TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(String name) : super(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable()) {
+        
     }
+    
 
-    // throws Exception
-    public override void init(int level)
-    {
+    @override
+    void init(int level) {
         this.initImageCache(ImageCacheFactory.getInstance(), level);
     }
+    
 
-    // throws Exception
-    public override void initImageCache(ImageCache imageCache, int level)
-    {
+    @override
+    void initImageCache(ImageCache imageCache, int level) {
         if (this.isInitialized()) {
             return;
         }
-        base.init(level);
+        super.init(level);
     }
+    
 
-    public override bool isLoadingLevel(int level)
-    {
+    @override
+    bool isLoadingLevel(int level) {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (level == resourceLoadingLevelFactory.LOAD_TOUCH.getLevel()) {
             return true;
         } else {
-            return base.isLoadingLevel(level);
+            return super.isLoadingLevel(level);
         }
     }
+    
 
-    public override bool isFeature()
-    {
+    @override
+    bool isFeature() {
         if (!Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

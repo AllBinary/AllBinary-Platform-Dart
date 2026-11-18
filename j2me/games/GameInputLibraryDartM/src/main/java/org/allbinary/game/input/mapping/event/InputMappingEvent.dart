@@ -13,31 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.mapping.event
 
-using System;
-using System.Linq;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/mapping/InputToGameKeyMapping.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
 
-namespace org.allbinary.game.input.mapping.@event;
+class InputMappingEvent extends AllBinaryEventObject {
+    late InputToGameKeyMapping inputToGameKeyMapping;
 
-public class InputMappingEvent : AllBinaryEventObject
-{
-    private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
-    public InputMappingEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsInputMappingEvent() {
+    this.inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
     }
+    
 
-    public virtual void setInputToGameKeyMapping(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    InputMappingEvent(Object anyType) : super(anyType) {
+        this.initFieldsInputMappingEvent();
+        
+    }
+    
+
+    void setInputToGameKeyMapping(InputToGameKeyMapping inputToGameKeyMapping) {
         this.inputToGameKeyMapping = inputToGameKeyMapping;
     }
+    
 
-    public virtual InputToGameKeyMapping getInputToGameKeyMapping()
-    {
+    InputToGameKeyMapping getInputToGameKeyMapping() {
         return this.inputToGameKeyMapping;
     }
-
 }
 

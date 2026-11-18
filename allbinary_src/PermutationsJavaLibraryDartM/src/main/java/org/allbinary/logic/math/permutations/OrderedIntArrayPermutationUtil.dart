@@ -13,31 +13,38 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.math.permutations
 
-using System;
-using System.Linq;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/math/permutations/IntPermutationVisitor.dart';
 
-namespace org.allbinary.logic.math.permutations;
+class OrderedIntArrayPermutationUtil {
+    static final OrderedIntArrayPermutationUtil instance = OrderedIntArrayPermutationUtil();
+    late String TOTAL_ITERATIONS_TABLE;
+    late String FINISHED;
 
-public class OrderedIntArrayPermutationUtil
-{
-    private static readonly OrderedIntArrayPermutationUtil instance = new OrderedIntArrayPermutationUtil();
-    public static OrderedIntArrayPermutationUtil getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOrderedIntArrayPermutationUtil() {
+    this.TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
+    this.FINISHED = "\nFINISHED";
+    }
+    
+
+    static OrderedIntArrayPermutationUtil getInstance() {
         return OrderedIntArrayPermutationUtil.instance;
     }
+    
 
-    private readonly string TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
-    private readonly string FINISHED = "\nFINISHED";
-    private OrderedIntArrayPermutationUtil()
-    {
+    OrderedIntArrayPermutationUtil() {
+        this.initFieldsOrderedIntArrayPermutationUtil();
     }
+    
 
-    public virtual void getNext(int[] data)
-    {
-        int length = data.Length;
+    void getNext(List<int> data) {
+        int length = data.length;
         int i = length - 1;
         while (data[i - 1] >= data[i]) {
             i = i - 1;
@@ -55,50 +62,49 @@ public class OrderedIntArrayPermutationUtil
             j--;
         }
     }
+    
 
-    public virtual void swap(int[] data, int a, int b)
-    {
+    void swap(List<int> data, int a, int b) {
         int temp = data[a];
         data[a] = data[b];
         data[b] = temp;
     }
+    
 
-    public virtual long factorial(int dataLength)
-    {
-        long temp = 1L;
+    int factorial(int dataLength) {
+        int temp = 1;
         if (dataLength > 1) {
             for (int i = 1; i <= dataLength; i++) {
-                temp *= ((long) i);
+                temp *= i;
             }
         }
         return temp;
     }
+    
 
-    public virtual void generate(int[] data, Visitor visitor)
-    {
-        long iterations = this.factorial(data.Length);
-        Console.Write(this.TOTAL_ITERATIONS_TABLE);
-        Console.WriteLine(iterations);
-        for (long count = 0L; count < iterations - 1L; count++) {
+    void generate(List<int> data, Visitor visitor) {
+        int iterations = this.factorial(data.length);
+        JSystem.println(jstr(this.TOTAL_ITERATIONS_TABLE));
+        JSystem.println(jstr(iterations));
+        for (int count = 0; count < iterations - 1; count++) {
             this.getNext(data);
             visitor.visit(this);
         }
-        Console.WriteLine(this.FINISHED);
+        JSystem.println(jstr(this.FINISHED));
     }
+    
 
-    public static void main(string[] args)
-    {
-        int TOTAL = 3;
-        int[] data = new int[TOTAL];
+    static void main(List<String?> args) {
+        final int TOTAL = 3;
+        final List<int> data = List<int>.filled(TOTAL, 0);
         for (int i = 0; i < TOTAL; i++) {
             data[i] = i;
         }
-        IntPermutationVisitor permutationVisitor = new IntPermutationVisitor(data);
-        string ORIGINAL_DATA_LABEL = "Original Data: ";
-        Console.Write(ORIGINAL_DATA_LABEL);
-        permutationVisitor.print(data, new StringMaker());
+        final IntPermutationVisitor permutationVisitor = IntPermutationVisitor(data);
+        final String ORIGINAL_DATA_LABEL = "Original Data: ";
+        JSystem.println(jstr(ORIGINAL_DATA_LABEL));
+        permutationVisitor.print(data, StringMaker());
         OrderedIntArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
     }
-
 }
 

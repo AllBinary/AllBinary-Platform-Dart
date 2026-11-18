@@ -13,44 +13,53 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.draw
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontInterface.dart';
+import 'package:allbinary/org/allbinary/graphics/font/UpdateMyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/draw/DrawStringUtil.dart';
 
-namespace org.allbinary.graphics.draw;
+class CanvasDrawLineString implements UpdateMyFontInterface {
+    static final CanvasDrawLineString NULL_CANVAS_DRAW_LINE_STRING = CanvasDrawLineString(0, 0);
+    late DrawStringUtil drawStringUtil;
+    late MyFontProcessor myFontProcessor;
+    int x = 0;
+    int y = 0;
+    int fontHeight = 0;
 
-public class CanvasDrawLineString : UpdateMyFontInterface
-{
-    public static readonly CanvasDrawLineString NULL_CANVAS_DRAW_LINE_STRING = new CanvasDrawLineString(0, 0);
-    private readonly DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
-    private MyFontProcessor myFontProcessor;
-    private int x;
-    private int y;
-    private int fontHeight = 0;
-    public CanvasDrawLineString(int x, int y)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    // Java field initializers run after the base constructor
+    void initFieldsCanvasDrawLineString() {
+    this.drawStringUtil = DrawStringUtil.getInstance();
+    this.myFontProcessor = UpdateMyFontProcessor(this);
+    
+    
+    this.fontHeight = 0;
+    }
+    
+
+    CanvasDrawLineString(int x, int y) {
+        this.initFieldsCanvasDrawLineString();
         this.x = x;
         this.y = y;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public virtual void paint(Graphics graphics, string @string, int line)
-    {
+    void paint(Graphics graphics, String string, int line) {
         this.myFontProcessor.process(graphics);
-        this.drawStringUtil.drawCenterString(graphics, @string, 0, @string.Length, this.x, this.y + (line * this.fontHeight));
+        this.drawStringUtil.drawCenterString(graphics, string, 0, string.length, this.x, this.y + (line * this.fontHeight));
     }
-
 }
 

@@ -13,100 +13,94 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameCanvasRunnableInterface = org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using StdUtil = org.allbinary.logic.StdUtil;
-using ClientInformationFactory = org.allbinary.logic.system.security.licensing.ClientInformationFactory;
-using PrimaryThreadPool = org.allbinary.thread.PrimaryThreadPool;
-using NullGameCanvasRunnable = org.allbinary.game.displayable.canvas.NullGameCanvasRunnable;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayerManager.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/ClientInformationFactory.dart';
+import 'package:allbinary/org/allbinary/thread/PrimaryThreadPool.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/NullGameCanvasRunnable.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/midlet/GameMidlet.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoRunnable.dart';
+import 'package:allbinary/org/allbinary/game/midlet/CreateGameRunnable.dart';
 
-namespace org.allbinary.game.midlet;
+class DemoGameMidlet extends GameMidlet {
+    
 
-public class DemoGameMidlet : GameMidlet
-{
-    public DemoGameMidlet(ClientInformationFactory clientInformationFactory) : base(clientInformationFactory)
-    {
-        // base(clientInformationFactory) is called from the constructor declaration
+    DemoGameMidlet(ClientInformationFactory clientInformationFactory) : super(clientInformationFactory) {
+        
     }
+    
 
-    // throws Exception
-    public virtual bool isContinue()
-    {
-        ABHashtable<object, object> hashtable = this.getStartStateHashtable();
+    bool isContinue() {
+        ABHashtable hashtable = this.getStartStateHashtable();
         if (hashtable != null && hashtable.size() > 0) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual int getHighestLevel()
-    {
+    int getHighestLevel() {
         return 1;
     }
+    
 
-    // throws Exception
-    public virtual GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
-    {
+    GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface() {
         this.logUtil.putF(this.commonStrings.NOT_IMPLEMENTED, this, this.commonStrings.CREATE);
         return NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE;
     }
+    
 
-    // throws Exception
-    public virtual GameCanvasRunnableInterface createGameCanvasRunnable(AllBinaryGameLayerManager allBinaryGameLayerManager)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    GameCanvasRunnableInterface createGameCanvasRunnable(AllBinaryGameLayerManager allBinaryGameLayerManager) {
+        throw JException('Exception', this.commonStrings.NOT_IMPLEMENTED);
     }
+    
 
-    // throws Exception
-    public virtual GameCanvasRunnableInterface createGameCanvasRunnableInterface()
-    {
+    GameCanvasRunnableInterface createGameCanvasRunnableInterface() {
         return this.createGameCanvasRunnable(this.createGameLayerManager());
     }
+    
 
-    public virtual void demoSetup()
-    {
+    void demoSetup() {
     }
+    
 
-    public virtual void postDemoSetup()
-    {
+    void postDemoSetup() {
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void setDemo()
-    {
+    @override
+    void setDemo() {
         this.logUtil.putF(this.commonStrings.START, this, "setDemo");
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.start();
-        PrimaryThreadPool.getInstance().runTask(new DemoRunnable(this));
+        PrimaryThreadPool.getInstance().runTask(DemoRunnable(this));
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void createGame()
-    {
-        string CREATE_GAME = "createGame";
+    @override
+    void createGame() {
+        final String CREATE_GAME = "createGame";
         this.logUtil.putF(this.commonStrings.START, this, CREATE_GAME);
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.start();
-        ABHashtable<object, object> hashtable = this.getStartStateHashtable();
+        ABHashtable hashtable = this.getStartStateHashtable();
         this.setStartStateHashtable(StdUtil.getInstance().NULL_TABLE);
-        PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));
+        PrimaryThreadPool.getInstance().runTask(CreateGameRunnable(this, hashtable));
         this.logUtil.putF(this.commonStrings.END, this, CREATE_GAME);
     }
+    
 
-    public virtual bool isReady()
-    {
+    bool isReady() {
         return true;
     }
-
 }
 

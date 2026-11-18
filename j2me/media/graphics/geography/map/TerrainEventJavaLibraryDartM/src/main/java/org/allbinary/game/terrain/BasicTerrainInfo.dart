@@ -13,32 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.terrain
 
-using System;
-using System.Linq;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/math/Angle.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
 
-namespace org.allbinary.game.terrain;
+class BasicTerrainInfo {
+    static final BasicTerrainInfo NULL_BASIC_TERRAIN_INFO = BasicTerrainInfo(AngleFactory.getInstance().NOT_ANGLE);
+    late Angle angle;
 
-public class BasicTerrainInfo
-{
-    public static readonly BasicTerrainInfo NULL_BASIC_TERRAIN_INFO = new BasicTerrainInfo(AngleFactory.getInstance().NOT_ANGLE);
-    private Angle angle;
-    public BasicTerrainInfo(Angle angle)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicTerrainInfo() {
+    
+    }
+    
+
+    BasicTerrainInfo(Angle angle) {
+        this.initFieldsBasicTerrainInfo();
         this.angle = angle;
     }
+    
 
-    public virtual Angle getAngle()
-    {
+    Angle getAngle() {
         return this.angle;
     }
+    
 
-    public virtual void setAngle(Angle angle)
-    {
+    void setAngle(Angle angle) {
         this.angle = angle;
     }
-
 }
 

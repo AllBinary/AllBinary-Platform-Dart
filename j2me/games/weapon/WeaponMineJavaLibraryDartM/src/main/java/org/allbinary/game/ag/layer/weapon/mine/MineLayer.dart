@@ -13,57 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.weapon.mine
 
-using System;
-using System.Linq;
-using DropWeaponSound = org.allbinary.ag.weapon.media.audio.DropWeaponSound;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using SimpleWeaponLayer = org.allbinary.game.layer.weapon.SimpleWeaponLayer;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using SecondaryPlayerQueueFactory = org.allbinary.media.audio.SecondaryPlayerQueueFactory;
-using NoMovementFactory = org.allbinary.physics.movement.NoMovementFactory;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
-using ViewPositionEventHandler = org.allbinary.view.@event.ViewPositionEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ag/weapon/media/audio/DropWeaponSound.dart';
+import 'package:allbinary/org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.dart';
+import 'package:allbinary/org/allbinary/game/layer/weapon/SimpleWeaponLayer.dart';
+import 'package:allbinary/org/allbinary/game/multiplayer/layer/RemoteInfo.dart';
+import 'package:allbinary/org/allbinary/graphics/PointFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/Rectangle.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/media/audio/SecondaryPlayerQueueFactory.dart';
+import 'package:allbinary/org/allbinary/physics/movement/NoMovementFactory.dart';
+import 'package:allbinary/org/allbinary/view/ViewPositionBase.dart';
+import 'package:allbinary/org/allbinary/view/event/ViewPositionEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/weapon/mine/MineWeaponResources.dart';
 
-namespace org.allbinary.game.ag.layer.weapon.mine;
+class MineLayer extends SimpleWeaponLayer {
+    static const String NAME = "MineLayer";
+    late ViewPositionEventHandler viewPositionEventHandler;
 
-public class MineLayer : SimpleWeaponLayer
-{
-    private const string NAME = "MineLayer";
-    public MineLayer(ViewPositionBase viewPosition) : base(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1, NoMovementFactory.getInstance().getMovmentInstance(), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().RESOURCE).getInstance(0), SimpleWeaponLayer.createDestroyed(), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10), viewPosition)
-    {
-        // base(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1, NoMovementFactory.getInstance().getMovmentInstance(), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().RESOURCE).getInstance(0), SimpleWeaponLayer.createDestroyed(), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10), viewPosition) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsMineLayer() {
+    this.viewPositionEventHandler = ViewPositionEventHandler.getInstance();
     }
+    
 
-    private readonly ViewPositionEventHandler viewPositionEventHandler = ViewPositionEventHandler.getInstance();
-    public override void initXYZ(int x, int y, int z)
-    {
+    MineLayer(ViewPositionBase viewPosition) : super(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1, NoMovementFactory.getInstance().getMovmentInstance(), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().RESOURCE).getInstance1(0), SimpleWeaponLayer.createDestroyed(), Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10), viewPosition) {
+        this.initFieldsMineLayer();
+        
+    }
+    
+
+    @override
+    void initXYZ(int x, int y, int z) {
         this.setPosition(x + 5, y + 5, z);
-        this.viewPositionEventHandler.addListener(((AllBinaryLayer) this));
+        this.viewPositionEventHandler.addListener((this as AllBinaryLayer));
         SecondaryPlayerQueueFactory.getInstance().add(DropWeaponSound.getInstance());
     }
+    
 
-    public override void damage(int damage, int damageType)
-    {
+    @override
+    void damage(int damage, int damageType) {
         this.totalDamage = this.getInitDamage() + 1;
     }
+    
 
-    public override int getDamage(int damageType)
-    {
-        base.getDamage(damageType);
+    @override
+    int getDamage(int damageType) {
+        super.getDamage(damageType);
         return this.getInitDamage();
     }
+    
 
-    public override void setDestroyed(bool destroyed)
-    {
-        base.setDestroyed(destroyed);
+    @override
+    void setDestroyed(bool destroyed) {
+        super.setDestroyed(destroyed);
         if (this.isDestroyed()) {
             this.viewPositionEventHandler.removeListener(this);
         }
     }
-
 }
 

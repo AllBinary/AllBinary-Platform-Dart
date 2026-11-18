@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.thirdparty.store
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
+import 'package:allbinary/org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.dart';
+import 'package:allbinary/org/allbinary/thirdparty/store/ThirdPartyStore.dart';
 
-namespace org.allbinary.thirdparty.store;
+class NoThirdPartyStore extends ThirdPartyStore {
+    
 
-public class NoThirdPartyStore : ThirdPartyStore
-{
-    public NoThirdPartyStore() : base(StringUtil.getInstance().EMPTY_STRING)
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING) is called from the constructor declaration
+    NoThirdPartyStore() : super(StringUtil.getInstance().EMPTY_STRING) {
+        
     }
+    
 
-    public override void authorize(AbeClientInformationInterface clientInformationInterface)
-    {
+    @override
+    void authorize(AbeClientInformationInterface clientInformationInterface) {
         this.setAuthorized(true);
     }
-
 }
 

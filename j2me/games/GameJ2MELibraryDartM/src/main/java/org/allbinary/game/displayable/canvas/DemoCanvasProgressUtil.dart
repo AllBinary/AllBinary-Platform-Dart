@@ -13,33 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using PaintableComposite = org.allbinary.graphics.paint.PaintableComposite;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.dart';
+import 'package:allbinary/org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableComposite.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/PaintableInterface.dart';
+import 'package:allbinary/org/allbinary/game/displayable/canvas/DemoCanvas.dart';
 
-namespace org.allbinary.game.displayable.canvas;
+class DemoCanvasProgressUtil {
+    
 
-public class DemoCanvasProgressUtil
-{
-    public static void showProgress(DemoCanvas demoCanvas)
-    {
+    static void showProgress(DemoCanvas demoCanvas) {
         DemoCanvasProgressUtil.showProgressOptionallyInTheBackground(demoCanvas, false);
     }
+    
 
-    public static void showProgressOptionallyInTheBackground(DemoCanvas demoCanvas, bool background)
-    {
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+    static void showProgressOptionallyInTheBackground(DemoCanvas demoCanvas, bool background) {
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.startBackground(background);
-        PaintableInterface[] paintableArray = new PaintableInterface[2];
+        List<PaintableInterface?> paintableArray = List<PaintableInterface?>.filled(2, null);
         paintableArray[0] = progressCanvas;
         paintableArray[1] = demoCanvas.getDefaultPaintableInterface();
-        demoCanvas.setDefaultPaintableInterface(new PaintableComposite(paintableArray));
+        demoCanvas.setDefaultPaintableInterface(PaintableComposite(paintableArray));
         demoCanvas.setPaintableInterface(demoCanvas.getDefaultPaintableInterface());
     }
-
 }
 

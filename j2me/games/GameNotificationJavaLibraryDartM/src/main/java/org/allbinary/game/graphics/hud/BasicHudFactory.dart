@@ -13,33 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.graphics.hud
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.graphics.hud;
+class BasicHudFactory {
+    static final BasicHudFactory instance = BasicHudFactory();
+    late String DIRECTION_EXCEPTION;
+    int VERTICAL = 0;
+    int HORIZONTAL = 0;
+    int BOTTOMLEFT = 0;
+    int BOTTOMRIGHT = 0;
+    int TOPLEFT = 0;
+    int TOPRIGHT = 0;
+    int BOTTOMCENTER = 0;
+    int TOPCENTER = 0;
+    int ABSOLUTE = 0;
 
-public class BasicHudFactory
-{
-    private static readonly BasicHudFactory instance = new BasicHudFactory();
-    public static BasicHudFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicHudFactory() {
+    this.DIRECTION_EXCEPTION = "Only Horizontal Direction is Allowed Currently";
+    this.VERTICAL = 0;
+    this.HORIZONTAL = 1;
+    this.BOTTOMLEFT = 0;
+    this.BOTTOMRIGHT = 1;
+    this.TOPLEFT = 2;
+    this.TOPRIGHT = 3;
+    this.BOTTOMCENTER = 4;
+    this.TOPCENTER = 5;
+    this.ABSOLUTE = 6;
+    }
+    
+
+    static BasicHudFactory getInstance() {
         return BasicHudFactory.instance;
     }
+    
 
-    private BasicHudFactory()
-    {
+    BasicHudFactory() {
+        this.initFieldsBasicHudFactory();
     }
-
-    public readonly string DIRECTION_EXCEPTION = "Only Horizontal Direction is Allowed Currently";
-    public readonly int VERTICAL = 0;
-    public readonly int HORIZONTAL = 1;
-    public readonly int BOTTOMLEFT = 0;
-    public readonly int BOTTOMRIGHT = 1;
-    public readonly int TOPLEFT = 2;
-    public readonly int TOPRIGHT = 3;
-    public readonly int BOTTOMCENTER = 4;
-    public readonly int TOPCENTER = 5;
-    public readonly int ABSOLUTE = 6;
 }
 

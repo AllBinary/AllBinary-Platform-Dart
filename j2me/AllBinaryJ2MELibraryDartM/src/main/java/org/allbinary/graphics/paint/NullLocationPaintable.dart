@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/LocationPaintable.dart';
 
-namespace org.allbinary.graphics.paint;
+class NullLocationPaintable extends LocationPaintable {
+    static final NullLocationPaintable instanceC = NullLocationPaintable();
+    
 
-public class NullLocationPaintable : LocationPaintable
-{
-    private static readonly NullLocationPaintable instanceC = new NullLocationPaintable();
-    public static NullLocationPaintable getInstance()
-    {
+    static NullLocationPaintable getInstance() {
         return NullLocationPaintable.instanceC;
     }
-
 }
 

@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInputProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/InputFactory.dart';
 
-namespace org.allbinary.game.input;
+class GameInputProcessorUtil {
+    
 
-public class GameInputProcessorUtil
-{
-    public static void init(GameInputProcessor[] inputProcessorArray)
-    {
-        GameInputProcessor noInputProcessor = GameInputProcessor.getInstance();
-        int total = InputFactory.getInstance().MAX;
+    static void init(List<GameInputProcessor?> inputProcessorArray) {
+        final GameInputProcessor noInputProcessor = GameInputProcessor.getInstance();
+        final int total = InputFactory.getInstance().MAX;
         for (int index = 0; index < total; index++) {
-            GameInputProcessor inputProcessorCanBeNull = inputProcessorArray[index];
+            GameInputProcessor inputProcessorCanBeNull = inputProcessorArray[index]!;
             if (inputProcessorCanBeNull == null) {
                 inputProcessorArray[index] = noInputProcessor;
             }
         }
     }
-
 }
 

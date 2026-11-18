@@ -13,43 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/StdUtil.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class InGameFeatureChoiceGroups {
+    static InGameFeatureChoiceGroups gameFeatureChoiceGroupsExclusive = InGameFeatureChoiceGroups();
+    static InGameFeatureChoiceGroups gameFeatureChoiceGroupsMultiple = InGameFeatureChoiceGroups();
+    late ABHashtable hashtable;
 
-public class InGameFeatureChoiceGroups
-{
-    private static InGameFeatureChoiceGroups gameFeatureChoiceGroupsExclusive = new InGameFeatureChoiceGroups();
-    private static InGameFeatureChoiceGroups gameFeatureChoiceGroupsMultiple = new InGameFeatureChoiceGroups();
-    private ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private InGameFeatureChoiceGroups()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInGameFeatureChoiceGroups() {
+    this.hashtable = StdUtil.getInstance().createHashtable();
     }
+    
 
-    public static InGameFeatureChoiceGroups getExclusiveInstance()
-    {
+    InGameFeatureChoiceGroups() {
+        this.initFieldsInGameFeatureChoiceGroups();
+    }
+    
+
+    static InGameFeatureChoiceGroups getExclusiveInstance() {
         return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive;
     }
+    
 
-    public static InGameFeatureChoiceGroups getMultipleInstance()
-    {
+    static InGameFeatureChoiceGroups getMultipleInstance() {
         return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple;
     }
+    
 
-    public virtual ABHashtable<object, object> get()
-    {
+    ABHashtable get() {
         return this.hashtable;
     }
+    
 
-    public virtual void add(string name, BasicArrayList list)
-    {
+    void add(String name, BasicArrayList list) {
         this.hashtable.put(name, list);
     }
-
 }
 

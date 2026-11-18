@@ -13,32 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image.sprite
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/image/sprite/AllBinarySpriteRotationAnimation.dart';
 
-namespace org.allbinary.animation.image.sprite;
+class AllBinaryAdjustedSpriteRotationAnimation extends AllBinarySpriteRotationAnimation {
+    int dx = 0;
+    int dy = 0;
 
-public class AllBinaryAdjustedSpriteRotationAnimation : AllBinarySpriteRotationAnimation
-{
-    private int dx;
-    private int dy;
-    public AllBinaryAdjustedSpriteRotationAnimation(Sprite sprite, Image image, int dx, int dy, AnimationBehavior animationBehavior) : base(sprite, image, animationBehavior)
-    {
-        // base(sprite, image, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsAllBinaryAdjustedSpriteRotationAnimation() {
+    
+    
+    }
+    
+
+    AllBinaryAdjustedSpriteRotationAnimation(Sprite sprite, Image image, int dx, int dy, AnimationBehavior animationBehavior) : super(sprite, image, animationBehavior) {
+        this.initFieldsAllBinaryAdjustedSpriteRotationAnimation();
+        
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics g, int x, int y)
-    {
+    @override
+    void paintXY(Graphics g, int x, int y) {
         this.sprite.setPosition(x + this.dx, y + this.dy);
         this.paint(g);
     }
-
 }
 

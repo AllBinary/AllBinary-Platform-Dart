@@ -13,23 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionType.dart';
 
-namespace org.allbinary.game.collision;
+class CollisionTypeFactory {
+    static CollisionTypeFactory SINGLETON = CollisionTypeFactory();
+    late CollisionType NONE;
+    late CollisionType DAMAGE;
+    late CollisionType PICKUP;
+    late CollisionType COLLISION;
 
-public class CollisionTypeFactory
-{
-    private static CollisionTypeFactory SINGLETON = new CollisionTypeFactory();
-    public CollisionType NONE = new CollisionType("None");
-    public CollisionType DAMAGE = new CollisionType("Damage");
-    public CollisionType PICKUP = new CollisionType("Pickup");
-    public CollisionType COLLISION = new CollisionType("Collision");
-    public static CollisionTypeFactory getInstance()
-    {
-        return CollisionTypeFactory.SINGLETON;
+    // Java field initializers run after the base constructor
+    void initFieldsCollisionTypeFactory() {
+    this.NONE = CollisionType("None");
+    this.DAMAGE = CollisionType("Damage");
+    this.PICKUP = CollisionType("Pickup");
+    this.COLLISION = CollisionType("Collision");
     }
 
+    CollisionTypeFactory() {
+        this.initFieldsCollisionTypeFactory();
+    }
+    
+
+    static CollisionTypeFactory getInstance() {
+        return CollisionTypeFactory.SINGLETON;
+    }
 }
 

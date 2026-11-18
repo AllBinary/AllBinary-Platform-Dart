@@ -13,20 +13,18 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tick
 
-using System;
-using System.Linq;
-using LayerManager = org.allbinary.layer.LayerManager;
-using LayerManagerNoDebug = org.allbinary.layer.LayerManagerNoDebug;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerManagerNoDebug.dart';
 
-namespace org.allbinary.game.tick;
+class OptimizedTickableLayerManager extends LayerManager {
+    
 
-public class OptimizedTickableLayerManager : LayerManager
-{
-    public OptimizedTickableLayerManager() : base(LayerManagerNoDebug.getInstance())
-    {
-        // base(LayerManagerNoDebug.getInstance()) is called from the constructor declaration
+    OptimizedTickableLayerManager() : super(LayerManagerNoDebug.getInstance()) {
+        
     }
-
 }
 

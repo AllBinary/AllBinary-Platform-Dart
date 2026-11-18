@@ -13,27 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABCustomItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemIndexPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
 
-namespace org.allbinary.graphics.form;
+class ScrollSelectionFormVerticalPaintable extends ItemIndexPaintable {
+    late ScrollSelectionForm scrollSelectionForm;
 
-public class ScrollSelectionFormVerticalPaintable : ItemIndexPaintable
-{
-    private readonly ScrollSelectionForm scrollSelectionForm;
-    public ScrollSelectionFormVerticalPaintable(ScrollSelectionForm scrollSelectionForm)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsScrollSelectionFormVerticalPaintable() {
+    
+    }
+    
+
+    ScrollSelectionFormVerticalPaintable(ScrollSelectionForm scrollSelectionForm) {
+        this.initFieldsScrollSelectionFormVerticalPaintable();
         this.scrollSelectionForm = scrollSelectionForm;
     }
+    
 
-    // throws Exception
-    public override int paint(Graphics graphics, int index, ABCustomItem item, int dx, int dy)
-    {
+    @override
+    int paint(Graphics graphics, int index, ABCustomItem item, int dx, int dy) {
         return this.scrollSelectionForm.paintItemVertical(graphics, index, item, dx, dy);
     }
-
 }
 

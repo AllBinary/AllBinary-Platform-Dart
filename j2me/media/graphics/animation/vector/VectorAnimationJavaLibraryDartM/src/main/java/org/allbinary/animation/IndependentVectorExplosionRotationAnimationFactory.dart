@@ -13,47 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using NullUtil = org.allbinary.logic.NullUtil;
-using VectorInfo = org.allbinary.vector.VectorInfo;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/vector/VectorInfo.dart';
+import 'package:allbinary/org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/VectorAnimationFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/animation/VectorRotationGenerator.dart';
+import 'package:allbinary/org/allbinary/animation/VectorExplosionGenerator.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
 
-namespace org.allbinary.animation;
+class IndependentVectorExplosionRotationAnimationFactory implements ProceduralAnimationInterfaceFactoryInterface {
+    late List<List<List<int>?>?> framePoints;
+    late VectorInfo vectorInfo;
+    late BasicColor basicColor;
+    late VectorAnimationFactoryInterface vectorAnimationFactoryInterface;
+    late VectorExplosionGenerator vectorExplosionGenerator;
 
-public class IndependentVectorExplosionRotationAnimationFactory : ProceduralAnimationInterfaceFactoryInterface
-{
-    private int[][][] framePoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-    private VectorInfo vectorInfo;
-    private BasicColor basicColor;
-    private VectorAnimationFactoryInterface vectorAnimationFactoryInterface;
-    public IndependentVectorExplosionRotationAnimationFactory(VectorInfo vectorInfo, BasicColor basicColor, VectorAnimationFactoryInterface vectorAnimationFactoryInterface)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsIndependentVectorExplosionRotationAnimationFactory() {
+    this.framePoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    
+    
+    
+    this.vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
+    }
+    
+
+    IndependentVectorExplosionRotationAnimationFactory(VectorInfo vectorInfo, BasicColor basicColor, VectorAnimationFactoryInterface vectorAnimationFactoryInterface) {
+        this.initFieldsIndependentVectorExplosionRotationAnimationFactory();
         this.vectorInfo = vectorInfo;
         this.basicColor = basicColor;
         this.vectorAnimationFactoryInterface = vectorAnimationFactoryInterface;
         this.init();
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
-        this.framePoints = VectorRotationGenerator.getInstance().getInstance(this.vectorInfo);
+    void init() {
+        this.framePoints = VectorRotationGenerator.getInstance().getInstance1(this.vectorInfo);
     }
+    
 
-    private readonly VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    @override
+    Animation getInstanceAnimation(Animation animationInterface) {
         int frame = 0;
         if (animationInterface != null) {
-            IndexedAnimation rotationAnimationInterface = ((IndexedAnimation) animationInterface);
+            IndexedAnimation rotationAnimationInterface = (animationInterface as IndexedAnimation);
             frame = rotationAnimationInterface.getFrame();
         }
-        int[][][] points = this.vectorExplosionGenerator.getInstance(this.framePoints[frame], 6, this.vectorExplosionGenerator.ROTATION);
-        return this.vectorAnimationFactoryInterface.getInstance(points, this.basicColor);
+        List<List<List<int>?>?> points = this.vectorExplosionGenerator.getInstance3(this.framePoints[frame]!, 6, this.vectorExplosionGenerator.ROTATION);
+        return this.vectorAnimationFactoryInterface.getInstance2(points, this.basicColor);
     }
-
 }
 

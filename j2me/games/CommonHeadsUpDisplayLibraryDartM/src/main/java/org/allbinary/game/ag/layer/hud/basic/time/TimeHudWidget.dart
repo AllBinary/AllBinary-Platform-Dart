@@ -13,69 +13,79 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.layer.hud.basic.time
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicHud = org.allbinary.game.graphics.hud.BasicHud;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using PrimitiveLongSingleton = org.allbinary.logic.math.PrimitiveLongSingleton;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/game/graphics/hud/BasicHud.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/font/MyFontProcessor.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveLongSingleton.dart';
+import 'package:allbinary/org/allbinary/game/ag/layer/hud/basic/time/HudTimer.dart';
 
-namespace org.allbinary.game.ag.layer.hud.basic.time;
+class TimeHudWidget extends BasicHud {
+    late String TIME_STRING;
+    late List<int> TIME_CHAR_ARRAY;
+    int offset = 0;
+    late List<int> string;
+    int totalDigits = 0;
+    late HudTimer timer;
 
-public class TimeHudWidget : BasicHud
-{
-    // throws Exception
-    public static TimeHudWidget getInstance(int location, int direction, BasicColor basicColor, HudTimer timer)
-    {
-        return new TimeHudWidget(location, direction, 2, basicColor, timer);
+    // Java field initializers run after the base constructor
+    void initFieldsTimeHudWidget() {
+    this.TIME_STRING = "Time ";
+    this.TIME_CHAR_ARRAY = <int>["T".codeUnitAt(0), "i".codeUnitAt(0), "m".codeUnitAt(0), "e".codeUnitAt(0), " ".codeUnitAt(0)];
+    this.offset = 0;
+    this.string = PrimitiveLongSingleton.getInstance().ZERO;
+    this.totalDigits = 1;
+    
     }
+    
 
-    private readonly string TIME_STRING = "Time ";
-    private readonly char[] TIME_CHAR_ARRAY = new char[] { 'T', 'i', 'm', 'e', ' ' };
-    private int offset = 0;
-    private char[] @string = PrimitiveLongSingleton.getInstance().ZERO;
-    private int totalDigits = 1;
-    private readonly HudTimer timer;
-    public TimeHudWidget(int location, int direction, int bufferZone, BasicColor basicColor, HudTimer timer) : base(location, direction, bufferZone, basicColor)
-    {
-        // base(location, direction, bufferZone, basicColor) is called from the constructor declaration
+    static TimeHudWidget getInstance4(int location, int direction, BasicColor basicColor, HudTimer timer) {
+        return TimeHudWidget(location, direction, 2, basicColor, timer);
+    }
+    
+
+    TimeHudWidget(int location, int direction, int bufferZone, BasicColor basicColor, HudTimer timer) : super(location, direction, bufferZone, basicColor) {
+        this.initFieldsTimeHudWidget();
+        
         this.timer = timer;
         this.set();
         this.updateMaxHeight = 14;
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    @override
+    void updateMeasurement(Graphics graphics) {
+        final Font font = graphics.getFont();
         this.updateMaxWidth = font.getSize() * 5;
         this.offset = font.stringWidth(this.TIME_STRING) + MyFontProcessor.defaultStringWidth(font, 3);
-        base.updateMeasurement(graphics);
+        super.updateMeasurement(graphics);
     }
+    
 
-    public virtual void update()
-    {
+    void update() {
         this.timer.update();
         this.set();
     }
+    
 
-    private void set()
-    {
-        this.@string = this.timer.getTimeChars();
+    void set() {
+        this.string = this.timer.getTimeChars();
         this.totalDigits = this.timer.getCurrentTotalDigits();
     }
+    
 
-    public virtual HudTimer getTimer()
-    {
+    HudTimer getTimer() {
         return this.timer;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
-        base.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.Length, this.@string, 0, this.totalDigits, this.offset);
+    void paint(Graphics graphics) {
+        super.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.length, this.string, 0, this.totalDigits, this.offset);
     }
-
 }
 

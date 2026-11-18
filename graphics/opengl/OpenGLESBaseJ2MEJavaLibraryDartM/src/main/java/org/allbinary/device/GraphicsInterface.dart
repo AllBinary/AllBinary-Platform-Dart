@@ -13,17 +13,16 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.device
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using FontDebugBase = org.allbinary.graphics.font.FontDebugBase;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Font.dart';
+import 'package:allbinary/org/allbinary/graphics/font/FontDebugBase.dart';
 
-namespace org.allbinary.device;
+abstract interface class GraphicsInterface {
+    
 
-public interface GraphicsInterface
-{
     void setFontDebug(Font font, FontDebugBase fontDebug);
-
 }
 

@@ -13,33 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/handler/BasicEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletEventListener.dart';
+import 'package:allbinary/org/allbinary/game/midlet/DemoGameMidletEvent.dart';
 
-namespace org.allbinary.game.midlet;
+class DemoGameMidletEventHandler extends BasicEventHandler {
+    static final DemoGameMidletEventHandler gameKeyEventHandler = DemoGameMidletEventHandler();
+    
 
-public class DemoGameMidletEventHandler : BasicEventHandler
-{
-    private static readonly DemoGameMidletEventHandler gameKeyEventHandler = new DemoGameMidletEventHandler();
-    private DemoGameMidletEventHandler()
-    {
+    DemoGameMidletEventHandler() {
     }
+    
 
-    public static DemoGameMidletEventHandler getInstance()
-    {
+    static DemoGameMidletEventHandler getInstance() {
         return DemoGameMidletEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
-        DemoGameMidletEventListener demoGameMidletEventListener = ((DemoGameMidletEventListener) eventListenerInterface);
-        demoGameMidletEventListener.onDemoGameMidletEvent(((DemoGameMidletEvent) eventObject));
+    @override
+    void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
+        final DemoGameMidletEventListener demoGameMidletEventListener = (eventListenerInterface as DemoGameMidletEventListener);
+        demoGameMidletEventListener.onDemoGameMidletEvent((eventObject as DemoGameMidletEvent));
     }
-
 }
 

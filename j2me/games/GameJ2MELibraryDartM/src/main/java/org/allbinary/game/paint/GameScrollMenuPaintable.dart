@@ -13,56 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.paint
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorChangeEventHandler = org.allbinary.graphics.color.ColorChangeEventHandler;
-using ColorChangeListener = org.allbinary.graphics.color.ColorChangeListener;
-using FormPaintable = org.allbinary.graphics.form.FormPaintable;
-using ScrollSelectionForm = org.allbinary.graphics.form.ScrollSelectionForm;
-using ABStringComponent = org.allbinary.graphics.form.item.ABStringComponent;
-using ABTextItem = org.allbinary.graphics.form.item.ABTextItem;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorChangeEventHandler.dart';
+import 'package:allbinary/org/allbinary/graphics/color/ColorChangeListener.dart';
+import 'package:allbinary/org/allbinary/graphics/form/FormPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollSelectionForm.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABStringComponent.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextItem.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/game/paint/BasicGameDemoPaintable.dart';
+import 'package:allbinary/org/allbinary/game/paint/MainGameDemoStatePaintable.dart';
 
-namespace org.allbinary.game.paint;
+class GameScrollMenuPaintable extends BasicGameDemoPaintable implements ColorChangeListener {
+    
 
-public class GameScrollMenuPaintable : BasicGameDemoPaintable, ColorChangeListener
-{
-    public GameScrollMenuPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface, BasicColor basicColor) : base(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface)
-    {
-        // base(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface) is called from the constructor declaration
+    GameScrollMenuPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface, BasicColor basicColor) : super(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface) {
+        
         this.setColor(basicColor);
         ColorChangeEventHandler.getInstance().addListenerInterface(this);
     }
+    
 
-    public override void setState(int state)
-    {
+    @override
+    void setState(int state) {
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
     }
+    
 
-    public virtual void setColor(BasicColor basicColor)
-    {
-        MainGameDemoStatePaintable mainGameDemoStatePaintable = ((MainGameDemoStatePaintable) this.getMainDemoStatePaintable());
-        FormPaintable formPaintable = ((FormPaintable) mainGameDemoStatePaintable.getMenuPaintableInterface());
-        ScrollSelectionForm scrollSelectionForm = ((ScrollSelectionForm) formPaintable.getForm());
+    void setColor(BasicColor basicColor) {
+        final MainGameDemoStatePaintable mainGameDemoStatePaintable = (this.getMainDemoStatePaintable() as MainGameDemoStatePaintable);
+        final FormPaintable formPaintable = (mainGameDemoStatePaintable.getMenuPaintableInterface() as FormPaintable);
+        final ScrollSelectionForm scrollSelectionForm = (formPaintable.getForm() as ScrollSelectionForm);
         mainGameDemoStatePaintable.getOwnershipPaintableInterface().setBasicColorP(basicColor);
         scrollSelectionForm.setButtonBasicColor(basicColor);
-        ABTextItem item = null;
-        ABStringComponent stringComponent = null;
+        late ABTextItem item;
+        late ABStringComponent stringComponent;
         for (int index = scrollSelectionForm.size() - 1; index >= 0; index--) {
-            item = ((ABTextItem) scrollSelectionForm.get(index));
+            item = (scrollSelectionForm.get(index) as ABTextItem);
             stringComponent = item.getLabelStringComponent();
             if (stringComponent != null) {
                 stringComponent.setForegroundBasicColor(basicColor);
             }
         }
     }
-
 }
 

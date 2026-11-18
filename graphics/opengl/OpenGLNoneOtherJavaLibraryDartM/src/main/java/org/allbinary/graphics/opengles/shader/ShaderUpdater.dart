@@ -13,29 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using EGLConfig = javax.microedition.khronos.egl.EGLConfig;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using RendererStrings = org.allbinary.graphics.opengles.renderer.RendererStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/egl/EGLConfig.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/renderer/RendererStrings.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class ShaderUpdater {
+    static final ShaderUpdater instance = ShaderUpdater();
+    late CommonStrings commonStrings;
+    late RendererStrings rendererStrings;
 
-public class ShaderUpdater
-{
-    private static readonly ShaderUpdater instance = new ShaderUpdater();
-    public static ShaderUpdater getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsShaderUpdater() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.rendererStrings = RendererStrings.getInstance();
+    }
+
+    ShaderUpdater() {
+        this.initFieldsShaderUpdater();
+    }
+    
+
+    static ShaderUpdater getInstance() {
         return ShaderUpdater.instance;
     }
+    
 
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly RendererStrings rendererStrings = RendererStrings.getInstance();
-    public virtual void onSurfaceCreated(GL10 gl, EGLConfig eglConfig)
-    {
+    void onSurfaceCreated(GL10 gl, EGLConfig eglConfig) {
     }
-
 }
 

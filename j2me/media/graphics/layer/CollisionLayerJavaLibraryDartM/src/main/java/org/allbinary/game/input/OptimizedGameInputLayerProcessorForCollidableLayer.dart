@@ -13,38 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/AllBinaryGameLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerProcessor.dart';
+import 'package:allbinary/org/allbinary/game/input/OptimizedGameInputLayerManager.dart';
 
-namespace org.allbinary.game.input;
+class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerProcessor {
+    
 
-public class OptimizedGameInputLayerProcessorForCollidableLayer : LayerProcessor
-{
-    public OptimizedGameInputLayerProcessorForCollidableLayer() : base(new OptimizedGameInputLayerManager())
-    {
-        // base(new OptimizedGameInputLayerManager()) is called from the constructor declaration
+    OptimizedGameInputLayerProcessorForCollidableLayer() : super(OptimizedGameInputLayerManager()) {
+        
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        AllBinaryGameLayer gameInputInterface = ((AllBinaryGameLayer) layerInterface);
+    @override
+    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index) {
+        final AllBinaryGameLayer gameInputInterface = (layerInterface as AllBinaryGameLayer);
         gameInputInterface.processInput(allBinaryLayerManager);
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    @override
+    bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsGameInputInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

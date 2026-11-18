@@ -13,19 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/BasicArrayListCacheable.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CacheableInterface.dart';
 
-namespace org.allbinary.logic.util.cache;
+class BasicArrayListCacheableInterfaceFactory implements CacheableInterfaceFactoryInterface {
+    
 
-public class BasicArrayListCacheableInterfaceFactory : CacheableInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual CacheableInterface getInstance(object key)
-    {
-        return new BasicArrayListCacheable();
+    @override
+    CacheableInterface getInstance1(Object key) {
+        return BasicArrayListCacheable();
     }
-
 }
 

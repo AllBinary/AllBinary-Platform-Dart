@@ -13,59 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using NullUtil = org.allbinary.logic.NullUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-using ImageToRotationImageArrayUtil = org.allbinary.media.image.ImageToRotationImageArrayUtil;
-
-namespace org.allbinary.animation.image;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/org/allbinary/animation/Animation.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehaviorFactory.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationCentral.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/math/AngleFactory.dart';
+import 'package:allbinary/org/allbinary/media/ScaleProperties.dart';
+import 'package:allbinary/org/allbinary/media/image/ImageToRotationImageArrayUtil.dart';
+import 'package:allbinary/org/allbinary/animation/image/ImageArrayRotationAnimationInfo.dart';
+import 'package:allbinary/org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.dart';
 
 //TWB - Adjustments should be done in the resource creation and not at the animation level
-public class PooledImageArrayRotationAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    public static PooledImageArrayRotationAnimationFactory createFactory(Image image, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        int totalAngle = ((int) AngleFactory.getInstance().TOTAL_ANGLE);
-        int angleIncrement = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
-        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
-    }
+class PooledImageArrayRotationAnimationFactory implements AnimationInterfaceFactoryInterface {
+    late Object allBinaryImageRotationAnimationInfo;
+    late AnimationBehaviorFactory animationBehaviorFactory;
 
-    // throws Exception
-    public static PooledImageArrayRotationAnimationFactory createDXY(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
-        int totalAngle = ((int) AngleFactory.getInstance().TOTAL_ANGLE);
-        int angleIncrement = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
-        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    // Java field initializers run after the base constructor
+    void initFieldsPooledImageArrayRotationAnimationFactory() {
+    this.allBinaryImageRotationAnimationInfo = NullUtil.getInstance().NULL_OBJECT;
+    
     }
+    
 
-    private object allBinaryImageRotationAnimationInfo = NullUtil.getInstance().NULL_OBJECT;
-    private readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public PooledImageArrayRotationAnimationFactory(Image image, int width, int height, int dx, int dy, int angleIncrement, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    static PooledImageArrayRotationAnimationFactory createFactory(Image image, AnimationBehaviorFactory animationBehaviorFactory) {
+        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        final int angleIncrement = (totalAngle ~/ GameConfigurationCentral.getInstance().getGameControlFidelity());
+        return PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
+    }
+    
+
+    static PooledImageArrayRotationAnimationFactory createDXY(Image image, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        final int angleIncrement = (totalAngle ~/ GameConfigurationCentral.getInstance().getGameControlFidelity());
+        return PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
+    
+
+    PooledImageArrayRotationAnimationFactory(Image image, int width, int height, int dx, int dy, int angleIncrement, AnimationBehaviorFactory animationBehaviorFactory) {
+        this.initFieldsPooledImageArrayRotationAnimationFactory();
         this.animationBehaviorFactory = animationBehaviorFactory;
-        int totalAngle = ((int) AngleFactory.getInstance().TOTAL_ANGLE);
-        Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image, angleIncrement, totalAngle);
-        this.allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(imageArray, angleIncrement, totalAngle, dx, dy);
+        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        final List<Image?> imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image, angleIncrement, totalAngle);
+        this.allBinaryImageRotationAnimationInfo = ImageArrayRotationAnimationInfo(imageArray, angleIncrement, totalAngle, dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    @override
+    Animation getInstance1(int instanceId) {
         return AdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    @override
+    void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

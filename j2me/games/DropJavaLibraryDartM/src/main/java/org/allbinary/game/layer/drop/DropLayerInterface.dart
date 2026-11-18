@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer.drop
 
-using System;
-using System.Linq;
-using PickedUpLayerInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-using LayerInterface = org.allbinary.layer.LayerInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/layer/pickup/PickedUpLayerInterface.dart';
+import 'package:allbinary/org/allbinary/layer/LayerInterface.dart';
 
-namespace org.allbinary.game.layer.drop;
+abstract interface class DropLayerInterface implements LayerInterface {
+    
 
-public interface DropLayerInterface : LayerInterface
-{
-    // throws Exception
     PickedUpLayerInterface getDroppedLayer();
-
 }
 

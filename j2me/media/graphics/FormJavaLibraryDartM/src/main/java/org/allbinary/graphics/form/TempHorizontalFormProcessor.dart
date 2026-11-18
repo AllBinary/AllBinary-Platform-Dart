@@ -13,27 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/canvas/Processor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ScrollCurrentSelectionForm.dart';
 
-namespace org.allbinary.graphics.form;
+class TempHorizontalFormProcessor extends Processor {
+    late ScrollCurrentSelectionForm scrollCurrentSelectionForm;
 
-public class TempHorizontalFormProcessor : Processor
-{
-    private readonly ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-    public TempHorizontalFormProcessor(ScrollCurrentSelectionForm scrollCurrentSelectionForm)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTempHorizontalFormProcessor() {
+    
+    }
+    
+
+    TempHorizontalFormProcessor(ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+        this.initFieldsTempHorizontalFormProcessor();
         this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    @override
+    void process() {
         this.scrollCurrentSelectionForm.processTempHorizontalForm();
         this.scrollCurrentSelectionForm.processor = Processor.getInstance();
     }
-
 }
 

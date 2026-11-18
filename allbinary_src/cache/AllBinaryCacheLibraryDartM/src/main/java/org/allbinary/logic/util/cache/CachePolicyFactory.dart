@@ -13,36 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/cache/CachePolicy.dart';
 
-namespace org.allbinary.logic.util.cache;
+class CachePolicyFactory {
+    static final CachePolicyFactory instance = CachePolicyFactory();
+    late String NAME;
+    late CachePolicy MAX_TIME_THOUSAND_MAX;
+    late CachePolicy THIRTY_MINUTES_TEN_THOUSAND_MAX;
+    late CachePolicy THIRTY_MINUTES_FIFTY_THOUSAND_MAX;
+    late CachePolicy ONE_MINUTE_FIVE_MAX;
+    late CachePolicy ONE_MINUTE_TEN_MAX;
+    late CachePolicy ONE_MINUTE_ONE_HUNDRED_MAX;
 
-public class CachePolicyFactory
-{
-    private static readonly CachePolicyFactory instance = new CachePolicyFactory();
-    public static CachePolicyFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsCachePolicyFactory() {
+    this.NAME = "lru";
+    this.MAX_TIME_THOUSAND_MAX = CachePolicy(this.NAME, Long.MAX_VALUE, 1000);
+    this.THIRTY_MINUTES_TEN_THOUSAND_MAX = CachePolicy(this.NAME, 1000 * 60 * 30, 10000);
+    this.THIRTY_MINUTES_FIFTY_THOUSAND_MAX = CachePolicy(this.NAME, 1000 * 60 * 30, 100000);
+    this.ONE_MINUTE_FIVE_MAX = CachePolicy(this.NAME, 1000 * 60 * 1, 5);
+    this.ONE_MINUTE_TEN_MAX = CachePolicy(this.NAME, 1000 * 60 * 1, 10);
+    this.ONE_MINUTE_ONE_HUNDRED_MAX = CachePolicy(this.NAME, 1000 * 60 * 1, 100);
+    }
+
+    CachePolicyFactory() {
+        this.initFieldsCachePolicyFactory();
+    }
+    
+
+    static CachePolicyFactory getInstance() {
         return CachePolicyFactory.instance;
     }
-
-    public readonly string NAME = "lru";
-    public CachePolicy MAX_TIME_THOUSAND_MAX;
-    public CachePolicy THIRTY_MINUTES_TEN_THOUSAND_MAX;
-    public CachePolicy THIRTY_MINUTES_FIFTY_THOUSAND_MAX;
-    public CachePolicy ONE_MINUTE_FIVE_MAX;
-    public CachePolicy ONE_MINUTE_TEN_MAX;
-    public CachePolicy ONE_MINUTE_ONE_HUNDRED_MAX;
-    public CachePolicyFactory()
-    {
-        this.MAX_TIME_THOUSAND_MAX = new CachePolicy(this.NAME, long.MaxValue, 1000);
-        this.THIRTY_MINUTES_TEN_THOUSAND_MAX = new CachePolicy(this.NAME, 1000 * 60 * 30, 10000);
-        this.THIRTY_MINUTES_FIFTY_THOUSAND_MAX = new CachePolicy(this.NAME, 1000 * 60 * 30, 100000);
-        this.ONE_MINUTE_FIVE_MAX = new CachePolicy(this.NAME, 1000 * 60 * 1, 5);
-        this.ONE_MINUTE_TEN_MAX = new CachePolicy(this.NAME, 1000 * 60 * 1, 10);
-        this.ONE_MINUTE_ONE_HUNDRED_MAX = new CachePolicy(this.NAME, 1000 * 60 * 1, 100);
-    }
-
 }
 

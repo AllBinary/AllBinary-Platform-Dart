@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/game/input/event/GameKeyEvent.dart';
 
-namespace org.allbinary.game.input.@event;
+abstract interface class UpGameKeyEventListenerInterface implements EventListenerInterface {
+    
 
-public interface UpGameKeyEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
     void onUpGameKeyEvent(GameKeyEvent gameKeyEvent);
-
 }
 

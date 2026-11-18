@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/graphics/form/ItemPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/form/PaintableForm.dart';
 
-namespace org.allbinary.graphics.form;
+class ItemPaintableFactory extends ItemPaintable {
+    static final ItemPaintableFactory instance = ItemPaintableFactory();
+    
 
-public class ItemPaintableFactory : ItemPaintable
-{
-    private static readonly ItemPaintableFactory instance = new ItemPaintableFactory();
-    public static ItemPaintableFactory getInstance()
-    {
+    static ItemPaintableFactory getInstance() {
         return ItemPaintableFactory.instance;
     }
+    
 
-    // throws Exception
-    public virtual ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm)
-    {
+    ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm) {
         return ItemPaintableFactory.instance;
     }
-
 }
 

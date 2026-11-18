@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollidableNeverCollideBehavior.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionTypeFactory.dart';
+import 'package:allbinary/org/allbinary/game/collision/CollisionType.dart';
 
-namespace org.allbinary.game.collision;
+class CollidableAlwaysPickupNeverCollideBehavior extends CollidableNeverCollideBehavior {
+    
 
-public class CollidableAlwaysPickupNeverCollideBehavior : CollidableNeverCollideBehavior
-{
-    public CollidableAlwaysPickupNeverCollideBehavior() : base(true)
-    {
-        // base(true) is called from the constructor declaration
+    CollidableAlwaysPickupNeverCollideBehavior() : super(true) {
+        
     }
+    
 
-    public override CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
-    {
+    @override
+    CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface) {
         return CollisionTypeFactory.getInstance().PICKUP;
     }
-
 }
 

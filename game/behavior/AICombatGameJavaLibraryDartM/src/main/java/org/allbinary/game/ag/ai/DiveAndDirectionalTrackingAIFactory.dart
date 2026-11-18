@@ -13,34 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using BasicRandomAIFactory = org.allbinary.game.ag.ai.tactical.BasicRandomAIFactory;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using org.allbinary.util;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/ai/ArtificialIntelligenceInterface.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/tactical/BasicRandomAIFactory.dart';
+import 'package:allbinary/org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.dart';
+import 'package:allbinary/org/allbinary/game/ai/BasicAI.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/ThrustAIVisitorFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/BasicProbabilityAIDataFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/LastKeyAIVisitorFactory.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/DiveAndDirectionalTrackingAI.dart';
 
-namespace org.allbinary.game.ag.ai;
+class DiveAndDirectionalTrackingAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    
 
-public class DiveAndDirectionalTrackingAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        object visitorCanBeNull = hashtable.get(((object) BasicAI.AI_VISITOR));
+    @override
+    ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        Object visitorCanBeNull = hashtable.get((BasicAI.AI_VISITOR as Object));
         if (visitorCanBeNull == null) {
             visitorCanBeNull = ThrustAIVisitorFactory.getInstance();
         }
-        ABHashtable<object, object> hashtable2 = new BasicProbabilityAIDataFactory().getInstance();
+        final ABHashtable hashtable2 = BasicProbabilityAIDataFactory().getInstance();
         hashtable2.put(BasicAI.AI_VISITOR, LastKeyAIVisitorFactory.getInstance());
-        ArtificialIntelligenceInterface artificialIntelligenceInterface = new BasicRandomAIFactory().getInstance(hashtable2, ownerLayerInterface, gameInput);
-        return new DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, ((Visitor) visitorCanBeNull));
+        final ArtificialIntelligenceInterface artificialIntelligenceInterface = BasicRandomAIFactory().getInstance3(hashtable2, ownerLayerInterface, gameInput);
+        return DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, (visitorCanBeNull as Visitor));
     }
-
 }
 

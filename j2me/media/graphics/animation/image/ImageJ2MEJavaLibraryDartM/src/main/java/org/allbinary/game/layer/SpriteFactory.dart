@@ -13,28 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Image.dart';
+import 'package:allbinary/javax/microedition/lcdui/game/Sprite.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/game/layer/SpriteFactoryInterface.dart';
 
-namespace org.allbinary.game.layer;
+class SpriteFactory implements SpriteFactoryInterface {
+    static final SpriteFactory instance = SpriteFactory();
+    late LogUtil logUtil;
 
-public class SpriteFactory : SpriteFactoryInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly SpriteFactory instance = new SpriteFactory();
-    public static SpriteFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsSpriteFactory() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    SpriteFactory() {
+        this.initFieldsSpriteFactory();
+    }
+    
+
+    static SpriteFactory getInstance() {
         return SpriteFactory.instance;
     }
+    
 
-    public virtual Sprite createSprite(Image image, int frameWidth, int frameHeight)
-    {
-        return new Sprite(image, frameWidth, frameHeight);
+    @override
+    Sprite createSprite(Image image, int frameWidth, int frameHeight) {
+        return Sprite.with3(image, frameWidth, frameHeight);
     }
-
 }
 

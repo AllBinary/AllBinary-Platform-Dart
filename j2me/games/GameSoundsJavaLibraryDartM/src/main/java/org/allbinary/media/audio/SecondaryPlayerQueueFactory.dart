@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/media/audio/PlayerQueue.dart';
 
-namespace org.allbinary.media.audio;
+class SecondaryPlayerQueueFactory {
+    static final PlayerQueue SINGLETON = PlayerQueue(4);
+    
 
-public class SecondaryPlayerQueueFactory
-{
-    private static readonly PlayerQueue SINGLETON = new PlayerQueue(4);
-    public static PlayerQueue getInstance()
-    {
+    static PlayerQueue getInstance() {
         return SecondaryPlayerQueueFactory.SINGLETON;
     }
-
 }
 

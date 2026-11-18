@@ -13,31 +13,35 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.screen
 
-using System;
-using System.Linq;
-using AboutPaintable = org.allbinary.game.paint.AboutPaintable;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/paint/AboutPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/NullPaintable.dart';
+import 'package:allbinary/org/allbinary/graphics/paint/Paintable.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringUtil.dart';
 
-namespace org.allbinary.graphics.displayable.screen;
+class AboutPaintableFactory {
+    static final AboutPaintableFactory instance = AboutPaintableFactory();
+    late List<Paintable?> paintableArray;
 
-public class AboutPaintableFactory
-{
-    private static readonly AboutPaintableFactory instance = new AboutPaintableFactory();
-    public static AboutPaintableFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsAboutPaintableFactory() {
+    this.paintableArray = <Paintable?>[NullPaintable.getInstance()];
+    }
+    
+
+    static AboutPaintableFactory getInstance() {
         return AboutPaintableFactory.instance;
     }
+    
 
-    private AboutPaintableFactory()
-    {
-        string[] INFO = new string[] { "Built with the", "AllBinary Platform", StringUtil.getInstance().EMPTY_STRING, "Comments or Questions:", "support@allbinary.com" };
-        string[] DEVELOPERS = new string[] { "Developed By:", "Travis Berthelot" };
-        this.paintableArray = AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();
+    AboutPaintableFactory() {
+        this.initFieldsAboutPaintableFactory();
+        final List<String?> INFO = <String?>["Built with the", "AllBinary Platform", StringUtil.getInstance().EMPTY_STRING, "Comments or Questions:", "support@allbinary.com"];
+        final List<String?> DEVELOPERS = <String?>["Developed By:", "Travis Berthelot"];
+        this.paintableArray = AboutPaintable.getInstance2(INFO, DEVELOPERS).getPaintableArrayInstance();
     }
-
-    public Paintable[] paintableArray = new Paintable[] { NullPaintable.getInstance() };
 }
 

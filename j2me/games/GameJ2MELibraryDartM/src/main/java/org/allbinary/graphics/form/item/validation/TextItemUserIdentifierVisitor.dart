@@ -13,31 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item.validation
 
-using System;
-using System.Linq;
-using TextNotificationUtil = org.allbinary.game.input.TextNotificationUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/input/TextNotificationUtil.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/java/bool/BooleanFactory.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringValidationUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/visitor/Visitor.dart';
+import 'package:allbinary/org/allbinary/string/CommonStrings.dart';
 
-namespace org.allbinary.graphics.form.item.validation;
+class TextItemUserIdentifierVisitor extends Visitor {
+    late LogUtil logUtil;
 
-public class TextItemUserIdentifierVisitor : Visitor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public TextItemUserIdentifierVisitor()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsTextItemUserIdentifierVisitor() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    public override object visit(object anyType)
-    {
-        string value = ((string) anyType);
-        if (value.Length < 2) {
-            char charValue = value[0];
-            StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+    TextItemUserIdentifierVisitor() {
+        this.initFieldsTextItemUserIdentifierVisitor();
+    }
+    
+
+    @override
+    Object visit(Object anyType) {
+        String value = (anyType as String);
+        if (value.length < 2) {
+            int charValue = value.codeUnitAt(0);
+            final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
             if (stringValidationUtil.isNumber(value)) {
                 return BooleanFactory.getInstance().TRUE;
             } else if (this.isLetter(charValue)) {
@@ -45,9 +51,12 @@ public class TextItemUserIdentifierVisitor : Visitor
             } else {
                 try {
                     TextNotificationUtil.getInstance().fireError("Only Letters & Numbers Allowed");
-                } catch (Exception e) {
-                    CommonStrings commonStrings = CommonStrings.getInstance();
+                } catch (jcaught) {
+                    {
+                        final dynamic e = jcaught;
+                    final CommonStrings commonStrings = CommonStrings.getInstance();
                     this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
+                    }
                 }
                 return BooleanFactory.getInstance().FALSE;
             }
@@ -55,12 +64,11 @@ public class TextItemUserIdentifierVisitor : Visitor
             return BooleanFactory.getInstance().FALSE;
         }
     }
+    
 
-    public virtual bool isLetter(char charValue)
-    {
-        int value = ((int) charValue);
+    bool isLetter(int charValue) {
+        final int value = charValue;
         return (value > 64 && value < 91) || (value > 96 && value < 123);
     }
-
 }
 

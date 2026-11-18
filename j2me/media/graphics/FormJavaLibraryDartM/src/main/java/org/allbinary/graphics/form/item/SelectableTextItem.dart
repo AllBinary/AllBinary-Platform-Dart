@@ -13,35 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/graphics/color/BasicColor.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABTextItem.dart';
+import 'package:allbinary/org/allbinary/graphics/form/item/ABStringComponent.dart';
 
-namespace org.allbinary.graphics.form.item;
+class SelectableTextItem extends ABTextItem {
+    
 
-public class SelectableTextItem : ABTextItem
-{
-    public SelectableTextItem(string label, int layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, layout, altText, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(label, layout, altText, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    SelectableTextItem(String label, int layout, String altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : super(label, layout, altText, backgroundBasicColor, foregroundBasicColor) {
+        
     }
+    
 
-    public override bool isFocusable()
-    {
+    @override
+    bool isFocusable() {
         return true;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
         this.myFontProcessor.process(graphics);
         ABStringComponent stringComponent = this.getLabelStringComponent();
         if (stringComponent != null) {
-            graphics.setColor(global::java.lang.JavaNumber.intValue(stringComponent.getForegroundBasicColor()));
+            graphics.setColor(stringComponent.getForegroundBasicColor().intValue());
         }
         graphics.drawString(this.getLabel(), x + 2, y, 0);
     }
-
 }
 

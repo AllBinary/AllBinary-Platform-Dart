@@ -13,89 +13,97 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai.scroller
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Direction = org.allbinary.direction.Direction;
-using DirectionCompositeInterface = org.allbinary.direction.DirectionCompositeInterface;
-using DirectionFactory = org.allbinary.direction.DirectionFactory;
-using GameInput = org.allbinary.game.input.GameInput;
-using TrackingEvent = org.allbinary.game.tracking.TrackingEvent;
-using TrackingEventHandler = org.allbinary.game.tracking.TrackingEventHandler;
-using TrackingEventListenerInterface = org.allbinary.game.tracking.TrackingEventListenerInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerInterface = org.allbinary.layer.LayerInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/org/allbinary/direction/Direction.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/direction/DirectionFactory.dart';
+import 'package:allbinary/org/allbinary/game/input/GameInput.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEvent.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventHandler.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventListenerInterface.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayerManager.dart';
+import 'package:allbinary/org/allbinary/layer/LayerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/ForcedLogUtil.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/EventStrings.dart';
+import 'package:allbinary/org/allbinary/util/ABHashtable.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayListD.dart';
+import 'package:allbinary/org/allbinary/game/ag/ai/scroller/BasePatrolAI.dart';
 
-namespace org.allbinary.game.ag.ai.scroller;
+class PacePatrolAI extends BasePatrolAI implements TrackingEventListenerInterface {
+    late BasicArrayList trackingList;
+    int firingDistance = 0;
+    bool isFollowLimitedByTerrain = false;
 
-public class PacePatrolAI : BasePatrolAI, TrackingEventListenerInterface
-{
-    private BasicArrayList trackingList;
-    private int firingDistance = 0;
-    public bool isFollowLimitedByTerrain = false;
-    public PacePatrolAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(hashtable, ownerLayerInterface, gameInput)
-    {
-        // base(hashtable, ownerLayerInterface, gameInput) is called from the constructor declaration
-        TrackingEventHandler.getInstance().addListenerInterface(this);
-        this.trackingList = new BasicArrayListD();
+    // Java field initializers run after the base constructor
+    void initFieldsPacePatrolAI() {
+    
+    this.firingDistance = 0;
+    this.isFollowLimitedByTerrain = false;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    PacePatrolAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : super(hashtable, ownerLayerInterface, gameInput) {
+        this.initFieldsPacePatrolAI();
+        
+        TrackingEventHandler.getInstance().addListenerInterface(this);
+        this.trackingList = BasicArrayListD();
+    }
+    
+
+    @override
+    void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         this.update();
-        Direction direction = this.setFiringDirectionForTargetIfInRange();
-        DirectionFactory directionFactory = DirectionFactory.getInstance();
+        final Direction direction = this.setFiringDirectionForTargetIfInRange();
+        final DirectionFactory directionFactory = DirectionFactory.getInstance();
         if (direction == directionFactory.LEFT) {
-            if (this.lastKeyDirection != keyDirection || !this.isFollowLimitedByTerrain) {
-                base.processKeyAI(Canvas.LEFT);
+            if (this.lastKeyDirection != this.keyDirection || !this.isFollowLimitedByTerrain) {
+                super.processKeyAI(Canvas.LEFT);
             }
-            keyDirection = Canvas.LEFT;
-            this.lastKeyDirection = keyDirection;
-            xTotalDistance = 0;
-            base.processKeyAI(Canvas.KEY_NUM1);
+            this.keyDirection = Canvas.LEFT;
+            this.lastKeyDirection = this.keyDirection;
+            this.xTotalDistance = 0;
+            super.processKeyAI(Canvas.KEY_NUM1);
         } else if (direction == directionFactory.RIGHT) {
-            if (this.lastKeyDirection != keyDirection || !this.isFollowLimitedByTerrain) {
-                base.processKeyAI(Canvas.RIGHT);
+            if (this.lastKeyDirection != this.keyDirection || !this.isFollowLimitedByTerrain) {
+                super.processKeyAI(Canvas.RIGHT);
             }
-            keyDirection = Canvas.RIGHT;
-            this.lastKeyDirection = keyDirection;
-            xTotalDistance = 0;
-            base.processKeyAI(Canvas.KEY_NUM1);
+            this.keyDirection = Canvas.RIGHT;
+            this.lastKeyDirection = this.keyDirection;
+            this.xTotalDistance = 0;
+            super.processKeyAI(Canvas.KEY_NUM1);
         } else {
-            base.processKeyAI(this.keyDirection);
+            super.processKeyAI(this.keyDirection);
         }
     }
+    
 
-    private Direction setFiringDirectionForTargetIfInRange()
-    {
-        DirectionFactory directionFactory = DirectionFactory.getInstance();
-        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+    Direction setFiringDirectionForTargetIfInRange() {
+        final DirectionFactory directionFactory = DirectionFactory.getInstance();
+        final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         Direction direction = directionFactory.NOT_BORDERED_WITH;
-        TrackingEvent lastTrackingEvent = null;
-        LayerInterface lastTrackingLayerInterface = null;
-        DirectionCompositeInterface directionCompositeInterface = null;
-        int size = this.trackingList.size();
+        late TrackingEvent lastTrackingEvent;
+        late LayerInterface lastTrackingLayerInterface;
+        late DirectionCompositeInterface directionCompositeInterface;
+        final int size = this.trackingList.size();
         for (int index = 0; index < size; index++) {
-            lastTrackingEvent = ((TrackingEvent) this.trackingList.get(0));
+            lastTrackingEvent = (this.trackingList.get(0) as TrackingEvent);
             lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
             int x = lastTrackingLayerInterface.getXP();
             int y = lastTrackingLayerInterface.getYP();
             int yDistance = ownerLayerInterface.getYP() - y - ownerLayerInterface.getHeight();
             int xDistance = ownerLayerInterface.getXP() - x - ownerLayerInterface.getWidth();
-            int absXDistance = Math.Abs(xDistance);
-            int absYDistance = Math.Abs(yDistance);
+            int absXDistance = (xDistance).abs();
+            int absYDistance = (yDistance).abs();
             if (absYDistance <= 100) {
-                if (absXDistance < getFiringDistance() / 2) {
-                    directionCompositeInterface = ((DirectionCompositeInterface) this.getOwnerLayerInterface());
+                if (absXDistance < this.getFiringDistance() ~/ 2) {
+                    directionCompositeInterface = (this.getOwnerLayerInterface() as DirectionCompositeInterface);
                     if (xDistance < 0 && directionCompositeInterface.getDirection() == directionFactory.RIGHT) {
                         direction = directionFactory.RIGHT;
                     } else if (xDistance > 0 && directionCompositeInterface.getDirection() == directionFactory.LEFT) {
@@ -106,31 +114,33 @@ public class PacePatrolAI : BasePatrolAI, TrackingEventListenerInterface
         }
         return direction;
     }
+    
 
-    public override void disable()
-    {
+    @override
+    void disable() {
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    @override
+    void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual void onMovement(TrackingEvent trackingEvent)
-    {
+    @override
+    void onMovement(TrackingEvent trackingEvent) {
         this.trackingList.clear();
         this.trackingList.add(trackingEvent);
     }
+    
 
-    public virtual int getFiringDistance()
-    {
+    int getFiringDistance() {
         return this.firingDistance;
     }
+    
 
-    public virtual void setFiringDistance(int firingDistance)
-    {
+    void setFiringDistance(int firingDistance) {
         this.firingDistance = firingDistance;
     }
-
 }
 

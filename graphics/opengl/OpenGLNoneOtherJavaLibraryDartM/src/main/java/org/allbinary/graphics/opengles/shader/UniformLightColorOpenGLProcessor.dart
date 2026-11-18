@@ -13,22 +13,36 @@
  *   
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL10.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.dart';
+import 'package:allbinary/org/allbinary/graphics/opengles/shader/ShaderComposite.dart';
 
-namespace org.allbinary.graphics.opengles.shader;
+class UniformLightColorOpenGLProcessor extends OpenGLObject3dProcessor {
+    
 
-public class UniformLightColorOpenGLProcessor : OpenGLObject3dProcessor
-{
-    public UniformLightColorOpenGLProcessor(ShaderComposite shaderComposite, int handleIndex)
-    {
+    UniformLightColorOpenGLProcessor(ShaderComposite shaderComposite, int handleIndex) {
+    }
+    
+
+    @override
+    void process([dynamic p0 = jnone, dynamic p1 = jnone, dynamic p2 = jnone]) {
+        if (!identical(p1, jnone) && identical(p2, jnone) && p0 is GL10) {
+            this.process$2(p0, p1);
+            return;
+        }
+        if (!identical(p2, jnone) && p0 is GL10 && p2 is int) {
+            this.process$3(p0, p1, p2);
+            return;
+        }
+        throw JException('NoSuchMethodError', 'process');
     }
 
-    public override void process(GL10 gl, object unused)
-    {
+    @override
+    void process$2(GL10 gl, Object unused) {
     }
-
 }
 

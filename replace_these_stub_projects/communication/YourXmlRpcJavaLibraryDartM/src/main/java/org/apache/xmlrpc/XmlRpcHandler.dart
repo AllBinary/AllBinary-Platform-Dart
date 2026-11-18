@@ -1,16 +1,13 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.apache.xmlrpc
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/util/BasicArrayList.dart';
 
-namespace org.apache.xmlrpc;
+abstract interface class XmlRpcHandler {
+    
 
-public interface XmlRpcHandler
-{
-    // throws Exception
-    object execute(string method, BasicArrayList @params);
-
+    Object execute(String method, BasicArrayList params);
 }
 

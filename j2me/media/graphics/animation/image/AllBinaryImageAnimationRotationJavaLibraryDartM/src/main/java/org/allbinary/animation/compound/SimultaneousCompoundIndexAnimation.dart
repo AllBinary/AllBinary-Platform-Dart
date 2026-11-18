@@ -13,104 +13,116 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.animation.compound
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/khronos/opengles/GL.dart';
+import 'package:allbinary/javax/microedition/lcdui/Graphics.dart';
+import 'package:allbinary/org/allbinary/animation/AnimationBehavior.dart';
+import 'package:allbinary/org/allbinary/animation/IndexedAnimation.dart';
+import 'package:allbinary/org/allbinary/logic/math/PrimitiveIntUtil.dart';
 
-namespace org.allbinary.animation.compound;
+class SimultaneousCompoundIndexAnimation extends IndexedAnimation {
+    late List<IndexedAnimation?> animationInterfaceArray;
 
-public class SimultaneousCompoundIndexAnimation : IndexedAnimation
-{
-    private IndexedAnimation[] animationInterfaceArray;
-    public SimultaneousCompoundIndexAnimation(IndexedAnimation[] animationInterfaceArray, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsSimultaneousCompoundIndexAnimation() {
+    
+    }
+    
+
+    SimultaneousCompoundIndexAnimation(List<IndexedAnimation?> animationInterfaceArray, AnimationBehavior animationBehavior) : super(animationBehavior) {
+        this.initFieldsSimultaneousCompoundIndexAnimation();
+        
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
 
-    public override void setFrame(int frameIndex)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].setFrame(frameIndex);
+    @override
+    void setFrame(int frameIndex) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.setFrame(frameIndex);
         }
     }
+    
 
-    public override int getFrame()
-    {
-        return this.animationInterfaceArray[0].getFrame();
+    @override
+    int getFrame() {
+        return this.animationInterfaceArray[0]!.getFrame();
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
-        return this.animationInterfaceArray[0].getAnimationSize();
+    @override
+    int getAnimationSize() {
+        return this.animationInterfaceArray[0]!.getAnimationSize();
     }
+    
 
-    public override int getSize()
-    {
-        return this.animationInterfaceArray[0].getSize();
+    @override
+    int getSize() {
+        return this.animationInterfaceArray[0]!.getSize();
     }
+    
 
-    public override void previousFrame()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].previousFrame();
+    @override
+    void previousFrame() {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.previousFrame();
         }
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].nextFrame();
+    @override
+    void nextFrame() {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.nextFrame();
         }
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    @override
+    void setSequence(List<int> sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    @override
+    List<int> getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].paintXY(graphics, x, y);
+    @override
+    void paintXY(Graphics graphics, int x, int y) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.paintXY(graphics, x, y);
         }
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
+    @override
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.paintThreedXYZ(graphics, x, y, z);
         }
     }
+    
 
-    // throws Exception
-    public override void set(GL gl)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].set(gl);
+    @override
+    void set(GL gl) {
+        for (int index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index]!.set(gl);
         }
     }
+    
 
-    public virtual IndexedAnimation[] getAnimationInterfaceArray()
-    {
+    List<IndexedAnimation?> getAnimationInterfaceArray() {
         return this.animationInterfaceArray;
     }
+    
 
-    public virtual void setAnimationInterfaceArray(IndexedAnimation[] animationInterfaceArray)
-    {
+    void setAnimationInterfaceArray(List<IndexedAnimation?> animationInterfaceArray) {
         this.animationInterfaceArray = animationInterfaceArray;
     }
-
 }
 

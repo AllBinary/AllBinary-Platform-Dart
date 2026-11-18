@@ -13,66 +13,78 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-using BoundsVisitorInterface = org.allbinary.bounds.BoundsVisitorInterface;
-using VelocityInterface = org.allbinary.game.physics.velocity.VelocityInterface;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using LayerInterface = org.allbinary.layer.LayerInterface;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/bounds/BoundsVisitorInterface.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterface.dart';
+import 'package:allbinary/org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.dart';
+import 'package:allbinary/org/allbinary/layer/LayerInterface.dart';
+import 'package:allbinary/org/allbinary/logic/communication/log/LogUtil.dart';
 
-namespace org.allbinary.game.ag.ai;
+class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface {
+    late LogUtil logUtil;
+    late VelocityInterface velocityInterface;
+    late LayerInterface layerInterface;
 
-public class ReverseVelocityBoundsVisitor : BoundsVisitorInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public VelocityInterface velocityInterface;
-    private LayerInterface layerInterface;
-    public ReverseVelocityBoundsVisitor(LayerInterface layerInterface)
-    {
-        this.layerInterface = layerInterface;
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface) layerInterface);
-        this.velocityInterface = ((VelocityInterface) velocityInterfaceCompositeInterface.getVelocityProperties());
+    // Java field initializers run after the base constructor
+    void initFieldsReverseVelocityBoundsVisitor() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
     }
+    
 
-    public virtual int getX()
-    {
+    ReverseVelocityBoundsVisitor(LayerInterface layerInterface) {
+        this.initFieldsReverseVelocityBoundsVisitor();
+        this.layerInterface = layerInterface;
+        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (layerInterface as VelocityInterfaceCompositeInterface);
+        this.velocityInterface = (velocityInterfaceCompositeInterface.getVelocityProperties() as VelocityInterface);
+    }
+    
+
+    @override
+    int getX() {
         return this.layerInterface.getXP();
     }
+    
 
-    public virtual int getY()
-    {
+    @override
+    int getY() {
         return this.layerInterface.getYP();
     }
+    
 
-    public virtual void minX()
-    {
+    @override
+    void minX() {
         if (this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() < 0) {
             this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
         }
     }
+    
 
-    public virtual void maxX()
-    {
+    @override
+    void maxX() {
         if (this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() > 0) {
             this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
         }
     }
+    
 
-    public virtual void minY()
-    {
+    @override
+    void minY() {
         if (this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() < 0) {
             this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
         }
     }
+    
 
-    public virtual void maxY()
-    {
+    @override
+    void maxY() {
         if (this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() > 0) {
             this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
         }
     }
-
 }
 

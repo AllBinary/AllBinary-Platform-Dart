@@ -13,57 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.logic.io
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbPath = org.allbinary.logic.io.path.AbPath;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/logic/NullUtil.dart';
+import 'package:allbinary/org/allbinary/logic/io/file/AbFile.dart';
+import 'package:allbinary/org/allbinary/logic/io/path/AbPath.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbFileInputStream.dart';
+import 'package:allbinary/org/allbinary/logic/io/AbFileOutputStream.dart';
 
-namespace org.allbinary.logic.io;
+class FileStreamFactory {
+    static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+    
 
-public class FileStreamFactory
-{
-    private static object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
-    public static FileStreamFactory getInstance()
-    {
+    static FileStreamFactory getInstance() {
         if (FileStreamFactory.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
-            FileStreamFactory.SINGLETON = new FileStreamFactory();
+            FileStreamFactory.SINGLETON = FileStreamFactory();
         }
-        return ((FileStreamFactory) FileStreamFactory.SINGLETON);
+        return (FileStreamFactory.SINGLETON as FileStreamFactory);
     }
+    
 
-    private FileStreamFactory()
-    {
+    FileStreamFactory() {
     }
+    
 
-    // throws Exception
-    public virtual AbFileInputStream getFileInputStreamInstance(string path, string fileName)
-    {
-        AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
+    AbFileInputStream getFileInputStreamInstance(String path, String fileName) {
+        final AbPath FILEABPATH = AbPath(path, fileName);
+        final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         return AbFileInputStream.createFromAbFile(file);
     }
+    
 
-    // throws Exception
-    public virtual AbFileOutputStream getFileOutputStreamInstance(string path, string fileName)
-    {
-        AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
+    AbFileOutputStream getFileOutputStreamInstance(String path, String fileName) {
+        final AbPath FILEABPATH = AbPath(path, fileName);
+        final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         if (file.exists()) {
             file.delete();
             file.createNewFile();
         }
         return AbFileOutputStream.createFromAbFile(file);
     }
+    
 
-    // throws Exception
-    public virtual void delete(string path, string fileName)
-    {
-        AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
+    void delete(String path, String fileName) {
+        final AbPath FILEABPATH = AbPath(path, fileName);
+        final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         file.delete();
     }
-
 }
 

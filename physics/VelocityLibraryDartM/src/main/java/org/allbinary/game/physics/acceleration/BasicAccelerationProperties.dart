@@ -13,41 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.physics.acceleration
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.game.physics.acceleration;
+class BasicAccelerationProperties {
+    int forward = 0;
+    int reverse = 0;
 
-public class BasicAccelerationProperties
-{
-    private int forward = 0;
-    private int reverse = 0;
-    public BasicAccelerationProperties(int forward, int reverse)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsBasicAccelerationProperties() {
+    this.forward = 0;
+    this.reverse = 0;
+    }
+    
+
+    BasicAccelerationProperties(int forward, int reverse) {
+        this.initFieldsBasicAccelerationProperties();
         this.setForward(forward);
         this.setReverse(reverse);
     }
+    
 
-    public virtual void setReverse(int reverse)
-    {
+    void setReverse(int reverse) {
         this.reverse = reverse;
     }
+    
 
-    public virtual int getReverse()
-    {
+    int getReverse() {
         return this.reverse;
     }
+    
 
-    public virtual void setForward(int forward)
-    {
+    void setForward(int forward) {
         this.forward = forward;
     }
+    
 
-    public virtual int getForward()
-    {
+    int getForward() {
         return this.forward;
     }
-
 }
 

@@ -13,19 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
 
-namespace org.allbinary.graphics;
+class OpenGLBitmapConfig {
+    late Object bitmapConfig;
 
-public class OpenGLBitmapConfig
-{
-    public readonly object bitmapConfig;
-    public OpenGLBitmapConfig(object bitmapConfig)
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsOpenGLBitmapConfig() {
+    
+    }
+    
+
+    OpenGLBitmapConfig(Object bitmapConfig) {
+        this.initFieldsOpenGLBitmapConfig();
         this.bitmapConfig = bitmapConfig;
     }
-
 }
 

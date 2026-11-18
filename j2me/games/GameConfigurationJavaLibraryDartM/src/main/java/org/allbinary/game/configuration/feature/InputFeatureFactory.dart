@@ -13,31 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/InputFeature.dart';
+import 'package:allbinary/org/allbinary/game/configuration/feature/Features.dart';
 
-namespace org.allbinary.game.configuration.feature;
+class InputFeatureFactory {
+    static final InputFeatureFactory instance = InputFeatureFactory();
+    late InputFeature REMOVE_DUPLICATE_KEY_PRESSES;
+    late InputFeature INPUT_MAPPING;
+    late InputFeature MULTI_KEY_PRESS;
+    late InputFeature SINGLE_KEY_REPEAT_PRESS;
+    late InputFeature SINGLE_KEY_PRESS;
 
-public class InputFeatureFactory
-{
-    private static readonly InputFeatureFactory instance = new InputFeatureFactory();
-    public static InputFeatureFactory getInstance()
-    {
+    // Java field initializers run after the base constructor
+    void initFieldsInputFeatureFactory() {
+    this.REMOVE_DUPLICATE_KEY_PRESSES = InputFeature("Remove Duplicate Key Presses");
+    this.INPUT_MAPPING = InputFeature("Input Mapping");
+    this.MULTI_KEY_PRESS = InputFeature("Multi Key Press");
+    this.SINGLE_KEY_REPEAT_PRESS = InputFeature("Single Key Repeat Press");
+    this.SINGLE_KEY_PRESS = InputFeature("Single Key Press");
+    }
+    
+
+    static InputFeatureFactory getInstance() {
         return InputFeatureFactory.instance;
     }
+    
 
-    private InputFeatureFactory()
-    {
+    InputFeatureFactory() {
+        this.initFieldsInputFeatureFactory();
     }
+    
 
-    public readonly InputFeature REMOVE_DUPLICATE_KEY_PRESSES = new InputFeature("Remove Duplicate Key Presses");
-    public readonly InputFeature INPUT_MAPPING = new InputFeature("Input Mapping");
-    public readonly InputFeature MULTI_KEY_PRESS = new InputFeature("Multi Key Press");
-    public readonly InputFeature SINGLE_KEY_REPEAT_PRESS = new InputFeature("Single Key Repeat Press");
-    public readonly InputFeature SINGLE_KEY_PRESS = new InputFeature("Single Key Press");
-    public virtual bool isSingleKeyProcessing()
-    {
+    bool isSingleKeyProcessing() {
         Features features = Features.getInstance();
         if (features.isFeature(this.SINGLE_KEY_REPEAT_PRESS) || features.isFeature(this.SINGLE_KEY_PRESS)) {
             return true;
@@ -45,6 +56,5 @@ public class InputFeatureFactory
             return false;
         }
     }
-
 }
 

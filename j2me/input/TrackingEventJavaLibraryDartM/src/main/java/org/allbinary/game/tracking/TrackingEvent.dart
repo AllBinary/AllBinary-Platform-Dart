@@ -13,54 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.tracking
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/layer/AllBinaryLayer.dart';
+import 'package:allbinary/org/allbinary/logic/string/StringMaker.dart';
+import 'package:allbinary/org/allbinary/logic/util/event/AllBinaryEventObject.dart';
+import 'package:allbinary/org/allbinary/game/tracking/TrackingEventHandler.dart';
 
-namespace org.allbinary.game.tracking;
+class TrackingEvent extends AllBinaryEventObject {
+    late AllBinaryLayer layerInterface;
 
-public class TrackingEvent : AllBinaryEventObject
-{
-    private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public TrackingEvent(object allBinaryLayerInterface) : base(allBinaryLayerInterface)
-    {
-        // base(allBinaryLayerInterface) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    void initFieldsTrackingEvent() {
+    this.layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    }
+    
+
+    TrackingEvent(Object allBinaryLayerInterface) : super(allBinaryLayerInterface) {
+        this.initFieldsTrackingEvent();
+        
         if (allBinaryLayerInterface != TrackingEventHandler.getInstance()) {
-            this.setLayerInterface(((AllBinaryLayer) allBinaryLayerInterface));
+            this.setLayerInterface((allBinaryLayerInterface as AllBinaryLayer));
         }
     }
+    
 
-    public virtual void init(object anyType)
-    {
+    void init(Object anyType) {
         this.setSource(anyType);
     }
+    
 
-    public virtual AllBinaryLayer getLayerInterface()
-    {
+    AllBinaryLayer getLayerInterface() {
         return this.layerInterface;
     }
+    
 
-    private void setLayerInterface(AllBinaryLayer layerInterface)
-    {
+    void setLayerInterface(AllBinaryLayer layerInterface) {
         this.layerInterface = layerInterface;
     }
+    
 
-    public virtual void setLayerInterfaceForCircularStaticPool(AllBinaryLayer layerInterface)
-    {
+    void setLayerInterfaceForCircularStaticPool(AllBinaryLayer layerInterface) {
         this.layerInterface = layerInterface;
     }
+    
 
-    public override string ToString()
-    {
-        StringMaker stringBuffer = new StringMaker();
+    @override
+    String toString() {
+        StringMaker stringBuffer = StringMaker();
         stringBuffer.append("TrackingEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.layerInterface.ToString());
-        return stringBuffer.ToString();
+        stringBuffer.append(this.layerInterface.toString());
+        return stringBuffer.toString();
     }
-
 }
 

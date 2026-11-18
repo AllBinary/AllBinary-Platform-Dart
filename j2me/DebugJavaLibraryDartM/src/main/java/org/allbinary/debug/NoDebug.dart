@@ -13,42 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.debug
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/debug/DebugInterface.dart';
 
-namespace org.allbinary.debug;
+class NoDebug implements DebugInterface {
+    static DebugInterface SINGLETON = NoDebug();
+    
 
-public class NoDebug : DebugInterface
-{
-    private static DebugInterface SINGLETON = new NoDebug();
-    public static DebugInterface getInstance()
-    {
+    static DebugInterface getInstance() {
         return NoDebug.SINGLETON;
     }
+    
 
-    public virtual void start()
-    {
+    @override
+    void start() {
     }
+    
 
-    public virtual void stop()
-    {
+    @override
+    void stop() {
     }
+    
 
-    public virtual long getMaxTime()
-    {
-        return 10000L;
+    @override
+    int getMaxTime() {
+        return 10000;
     }
+    
 
-    public virtual long getStartTime()
-    {
-        return 0L;
+    @override
+    int getStartTime() {
+        return 0;
     }
+    
 
-    public virtual bool isRunning()
-    {
+    @override
+    bool isRunning() {
         return false;
     }
-
 }
 

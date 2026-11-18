@@ -13,31 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfigurationCentral.dart';
+import 'package:allbinary/org/allbinary/game/configuration/GameConfiguration.dart';
 
-namespace org.allbinary.game.configuration;
+class GameSpeed {
+    static final GameSpeed instance = GameSpeed();
+    
 
-public class GameSpeed
-{
-    private static readonly GameSpeed instance = new GameSpeed();
-    public int getSpeed()
-    {
+    int getSpeed() {
         GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
-        return (global::java.lang.JavaNumber.intValue(speedGameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(speedGameConfiguration.getValue()) + 1);
+        return ((speedGameConfiguration.getMaxValue()).toInt() - (speedGameConfiguration.getValue()).toInt() + 1);
     }
+    
 
-    public int getDelay()
-    {
+    int getDelay() {
         GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
-        return 19 * (global::java.lang.JavaNumber.intValue(speedGameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(speedGameConfiguration.getValue()));
+        return 19 * ((speedGameConfiguration.getMaxValue()).toInt() - (speedGameConfiguration.getValue()).toInt());
     }
+    
 
-    public static GameSpeed getInstance()
-    {
+    static GameSpeed getInstance() {
         return GameSpeed.instance;
     }
-
 }
 

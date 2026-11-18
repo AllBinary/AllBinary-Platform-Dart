@@ -13,27 +13,25 @@
  * 
  */
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.allbinary.graphics.displayable.screen
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/javax/microedition/lcdui/Canvas.dart';
+import 'package:allbinary/javax/microedition/lcdui/Command.dart';
+import 'package:allbinary/javax/microedition/lcdui/CommandListener.dart';
 
-namespace org.allbinary.graphics.displayable.screen;
+class AboutCommandProcessor {
+    static final AboutCommandProcessor instance = AboutCommandProcessor();
+    
 
-public class AboutCommandProcessor
-{
-    private static readonly AboutCommandProcessor instance = new AboutCommandProcessor();
-    public static AboutCommandProcessor getInstance()
-    {
+    static AboutCommandProcessor getInstance() {
         return AboutCommandProcessor.instance;
     }
+    
 
-    public virtual void process(CommandListener midletCommandListener, Command command, Canvas canvas)
-    {
+    void process(CommandListener midletCommandListener, Command command, Canvas canvas) {
         midletCommandListener.commandAction(command, canvas);
     }
-
 }
 

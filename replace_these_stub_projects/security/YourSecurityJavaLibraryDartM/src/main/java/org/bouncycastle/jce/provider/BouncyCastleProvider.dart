@@ -1,23 +1,21 @@
 // Generated Code Do Not Modify
+// ignore_for_file: unused_import, unnecessary_import, unused_local_variable, unnecessary_null_comparison, unnecessary_cast
+// package org.bouncycastle.jce.provider
 
-using System;
-using System.Linq;
-using Provider = java.security.Provider;
+import 'package:allbinary/allbinary_java.dart';
+import 'package:allbinary/java/security/Provider.dart';
 
-namespace org.bouncycastle.jce.provider;
+class BouncyCastleProvider extends Provider {
+    static String info = "BouncyCastle Security Provider v1.41";
+    static String PROVIDER_NAME = "BC";
+    
 
-public class BouncyCastleProvider : Provider
-{
-    private static string info = "BouncyCastle Security Provider v1.41";
-    public static string PROVIDER_NAME = "BC";
-    public BouncyCastleProvider() : base(BouncyCastleProvider.PROVIDER_NAME, 1.41, BouncyCastleProvider.info)
-    {
-        // base(BouncyCastleProvider.PROVIDER_NAME, 1.41, BouncyCastleProvider.info) is called from the constructor declaration
+    BouncyCastleProvider() : super(BouncyCastleProvider.PROVIDER_NAME, 1.41, BouncyCastleProvider.info) {
+        
     }
+    
 
-    public virtual void setParameter(string parameterName, object parameter)
-    {
+    void setParameter(String parameterName, Object parameter) {
     }
-
 }
 
